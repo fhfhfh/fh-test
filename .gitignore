@@ -1,0 +1,5 @@
+# Any IDE specific project files shouldn't be added to git.
+.idea
+
+# No log files of any sort should be added.
+*.log
