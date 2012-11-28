@@ -11,6 +11,16 @@ var searchMedicineEndpoint = require("endpoints/searchMedicine.js")
 var saveMedicineEndpoint = require("endpoints/saveMedicine.js")
 var delMedicineEndpoint = require("endpoints/delMedicine.js")
 var delMulMedicineEndpoint = require("endpoints/delMulMedicine.js")
+var reminderMedicineEndpoint = require("endpoints/reminderMedicine.js")
+var fetchReminderListEndpoint = require("endpoints/reminderList.js")
+var fetchDiagnosisListEndpoint = require("endpoints/fetchDiagnosisList.js")
+var fetchTestResultListEndpoint = require("endpoints/fetchTestResultList.js")
+var filterContentEndpoint = require("endpoints/filterContent.js")
+var fetchMedicalHistoryEndpoint = require("endpoints/fetchMedicalHistory.js")
+var searchAllergyEndpoint = require("endpoints/searchAllergy.js")
+//var fetchMedicalHistoryEndpoint = require("endpoints/fetchMedicalHistory.js")
+//var fetchMedicalHistoryEndpoint = require("endpoints/fetchMedicalHistory.js")
+//var fetchMedicalHistoryEndpoint = require("endpoints/fetchMedicalHistory.js")
 
 
 
@@ -25,6 +35,18 @@ exports.searchMedicineAction = searchMedicineAction;
 exports.saveMedicineAction = saveMedicineAction;
 exports.delMedicineAction = delMedicineAction;
 exports.delMulMedicineAction = delMulMedicineAction;
+exports.addReminderAction = addReminderAction;
+exports.fetchReminderAction = fetchReminderAction;
+exports.fetchTestResultListAction = fetchTestResultListAction;
+exports.fetchDiagnosisListAction = fetchDiagnosisListAction;
+exports.filterContentAction = filterContentAction;
+exports.fetchMedicalHistoryAction = fetchMedicalHistoryAction;
+exports.searchAllergyAction = searchAllergyAction;
+//exports.fetchDiagnosisListAction = fetchDiagnosisListAction;
+//exports.filterContentAction = filterContentAction;
+//exports.fetchMedicalHistoryAction = fetchMedicalHistoryAction;
+
+
 
 //--------------------------------------login----------------------------------------
 function loginAction(params, callback) {
@@ -123,6 +145,66 @@ function delMedicineAction(params, callback) {
 function delMulMedicineAction(params, callback) {
   console.log(JSON.stringify(params));
   delMulMedicineEndpoint.delMulMedicine(params,function cb(err, respData) {
+    callback(err,respData);
+  });
+}
+
+//--------------------------------------addReminderMedicine----------------------------------------
+function addReminderAction(params, callback) {
+  console.log(JSON.stringify(params));
+  reminderMedicineEndpoint.addRem(params,function cb(err, respData) {
+    callback(err,respData);
+  });
+}
+
+
+//--------------------------------------addReminderMedicine----------------------------------------
+function fetchReminderAction(params, callback) {
+  console.log(JSON.stringify(params));
+  fetchReminderListEndpoint.fetchReminder(params,function cb(err, respData) {
+    callback(err,respData);
+  });
+}
+
+//--------------------------------------Fetch Diagnosis Lis----------------------------------------
+function fetchDiagnosisListAction(params, callback) {
+  console.log(JSON.stringify(params));
+  fetchDiagnosisListEndpoint.fetchDiagnosis(params,function cb(err, respData) {
+    callback(err,respData);
+  });
+}
+
+//--------------------------------------Fetch Test Result List-----------------------------------------
+function fetchTestResultListAction(params, callback) {
+  console.log(JSON.stringify(params));
+  fetchTestResultListEndpoint.fetchTestResult(params,function cb(err, respData) {
+    callback(err,respData);
+  });
+}
+
+//--------------------------------------Filter Content-------------------------------------------------
+function filterContentAction(params, callback) {
+  console.log(JSON.stringify(params));
+  filterContentEndpoint.filterContent(params,function cb(err, respData) {
+    callback(err,respData);
+  });
+}
+
+
+//--------------------------------------medicalHistory--------------------------------------------------
+function fetchMedicalHistoryAction(params, callback) {
+  console.log(JSON.stringify(params));
+  fetchMedicalHistoryEndpoint.fetchMedicalHistory(params,function cb(err, respData) {
+    callback(err,respData);
+  });
+}
+
+
+//--------------------------------------searchAllergy--------------------------------------------------
+
+function searchAllergyAction(params, callback) {
+  console.log(JSON.stringify(params));
+  searchAllergyEndpoint.searchAllergy(params,function cb(err, respData) {
     callback(err,respData);
   });
 }

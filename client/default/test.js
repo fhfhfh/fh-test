@@ -425,11 +425,248 @@ $( document ).bind( "pageinit", function( event, data ){
   }
 
 
+  //-------------------------------------------------------Reminder Medication---------------------------
+
+  $('#reminderMed').on('click', function() {
+    reminderMedicine();
+  });
+  function reminderMedicine(){
+    $fh.act({
+      "act": "addReminderAction",
+      // my cloud function name to call
+      "req": {
+        "request": {
+          "head": {
+            "sessionId": "4860-9e4b-3ca8d2cb3df7"
+          },
+          "payload": {
+            "addReminder": {
+              "userId": "AD1234",
+              "madicationName": "ABC",
+              "startDate": "10-12-2012",
+              "alertCategory": "",
+              "recurring": "",
+              "notify": "sms/email/alarm",
+              "comments": "take medication…"
+            }
+          }
+        }
+      }
+    }, function(res) {
+      // Cloud call was successful. Alert the response
+      alert('Got response from cloud:' + JSON.stringify(res));
+    }, function(msg, err) {
+      // An error occured during the cloud call. Alert some debugging information
+      alert('Cloud call failed with error:' + msg + '. Error properties:' + JSON.stringify(err));
+    });
+  }
 
 
 
 
+  //-------------------------------------------------------Reminder List-------------------------------------------------------
 
+  $('#reminderList').on('click', function() {
+    reminderList();
+  });
+  function reminderList(){
+    $fh.act({
+      "act": "fetchReminderAction",
+      // my cloud function name to call
+      "req": {
+        "request": {
+          "head": {
+            "sessionId": "4860-9e4b-3ca8d2cb3df7"
+          },
+          "payload": {
+            "reminderList": {
+          //EMPTY
+          }
+          }
+        }
+      }
+
+
+    }, function(res) {
+      // Cloud call was successful. Alert the response
+      alert('Got response from cloud:' + JSON.stringify(res));
+    }, function(msg, err) {
+      // An error occured during the cloud call. Alert some debugging information
+      alert('Cloud call failed with error:' + msg + '. Error properties:' + JSON.stringify(err));
+    });
+  }
+
+
+  //-------------------------------------------------------Reminder List-------------------------------------------------------
+
+  $('#diagnosisList').on('click', function() {
+    diagnosisList();
+  });
+  function diagnosisList(){
+    $fh.act({
+      "act": "fetchDiagnosisListAction",
+      // my cloud function name to call
+      "req": {
+        "request": {
+          "head": {
+            "sessionId": "4860-9e4b-3ca8d2cb3df7"
+          },
+          "payload": {
+            "diagnosis": {
+              "userId": "AD101"
+            }
+          }
+        }
+      }
+
+
+
+    }, function(res) {
+      // Cloud call was successful. Alert the response
+      alert('Got response from cloud:' + JSON.stringify(res));
+    }, function(msg, err) {
+      // An error occured during the cloud call. Alert some debugging information
+      alert('Cloud call failed with error:' + msg + '. Error properties:' + JSON.stringify(err));
+    });
+  }
+
+
+
+  //-------------------------------------------------------Fetch Test Result List-------------------------------------------------------
+
+  $('#testResultList').on('click', function() {
+    testResultList();
+  });
+  function testResultList(){
+    $fh.act({
+      "act": "fetchTestResultListAction",
+      // my cloud function name to call
+      "req": {
+        "request": {
+          "head": {
+            "sessionId": "4860-9e4b-3ca8d2cb3df7"
+          },
+          "payload": {
+            "testResult": {
+              "userId": "AD101"
+            }
+          }
+        }
+      }
+
+
+
+
+    }, function(res) {
+      // Cloud call was successful. Alert the response
+      alert('Got response from cloud:' + JSON.stringify(res));
+    }, function(msg, err) {
+      // An error occured during the cloud call. Alert some debugging information
+      alert('Cloud call failed with error:' + msg + '. Error properties:' + JSON.stringify(err));
+    });
+  }
+
+  //-------------------------------------------------------Filter Content-------------------------------------------------------
+
+  $('#filterContent').on('click', function() {
+    filterContent();
+  });
+  function filterContent(){
+    $fh.act({
+      "act": "filterContentAction",
+      // my cloud function name to call
+      "req": {
+        "request": {
+          "head": {
+            "sessionId": "4860-9e4b-3ca8d2cb3df7"
+          },
+          "payload": {
+            "filterContent": {
+              "category": "visits/procedure/diagnosis/test result",
+              "sortBy": "date ascending/ date descending/alphabetical order/content type ",
+              "startDate": "2012-12-11",
+              "endDate": "2012-12-15"
+            }
+          }
+        }
+      }
+    }, function(res) {
+      // Cloud call was successful. Alert the response
+      alert('Got response from cloud:' + JSON.stringify(res));
+    }, function(msg, err) {
+      // An error occured during the cloud call. Alert some debugging information
+      alert('Cloud call failed with error:' + msg + '. Error properties:' + JSON.stringify(err));
+    });
+  }
+
+
+
+  //-------------------------------------------------------medicalHistory -------------------------------------------------------
+
+  medReq = {
+    "request": {
+      "head": {
+        "sessionId": "4860-9e4b-3ca8d2cb3df7"
+      },
+      "payload": {
+        "medicalHistory":{
+          "userId": "AD101"
+        }
+      }
+    }
+  }
+      
+  $('#medicalHistory').on('click', function() {
+    medicalHistory();
+  });
+  function medicalHistory(){
+    $fh.act({
+      "act": "fetchMedicalHistoryAction",
+      // my cloud function name to call
+      "req": medReq
+    }, function(res) {
+      // Cloud call was successful. Alert the response
+      alert('Got response from cloud:' + JSON.stringify(res));
+    }, function(msg, err) {
+      // An error occured during the cloud call. Alert some debugging information
+      alert('Cloud call failed with error:' + msg + '. Error properties:' + JSON.stringify(err));
+    });
+  }
+
+
+  //-------------------------------------------------------searchAllergy -------------------------------------------------------
+
+
+      
+  $('#searchAllergy').on('click', function() {
+    searchAllergy();
+  });
+  function searchAllergy(){
+    $fh.act({
+      "act": "searchAllergyAction",
+      // my cloud function name to call
+      "req": {
+        "request": {
+          "head": {
+            "sessionId": "4860-9e4b-3ca8d2cb3df7"
+          },
+          "payload": {
+            "searchAllergy": {
+              "searchTitle" : "peanut",
+              "userId" : "AD1234"
+            }
+          }
+        }
+      }
+
+    }, function(res) {
+      // Cloud call was successful. Alert the response
+      alert('Got response from cloud:' + JSON.stringify(res));
+    }, function(msg, err) {
+      // An error occured during the cloud call. Alert some debugging information
+      alert('Cloud call failed with error:' + msg + '. Error properties:' + JSON.stringify(err));
+    });
+  }
 
 
 });
