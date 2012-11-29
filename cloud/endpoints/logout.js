@@ -1,3 +1,6 @@
+//Dependencies
+var jsonUtils = require('lib/jsonUtils.js');
+
 var success = {
   "response": {
     "head": {},
@@ -10,7 +13,7 @@ var success = {
   }
 };
 
-var jsonUtils = require('lib/jsonUtils.js');
+
 var logoutEndpoint = function() {
   // Exposed operations
   this.logout = function logout(reqJson, callback){

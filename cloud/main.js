@@ -18,12 +18,13 @@ var fetchTestResultListEndpoint = require("endpoints/fetchTestResultList.js")
 var filterContentEndpoint = require("endpoints/filterContent.js")
 var fetchMedicalHistoryEndpoint = require("endpoints/fetchMedicalHistory.js")
 var searchAllergyEndpoint = require("endpoints/searchAllergy.js")
-//var fetchMedicalHistoryEndpoint = require("endpoints/fetchMedicalHistory.js")
-//var fetchMedicalHistoryEndpoint = require("endpoints/fetchMedicalHistory.js")
+var addAllergyEndpoint = require("endpoints/addAllergy.js")
+var fetchFeaturedContentEndpoint = require("endpoints/fetchFeaturedContent.js")
 //var fetchMedicalHistoryEndpoint = require("endpoints/fetchMedicalHistory.js")
 
 
 
+// Supported Actions
 exports.loginAction = loginAction;
 exports.logoutAction = logoutAction;
 exports.resetAction = resetAction;
@@ -42,8 +43,8 @@ exports.fetchDiagnosisListAction = fetchDiagnosisListAction;
 exports.filterContentAction = filterContentAction;
 exports.fetchMedicalHistoryAction = fetchMedicalHistoryAction;
 exports.searchAllergyAction = searchAllergyAction;
-//exports.fetchDiagnosisListAction = fetchDiagnosisListAction;
-//exports.filterContentAction = filterContentAction;
+exports.addAllergyAction = addAllergyAction;
+exports.fetchFeaturedContentAction = fetchFeaturedContentAction;
 //exports.fetchMedicalHistoryAction = fetchMedicalHistoryAction;
 
 
@@ -208,6 +209,26 @@ function searchAllergyAction(params, callback) {
     callback(err,respData);
   });
 }
+
+
+//--------------------------------------addAllergy--------------------------------------------------
+
+function addAllergyAction(params, callback) {
+  console.log(JSON.stringify(params));
+  addAllergyEndpoint.addAllergy(params,function cb(err, respData) {
+    callback(err,respData);
+  });
+}
+
+//--------------------------------------fetchFeaturedContent--------------------------------------------------
+
+function fetchFeaturedContentAction(params, callback) {
+  console.log(JSON.stringify(params));
+  fetchFeaturedContentEndpoint.fetchFeaturedContent(params,function cb(err, respData) {
+    callback(err,respData);
+  });
+}
+
 
 
 //userProfileEndpoint.userProfile(function () {

@@ -531,7 +531,6 @@ $( document ).bind( "pageinit", function( event, data ){
   }
 
 
-
   //-------------------------------------------------------Fetch Test Result List-------------------------------------------------------
 
   $('#testResultList').on('click', function() {
@@ -658,6 +657,81 @@ $( document ).bind( "pageinit", function( event, data ){
           }
         }
       }
+
+    }, function(res) {
+      // Cloud call was successful. Alert the response
+      alert('Got response from cloud:' + JSON.stringify(res));
+    }, function(msg, err) {
+      // An error occured during the cloud call. Alert some debugging information
+      alert('Cloud call failed with error:' + msg + '. Error properties:' + JSON.stringify(err));
+    });
+  }
+
+
+
+  //-------------------------------------------------------addAllergy -------------------------------------------------------
+
+
+      
+  $('#addAllergy').on('click', function() {
+    addAllergy();
+  });
+  function addAllergy(){
+    $fh.act({
+      "act": "addAllergyAction",
+      // my cloud function name to call
+      "req": {
+        "request": {
+          "head": {
+            "sessionId": "4860-9e4b-3ca8d2cb3df7"
+          },
+          "payload": {
+            "addAllergy": {
+              "userId": "AB110",
+              "allergyName": "peanut"
+            }
+          }	
+        }
+      }
+
+
+    }, function(res) {
+      // Cloud call was successful. Alert the response
+      alert('Got response from cloud:' + JSON.stringify(res));
+    }, function(msg, err) {
+      // An error occured during the cloud call. Alert some debugging information
+      alert('Cloud call failed with error:' + msg + '. Error properties:' + JSON.stringify(err));
+    });
+  }
+
+
+
+
+ //-------------------------------------------------------fetchFeaturedContent -------------------------------------------------------
+
+
+      
+  $('#fetchFeaturedContent').on('click', function() {
+    fetchFeaturedContent();
+  });
+  function fetchFeaturedContent(){
+    $fh.act({
+      "act": "fetchFeaturedContentAction",
+      // my cloud function name to call
+      "req": {
+        "request": {
+          "head": {
+            "sessionId": "4860-9e4b-3ca8d2cb3df7"
+          },
+          "payload": {
+            "addAllergy": {
+              "userId": "AB110",
+              "allergyName": "peanut"
+            }
+          }	
+        }
+      }
+
 
     }, function(res) {
       // Cloud call was successful. Alert the response
