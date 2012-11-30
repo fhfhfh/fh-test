@@ -1,5 +1,5 @@
-var jsonUtils = require('lib/jsonUtils.js');
-var respUtils = require('utils/responseUtils.js');
+var jsonUtils = require('../lib/jsonUtils.js');
+var respUtils = require('../utils/responseUtils.js');
 
 
 

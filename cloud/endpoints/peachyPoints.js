@@ -21,7 +21,7 @@ var success = {
   }
 };
 
-var jsonUtils = require('lib/jsonUtils.js');
+var jsonUtils = require('../lib/jsonUtils.js');
 var peachyPointsEndpoint = function() {
   // Exposed operations
   this.peachyPoints = function peachyPoints(reqJson, callback){

@@ -52,7 +52,7 @@ var success = {
   }
 };
 
-var jsonUtils = require('lib/jsonUtils.js');
+var jsonUtils = require('../lib/jsonUtils.js');
 var fetchDiagnosisListEndpoint = function() {
   // Exposed operations
   this.fetchDiagnosis = function fetchDiagnosis(reqJson, callback){

@@ -1,0 +1,72 @@
+body {
+  background-color: #cdcdcd;
+  background-image: url(../img/backgrounds/BackgroundTileGray.png);
+  color: #fff;
+  font-family: 'Helvetica', sans-serif; }
+
+p.middle {
+  text-align: center; }
+
+.top {
+  top: 0px; }
+
+.left {
+  left: 0px; }
+
+.bottom {
+  bottom: 0px; }
+
+.right {
+  right: 0px; }
+
+.center {
+  margin-left: auto;
+  margin-right: auto; }
+
+input[type=text],
+input[type=password],
+input[type=submit] {
+  font-family: inherit;
+  font-size: 15px;
+  padding: 10px;
+  border-radius: 8px; }
+
+.box {
+  border-radius: 10px;
+  padding: 10px;
+  margin: 10px; }
+
+.grey {
+  background-color: #232324;
+  opacity: 0.5; }
+
+.small-logo {
+  background-image: url(../img/login/PeachyLogoWhite.png);
+  width: 99px;
+  height: 24px; }
+
+.large-logso {
+  background-image: url(../img/login/PeachyLogoHero@2x.png);
+  width: 458px;
+  height: 108px; }
+
+.center {
+  position: relative;
+  top: 15em;
+  width: 500px; }
+
+input[type=text],
+input[type=password] {
+  width: 90%; }
+
+input[type=submit] {
+  font-family: inherit;
+  font-weight: bold;
+  border-radius: 8px;
+  color: #fff;
+  background-color: #f7d705;
+  background-image: -webkit-linear-gradient(top, #f7d705 0%, #f7d705 10%, #f78205 40%, #f78205 100%);
+  background-image: -moz-linear-gradient(top, #f7d705 0%, #f7d705 10%, #f78205 40%, #f78205 100%);
+  background-image: -ms-linear-gradient(top, #f7d705 0%, #f7d705 10%, #f78205 40%, #f78205 100%);
+  background-image: -o-linear-gradient(top, #f7d705 0%, #f7d705 10%, #f78205 40%, #f78205 100%);
+  background-image: linear-gradient(top, #f7d705 0%, #f7d705 10%, #f78205 40%, #f78205 100%); }

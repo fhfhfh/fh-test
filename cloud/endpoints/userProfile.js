@@ -70,7 +70,7 @@ var success = {
 }
 ;
 
-var jsonUtils = require('lib/jsonUtils.js');
+var jsonUtils = require('../lib/jsonUtils.js');
 var userProfileEndpoint = function() {
   // Exposed operations
   this.userProfile = function userProfile(reqJson, callback){

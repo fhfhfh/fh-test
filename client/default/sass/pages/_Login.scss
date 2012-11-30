@@ -1,0 +1,19 @@
+.center {
+	position: relative;
+	top: 15em;
+	width: 500px;
+}
+
+input[type=text],
+input[type=password] {
+	width: 90%;
+}
+
+input[type=submit]{
+	font-family: inherit;
+	font-weight: bold;
+	border-radius: 8px;
+	color: #fff;
+	@include split-gradient(#F7D705, #F78205);
+}
+

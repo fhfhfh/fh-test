@@ -1,4 +1,4 @@
-var jsonUtils = require('lib/jsonUtils.js');
+var jsonUtils = require('../lib/jsonUtils.js');
 
 /**
  * Class defining CONSTANTS used across cloud code.

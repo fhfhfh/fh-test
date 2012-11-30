@@ -1,5 +1,5 @@
 //Dependencies
-var jsonUtils = require('lib/jsonUtils.js');
+var jsonUtils = require('../lib/jsonUtils.js');
 
 var success = {
   "response": {
