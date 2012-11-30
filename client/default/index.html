@@ -1,47 +1,44 @@
 <!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Peachy</title>
 
-<html> 
-  <head> 
-    <!--    <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+        <!-- TODO: Change to proper description. -->
+        <meta name="description" content="Personal wellness management, only sweeter.">
 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <link rel="stylesheet" href="css/main.css">
 
-    <link rel="stylesheet" href="./lib/jquery.mobile-1.2.0/jquery.mobile-1.2.0.min.css" />
-    <script type="text/javascript" src="./lib/jquery.mobile-1.2.0/jquery-1.8.2.min.js"></script>
-    <script type="text/javascript" src="./lib/jquery.mobile-1.2.0/jquery.mobile-1.2.0.min.js"></script>
-    <script type="text/javascript" src="./lib/jquery-dateFormat/jquery.dateFormat-1.0.js"></script>
-
-
-    <!--script type="text/javascript" src="./lib/jquery.event.drag-2.0.0-touch/jquery.event.drag.min.js"></script-->
-
-
-    <script type="text/javascript" src="test.js"></script>
-
-  </head> 
-  <body>
-
-    <div data-role="page" id="Page1">
-
-      <a href="#" data-role="button" id="btn">Login</a>
-      <a href="#" data-role="button" id="logout">Logout</a>
-      <a href="#" data-role="button" id="reset">Reset</a>
-      <a href="#" data-role="button" id="userProfile">UserProfile</a>
-      <a href="#" data-role="button" id="saveUserProfile">saveUserProfile</a>
-      <a href="#" data-role="button" id="peachyPoints">Peachy Points</a>
-      <a href="#" data-role="button" id="med_cab">Medicine Cabinet List</a>
-      <a href="#" data-role="button" id="searchMed">Search Medicine </a>
-      <a href="#" data-role="button" id="saveMed">Save Medicine </a>
-      <a href="#" data-role="button" id="delMed">Delete Single Medicine </a>
-      <a href="#" data-role="button" id="delMulMed">Delete Multiple Medicine </a>
-      <a href="#" data-role="button" id="reminderMed">Reminder for Medication </a>
-      <a href="#" data-role="button" id="reminderList">Fetch Reminder List </a>
-      <a href="#" data-role="button" id="diagnosisList">Fetch Diagnosis List</a>
-      <a href="#" data-role="button" id="testResultList">Fetch Test Result List</a>
-      <a href="#" data-role="button" id="filterContent">Filter Content</a>
-      <a href="#" data-role="button" id="medicalHistory">Fetch Medical History</a>
-      <a href="#" data-role="button" id="searchAllergy">Search Allergy</a>
-      <a href="#" data-role="button" id="addAllergy">Add Allergy</a>
-      <a href="#" data-role="button" id="fetchFeaturedContent">Fetch Featured Content</a>
-    </div>
-
-  </body>
+        <!-- See http://requirejs.org/ for more info. -->
+        <script>
+            var require = {
+                shim: {
+                    'lib/zepto': {
+                        deps: [],
+                        exports: 'Zepto'
+                    },
+                    'lib/underscore': {
+                        deps: [],
+                        exports: '_'
+                    },
+                    'lib/backbone': {
+                        deps: ['lib/underscore', 'lib/zepto'],
+                        exports: 'Backbone'
+                    }
+                },
+                map: {
+                    '*': {
+                        'zepto': 'lib/zepto',
+                        'underscore': 'lib/underscore',
+                        'backbone': 'lib/backbone'
+                    }
+                }
+            };
+        </script>
+        <script data-main="js/main.js" src="js/lib/require.js"></script>
+    </head>
+    <body>
+        <!-- TODO: Loader here. -->
+    </body>
 </html>

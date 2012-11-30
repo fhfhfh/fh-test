@@ -1,5 +1,16 @@
+ /*
+  _____                _           
+ |  __ \              | |          
+ | |__) |__  __ _  ___| |__  _   _ 
+ |  ___/ _ \/ _` |/ __| '_ \| | | |
+ | |  |  __/ (_| | (__| | | | |_| |
+ |_|   \___|\__,_|\___|_| |_|\__, |
+                              __/ |
+                             |___/ 
 
-// Dependencies: Endpoint Implementations
+*/
+// Dependencies: Endpoint Implementations #########################################
+
 var loginEndpoint = require("endpoints/login.js");
 var logoutEndpoint =  require("endpoints/logout.js");
 var resetEndpoint = require("endpoints/reset.js");
@@ -22,6 +33,7 @@ var addAllergyEndpoint = require("endpoints/addAllergy.js")
 var fetchFeaturedContentEndpoint = require("endpoints/fetchFeaturedContent.js")
 //var fetchMedicalHistoryEndpoint = require("endpoints/fetchMedicalHistory.js")
 
+//#####################################################################################
 
 
 // Supported Actions
