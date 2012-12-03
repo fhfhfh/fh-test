@@ -2,6 +2,8 @@
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 html,
 body {
@@ -11,6 +13,11 @@ body {
 }
 body {
   background: url('../img/bg.png') left top repeat;
+}
+.corner-logo {
+  position: absolute;
+  top: 15px;
+  left: 15px;
 }
 #login,
 #loading {
