@@ -1,8 +1,10 @@
-window.HomeView = Backbone.View.extend({
+LoginView = Backbone.View.extend({
+
+	className: 'login-page',
 
     initialize:function () {
         console.log('Initializing Home View');
-//        this.template = _.template(directory.utils.templateLoader.get('home'));
+		this.template = _.template(tpl.get('Login'));
 //        this.template = templates['Home'];
     },
 
