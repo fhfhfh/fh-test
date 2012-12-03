@@ -1,0 +1,10 @@
+{
+  "name": "peachy-ssh",
+  "version": "0.1.0",
+  "author": "FeedHenry <support@feedhenry.com>",
+  "description": "Peachy application for SecureHealthHub.",
+  "dependencies": {},
+  "devDependencies": {
+    "grunt-contrib-less": "0.3.x"
+  }
+}

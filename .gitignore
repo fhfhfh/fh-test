@@ -1,5 +1,10 @@
+node_modules
+
 # Any IDE specific project files shouldn't be added to git.
 .idea
 
 # No log files of any sort should be added.
 *.log
+
+# Exclude files associated with new fhc local.
+.fhc_local

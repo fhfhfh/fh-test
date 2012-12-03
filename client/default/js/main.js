@@ -1,3 +1,9 @@
-require(['zepto', 'underscore', 'backbone'], function($, _, Backbone) {
-  alert('loaded!');
+require(
+  [
+    'zepto',
+    'underscore',
+    'backbone',
+    'text!templates/login.tpl'
+  ], function($, _, Backbone, loginTemplate) {
+  $('body').html(loginTemplate);
 });
