@@ -20,7 +20,7 @@ module.exports = function(grunt) {
     },
     watch: {
       less: {
-        files: ['client/default/less/*.less', 'client/default/less/**/.less'],
+        files: ['client/default/less/*.less', 'client/default/less/**/*.less'],
         tasks: 'default'
       }
     },
@@ -49,7 +49,6 @@ module.exports = function(grunt) {
   grunt.registerMultiTask('fhbuild',
       'Clear and copy the files to relevant dirs for PhoneGap development',
       function() {
-
         var self = this;
 
         // If no config has been set, the task should exit.
@@ -70,6 +69,9 @@ module.exports = function(grunt) {
 
         // For each of the packages we dynamically create the copy config and
         // copy the files over to the appropriate dir.
+
+        var copyConfig = {};
+
         packages.forEach(function(packageName) {
           var packageGlob = 'client/' + packageName + '/**';
 
@@ -83,14 +85,19 @@ module.exports = function(grunt) {
           };
           grunt.log.writeln('OK!');
 
-          var copyConfig = {};
-          copyConfig[self.target] = {};
-          copyConfig[self.target]['files'] = {};
-          copyConfig[self.target]['files'][self.data.dir] = packageGlob;
-
-          grunt.config('copy', copyConfig);
-          grunt.task.run('copy:' + self.target);
+          copyConfig[packageName] = {
+            files: {}
+          }
+          copyConfig[packageName].files[self.data.dir] = packageGlob;
         });
+
+        // If there's any files to be copied, setup the copy config and run the
+        // task with no target argument; it's a multi-task, and so will then run
+        // through all targets in turn.
+        if (Object.keys(copyConfig).length) {
+          grunt.config('copy', copyConfig);
+          grunt.task.run('copy');
+        }
       });
 
   grunt.registerTask('default', 'less:development');

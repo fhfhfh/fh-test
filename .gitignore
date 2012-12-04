@@ -15,3 +15,8 @@ profile
 
 # Exclude files associated with new fhc local.
 .fhc_local
+
+# We don't want to include duplicated files resulting from any builds; we also
+# want to prevent having outdated, mismatching filesets in the repo. If you
+# need a build, get the latest revision and run the relevant grunt build task.
+builds/ios/www/*
