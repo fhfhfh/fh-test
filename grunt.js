@@ -18,6 +18,17 @@ module.exports = function(grunt) {
         }
       }
     },
+    requirejs: {
+      ios: {
+        options: {
+          baseUrl: "builds/ios/www/app/",
+          mainConfigFile: 'builds/ios/www/app/main.js',
+          name: "main",
+          out: "builds/ios/www/app/main.js",
+          preserveLicenseComments: false
+        }
+      }
+    },
     watch: {
       less: {
         files: ['client/default/less/*.less', 'client/default/less/**/*.less'],
@@ -39,6 +50,7 @@ module.exports = function(grunt) {
   });
 
   grunt.loadNpmTasks('grunt-contrib-less');
+  grunt.loadNpmTasks('grunt-contrib-requirejs');
 
   // Even though we're not setting up config for these, we'll be making use of
   // them in our task, so must load them into grunt.

@@ -18,29 +18,6 @@
         <script type="text/javascript" src="cordova-2.2.0.js"></script>
 
 	    <!-- See http://requirejs.org/ for more info. -->
-	    <script>
-		    var require = {
-			    paths: {
-				    'zepto': 'lib/zepto',
-				    'underscore': 'lib/underscore',
-				    'backbone': 'lib/backbone'
-			    },
-			    shim: {
-				    'zepto': {
-					    deps: [],
-					    exports: 'Zepto'
-				    },
-				    'underscore': {
-					    deps: [],
-					    exports: '_'
-				    },
-				    'backbone': {
-					    deps: ['underscore', 'zepto'],
-					    exports: 'Backbone'
-				    }
-			    }
-		    };
-	    </script>
-	    <script data-main="js/main.js" src="js/lib/require.js"></script>
+	    <script data-main="app/main.js" src="app/lib/require.js"></script>
     </body>
 </html>
