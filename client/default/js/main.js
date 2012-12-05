@@ -1,24 +1,47 @@
-require(
-  [
+requirejs.config({
+  paths: {
+    'zepto'      : '/js/lib/zepto',
+    'underscore' : '/js/lib/underscore',
+    'backbone'   : '/js/lib/backbone',
+    'Router'     : '/app/Router',
+    'text'       : 'lib/text',
+    'templates'  : '/app/templates',
+    'controllers': '/app/controllers',
+    'models'     : '/app/models',
+    'views'      : '/app/views'
+  },
+  shim: {
+    'zepto': {
+      deps: [],
+      exports: 'Zepto'
+    },
+    'underscore': {
+      deps: [],
+      exports: '_'
+    },
+    'backbone': {
+      deps: ['underscore', 'zepto'],
+      exports: 'Backbone'
+    }
+  }
+});
+
+require([
     'zepto',
-    'underscore',
     'backbone',
+    'Router',
+    'namespace'
+], function($, Backbone, Router, ns) {
 
-    // //------------ Backbone Files -----------------//
-    '../app/app.js',
-    // '../app/router.js',
-    // '../app/namespace.js',
+  $(function() {
+    window.App = new Peachy.Router();
+    
+    Backbone.history = new Backbone.History();
+    Backbone.history.start({
+      pushState: false,
+      root: document.location.pathname
+    });
+  });
 
-
-    //------------ Page Templates -----------------//
-    'text!../templates/pages/Login.tpl',
-    // 'text!../templates/pages/Home.tpl',
-
-
-    // //------------ Component Templates------------//
-    // 'text!../templates/components/TopBar.tpl'
-
-
-  ], function($, _, Backbone, loginTemplate) {
-  $('body').html(loginTemplate);
+  // $('body').html(loginTemplate);
 });

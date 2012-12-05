@@ -1,30 +1,56 @@
+// Backbone Router module
+
 define(['zepto',
         'underscore',
         'backbone',
-        'text!templates/login.tpl'
+        'text!templates/login.tpl',
+        'views/Login'
 ], function($, _, Backbone, loginTemplate) {
-  return Backbone.Router.extend({
-    routes: {
-      '': 'startup',
-      'login': 'login'
-    },
 
-    initialize: function() {
+  //interface------------------------------
+  Peachy.Router = Backbone.Router.extend({
+    
+    routes    : _routes,
+    initialize: _initialize,
+    startup   : _startup,
+    login     : _login,
+    default   : _default
+  });
+
+  //scripts-----------------------------
+
+
+
+  //implementations--------------------
+  var _routes = {
+      ''     : 'startup',
+      'login': 'login',
+      '*path': 'default'
+    };
+
+    function _initialize() {
       _.bindAll(this);
-    },
+    };
 
-    startup: function() {
-
+    function _startup() {
       // TODO: No backend implementation, so just skipping to login every time.
       this.navigate('login', {
         trigger: true,
         replace: true
       });
-    },
+    };
 
-    login: function() {
+    function _login() {
       // TODO: Move this to it's own view and implement loading within it.
-      $('body').html(loginTemplate);
+      // $('body').html(loginTemplate);
+
+      new Peachy.Views.Login();
+    };
+
+    function _default(){
+      this.navigate('login', true);
     }
-  });
+
+
+  return Peachy.Router;
 });
