@@ -1,4 +1,11 @@
+# Node modules used should be installed using NPM per developer.
 node_modules
+
+# OSX temporary files that should never be committed.
+.DS_Store
+*.swp
+*.lock
+profile
 
 # Any IDE specific project files shouldn't be added to git.
 .idea
@@ -8,3 +15,8 @@ node_modules
 
 # Exclude files associated with new fhc local.
 .fhc_local
+
+# We don't want to include duplicated files resulting from any builds; we also
+# want to prevent having outdated, mismatching filesets in the repo. If you
+# need a build, get the latest revision and run the relevant grunt build task.
+builds/ios/www/*

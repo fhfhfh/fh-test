@@ -1,111 +1,20 @@
-* {
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-}
-html,
-body {
-  height: 100%;
-  font-family: Arial, sans-serif;
-  color: white;
-}
-body {
-  background: url('../img/bg.png') left top repeat;
-}
-#login,
-#loading {
-  height: 100%;
-  color: white;
-}
-#login-box {
-  width: 340px;
-  margin: 0 auto;
-  position: relative;
-  display: table;
-  height: 100%;
-}
-#loading #login-box {
-  width: 470px;
-}
-#login-box-center {
-  display: table-cell;
-  vertical-align: middle;
-}
-#login-logo {
-  display: block;
-  margin: 0 auto;
-}
-#login-caption {
-  text-align: center;
-  font: 14px/1em normal Arial, sans-serif;
-  color: white;
-}
-#login-form {
-  margin: 30px 0;
-  background-color: rgba(0, 0, 0, 0.2);
-  color: white;
-  padding: 30px 30px 30px 30px;
-  border-radius: 10px;
-  overflow: hidden;
-  /* Clears floats */
-
-}
-#login-form h2 {
-  margin-bottom: 30px;
-  font: 20px/1em bold Arial, sans-serif;
-  text-align: center;
-}
-#login-form input {
-  width: 100%;
-  display: block;
-  margin: 10px 0;
-  height: 46px;
-  border-radius: 5px;
-  border: none;
-  background-color: white;
-  padding: 0 10px;
-}
-#login-form input::-webkit-input-placeholder {
-  font: normal 14px/1em Arial, sans-serif;
-  color: blue;
-}
-#login-form button {
-  border-radius: 5px;
-  border: 1px solid #d38800;
-  background-color: orange;
-  font: bold 14px/28px Arial, sans-serif;
-  height: 30px;
-  margin-top: 30px;
-  color: white;
-  float: right;
-  padding: 0 10px;
-}
-#login-form button img {
-  margin-right: 5px;
-  vertical-align: text-bottom;
-}
-#login-help-button {
-  border: none;
-  border-radius: 10px;
-  padding: 15px 30px;
-  font-weight: bold;
-  color: white;
-  background-color: rgba(0, 0, 0, 0.15);
-  width: 100%;
-  font-size: 12px;
-}
-#loading-box {
-  background: rgba(0, 0, 0, 0.2) url(../img/loading-watermark2.png) right bottom no-repeat;
-  padding: 30px;
-  text-align: center;
-  border-radius: 10px;
-}
-#login-loading-message {
-  font-size: 18px;
-  margin: 45px 0;
-}
-#loading-snippet {
-  font-weight: bold;
-  font-size: 18px;
-  line-height: 1.5;
-}
+*{-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;margin:0;padding:0;}
+html,body{height:100%;font-family:Arial,sans-serif;color:white;}
+body{background:url('../img/bg.png') left top repeat;}
+.corner-logo{position:absolute;top:15px;left:15px;}
+#login,#loading{height:100%;color:white;}
+#login-box{width:340px;margin:0 auto;position:relative;display:table;height:100%;}
+#loading #login-box{width:470px;}
+#login-box-center{display:table-cell;vertical-align:middle;}
+#login-logo{display:block;margin:0 auto;}
+#login-caption{text-align:center;font:14px/1em normal Arial,sans-serif;color:white;}
+#login-form{margin:30px 0;background-color:rgba(0, 0, 0, 0.2);color:white;padding:30px 30px 30px 30px;border-radius:10px;overflow:hidden;}
+#login-form h2{margin-bottom:30px;font:20px/1em bold Arial,sans-serif;text-align:center;}
+#login-form input{width:100%;display:block;margin:10px 0;height:46px;border-radius:5px;border:none;background-color:white;padding:0 10px;}
+#login-form input::-webkit-input-placeholder{font:normal 14px/1em Arial,sans-serif;color:blue;}
+#login-form button{border-radius:5px;border:1px solid #d38800;background-color:orange;font:bold 14px/28px Arial,sans-serif;height:30px;margin-top:30px;color:white;float:right;padding:0 10px;}
+#login-form button img{margin-right:5px;vertical-align:text-bottom;}
+#login-help-button{border:none;border-radius:10px;padding:15px 30px;font-weight:bold;color:white;background-color:rgba(0, 0, 0, 0.15);width:100%;font-size:12px;}
+#loading-box{background:rgba(0, 0, 0, 0.2) url(../img/loading-watermark2.png) right bottom no-repeat;padding:30px;text-align:center;border-radius:10px;}
+#login-loading-message{font-size:18px;margin:45px 0;}
+#loading-snippet{font-weight:bold;font-size:18px;line-height:1.5;}
