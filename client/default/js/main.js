@@ -34,9 +34,9 @@ require([
 ], function($, Backbone, Router, ns) {
 
   $(function() {
-    window.App = new Peachy.Router();
+    window.App = new Router();
     
-    Backbone.history = new Backbone.History();
+    // Backbone.history = new Backbone.History();
     Backbone.history.start({
       pushState: false,
       root: document.location.pathname

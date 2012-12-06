@@ -6,37 +6,32 @@
 define(['zepto',
         'underscore',
         'backbone',
-        'text!templates/login.tpl',
+        'text!templates/pages/Login.tpl',
         'controllers/Login'
 ], function($, _, Backbone, loginTemplate) {
 
 
 	Peachy.Views.Login = Backbone.View.extend({
-		events : {
-		'submit form' : 'login',
-		'click #submit': 'login'
-	},
 
 		//interface----------------------------------
-		// events		: _events,
 		initialize	: _initialize,
 		render		: _render,
 		login		: _login,
-		errorMsg 	: _errorMsg
+		errorMsg 	: _errorMsg,
+		events		: {
+			'submit form' : 'login',
+			'click #submit': 'login'
+		},
 	});
 	
 	//scripts------------------------------------
 
 
 	//implementation-------------------------------
-	// var self = this;
 	var controller = new Peachy.Controllers.Login();
 	var user, password;
 	var errorBox = $("<div/>").addClass("errorBox");
-	var _events = {
-		'submit form' : 'login',
-		'click #submit': 'login'
-	};
+
 
 	function _initialize(){
 		this.render();

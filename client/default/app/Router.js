@@ -9,12 +9,16 @@ define(['zepto',
 
   //interface------------------------------
   Peachy.Router = Backbone.Router.extend({
-    
-    routes    : _routes,
-    initialize: _initialize,
-    startup   : _startup,
-    login     : _login,
-    default   : _default
+      
+    initialize: _initialize, //Backbone's initializer
+    startup   : _startup,    // Function called when no path specified
+    login     : _login,      // Function called when path = /login 
+    default   : _default,
+    routes : {
+      ''     : 'startup',
+      'login': 'login',
+      '*path': 'default'
+    }
   });
 
   //scripts-----------------------------
@@ -22,11 +26,6 @@ define(['zepto',
 
 
   //implementations--------------------
-  var _routes = {
-      ''     : 'startup',
-      'login': 'login',
-      '*path': 'default'
-    };
 
     function _initialize() {
       _.bindAll(this);// unclear
