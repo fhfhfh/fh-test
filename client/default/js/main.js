@@ -42,6 +42,4 @@ require([
       root: document.location.pathname
     });
   });
-
-  // $('body').html(loginTemplate);
 });

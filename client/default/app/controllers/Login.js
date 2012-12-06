@@ -12,7 +12,8 @@ define(['zepto',
 	Peachy.Controllers.Login = Backbone.Model.extend({
 
 		//interface----------------------------------
-		login		: _login
+		login		: _login,
+		validate 	: _validate
 	});
 	
 	//scripts------------------------------------
@@ -20,10 +21,18 @@ define(['zepto',
 
 	//implementation-------------------------------
 
-	function _login(){
+	function _validate(user, pw){
+		if(user != undefined && user != '' && pw != undefined && pw != ''){
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	function _login(user, password){
 		// $.getJSON('/todo', function(data) 
 		alert('HELLO');
-		var user, password;
+		
 		var validated = controller.validate(user,password);
 
 		if(validated){

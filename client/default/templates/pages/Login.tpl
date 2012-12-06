@@ -11,9 +11,9 @@
 
 			<form id="login-form">
 				<h2>Sign in to your Peachy Account</h2>
-				<input type="text" placeholder="Name">
-				<input type="password" placeholder="Password">
-				<button type="button"><img src="img/sign-in.png" alt="">Sign In</button>
+				<input id="name" type="text" placeholder="Name">
+				<input id="password" type="password" placeholder="Password">
+				<button id="submit" type="submit"><img src="img/sign-in.png" alt="">Sign In</button>
 			</form>
 
 			<button id="login-help-button" type="button">Need Help? Tap Here.</button>

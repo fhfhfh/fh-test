@@ -29,7 +29,7 @@ define(['zepto',
     };
 
     function _initialize() {
-      _.bindAll(this);
+      _.bindAll(this);// unclear
     };
 
     function _startup() {
@@ -41,9 +41,6 @@ define(['zepto',
     };
 
     function _login() {
-      // TODO: Move this to it's own view and implement loading within it.
-      // $('body').html(loginTemplate);
-
       new Peachy.Views.Login();
     };
 
