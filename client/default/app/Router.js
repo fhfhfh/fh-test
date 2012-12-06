@@ -3,18 +3,19 @@
 define(['zepto',
         'underscore',
         'backbone',
-        'text!templates/login.tpl',
+        'text!templates/pages/Login.tpl',
         'views/Login'
 ], function($, _, Backbone, loginTemplate) {
+
 
   //interface------------------------------
   Peachy.Router = Backbone.Router.extend({
       
-    initialize: _initialize, //Backbone's initializer
+    initialize: _initialize, // Backbone's initializer
     startup   : _startup,    // Function called when no path specified
     login     : _login,      // Function called when path = /login 
-    default   : _default,
-    routes : {
+    default   : _default,    // Fallback function
+    routes : {               // Backbone object defining all route bindings
       ''     : 'startup',
       'login': 'login',
       '*path': 'default'

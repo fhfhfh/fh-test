@@ -33,7 +33,7 @@ var success = {
 var loginEndpoint = function() {
   // Exposed operations
   this.login = function login(reqJson, callback){
-    
+    console.log(reqJson);
     // Validate request
     var validationResp = validateLoginRequest(reqJson);
     if (!validationResp.status) {

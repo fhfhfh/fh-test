@@ -5,10 +5,11 @@ requirejs.config({
     'backbone'   : '/js/lib/backbone',
     'Router'     : '/app/Router',
     'text'       : 'lib/text',
-    'templates'  : '/app/templates',
+    'templates'  : '/templates',
     'controllers': '/app/controllers',
     'models'     : '/app/models',
-    'views'      : '/app/views'
+    'views'      : '/app/views',
+    'map'        : '/app/cloudFunctionMap'
   },
   shim: {
     'zepto': {

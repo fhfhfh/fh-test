@@ -16,11 +16,11 @@ define(['zepto',
 		//interface----------------------------------
 		initialize	: _initialize,
 		render		: _render,
-		login		: _login,
-		errorMsg 	: _errorMsg,
-		events		: {
+		login		: _login,		// call login controller to validate inputs and login
+		errorMsg 	: _errorMsg,	// display error message to screen
+		events		: {				// event bindings for page
 			'submit form' : 'login',
-			'click #submit': 'login'
+			'click button': 'login'
 		},
 	});
 	
@@ -35,7 +35,6 @@ define(['zepto',
 
 	function _initialize(){
 		this.render();
-		this.login();
 	};
 
 	function _render(){
@@ -43,12 +42,15 @@ define(['zepto',
 
 		user = this.$('#name');
 		password = this.$('#password');
+		console.log(user, password);
 		return $el;
 	};
 
 
-	function _login(){
+	function _login(e){
+		e.preventDefault();
 		console.log(this);
+
 		user = user.val();
 		password = password.val();
 		var validated = controller.validate(user, password);
