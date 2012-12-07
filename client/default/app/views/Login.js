@@ -18,7 +18,8 @@ define(['zepto',
 		tagName	: 'section',
 	    id		: 'login',
 	    events	: {
-			'click #signin': 'login'
+			'click #signin': 'login',
+			'submit form' : 'login'
 	    },
 
 		initialize	: _initialize,
@@ -35,8 +36,14 @@ define(['zepto',
 
 
 	function _initialize(){
+		_.bindAll(this);
 		this.render();
-		// this.login();
+
+		var self = this;
+		setTimeout(function(){
+			self.login();	
+		}, 2000);
+		
 	};
 
 	function _render(){
@@ -46,6 +53,7 @@ define(['zepto',
 
 
 	function _login(e){
+		console.log('asd');
 		$('#password').val('demo');
 		$('#username').val('demo');
 		var self = this;
@@ -57,10 +65,7 @@ define(['zepto',
 			controller.login(username, password, function(res, msg){
 				// Check for login success
 				if(res === true){
-					console.log('Success');
 					var loadingView = new LoadingView();
-					// $('body').html(loadingView.render().el);
-
 				}
 				else {
 					self.errorMsg(msg);

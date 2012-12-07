@@ -25,7 +25,6 @@ define(['zepto',
 
 	//implementation-------------------------------
 	function _initialize(){
-		console.log('*********');
 		this.render();
 	};
 

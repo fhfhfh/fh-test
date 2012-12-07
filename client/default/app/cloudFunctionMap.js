@@ -11,7 +11,8 @@ define(['zepto',
 	// TODO -- complete map for all cloud functions
 	var map = {
 		'loginAction' : 'login',
-		'logoutAction': 'logout'
+		'logoutAction': 'logout',
+		'userProfileAction' : 'userProfile'
 	};
 
 	return map;

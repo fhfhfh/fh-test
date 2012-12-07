@@ -44,8 +44,8 @@ define(['zepto',
 		// Call login cloud function
 		Acts.call('loginAction', params, 
 			function(res){
-				var session = res.response.head.sessionId;
-				self.loggedIn(session);
+				var session = res.head.sessionId;
+				self.loggedIn(session, username);
 				return callback(true);
 				console.log(res);
 			}, function(err, msg){
@@ -55,9 +55,10 @@ define(['zepto',
 		);
 	};
 
-	function _loggedIn(session){
+	function _loggedIn(session, username){
 		user.setSession(session);
-		console.log(user.getSession());
+		user.setName(username);
+		console.log('USER: ' ,user.getName(), 'SESSION: ', user.getSession());
 	};
 	
 

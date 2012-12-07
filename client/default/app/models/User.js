@@ -14,7 +14,9 @@ define(['zepto',
 		getSession : _getSession,
 		setSession : _setSession,
 		getName    : _getName,
-		setName    : _setName
+		setName    : _setName,
+		getProfile : _getProfile,
+		setProfile : _setProfile
 	});
 	
 	//scripts------------------------------------
@@ -23,6 +25,7 @@ define(['zepto',
 	//implementation-------------------------------
 	var session;
 	var name;
+	var profile = {};
 
 	function _getSession(){
 		return session;
@@ -36,8 +39,16 @@ define(['zepto',
 		return name;
 	};
 
-	function _setName(user){
-		name = user;
+	function _setName(username){
+		name = username;
+	};
+
+	function _getProfile(){
+		return profile;
+	};
+
+	function _setProfile(prof){
+		profile = prof;
 	};
 
 	return Peachy.Models.User;

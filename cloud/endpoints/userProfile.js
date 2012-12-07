@@ -76,7 +76,8 @@ var userProfileEndpoint = function() {
   this.userProfile = function userProfile(reqJson, callback){
     // Extract request params
    var sessionId = jsonUtils.getPath(reqJson, "request.head.sessionId").trim();
-    if(sessionId=="4860-9e4b-3ca8d2cb3df7")
+    // if(sessionId=="4860-9e4b-3ca8d2cb3df7")
+    if(sessionId=="f39fc-24e4-456e-9098-38b32cfe5040")
     {
       console.log ('varified user');
       callback(null,success);

@@ -18,3 +18,4 @@
         </div>
     </div>
     <aside class="copyright-bottom">&copy; 2012 SecureHealthHub</aside>
+    <link rel="stylesheet" href="css/styles.css"/>

@@ -8,8 +8,10 @@ define(['zepto',
         'backbone',
         'text!templates/pages/Main.tpl',
         'views/Headline-news',
-        'iScroll'
-], function($, _, Backbone, template, NewsView, iScroll) {
+        'iScroll',
+        'models/Acts',
+        'models/User'
+], function($, _, Backbone, template, NewsView, iScroll, Acts, User) {
 
 
 	//interface----------------------------------
@@ -27,12 +29,14 @@ define(['zepto',
 		render				: _render,
 		showNews			: _showNews,		// Show news tab
 		showGoals			: _showGoals,		// Show goals tab
-		toggleSelectedTab	: _toggleSelectedTab// switch between tabs
+		toggleSelectedTab	: _toggleSelectedTab,// switch between tabs
+		loadProfile 		: _loadProfile	 	// download user info from cloud
 
 	});
 
 
 	//implementation-------------------------------
+	var user = new User();
 
 	function _initialize(){
 		_.bindAll(this);
@@ -47,7 +51,8 @@ define(['zepto',
 			}, 100);
 		};
 
-		this.showNews();
+		// this.showNews();
+		this.loadProfile();
 		
 	    this.iscroll = new iScroll($('#main-content'), {
 			hscroll: false,
@@ -88,6 +93,21 @@ define(['zepto',
 			}
 		})
     };
+
+    function _loadProfile(){
+    	var self = this;
+    	Acts.call('userProfileAction', {}, 
+    		function(res){
+    			user.setProfile(res.payload);
+    			var prof = user.getProfile();
+    			prof = JSON.stringify(prof.userDetails);
+    			prof = prof.replace(/\,/g, ',<br/>');
+    			this.$('#home-content').html('<div>' +prof + '</div>');
+    	}, function(err, msg){
+    			console.log(err, msg);
+    	});
+
+    }
 	
 	return Peachy.Views.Main;
 

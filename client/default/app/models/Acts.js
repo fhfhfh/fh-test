@@ -21,20 +21,21 @@ define(['zepto',
 	var user = new User();
 	
 	function _call(func, params, successFn, failFn){
+		var head = {};
+		var payload = {};
+		var payloadName = map[func]; // use mapping file to get payload name for function
+		payload[payloadName] = params;
+
 		//set sessionId for all function calls
 		sess = user.getSession();
 		if(sess){
-			params.sessionId = sess;
+			head = {'sessionId' : sess};
 		}
-		// use mapping file to get payload name for function
-		var payloadName = map[func];
-		var payload = {};
-		payload[payloadName] = params;
 	
 		//create required request structure
 		params = {
 			"request" : {
-				"head" : {},
+				"head" : head,
 				"payload" : payload
 			}
 		};
@@ -44,7 +45,7 @@ define(['zepto',
 			'req' : params
 		}, function(res){
 			console.log('Act Success', res);
-			return successFn(res);
+			return successFn(res.response);
 		}, function(err, msg){
 			console.log('Act Fail', err);
 			return failFn(err, msg);
