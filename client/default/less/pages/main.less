@@ -1,0 +1,253 @@
+/*
+ * This file covers the main viewport of the app; this is the 'base' layer of
+ * the main hub of the app, which in turn contains various sections such as
+ * alerts, news etc. All persistent elements should be styled here (navigation,
+ * top-bar etc).
+ */
+
+#main {
+    height: 100%;
+}
+
+#top-bar {
+    height: 55px;
+    background-color: rgba(255, 255, 255, 0.1);
+    margin: 0;
+    padding: 0 15px;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.20);
+    width: 100%;
+    box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.15);
+    position: relative;
+    z-index: 10;
+
+    #logo {
+        float: left;
+        margin-top: 15px;
+    }
+
+    #avatar {
+        float: right;
+        margin-top: 7px;
+    }
+}
+
+#top-bar-buttons {
+    list-style-type: none;
+    height: 100%;
+    padding: 11px 0;
+    float: right;
+
+    li {
+        display: inline-block;
+        margin-right: 7px;
+
+        button {
+            background-color: blue;
+            height: 30px;
+            padding: 0 10px;
+            vertical-align: middle;
+            .border-radius(5px);
+            border: 1px solid black;
+            box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.15);
+
+            background-image: linear-gradient(bottom, rgb(70,70,70) 0%, rgb(31,31,31) 50%, rgb(46,46,46) 51%, rgb(82,82,82) 73%, rgb(107,107,107) 100%);
+            background-image: -webkit-linear-gradient(bottom, rgb(70,70,70) 0%, rgb(31,31,31) 50%, rgb(46,46,46) 51%, rgb(82,82,82) 73%, rgb(107,107,107) 100%);
+            background-image: -webkit-gradient(
+                linear,
+                left bottom,
+                left top,
+                color-stop(0, rgb(70,70,70)),
+                color-stop(0.5, rgb(31,31,31)),
+                color-stop(0.51, rgb(46,46,46)),
+                color-stop(0.73, rgb(82,82,82)),
+                color-stop(1, rgb(107,107,107))
+            );
+
+            img {
+
+                // This fixes mis-aligned buttons.
+                display: block;
+            }
+        }
+
+        #points-button {
+            .avenir-bold(13px);
+            background-image: url('../img/PointsButtonWatermark.png'), linear-gradient(bottom, rgb(70,70,70) 0%, rgb(31,31,31) 50%, rgb(46,46,46) 51%, rgb(82,82,82) 73%, rgb(107,107,107) 100%);
+            background-image: url('../img/PointsButtonWatermark.png'), -webkit-linear-gradient(bottom, rgb(70,70,70) 0%, rgb(31,31,31) 50%, rgb(46,46,46) 51%, rgb(82,82,82) 73%, rgb(107,107,107) 100%);
+            background-image: url('../img/PointsButtonWatermark.png'), -webkit-gradient(
+                linear,
+                left bottom,
+                left top,
+                color-stop(0, rgb(70,70,70)),
+                color-stop(0.5, rgb(31,31,31)),
+                color-stop(0.51, rgb(46,46,46)),
+                color-stop(0.73, rgb(82,82,82)),
+                color-stop(1, rgb(107,107,107))
+            );
+            background-position: left bottom;
+            background-repeat: no-repeat;
+            color: #fff;
+
+            em {
+                font-size: 14px;
+                color: #ff9d02;
+                font-style: normal;
+            }
+        }
+    }
+}
+
+#main-container {
+    position: absolute;
+    top: 55px;
+    bottom: 0;
+    left: 15px;
+    right: 15px;
+}
+
+#side-nav {
+    list-style-type: none;
+    width: 110px;
+    overflow: visible;
+    float: left;
+    margin-top: 10px;
+
+    li {
+        width: 120px;
+        text-align: center;
+        color: rgba(255, 255, 255, .8);
+        padding: 15px 15px 15px 5px;
+        display: block;
+        margin: 0 auto;
+        .avenir-demi(13px);
+
+        &.selected {
+            border-top-left-radius: 5px;
+            border-bottom-left-radius: 5px;
+            background-color: white;
+            color: #2f3137;
+
+            h2 {
+                .avenir-bold(13px);
+            }
+        }
+    }
+
+    h2 {
+        margin: 0;
+        display: block;
+        font-weight: normal;
+        font-size: 13pt;
+        margin-top: 5px;
+    }
+}
+
+#main-content {
+    height: 100%;
+    border-radius: 10px;
+
+
+    & > div {
+        color: #000;
+        padding-top: 10px;
+        padding-bottom: 25px;
+        position: relative;
+        min-height: 100%;
+
+        & > div {
+            background-color: #fff;
+            box-shadow: 0 7px 0 -4px #ccc, 0 12px 0 -7px rgb(139, 139, 139);
+            min-height: 300px;
+            padding: 10px;
+
+            .border-radius(9px);
+        }
+    }
+}
+
+
+#content-tab-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    background: url('../img/bg.png') left top repeat;
+    color: white;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    padding-top: 15px;
+}
+
+#content-tab-list li {
+    display: inline-block;
+    width: 30%;
+    margin: 0 1%;
+    padding: 10px 5px;
+    color: #2f3137;
+    text-shadow: 0 1px 1px #fff;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    position: relative;
+
+    .background-gradient(#ccc, #fff);
+    .avenir-bold(14px);
+
+    &.selected {
+        background-color: #fff;
+        background-image: none;
+    }
+}
+
+.badge {
+    .avenir-demi(13px);
+    background-color: orange;
+    border-top-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    padding: 0 6px;
+    color: white;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.33);
+}
+
+#home-content {
+    min-height: 100px;
+}
+
+#adverts {
+    background-color: #e6e6e6;
+    .border-radius(6px);
+    overflow: hidden;
+    padding: 20px;
+
+    img {
+        float: right;
+        margin-left: 20px;
+    }
+
+    h3 {
+        .avenir-demi(15px);
+        color: #2b6891;
+        text-shadow: 0 1px 1px #fff;
+        line-height: 1.5;
+
+        em {
+            color: #808080;
+            font-style: normal;
+        }
+    }
+
+    span, p {
+        .avenir(12px);
+        text-shadow: 0 1px 1px #fff;
+        color: #343434;
+        line-height: 2;
+    }
+
+    span {
+        color: #2b6891;
+        display: block;
+        margin: 10px 0;
+    }
+}

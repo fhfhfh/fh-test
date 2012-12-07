@@ -1,0 +1,28 @@
+* {
+    // Apply sensible box model to all elements.
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+
+    // Reset all margin and padding (because of focus on wide cross
+    margin: 0;
+    padding: 0;
+}
+
+// Remove the default WebKit focus glow from form elements. For the purpose of
+// accessibility, we WILL want to add our own focus styles individually.
+textarea,
+input {
+    outline: none;
+}
+
+html,
+body {
+    height: 100%;
+    color: #fff;
+    .avenir(16px);
+}
+
+body {
+    background: url('../img/bg.png') left top repeat;
+}

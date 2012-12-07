@@ -24,19 +24,19 @@ define(['zepto',
 	var session;
 	var name;
 
-	function getSession(){
+	function _getSession(){
 		return session;
 	};
 
-	function setSession(sess){
+	function _setSession(sess){
 		session = sess;
 	};
 
-	function getName(){
+	function _getName(){
 		return name;
 	};
 
-	function setName(user){
+	function _setName(user){
 		name = user;
 	};
 

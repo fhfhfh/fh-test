@@ -1,28 +1,12 @@
-* {
-	// Apply sensible box model to all elements.
-	-moz-box-sizing: border-box;
-	-webkit-box-sizing: border-box;
-	box-sizing: border-box;
+// Global styles
+//-------------------
+@import "mixins";
+@import "general";
 
-	// Reset all margin and padding (because of focus on wide cross
-	margin: 0;
-	padding: 0;
-}
 
-html, body {
-	height: 100%;
-	font-family: Arial, sans-serif;
-	color: white;
-}
 
-body {
-	background: url('../img/bg.png') left top repeat;
-}
-
-.corner-logo {
-	position: absolute;
-	top: 15px;
-	left: 15px;
-}
-
-@import "login";
+// Page specific styles
+//----------------------
+@import "paegs/login";
+@import "pages/main";
+@import "pages/headline-news";

@@ -3,9 +3,11 @@ requirejs.config({
     'zepto'      : '/js/lib/zepto',
     'underscore' : '/js/lib/underscore',
     'backbone'   : '/js/lib/backbone',
+    'feedhenry'  : '/js/lib/feedhenry',
     'Router'     : '/app/Router',
     'text'       : 'lib/text',
     'templates'  : '/templates',
+    'collections': '/app/collections',
     'controllers': '/app/controllers',
     'models'     : '/app/models',
     'views'      : '/app/views',
@@ -23,6 +25,10 @@ requirejs.config({
     'backbone': {
       deps: ['underscore', 'zepto'],
       exports: 'Backbone'
+    },
+    'feedhenry': {
+      deps: [],
+      exports: '$fh'
     }
   }
 });
@@ -30,9 +36,10 @@ requirejs.config({
 require([
     'zepto',
     'backbone',
+    'feedhenry',
     'Router',
     'namespace'
-], function($, Backbone, Router, ns) {
+], function($, Backbone, $fh, Router, ns) {
 
   $(function() {
     window.App = new Router();

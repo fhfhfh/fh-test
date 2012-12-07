@@ -12,16 +12,13 @@ define(['zepto',
 
 
 	//interface----------------------------------
-	Peachy.Models.Acts = function({
+	Peachy.Models.Acts = {
 
-		call = _call
-	});
-	
-	//scripts------------------------------------
-
+		call : _call
+	};
 
 	//implementation-------------------------------
-	var user = User;
+	var user = new User();
 	
 	function _call(func, params, successFn, failFn){
 		//set sessionId for all function calls
@@ -29,17 +26,16 @@ define(['zepto',
 		if(sess){
 			params.sessionId = sess;
 		}
-
 		// use mapping file to get payload name for function
-		var payloadName = map.func;
-
+		var payloadName = map[func];
+		var payload = {};
+		payload[payloadName] = params;
+	
 		//create required request structure
 		params = {
-			'request' : {
-				'head' : {},
-				'payload' : {
-					payloadName : params
-				}
+			"request" : {
+				"head" : {},
+				"payload" : payload
 			}
 		};
 

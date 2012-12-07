@@ -1,0 +1,78 @@
+#headline-news {
+
+    // TODO: Assess whether this will be for all home content-sections.
+    padding: 15px;
+
+    h1 {
+        color: #2b6891;
+        margin: 30px 0 20px 0;
+
+        .avenir-demi(20px);
+    }
+
+    #headlines {
+        list-style-type: none;
+
+        // Clears list items with floated imgs taller than content.
+        overflow: hidden;
+
+        li {
+            margin-bottom: 40px;
+
+            .video-preview {
+                position: relative;
+                float: left;
+                margin-right: 20px;
+
+                img {
+                    display: block;
+                }
+
+                .title {
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    width: 100%;
+                    color: #fff;
+                    background-color: rgba(0, 0, 0, 0.2);
+                    background-image: url('../img/VideoPlay.png');
+                    background-position: 97% center;
+                    background-repeat: no-repeat;
+                    padding: 10px;
+                    .avenir-bold(12px);
+                }
+            }
+
+            h2 {
+                color: #1a1a1a;
+
+                .avenir-demi(13px);
+            }
+
+            p {
+                color: #343434;
+                margin-top: 1em;
+
+                .avenir(12px);
+                line-height: 2;
+            }
+
+            .more {
+                .avenir-bold(12px);
+
+                color: #2b6891;
+                text-decoration: none;
+            }
+        }
+    }
+
+    #load-more-news {
+        .border-radius(8px);
+        border: 2px solid #cdcdcd;
+        .avenir-bold(16px);
+        color: #b3b3b3;
+        background-color: transparent;
+        width: 100%;
+        padding: 10px;
+    }
+}

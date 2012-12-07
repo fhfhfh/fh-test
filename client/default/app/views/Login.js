@@ -7,24 +7,25 @@ define(['zepto',
         'underscore',
         'backbone',
         'text!templates/pages/Login.tpl',
-        'controllers/Login'
-], function($, _, Backbone, loginTemplate) {
+        'controllers/Login',
+        'views/Loading'
+], function($, _, Backbone, loginTemplate, LoginController, LoadingView) {
 
-
+	//interface--------------------------------------
 	Peachy.Views.Login = Backbone.View.extend({
 
-		//interface----------------------------------
+		// Backbone specific attributes
+		tagName	: 'section',
+	    id		: 'login',
+	    events	: {
+			'click #signin': 'login'
+	    },
+
 		initialize	: _initialize,
-		render		: _render,
-		login		: _login,		// call login controller to validate inputs and login
-		errorMsg 	: _errorMsg,	// display error message to screen
-		events		: {				// event bindings for page
-			'submit form' : 'login',
-			'click button': 'login'
-		},
+		render		: _render,		// return login page
+		login		: _login,		// call login controller to validate inputs and login, and create Loading page
+		errorMsg 	: _errorMsg		// display error message to screen
 	});
-	
-	//scripts------------------------------------
 
 
 	//implementation-------------------------------
@@ -35,29 +36,38 @@ define(['zepto',
 
 	function _initialize(){
 		this.render();
+		this.login();
 	};
 
 	function _render(){
 		var $el = $('body').html(loginTemplate);
-
-		user = this.$('#name');
-		password = this.$('#password');
-		console.log(user, password);
 		return $el;
 	};
 
 
 	function _login(e){
-		e.preventDefault();
-		console.log(this);
-
-		user = user.val();
-		password = password.val();
-		var validated = controller.validate(user, password);
+		$('#password').val('demo');
+		$('#username').val('demo');
+		var self = this;
+		var username = $('#username').val();
+		var password = $('#password').val();
+		var validated = controller.validate(username, password);
 
 		if(validated){
-			controller.login(user, password);
+			controller.login(username, password, function(res, msg){
+				// Check for login success
+				if(res === true){
+					console.log('Success');
+					var loadingView = new LoadingView();
+					// $('body').html(loadingView.render().el);
+
+				}
+				else {
+					self.errorMsg(msg);
+				}
+			});
 		} else {
+			console.log('Fail');
 			this.errorMsg('Please fill in both fields');
 		}
 	};

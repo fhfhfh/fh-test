@@ -4,7 +4,8 @@ define(['zepto',
         'underscore',
         'backbone',
         'text!templates/pages/Login.tpl',
-        'views/Login'
+        'views/Login',
+        'views/Main'
 ], function($, _, Backbone, loginTemplate) {
 
 
@@ -15,9 +16,11 @@ define(['zepto',
     startup   : _startup,    // Function called when no path specified
     login     : _login,      // Function called when path = /login 
     default   : _default,    // Fallback function
+    home      : _home,
     routes : {               // Backbone object defining all route bindings
       ''     : 'startup',
       'login': 'login',
+      'home' : 'home',
       '*path': 'default'
     }
   });
@@ -29,7 +32,7 @@ define(['zepto',
   //implementations--------------------
 
     function _initialize() {
-      _.bindAll(this);// unclear
+      _.bindAll(this);
     };
 
     function _startup() {
@@ -46,6 +49,10 @@ define(['zepto',
 
     function _default(){
       this.navigate('login', true);
+    };
+
+    function _home(){
+      new Peachy.Views.Main();
     }
 
 
