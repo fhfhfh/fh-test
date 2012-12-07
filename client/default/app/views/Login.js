@@ -36,7 +36,7 @@ define(['zepto',
 
 	function _initialize(){
 		this.render();
-		this.login();
+		// this.login();
 	};
 
 	function _render(){

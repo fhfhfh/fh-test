@@ -4,6 +4,7 @@ requirejs.config({
     'underscore' : '/js/lib/underscore',
     'backbone'   : '/js/lib/backbone',
     'feedhenry'  : '/js/lib/feedhenry',
+    'iScroll'    : '/js/lib/iScroll',
     'Router'     : '/app/Router',
     'text'       : 'lib/text',
     'templates'  : '/templates',
@@ -29,6 +30,10 @@ requirejs.config({
     'feedhenry': {
       deps: [],
       exports: '$fh'
+    },
+    'iScroll' : {
+      deps: [],
+      exports: 'iScroll'
     }
   }
 });

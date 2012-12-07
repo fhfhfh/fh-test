@@ -11,5 +11,5 @@ define(['backbone', 'models/NewsItem'], function(Backbone, NewsItem) {
 
 	// implementation----------------------------
 
-	return Peachy.Collections.NewsItem
+	return Peachy.Collections.NewsItems
 });

@@ -8,7 +8,7 @@ define(['zepto',
         'backbone',
         'text!templates/components/Headline-news.tpl',
         'collections/NewsItems'
-], function($, _, Backbone, template, NewsItems) {
+], function($, _, Backbone, Newstemplate, NewsItems) {
 
 	//interface--------------------------------------
 	Peachy.Views.HeadlineNews = Backbone.View.extend({
@@ -19,6 +19,7 @@ define(['zepto',
 	    events  : {
 	    	'click #load-more-news': 'loadNews'
 	    },
+	    template: Newstemplate,
 
 	    //Function interface
 		initialize	: _initialize,
@@ -28,6 +29,7 @@ define(['zepto',
 
 
 	//implementation-------------------------------
+
 	function _initialize(){
 		// TODO - move into collection file 
 		this.collection = new NewsItems([
@@ -46,7 +48,7 @@ define(['zepto',
 	};
 
 	function _render(){
-		this.$el.html(template({newsItems: this.collection.toJSON()}));
+		this.$el.html(Newstemplate);//({newsItems: this.collection.toJSON()}));
 		return this;
 	};
 

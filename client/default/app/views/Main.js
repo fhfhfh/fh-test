@@ -7,9 +7,9 @@ define(['zepto',
         'underscore',
         'backbone',
         'text!templates/pages/Main.tpl',
-        'controllers/Login',
-        'views/Headline-news'
-], function($, _, Backbone, template) {
+        'views/Headline-news',
+        'iScroll'
+], function($, _, Backbone, template, NewsView, iScroll) {
 
 
 	//interface----------------------------------
@@ -37,6 +37,7 @@ define(['zepto',
 	function _initialize(){
 		_.bindAll(this);
       	var self = this;
+      	this.render();
 
 		Backbone.View.prototype.refreshScroll = function() {
 			setTimeout(function() {
@@ -46,11 +47,9 @@ define(['zepto',
 			}, 100);
 		};
 
-		this.$el.html(this.template);
 		this.showNews();
-		$('body').html(this.el);
-
-	    this.iscroll = new iScroll('main-content', {
+		
+	    this.iscroll = new iScroll($('#main-content'), {
 			hscroll: false,
 			fixedScrollbar: true,
 			bounce: false,
@@ -61,7 +60,8 @@ define(['zepto',
 	};
 
 	function _render(){
-		return this;
+		var $el = $('body').html(template);
+		return $el;
 	};
 
 	function _showNews() {
