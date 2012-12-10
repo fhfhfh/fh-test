@@ -17,6 +17,8 @@ define(['zepto',
 		// Backbone specific attributes
 		tagName	: 'section',
 	    id		: 'login',
+	    template: loginTemplate,
+	    el 		: $('body'),
 	    events	: {
 			'click #signin': 'login',
 			'submit form' : 'login'
@@ -38,24 +40,15 @@ define(['zepto',
 	function _initialize(){
 		_.bindAll(this);
 		this.render();
-
-		var self = this;
-		setTimeout(function(){
-			self.login();	
-		}, 2000);
-		
 	};
 
 	function _render(){
-		var $el = $('body').html(loginTemplate);
-		return $el;
+		this.$el.html(this.template);
+		return this;
 	};
 
 
 	function _login(e){
-		console.log('asd');
-		$('#password').val('demo');
-		$('#username').val('demo');
 		var self = this;
 		var username = $('#username').val();
 		var password = $('#password').val();

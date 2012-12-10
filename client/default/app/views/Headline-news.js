@@ -20,6 +20,7 @@ define(['zepto',
 	    	'click #load-more-news': 'loadNews'
 	    },
 	    template: Newstemplate,
+	    el 		: $('body'),
 
 	    //Function interface
 		initialize	: _initialize,
@@ -44,17 +45,48 @@ define(['zepto',
 				videoCaption: 'Living With Diabetes'
 			}
 		]);
+
+		this.collection.on('add', this.appendItems);
 		this.render();
 	};
 
 	function _render(){
-		this.$el.html(Newstemplate);//({newsItems: this.collection.toJSON()}));
+		var itemsString = '';
+		this.collection.forEach(function(item) {
+			itemsString += self.itemTemplate(item.toJSON());
+		});
+		
+		this.$el.html(this.template({newsItems: this.collection.toJSON()}));
 		return this;
 	};
 
-	function _loadNews(){
+	function _appendItems(items) {
+      if (!items.length) {
+        this.$('ul').append(this.itemTemplate(items.toJSON()));
+      } else {
+        var itemsString = '';
+        items.forEach(function(item) {
+          itemsString += self.itemTemplate(item.toJSON());
+        });
+        this.$('ul').append(itemsString);
+      }
+      this.refreshScroll();
+    };
 
-	};
+    function _loadNews() {
+
+      // TODO: Implement proper functionality once API is in place.
+      this.collection.add(this.collection.toJSON());
+    };
+
+    function _playVideo(element) {
+      var video = $(element.currentTarget).find('video')[0];
+
+      // There's no need to do any paused state checking for now; the PhoneGap
+      // variant will only play in fullscreen, and so the element will NOT be
+      // clickable once playing.
+      video.play();
+    };
 
 	return Peachy.Views.HeadlineNews;
 

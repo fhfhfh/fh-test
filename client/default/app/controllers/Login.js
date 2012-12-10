@@ -26,7 +26,6 @@ define(['zepto',
 	var user = new User();
 
 	function _validate(username, pw){
-		console.log(username, pw);
 		if(username != undefined && username != '' && pw != undefined && pw != ''){
 			return true;
 		} else {

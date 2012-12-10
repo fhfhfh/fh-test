@@ -18,12 +18,15 @@ define(['zepto',
 	Peachy.Views.Main = Backbone.View.extend({
 
 		// Backbone specific attributes
-		tagName: 'section',
-	    id: 'main',
-	    events: {
+		tagName	: 'section',
+	    id		: 'main',
+	    events	: {
 	      'click #show-news': 'showNews',
-	      'click #show-goals': 'showGoals'
+	      'click #show-goals': 'showGoals',
+	      'click #show-alerts': 'showAlerts'
 	    },
+	    template: template,
+	    el 		: $('body'),
 
 		initialize			: _initialize,		// Used to refresh iScroll on content
 		render				: _render,
@@ -51,8 +54,8 @@ define(['zepto',
 			}, 100);
 		};
 
-		// this.showNews();
-		this.loadProfile();
+		this.showNews();
+		// this.loadProfile();
 		
 	    this.iscroll = new iScroll($('#main-content'), {
 			hscroll: false,

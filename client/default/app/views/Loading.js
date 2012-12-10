@@ -15,6 +15,8 @@ define(['zepto',
 		// Backbone specific attributes
 		tagName	: 'section',
 	    id		: 'loading',
+	    el 		: $('body'),
+	    template: template,
 
 	    //Function interface
 		initialize	: _initialize,
@@ -30,12 +32,11 @@ define(['zepto',
 
 	function _render(){
 		var self = this;
-		var $el = $('body').html(template);
+		this.$el.html(template);
 
 		// call function to change to homepage after 4 seconds
 		self.changePage();
-
-		return $el;
+		return this;
 	};
 
 	function _changePage(){
