@@ -1,0 +1,17 @@
+<li class="clearfix">
+    <div class="video-preview">
+        <video height="175" width="310" poster="img/VideoPlaceholder.png">
+            <source src="http://mirrorblender.top-ix.org/peach/bigbuckbunny_movies/big_buck_bunny_480p_h264.mov" type="video/mp4" />
+            Your browser does not support the video tag.
+        </video>
+
+        <!-- TODO: Use proper image & description once API is in place. -->
+        <!-- <img src="img/VideoPlaceholder.png" alt="Headline 1"> -->
+        <div class="title"><%= videoCaption %><span class="duration">(<%= duration %>)</span></div>
+    </div>
+    <div class="description">
+        <h2><%= headline %></h2>
+        <p><%= text %></p>
+        <a class="more" href="#">More &raquo;</a>
+    </div>
+</li>

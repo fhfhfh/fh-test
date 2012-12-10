@@ -3,7 +3,7 @@
 define(['zepto',
         'underscore',
         'backbone',
-        'text!templates/pages/Login.tpl',
+        'text!templates/pages/Login.html',
         'views/Login',
         'views/Main'
 ], function($, _, Backbone, loginTemplate, loginView, mainView) {

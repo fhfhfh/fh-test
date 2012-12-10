@@ -6,9 +6,8 @@
 define(['zepto',
         'underscore',
         'backbone',
-        'models/User',
         'map'
-], function($, _, Backbone, User, map) {
+], function($, _, Backbone, map) {
 
 
 	//interface----------------------------------

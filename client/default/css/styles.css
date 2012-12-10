@@ -1,3 +1,6 @@
+.clearfix:before,.clearfix:after{content:" ";display:table;}
+.clearfix:after{clear:both;}
+.clearfix{*zoom:1;}
 *{-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;margin:0;padding:0;}
 textarea,input{outline:none;}
 html,body{height:100%;color:#fff;font:normal 16px "Avenir Next",Helvetica,Arial,sans-serif;}
@@ -21,12 +24,12 @@ body{background:url('../img/bg.png') left top repeat;}
 #login-loading-message{margin:35px 0 30px 0;color:#ffcc66;font:normal 18px "Avenir Next Medium",Helvetica,Arial,sans-serif;}
 #loading-snippet p{line-height:1.5;margin-top:2em;font:bold 18px "Avenir Next Bold",Helvetica,Arial,sans-serif;}#loading-snippet p:nth-of-type(2n){font:normal 18px "Avenir Next",Helvetica,Arial,sans-serif;}
 @-webkit-keyframes fadeIn{from{opacity:0;} to{opacity:1;}}@-webkit-keyframes fadeOut{from{opacity:1;} to{opacity:0;}}#login,#loading{-webkit-animation-duration:.4s;-webkit-animation-name:fadeIn;}
-#main{height:100%;}
-#top-bar{height:55px;background-color:rgba(255, 255, 255, 0.1);margin:0;padding:0 15px;border-bottom:2px solid rgba(255, 255, 255, 0.2);width:100%;box-shadow:0 3px 3px 0 rgba(0, 0, 0, 0.15);position:relative;z-index:10;}#top-bar #logo{float:left;margin-top:15px;}
+#main-content{height:100%;width:85%;margin-left: 100px;}
+#top-bar{height:55px;background-color:rgba(255, 255, 255, 0.1);margin:0;padding:0 15px;border-bottom:2px solid rgba(255, 255, 255, 0.2);width:100%;box-shadow:0 3px 3px 0 rgba(0, 0, 0, 0.15);position:relative;z-index:10;-webkit-transition:all .2s linear;-webkit-transform:translate3d(0, 0, 0);}#top-bar #logo{float:left;margin-top:15px;}
 #top-bar #avatar{float:right;margin-top:7px;}
 #top-bar-buttons{list-style-type:none;height:100%;padding:11px 0;float:right;}#top-bar-buttons li{display:inline-block;margin-right:7px;}#top-bar-buttons li button{background-color:blue;height:30px;padding:0 10px;vertical-align:middle;-webkit-border-radius:5px;border-radius:5px;border:1px solid black;box-shadow:0 1px 0 0 rgba(255, 255, 255, 0.15);background-image:linear-gradient(bottom, #464646 0%, #1f1f1f 50%, #2e2e2e 51%, #525252 73%, #6b6b6b 100%);background-image:-webkit-linear-gradient(bottom, #464646 0%, #1f1f1f 50%, #2e2e2e 51%, #525252 73%, #6b6b6b 100%);background-image:-webkit-gradient(linear, left bottom, left top, color-stop(0, #464646), color-stop(0.5, #1f1f1f), color-stop(0.51, #2e2e2e), color-stop(0.73, #525252), color-stop(1, #6b6b6b));}#top-bar-buttons li button img{display:block;}
 #top-bar-buttons li #points-button{font:bold 13px "Avenir Next Bold",Helvetica,Arial,sans-serif;background-image:url('../img/PointsButtonWatermark.png'),linear-gradient(bottom, #464646 0%, #1f1f1f 50%, #2e2e2e 51%, #525252 73%, #6b6b6b 100%);background-image:url('../img/PointsButtonWatermark.png'),-webkit-linear-gradient(bottom, #464646 0%, #1f1f1f 50%, #2e2e2e 51%, #525252 73%, #6b6b6b 100%);background-image:url('../img/PointsButtonWatermark.png'),-webkit-gradient(linear, left bottom, left top, color-stop(0, #464646), color-stop(0.5, #1f1f1f), color-stop(0.51, #2e2e2e), color-stop(0.73, #525252), color-stop(1, #6b6b6b));background-position:left bottom;background-repeat:no-repeat;color:#fff;}#top-bar-buttons li #points-button em{font-size:14px;color:#ff9d02;font-style:normal;}
-#main-container{position:absolute;top:55px;bottom:0;left:15px;right:15px;}
+#main-container{position:absolute;top:55px;bottom:0;left:15px;right:15px;opacity:1;-webkit-transition:all .2s linear;-webkit-transform:translate3d(0, 0, 0);}
 #side-nav{list-style-type:none;width:110px;overflow:visible;float:left;margin-top:10px;}#side-nav li{width:120px;text-align:center;color:rgba(255, 255, 255, 0.8);padding:15px 15px 15px 5px;display:block;margin:0 auto;font:bold 13px "Avenir Next Demi Bold",Helvetica,Arial,sans-serif;}#side-nav li.selected{border-top-left-radius:5px;border-bottom-left-radius:5px;background-color:white;color:#2f3137;}#side-nav li.selected h2{font:bold 13px "Avenir Next Bold",Helvetica,Arial,sans-serif;}
 #side-nav h2{margin:0;display:block;font-weight:normal;font-size:13pt;margin-top:5px;}
 #main-content{height:100%;border-radius:10px;}#main-content>div{color:#000;padding-top:10px;padding-bottom:25px;position:relative;min-height:100%;}#main-content>div>div{background-color:#fff;box-shadow:0 7px 0 -4px #cccccc,0 12px 0 -7px #8b8b8b;min-height:300px;padding:10px;-webkit-border-radius:9px;border-radius:9px;}
@@ -39,10 +42,12 @@ body{background:url('../img/bg.png') left top repeat;}
 #adverts h3{font:bold 15px "Avenir Next Demi Bold",Helvetica,Arial,sans-serif;color:#2b6891;text-shadow:0 1px 1px #fff;line-height:1.5;}#adverts h3 em{color:#808080;font-style:normal;}
 #adverts span,#adverts p{font:normal 12px "Avenir Next",Helvetica,Arial,sans-serif;text-shadow:0 1px 1px #fff;color:#343434;line-height:2;}
 #adverts span{color:#2b6891;display:block;margin:10px 0;}
-#headline-news{padding:15px;}#headline-news h1{color:#2b6891;margin:30px 0 20px 0;font:bold 20px "Avenir Next Demi Bold",Helvetica,Arial,sans-serif;}
-#headline-news #headlines{list-style-type:none;overflow:hidden;}#headline-news #headlines li{margin-bottom:40px;}#headline-news #headlines li .video-preview{position:relative;float:left;margin-right:20px;}#headline-news #headlines li .video-preview img{display:block;}
-#headline-news #headlines li .video-preview .title{position:absolute;bottom:0;left:0;width:100%;color:#fff;background-color:rgba(0, 0, 0, 0.2);background-image:url('../img/VideoPlay.png');background-position:97% center;background-repeat:no-repeat;padding:10px;font:bold 12px "Avenir Next Bold",Helvetica,Arial,sans-serif;}
-#headline-news #headlines li h2{color:#1a1a1a;font:bold 13px "Avenir Next Demi Bold",Helvetica,Arial,sans-serif;}
-#headline-news #headlines li p{color:#343434;margin-top:1em;font:normal 12px "Avenir Next",Helvetica,Arial,sans-serif;line-height:2;}
-#headline-news #headlines li .more{font:bold 12px "Avenir Next Bold",Helvetica,Arial,sans-serif;color:#2b6891;text-decoration:none;}
-#headline-news #load-more-news{-webkit-border-radius:8px;border-radius:8px;border:2px solid #cdcdcd;font:bold 16px "Avenir Next Bold",Helvetica,Arial,sans-serif;color:#b3b3b3;background-color:transparent;width:100%;padding:10px;}
+.overlaid #top-bar{border-bottom-color:transparent;background-color:transparent;box-shadow:none;}
+.overlaid #main-container{opacity:0;}
+#news-and-information{padding:15px;}#news-and-information h1{color:#2b6891;margin:30px 0 20px 0;font:bold 20px "Avenir Next Demi Bold",Helvetica,Arial,sans-serif;}
+#news-and-information #headlines{list-style-type:none;overflow:hidden;}#news-and-information #headlines li .video-preview{position:relative;float:left;margin-right:20px;margin-bottom:40px;height:175px;}#news-and-information #headlines li .video-preview img{display:block;}
+#news-and-information #headlines li .video-preview .title{position:absolute;bottom:0;left:0;width:100%;color:#fff;background-color:rgba(0, 0, 0, 0.2);background-image:url('../img/VideoPlay.png');background-position:97% center;background-repeat:no-repeat;padding:10px;font:bold 12px "Avenir Next Bold",Helvetica,Arial,sans-serif;}#news-and-information #headlines li .video-preview .title .duration{margin-left:5px;color:rgba(255, 255, 255, 0.5);font:bold 11px "Avenir Next Demi Bold",Helvetica,Arial,sans-serif;}
+#news-and-information #headlines li .description{margin-bottom:40px;min-width:120px;overflow:hidden;}#news-and-information #headlines li .description h2{color:#1a1a1a;font:bold 13px "Avenir Next Demi Bold",Helvetica,Arial,sans-serif;}
+#news-and-information #headlines li .description p{color:#343434;margin-top:1em;font:normal 12px "Avenir Next",Helvetica,Arial,sans-serif;line-height:2;}
+#news-and-information #headlines li .description .more{font:bold 12px "Avenir Next Bold",Helvetica,Arial,sans-serif;color:#2b6891;text-decoration:none;}
+#news-and-information #load-more-news{-webkit-border-radius:8px;border-radius:8px;border:2px solid #cdcdcd;font:bold 16px "Avenir Next Bold",Helvetica,Arial,sans-serif;color:#b3b3b3;background-color:transparent;width:100%;padding:10px;}

@@ -6,57 +6,74 @@
 define(['zepto',
         'underscore',
         'backbone',
-        'text!templates/components/Headline-news.tpl',
-        'collections/NewsItems'
-], function($, _, Backbone, Newstemplate, NewsItems) {
+        'collections/NewsItems',
+        'text!templates/components/News.html',
+        'text!templates/components/NewsItem.html',
+], function($, _, Backbone, NewsItems, template, itemTemplate) {
 
 	//interface--------------------------------------
 	var news = Backbone.View.extend({
 
 		// Backbone specific attributes
-		tagName	: 'section',
-	    id		: 'headline-news',
-	    events  : {
-	    	'click #load-more-news': 'loadNews'
+		tagName		: 'section',
+	    id			: 'news-and-information',
+	    collection	: null,
+	    events		: {
+	    	'click #load-more-news': 'loadNews',
+	    	'click .video-preview': 'playVideo'
 	    },
-	    template: Newstemplate,
-	    el 		: $('body'),
+	    template	: _.template(template),
+	    itemTemplate: _.template(itemTemplate),
+	    // el 		: $('#main-container'),
 
 	    //Function interface
 		initialize	: _initialize,
 		render		: _render,		// return template
-		loadNews 	: _loadNews 	// Load more news items to page
+		loadNews 	: _loadNews, 	// Load more news items to page
+		playVideo 	: _playVideo	// begin video playback
 	});
 
 
 	//implementation-------------------------------
 
 	function _initialize(){
+		_.bindAll(this);
 		// TODO - move into collection file 
 		this.collection = new NewsItems([
 			{
 				headline: 'Making Smart Choices',
-				text: 'Hypoglycemia is the medical term for a low blood sugar level. Diet can help control hypoglycemia. Learn more about nutrition for hypoglycemia in this health video.',
-				videoCaption: 'Choices For Hypoglycemics'
+				text: [
+					'Hypoglycemia is the medical term for a low blood sugar level.',
+					'Diet can help control hypoglycemia. Learn more about nutrition',
+					'for hypoglycemia in this health video.'
+				].join(' '),
+				videoCaption: 'Choices For Hypoglycemics',
+				duration: '23:10'
 			},
 			{
 				headline: 'What is Type 1 Diabetes?',
-				text: 'Diabetes is a disease wherein the body cannot produce adequate amounts of insulin to regulate blood sugar. Learn more about diabetes including treatment options in this medical video.',
-				videoCaption: 'Living With Diabetes'
-			}
+				text: [
+					'Diabetes is a disease wherein the body cannot produce adequate',
+					'amounts of insulin to regulate blood sugar. Learn more about',
+					'diabetes including treatment options in this medical video.'
+				].join(' '),
+				videoCaption: 'Living With Diabetes',
+				duration: '12:32'
+	        }
 		]);
 
 		this.collection.on('add', this.appendItems);
-		this.render();
 	};
 
 	function _render(){
+		var self = this;
 		var itemsString = '';
 		this.collection.forEach(function(item) {
+			console.log(item);
 			itemsString += self.itemTemplate(item.toJSON());
+
 		});
-		
-		this.$el.html(this.template({newsItems: this.collection.toJSON()}));
+		this.$el.html(this.template({newsItems: itemsString}));
 		return this;
 	};
 

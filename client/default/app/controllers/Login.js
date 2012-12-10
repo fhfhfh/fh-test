@@ -56,7 +56,11 @@ define(['zepto',
 	function _loggedIn(session, username){
 		user.setSession(session);
 		user.setName(username);
-		console.log('USER: ' ,user.getName(), 'SESSION: ', user.getSession());
+		
+		// Get user profile from cloud
+		user.fetchUser(function(res){
+			console.log(res);
+		});
 	};
 	
 

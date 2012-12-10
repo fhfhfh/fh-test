@@ -6,8 +6,8 @@
 define(['zepto',
         'underscore',
         'backbone',
-        'text!templates/pages/Main.tpl',
-        'views/Headline-news',
+        'text!templates/pages/Main.html',
+        'views/home/Headline-news',
         'iScroll',
         'models/Acts',
         'models/User'
@@ -19,11 +19,11 @@ define(['zepto',
 
 		// Backbone specific attributes
 		tagName	: 'section',
-	    id		: 'main',
+	    id		: 'main-content',
 	    events	: {
 	      'click #show-news': 'showNews',
-	      'click #show-goals': 'showGoals',
-	      'click #show-alerts': 'showAlerts'
+	      'click #show-goals': 'showGoals'
+	      // 'click #show-alerts': 'showAlerts'
 	    },
 	    template: template,
 	    el 		: $('body'),
@@ -33,7 +33,6 @@ define(['zepto',
 		showNews			: _showNews,		// Show news tab
 		showGoals			: _showGoals,		// Show goals tab
 		toggleSelectedTab	: _toggleSelectedTab,// switch between tabs
-		loadProfile 		: _loadProfile	 	// download user info from cloud
 
 	});
 
@@ -44,7 +43,6 @@ define(['zepto',
 	function _initialize(){
 		_.bindAll(this);
       	var self = this;
-      	this.render();
 
 		Backbone.View.prototype.refreshScroll = function() {
 			setTimeout(function() {
@@ -54,21 +52,22 @@ define(['zepto',
 			}, 100);
 		};
 
-		// this.showNews();
-		this.loadProfile();
+		this.showNews();
 		
-	    this.iscroll = new iScroll($('#main-content'), {
-			hscroll: false,
-			fixedScrollbar: true,
-			bounce: false,
-			vScrollbar: false
-        });
+	  //   this.iscroll = new iScroll($('#home-content'), {
+			// hscroll: false,
+			// fixedScrollbar: true,
+			// bounce: false,
+			// vScrollbar: false
+   //      });
 
 		this.refreshScroll();
+		this.render();
 	};
 
 	function _render(){
 		var $el = $('body').html(template);
+		this.showNews();
 		return $el;
 	};
 
@@ -88,7 +87,6 @@ define(['zepto',
     function _toggleSelectedTab(selectedId) {
 		this.$('#content-tab-list li').each(function(index, tab) {
 			tab = $(tab);
-			console.log(tab);
 			if (tab.attr('id') == selectedId) {
 				tab.addClass('selected');
 			} else {
@@ -96,27 +94,6 @@ define(['zepto',
 			}
 		})
     };
-
-    function _loadProfile(){
-    	var self = this;
-    	Acts.call('userProfileAction', {}, 
-    		function(res){
-    			user.setProfile(res.payload.userDetails);
-    			var prof = user.getProfile();
-    			user.saveUser(function(res){
-    				console.log('Saved User: ',res);
-    			});
-    			user.loadUser(function(res,data){
-    				console.log(res, data);
-    			});
-    			// prof = JSON.stringify(prof.userDetails);
-    			// prof = prof.replace(/\,/g, ',<br/>');
-    			// this.$('#home-content').html('<div>' +prof + '</div>');
-    	}, function(err, msg){
-    			console.log(err, msg);
-    	});
-
-    }
 	
 	return main;
 

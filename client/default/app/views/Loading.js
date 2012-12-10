@@ -6,7 +6,7 @@
 define(['zepto',
         'underscore',
         'backbone',
-        'text!templates/pages/Loading.tpl',
+        'text!templates/pages/Loading.html',
 ], function($, _, Backbone, template) {
 
 	//interface--------------------------------------
@@ -21,7 +21,7 @@ define(['zepto',
 	    //Function interface
 		initialize	: _initialize,
 		render		: _render,		// return template
-		changePage 	: _changePage 	// Show homepage after waiting four seconds
+		changePage 	: _changePage, 	// Show homepage after waiting four seconds
 	});
 
 

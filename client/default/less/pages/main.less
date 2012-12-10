@@ -7,6 +7,8 @@
 
 #main {
     height: 100%;
+    width : 85%;
+    margin-left: 100px;
 }
 
 #top-bar {
@@ -19,6 +21,8 @@
     box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.15);
     position: relative;
     z-index: 10;
+    -webkit-transition: all .2s linear;
+    -webkit-transform: translate3d(0, 0, 0);
 
     #logo {
         float: left;
@@ -103,6 +107,9 @@
     bottom: 0;
     left: 15px;
     right: 15px;
+    opacity: 1;
+    -webkit-transition: all .2s linear;
+    -webkit-transform: translate3d(0, 0, 0);
 }
 
 #side-nav {
@@ -249,5 +256,18 @@
         color: #2b6891;
         display: block;
         margin: 10px 0;
+    }
+}
+
+
+.overlaid {
+    #top-bar {
+        border-bottom-color: transparent;
+        background-color: transparent;
+        box-shadow: none;
+    }
+
+    #main-container {
+        opacity: 0;
     }
 }

@@ -6,7 +6,7 @@
 define(['zepto',
         'underscore',
         'backbone',
-        'text!templates/pages/Login.tpl',
+        'text!templates/pages/Login.html',
         'controllers/Login',
         'views/Loading'
 ], function($, _, Backbone, loginTemplate, LoginController, LoadingView) {

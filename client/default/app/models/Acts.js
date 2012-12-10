@@ -1,14 +1,14 @@
 /*--------------------
 	app/models/Acts
 
-	Module used to build the act called used throughout the app
+	Module used to build the act calls used throughout the app
 --------------------*/
 define(['zepto',
         'underscore',
         'backbone',
-        'models/User',
+        'models/Store',
         'map'
-], function($, _, Backbone, User, map) {
+], function($, _, Backbone, store, map) {
 
 
 	//interface----------------------------------
@@ -18,7 +18,6 @@ define(['zepto',
 	};
 
 	//implementation-------------------------------
-	var user = new User();
 	
 	function _call(func, params, successFn, failFn){
 		var head = {};
@@ -27,10 +26,11 @@ define(['zepto',
 		payload[payloadName] = params;
 
 		//set sessionId for all function calls
-		sess = user.getSession();
-		if(sess){
-			head = {'sessionId' : sess};
-		}
+		store.load('SessionID', function(res, data){
+			if(res){
+				head = {'sessionId' : data.val};
+			}
+		});
 	
 		//create required request structure
 		params = {
