@@ -5,8 +5,9 @@ define(['zepto',
         'backbone',
         'text!templates/pages/Login.html',
         'views/Login',
-        'views/Main'
-], function($, _, Backbone, loginTemplate, loginView, mainView) {
+        'views/Main',
+        'views/Profile'
+], function($, _, Backbone, loginTemplate, loginView, mainView, profileView) {
 
 
   //interface------------------------------
@@ -17,10 +18,12 @@ define(['zepto',
     login     : _login,      // Function called when path = /login 
     default   : _default,    // Fallback function
     home      : _home,
+    profile   : _profile,
     routes : {               // Backbone object defining all route bindings
       ''     : 'startup',
       'login': 'login',
       'home' : 'home',
+      'profile': 'profile',
       '*path': 'default'
     }
   });
@@ -53,6 +56,10 @@ define(['zepto',
 
     function _home(){
       new mainView();
+    };
+
+    function _profile(){
+      new profileView();
     }
 
 

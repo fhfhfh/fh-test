@@ -21,9 +21,10 @@ define(['zepto',
 		tagName	: 'section',
 	    id		: 'main-content',
 	    events	: {
-	      'click #show-news': 'showNews',
-	      'click #show-goals': 'showGoals'
-	      // 'click #show-alerts': 'showAlerts'
+	      'click #show-news'		: 'showNews',
+	      'click #show-goals'		: 'showGoals',
+	      // 'click #show-alerts'	: 'showAlerts',
+	      'click #profile-button'	: 'showProfile'
 	    },
 	    template: template,
 	    el 		: $('body'),
@@ -33,6 +34,7 @@ define(['zepto',
 		showNews			: _showNews,		// Show news tab
 		showGoals			: _showGoals,		// Show goals tab
 		toggleSelectedTab	: _toggleSelectedTab,// switch between tabs
+		showProfile 		: _showProfile 		// open user profile page
 
 	});
 
@@ -94,6 +96,10 @@ define(['zepto',
 			}
 		})
     };
+
+    function _showProfile(){
+    	App.navigate('profile', true)
+    }
 	
 	return main;
 
