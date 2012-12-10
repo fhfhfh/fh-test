@@ -5,18 +5,23 @@
 --------------------*/
 define(['zepto',
         'underscore',
-        'backbone'
-], function($, _, Backbone) {
+        'backbone',
+        'models/Store'
+], function($, _, Backbone, store) {
 
 	//interface----------------------------------
-	Peachy.Models.User = Backbone.Model.extend({
+	var user = Backbone.Model.extend({
+
+		url : "Peachy/User",
 
 		getSession : _getSession,
 		setSession : _setSession,
 		getName    : _getName,
 		setName    : _setName,
 		getProfile : _getProfile,
-		setProfile : _setProfile
+		setProfile : _setProfile,
+		saveUser   : _saveUser,
+		loadUser   : _loadUser
 	});
 	
 	//scripts------------------------------------
@@ -51,6 +56,34 @@ define(['zepto',
 		profile = prof;
 	};
 
-	return Peachy.Models.User;
+	function _saveUser(callback){
+		var prof =this.getProfile();
+		prof = JSON.stringify(prof);
+
+		store.save('userProfile', prof, function(res){
+			if(res){
+				return callback(true);
+			}
+			else {
+				return callback(false);
+			}
+		});
+	};
+
+	function _loadUser(callback){
+		store.load('userProfile', function(res, data){
+			var obj = JSON.parse(data);
+			if(res){
+				return callback(res, obj);
+			}
+			else {
+				return callback(false);
+			}
+		});
+	};
+
+
+
+	return user;
 
 });

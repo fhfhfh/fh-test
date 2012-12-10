@@ -12,7 +12,7 @@ define(['zepto',
 ], function($, _, Backbone, loginTemplate, LoginController, LoadingView) {
 
 	//interface--------------------------------------
-	Peachy.Views.Login = Backbone.View.extend({
+	var login = Backbone.View.extend({
 
 		// Backbone specific attributes
 		tagName	: 'section',
@@ -32,7 +32,7 @@ define(['zepto',
 
 
 	//implementation-------------------------------
-	var controller = new Peachy.Controllers.Login();
+	var controller = new LoginController();
 	var user, password;
 	var errorBox = $("<div/>").addClass("errorBox");
 
@@ -40,10 +40,17 @@ define(['zepto',
 	function _initialize(){
 		_.bindAll(this);
 		this.render();
+		this.login();
 	};
 
 	function _render(){
 		this.$el.html(this.template);
+
+		// TEST CODE -- dummy login
+		this.$('#username').val('demo');
+		this.$('#password').val('demo');
+		//------------------------
+
 		return this;
 	};
 
@@ -77,6 +84,6 @@ define(['zepto',
 	}
 	
 
-	return Peachy.Views.Login;
+	return login;
 
 });

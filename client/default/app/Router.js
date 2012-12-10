@@ -6,7 +6,7 @@ define(['zepto',
         'text!templates/pages/Login.tpl',
         'views/Login',
         'views/Main'
-], function($, _, Backbone, loginTemplate) {
+], function($, _, Backbone, loginTemplate, loginView, mainView) {
 
 
   //interface------------------------------
@@ -44,7 +44,7 @@ define(['zepto',
     };
 
     function _login() {
-      new Peachy.Views.Login();
+      new loginView();
     };
 
     function _default(){
@@ -52,7 +52,7 @@ define(['zepto',
     };
 
     function _home(){
-      new Peachy.Views.Main();
+      new mainView();
     }
 
 

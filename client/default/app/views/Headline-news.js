@@ -11,7 +11,7 @@ define(['zepto',
 ], function($, _, Backbone, Newstemplate, NewsItems) {
 
 	//interface--------------------------------------
-	Peachy.Views.HeadlineNews = Backbone.View.extend({
+	var news = Backbone.View.extend({
 
 		// Backbone specific attributes
 		tagName	: 'section',
@@ -88,6 +88,6 @@ define(['zepto',
       video.play();
     };
 
-	return Peachy.Views.HeadlineNews;
+	return news;
 
 });

@@ -12,11 +12,11 @@ define(['zepto',
 
 
 	//interface----------------------------------
-	Peachy.Models.Store = {
+	var store = {
 
 		save	: _save, 	// save a model to local storage
 		load	: _load,	// load a model from local storage
-		clear	: _clear 	// clear a model from local storage
+		clear	: _clear, 	// clear a model from local storage
 		clearAll: _clearAll // wipe local storage
 	};
 
@@ -63,6 +63,6 @@ define(['zepto',
 		// TODO -- write clear all function to wipe storage
 	};
 
-	return Peachy.Models.Store;
+	return store;
 
 });

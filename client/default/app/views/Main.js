@@ -15,7 +15,7 @@ define(['zepto',
 
 
 	//interface----------------------------------
-	Peachy.Views.Main = Backbone.View.extend({
+	var main = Backbone.View.extend({
 
 		// Backbone specific attributes
 		tagName	: 'section',
@@ -54,8 +54,8 @@ define(['zepto',
 			}, 100);
 		};
 
-		this.showNews();
-		// this.loadProfile();
+		// this.showNews();
+		this.loadProfile();
 		
 	    this.iscroll = new iScroll($('#main-content'), {
 			hscroll: false,
@@ -101,17 +101,23 @@ define(['zepto',
     	var self = this;
     	Acts.call('userProfileAction', {}, 
     		function(res){
-    			user.setProfile(res.payload);
+    			user.setProfile(res.payload.userDetails);
     			var prof = user.getProfile();
-    			prof = JSON.stringify(prof.userDetails);
-    			prof = prof.replace(/\,/g, ',<br/>');
-    			this.$('#home-content').html('<div>' +prof + '</div>');
+    			user.saveUser(function(res){
+    				console.log('Saved User: ',res);
+    			});
+    			user.loadUser(function(res,data){
+    				console.log(res, data);
+    			});
+    			// prof = JSON.stringify(prof.userDetails);
+    			// prof = prof.replace(/\,/g, ',<br/>');
+    			// this.$('#home-content').html('<div>' +prof + '</div>');
     	}, function(err, msg){
     			console.log(err, msg);
     	});
 
     }
 	
-	return Peachy.Views.Main;
+	return main;
 
 });

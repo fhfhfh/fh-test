@@ -10,10 +10,9 @@ define(['zepto',
         'models/User'
 ], function($, _, Backbone, Acts, User) {
 
+	//interface----------------------------------
+	var login = Backbone.Model.extend({
 
-	Peachy.Controllers.Login = Backbone.Model.extend({
-
-		//interface----------------------------------
 		login		: _login,
 		validate 	: _validate,
 		loggedIn 	: _loggedIn
@@ -61,6 +60,6 @@ define(['zepto',
 	};
 	
 
-	return Peachy.Views.Login;
+	return login;
 
 });

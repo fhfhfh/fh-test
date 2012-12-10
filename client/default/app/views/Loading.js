@@ -10,7 +10,7 @@ define(['zepto',
 ], function($, _, Backbone, template) {
 
 	//interface--------------------------------------
-	Peachy.Views.Loading = Backbone.View.extend({
+	var loading = Backbone.View.extend({
 
 		// Backbone specific attributes
 		tagName	: 'section',
@@ -47,6 +47,6 @@ define(['zepto',
 
 
 
-	return Peachy.Views.Loading;
+	return loading;
 
 });

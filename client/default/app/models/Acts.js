@@ -12,7 +12,7 @@ define(['zepto',
 
 
 	//interface----------------------------------
-	Peachy.Models.Acts = {
+	var acts = {
 
 		call : _call
 	};
@@ -44,14 +44,19 @@ define(['zepto',
 			'act' : func,
 			'req' : params
 		}, function(res){
-			console.log('Act Success', res);
-			return successFn(res.response);
+			console.log(res);
+			// var status = res.response.payload[payloadName].status;
+			// //success
+			// if(status.indexOf('ERR') == -1){
+				console.log('Act Success', res);
+				return successFn(res.response);	
+			// }
 		}, function(err, msg){
 			console.log('Act Fail', err);
 			return failFn(err, msg);
 		});
 	};
 
-	return Peachy.Models.Acts;
+	return acts;
 
 });

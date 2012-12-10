@@ -9,12 +9,12 @@ define(['backbone'], function(Backbone) {
 	// TODO: Implement any custom logic necessary once backend in place.
 
 	// interface
-	Peachy.Models.NewsItem = Backbone.Model.extend({
+	var newsItem = Backbone.Model.extend({
 
 	});
 
 	// implementation--------------------------
 
 
-	return Peachy.Models.NewsItem;
+	return newsItem;
 });
