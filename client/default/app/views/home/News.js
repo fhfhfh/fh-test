@@ -30,7 +30,8 @@ define(['zepto',
 		initialize	: _initialize,
 		render		: _render,		// return template
 		loadNews 	: _loadNews, 	// Load more news items to page
-		playVideo 	: _playVideo	// begin video playback
+		playVideo 	: _playVideo,	// begin video playback
+		appendItems : _appendItems
 	});
 
 
@@ -91,7 +92,6 @@ define(['zepto',
     };
 
     function _loadNews() {
-
       // TODO: Implement proper functionality once API is in place.
       this.collection.add(this.collection.toJSON());
     };

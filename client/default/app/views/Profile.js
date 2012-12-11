@@ -8,8 +8,9 @@ define(['zepto',
         'backbone',
         'models/Acts',
         'models/User',
-        'text!templates/pages/Profile.html'
-], function($, _, Backbone, Acts, User, template) {
+        'text!templates/pages/Profile.html',
+        'controllers/Profile'
+], function($, _, Backbone, Acts, User, template, Controller) {
 
 	//interface ---------------------------
 	var profile = Backbone.View.extend({
@@ -34,7 +35,8 @@ define(['zepto',
 
 
 	//implementation-------------------------------
-	var user = new User();
+	var user		= new User();
+	var controller	= new Controller();
 
 	function _initialize(){
 		this.render();
@@ -52,7 +54,6 @@ define(['zepto',
 		var details;
 
 		user.loadUser(function(res, data){
-			console.log(data);
 			if(res){
 				details = data.userDetails;
 			}else{
@@ -64,9 +65,7 @@ define(['zepto',
 	};
 
 	function _saveDetails(){
-		var profile
-
-		// TODO: save profile to user model and local storage
+		controller.saveProfile(this);
 		console.log('Saving...');
 	};
 

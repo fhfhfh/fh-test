@@ -57,22 +57,23 @@ define(['zepto',
 			}, 100);
 		};
 
-		this.showNews();
-		
-	  //   this.iscroll = new iScroll($('#home-content'), {
-			// hscroll: false,
-			// fixedScrollbar: true,
-			// bounce: false,
-			// vScrollbar: false
-   //      });
-
 		this.refreshScroll();
 		this.render();
 	};
 
 	function _render(){
-		var $el = $('body').html(template);
+		var $el			= $('body').html(template);
+		var scroller	= $el.find('#main-content')[0];
+
 		this.showNews();
+
+		this.iscroll = new iScroll(scroller, {
+			hscroll: false,
+			fixedScrollbar: true,
+			bounce: false,
+			vScrollbar: false
+        });
+
 		return $el;
 	};
 
