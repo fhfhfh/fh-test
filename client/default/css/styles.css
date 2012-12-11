@@ -399,29 +399,41 @@ body {
 .overlaid #main-container {
   opacity: 0;
 }
-#news-and-information {
+#news-and-information,
+#goals,
+#alerts {
   padding: 15px;
 }
-#news-and-information h1 {
+#news-and-information h1,
+#goals h1,
+#alerts h1 {
   color: #2b6891;
   margin: 30px 0 20px 0;
   font: bold 20px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
 }
-#news-and-information #headlines {
+#news-and-information #headlines,
+#goals #headlines,
+#alerts #headlines {
   list-style-type: none;
   overflow: hidden;
 }
-#news-and-information #headlines li .video-preview {
+#news-and-information #headlines li .video-preview,
+#goals #headlines li .video-preview,
+#alerts #headlines li .video-preview {
   position: relative;
   float: left;
   margin-right: 20px;
   margin-bottom: 40px;
   height: 175px;
 }
-#news-and-information #headlines li .video-preview img {
+#news-and-information #headlines li .video-preview img,
+#goals #headlines li .video-preview img,
+#alerts #headlines li .video-preview img {
   display: block;
 }
-#news-and-information #headlines li .video-preview .title {
+#news-and-information #headlines li .video-preview .title,
+#goals #headlines li .video-preview .title,
+#alerts #headlines li .video-preview .title {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -434,32 +446,44 @@ body {
   padding: 10px;
   font: bold 12px "Avenir Next Bold", Helvetica, Arial, sans-serif;
 }
-#news-and-information #headlines li .video-preview .title .duration {
+#news-and-information #headlines li .video-preview .title .duration,
+#goals #headlines li .video-preview .title .duration,
+#alerts #headlines li .video-preview .title .duration {
   margin-left: 5px;
   color: rgba(255, 255, 255, 0.5);
   font: bold 11px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
 }
-#news-and-information #headlines li .description {
+#news-and-information #headlines li .description,
+#goals #headlines li .description,
+#alerts #headlines li .description {
   margin-bottom: 40px;
   min-width: 120px;
   overflow: hidden;
 }
-#news-and-information #headlines li .description h2 {
+#news-and-information #headlines li .description h2,
+#goals #headlines li .description h2,
+#alerts #headlines li .description h2 {
   color: #1a1a1a;
   font: bold 13px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
 }
-#news-and-information #headlines li .description p {
+#news-and-information #headlines li .description p,
+#goals #headlines li .description p,
+#alerts #headlines li .description p {
   color: #343434;
   margin-top: 1em;
   font: normal 12px "Avenir Next", Helvetica, Arial, sans-serif;
   line-height: 2;
 }
-#news-and-information #headlines li .description .more {
+#news-and-information #headlines li .description .more,
+#goals #headlines li .description .more,
+#alerts #headlines li .description .more {
   font: bold 12px "Avenir Next Bold", Helvetica, Arial, sans-serif;
   color: #2b6891;
   text-decoration: none;
 }
-#news-and-information #load-more-news {
+#news-and-information #load-more-news,
+#goals #load-more-news,
+#alerts #load-more-news {
   -webkit-border-radius: 8px;
   border-radius: 8px;
   border: 2px solid #cdcdcd;

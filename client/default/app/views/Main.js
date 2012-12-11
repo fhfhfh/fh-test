@@ -8,10 +8,12 @@ define(['zepto',
         'backbone',
         'text!templates/pages/Main.html',
         'views/home/Headline-news',
+        'views/home/Goals',
+        'views/home/Alerts',
         'iScroll',
         'models/Acts',
         'models/User'
-], function($, _, Backbone, template, NewsView, iScroll, Acts, User) {
+], function($, _, Backbone, template, NewsView, GoalsView, AlertsView, iScroll, Acts, User) {
 
 
 	//interface----------------------------------
@@ -23,7 +25,7 @@ define(['zepto',
 	    events	: {
 	      'click #show-news'		: 'showNews',
 	      'click #show-goals'		: 'showGoals',
-	      // 'click #show-alerts'	: 'showAlerts',
+	      'click #show-alerts'		: 'showAlerts',
 	      'click #profile-button'	: 'showProfile'
 	    },
 	    template: template,
@@ -33,6 +35,7 @@ define(['zepto',
 		render				: _render,
 		showNews			: _showNews,		// Show news tab
 		showGoals			: _showGoals,		// Show goals tab
+		showAlerts 			: _showAlerts,		// Show alerts tab
 		toggleSelectedTab	: _toggleSelectedTab,// switch between tabs
 		showProfile 		: _showProfile 		// open user profile page
 
@@ -82,7 +85,15 @@ define(['zepto',
 
     function _showGoals() {
 		this.toggleSelectedTab('show-goals');
-		this.$('#home-content').html('');
+		var goalsView = new GoalsView();
+		this.$('#home-content').html(goalsView.render());
+		this.refreshScroll();
+    };
+
+    function _showAlerts() {
+		this.toggleSelectedTab('show-alerts');
+		var alertsView = new AlertsView();
+		this.$('#home-content').html(alertsView.render());
 		this.refreshScroll();
     };
 

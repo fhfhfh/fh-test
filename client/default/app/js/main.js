@@ -49,7 +49,6 @@ require([
   $(function() {
     window.App = new Router();
     
-    // Backbone.history = new Backbone.History();
     Backbone.history.start({
       pushState: false,
       root: document.location.pathname
