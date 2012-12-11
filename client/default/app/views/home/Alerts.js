@@ -34,9 +34,10 @@ define(['zepto',
 	};
 
 	function _render(){
+		this.$el.html(template);
+		var html = '<section id="alerts">'+template+'</section>';
 
-		// this.$el.html(this.template());
-		return template;
+		return html;
 	};
 
 

@@ -91,7 +91,7 @@ define(['zepto',
 		var self = this;
 		store.load('userProfile', function(res, data){
 			var obj = JSON.parse(data.val);
-			console.log(obj)
+			console.log(obj);
 			if(res){
 				self.setProfile(obj);
 				return callback(res, obj);

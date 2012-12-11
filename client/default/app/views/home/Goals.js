@@ -35,7 +35,9 @@ define(['zepto',
 
 	function _render(){
 		this.$el.html(template);
-		return this.$el;
+		var html = '<section id="goals">'+template+'</section>';
+
+		return html;
 	};
 
 

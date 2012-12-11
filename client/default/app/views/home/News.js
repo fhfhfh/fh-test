@@ -69,7 +69,7 @@ define(['zepto',
 		var self = this;
 		var itemsString = '';
 		this.collection.forEach(function(item) {
-			console.log(item);
+			// console.log(item);
 			itemsString += self.itemTemplate(item.toJSON());
 
 		});
