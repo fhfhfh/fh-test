@@ -9,6 +9,7 @@ profile
 
 # Any IDE specific project files shouldn't be added to git.
 .idea
+META-INF
 
 # No log files of any sort should be added.
 *.log
