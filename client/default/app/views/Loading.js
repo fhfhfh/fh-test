@@ -15,7 +15,7 @@ define(['zepto',
 		// Backbone specific attributes
 		tagName	: 'section',
 	    id		: 'loading',
-	    el 		: $('body'),
+	    el 		: $('#body'),
 	    template: template,
 
 	    //Function interface

@@ -75,6 +75,7 @@ define(['zepto',
 
 		});
 		this.$el.html(this.template({newsItems: itemsString}));
+		// this.refreshScroll();
 		return this;
 	};
 

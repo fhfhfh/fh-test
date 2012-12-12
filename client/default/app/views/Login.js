@@ -18,7 +18,7 @@ define(['zepto',
 		tagName	: 'section',
 	    id		: 'login',
 	    template: loginTemplate,
-	    el 		: $('body'),
+	    el 		: $('#body'),
 	    events	: {
 			'click #signin': 'login',
 			'submit form' : 'login'
@@ -40,7 +40,7 @@ define(['zepto',
 	function _initialize(){
 		_.bindAll(this);
 		this.render();
-		this.login();
+		// this.login();
 	};
 
 	function _render(){

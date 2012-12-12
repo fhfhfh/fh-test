@@ -29,7 +29,7 @@ define(['zepto',
 	      'click #profile-button'	: 'showProfile'
 	    },
 	    template: template,
-	    el 		: $('body'),
+	    el 		: $('#body'),
 
 		initialize			: _initialize,		// Used to refresh iScroll on content
 		render				: _render,
@@ -62,7 +62,7 @@ define(['zepto',
 	};
 
 	function _render(){
-		var $el			= $('body').html(template);
+		var $el			= $('#body').html(template);
 		var scroller	= $el.find('#main-content')[0];
 
 		this.showNews();

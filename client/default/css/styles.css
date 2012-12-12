@@ -45,6 +45,8 @@ body {
 }
 #login-box-center {
   display: table-cell;
+  position: relative;
+  top: 22%;
   vertical-align: middle;
 }
 #login-logo {
@@ -416,6 +418,161 @@ body {
 }
 .overlaid #main-container {
   opacity: 0;
+}
+li {
+  list-style-type: none;
+  display: inline-block;
+}
+#main-tabs {
+  background-image: linear-gradient(bottom, #000000 0%, #3e3535 85%);
+  background-image: -webkit-linear-gradient(bottom, #000000 0%, #3e3535 85%);
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #000000), color-stop(0.85, #3e3535));
+  border-radius: 10px 10px 0 0;
+  border: 1px solid #fff;
+  padding: 5px;
+  margin-top: 10px;
+}
+#main-tabs:active {
+  background-image: linear-gradient(bottom, #3e3535 0%, #000000 85%);
+  background-image: -webkit-linear-gradient(bottom, #3e3535 0%, #000000 85%);
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #3e3535), color-stop(0.85, #000000));
+}
+#main-tabs li {
+  width: 24%;
+  font: bold 15px "Avenir Next Bold", Helvetica, Arial, sans-serif;
+  text-align: center;
+  padding: 10px;
+}
+#main-tabs li.selected {
+  border-radius: 5px;
+  border: 1px solid #FFFF00;
+  box-shadow: 0 0 10px #FFFF00;
+}
+#general-body {
+  background-color: #fff;
+  background-image: url('../img/backgrounds/SettingsBackground.png');
+  border-radius: 0 0 10px 10px;
+  color: #000;
+  padding: 6%;
+}
+#general-body #loginInfo {
+  display: inline-block;
+  width: 30%;
+}
+#general-body h2 {
+  font: bold 17px "Avenir Next Bold", Helvetica, Arial, sans-serif;
+}
+#general-body li {
+  margin: 5px;
+  padding: 8px;
+  padding-right: 0px;
+  background-color: #fff;
+  border-radius: 5px;
+  border: 1px solid #c0c0c0;
+  font: normal 11px "Avenir Next Medium", Helvetica, Arial, sans-serif;
+}
+#general-body li label {
+  color: #2B60DE;
+  padding-right: 10px;
+}
+#general-body li input,
+#general-body li select,
+#general-body li textarea {
+  background-color: #fff;
+  outline: none;
+  border: none;
+  width: 60%;
+  font: bold 13px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
+}
+#general-body li textarea,
+#general-body li img {
+  height: 60px;
+}
+#general-body li img {
+  width: 90%;
+  margin-right: 5px;
+}
+#general-body li.w10 {
+  width: 10%;
+}
+#general-body li.w15 {
+  width: 15%;
+}
+#general-body li.w20 {
+  width: 20%;
+}
+#general-body li.w22 {
+  width: 22%;
+}
+#general-body li.w25 {
+  width: 25%;
+}
+#general-body li.w30 {
+  width: 30%;
+}
+#general-body li.w35 {
+  width: 35%;
+}
+#general-body li.w42 {
+  width: 42%;
+}
+#general-body li.w46 {
+  width: 46%;
+}
+#general-body li.w47 {
+  width: 47%;
+}
+#general-body li.w100 {
+  width: 100%;
+}
+#general-body .age {
+  font: bold 13px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
+  color: #cdcdcd;
+}
+#general-body form {
+  margin-bottom: 20px;
+}
+#general-body #physicianBox,
+#general-body #linkedBox {
+  margin-top: 10px;
+  margin-bottom: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  border: 1px solid #c0c0c0;
+  height: 150px;
+  font: normal 13px "Avenir Next Medium", Helvetica, Arial, sans-serif;
+}
+#general-body #physicianBox #physician,
+#general-body #linkedBox #physician,
+#general-body #physicianBox #account,
+#general-body #linkedBox #account {
+  padding: 10px;
+  border-bottom: 1px solid #c0c0c0;
+}
+#general-body #physicianBox #physician div,
+#general-body #linkedBox #physician div,
+#general-body #physicianBox #account div,
+#general-body #linkedBox #account div {
+  text-align: center;
+  width: 20%;
+  display: inline-block;
+}
+#general-body #physicianBox #physician div#email,
+#general-body #linkedBox #physician div#email,
+#general-body #physicianBox #account div#email,
+#general-body #linkedBox #account div#email {
+  width: 30%;
+}
+#general-body #physicianBox #physician:after,
+#general-body #linkedBox #physician:after,
+#general-body #physicianBox #account:after,
+#general-body #linkedBox #account:after {
+  height: 20px;
+  width: 15px;
+  content: ' ';
+  background-image: url('../img/icons/GreyArrow.png');
+  background-size: 100%;
+  float: right;
 }
 #news-and-information {
   padding: 15px;

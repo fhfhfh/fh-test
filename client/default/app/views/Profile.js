@@ -18,7 +18,7 @@ define(['zepto',
 		// Backbone specific attributes
 		tagName	: 'section',
 	    id		: 'profile',
-	    el 		: $('body'),
+	    el 		: $('#body'),
 	    template: _.template(template),
 	    events  : {
 	    	'click #save'	: 'saveDetails',

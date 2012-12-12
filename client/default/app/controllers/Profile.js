@@ -26,18 +26,25 @@ define(['zepto',
 
 		// all input values from view
 		var inputs = {
-			address : el.find('#address').val()
+			firstName	: el.find('#firstName').val(),
+			middleName	: el.find('#middleName').val(),
+			lastName	: el.find('#lastName').val(),
+			sex			: el.find('#sex').val(),
+			email		: el.find('#email').val(),
+			birthday	: el.find('#birthday').val(),
+			address		: el.find('#address').val(),
+
+			phone		: el.find('#phone').val(),
+			mobile		: el.find('#mobile').val()
 		};
 
+		console.log(inputs);
 
 		var prof = user.loadUser(function(res, data){
 			if(res){
 				profile = data;
-				details = profile.userDetails;
-				// set new data
-				details.address = addr;
-
-				profile.userDetails = details;
+				profile.userDetails = inputs;
+				
 				user.setProfile(profile);
 				user.saveUser(function(res){}); // no need for callback
 			}

@@ -1,0 +1,153 @@
+li {
+	list-style-type: none;
+	display: inline-block;
+}
+
+
+
+#main-tabs{
+	.background-gradient(#000, #3E3535);
+	border-radius: 10px 10px 0 0;
+	border: 1px solid #fff;
+	padding: 5px;
+	margin-top: 10px;
+
+	li {
+		width : 24%;
+		.avenir-bold(15px);
+		text-align: center;
+		padding: 10px;
+
+		&.selected {
+			border-radius: 5px;
+			border: 1px solid #FFFF00;
+			box-shadow: 0 0 10px #FFFF00;
+		}
+	}
+
+}
+
+#general-body {
+	background-color: #fff;
+	background-image: url('../img/backgrounds/SettingsBackground.png');
+	border-radius: 0 0 10px 10px;
+	color: #000;
+	padding: 6%;
+
+	#loginInfo{
+		display: inline-block;
+		width: 30%;
+	}
+
+	h2 {
+		.avenir-bold(17px);
+	}
+
+	li {
+		margin: 5px;
+		padding: 8px;
+		padding-right: 0px;
+		background-color: #fff;
+		border-radius: 5px;
+		border: 1px solid #c0c0c0;
+		.avenir-medium(11px);
+
+		label {
+			color: #2B60DE;
+			padding-right: 10px;
+		}
+
+		input, select, textarea {
+			background-color: #fff;
+			outline: none;
+			border: none;
+			width: 60%;
+			.avenir-demi(13px);
+		}
+
+		textarea, img{
+			height: 60px;
+		}
+
+		img {
+			width: 90%;
+			margin-right: 5px;
+		}
+
+		&.w10 {
+			width: 10%;
+		}
+		&.w15 {
+			width: 15%;
+		}
+		&.w20 {
+			width: 20%;
+		}
+		&.w22 {
+			width: 22%;
+		}
+		&.w25 {
+			width: 25%;
+		}
+		&.w30 {
+			width: 30%;
+		}
+		&.w35 {
+			width: 35%;
+		}
+		&.w42 {
+			width: 42%;
+		}
+		&.w46 {
+			width: 46%;
+		}
+		&.w47 {
+			width: 47%;
+		}
+		&.w100 {
+			width: 100%;
+		}
+	}
+
+	.age{
+		.avenir-demi(13px);
+		color: #cdcdcd;
+	}
+
+	form {
+		margin-bottom: 20px;
+	}
+
+	#physicianBox, #linkedBox {
+		margin-top: 10px;
+		margin-bottom: 20px;
+		background-color: #fff;
+		border-radius: 10px;
+		border: 1px solid #c0c0c0;
+		height: 150px;
+		.avenir-medium(13px);
+
+		#physician, #account {
+			padding: 10px;
+			border-bottom: 1px solid #c0c0c0;
+
+			div {
+				text-align: center;
+				width: 20%;
+				display: inline-block;
+				&#email{
+					width: 30%;
+				}
+			}
+
+			&:after{
+				height: 20px;
+				width: 15px;
+				content: ' ';
+				background-image: url('../img/icons/GreyArrow.png');
+				background-size: 100%;
+				float: right;
+			}
+		}	
+	}
+}
