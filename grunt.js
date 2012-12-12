@@ -9,9 +9,9 @@ module.exports = function(grunt) {
           compress: false
         }
       },
-      production: {
+      ios: {
         files: {
-          'client/default/css/styles.css': 'client/default/less/styles.less'
+          'builds/ios/www/css/styles.css': 'builds/ios/www/less/styles.less'
         },
         options: {
           compress: true
@@ -44,12 +44,6 @@ module.exports = function(grunt) {
         tasks: 'default'
       }
     },
-
-    // We don't set up any default grunt-contrib-copy or grunt-contrib-clean
-    // config, as our own config will handle nicely defining packages and their
-    // target directories in a single config file, then setting up the copy
-    // config as needed behind the scenes.
-
     fhbuild: {
       ios: {
         dir: 'builds/ios/www/',
@@ -60,9 +54,6 @@ module.exports = function(grunt) {
 
   grunt.loadNpmTasks('grunt-contrib-less');
   grunt.loadNpmTasks('grunt-contrib-requirejs');
-
-  // Even though we're not setting up config for these, we'll be making use of
-  // them in our task, so must load them into grunt.
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-copy');
 
@@ -116,14 +107,14 @@ module.exports = function(grunt) {
           if (grunt.file.expand(packageGlob).length == 0) {
             grunt.log.writeln('empty -> skipping!');
             return;
-          };
+          }
           grunt.log.writeln('OK!');
 
           var randomisedName = packageName + '[' +
                                (Math.floor(Math.random() * 100) + 1) + ']';
           copyConfig[randomisedName] = {
             files: {}
-          }
+          };
           copyConfig[randomisedName].files[self.data.dir] = packageGlob;
           grunt.config('copy', copyConfig);
           grunt.task.run('copy:' + randomisedName);
@@ -132,6 +123,6 @@ module.exports = function(grunt) {
 
   grunt.registerTask('default', 'less:development');
   grunt.registerTask('ios',
-      'less:production fhbuild:ios requirejs:ios clean:ios');
+      'fhbuild:ios less:ios requirejs:ios clean:ios');
 };
 
