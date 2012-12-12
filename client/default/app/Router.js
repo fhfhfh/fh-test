@@ -1,67 +1,65 @@
-// Backbone Router module
-
 define(['zepto',
         'underscore',
         'backbone',
-        'text!templates/pages/Login.html',
         'views/Login',
         'views/Main',
         'views/Profile'
-], function($, _, Backbone, loginTemplate, loginView, mainView, profileView) {
+], function($, _, Backbone, LoginView, MainView, ProfileView) {
 
+  return Backbone.Router.extend({
 
-  //interface------------------------------
-  Peachy.Router = Backbone.Router.extend({
-      
-    initialize: _initialize, // Backbone's initializer
-    startup   : _startup,    // Function called when no path specified
-    login     : _login,      // Function called when path = /login 
-    default   : _default,    // Fallback function
-    home      : _home,
-    profile   : _profile,
-    routes : {               // Backbone object defining all route bindings
-      ''     : 'startup',
+    routes: {
+      '': 'startup',
       'login': 'login',
-      'home' : 'home',
+      'home': 'home',
+//      'home/news': 'homeNews',
+//      'home/alerts': 'homeAlerts',
+//      'home/goals': 'homeGoals',
       'profile': 'profile',
       '*path': 'default'
-    }
-  });
+    },
 
-  //scripts-----------------------------
-
-
-
-  //implementations--------------------
-
-    function _initialize() {
+    initialize: function() {
       _.bindAll(this);
-    };
+    },
 
-    function _startup() {
+    startup: function() {
       // TODO: No backend implementation, so just skipping to login every time.
       this.navigate('login', {
         trigger: true,
         replace: true
       });
-    };
+    },
 
-    function _login() {
-      new loginView();
-    };
+    login: function() {
 
-    function _default(){
+      // TODO: When implemented, clear localStorage appropriately.
+      var loginView = new LoginView();
+      $('body').html(loginView.render().el);
+    },
+
+    ensureMain: function() {
+
+      // TODO: Consider how settings will be navigable.
+      if (!this.mainView) {
+        this.mainView = new MainView();
+      }
+    },
+
+    home: function() {
+      this.ensureMain();
+      this.mainView.showHome();
+    },
+
+
+    // TODO: Re-evaluate this function.
+    profile: function() {
+      new ProfileView();
+    },
+
+    // TODO: This should show a useful 404 message or else just call startup.
+    default: function() {
       this.navigate('login', true);
-    };
-
-    function _home(){
-      new mainView();
-    };
-
-    function _profile(){
-      new profileView();
     }
-
-
-  return Peachy.Router;
+  });
 });
