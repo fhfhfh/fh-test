@@ -17,10 +17,11 @@ require([
     document.addEventListener('deviceready', readyFun, false);
   } : $;
 
-  // TODO: This should be configure for appropriate app domain once created.
   onReady(function() {
+
+    // TODO: This should be configure for appropriate app domain once created.
     $fh.init({
-      host: 'http://192.168.1.109:8888',
+      host: 'http://127.0.0.1:8888',
       appid: 'doesntmatterhere',
       appkey: 'doesnmatterhere',
       mode: 'dev'
@@ -32,7 +33,8 @@ require([
       window.app = new Router();
       Backbone.history.start({
 
-        // TODO: Re-evaluate whether this could be turned on for PhoneGap app.
+        // Disabled for PhoneGap apps, as it can cause problems.
+        // TODO: This should be enabled in the desktop version of the app.
         pushState: false
       });
     }, function(msg, err) {
