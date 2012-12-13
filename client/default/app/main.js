@@ -2,6 +2,34 @@
  * @fileOverview The main entrypoint to the application, where we define the
  * function which gets called by requirejs at first.
  */
+require.config({
+  paths: {
+    'feedhenry': 'lib/feedhenry',
+    'zepto': 'lib/zepto',
+    'underscore': 'lib/underscore',
+    'backbone': 'lib/backbone',
+    'fastclick': 'lib/fastclick',
+    'iscroll': 'lib/iscroll'
+  },
+  shim: {
+    'feedhenry': {
+      exports: '$fh'
+    },
+    'zepto': {
+      exports: 'Zepto'
+    },
+    'underscore': {
+      exports: '_'
+    },
+    'backbone': {
+      deps: ['underscore', 'zepto'],
+      exports: 'Backbone'
+    },
+    'iscroll' : {
+      exports: 'iScroll'
+    }
+  }
+});
 
 require([
     'feedhenry',

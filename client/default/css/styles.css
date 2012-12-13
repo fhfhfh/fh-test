@@ -1,3 +1,15 @@
+/*
+ * This is the main 'hub' for all of our LESS styles. Styles are imported here
+ * in the correct order, and the file may be overridden per target device.
+ */
+/*
+ * Mixins for CSS3 properties and various reusable styles for the app.
+ * TODO: Move CSS3 mixins into their own file.
+ */
+/*
+ * This is the general styling for the app, which covers setting up the box
+ * model to be used, along with any format resets and basic styling.
+ */
 * {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -13,7 +25,9 @@ body {
 body {
   font: normal 16px "Avenir Next", Helvetica, Arial, sans-serif;
   color: #fff;
-  background: url('../img/backgrounds/BackgroundTileGray.png') left top repeat;
+  background-image: url('../img/backgrounds/BackgroundTileGray.png');
+  background-position: left top;
+  background-repeat: repeat;
 }
 textarea,
 input {

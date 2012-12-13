@@ -35,6 +35,9 @@ module.exports = function(grunt) {
           'builds/ios/www/app/text.js',
           'builds/ios/www/app/lib',
           'builds/ios/www/app/templates',
+          'builds/ios/www/app/views',
+          'builds/ios/www/app/models',
+          'builds/ios/www/app/collections',
           'builds/ios/www/less'
       ]
     },
@@ -125,4 +128,3 @@ module.exports = function(grunt) {
   grunt.registerTask('ios',
       'fhbuild:ios less:ios requirejs:ios clean:ios');
 };
-

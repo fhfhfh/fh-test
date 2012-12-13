@@ -15,41 +15,7 @@
         <link rel="stylesheet" href="css/styles.css">
     </head>
     <body>
-        <script>
-            // RequireJS config is defined here to allow us to change paths etc.
-            // per target device easily, without having to touch any JS files.
-            var require = {
-                paths: {
-                    'feedhenry': 'lib/feedhenry',
-                    'zepto': 'lib/zepto',
-                    'underscore': 'lib/underscore',
-                    'backbone': 'lib/backbone',
-                    'fastclick': 'lib/fastclick',
-                    'iscroll': 'lib/iscroll'
-                },
-                shim: {
-                    'feedhenry': {
-                        exports: '$fh'
-                    },
-                    'zepto': {
-                        exports: 'Zepto'
-                    },
-                    'underscore': {
-                        exports: '_'
-                    },
-                    'backbone': {
-                        deps: ['underscore', 'zepto'],
-                        exports: 'Backbone'
-                    },
-                    'iscroll' : {
-                        exports: 'iScroll'
-                    }
-                }
-            };
-        </script>
-
         <!-- See http://requirejs.org/ for more info. -->
         <script data-main="app/main.js" src="app/require.js"></script>
     </body>
-    
 </html>
