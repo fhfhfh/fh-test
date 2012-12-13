@@ -1,10 +1,16 @@
+/*
+ * This is the general styling for the app, which covers setting up the box
+ * model to be used, along with any format resets and basic styling.
+ */
+
 * {
     // Apply sensible box model to all elements.
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
 
-    // Reset all margin and padding (because of focus on wide cross
+    // Reset all margin and padding; we'll be explicit with everything, due to
+    // the need for future cross-browser compatibility.
     margin: 0;
     padding: 0;
 }
@@ -18,9 +24,13 @@ body {
 body {
     .avenir(16px);
     color: #fff;
-    background: url('../img/backgrounds/BackgroundTileGray.png') left top repeat;
-}
 
+    // We use separate explicit background properties to allow for overriding
+    // for 'retina' and other high DPI displays.
+    background-image: url('../img/backgrounds/BackgroundTileGray.png');
+    background-position: left top;
+    background-repeat: repeat;
+}
 
 // Remove the default WebKit focus glow from form elements. For the purpose of
 // accessibility, we WILL want to add our own focus styles individually.

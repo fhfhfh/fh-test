@@ -1,18 +1,19 @@
-// Global styles
-//-------------------
+/*
+ * This is the main 'hub' for all of our LESS styles. Styles are imported here
+ * in the correct order, and the file may be overridden per target device.
+ */
+
+// Mixins & global base styles...
 @import "mixins";
 @import "general";
 
-
-
-// Page specific styles
-//----------------------
+// Page specific styles...
 @import "pages/login";
 @import "pages/main";
 @import "pages/profile";
 
-
-// Component specific styles
-//------------------------
+// Component specific styles...
 @import "components/news";
 @import "components/goalsAlerts";
+
+// TODO: Re-evaluate naming scheme here.
