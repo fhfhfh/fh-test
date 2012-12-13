@@ -14,6 +14,12 @@
     position: absolute;
     top: 15px;
     left: 15px;
+    width: 99px;
+    height: 24px;
+    background-image: url('../img/login/PeachyLogoWhite.png');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 99px 24px;
 }
 
 #login-box {
@@ -31,13 +37,18 @@
 #login-box-center {
     display: table-cell;
     position: relative;
-    top: 22%;
     vertical-align: middle;
 }
 
 #login-logo {
     display: block;
     margin: 0 auto;
+    width: 229px;
+    height: 54px;
+    background-image: url('../img/login/PeachyLogoHero.png');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 229px 54px;
 }
 
 #login-caption {
@@ -184,4 +195,18 @@
 #loading {
     -webkit-animation-duration: .4s;
     -webkit-animation-name: fadeIn;
+}
+
+// Retina & high-res image replacements.
+@media
+(-webkit-min-device-pixel-ratio: 1.5),
+(min-resolution: 144dpi) {
+
+    .corner-logo {
+        background-image: url('../img/login/PeachyLogoWhite@2x.png');
+    }
+
+    #login-logo {
+        background-image: url('../img/login/PeachyLogoHero@2x.png');
+    }
 }

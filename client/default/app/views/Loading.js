@@ -32,11 +32,11 @@ define(['zepto',
 
 	function _render(){
 		var self = this;
-		this.$el.html(template);
+    this.$el.html(template);
 
-		// call function to change to homepage after 4 seconds
-		self.changePage();
-		return this;
+    // call function to change to homepage after 4 seconds
+    self.changePage();
+    return this;
 	};
 
 	function _changePage(){

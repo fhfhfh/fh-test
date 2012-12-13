@@ -7,7 +7,7 @@ define(['zepto',
         'underscore',
         'backbone',
         'models/Store',
-        'map'
+        'cloudFunctionMap'
 ], function($, _, Backbone, store, map) {
 
 

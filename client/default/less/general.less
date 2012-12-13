@@ -9,20 +9,22 @@
     padding: 0;
 }
 
+html,
+body {
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    .avenir(16px);
+    color: #fff;
+    background: url('../img/backgrounds/BackgroundTileGray.png') left top repeat;
+}
+
+
 // Remove the default WebKit focus glow from form elements. For the purpose of
 // accessibility, we WILL want to add our own focus styles individually.
 textarea,
 input {
     outline: none;
-}
-
-html,
-body {
-    height: 100%;
-    color: #fff;
-    .avenir(16px);
-}
-
-body {
-    background: url('../img/bg.png') left top repeat;
 }

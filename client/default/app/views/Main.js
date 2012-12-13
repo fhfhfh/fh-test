@@ -1,8 +1,8 @@
-/*--------------------
-	app/views/Main
+/**
+ * @fileOverview: Backbone view which encapsulates the main content area of the
+ * application.
+ */
 
-	Main content area of app
---------------------*/
 define(['zepto',
         'underscore',
         'backbone',
@@ -10,7 +10,7 @@ define(['zepto',
         'views/home/News',
         'views/home/Goals',
         'views/home/Alerts',
-        'iScroll',
+        'iscroll',
         'models/Acts',
         'models/User'
 ], function($, _, Backbone, template, NewsView, GoalsView, AlertsView, iScroll, Acts, User) {

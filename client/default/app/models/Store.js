@@ -6,7 +6,7 @@
 define(['zepto',
         'underscore',
         'backbone',
-        'map'
+        'cloudFunctionMap'
 ], function($, _, Backbone, map) {
 
 

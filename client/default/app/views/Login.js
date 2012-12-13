@@ -1,89 +1,77 @@
-/*--------------------
-	app/views/Login
+/**
+ * @fileOverview: The Backbone view covering the login and loading pages of the
+ * application, which cover the entire login process.
+ */
 
-	Login page View
---------------------*/
-define(['zepto',
-        'underscore',
-        'backbone',
-        'text!templates/pages/Login.html',
-        'controllers/Login',
-        'views/Loading'
-], function($, _, Backbone, loginTemplate, LoginController, LoadingView) {
+define([
+  'zepto',
+  'underscore',
+  'backbone',
+  'feedhenry',
+  'text!templates/login.html'
+], function($, _, Backbone, $fh, loginTemplate) {
 
-	//interface--------------------------------------
-	var login = Backbone.View.extend({
+  return Backbone.View.extend({
+    tagName: 'section',
+    id: 'login',
+    template: loginTemplate,
 
-		// Backbone specific attributes
-		tagName	: 'section',
-	    id		: 'login',
-	    template: loginTemplate,
-	    el 		: $('#body'),
-	    events	: {
-			'click #signin': 'login',
-			'submit form' : 'login'
-	    },
+    // TODO: Look into the 'submit form' section.
+    events: {
+      'click #signin': 'login',
+      'submit form': 'login'
+    },
 
-		initialize	: _initialize,
-		render		: _render,		// return login page
-		login		: _login,		// call login controller to validate inputs and login, and create Loading page
-		errorMsg 	: _errorMsg		// display error message to screen
-	});
+    initialize: function() {
+      _.bindAll(this);
+    },
 
+    render: function() {
+      this.$el.html(this.template);
 
-	//implementation-------------------------------
-	var controller = new LoginController();
-	var user, password;
-	var errorBox = $("<div/>").addClass("errorBox");
+      // TODO: Remove this in production!
+      this.$('#username').val('demo');
+      this.$('#password').val('demo');
 
+      return this;
+    },
 
-	function _initialize(){
-		_.bindAll(this);
-		this.render();
-		// this.login();
-	};
+    login: function() {
+      var self = this;
+      var username = $('#username').val();
+      var password = $('#password').val();
 
-	function _render(){
-		this.$el.html(this.template);
+      if (username && password) {
 
-		// TEST CODE -- dummy login
-		this.$('#username').val('demo');
-		this.$('#password').val('demo');
-		//------------------------
+        // TODO: Merge this into using the new act mapping functionality.
+        $fh.act({
+          act: 'loginAction',
+          req: {
+            request: {
+              payload: {
+                login: {
+                  userId: username,
+                  password: password
+                }
+              }
+            }
+          }
+        }, function(res) {
+          console.log(res);
+          // TODO: Implement login storage.
+        }, function(msg, err) {
+          console.log(msg, err);
+          self.errorMsg(msg);
+        });
+      } else {
+        this.errorMsg('Please fill in both fields.');
+      }
+    },
 
-		return this;
-	};
-
-
-	function _login(e){
-		var self = this;
-		var username = $('#username').val();
-		var password = $('#password').val();
-		var validated = controller.validate(username, password);
-
-		if(validated){
-			controller.login(username, password, function(res, msg){
-				// Check for login success
-				if(res === true){
-					var loadingView = new LoadingView();
-				}
-				else {
-					self.errorMsg(msg);
-				}
-			});
-		} else {
-			console.log('Fail');
-			this.errorMsg('Please fill in both fields');
-		}
-	};
-
-	function _errorMsg(msg){
-		var error = '<p class="error">'+ msg + '</p>';
-		errorBox.append(error);
-		this.$el.append(errorBox);
-	}
-	
-
-	return login;
-
+    errorMsg: function(msg) {
+      var errorBox = $('<div class="errorBox"></div>');
+      errorBox.append('<p class="error">'+ msg + '</p>');
+      this.$el.append(errorBox);
+    }
+  });
 });
