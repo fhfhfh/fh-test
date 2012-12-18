@@ -22,9 +22,9 @@ module.exports = function(grunt) {
       ios: {
         options: {
           baseUrl: "builds/ios/www/app/",
-          mainConfigFile: 'builds/ios/www/app/main.js',
+          mainConfigFile: 'builds/ios/www/app/app.js',
           name: "main",
-          out: "builds/ios/www/app/main.js",
+          out: "builds/ios/www/app/app.js",
           preserveLicenseComments: false
         }
       }

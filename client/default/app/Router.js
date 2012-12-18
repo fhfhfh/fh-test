@@ -24,7 +24,8 @@ define(['zepto',
     },
 
     startup: function() {
-      // TODO: No backend implementation, so just skipping to login every time.
+
+      // TODO: Implement auto-login system for user cred storage locally.
       this.navigate('login', {
         trigger: true,
         replace: true

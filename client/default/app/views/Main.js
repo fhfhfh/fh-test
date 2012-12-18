@@ -21,15 +21,15 @@ define(['zepto',
 
 		// Backbone specific attributes
 		tagName	: 'section',
-	    id		: 'main-content',
-	    events	: {
-	      'click #show-news'		: 'showNews',
-	      'click #show-goals'		: 'showGoals',
-	      'click #show-alerts'		: 'showAlerts',
-	      'click #profile-button'	: 'showProfile'
-	    },
-	    template: template,
-	    el 		: $('#body'),
+    id		: 'main-content',
+    events	: {
+      'click #show-news'		: 'showNews',
+      'click #show-goals'		: 'showGoals',
+      'click #show-alerts'		: 'showAlerts',
+      'click #profile-button'	: 'showProfile'
+    },
+    template: template,
+    el 		: $('#body'),
 
 		initialize			: _initialize,		// Used to refresh iScroll on content
 		render				: _render,
