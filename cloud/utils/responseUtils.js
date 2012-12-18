@@ -1,6 +1,6 @@
 // Dependencies
-var constants = require('../config/constants.js');
-var jsonUtils = require('../lib/jsonUtils.js');
+var constants = require('config/constants.js');
+var jsonUtils = require('lib/jsonUtils.js');
 
 /**
  * Collection of utility functions to construct JSON responses to the client.

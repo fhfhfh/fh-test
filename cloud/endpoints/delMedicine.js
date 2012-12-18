@@ -22,7 +22,7 @@ var success = {
   }
 };
 
-var jsonUtils = require('../lib/jsonUtils.js');
+var jsonUtils = require('lib/jsonUtils.js');
 var delMedicineEndpoint = function() {
   // Exposed operations
   this.delMedicine = function delMedicine(reqJson, callback){

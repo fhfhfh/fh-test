@@ -25,7 +25,7 @@ var success = {
   }
 };
 
-var jsonUtils = require('../lib/jsonUtils.js');
+var jsonUtils = require('lib/jsonUtils.js');
 var filterContentEndpoint = function() {
   // Exposed operations
   this.filterContent = function filterContent(reqJson, callback){

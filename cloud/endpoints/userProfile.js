@@ -1,91 +1,117 @@
-var fail = {
-  "response": {
-    "head": {},
-    "payload": {
-      "status": {
-        "code": "ERR_401",
-        "msg": "Bad Verification" 
-      }
-    }
-  }
-};
-var success = {
-  "response": {
-    "head": {},
-    "payload": {
-      "userDetails": {
-        "userId" : "AC110",
-        "imgUrl" : "abc.jpg",
-        "firstName" : "Marky",
-        "middleName" : "Michael",
-        "lastName" : "Mac",
-        "email" : "markymac@email.com",
-        "birthday" : "1979-12-01",
-        "sex" : "M",
-        "address": "11 Street Address 1",
-        "phone" : "312-555-1221",
-        "mobile" : "312-555-1212"
-      },
-      "privacyPreferences": {
-        "personalInfo": {
-          "PUB": true,
-          "FRD": false,
-          "CO": true,
-          "PHY": false
-        },
-        "statusUpdates": {
-          "PUB": true,
-          "FRD": false,
-          "CO": true,
-          "PHY": false
-        },
-        "importantAlerts": {
-          "PUB": true,
-          "FRD": false,
-          "CO": true,
-          "PHY": false
-        },
-        "libraryHistory": {
-          "PUB": true,
-          "FRD": false,
-          "CO": true,
-          "PHY": false
-        }
-      },
-      "linkedAccounts" : [
-      {
-        "accountID": "123",
-        "accountName": "Jane Doe"
-      }
-      ],
-	
-      "physicians" : [
-      {
-        "physicianID" : "123",
-        "physicianName" : "John Doe"
-      }
-      ]
-    }
-  }
-}
-;
+var http = require('http');
+var sessionManager = require('lib/session/session.js');
+var appConfig = require('config/appConfig.js')
+var jsonUtils = require('lib/jsonUtils.js');
 
-var jsonUtils = require('../lib/jsonUtils.js');
+var fail = {
+    "response": {
+        "head": {},
+        "payload": {
+            "status": {
+                "code": "ERR_401",
+                "msg": "Invalid Verification" 
+            }
+        }
+    }
+};
+
+/**
+ * NodeJS Module: Encapsulates logic for userProfile Endpoint.
+ * 
+ */
+
 var userProfileEndpoint = function() {
-  // Exposed operations
-  this.userProfile = function userProfile(reqJson, callback){
-    // Extract request params
-   var sessionId = jsonUtils.getPath(reqJson, "request.head.sessionId").trim();
-    // if(sessionId=="4860-9e4b-3ca8d2cb3df7")
-    if(sessionId=="f39fc-24e4-456e-9098-38b32cfe5040")
-    {
-      console.log ('varified user');
-      callback(null,success);
+    
+    /**
+     * Process fetchUserProfile request.
+     */
+    // Exposed operations
+    this.userProfile = function userProfile(reqJson, callback){
+      
+        // Extract sessionId from request params
+        var sessionId = jsonUtils.getPath(reqJson, "request.head.sessionId").trim();
+        
+        //Fetching session details
+        sessionManager.getSession(sessionId, function(err, data ){
+            console.log("\n\nSESSION DETAILS   :-"+JSON.stringify(data)+"\n\n");
+            if(data)
+            {
+                //Setting the apiSession to fetch the profile details      
+                var apiSessionId = data.apiSessionId;
+        
+                // preparing the header
+                var getHeaders = {
+                    'Content-Type' : 'application/json',
+                    'sessionId' : apiSessionId
+                };
+     
+  
+                // perparing the GET options
+                var optionsGet = {
+                    host : appConfig.environments.development.urls.baseUrl,
+                    port : 8888,
+                    path : appConfig.environments.development.urls.userProfile,
+                    method : 'GET',
+                    headers : getHeaders
+                };
+
+
+                console.info('Options prepared:');
+                console.info(optionsGet);
+                          
+                // doing the HTTP GET call
+                var reqGet = http.request(optionsGet, function(res) {
+                    if (res.statusCode == 200)
+                    {                    
+                        console.log("statusCode: "+ res.statusCode);
+                        var data="";
+                        res.on('data', function(d) {
+                            //fetching the complete response that comes in chunks in 'data'
+                            data+=d; 
+                        });
+                        res.on('end',function(){
+                            if(data)
+                            {
+                                var jsonObject;
+                                //converting the response data into JSON object
+                                jsonObject= JSON.parse(data.toString());
+                                var jsonObj = {
+                                    "response": {
+                                        "head": {},
+                                        "payload": jsonObject, 
+                                        "status":  {
+                                            "code": "Success_200",
+                                            "msg": "Success"
+                                        }
+                                    }
+                                }
+                                return callback(null,jsonObj) //callback returning the response JSON back to client 
+                            }
+                            else
+                            {
+                                // Error ...!!!
+                                return  callback(fail,null) 
+                            }
+                        })
+                    }
+                    else
+                    {
+                        return callback(fail, null);
+                    }
+                });
+ 
+                reqGet.end();
+                reqGet.on('error', function(e) {
+                    console.error(e);
+                    return  callback(fail,null)
+                });
+            } // end of if(data)
+            else
+            {
+                // Error...!!!
+                return callback(fail,null) 
+            }
+        });           
     }
-    else
-    {
-      callback(null,"wrong session ID");
-    }
-  }
 }
 module.exports = new userProfileEndpoint();

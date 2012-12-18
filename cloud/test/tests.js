@@ -1,21 +1,23 @@
+var runner = require('./lib/runner'),
+    async = require('async'),
 
-// dependencies------------------------
-var main = require('../main');
-var assert = require('assert');
-//-------------------------------------
+tests = [];
+tests.push('testLoginAction');
 
+  var testFuncs = [];
 
-main.login({ query: '' }, function(err, res){
-   console.log("findStores: Running tests");
-   assert.ok(!err);
-   assert.ok(res);
-   assert.ok(res.data);
-   assert.ok(res.data.length > 0);
-   var data = res.data,
-   aRecord = data[0];
-   assert.ok(aRecord);
-   assert.ok(aRecord.county);
-   assert.ok(aRecord.address && typeof aRecord.address === "object");
-   assert.ok(aRecord.distance && typeof aRecord.distance === "number");
-   console.log("findStores: Tests passed OK.");
-});
+  for (var i = 0; i < tests.length; i++) {
+    (function(i) {
+      testFuncs.push(function(callback) {
+        var test = require('./' + tests[i]);
+        runner(test, function() {
+          callback(null, i);
+        });
+      });
+    })(i);
+  }
+
+  /** 
+   * We now have an array of functions (tests) to run, we call these asynchronously.
+   */
+  async.parallel(testFuncs, function(err, results) {});

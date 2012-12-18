@@ -1,5 +1,5 @@
 // Dependencies
-var log = require("../lib/log/log.js");
+var log = require("lib/log/log.js");
 
 /**
  * Collection of utility / helper functions.

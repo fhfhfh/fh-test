@@ -22,7 +22,7 @@ var success = {
   }
 };
 
-var jsonUtils = require('../lib/jsonUtils.js');
+var jsonUtils = require('lib/jsonUtils.js');
 var reminderMedicineEndpoint = function() {
   // Exposed operations
   this.addRem = function addRem(reqJson, callback){
