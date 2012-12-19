@@ -2,33 +2,33 @@
 
 
 // Dependencies: Endpoint Implementations
-var loginEndpoint = require("endpoints/login.js");
-var logoutEndpoint =  require("endpoints/logout.js");
-var resetEndpoint = require("endpoints/reset.js");
-var userProfileEndpoint =  require("endpoints/userProfile.js");
-var saveUserProfileEndpoint = require("endpoints/saveUserProfile.js");
-var peachyPointsEndpoint = require("endpoints/peachyPoints.js")
-var medicineCabinetEndpoint = require("endpoints/medicineCabinetList.js")
-var searchMedicineEndpoint = require("endpoints/searchMedicine.js")
-var saveMedicineEndpoint = require("endpoints/saveMedicine.js")
-var delMedicineEndpoint = require("endpoints/delMedicine.js")
-var delMulMedicineEndpoint = require("endpoints/delMulMedicine.js")
-var reminderMedicineEndpoint = require("endpoints/reminderMedicine.js")
-var fetchReminderListEndpoint = require("endpoints/reminderList.js")
-var fetchDiagnosisListEndpoint = require("endpoints/fetchDiagnosisList.js")
-var fetchTestResultListEndpoint = require("endpoints/fetchTestResultList.js")
-var filterContentEndpoint = require("endpoints/filterContent.js")
-var fetchMedicalHistoryEndpoint = require("endpoints/fetchMedicalHistory.js")
-var searchAllergyEndpoint = require("endpoints/searchAllergy.js")
-var addAllergyEndpoint = require("endpoints/addAllergy.js")
-var fetchFeaturedContentEndpoint = require("endpoints/fetchFeaturedContent.js")
-//var fetchMedicalHistoryEndpoint = require("endpoints/fetchMedicalHistory.js")
+var loginEndpoint = require("./endpoints/login.js");
+var logoutEndpoint =  require("./endpoints/logout.js");
+var resetEndpoint = require("./endpoints/reset.js");
+var userProfileEndpoint =  require("./endpoints/userProfile.js");
+var saveUserProfileEndpoint = require("./endpoints/saveUserProfile.js");
+var peachyPointsEndpoint = require("./endpoints/peachyPoints.js")
+var medicineCabinetEndpoint = require("./endpoints/medicineCabinetList.js")
+var searchMedicineEndpoint = require("./endpoints/searchMedicine.js")
+var saveMedicineEndpoint = require("./endpoints/saveMedicine.js")
+var delMedicineEndpoint = require("./endpoints/delMedicine.js")
+var delMulMedicineEndpoint = require("./endpoints/delMulMedicine.js")
+var reminderMedicineEndpoint = require("./endpoints/reminderMedicine.js")
+var fetchReminderListEndpoint = require("./endpoints/reminderList.js")
+var fetchDiagnosisListEndpoint = require("./endpoints/fetchDiagnosisList.js")
+var fetchTestResultListEndpoint = require("./endpoints/fetchTestResultList.js")
+var filterContentEndpoint = require("./endpoints/filterContent.js")
+var fetchMedicalHistoryEndpoint = require("./endpoints/fetchMedicalHistory.js")
+var searchAllergyEndpoint = require("./endpoints/searchAllergy.js")
+var addAllergyEndpoint = require("./endpoints/addAllergy.js")
+var fetchFeaturedContentEndpoint = require("./endpoints/fetchFeaturedContent.js")
+//var fetchMedicalHistoryEndpoint = require("./endpoints/fetchMedicalHistory.js")
 
 
 
 // mock service if not on $fh
 if (!process.env.FH_DOMAIN){
-  $fh = require('test/mock/fh');
+  $fh = require('./test/mock/fh');
 }
 
 

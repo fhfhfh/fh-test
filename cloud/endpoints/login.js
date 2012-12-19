@@ -1,7 +1,7 @@
 var http = require('http');
-var sessionManager = require('lib/session/session.js');
-var jsonUtils = require('lib/jsonUtils.js');
-var appConfig = require('config/appConfig.js')
+var sessionManager = require('../lib/session/session.js');
+var jsonUtils = require('../lib/jsonUtils.js');
+var appConfig = require('../config/appConfig.js')
 
 
 //Error response JSON
@@ -184,4 +184,4 @@ function validateLoginRequest(reqJson) {
     resp.msg = "Success";
     return resp;
 
-}
+} 

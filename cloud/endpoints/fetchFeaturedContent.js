@@ -31,7 +31,7 @@ var success = {
 }
 ;
 
-var jsonUtils = require('lib/jsonUtils.js');
+var jsonUtils = require('../lib/jsonUtils.js');
 var fetchFeaturedContentEndpoint = function() {
   // Exposed operations
   this.fetchFeaturedContent = function fetchFeaturedContent(reqJson, callback){

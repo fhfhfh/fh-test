@@ -21,7 +21,7 @@ var success = {
   }
 };
 
-var jsonUtils = require('lib/jsonUtils.js');
+var jsonUtils = require('../lib/jsonUtils.js');
 var resetEndpoint = function() {
   // Exposed operations
   this.reset = function reset(reqJson, callback){
