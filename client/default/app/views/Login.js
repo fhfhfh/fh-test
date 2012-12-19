@@ -29,9 +29,11 @@ define([
     render: function() {
       this.$el.html(this.template);
 
+      this.loadingSection = this.$('#loading-display').remove();
+
       // TODO: Remove this in production!
-      this.$('#username').val('demo');
-      this.$('#password').val('demo');
+      this.$('#username').val('jsmith101');
+      this.$('#password').val('12345');
 
       return this;
     },
@@ -64,8 +66,32 @@ define([
           self.errorMsg(msg);
         });
       } else {
-        this.errorMsg('Please fill in both fields.');
+        Backbone.trigger('notify', 'Please fill in both fields...');
+        return;
       }
+
+      this.showLoading();
+    },
+
+    showLoading: function() {
+      var self = this;
+
+      var loginEl = this.$('#login-display');
+      loginEl.addClass('hidden');
+
+      // Give the animation time to complete...
+      setTimeout(function() {
+        self.loginSection = loginEl.remove();
+        self.$('#login-box').addClass('loading');
+        self.$('#login-box-center').html(self.loadingSection);
+
+        // The animation won't be triggered unless we allow the DOM manipulation
+        // to complete, so we must place this inside a zero timeout to allow the
+        // call stack to complete.
+        setTimeout(function() {
+          self.loadingSection.removeClass('hidden');
+        }, 0);
+      }, 300);
     },
 
     errorMsg: function(msg) {

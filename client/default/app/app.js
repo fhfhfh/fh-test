@@ -2,6 +2,8 @@
  * @fileOverview The main entrypoint to the application, where we define the
  * function which gets called by requirejs at first.
  */
+
+
 require.config({
   paths: {
     'feedhenry': 'lib/feedhenry',
@@ -36,8 +38,9 @@ require([
     'zepto',
     'backbone',
     'fastclick',
+    'NotificationManager',
     'Router'
-], function($fh, $, Backbone, FastClick, Router) {
+], function($fh, $, Backbone, FastClick, NotificationManager, Router) {
 
   // To enable development (and future deployment) on desktop browsers, we make
   // sure that we use the appropriate DOM ready event.
@@ -47,13 +50,17 @@ require([
 
   onReady(function() {
 
+    new NotificationManager();
+
     // TODO: This should be configure for appropriate app domain once created.
     $fh.init({
-      host: 'http://127.0.0.1:8888',
+      host: 'http://192.168.1.2:8888',
       appid: 'doesntmatterhere',
       appkey: 'doesnmatterhere',
       mode: 'dev'
     }, function(res) {
+
+      Backbone.trigger('notify', 'FeedHenry init was a raging success!');
 
       // Recommended use of FastClick is to wrap entire body in it.
       new FastClick(document.body);

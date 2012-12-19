@@ -36,7 +36,7 @@ define(['zepto',
 
       // TODO: When implemented, clear localStorage appropriately.
       var loginView = new LoginView();
-      $('body').html(loginView.render().el);
+      $('#content').html(loginView.render().el);
     },
 
     ensureMain: function() {

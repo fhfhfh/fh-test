@@ -4,8 +4,8 @@
  * of the app.
  */
 
-#login,
-#loading {
+
+#login {
     height: 100%;
     min-height: 100%;
 }
@@ -28,10 +28,10 @@
     position: relative;
     display: table;
     height: 100%;
-}
 
-#loading #login-box {
-    width: 440px;
+    &.loading {
+        width: 440px;
+    }
 }
 
 #login-box-center {
@@ -40,7 +40,29 @@
     vertical-align: middle;
 }
 
-#login-logo {
+.copyright-bottom {
+    position: absolute;
+    bottom: 15px;
+    text-align: center;
+    width: 100%;
+    text-shadow: 0 -2px 1px black;
+
+    .avenir-medium(12px);
+}
+
+
+/* Login Section -------------------------------------------------------------*/
+
+#login-display {
+    -webkit-transition: opacity .2s linear;
+    opacity: 1;
+
+    &.hidden {
+        opacity: 0;
+    }
+}
+
+.login-logo {
     display: block;
     margin: 0 auto;
     width: 229px;
@@ -65,53 +87,53 @@
     overflow: hidden; /* Clears floats */
 
     .border-radius(12px);
-}
 
-#login-form h2 {
-    margin-bottom: 30px;
-    text-align: center;
+    h2 {
+        margin-bottom: 30px;
+        text-align: center;
 
-    .avenir-demi(18px);
-}
+        .avenir-demi(18px);
+    }
 
-#login-form input {
-    width: 100%;
-    display: block;
-    margin: 10px 0;
-    height: 46px;
-    .border-radius(8px);
-    border: none;
-    background-color: #e6e6e6;
-    padding: 0 10px;
-    color: #2b6991;
+    input {
+        width: 100%;
+        display: block;
+        margin: 10px 0;
+        height: 46px;
+        .border-radius(8px);
+        border: none;
+        background-color: #e6e6e6;
+        padding: 0 10px;
+        color: #2b6991;
 
-    .avenir(13px);
-}
+        .avenir(13px);
 
-#login-form input::-webkit-input-placeholder {
-    color: #2b6991;
+        &::-webkit-input-placeholder {
+            color: #2b6991;
 
-    .avenir(13px);
-}
+            .avenir(13px);
+        }
+    }
 
-#login-form button {
-    border-radius: 5px;
-    border: 1px solid rgb(211, 136, 0);
-    background-color: orange;
-    height: 30px;
-    margin-top: 30px;
-    color: white;
-    float: right;
-    padding: 0 10px;
-    line-height: 28px;
+    button {
+        border-radius: 5px;
+        border: 1px solid rgb(211, 136, 0);
+        background-color: orange;
+        height: 30px;
+        margin-top: 30px;
+        color: white;
+        float: right;
+        padding: 0 10px;
+        line-height: 28px;
 
-    .background-gradient(#f26622, #feb000);
-    .avenir-bold(14px);
-}
+        .background-gradient(#f26622, #feb000);
+        .avenir-bold(14px);
 
-#login-form button img {
-    margin-right: 5px;
-    vertical-align: text-bottom;
+        img {
+            margin-right: 5px;
+            vertical-align: text-bottom;
+        }
+    }
 }
 
 #login-help-button {
@@ -127,28 +149,20 @@
 }
 
 
+/* Loading Section -----------------------------------------------------------*/
 
-
-
-
-
-.copyright-bottom {
-    position: absolute;
-    bottom: 15px;
-    text-align: center;
-    width: 100%;
-    text-shadow: 0 -2px 1px black;
-
-    .avenir-medium(12px);
-}
-
-// Loading styling...
-
-#loading-box {
+#loading-display {
     background: rgba(26, 26, 26, 0.25) url(../img/loading-watermark2.png) right bottom no-repeat;
     padding: 60px 60px 110px 60px;
     text-align: center;
     .border-radius(12px);
+
+    -webkit-transition: opacity .6s linear;
+    opacity: 1;
+
+    &.hidden {
+        opacity: 0;
+    }
 }
 
 #login-loading-message {
@@ -206,7 +220,7 @@
         background-image: url('../img/login/PeachyLogoWhite@2x.png');
     }
 
-    #login-logo {
+    .login-logo {
         background-image: url('../img/login/PeachyLogoHero@2x.png');
     }
 }

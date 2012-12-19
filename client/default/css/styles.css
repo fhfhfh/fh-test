@@ -18,7 +18,8 @@
   padding: 0;
 }
 html,
-body {
+body,
+#content {
   height: 100%;
   overflow: hidden;
 }
@@ -33,13 +34,38 @@ textarea,
 input {
   outline: none;
 }
+#notifications {
+  position: absolute;
+  top: 0;
+  right: 15px;
+  width: 25%;
+}
+.notification {
+  position: relative;
+  width: 100%;
+  margin-top: 15px;
+  display: block;
+  border: 3px solid #fff000;
+  color: #fff;
+  z-index: 2000000000;
+  padding: 15px;
+  background: #000000;
+  background: rgba(0, 0, 0, 0.8);
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  font: bold 13px "Avenir Next Bold", Helvetica, Arial, sans-serif;
+  -webkit-transition: all .1s linear;
+  opacity: 1;
+}
+.notification.hidden {
+  opacity: 0;
+}
 /*
  * This file covers the login and loading screens, which both constitute the
  * full login experience. They also share majority styling, compared to the rest
  * of the app.
  */
-#login,
-#loading {
+#login {
   height: 100%;
   min-height: 100%;
 }
@@ -61,7 +87,7 @@ input {
   display: table;
   height: 100%;
 }
-#loading #login-box {
+#login-box.loading {
   width: 440px;
 }
 #login-box-center {
@@ -69,7 +95,23 @@ input {
   position: relative;
   vertical-align: middle;
 }
-#login-logo {
+.copyright-bottom {
+  position: absolute;
+  bottom: 15px;
+  text-align: center;
+  width: 100%;
+  text-shadow: 0 -2px 1px #000000;
+  font: normal 12px "Avenir Next Medium", Helvetica, Arial, sans-serif;
+}
+/* Login Section -------------------------------------------------------------*/
+#login-display {
+  -webkit-transition: opacity .2s linear;
+  opacity: 1;
+}
+#login-display.hidden {
+  opacity: 0;
+}
+.login-logo {
   display: block;
   margin: 0 auto;
   width: 229px;
@@ -151,20 +193,18 @@ input {
   border-radius: 8px;
   font: bold 14px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
 }
-.copyright-bottom {
-  position: absolute;
-  bottom: 15px;
-  text-align: center;
-  width: 100%;
-  text-shadow: 0 -2px 1px #000000;
-  font: normal 12px "Avenir Next Medium", Helvetica, Arial, sans-serif;
-}
-#loading-box {
+/* Loading Section -----------------------------------------------------------*/
+#loading-display {
   background: rgba(26, 26, 26, 0.25) url(../img/loading-watermark2.png) right bottom no-repeat;
   padding: 60px 60px 110px 60px;
   text-align: center;
   -webkit-border-radius: 12px;
   border-radius: 12px;
+  -webkit-transition: opacity .6s linear;
+  opacity: 1;
+}
+#loading-display.hidden {
+  opacity: 0;
 }
 #login-loading-message {
   margin: 35px 0 30px 0;
@@ -204,7 +244,7 @@ input {
   .corner-logo {
     background-image: url('../img/login/PeachyLogoWhite@2x.png');
   }
-  #login-logo {
+  .login-logo {
     background-image: url('../img/login/PeachyLogoHero@2x.png');
   }
 }

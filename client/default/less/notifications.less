@@ -1,0 +1,34 @@
+#notifications {
+    position: absolute;
+    top: 0;
+    right: 15px;
+    width: 25%;
+}
+
+.notification {
+    position: relative;
+    width: 100%;
+    margin-top: 15px;
+    display: block;
+
+    // TODO: Change this to suitable app style.
+    border: 3px solid #fff000;
+
+    color: #fff;
+
+    // The max value is a 32bit int, so 2147483647...
+    z-index: 2000000000;
+
+    padding: 15px;
+    background : rgb(0,0,0);
+    background : rgba(0,0,0,0.8);
+    .border-radius(10px);
+    .avenir-bold(13px);
+
+    -webkit-transition: all .1s linear;
+    opacity: 1;
+
+    &.hidden {
+        opacity: 0;
+    }
+}
