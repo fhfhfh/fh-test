@@ -8,17 +8,16 @@ define([
   'underscore',
   'backbone',
   'feedhenry',
-  'text!templates/login.html'
-], function($, _, Backbone, $fh, loginTemplate) {
+  'text!templates/login.html',
+  'text!templates/login-loading.html'
+], function($, _, Backbone, $fh, loginTpl, loadingTpl) {
 
   return Backbone.View.extend({
     tagName: 'section',
     id: 'login',
-    template: loginTemplate,
 
     // TODO: Look into the 'submit form' section.
     events: {
-      'click #signin': 'login',
       'submit form': 'login'
     },
 
@@ -27,9 +26,7 @@ define([
     },
 
     render: function() {
-      this.$el.html(this.template);
-
-      this.loadingSection = this.$('#loading-display').remove();
+      this.$el.html(loginTpl);
 
       // TODO: Remove this in production!
       this.$('#username').val('jsmith101');
@@ -63,7 +60,12 @@ define([
           // TODO: Implement login storage.
         }, function(msg, err) {
           console.log(msg, err);
-          self.errorMsg(msg);
+
+          // TODO: Get Mindstix to return a proper Error object to callback!
+          var errMsg = JSON.parse(err.error).response.payload.status.msg;
+
+          Backbone.trigger('notify', errMsg);
+          self.showLogin();
         });
       } else {
         Backbone.trigger('notify', 'Please fill in both fields...');
@@ -81,23 +83,38 @@ define([
 
       // Give the animation time to complete...
       setTimeout(function() {
-        self.loginSection = loginEl.remove();
+        self.loginEl = loginEl.remove();
         self.$('#login-box').addClass('loading');
-        self.$('#login-box-center').html(self.loadingSection);
+        self.$('#login-box-center').html(loadingTpl);
 
         // The animation won't be triggered unless we allow the DOM manipulation
         // to complete, so we must place this inside a zero timeout to allow the
         // call stack to complete.
         setTimeout(function() {
-          self.loadingSection.removeClass('hidden');
+          self.$('#loading-display').removeClass('hidden');
         }, 0);
       }, 300);
     },
 
-    errorMsg: function(msg) {
-      var errorBox = $('<div class="errorBox"></div>');
-      errorBox.append('<p class="error">'+ msg + '</p>');
-      this.$el.append(errorBox);
+    showLogin: function() {
+      var self = this;
+
+      var loadingEl = this.$('#loading-display');
+      loadingEl.addClass('hidden');
+
+      // Give the animation time to complete...
+      setTimeout(function() {
+        loadingEl.remove();
+        self.$('#login-box').removeClass('loading');
+        self.$('#login-box-center').html(self.loginEl);
+
+        // The animation won't be triggered unless we allow the DOM manipulation
+        // to complete, so we must place this inside a zero timeout to allow the
+        // call stack to complete.
+        setTimeout(function() {
+          self.$('#login-display').removeClass('hidden');
+        }, 0);
+      }, 300);
     }
   });
 });

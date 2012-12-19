@@ -4,6 +4,7 @@
  * notifications.
  */
 
+
 // TODO: Clean up and complete.
 
 define([
@@ -16,7 +17,6 @@ define([
     tagName: 'aside',
     className: 'notification hidden',
     isVisible: false,
-    done: false,
 
     events: {
       'click': 'closeNotification'
@@ -37,8 +37,7 @@ define([
       this.$el.addClass('hidden');
       setTimeout(function() {
         self.remove();
-        self.done = true;
-        Backbone.trigger('notify-remove');
+        Backbone.trigger('notify-remove', self);
       }, 200);
     }
   });
@@ -46,7 +45,6 @@ define([
   function NotificationManager() {
     var self = this;
 
-    this.notifications = [];
     this.queue = [];
 
     Backbone.on('notify', function(msg) {
@@ -57,28 +55,26 @@ define([
       self.handleQueue();
     });
 
-    Backbone.on('notify-remove', function() {
-      self.handleQueue.call(self);
+    Backbone.on('notify-remove', function(notificationView) {
+      self.handleQueue.call(self, notificationView);
     });
   }
 
-  NotificationManager.prototype.handleQueue = _.debounce(function() {
-    for (var i = 0, l = this.notifications.length; i < l; i++) {
-      if (this.notifications[i] && this.notifications[i].done) {
-        this.notifications.splice(i, 1);
-      }
+  NotificationManager.prototype.handleQueue = _.debounce(function(viewToGo) {
+    if (viewToGo) {
+      this.queue.splice(this.queue.indexOf(viewToGo), 1);
     }
 
-    if (!(this.notifications.length >= 3)) {
-      while (this.notifications.length < 3 && this.queue.length) {
-        var nextNotification = this.queue.shift();
-        this.notifications.push(nextNotification);
-        this.show(nextNotification);
+    var l = (this.queue.length > 3) ? 3 : this.queue.length;
+    for (var i = 0; i < l; i++) {
+      if (this.queue[i] && !(this.queue[i].isVisible)) {
+        console.log(i);
+        this.showView(this.queue[i]);
       }
     }
   }, 100);
 
-  NotificationManager.prototype.show = function(notification) {
+  NotificationManager.prototype.showView = function(notification) {
     $('#notifications').append(notification.render().el);
 
     setTimeout(function() {

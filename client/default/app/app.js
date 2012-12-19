@@ -60,8 +60,6 @@ require([
       mode: 'dev'
     }, function(res) {
 
-      Backbone.trigger('notify', 'FeedHenry init was a raging success!');
-
       // Recommended use of FastClick is to wrap entire body in it.
       new FastClick(document.body);
 
@@ -73,11 +71,8 @@ require([
         pushState: false
       });
     }, function(msg, err) {
-
-      // TODO: Add nicer error popup dialog to application.
-      console.log('msg: ', msg);
-      console.log('err: ', err);
-      alert('Error initialising the $fh API; see console for logs.');
+      console.log(msg, err);
+      Backbone.trigger('notify', 'FeedHenry init failed!');
     });
   });
 });
