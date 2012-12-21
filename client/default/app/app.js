@@ -54,7 +54,7 @@ require([
 
     // TODO: This should be configure for appropriate app domain once created.
     $fh.init({
-      host: 'http://192.168.1.2:8888',
+      host: 'http://127.0.0.1:8888',
       appid: 'doesntmatterhere',
       appkey: 'doesnmatterhere',
       mode: 'dev'

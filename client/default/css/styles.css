@@ -65,6 +65,10 @@ input {
  * full login experience. They also share majority styling, compared to the rest
  * of the app.
  */
+#login-display,
+#loading-display {
+  -webkit-transform: translate3d(0, 0, 0);
+}
 #login {
   height: 100%;
   min-height: 100%;

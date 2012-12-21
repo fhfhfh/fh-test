@@ -18,7 +18,8 @@ define([
 
     // TODO: Look into the 'submit form' section.
     events: {
-      'submit form': 'login'
+      'submit form': 'login',
+      'click #login-help-button': 'loginHelp'
     },
 
     initialize: function() {
@@ -115,6 +116,10 @@ define([
           self.$('#login-display').removeClass('hidden');
         }, 0);
       }, 300);
+    },
+
+    loginHelp: function() {
+      Backbone.trigger('notify', 'Coming soon...');
     }
   });
 });
