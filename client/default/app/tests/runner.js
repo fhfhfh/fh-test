@@ -48,7 +48,7 @@ require(['mocha'], function(mocha) {
 
   // Don't forget to add reference to new tests here as they're added...
   require([
-    'tests/test.NotificationManager'
+    'tests/specs/test.NotificationManager'
   ], function() {
     if (window.mochaPhantomJS) {
       mochaPhantomJS.run();

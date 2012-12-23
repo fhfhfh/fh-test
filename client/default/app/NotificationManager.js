@@ -13,10 +13,9 @@ define([
   'backbone'
 ], function($, _, Backbone) {
 
-  var NotificationView = Backbone.View.extend({
+  var DefaultView = Backbone.View.extend({
     tagName: 'aside',
-    className: 'notification hidden',
-    isVisible: false,
+    className: 'notification',
 
     events: {
       'click': 'closeNotification'
@@ -25,44 +24,43 @@ define([
     initialize: function() {
       _.bindAll(this);
 
-      // If no message was given, we don't want to throw an unhandled error, nor
-      // do we want notifications to stop working. For the meantime, just log a
-      // stack trace and notify with default message.
-      // TODO: Prevent notification from displaying at all in this case.
       if (!this.options.msg) {
-        console.log(new Error('No message given to notify.'));
-        this.options.msg = 'No message given...';
+        this.close();
+      } else {
+        this.msg = this.options.msg;
       }
-
-      this.msg = this.options.msg;
     },
 
     render: function() {
       this.$el.html('<p>' + this.options.msg + '</p>');
-      this.isVisible = true;
       return this;
     },
 
-    closeNotification: function() {
-      var self = this;
-      this.$el.one('webkitTransitionEnd', function() {
-        self.remove();
-        Backbone.trigger('notify-remove', self);
-      });
-      this.$el.addClass('hidden');
+    close: function() {
+      this.remove();
+      Backbone.trigger('notify:close', this);
     }
   });
 
   function NotificationManager(options) {
     var self = this;
-    this.userClosedLast = false;
     this.queue = [];
 
     // The user can provide a custom Backbone.View to use, as well as a custom
     // element to use as the root.
-    this.View = (options && options.view) || NotificationView;
+    this.View = (options && options.view) || DefaultView;
     if (options && options.el) {
-      this.View = this.View.extend({ el: options.el });
+      if (options.el instanceof Node) {
+        this.$el = $(options.el);
+      } else if (options.el instanceof $.fn.constructor) {
+        this.$el = options.el;
+      } else {
+        this.$el = $(options.el);
+      }
+    }
+
+    if (!this.$el || !this.$el.length) {
+      this.$el = $(document.body);
     }
 
     this.timeout = (options && options.timeout) || 4000;
@@ -75,17 +73,24 @@ define([
       self.showView(newNotification);
     });
 
-    Backbone.on('notify-closed', function(notification) {
-      self.userClosedLast = true;
+    Backbone.on('notify:close', function(notification) {
+      self.queue.shift();
+      if (self.queue.length) {
+        self.showView(queue[0]);
+      }
     });
   }
 
   NotificationManager.prototype.showView = function(notification) {
-    notification.showView
-    this.$el.append(notification.render().el);
-  };
+    var self = this;
 
-  NotificationManager.prototype.closeView = function
+    if (!this.queue[0].isVisible) {
+      this.$el.append(notification.render().el);
+      setTimeout(function() {
+        notification.close();
+      }, this.timeout);
+    }
+  };
 
   return NotificationManager;
 });

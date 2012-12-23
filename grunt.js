@@ -73,8 +73,8 @@ module.exports = function(grunt) {
           args: [
             'node_modules/mocha-phantomjs/bin/mocha-phantomjs',
             '-R',
-            'spec',
-            'http://localhost:8000/index.html'
+            'dot',
+            'http://localhost:8000/app/tests/'
           ]
         }, function(error, result, code) {
           done(!code);
