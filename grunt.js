@@ -52,6 +52,9 @@ module.exports = function(grunt) {
         dir: 'builds/ios/www/',
         packages: ['ios']
       }
+    },
+    server: {
+      base: 'client/default/'
     }
   });
 
@@ -59,6 +62,26 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-requirejs');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-copy');
+
+  grunt.registerTask('client-tests',
+      'Run the client-side Mocha tests through PhantomJS',
+      function() {
+        var done = this.async();
+
+        var mocha = grunt.util.spawn({
+          cmd: 'node',
+          args: [
+            'node_modules/mocha-phantomjs/bin/mocha-phantomjs',
+            '-R',
+            'spec',
+            'http://localhost:8000/index.html'
+          ]
+        }, function(error, result, code) {
+          done(!code);
+        });
+        mocha.stdout.pipe(process.stdout);
+        mocha.stderr.pipe(process.stderr);
+      });
 
   // Here's our custom task...
   grunt.registerMultiTask('fhbuild',
@@ -127,4 +150,5 @@ module.exports = function(grunt) {
   grunt.registerTask('default', 'less:development');
   grunt.registerTask('ios',
       'fhbuild:ios less:ios requirejs:ios clean:ios');
+  grunt.registerTask('testy', 'server client-tests');
 };

@@ -24,6 +24,17 @@ define([
 
     initialize: function() {
       _.bindAll(this);
+
+      // If no message was given, we don't want to throw an unhandled error, nor
+      // do we want notifications to stop working. For the meantime, just log a
+      // stack trace and notify with default message.
+      // TODO: Prevent notification from displaying at all in this case.
+      if (!this.options.msg) {
+        console.log(new Error('No message given to notify.'));
+        this.options.msg = 'No message given...';
+      }
+
+      this.msg = this.options.msg;
     },
 
     render: function() {
@@ -34,57 +45,47 @@ define([
 
     closeNotification: function() {
       var self = this;
-      this.$el.addClass('hidden');
-      setTimeout(function() {
+      this.$el.one('webkitTransitionEnd', function() {
         self.remove();
         Backbone.trigger('notify-remove', self);
-      }, 200);
+      });
+      this.$el.addClass('hidden');
     }
   });
 
-  function NotificationManager() {
+  function NotificationManager(options) {
     var self = this;
-
+    this.userClosedLast = false;
     this.queue = [];
 
+    // The user can provide a custom Backbone.View to use, as well as a custom
+    // element to use as the root.
+    this.View = (options && options.view) || NotificationView;
+    if (options && options.el) {
+      this.View = this.View.extend({ el: options.el });
+    }
+
+    this.timeout = (options && options.timeout) || 4000;
+
     Backbone.on('notify', function(msg) {
-      var notificationView = new NotificationView({
+      var newNotification = new self.View({
         msg: msg
       });
-      self.queue.push(notificationView);
-      self.handleQueue();
+      self.queue.push(newNotification);
+      self.showView(newNotification);
     });
 
-    Backbone.on('notify-remove', function(notificationView) {
-      self.handleQueue.call(self, notificationView);
+    Backbone.on('notify-closed', function(notification) {
+      self.userClosedLast = true;
     });
   }
 
-  NotificationManager.prototype.handleQueue = _.debounce(function(viewToGo) {
-    if (viewToGo) {
-      this.queue.splice(this.queue.indexOf(viewToGo), 1);
-    }
-
-    var l = (this.queue.length > 3) ? 3 : this.queue.length;
-    for (var i = 0; i < l; i++) {
-      if (this.queue[i] && !(this.queue[i].isVisible)) {
-        console.log(i);
-        this.showView(this.queue[i]);
-      }
-    }
-  }, 100);
-
   NotificationManager.prototype.showView = function(notification) {
-    $('#notifications').append(notification.render().el);
-
-    setTimeout(function() {
-      notification.$el.removeClass('hidden');
-    }, 0);
-
-    setTimeout(function() {
-      notification.closeNotification();
-    }, 4000);
+    notification.showView
+    this.$el.append(notification.render().el);
   };
+
+  NotificationManager.prototype.closeView = function
 
   return NotificationManager;
 });

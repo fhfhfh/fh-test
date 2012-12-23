@@ -8,6 +8,7 @@
     "grunt-contrib-less": "0.3.x",
     "grunt-contrib-clean": "0.3.x",
     "grunt-contrib-copy": "0.3.x",
-    "grunt-contrib-requirejs": "0.3.x"
+    "grunt-contrib-requirejs": "0.3.x",
+    "mocha-phantomjs": "1.1.x"
   }
 }
