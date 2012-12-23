@@ -6,8 +6,10 @@
 require.config({
   baseUrl: '/app/',
   paths: {
-    'mocha': 'lib/mocha',
-    'chai': 'lib/chai',
+    'mocha': 'tests/lib/mocha',
+    'chai': 'tests/lib/chai',
+    'sinon': 'tests/lib/sinon',
+    'sinon-chai': 'tests/lib/sinon-chai',
     'feedhenry': 'lib/feedhenry',
     'zepto': 'lib/zepto',
     'underscore': 'lib/underscore',
@@ -18,6 +20,9 @@ require.config({
   shim: {
     'mocha': {
       exports: 'mocha'
+    },
+    'sinon': {
+      exports: 'sinon'
     },
     'feedhenry': {
       exports: '$fh'
