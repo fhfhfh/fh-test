@@ -1,28 +1,19 @@
-* {
-	// Apply sensible box model to all elements.
-	-moz-box-sizing: border-box;
-	-webkit-box-sizing: border-box;
-	box-sizing: border-box;
+// Global styles
+//-------------------
+@import "mixins";
+@import "general";
 
-	// Reset all margin and padding (because of focus on wide cross
-	margin: 0;
-	padding: 0;
-}
 
-html, body {
-	height: 100%;
-	font-family: Arial, sans-serif;
-	color: white;
-}
 
-body {
-	background: url('../img/bg.png') left top repeat;
-}
+// Page specific styles
+//----------------------
+@import "pages/login";
+@import "pages/main";
+@import "pages/profile";
 
-.corner-logo {
-	position: absolute;
-	top: 15px;
-	left: 15px;
-}
 
-@import "login";
+// Component specific styles
+//------------------------
+@import "components/news";
+@import "components/goalsAlerts";
+@import "components/notifications";

@@ -1,0 +1,47 @@
+.border-radius (@radius) {
+    -webkit-border-radius: @radius;
+    border-radius: @radius;
+}
+
+.background-gradient (@bottom, @top) {
+    background-image: linear-gradient(bottom, @bottom 0%, @top 85%);
+    background-image: -webkit-linear-gradient(bottom, @bottom 0%, @top 85%);
+    background-image: -webkit-gradient(
+        linear,
+        left bottom,
+        left top,
+        color-stop(0, @bottom),
+        color-stop(0.85, @top)
+    );
+
+    &:active {
+        background-image: linear-gradient(bottom, @top 0%, @bottom 85%);
+        background-image: -webkit-linear-gradient(bottom, @top 0%, @bottom 85%);
+        background-image: -webkit-gradient(
+            linear,
+            left bottom,
+            left top,
+            color-stop(0, @top),
+            color-stop(0.85, @bottom)
+        );
+    }
+}
+
+// These are the various font-stacks for the app... Because of the weights used,
+// specifying a base font-name and CSS font-weight is not an option, so we use
+// fully qualified font names.
+.avenir(@size) {
+    font: normal @size "Avenir Next", Helvetica, Arial, sans-serif;
+}
+
+.avenir-medium(@size) {
+    font: normal @size "Avenir Next Medium", Helvetica, Arial, sans-serif;
+}
+
+.avenir-demi(@size) {
+    font: bold @size "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
+}
+
+.avenir-bold(@size) {
+    font: bold @size "Avenir Next Bold", Helvetica, Arial, sans-serif;
+}
