@@ -59,6 +59,7 @@ define(['zepto',
 		controller.saveProfile(this, function(res){
 			if(res){
 				notifier.msg('Details Saved Successfully!');
+                                App.navigate('home', true);
 			}
 		});
 	};

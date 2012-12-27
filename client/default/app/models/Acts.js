@@ -27,7 +27,7 @@ define(['zepto',
             payload[payloadName] = params;
             console.log("login func :- "+func);
 
-            if(func == "userProfileAction" || func == "logoutAction")
+            if(func !== "loginAction")
             {
                 //set sessionId for all function calls
                 store.load('SessionID', function(res, data){

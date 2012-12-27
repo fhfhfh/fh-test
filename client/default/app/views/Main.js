@@ -127,15 +127,6 @@ define(['zepto',
     
         function _showLogout(){
             var params = "";
-//            var sessionId = "";
-//             store.load('SessionID', function(res, data){
-//                    if(res){
-//                        head = {
-//                            'sessionId' : data.val
-//                        };
-//                    }
-//                    console.log(data);
-//                });
             Acts.call('logoutAction', params, 
                 function(res){
                    App.navigate('Login', true)
@@ -146,7 +137,6 @@ define(['zepto',
                     
                 }
                 );
-//            App.navigate('Login', true)
         }
 	
         return main;
