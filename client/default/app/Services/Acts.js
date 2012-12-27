@@ -27,11 +27,9 @@ define(['zepto',
             payload[payloadName] = params;
             console.log("login func :- "+func);
 
-            if(func == "userProfileAction")
+            if(!func == "loginAction")
             {
                 //set sessionId for all function calls
-                console.log("$$$$$$$$$Entered the not login action$$$$$$")
-                
                 store.load('SessionID', function(res, data){
                     if(res){
                         head = {

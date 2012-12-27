@@ -27,7 +27,7 @@ define(['zepto',
 
 		initialize	: _initialize,
 		render		: _render,		// return login page
-		login		: _login,		// call login controller to validate inputs and login, and create Loading page
+		login		: _login		// call login controller to validate inputs and login, and create Loading page
 	});
 
 
@@ -62,7 +62,8 @@ define(['zepto',
 					var loadingView = new LoadingView();
 				}
 				else {
-					notifier.msg(msg);
+					notifier.msg("Invalid Id/Password");
+                                        notifier.msg(msg);
 				}
 			});
 		} else {

@@ -57,9 +57,9 @@ define(['zepto',
 		user.setName(username);
 		
 		// Get user profile from cloud
-		// user.fetchUser(function(res){
-		 //	console.log(res);
-		// });
+		 user.fetchUser(function(res){
+			console.log(res);
+		 });
 	};
 	
 
