@@ -105,8 +105,7 @@ define(['zepto',
 
 	function _fetchUser(callback){
 		var self = this;
-                console.log("***********fetchUser********")
-		// fetch user profile from cloud
+                // fetch user profile from cloud
 		Acts.call('userProfileAction', {}, 
     		function(res){
     			self.setProfile(res.payload);

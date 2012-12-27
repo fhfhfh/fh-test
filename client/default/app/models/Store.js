@@ -29,7 +29,7 @@ define(['zepto',
 			key : modelName,
 			val : model
 		}, function(){
-                        console.log("*********SESSION SAVE*****"+model);
+                        console.log("SESSION SAVE"+model);
 			return callback(true);
 		}, function(msg, err){
 			return callback(msg, err);
