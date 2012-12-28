@@ -94,10 +94,25 @@ function BasicEventRenderer() {
 	/* Dragging
 	----------------------------------------------------------------------------*/
 	
+        $.fn.addTouch = function() {
+	if ($.support.touch) {
+		var obj = document.getElementsByClassName('#calendar');
+		for(i=0; i<obj.length;i++){
+			obj[i].addEventListener("touchstart", iPadTouchHandler, false);
+			obj[i].addEventListener("touchmove", iPadTouchHandler, false);
+			obj[i].addEventListener("touchend", iPadTouchHandler, false);
+			obj[i].addEventListener("touchcancel", iPadTouchHandler, false);
+		}
+	}
+};
+        
+        
+        
 	
 	function draggableDayEvent(event, eventElement) {
 		var hoverListener = getHoverListener();
 		var dayDelta;
+                eventElement.addTouch();
 		eventElement.draggable({
 			zIndex: 9,
 			delay: 50,

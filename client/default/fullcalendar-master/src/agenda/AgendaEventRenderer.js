@@ -354,6 +354,19 @@ function AgendaEventRenderer() {
 	-----------------------------------------------------------------------------------*/
 	
 	
+        $.fn.addTouch = function() {
+	if ($.support.touch) {
+		var obj = document.getElementsByClassName('#calendar');
+		for(i=0; i<obj.length;i++){
+			obj[i].addEventListener("touchstart", iPadTouchHandler, false);
+			obj[i].addEventListener("touchmove", iPadTouchHandler, false);
+			obj[i].addEventListener("touchend", iPadTouchHandler, false);
+			obj[i].addEventListener("touchcancel", iPadTouchHandler, false);
+		}
+	}
+};
+        
+        
 	// when event starts out FULL-DAY
 	
 	function draggableDayEvent(event, eventElement, isStart) {
@@ -366,6 +379,7 @@ function AgendaEventRenderer() {
 		var colWidth = getColWidth();
 		var slotHeight = getSlotHeight();
 		var minMinute = getMinMinute();
+                eventElement.addTouch();
 		eventElement.draggable({
 			zIndex: 9,
 			opacity: opt('dragOpacity', 'month'), // use whatever the month view was using
