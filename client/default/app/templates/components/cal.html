@@ -10,6 +10,7 @@
         var y = date.getFullYear();
 		
         var calendar = $('#calendar').fullCalendar({
+            theme: true,
             header: {
                 left: 'prev,next today',
                 center: 'title',
@@ -73,7 +74,25 @@
                     allDay: false
                 }
 				
-            ]
+            ],
+            
+            
+            // If we're on an iPad, this is used as our "eventClick"
+            eventMouseover: function()
+            {
+                if(isTouchDevice)
+                {
+                    alert('clicked using eventMouseover method');
+                }
+            },
+            eventClick: function(){
+                if(!isTouchDevice)
+                {
+                    alert('clicked using eventClick method');
+                }
+            }
+            
+            
         });
 		
     });
