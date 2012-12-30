@@ -29,3 +29,8 @@ the FeedHenry cloud. It contains these essential folders/files:
   information, which the FeedHenry platform will use when deploying your
   application (see this [documentation](http://package.json.jit.su/)).
 + ...
+
+---
+
+## Development Requirements
+...
