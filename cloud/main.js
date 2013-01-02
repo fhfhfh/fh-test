@@ -22,7 +22,7 @@ var fetchMedicalHistoryEndpoint = require("./endpoints/fetchMedicalHistory.js")
 var searchAllergyEndpoint = require("./endpoints/searchAllergy.js")
 var addAllergyEndpoint = require("./endpoints/addAllergy.js")
 var fetchFeaturedContentEndpoint = require("./endpoints/fetchFeaturedContent.js")
-//var fetchMedicalHistoryEndpoint = require("endpoints/fetchMedicalHistory.js")
+var fetchAlertEndpoint = require("endpoints/fetchAlert.js")
 
 
 
@@ -53,7 +53,7 @@ exports.fetchMedicalHistoryAction = fetchMedicalHistoryAction;
 exports.searchAllergyAction = searchAllergyAction;
 exports.addAllergyAction = addAllergyAction;
 exports.fetchFeaturedContentAction = fetchFeaturedContentAction;
-//exports.fetchMedicalHistoryAction = fetchMedicalHistoryAction;
+exports.fetchAlertAction = fetchAlertAction;
 
 
 
@@ -233,6 +233,17 @@ function addAllergyAction(params, callback) {
 function fetchFeaturedContentAction(params, callback) {
   console.log(JSON.stringify(params));
   fetchFeaturedContentEndpoint.fetchFeaturedContent(params,function cb(err, respData) {
+    callback(err,respData);
+  });
+}
+
+
+
+//---------------------------------------fetchAlerts--------------------------------------------------------------------
+
+function fetchAlertAction(params, callback) {
+  console.log(JSON.stringify(params));
+  fetchAlertEndpoint.fetchAlert(params,function cb(err, respData) {
     callback(err,respData);
   });
 }

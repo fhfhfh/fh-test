@@ -24,9 +24,10 @@ var appConfig = {
         "level": "DEBUG"
       },
       "urls": {
-        "baseUrl":"50.11.178.73",                  
+        "baseUrl":"99.71.210.208",        
         "auth":"/PeachyWebApi/api/authentication/",
-        "userProfile":"/PeachyWebApi/api/profileaccount/"
+        "userProfile":"/PeachyWebApi/api/profileaccount/",
+        "fetchAlert":""
       },
       "session": {
         // Inactivity timeout (Seconds)
