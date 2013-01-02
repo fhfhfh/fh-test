@@ -18,7 +18,7 @@ define(['zepto',
 		// Backbone specific attributes
 		tagName	: 'section',
 	    id		: 'profile',
-	    el 		: $('#body'),
+	    el 		: $('#content'),
 	    template: _.template(template),
 	    events  : {
 	    	'click #save'	: 'saveDetails',
@@ -70,7 +70,7 @@ define(['zepto',
 	};
 
 	function _cancel(){
-		App.navigate('home', true);
+		app.navigate('home', true);
 	}
 
 

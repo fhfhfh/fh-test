@@ -62,10 +62,11 @@ define(['zepto',
 	};
 
 	function _render(){
-		var $el			= $('#body').html(template);
-		var scroller	= $el.find('#main-content')[0];
+		this.$el			= $('#content').html(template);
+		var scroller	= this.$el.find('#main-content')[0];
 
-		this.showNews();
+		// this.showNews();
+		this.showAlerts();
 
 		this.iscroll = new iScroll(scroller, {
 			hscroll: false,
@@ -74,7 +75,7 @@ define(['zepto',
 			vScrollbar: false
         });
 
-		return $el;
+		return this;
 	};
 
 	function _showNews() {
@@ -110,7 +111,7 @@ define(['zepto',
     };
 
     function _showProfile(){
-    	App.navigate('profile', true)
+    	app.navigate('profile', true)
     }
 	
 	return main;

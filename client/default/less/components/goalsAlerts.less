@@ -19,4 +19,40 @@
         width: 100%;
         padding: 10px;
     }
+
+    .alert {
+        .avenir-medium(14px);
+        background-color: #e6e6e6;
+        width : 100%;
+        padding: 25px 0px 25px 20px;
+        border-radius: 10px;
+        box-shadow: 0px 2px 2px #ababab;
+        margin-bottom: 20px;
+
+        #date {
+            float: right;
+            color: #8c8c8c;
+            margin-right: 50px;
+        }
+
+        &:hover, &:active {
+            background-color: #ccc;
+        }
+    }
+
+    .redtip {
+        background-image: url('../img/cornerTabs/red.png');
+        background-position: top right;
+        background-repeat: no-repeat; 
+    }
+    .orangetip {
+        background-image: url('../img/cornerTabs/orange.png');
+        background-position: top right;
+        background-repeat: no-repeat;    
+    }
+    .greentip {
+        background-image: url('../img/cornerTabs/green.png');
+        background-position: top right;
+        background-repeat: no-repeat;    
+    }
 }

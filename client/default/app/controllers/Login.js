@@ -54,6 +54,7 @@ define(['zepto',
 	};
 
 	function _loggedIn(session, username){
+		var self = this;
 		user.setSession(session);
 		user.setName(username);
 		

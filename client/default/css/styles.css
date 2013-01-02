@@ -749,3 +749,43 @@ li {
   width: 100%;
   padding: 10px;
 }
+#goals .alert,
+#alerts .alert {
+  font: normal 14px "Avenir Next Medium", Helvetica, Arial, sans-serif;
+  background-color: #e6e6e6;
+  width: 100%;
+  padding: 25px 0px 25px 20px;
+  border-radius: 10px;
+  box-shadow: 0px 2px 2px #ababab;
+  margin-bottom: 20px;
+}
+#goals .alert #date,
+#alerts .alert #date {
+  float: right;
+  color: #8c8c8c;
+  margin-right: 50px;
+}
+#goals .alert:hover,
+#alerts .alert:hover,
+#goals .alert:active,
+#alerts .alert:active {
+  background-color: #ccc;
+}
+#goals .redtip,
+#alerts .redtip {
+  background-image: url('../img/cornerTabs/red.png');
+  background-position: top right;
+  background-repeat: no-repeat;
+}
+#goals .orangetip,
+#alerts .orangetip {
+  background-image: url('../img/cornerTabs/orange.png');
+  background-position: top right;
+  background-repeat: no-repeat;
+}
+#goals .greentip,
+#alerts .greentip {
+  background-image: url('../img/cornerTabs/green.png');
+  background-position: top right;
+  background-repeat: no-repeat;
+}

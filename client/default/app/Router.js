@@ -49,7 +49,6 @@ define(['zepto',
 
     home: function() {
       this.ensureMain();
-      this.mainView.showHome();
     },
 
 
