@@ -3,7 +3,7 @@
 
 	Login page Controller
 --------------------*/
-define(['zepto',
+define(['jquery',
         'underscore',
         'backbone',
         'models/Acts',

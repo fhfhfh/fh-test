@@ -3,7 +3,7 @@
 
 	View containing user goals
 --------------------*/
-define(['zepto',
+define(['jquery',
         'underscore',
         'backbone',
         'text!templates/components/Goals.html'

@@ -2,7 +2,7 @@
  * Backbone view for the HealthHub screen of the app
  */
 
-define(['zepto',
+define(['jquery',
         'underscore',
         'backbone',
         'iscroll',

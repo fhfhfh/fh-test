@@ -3,7 +3,7 @@
  * application.
  */
 
-define(['zepto',
+define(['jquery',
         'underscore',
         'backbone',
         'text!templates/pages/Main.html',

@@ -8,7 +8,7 @@
 // TODO: Clean up and complete.
 
 define([
-  'zepto',
+  'jquery',
   'underscore',
   'backbone'
 ], function($, _, Backbone) {

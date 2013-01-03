@@ -3,7 +3,7 @@
 
 	Loading page displayed while logging in
 --------------------*/
-define(['zepto',
+define(['jquery',
         'underscore',
         'backbone',
         'text!templates/pages/Loading.html',

@@ -3,7 +3,7 @@
 
 	View containing user alerts
 --------------------*/
-define(['zepto',
+define(['jquery',
         'underscore',
         'backbone',
         'text!templates/components/Alerts.html'

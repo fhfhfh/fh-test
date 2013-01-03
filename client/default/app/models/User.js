@@ -3,7 +3,7 @@
 
 	User model
 --------------------*/
-define(['zepto',
+define(['jquery',
         'underscore',
         'backbone',
         'models/Store',

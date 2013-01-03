@@ -7,7 +7,7 @@
 require.config({
   paths: {
     'feedhenry': 'lib/feedhenry',
-    'zepto': 'lib/zepto',
+    'jquery': 'lib/jquery',
     'underscore': 'lib/underscore',
     'backbone': 'lib/backbone',
     'fastclick': 'lib/fastclick',
@@ -17,14 +17,11 @@ require.config({
     'feedhenry': {
       exports: '$fh'
     },
-    'zepto': {
-      exports: 'Zepto'
-    },
     'underscore': {
       exports: '_'
     },
     'backbone': {
-      deps: ['underscore', 'zepto'],
+      deps: ['underscore', 'jquery'],
       exports: 'Backbone'
     },
     'iscroll' : {
@@ -35,7 +32,7 @@ require.config({
 
 require([
     'feedhenry',
-    'zepto',
+    'jquery',
     'backbone',
     'fastclick',
     'NotificationManager',

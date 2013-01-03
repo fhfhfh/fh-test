@@ -3,7 +3,7 @@
 
 	Module used to build the act calls used throughout the app
 --------------------*/
-define(['zepto',
+define(['jquery',
         'underscore',
         'backbone',
         'models/Store',

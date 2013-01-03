@@ -4,7 +4,7 @@
  */
 
 define([
-  'zepto',
+  'jquery',
   'underscore',
   'backbone',
   'feedhenry',

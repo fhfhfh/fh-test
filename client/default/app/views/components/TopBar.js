@@ -3,7 +3,7 @@
  */
 
 define([
-    'zepto',
+    'jquery',
     'underscore',
     'backbone',
     'text!templates/components/TopBar.html',

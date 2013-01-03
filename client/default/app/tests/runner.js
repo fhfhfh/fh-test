@@ -11,7 +11,7 @@ require.config({
     'sinon': 'tests/lib/sinon',
     'sinon-chai': 'tests/lib/sinon-chai',
     'feedhenry': 'lib/feedhenry',
-    'zepto': 'lib/zepto',
+    'jquery': 'lib/jquery',
     'underscore': 'lib/underscore',
     'backbone': 'lib/backbone',
     'fastclick': 'lib/fastclick',
@@ -27,14 +27,11 @@ require.config({
     'feedhenry': {
       exports: '$fh'
     },
-    'zepto': {
-      exports: 'Zepto'
-    },
     'underscore': {
       exports: '_'
     },
     'backbone': {
-      deps: ['underscore', 'zepto'],
+      deps: ['underscore', 'jquery'],
       exports: 'Backbone'
     },
     'iscroll' : {
@@ -51,7 +48,7 @@ require(['mocha'], function(mocha) {
     'tests/specs/test.NotificationManager'
   ], function() {
     if (window.mochaPhantomJS) {
-      mochaPhantomJS.run();
+      window.mochaPhantomJS.run();
     } else {
       mocha.run();
     }

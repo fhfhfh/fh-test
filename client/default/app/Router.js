@@ -1,4 +1,4 @@
-define(['zepto',
+define(['jquery',
         'underscore',
         'backbone',
         'views/Login',

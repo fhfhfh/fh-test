@@ -2,7 +2,7 @@
  * Backbone view for the Connect screen of the app
  */
 
-define(['zepto',
+define(['jquery',
         'underscore',
         'backbone',
         'iscroll',

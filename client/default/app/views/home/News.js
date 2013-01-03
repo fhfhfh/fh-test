@@ -3,7 +3,7 @@
 
 	View containing news items
 --------------------*/
-define(['zepto',
+define(['jquery',
         'underscore',
         'backbone',
         'collections/NewsItems',

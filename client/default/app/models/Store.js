@@ -3,7 +3,7 @@
 
 	Module used to save/load values to/from local storage
 --------------------*/
-define(['zepto',
+define(['jquery',
         'underscore',
         'backbone',
         'cloudFunctionMap'
