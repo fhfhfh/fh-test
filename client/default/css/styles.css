@@ -262,131 +262,15 @@ input {
 #main {
   height: 100%;
 }
-#top-bar {
-  height: 55px;
-  background-color: rgba(255, 255, 255, 0.1);
-  margin: 0;
-  padding: 0 15px;
-  border-bottom: 2px solid rgba(255, 255, 255, 0.2);
-  width: 100%;
-  box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.15);
-  position: relative;
-  z-index: 10;
-  -webkit-transition: all .2s linear;
-  -webkit-transform: translate3d(0, 0, 0);
-}
-#top-bar #logo {
-  float: left;
-  margin-top: 15px;
-}
-#top-bar #avatar {
-  float: right;
-  margin-top: 7px;
-}
-#top-bar-buttons {
-  list-style-type: none;
-  height: 100%;
-  padding: 11px 0;
-  float: right;
-}
-#top-bar-buttons li {
-  display: inline-block;
-  margin-right: 7px;
-}
-#top-bar-buttons li button {
-  background-color: blue;
-  height: 30px;
-  padding: 0 10px;
-  vertical-align: middle;
-  -webkit-border-radius: 5px;
-  border-radius: 5px;
-  border: 1px solid black;
-  box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.15);
-  color: #fff;
-  font: bold 13px "Avenir Next Bold", Helvetica, Arial, sans-serif;
-  background-image: linear-gradient(bottom, #464646 0%, #1f1f1f 50%, #2e2e2e 51%, #525252 73%, #6b6b6b 100%);
-  background-image: -webkit-linear-gradient(bottom, #464646 0%, #1f1f1f 50%, #2e2e2e 51%, #525252 73%, #6b6b6b 100%);
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #464646), color-stop(0.5, #1f1f1f), color-stop(0.51, #2e2e2e), color-stop(0.73, #525252), color-stop(1, #6b6b6b));
-}
-#top-bar-buttons li button img {
-  display: block;
-}
-#top-bar-buttons li button:active {
-  background-image: linear-gradient(bottom, #cdcdcd 0%, #000000 85%);
-  background-image: -webkit-linear-gradient(bottom, #cdcdcd 0%, #000000 85%);
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #cdcdcd), color-stop(0.85, #000000));
-}
-#top-bar-buttons li button:active:active {
-  background-image: linear-gradient(bottom, #000000 0%, #cdcdcd 85%);
-  background-image: -webkit-linear-gradient(bottom, #000000 0%, #cdcdcd 85%);
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #000000), color-stop(0.85, #cdcdcd));
-}
-#top-bar-buttons li #points-button {
-  font: bold 13px "Avenir Next Bold", Helvetica, Arial, sans-serif;
-  background-image: url('../img/PointsButtonWatermark.png'), linear-gradient(bottom, #464646 0%, #1f1f1f 50%, #2e2e2e 51%, #525252 73%, #6b6b6b 100%);
-  background-image: url('../img/PointsButtonWatermark.png'), -webkit-linear-gradient(bottom, #464646 0%, #1f1f1f 50%, #2e2e2e 51%, #525252 73%, #6b6b6b 100%);
-  background-image: url('../img/PointsButtonWatermark.png'), -webkit-gradient(linear, left bottom, left top, color-stop(0, #464646), color-stop(0.5, #1f1f1f), color-stop(0.51, #2e2e2e), color-stop(0.73, #525252), color-stop(1, #6b6b6b));
-  background-position: left bottom;
-  background-repeat: no-repeat;
-  background-opacity: 0.2;
-  color: #fff;
-}
-#top-bar-buttons li #points-button em {
-  font-size: 14px;
-  color: #ff9d02;
-  font-style: normal;
-}
-#top-bar-buttons li #points-button:active {
-  background-image: linear-gradient(bottom, #cdcdcd 0%, #000000 85%);
-  background-image: -webkit-linear-gradient(bottom, #cdcdcd 0%, #000000 85%);
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #cdcdcd), color-stop(0.85, #000000));
-}
-#top-bar-buttons li #points-button:active:active {
-  background-image: linear-gradient(bottom, #000000 0%, #cdcdcd 85%);
-  background-image: -webkit-linear-gradient(bottom, #000000 0%, #cdcdcd 85%);
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #000000), color-stop(0.85, #cdcdcd));
-}
 #main-container {
   position: absolute;
   top: 55px;
   bottom: 0;
-  left: 15px;
+  left: 100px;
   right: 15px;
   opacity: 1;
   -webkit-transition: all .2s linear;
   -webkit-transform: translate3d(0, 0, 0);
-}
-#side-nav {
-  list-style-type: none;
-  width: 110px;
-  overflow: visible;
-  float: left;
-  margin-top: 10px;
-}
-#side-nav li {
-  width: 120px;
-  text-align: center;
-  color: rgba(255, 255, 255, 0.8);
-  padding: 15px 15px 15px 5px;
-  display: block;
-  margin: 0 auto;
-  font: bold 13px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
-}
-#side-nav li.selected {
-  border-top-left-radius: 5px;
-  border-bottom-left-radius: 5px;
-  background-color: white;
-  color: #2f3137;
-}
-#side-nav li.selected h2 {
-  font: bold 13px "Avenir Next Bold", Helvetica, Arial, sans-serif;
-}
-#side-nav h2 {
-  margin: 0;
-  display: block;
-  font-weight: bold;
-  font-size: 10pt;
-  margin-top: 5px;
 }
 #main-content {
   height: 100%;
@@ -501,6 +385,16 @@ input {
 li {
   list-style-type: none;
   display: inline-block;
+}
+#profile-container {
+  position: absolute;
+  top: 55px;
+  bottom: 0;
+  left: 15px;
+  right: 15px;
+  opacity: 1;
+  -webkit-transition: all .2s linear;
+  -webkit-transform: translate3d(0, 0, 0);
 }
 #main-tabs {
   background-image: linear-gradient(bottom, #000000 0%, #3e3535 85%);
@@ -649,8 +543,9 @@ li {
   height: 20px;
   width: 15px;
   content: ' ';
-  background-image: url('../img/icons/GreyArrow.png');
-  background-size: 100%;
+  background-image: url('../img/icons/smallArrow.png');
+  background-size: 70%;
+  background-repeat: no-repeat;
   float: right;
 }
 #news-and-information {
@@ -763,13 +658,22 @@ li {
 #alerts .alert #date {
   float: right;
   color: #8c8c8c;
-  margin-right: 50px;
+  margin-right: 80px;
 }
 #goals .alert:hover,
 #alerts .alert:hover,
 #goals .alert:active,
 #alerts .alert:active {
   background-color: #ccc;
+}
+#goals .alert:after,
+#alerts .alert:after {
+  position: relative;
+  content: url('../img/icons/smallArrow.png');
+  float: right;
+  clear: right;
+  bottom: 15px;
+  right: 25px;
 }
 #goals .redtip,
 #alerts .redtip {
@@ -788,4 +692,157 @@ li {
   background-image: url('../img/cornerTabs/green.png');
   background-position: top right;
   background-repeat: no-repeat;
+}
+#side-nav {
+  list-style-type: none;
+  width: 110px;
+  overflow: visible;
+  float: left;
+  margin-top: 65px;
+  margin-left: 5px;
+}
+#side-nav li {
+  width: 120px;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.8);
+  padding: 15px 15px 15px 5px;
+  display: block;
+  margin: 0 auto;
+  font: bold 13px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
+}
+#side-nav li.selected {
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  background-color: white;
+  color: #2f3137;
+}
+#side-nav li.selected h2 {
+  font: bold 13px "Avenir Next Bold", Helvetica, Arial, sans-serif;
+}
+#side-nav h2 {
+  margin: 0;
+  display: block;
+  font-weight: bold;
+  font-size: 10pt;
+  margin-top: 5px;
+}
+#side-nav #home img {
+  content: url('../img/nav/HomeWhite.png');
+}
+#side-nav #home.selected img {
+  content: url('../img/nav/HomeDark.png');
+}
+#side-nav #widgets img {
+  content: url('../img/nav/WidgetsWhite.png');
+}
+#side-nav #widgets.selected img {
+  content: url('../img/nav/WidgetsDark.png');
+}
+#side-nav #healthHub img {
+  content: url('../img/nav/HubWhite.png');
+}
+#side-nav #healthHub.selected img {
+  content: url('../img/nav/HubDark.png');
+}
+#side-nav #connect img {
+  content: url('../img/nav/ConnectWhite.png');
+}
+#side-nav #connect.selected img {
+  content: url('../img/nav/ConnectDark.png');
+}
+#side-nav #calendar img {
+  content: url('../img/nav/CalendarWhite.png');
+}
+#side-nav #calendar.selected img {
+  content: url('../img/nav/CalendarDark.png');
+}
+#side-nav #library img {
+  content: url('../img/nav/LibraryWhite.png');
+}
+#side-nav #library.selected img {
+  content: url('../img/nav/LibraryDark.png');
+}
+#top-bar {
+  height: 55px;
+  background-color: rgba(255, 255, 255, 0.1);
+  margin: 0;
+  padding: 0 15px;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+  width: 100%;
+  box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.15);
+  position: fixed;
+  z-index: 10;
+  -webkit-transition: all .2s linear;
+  -webkit-transform: translate3d(0, 0, 0);
+}
+#top-bar #logo {
+  float: left;
+  margin-top: 15px;
+}
+#top-bar #avatar {
+  float: right;
+  margin-top: 7px;
+}
+#top-bar-buttons {
+  list-style-type: none;
+  height: 100%;
+  padding: 11px 0;
+  float: right;
+}
+#top-bar-buttons li {
+  display: inline-block;
+  margin-right: 7px;
+}
+#top-bar-buttons li button {
+  background-color: blue;
+  height: 30px;
+  padding: 0 10px;
+  vertical-align: middle;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  border: 1px solid black;
+  box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.15);
+  color: #fff;
+  font: bold 13px "Avenir Next Bold", Helvetica, Arial, sans-serif;
+  background-image: linear-gradient(bottom, #464646 0%, #1f1f1f 50%, #2e2e2e 51%, #525252 73%, #6b6b6b 100%);
+  background-image: -webkit-linear-gradient(bottom, #464646 0%, #1f1f1f 50%, #2e2e2e 51%, #525252 73%, #6b6b6b 100%);
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #464646), color-stop(0.5, #1f1f1f), color-stop(0.51, #2e2e2e), color-stop(0.73, #525252), color-stop(1, #6b6b6b));
+}
+#top-bar-buttons li button img {
+  display: block;
+}
+#top-bar-buttons li button:active {
+  background-image: linear-gradient(bottom, #cdcdcd 0%, #000000 85%);
+  background-image: -webkit-linear-gradient(bottom, #cdcdcd 0%, #000000 85%);
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #cdcdcd), color-stop(0.85, #000000));
+}
+#top-bar-buttons li button:active:active {
+  background-image: linear-gradient(bottom, #000000 0%, #cdcdcd 85%);
+  background-image: -webkit-linear-gradient(bottom, #000000 0%, #cdcdcd 85%);
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #000000), color-stop(0.85, #cdcdcd));
+}
+#top-bar-buttons li #points-button {
+  font: bold 13px "Avenir Next Bold", Helvetica, Arial, sans-serif;
+  background-image: url('../img/PointsButtonWatermark.png'), linear-gradient(bottom, #464646 0%, #1f1f1f 50%, #2e2e2e 51%, #525252 73%, #6b6b6b 100%);
+  background-image: url('../img/PointsButtonWatermark.png'), -webkit-linear-gradient(bottom, #464646 0%, #1f1f1f 50%, #2e2e2e 51%, #525252 73%, #6b6b6b 100%);
+  background-image: url('../img/PointsButtonWatermark.png'), -webkit-gradient(linear, left bottom, left top, color-stop(0, #464646), color-stop(0.5, #1f1f1f), color-stop(0.51, #2e2e2e), color-stop(0.73, #525252), color-stop(1, #6b6b6b));
+  background-position: left bottom;
+  background-repeat: no-repeat;
+  background-opacity: 0.2;
+  color: #fff;
+}
+#top-bar-buttons li #points-button em {
+  font-size: 14px;
+  color: #ff9d02;
+  font-style: normal;
+}
+#top-bar-buttons li #points-button:active {
+  background-image: linear-gradient(bottom, #cdcdcd 0%, #000000 85%);
+  background-image: -webkit-linear-gradient(bottom, #cdcdcd 0%, #000000 85%);
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #cdcdcd), color-stop(0.85, #000000));
+}
+#top-bar-buttons li #points-button:active:active {
+  background-image: linear-gradient(bottom, #000000 0%, #cdcdcd 85%);
+  background-image: -webkit-linear-gradient(bottom, #000000 0%, #cdcdcd 85%);
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #000000), color-stop(0.85, #cdcdcd));
 }

@@ -3,20 +3,34 @@ define(['zepto',
         'backbone',
         'views/Login',
         'views/Main',
-        'views/Profile'
-], function($, _, Backbone, LoginView, MainView, ProfileView) {
+        'views/Profile',
+        'views/Widgets',
+        'views/HealthHub',
+        'views/Connect',
+        'views/Calendar',
+        'views/Library',
+        'views/components/LeftNav',
+        'views/components/TopBar'
+], function($, _, Backbone, LoginView, MainView, ProfileView, WidgetView, HealthHubView, ConnectView, CalendarView, LibraryView, NavView, TopBar) {
 
   return Backbone.Router.extend({
+    topBar : new TopBar(),
+    leftNav: new NavView(),
 
     routes: {
-      '': 'startup',
-      'login': 'login',
-      'home': 'home',
-//      'home/news': 'homeNews',
+      ''             : 'startup',
+      'login'        : 'login',
+      'home'         : 'home',
+      'widgets'      : 'widgets',
+      'healthHub'    : 'healthHub',
+      'connect'      : 'connect',
+      'calendar'     : 'calendar',
+      'library'      : 'library',
+//      'home/news'  : 'homeNews',
 //      'home/alerts': 'homeAlerts',
-//      'home/goals': 'homeGoals',
-      'profile': 'profile',
-      '*path': 'default'
+//      'home/goals' : 'homeGoals',
+      'profile'      : 'profile',
+      '*path'        : 'default'
     },
 
     initialize: function() {
@@ -37,6 +51,10 @@ define(['zepto',
       // TODO: When implemented, clear localStorage appropriately.
       var loginView = new LoginView();
       $('#content').html(loginView.render().el);
+      this.topBar.hide();
+      this.leftNav.hide();
+      console.log('##');
+
     },
 
     ensureMain: function() {
@@ -48,12 +66,33 @@ define(['zepto',
     },
 
     home: function() {
-      this.ensureMain();
+      // this.ensureMain();
+      this.mainView = new MainView();
+      this.topBar.show();
+      this.leftNav.show();
+    },
+
+    widgets:function(){
+      this.widgetView = new WidgetView();
+    },
+    healthHub: function(){
+      this.healthHubView = new HealthHubView();
+    },
+    connect: function(){
+      this.connectView = new ConnectView();
+    },
+    calendar: function(){
+      this.calendarView = new CalendarView();
+    },
+    library: function(){
+      this.libraryView = new LibraryView();
     },
 
 
     // TODO: Re-evaluate this function.
     profile: function() {
+      this.leftNav.hide();
+      this.topBar.showProfile();
       new ProfileView();
     },
 

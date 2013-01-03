@@ -1,0 +1,106 @@
+#side-nav {
+    list-style-type: none;
+    width: 110px;
+    overflow: visible;
+    float: left;
+    margin-top: 65px;
+    margin-left: 5px;
+
+    li {
+        width: 120px;
+        text-align: center;
+        color: rgba(255, 255, 255, .8);
+        padding: 15px 15px 15px 5px;
+        display: block;
+        margin: 0 auto;
+        .avenir-demi(13px);
+
+        &.selected {
+            border-top-left-radius: 5px;
+            border-bottom-left-radius: 5px;
+            background-color: white;
+            color: #2f3137;
+
+            h2 {
+                .avenir-bold(13px);
+            }
+        }
+    }
+
+    h2 {
+        margin: 0;
+        display: block;
+        font-weight: bold;
+        font-size: 10pt;
+        margin-top: 5px;
+    }
+
+
+
+    #home{
+        img {
+            content: url('../img/nav/HomeWhite.png');
+        }
+        &.selected {
+            img {
+                content: url('../img/nav/HomeDark.png');       
+            }
+        }
+    }
+
+    #widgets{
+        img {
+            content: url('../img/nav/WidgetsWhite.png');
+        }
+        &.selected {
+            img {
+                content: url('../img/nav/WidgetsDark.png');       
+            }
+        }
+    }
+
+    #healthHub{
+        img {
+            content: url('../img/nav/HubWhite.png');
+        }
+        &.selected {
+            img {
+                content: url('../img/nav/HubDark.png');       
+            }
+        }
+    }
+
+    #connect{
+        img {
+            content: url('../img/nav/ConnectWhite.png');
+        }
+        &.selected {
+            img {
+                content: url('../img/nav/ConnectDark.png');       
+            }
+        }
+    }
+
+    #calendar{
+        img {
+            content: url('../img/nav/CalendarWhite.png');
+        }
+        &.selected {
+            img {
+                content: url('../img/nav/CalendarDark.png');       
+            }
+        }
+    }
+
+    #library{
+        img {
+            content: url('../img/nav/LibraryWhite.png');
+        }
+        &.selected {
+            img {
+                content: url('../img/nav/LibraryDark.png');       
+            }
+        }
+    }
+
+}

@@ -8,154 +8,17 @@
     height: 100%;
 }
 
-#top-bar {
-    height: 55px;
-    background-color: rgba(255, 255, 255, 0.1);
-    margin: 0;
-    padding: 0 15px;
-    border-bottom: 2px solid rgba(255, 255, 255, 0.20);
-    width: 100%;
-    box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.15);
-    position: relative;
-    z-index: 10;
-    -webkit-transition: all .2s linear;
-    -webkit-transform: translate3d(0, 0, 0);
-
-    #logo {
-        float: left;
-        margin-top: 15px;
-    }
-
-    #avatar {
-        float: right;
-        margin-top: 7px;
-    }
-}
-
-#top-bar-buttons {
-    list-style-type: none;
-    height: 100%;
-    padding: 11px 0;
-    float: right;
-
-    li {
-        display: inline-block;
-        margin-right: 7px;
-
-        button {
-            background-color: blue;
-            height: 30px;
-            padding: 0 10px;
-            vertical-align: middle;
-            .border-radius(5px);
-            border: 1px solid black;
-            box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.15);
-            color: #fff;
-            .avenir-bold(13px);
-
-            background-image: linear-gradient(bottom, rgb(70,70,70) 0%, rgb(31,31,31) 50%, rgb(46,46,46) 51%, rgb(82,82,82) 73%, rgb(107,107,107) 100%);
-            background-image: -webkit-linear-gradient(bottom, rgb(70,70,70) 0%, rgb(31,31,31) 50%, rgb(46,46,46) 51%, rgb(82,82,82) 73%, rgb(107,107,107) 100%);
-            background-image: -webkit-gradient(
-                linear,
-                left bottom,
-                left top,
-                color-stop(0, rgb(70,70,70)),
-                color-stop(0.5, rgb(31,31,31)),
-                color-stop(0.51, rgb(46,46,46)),
-                color-stop(0.73, rgb(82,82,82)),
-                color-stop(1, rgb(107,107,107))
-            );
-
-            img {
-
-                // This fixes mis-aligned buttons.
-                display: block;
-            }
-
-            &:active {
-                .background-gradient(#cdcdcd, #000);
-            }
-        }
-
-        #points-button {
-            .avenir-bold(13px);
-            background-image: url('../img/PointsButtonWatermark.png'), linear-gradient(bottom, rgb(70,70,70) 0%, rgb(31,31,31) 50%, rgb(46,46,46) 51%, rgb(82,82,82) 73%, rgb(107,107,107) 100%);
-            background-image: url('../img/PointsButtonWatermark.png'), -webkit-linear-gradient(bottom, rgb(70,70,70) 0%, rgb(31,31,31) 50%, rgb(46,46,46) 51%, rgb(82,82,82) 73%, rgb(107,107,107) 100%);
-            background-image: url('../img/PointsButtonWatermark.png'), -webkit-gradient(
-                linear,
-                left bottom,
-                left top,
-                color-stop(0, rgb(70,70,70)),
-                color-stop(0.5, rgb(31,31,31)),
-                color-stop(0.51, rgb(46,46,46)),
-                color-stop(0.73, rgb(82,82,82)),
-                color-stop(1, rgb(107,107,107))
-            );
-            background-position: left bottom;
-            background-repeat: no-repeat;
-            background-opacity: 0.2;
-            color: #fff;
-
-            em {
-                font-size: 14px;
-                color: #ff9d02;
-                font-style: normal;
-            }
-
-            &:active {
-                .background-gradient(#cdcdcd, #000);
-            }
-        }
-    }
-}
-
 #main-container {
     position: absolute;
     top: 55px;
     bottom: 0;
-    left: 15px;
+    left: 100px;
     right: 15px;
     opacity: 1;
     -webkit-transition: all .2s linear;
     -webkit-transform: translate3d(0, 0, 0);
 }
 
-#side-nav {
-    list-style-type: none;
-    width: 110px;
-    overflow: visible;
-    float: left;
-    margin-top: 10px;
-
-    li {
-        width: 120px;
-        text-align: center;
-        color: rgba(255, 255, 255, .8);
-        padding: 15px 15px 15px 5px;
-        display: block;
-        margin: 0 auto;
-        .avenir-demi(13px);
-
-        &.selected {
-            border-top-left-radius: 5px;
-            border-bottom-left-radius: 5px;
-            background-color: white;
-            color: #2f3137;
-
-            h2 {
-                .avenir-bold(13px);
-            }
-        }
-    }
-
-    h2 {
-        margin: 0;
-        display: block;
-        font-weight: bold;
-        font-size: 10pt;
-        margin-top: 5px;
-    }
-}
 
 #main-content {
     height: 100%;

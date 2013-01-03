@@ -10,6 +10,8 @@ define(['zepto',
 
 	// TODO -- complete map for all cloud functions
 	var map = {
+		//function name : payload name
+		
 		'loginAction' : 'login',
 		'logoutAction': 'logout',
 		'userProfileAction' : 'userProfile'
