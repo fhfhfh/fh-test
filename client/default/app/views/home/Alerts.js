@@ -29,10 +29,10 @@ define(['zepto',
 		},
 
 		render : function(){
-			this.$el.html('<section id="alerts">'+this.template+'</section>');
+			this.$el.html('<section id="alerts">'+tpl+'</section>');
 			console.log(this);
-
-			return this;
+			var html = this.$el.html;
+			return html;
 		},
 
 		test: function(){
