@@ -24,12 +24,14 @@
         width: 100%;
 
         li {
-            width: 20%;
+            .avenir-demi(14px);
+            width: 22.9%;
             margin: 5px;
             background-color: #e6e6e6;
             border-radius: 10px;
             text-align: center;
-            color: #000;
+            color: #8c8c8c;
+            padding: 4px 0 4px 0;
 
             &:hover, &:active {
                 background-color: #ccc;
@@ -39,6 +41,13 @@
                 color : #fff;
                 background-color: #545454;
             }
+        }
+
+        &:first-child {
+            margin-left: 0;
+        }
+        &:last-child {
+            margin-right: 0;
         }
     }
 

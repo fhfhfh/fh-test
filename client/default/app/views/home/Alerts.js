@@ -7,40 +7,60 @@ define(['zepto',
         'underscore',
         'backbone',
         'text!templates/components/Alerts.html'
-], function($, _, Backbone, template) {
+], function($, _, Backbone, tpl) {
 
-	//interface--------------------------------------
-	var alerts = Backbone.View.extend({
+	return Backbone.View.extend({
 
 		// Backbone specific attributes
 		tagName		: 'section',
 	    id			: 'alerts',
 	    events		: {
+	    	"click #allBtn"			: "showAll",
+	    	"click #alertsBtn"		: "showAlerts",
+	    	"click #remindersBtn"	: "showReminders",
+	    	"click #expirationsBtn"	: "showExpirations",
+	    	"click li" : 'test'
 	    },
-	    template	: _.template(template),
-	    el 		: $('#home-content'),
+	    template	: _.template(tpl),
 
-	    //Function interface
-		initialize	: _initialize,
-		render		: _render,		// return template
 
+		initialize : function(){
+			_.bindAll(this);
+		},
+
+		render : function(){
+			this.$el.html('<section id="alerts">'+this.template+'</section>');
+			console.log(this);
+
+			return this;
+		},
+
+		test: function(){
+			console.log('test');
+		},
+
+		showAll: function(){
+			$('#alert-list').show();
+			$('#reminder-list').show();
+			$('#expiration-list').show();
+		},
+
+		showAlerts: function(){
+			$('#alert-list').show();
+			$('#reminder-list').hide();
+			$('#expiration-list').hide();
+		},
+
+		showReminders: function(){
+			$('#alert-list').hide();
+			$('#reminder-list').show();
+			$('#expiration-list').hide();
+		},
+
+		showExpirations: function(){
+			$('#alert-list').hide();
+			$('#reminder-list').hide();
+			$('#expiration-list').show();
+		},
 	});
-
-
-	//implementation-------------------------------
-
-	function _initialize(){
-		_.bindAll(this);
-	};
-
-	function _render(){
-		this.$el.html(template);
-		var html = '<section id="alerts">'+template+'</section>';
-
-		return html;
-	};
-
-
-	return alerts;
-
 });

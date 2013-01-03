@@ -621,19 +621,32 @@ li {
   width: 100%;
   padding: 10px;
 }
-#goals,
+#goals {
+  padding: 15px;
+}
+#goals h1 {
+  color: #2b6891;
+  margin: 30px 0 20px 0;
+  font: bold 20px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
+}
+#goals #add-goal {
+  -webkit-border-radius: 8px;
+  border-radius: 8px;
+  border: 2px solid #cdcdcd;
+  font: bold 16px "Avenir Next Bold", Helvetica, Arial, sans-serif;
+  color: #b3b3b3;
+  background-color: transparent;
+  width: 100%;
+  padding: 10px;
+}
 #alerts {
   padding: 15px;
 }
-#goals h1,
 #alerts h1 {
   color: #2b6891;
   margin: 30px 0 20px 0;
   font: bold 20px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
 }
-#goals #add-goal,
-#alerts #add-goal,
-#goals #add-alert,
 #alerts #add-alert {
   -webkit-border-radius: 8px;
   border-radius: 8px;
@@ -644,7 +657,33 @@ li {
   width: 100%;
   padding: 10px;
 }
-#goals .alert,
+#alerts #buttons {
+  width: 100%;
+}
+#alerts #buttons li {
+  font: bold 14px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
+  width: 22.9%;
+  margin: 5px;
+  background-color: #e6e6e6;
+  border-radius: 10px;
+  text-align: center;
+  color: #8c8c8c;
+  padding: 4px 0 4px 0;
+}
+#alerts #buttons li:hover,
+#alerts #buttons li:active {
+  background-color: #ccc;
+}
+#alerts #buttons li .selected {
+  color: #fff;
+  background-color: #545454;
+}
+#alerts #buttons:first-child {
+  margin-left: 0;
+}
+#alerts #buttons:last-child {
+  margin-right: 0;
+}
 #alerts .alert {
   font: normal 14px "Avenir Next Medium", Helvetica, Arial, sans-serif;
   background-color: #e6e6e6;
@@ -654,19 +693,15 @@ li {
   box-shadow: 0px 2px 2px #ababab;
   margin-bottom: 10px;
 }
-#goals .alert #date,
 #alerts .alert #date {
   float: right;
   color: #8c8c8c;
   margin-right: 80px;
 }
-#goals .alert:hover,
 #alerts .alert:hover,
-#goals .alert:active,
 #alerts .alert:active {
   background-color: #ccc;
 }
-#goals .alert:after,
 #alerts .alert:after {
   position: relative;
   content: url('../img/icons/smallArrow.png');
@@ -675,19 +710,16 @@ li {
   bottom: 15px;
   right: 25px;
 }
-#goals .redtip,
 #alerts .redtip {
   background-image: url('../img/cornerTabs/red.png');
   background-position: top right;
   background-repeat: no-repeat;
 }
-#goals .orangetip,
 #alerts .orangetip {
   background-image: url('../img/cornerTabs/orange.png');
   background-position: top right;
   background-repeat: no-repeat;
 }
-#goals .greentip,
 #alerts .greentip {
   background-image: url('../img/cornerTabs/green.png');
   background-position: top right;

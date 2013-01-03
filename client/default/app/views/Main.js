@@ -93,7 +93,7 @@ define(['zepto',
     function _showAlerts() {
 		this.toggleSelectedTab('show-alerts');
 		var alertsView = new AlertsView();
-		this.$('#home-content').html(alertsView.render());
+		this.$('#home-content').html(alertsView.render().el);
 		this.refreshScroll();
     };
 
