@@ -1,4 +1,4 @@
-#goals, #alerts {
+#alerts {
 
     // TODO: Assess whether this will be for all home content-sections.
     padding: 15px;
@@ -10,7 +10,7 @@
         .avenir-demi(20px);
     }
 
-    #add-goal, #add-alert {
+    #add-alert {
         .border-radius(8px);
         border: 2px solid #cdcdcd;
         .avenir-bold(16px);
@@ -18,6 +18,28 @@
         background-color: transparent;
         width: 100%;
         padding: 10px;
+    }
+
+    #buttons {
+        width: 100%;
+
+        li {
+            width: 20%;
+            margin: 5px;
+            background-color: #e6e6e6;
+            border-radius: 10px;
+            text-align: center;
+            color: #000;
+
+            &:hover, &:active {
+                background-color: #ccc;
+            }
+
+            .selected {
+                color : #fff;
+                background-color: #545454;
+            }
+        }
     }
 
     .alert {
