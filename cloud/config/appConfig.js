@@ -24,11 +24,13 @@ var appConfig = {
         "level": "DEBUG"
       },
       "urls": {
-        "baseUrl":"99.71.210.208",        
+        "baseUrl":"99.71.210.208",                 
         "auth":"/PeachyWebApi/api/authentication/",
         "userProfile":"/PeachyWebApi/api/profileaccount/",
-        "fetchAlert":""
-      },
+         "alert":"/PeachyWebApi/api/alerts",
+         "peachyPoints":"/PeachyWebApi/api/peachyPoints/",
+         "quotes":"/PeachyWebApi/api/quotes/"
+     },
       "session": {
         // Inactivity timeout (Seconds)
         "lifetime": 24 *  60 * 60

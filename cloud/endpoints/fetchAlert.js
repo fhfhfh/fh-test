@@ -50,7 +50,7 @@ var fetchAlertEndpoint = function() {
                 var optionsGet = {
                     host : appConfig.environments[env].urls.baseUrl,
                     port : 8888,
-                    path : appConfig.environments[env].urls.fetchAlert,
+                    path : appConfig.environments[env].urls.alert,
                     method : 'GET',
                     headers : getHeaders
                 };

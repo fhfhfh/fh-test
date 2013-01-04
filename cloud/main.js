@@ -23,6 +23,7 @@ var searchAllergyEndpoint = require("./endpoints/searchAllergy.js")
 var addAllergyEndpoint = require("./endpoints/addAllergy.js")
 var fetchFeaturedContentEndpoint = require("./endpoints/fetchFeaturedContent.js")
 var fetchAlertEndpoint = require("endpoints/fetchAlert.js")
+var fetchQuotesEndpoint = require("endpoints/fetchQuotes.js")
 
 
 
@@ -54,6 +55,7 @@ exports.searchAllergyAction = searchAllergyAction;
 exports.addAllergyAction = addAllergyAction;
 exports.fetchFeaturedContentAction = fetchFeaturedContentAction;
 exports.fetchAlertAction = fetchAlertAction;
+exports.fetchQuotesAction = fetchQuotesAction;
 
 
 
@@ -244,6 +246,15 @@ function fetchFeaturedContentAction(params, callback) {
 function fetchAlertAction(params, callback) {
   console.log(JSON.stringify(params));
   fetchAlertEndpoint.fetchAlert(params,function cb(err, respData) {
+    callback(err,respData);
+  });
+}
+
+//---------------------------------------fetchAlerts--------------------------------------------------------------------
+
+function fetchQuotesAction(params, callback) {
+  console.log(JSON.stringify(params));
+  fetchQuotesEndpoint.fetchQuotes(params,function cb(err, respData) {
     callback(err,respData);
   });
 }

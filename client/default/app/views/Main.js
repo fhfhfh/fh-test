@@ -13,8 +13,9 @@ define(['zepto',
     'views/home/cal',
     'iScroll',
     'models/Acts',
-    'models/User'
-    ], function($, _, Backbone, template, NewsView, GoalsView, AlertsView, CalView, iScroll, Acts, User) {
+    'models/User',
+    'controllers/PeachyPoints'
+    ], function($, _, Backbone, template, NewsView, GoalsView, AlertsView, CalView, iScroll, Acts, User,PeachyPoints) {
 
 
         //interface----------------------------------
@@ -29,7 +30,8 @@ define(['zepto',
                 'click #show-alerts'		: 'showAlerts',
                 'click #show-cal'		: 'showCal',
                 'click #profile-button'	        : 'showProfile',
-                'click #logout-button'	        : 'showLogout'
+                'click #logout-button'	        : 'showLogout',
+                'click #points-button'	        : 'setPeachyPoints'
             },
             template: template,
             el 		: $('#body'),
@@ -42,8 +44,8 @@ define(['zepto',
             showCal 			: _showCal,		// Show calendar tab
             toggleSelectedTab	: _toggleSelectedTab,// switch between tabs
             showProfile 		: _showProfile ,		// open user profile page
-            showLogout 		: _showLogout 		// logout and open Login page
-
+            showLogout 		: _showLogout, 		// logout and open Login page
+            setPeachyPoints 		: _setPeachyPoints
         });
 
 
@@ -53,7 +55,7 @@ define(['zepto',
         function _initialize(){
             _.bindAll(this);
             var self = this;
-
+            this.setPeachyPoints();
             Backbone.View.prototype.refreshScroll = function() {
                 setTimeout(function() {
                     if (self.iscroll) {
@@ -61,9 +63,10 @@ define(['zepto',
                     }
                 }, 100);
             };
-
+            
             this.refreshScroll();
             this.render();
+            
         };
 
         function _render(){
@@ -122,6 +125,7 @@ define(['zepto',
         };
 
         function _showProfile(){
+            
             App.navigate('profile', true)
         }
     
@@ -129,7 +133,7 @@ define(['zepto',
             var params = "";
             Acts.call('logoutAction', params, 
                 function(res){
-                   App.navigate('Login', true)
+                    App.navigate('Login', true)
                     
                 }, function(err, msg){
                     console.log(err);
@@ -138,7 +142,18 @@ define(['zepto',
                 }
                 );
         }
-	
+        
+        
+        function _setPeachyPoints(){
+            Acts.call('peachyPointsAction', {}, 
+                function(res){
+                    var points = res.payload.points[0].peachyPoints;
+                   this.$('#points-button em').html(points);
+                }, 
+                function(err, msg){
+                    console.log(err);
+                }
+                );
+        }
         return main;
-
     });
