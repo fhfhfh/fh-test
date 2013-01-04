@@ -51,8 +51,11 @@ require([
     new NotificationManager();
 
     // TODO: This should be configure for appropriate app domain once created.
+    // Also worth noting is that window.location.origin is only know to work on
+    // WebKit browsers, which for now is perfect; our only remote testing for
+    // now will be with WebKit based browsers (iOS Safari & Chrome on desktop).
     $fh.init({
-      host: 'http://127.0.0.1:8888',
+      host: window.location.origin || 'http://127.0.0.1:8888',
       appid: 'doesntmatterhere',
       appkey: 'doesnmatterhere',
       mode: 'dev'
