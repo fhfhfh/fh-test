@@ -32,8 +32,8 @@ var defaults = {
 	
 	// editing
 	//editable: false,
-	disableDragging: true,
-	disableResizing: true,
+	//disableDragging: false,
+	//disableResizing: false,
 	
 	allDayDefault: true,
 	ignoreTimezone: true,
@@ -77,13 +77,13 @@ var defaults = {
 	},
 	
 	// jquery-ui theming
-	theme: true,
+	theme: false,
 	buttonIcons: {
 		prev: 'circle-triangle-w',
 		next: 'circle-triangle-e'
 	},
 	
-	selectable: false,
+	//selectable: false,
 	unselectAuto: true,
 	
 	dropAccept: '*'
@@ -2669,28 +2669,13 @@ function BasicEventRenderer() {
 	
 	
 	
+	/* Dragging
+	----------------------------------------------------------------------------*/
 	
-	
-//       --------------------------iPad Support------------------------------ 
-        $.fn.addTouch = function() {
-	if ($.support.touch) {
-		var obj = document.getElementsByClassName('#calendar');
-		for(i=0; i<obj.length;i++){
-			obj[i].addEventListener("touchstart", iPadTouchHandler, false);
-			obj[i].addEventListener("touchmove", iPadTouchHandler, false);
-			obj[i].addEventListener("touchend", iPadTouchHandler, false);
-			obj[i].addEventListener("touchcancel", iPadTouchHandler, false);
-		}
-	}
-};
-        
-/* Dragging
-	----------------------------------------------------------------------------*/        
 	
 	function draggableDayEvent(event, eventElement) {
 		var hoverListener = getHoverListener();
 		var dayDelta;
-                eventElement.addTouch();
 		eventElement.draggable({
 			zIndex: 9,
 			delay: 50,
