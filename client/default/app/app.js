@@ -47,23 +47,21 @@ require([
   } : $;
 
   onReady(function() {
+    // ALthough using new for side effects is generally bad, in the case of
+    // setting up app-wide 'listener' type modules, it's sometimes useful.
+    /*jshint nonew:false */
 
     new NotificationManager();
+    new FastClick(document.body);
 
     // TODO: This should be configure for appropriate app domain once created.
-    // Also worth noting is that window.location.origin is only know to work on
-    // WebKit browsers, which for now is perfect; our only remote testing for
-    // now will be with WebKit based browsers (iOS Safari & Chrome on desktop).
+    // Also note window.location.origin is WebKit only.
     $fh.init({
       host: window.location.origin || 'http://127.0.0.1:8888',
       appid: 'doesntmatterhere',
       appkey: 'doesnmatterhere',
       mode: 'dev'
     }, function(res) {
-
-      // Recommended use of FastClick is to wrap entire body in it.
-      new FastClick(document.body);
-
       var appRouter = new AppRouter();
 
       // We disable pushState support within PhoneGap instances of the app, as
