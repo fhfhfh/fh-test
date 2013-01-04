@@ -45,7 +45,7 @@ module.exports = function(grunt) {
     // mobile platform builds, to keep binary size as small as possible.
     clean: {
       ios: [
-          'builds/ios/www/app/Router.js',
+          'builds/ios/www/app/routers',
           'builds/ios/www/app/text.js',
           'builds/ios/www/app/lib',
           'builds/ios/www/app/templates',

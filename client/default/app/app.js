@@ -30,14 +30,15 @@ require.config({
   }
 });
 
+
 require([
     'feedhenry',
     'jquery',
     'backbone',
     'fastclick',
     'NotificationManager',
-    'Router'
-], function($fh, $, Backbone, FastClick, NotificationManager, Router) {
+    'routers/AppRouter'
+], function($fh, $, Backbone, FastClick, NotificationManager, AppRouter) {
 
   // To enable development (and future deployment) on desktop browsers, we make
   // sure that we use the appropriate DOM ready event.
@@ -60,12 +61,12 @@ require([
       // Recommended use of FastClick is to wrap entire body in it.
       new FastClick(document.body);
 
-      window.app = new Router();
-      Backbone.history.start({
+      var appRouter = new AppRouter();
 
-        // Disabled for PhoneGap apps, as it can cause problems.
-        // TODO: This should be enabled in the desktop version of the app.
-        pushState: false
+      // We disable pushState support within PhoneGap instances of the app, as
+      // this has been known to cause problems.
+      Backbone.history.start({
+        pushState: !window.cordova
       });
     }, function(msg, err) {
       console.log(msg, err);

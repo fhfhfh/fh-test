@@ -40,6 +40,7 @@ require.config({
   }
 });
 
+
 require(['mocha'], function(mocha) {
   mocha.setup('bdd');
 
@@ -47,6 +48,10 @@ require(['mocha'], function(mocha) {
   require([
     'tests/specs/test.NotificationManager'
   ], function() {
+
+    // If we're running the tests through the console interface provided by
+    // mocha-phantomjs, we make use of the runner provided by it instead of the
+    // vanilla mocha.run.
     if (window.mochaPhantomJS) {
       window.mochaPhantomJS.run();
     } else {

@@ -1,16 +1,17 @@
-define(['jquery',
-        'underscore',
-        'backbone',
-        'views/Login',
-        'views/Main',
-        'views/Profile',
-        'views/Widgets',
-        'views/HealthHub',
-        'views/Connect',
-        'views/Calendar',
-        'views/Library',
-        'views/components/LeftNav',
-        'views/components/TopBar'
+define([
+  'jquery',
+  'underscore',
+  'backbone',
+  '../views/Login',
+  'views/Main',
+  'views/Profile',
+  'views/Widgets',
+  'views/HealthHub',
+  'views/Connect',
+  'views/Calendar',
+  'views/Library',
+  'views/components/LeftNav',
+  'views/components/TopBar'
 ], function($, _, Backbone, LoginView, MainView, ProfileView, WidgetView, HealthHubView, ConnectView, CalendarView, LibraryView, NavView, TopBar) {
 
   return Backbone.Router.extend({
