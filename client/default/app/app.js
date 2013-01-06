@@ -63,12 +63,6 @@ require([
       mode: 'dev'
     }, function(res) {
       var appRouter = new AppRouter();
-
-      // We disable pushState support within PhoneGap instances of the app, as
-      // this has been known to cause problems.
-      Backbone.history.start({
-        pushState: !window.cordova
-      });
     }, function(msg, err) {
       console.log(msg, err);
       Backbone.trigger('notify', 'FeedHenry init failed!');

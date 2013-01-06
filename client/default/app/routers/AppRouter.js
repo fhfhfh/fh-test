@@ -34,8 +34,19 @@ define([
       '*path'        : 'default'
     },
 
-    initialize: function() {
+    initialize: function(options) {
       _.bindAll(this);
+
+      Backbone.history.start({
+
+        // We disable pushState support within PhoneGap instances of the app, as
+        // this has been known to cause problems.
+        pushState: !window.cordova,
+
+        // To facilitate running unit tests, we provide a hook to allow our test
+        // runner to disable firing a route straight away.
+        silent: !!(options && options.testMode)
+      });
     },
 
     startup: function() {
@@ -48,14 +59,13 @@ define([
     },
 
     login: function() {
+      console.log(this);
 
       // TODO: When implemented, clear localStorage appropriately.
       var loginView = new LoginView();
       $('#content').html(loginView.render().el);
       this.topBar.hide();
       this.leftNav.hide();
-      console.log('##');
-
     },
 
     ensureMain: function() {
@@ -67,10 +77,14 @@ define([
     },
 
     home: function() {
+      this.navigate('login', {
+        trigger: true,
+        replace: true
+      });
       // this.ensureMain();
-      this.mainView = new MainView();
-      this.topBar.show();
-      this.leftNav.show();
+//      this.mainView = new MainView();
+//      this.topBar.show();
+//      this.leftNav.show();
     },
 
     widgets:function(){
