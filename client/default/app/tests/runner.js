@@ -47,7 +47,8 @@ require(['mocha'], function(mocha) {
   // Don't forget to add reference to new tests here as they're added...
   require([
     'tests/specs/test.NotificationManager',
-    'tests/specs/test.routers.AppRouter'
+    'tests/specs/test.routers.AppRouter',
+    'tests/specs/test.views.ContainerView'
   ], function() {
 
     // If we're running the tests through the console interface provided by

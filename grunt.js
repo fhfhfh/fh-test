@@ -104,7 +104,7 @@ module.exports = function(grunt) {
             '-R',
 
             // https://github.com/metaskills/mocha-phantomjs for more options.
-            'dot',
+            'spec',
 
             'http://localhost:8000/app/tests/'
           ]
