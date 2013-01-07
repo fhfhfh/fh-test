@@ -10,8 +10,9 @@ define([
   'feedhenry',
   'text!templates/login.html',
   'text!templates/login-loading.html',
-  'controllers/Login'
-], function($, _, Backbone, $fh, loginTpl, loadingTpl, loginController) {
+  'controllers/Login',
+  'views/WelcomeVideo'
+], function($, _, Backbone, $fh, loginTpl, loadingTpl, loginController, WelcomeView) {
 
   return Backbone.View.extend({
     tagName: 'section',
@@ -47,7 +48,12 @@ define([
 
         self.controller.login(username, password, function(res){
           if(res){
-            app.navigate('home', true, true);
+            welcome = new WelcomeView();
+
+            setTimeout(function(){
+              welcome.loadVideo('http://mirrorblender.top-ix.org/peach/bigbuckbunny_movies/big_buck_bunny_480p_h264.mov');
+            }, 1000);
+            // app.navigate('home', true, true);
           }
         });
 

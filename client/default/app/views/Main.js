@@ -63,8 +63,8 @@ define(['zepto',
 		this.$el.html(template);
 		var scroller = this.$el.find('#main-content')[0];
 
-		// this.showNews();
-		this.showAlerts();
+		this.showNews();
+		// this.showAlerts();
 
 		this.iscroll = new iScroll(scroller, {
 			hscroll: false,

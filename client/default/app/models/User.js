@@ -112,6 +112,10 @@ define(['zepto',
     				console.log('Saved User: ',res);
     				return callback(true);
     			});
+    		},
+    		function(err, msg){
+    			console.log('Failed to get Profile', msg);
+    			return callback(false);
     		}
 		);
 	};

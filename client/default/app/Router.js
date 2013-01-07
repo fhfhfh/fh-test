@@ -53,7 +53,6 @@ define(['zepto',
       $('#content').html(loginView.render().el);
       this.topBar.hide();
       this.leftNav.hide();
-      console.log('##');
 
     },
 

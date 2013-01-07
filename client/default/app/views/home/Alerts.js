@@ -30,8 +30,7 @@ define(['zepto',
 
 		render : function(){
 			this.$el.html('<section id="alerts">'+tpl+'</section>');
-			console.log(this);
-			var html = this.$el.html;
+			var html = '<section id="alerts">'+tpl+'</section>';
 			return html;
 		},
 
