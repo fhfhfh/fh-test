@@ -15,7 +15,8 @@ define([
         events: {
             'click #profile-button' : 'showProfile',
             'click #save'   : 'saveDetails',
-            'click #cancel' : 'cancel'
+            'click #cancel' : 'cancel',
+            'click #logo'   : 'logout'
         },
 
         initialize: function() {
@@ -58,6 +59,11 @@ define([
                 '<li><button><img src="img/Search.png" alt="Search"></button></li>'+
                 '<li><button><img src="img/Help.png" alt="Help"></button></li>'+
                 '<li><button id="profile-button"><img src="img/OptionsGear.png" alt="Options"></button></li>');
+        },
+
+        logout: function(){
+            // TODO : clear session ID from local storage, and possibly all user data
+            app.navigate('login', true);
         }
     });
 });

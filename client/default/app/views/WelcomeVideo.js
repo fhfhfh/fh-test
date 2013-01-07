@@ -32,7 +32,7 @@ define([
             // dummy vid
             // http://mirrorblender.top-ix.org/peach/bigbuckbunny_movies/big_buck_bunny_480p_h264.mov
             var vid = this.$('#video');
-            var html =  '<video  poster="img/video/bigbuckbunny.jpg" autoplay="autoplay">' +
+            var html =  '<video  poster="img/video/VideoPlaceholder.png" autoplay="autoplay">' +
                         '<source src=' + url +' type="video/mp4" />' +
                         'Your browser does not support the video tag.' +
                         '</video>';
@@ -49,24 +49,19 @@ define([
             videoWrapper.append(status);
             status = this.$('.status')[0];
 
-            console.log(status);
             if(video.paused){
-                status.innerHTML ='PLAY';
                 video.play();
-            }
-            else{
-                status.innerHTML = 'PAUSE';
-                video.pause();
-            }
-
-            setTimeout(function(){
                 // TODO: fadeout the status message
                 self.$('.status').remove();
-            }, 1000);
+            }
+            else{
+                status.innerHTML = 'PAUSED';
+                video.pause();
+            }
         },
 
         close: function(){
-            console.log('close');
+            app.navigate('home', true, true);
         }
     });
 });

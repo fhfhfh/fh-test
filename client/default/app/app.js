@@ -11,7 +11,8 @@ require.config({
     'underscore': 'lib/underscore',
     'backbone': 'lib/backbone',
     'fastclick': 'lib/fastclick',
-    'iscroll': 'lib/iscroll'
+    'iscroll': 'lib/iscroll',
+    'highChart': 'lib/HighCharts',
   },
   shim: {
     'feedhenry': {
@@ -29,6 +30,9 @@ require.config({
     },
     'iscroll' : {
       exports: 'iScroll'
+    },
+    'highChart': {
+      exports: 'Highcharts'
     }
   }
 });

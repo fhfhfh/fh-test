@@ -6,6 +6,7 @@
 define(['zepto',
         'underscore',
         'backbone',
+        // 'highChart',
         'text!templates/components/Goals.html'
 ], function($, _, Backbone, template) {
 
@@ -24,7 +25,8 @@ define(['zepto',
 	    //Function interface
 		initialize	: _initialize,
 		render		: _render,		// return template
-		addGoal 	: _addGoal
+		addGoal 	: _addGoal,
+		displayGoals: _displayGoals
 
 	});
 
@@ -38,13 +40,40 @@ define(['zepto',
 	function _render(){
 		this.$el.html(template);
 		var html = '<section id="goals">'+template+'</section>';
-
+		this.displayGoals();
 		return html;
 	};
 
 	function _addGoal(){
 		// TODO: need flats from customer
 	};
+
+	function _displayGoals(){
+		// chart1 = new Highcharts.Chart({
+  //        chart: {
+  //           renderTo: 'container',
+  //           type: 'bar'
+  //        },
+  //        title: {
+  //           text: 'Fruit Consumption'
+  //        },
+  //        xAxis: {
+  //           categories: ['Apples', 'Bananas', 'Oranges']
+  //        },
+  //        yAxis: {
+  //           title: {
+  //              text: 'Fruit eaten'
+  //           }
+  //        },
+  //        series: [{
+  //           name: 'Jane',
+  //           data: [1, 0, 4]
+  //        }, {
+  //           name: 'John',
+  //           data: [5, 7, 3]
+  //        }]
+  //     });
+	}
 
 
 	return goals;
