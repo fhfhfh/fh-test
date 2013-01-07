@@ -32,7 +32,7 @@ var defaults = {
 	
 	// editing
 	//editable: false,
-	//disableDragging: false,
+	disableDragging: true,
 	//disableResizing: false,
 	
 	allDayDefault: true,
@@ -83,8 +83,8 @@ var defaults = {
 		next: 'circle-triangle-e'
 	},
 	
-	//selectable: false,
-	unselectAuto: true,
+	selectable: false,
+	unselectAuto: false,
 	
 	dropAccept: '*'
 	

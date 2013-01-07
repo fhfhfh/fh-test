@@ -109,6 +109,7 @@ define(['zepto',
         function _showCal() {
             this.toggleSelectedTab('show-cal');
             var calView = new CalView();
+            this.$("#home-content").style="height = 10px";
             this.$('#home-content').html(calView.render());
             this.refreshScroll();
         };
