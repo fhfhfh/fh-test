@@ -64,22 +64,25 @@ define([
       restoreStubbedFuncs(stubbedMainFuncs);
     });
 
-    describe('when logged in', function() {
+    describe('when a valid session is present', function() {
       afterEach(function() {
         restoreStubbedFuncs(stubbedTestFuncs);
       });
 
+      it('should skip login for any valid login (even \'login/\')');
       it('should route to 404 for any invalid URL request');
-      it('should call home for /');
-      it('should call home for /home');
     });
 
-    describe('when not logged in', function() {
+    describe('when an invalid or no session is present', function() {
       afterEach(function() {
         restoreStubbedFuncs(stubbedTestFuncs);
       });
 
-      it('should route to 404 for any invalid URL request');
+      it('should route to 404 for any invalid URL request', function() {
+        appRouter.navigate('does_not_exist', true);
+        forceReflow();
+        expect($content.find('#404')).to.have.length(1);
+      });
       it('should route to login for any valid URL request when not logged in', function() {
         appRouter.navigate('home', true);
         forceReflow();

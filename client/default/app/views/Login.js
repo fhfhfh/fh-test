@@ -21,7 +21,9 @@ define([
     // TODO: Look into the 'submit form' section.
     events: {
       'submit form': 'login',
-      'click #login-help-button': 'loginHelp'
+      'click #login-help-button': 'loginHelp',
+      'input input': 'toggleSigninButton',
+      'change input': 'toggleSigninButton'
     },
 
     initialize: function() {
@@ -35,7 +37,24 @@ define([
       this.$('#username').val('jsmith101');
       this.$('#password').val('12345');
 
+      this.toggleSigninButton();
+
       return this;
+    },
+
+    /**
+     * Ensures sign-in button is disabled until the user enters both a username
+     * and a password.
+     */
+    toggleSigninButton: function() {
+
+      // TODO: Cache selectors (carefully ensuring presence in the DOM).
+
+      if (!$('#username').val() || !$('#password').val()) {
+        $('#signin').prop('disabled', true);
+      } else {
+        $('#signin').prop('disabled', false);
+      }
     },
 
     login: function() {

@@ -48,7 +48,8 @@ require(['mocha'], function(mocha) {
   require([
     'tests/specs/test.NotificationManager',
     'tests/specs/test.routers.AppRouter',
-    'tests/specs/test.views.ContainerView'
+    'tests/specs/test.views.ContainerView',
+    'tests/specs/test.views.Login'
   ], function() {
 
     // If we're running the tests through the console interface provided by

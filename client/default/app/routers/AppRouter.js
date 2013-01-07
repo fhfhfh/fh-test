@@ -11,12 +11,15 @@ define([
   'views/Calendar',
   'views/Library',
   'views/components/LeftNav',
-  'views/components/TopBar'
-], function($, _, Backbone, LoginView, MainView, ProfileView, WidgetView, HealthHubView, ConnectView, CalendarView, LibraryView, NavView, TopBar) {
+  'views/components/TopBar',
+    'views/PageNotFound'
+], function($, _, Backbone, LoginView, MainView, ProfileView, WidgetView, HealthHubView, ConnectView, CalendarView, LibraryView, NavView, TopBar, PageNotFoundView) {
 
   return Backbone.Router.extend({
     topBar : new TopBar(),
     leftNav: new NavView(),
+
+    $content: $('#content'),
 
     routes: {
       ''             : 'startup',
@@ -31,11 +34,25 @@ define([
 //      'home/alerts': 'homeAlerts',
 //      'home/goals' : 'homeGoals',
       'profile'      : 'profile',
-      '*path'        : 'default'
+      '*invalidUrl': 'pageNotFound'
     },
 
     initialize: function(options) {
       _.bindAll(this);
+
+      // TODO: Make this actually check for a valid session.
+      this.on('all', function(event) {
+        var route = event.replace('route:', '');
+
+        if (this.routes.hasOwnProperty(route) && route !== 'login') {
+          this.postLoginRoute = route;
+
+          this.navigate('login', {
+            trigger: true,
+            replace: true
+          });
+        }
+      });
 
       Backbone.history.start({
 
@@ -59,7 +76,6 @@ define([
     },
 
     login: function() {
-      console.log(this);
 
       // TODO: When implemented, clear localStorage appropriately.
       var loginView = new LoginView();
@@ -114,6 +130,10 @@ define([
     // TODO: This should show a useful 404 message or else just call startup.
     default: function() {
       this.navigate('login', true);
+    },
+
+    pageNotFound: function(path) {
+      this.$content.html((new PageNotFoundView()).render().el);
     }
   });
 });
