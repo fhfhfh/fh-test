@@ -11,7 +11,7 @@ require.config({
     'sinon': 'tests/lib/sinon',
     'sinon-chai': 'tests/lib/sinon-chai',
     'feedhenry': 'lib/feedhenry',
-    'zepto': 'lib/zepto',
+    'jquery': 'lib/jquery',
     'underscore': 'lib/underscore',
     'backbone': 'lib/backbone',
     'fastclick': 'lib/fastclick',
@@ -27,14 +27,11 @@ require.config({
     'feedhenry': {
       exports: '$fh'
     },
-    'zepto': {
-      exports: 'Zepto'
-    },
     'underscore': {
       exports: '_'
     },
     'backbone': {
-      deps: ['underscore', 'zepto'],
+      deps: ['underscore', 'jquery'],
       exports: 'Backbone'
     },
     'iscroll' : {
@@ -43,15 +40,23 @@ require.config({
   }
 });
 
+
 require(['mocha'], function(mocha) {
   mocha.setup('bdd');
 
   // Don't forget to add reference to new tests here as they're added...
   require([
-    'tests/specs/test.NotificationManager'
+    'tests/specs/test.NotificationManager',
+    'tests/specs/test.routers.AppRouter',
+    'tests/specs/test.views.ContainerView',
+    'tests/specs/test.views.Login'
   ], function() {
+
+    // If we're running the tests through the console interface provided by
+    // mocha-phantomjs, we make use of the runner provided by it instead of the
+    // vanilla mocha.run.
     if (window.mochaPhantomJS) {
-      mochaPhantomJS.run();
+      window.mochaPhantomJS.run();
     } else {
       mocha.run();
     }

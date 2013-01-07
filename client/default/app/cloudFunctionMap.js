@@ -1,7 +1,7 @@
 // Used to map cloud function names to their
 // relevant payload names, as per JSON request/response spec
 
-define(['zepto',
+define(['jquery',
         'underscore',
         'backbone',
         'models/Acts'

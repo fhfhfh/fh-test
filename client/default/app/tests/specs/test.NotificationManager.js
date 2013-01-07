@@ -1,6 +1,6 @@
 define([
   'chai',
-  'zepto',
+  'jquery',
   'backbone',
   'NotificationManager'
 ], function(chai, $, Backbone, NotificationManager) {

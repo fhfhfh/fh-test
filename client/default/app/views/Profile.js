@@ -3,7 +3,7 @@
 
 	View for all user details
 --------------------*/
-define(['zepto',
+define(['jquery',
         'underscore',
         'backbone',
         'models/Acts',
