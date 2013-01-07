@@ -24,7 +24,7 @@ define(['underscore', 'backbone'], function(_, Backbone) {
           this.subViews.pop().remove();
         }
       }
-      return Backbone.View.prototype.remove.apply(this);
+      return Backbone.View.prototype.remove.call(this);
     }
   });
 });
