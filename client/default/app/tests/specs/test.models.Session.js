@@ -115,7 +115,6 @@ define(['chai', 'sinon-chai', 'sinon', 'models/Session', 'feedhenry'], function(
           throw new Error('Fetch succeeded!');
         }
         function error() {
-          throw new Error('Forced error...');
           session.off();
           expect(session.get('sessionId')).to.not.be.ok;
           done();
