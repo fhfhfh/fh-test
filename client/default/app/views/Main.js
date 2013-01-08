@@ -14,8 +14,8 @@ define(['zepto',
     'iScroll',
     'models/Acts',
     'models/User',
-    'controllers/PeachyPoints'
-    ], function($, _, Backbone, template, NewsView, GoalsView, AlertsView, CalView, iScroll, Acts, User,PeachyPoints) {
+  //  'controllers/PeachyPoints'
+    ], function($, _, Backbone, template, NewsView, GoalsView, AlertsView, CalView, iScroll, Acts, User) {
 
 
         //interface----------------------------------
