@@ -4,8 +4,8 @@ define(['chai', 'sinon-chai', 'sinon', 'models/Session', 'feedhenry'], function(
   var expect = chai.expect;
   chai.use(sinonChai);
 
-  describe('Session model', function() {
-    var session = new Session(),
+  describe('Session (model)', function() {
+    var session,
         host = window.location.origin || 'http://127.0.0.1:8888';
 
     before(function(done) {
@@ -15,132 +15,198 @@ define(['chai', 'sinon-chai', 'sinon', 'models/Session', 'feedhenry'], function(
         appkey: 'doesnmatterhere',
         mode: 'dev'
       }, function(res) {
+        session = new Session();
         done();
       }, function(msg, err) {
         throw new Error('$fh init failed!');
       });
     });
 
-    describe('when fetch is called with valid credentials', function() {
-      before(function() {
-        session.set('username', 'jsmith101');
-        session.set('password', '12345');
+    describe('#fetch', function() {
+      describe('with valid credentials', function() {
+        before(function() {
+          session.set('username', 'jsmith101');
+          session.set('password', '12345');
+        });
+
+        it('should trigger the sync event with expected parameters', function(done) {
+          var syncSpy = sinon.spy();
+
+          session.once('sync', syncSpy);
+
+          function success(model, res) {
+            session.off();
+            expect(syncSpy).to.have.been.calledWith(model, res);
+            done();
+          }
+          function error() {
+            session.off();
+            throw new Error('Fetch failed!');
+          }
+
+          session.once('sync', success);
+          session.once('error', error);
+          session.fetch();
+        });
+
+        it('should set the sessionId of the model', function(done) {
+
+          function success(model, res) {
+            session.off();
+            expect(session.get('sessionId')).to.eql(res.head.sessionId);
+            done();
+          }
+          function error() {
+            session.off();
+            throw new Error('Fetch failed!');
+          }
+
+          session.once('sync', success);
+          session.once('error', error);
+          session.fetch();
+        });
+
+        it('should set the timestamp to current time', function(done) {
+
+          function success(model, res) {
+            session.off();
+            expect(session.get('timestamp')).to.be.closeTo((new Date()).valueOf(), 1000);
+            done();
+          }
+          function error() {
+            session.off();
+            throw new Error('Fetch failed!');
+          }
+
+          session.once('sync', success);
+          session.once('error', error);
+          session.fetch();
+        });
       });
 
-      it('should trigger the sync event with expected parameters', function(done) {
-        var syncSpy = sinon.spy();
+      describe('with invalid credentials', function() {
+        it('should trigger the error event with expected parameters', function(done) {
+          var errorSpy = sinon.spy();
 
-        session.once('sync', syncSpy);
+          session.once('error', errorSpy);
 
-        function success(model, res) {
-          session.off();
-          expect(syncSpy).to.have.been.calledWith(model, res);
-          done();
-        }
-        function error() {
-          session.off();
-          throw new Error('Fetch failed!');
-        }
+          session.set('username', 'user-doesnt-exist');
+          session.set('password', 'invalid-password');
 
-        session.once('sync', success);
-        session.once('error', error);
-        session.fetch();
-      });
+          function success(model, res) {
+            session.off();
+            throw new Error('Fetch succeeded!');
+          }
+          function error(model, err, msg) {
+            session.off();
+            expect(errorSpy).to.have.been.calledWith(model, err, msg);
+            done();
+          }
 
-      it('should set the sessionId of the model', function(done) {
+          session.once('sync', success);
+          session.once('error', error);
+          session.fetch();
+        });
 
-        function success(model, res) {
-          session.off();
-          expect(session.get('sessionId')).to.eql(res.head.sessionId);
-          done();
-        }
-        function error() {
-          session.off();
-          throw new Error('Fetch failed!');
-        }
+        it('should clear the sessionId of the model', function(done) {
+          session.set('username', 'user-doesnt-exist');
+          session.set('password', 'invalid-password');
 
-        session.once('sync', success);
-        session.once('error', error);
-        session.fetch();
-      });
+          function success(model, res) {
+            session.off();
+            throw new Error('Fetch succeeded!');
+          }
+          function error() {
+            session.off();
+            expect(session.get('sessionId')).to.not.be.ok;
+            done();
+          }
 
-      it('should set the timestamp to current time', function(done) {
+          session.once('sync', success);
+          session.once('error', error);
+          session.fetch();
+        });
 
-        function success(model, res) {
-          session.off();
-          expect(session.get('timestamp')).to.be.closeTo((new Date()).valueOf(), 1000);
-          done();
-        }
-        function error() {
-          session.off();
-          throw new Error('Fetch failed!');
-        }
+        it('should clear the timestamp', function(done) {
 
-        session.once('sync', success);
-        session.once('error', error);
-        session.fetch();
+          function success(model, res) {
+            session.off();
+            throw new Error('Fetch succeeded!');
+          }
+          function error() {
+            session.off();
+            expect(session.get('timestamp')).to.not.be.ok;
+            done();
+          }
+
+          session.once('sync', success);
+          session.once('error', error);
+          session.fetch();
+        });
       });
     });
 
-    describe('when fetch is called with invalid credentials', function() {
-      it('should trigger the error event with expected parameters', function(done) {
-        var errorSpy = sinon.spy();
+    describe('#getFromLocalStorage', function() {
 
-        session.once('error', errorSpy);
-
-        session.set('username', 'user-doesnt-exist');
-        session.set('password', 'invalid-password');
-
-        function success(model, res) {
-          session.off();
-          throw new Error('Fetch succeeded!');
-        }
-        function error(model, err, msg) {
-          session.off();
-          expect(errorSpy).to.have.been.calledWith(model, err, msg);
-          done();
-        }
-
-        session.once('sync', success);
-        session.once('error', error);
-        session.fetch();
+      beforeEach(function() {
+        localStorage.removeItem('peachy_session');
       });
 
-      it('should clear the sessionId of the model', function(done) {
-        session.set('username', 'user-doesnt-exist');
-        session.set('password', 'invalid-password');
-
-        function success(model, res) {
-          session.off();
-          throw new Error('Fetch succeeded!');
-        }
-        function error() {
-          session.off();
-          expect(session.get('sessionId')).to.not.be.ok;
-          done();
-        }
-
-        session.once('sync', success);
-        session.once('error', error);
-        session.fetch();
+      it('should return false if no saved session exists', function() {
+        var result = session.getFromJSON();
+        expect(result).to.be.false;
       });
 
-      it('should clear the timestamp', function(done) {
+      it('should return false if timestamp is over an hour old', function() {
+        var mockSession = {
+          timestamp: (new Date()).valueOf() - (1000 * 60 * 61)
+        };
 
-        function success(model, res) {
-          session.off();
-          throw new Error('Fetch succeeded!');
-        }
-        function error() {
-          session.off();
-          expect(session.get('timestamp')).to.not.be.ok;
-          done();
-        }
+        localStorage.setItem('peachy_session', JSON.stringify(mockSession));
 
-        session.once('sync', success);
-        session.once('error', error);
-        session.fetch();
+        var result = session.getFromJSON();
+        expect(result).to.be.false;
       });
+
+      it('should return true if item is present and timestamp OK', function() {
+        var mockSession = {
+          timestamp: (new Date()).valueOf() - (1000 * 60 * 30)
+        };
+
+        localStorage.setItem('peachy_session', JSON.stringify(mockSession));
+
+        var result = session.getFromJSON();
+        expect(result).to.be.true;
+      });
+
+      it('should set model properties from data if all OK', function() {
+        var timestamp = (new Date()).valueOf() - (1000 * 60 * 30),
+          mockSession = {
+            timestamp: timestamp
+          };
+
+        localStorage.setItem('peachy_session', JSON.stringify(mockSession));
+
+        session.getFromJSON();
+        expect(session.get('timestamp')).to.eql(timestamp);
+      });
+
+      it('should only set properties from data that exist in defaults',
+          function() {
+            var timestamp = (new Date()).valueOf() - (1000 * 60 * 30),
+                mockSession = {
+                  timestamp: timestamp,
+                  username: 'someuser',
+                  badProp: 'what is this?'
+                };
+
+            localStorage.setItem('peachy_session', JSON.stringify(mockSession));
+
+            session.getFromJSON();
+            expect(session.get('timestamp')).to.eql(timestamp);
+            expect(session.get('username')).to.eql('someuser');
+            expect(session.get('badProp')).to.not.be.ok;
+          });
     });
   });
 });

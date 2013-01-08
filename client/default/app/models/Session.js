@@ -8,6 +8,8 @@ define(['underscore', 'backbone', 'feedhenry', 'models/Acts'], function(_, Backb
 
   return Backbone.Model.extend({
 
+    localStorageKey: 'peachy_session',
+
     initialize: function() {
       _.bindAll(this);
     },
@@ -19,11 +21,46 @@ define(['underscore', 'backbone', 'feedhenry', 'models/Acts'], function(_, Backb
       timestamp: null
     },
 
+    /**
+     * Will attempt to set the session from localStorage, if a session exists
+     * there and if that session is within an hour old.
+     *
+     * @return {boolean} Whether or not we successfully retrieved the session.
+     */
+    getFromJSON: function() {
+      var jsonSession = localStorage.getItem(this.localStorageKey),
+          prop;
+
+      if (jsonSession) {
+        jsonSession = JSON.parse(jsonSession);
+      } else {
+        return false;
+      }
+
+      if (((new Date()).valueOf() - jsonSession.timestamp) > (1000 * 60 * 60)) {
+        return false;
+      }
+
+      for (prop in jsonSession) {
+        if (prop in this.defaults) {
+          this.set(prop, jsonSession[prop]);
+        }
+      }
+      return true;
+    },
+
     sync: function(method, model) {
 
       switch (method) {
         case 'read':
           attemptLogin(model.get('username'), model.get('password'));
+          break;
+        case 'create':
+          saveSession();
+          break;
+        case 'update':
+          saveSession();
+          break;
       }
 
       function attemptLogin(username, password) {
@@ -43,6 +80,10 @@ define(['underscore', 'backbone', 'feedhenry', 'models/Acts'], function(_, Backb
               model.trigger('error', model, err, msg);
             }
         );
+      }
+
+      function saveSession() {
+        localStorage.setItem('peachy_session', model.toJSON());
       }
     }
   });
