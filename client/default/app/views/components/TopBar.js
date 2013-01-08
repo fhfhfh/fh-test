@@ -15,7 +15,8 @@ define([
         events: {
             'click #profile-button' : 'showProfile',
             'click #save'   : 'saveDetails',
-            'click #cancel' : 'cancel'
+            'click #cancel' : 'cancel',
+            'click #logo'   : 'logout'
         },
 
         initialize: function() {
@@ -39,7 +40,7 @@ define([
         },
 
         showProfile: function(){
-            app.navigate('profile', true);
+            appRouter.navigate('profile', true);
 
             $('#top-bar-buttons').html('<li><button id="cancel">Cancel</button></li>' +
                 '<li><button id="save">Save</button></li>');
@@ -51,13 +52,18 @@ define([
         },
 
         cancel: function(){
-            app.navigate('home', true);
+            appRouter.navigate('home', true);
 
             $('#top-bar-buttons').html(
                 '<li><button id="points-button"><em>200</em> points</button></li>'+
                 '<li><button><img src="img/Search.png" alt="Search"></button></li>'+
                 '<li><button><img src="img/Help.png" alt="Help"></button></li>'+
                 '<li><button id="profile-button"><img src="img/OptionsGear.png" alt="Options"></button></li>');
+        },
+
+        logout: function(){
+            // TODO : clear session ID from local storage, and possibly all user data
+            appRouter.navigate('login', true);
         }
     });
 });

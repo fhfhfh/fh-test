@@ -11,7 +11,8 @@ require.config({
     'underscore': 'lib/underscore',
     'backbone': 'lib/backbone',
     'fastclick': 'lib/fastclick',
-    'iscroll': 'lib/iscroll'
+    'iscroll': 'lib/iscroll',
+    'highChart': 'lib/HighCharts',
   },
   shim: {
     'feedhenry': {
@@ -26,6 +27,9 @@ require.config({
     },
     'iscroll' : {
       exports: 'iScroll'
+    },
+    'highChart': {
+      exports: 'Highcharts'
     }
   }
 });
@@ -62,7 +66,7 @@ require([
       appkey: 'doesnmatterhere',
       mode: 'dev'
     }, function(res) {
-      var appRouter = new AppRouter();
+      window.appRouter = new AppRouter();
     }, function(msg, err) {
       console.log(msg, err);
       Backbone.trigger('notify', 'FeedHenry init failed!');

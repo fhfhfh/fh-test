@@ -18,8 +18,7 @@ define(['jquery',
 	    	"click #allBtn"			: "showAll",
 	    	"click #alertsBtn"		: "showAlerts",
 	    	"click #remindersBtn"	: "showReminders",
-	    	"click #expirationsBtn"	: "showExpirations",
-	    	"click li" : 'test'
+	    	"click #expirationsBtn"	: "showExpirations"
 	    },
 	    template	: _.template(tpl),
 
@@ -29,14 +28,9 @@ define(['jquery',
 		},
 
 		render : function(){
-			this.$el.html('<section id="alerts">'+tpl+'</section>');
-			console.log(this);
-			var html = this.$el.html;
-			return html;
-		},
-
-		test: function(){
-			console.log('test');
+			this.$el.html(tpl);
+			console.log($(this)[0]);
+			return $(this)[0];
 		},
 
 		showAll: function(){

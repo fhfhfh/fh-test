@@ -34,6 +34,39 @@ textarea,
 input {
   outline: none;
 }
+.btn {
+  border-radius: 5px;
+  border: 1px solid #d38800;
+  height: 30px;
+  margin: 20px;
+  color: white;
+  padding: 5px 10px 5px 10px;
+  font: bold 14px "Avenir Next Bold", Helvetica, Arial, sans-serif;
+}
+.decline {
+  background-color: orange;
+  background-image: linear-gradient(bottom, #f26622 0%, #feb000 85%);
+  background-image: -webkit-linear-gradient(bottom, #f26622 0%, #feb000 85%);
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #f26622), color-stop(0.85, #feb000));
+  border: 1px solid #d38800;
+}
+.decline:active {
+  background-image: linear-gradient(bottom, #feb000 0%, #f26622 85%);
+  background-image: -webkit-linear-gradient(bottom, #feb000 0%, #f26622 85%);
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #feb000), color-stop(0.85, #f26622));
+}
+.accept {
+  background-color: green;
+  background-image: linear-gradient(bottom, #1aa807 0%, #1eff00 85%);
+  background-image: -webkit-linear-gradient(bottom, #1aa807 0%, #1eff00 85%);
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #1aa807), color-stop(0.85, #1eff00));
+  border: 1px solid #1AA807;
+}
+.accept:active {
+  background-image: linear-gradient(bottom, #1eff00 0%, #1aa807 85%);
+  background-image: -webkit-linear-gradient(bottom, #1eff00 0%, #1aa807 85%);
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #1eff00), color-stop(0.85, #1aa807));
+}
 #notifications {
   position: absolute;
   top: 0;
@@ -548,6 +581,61 @@ li {
   background-repeat: no-repeat;
   float: right;
 }
+#welcome #mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #000;
+  opacity: 0.6;
+}
+#welcome #video {
+  position: relative;
+  width: 90%;
+  height: 30%;
+  margin-top: 20%;
+  margin-right: auto;
+  margin-left: auto;
+  background-color: #fff;
+  padding: 5px;
+  border-radius: 10px;
+}
+#welcome #video img,
+#welcome #video video {
+  height: 10%;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+#welcome #video video {
+  height: 40%;
+}
+#welcome #video .status {
+  position: relative;
+  float: left;
+  bottom: 40%;
+  left: 6%;
+  color: #000;
+  z-index: 5;
+  background-color: #fff;
+  padding: 3px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+#welcome #info {
+  position: absolute;
+  left: 6%;
+  top: 14%;
+  color: #5a5a5a;
+}
+#welcome #buttons {
+  position: relative;
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
 #news-and-information {
   padding: 15px;
 }
@@ -670,9 +758,12 @@ li {
   color: #8c8c8c;
   padding: 4px 0 4px 0;
 }
-#alerts #buttons li:hover,
-#alerts #buttons li:active {
+#alerts #buttons li:hover {
   background-color: #ccc;
+}
+#alerts #buttons li:active {
+  background-color: #3d3d3d;
+  color: #fff;
 }
 #alerts #buttons li .selected {
   color: #fff;

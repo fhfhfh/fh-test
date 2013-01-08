@@ -63,8 +63,8 @@ define(['jquery',
 		this.$el.html(template);
 		var scroller = this.$el.find('#main-content')[0];
 
-		// this.showNews();
-		this.showAlerts();
+		this.showNews();
+		// this.showAlerts();
 
 		this.iscroll = new iScroll(scroller, {
 			hscroll: false,
@@ -93,7 +93,7 @@ define(['jquery',
     function _showAlerts() {
 		this.toggleSelectedTab('show-alerts');
 		var alertsView = new AlertsView();
-		this.$('#home-content').html(alertsView.render());
+		this.$('#home-content').html(alertsView.render().el);
 		this.refreshScroll();
     };
 

@@ -44,7 +44,8 @@ define(['jquery',
 			function(res){
 				var session = res.head.sessionId;
 				self.loggedIn(session, username);
-				return callback(true);
+				res.video = true;
+				return callback(res);
 				console.log(res);
 			}, function(err, msg){
 				console.log(err);

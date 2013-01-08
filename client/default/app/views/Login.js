@@ -10,8 +10,9 @@ define([
   'feedhenry',
   'text!templates/login.html',
   'text!templates/login-loading.html',
-  'controllers/Login'
-], function($, _, Backbone, $fh, loginTpl, loadingTpl, loginController) {
+  'controllers/Login',
+  'views/WelcomeVideo'
+], function($, _, Backbone, $fh, loginTpl, loadingTpl, loginController, WelcomeView) {
 
   return Backbone.View.extend({
     tagName: 'section',
@@ -66,35 +67,15 @@ define([
 
         self.controller.login(username, password, function(res){
           if(res){
-            app.navigate('home', true, true);
+            if(res.video){
+              welcome = new WelcomeView();
+              welcome.loadVideo('http://mirrorblender.top-ix.org/peach/bigbuckbunny_movies/big_buck_bunny_480p_h264.mov');  
+            } else {
+              appRouter.navigate('home', true, true);
+            }
           }
         });
 
-        // TODO: Merge this into using the new act mapping functionality.
-        // $fh.act({
-        //   act: 'loginAction',
-        //   req: {
-        //     request: {
-        //       payload: {
-        //         login: {
-        //           userId: username,
-        //           password: password
-        //         }
-        //       }
-        //     }
-        //   }
-        // }, function(res) {
-        //   console.log(res);
-        //   // TODO: Implement login storage.
-        // }, function(msg, err) {
-        //   console.log(msg, err);
-
-        //   // TODO: Get Mindstix to return a proper Error object to callback!
-        //   var errMsg = JSON.parse(err.error).response.payload.status.msg;
-
-        //   Backbone.trigger('notify', errMsg);
-        //   self.showLogin();
-        // });
       } else {
         Backbone.trigger('notify', 'Please fill in both fields...');
         return;
