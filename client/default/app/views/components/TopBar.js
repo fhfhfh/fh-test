@@ -40,7 +40,7 @@ define([
         },
 
         showProfile: function(){
-            app.navigate('profile', true);
+            appRouter.navigate('profile', true);
 
             $('#top-bar-buttons').html('<li><button id="cancel">Cancel</button></li>' +
                 '<li><button id="save">Save</button></li>');
@@ -52,7 +52,7 @@ define([
         },
 
         cancel: function(){
-            app.navigate('home', true);
+            appRouter.navigate('home', true);
 
             $('#top-bar-buttons').html(
                 '<li><button id="points-button"><em>200</em> points</button></li>'+
@@ -63,7 +63,7 @@ define([
 
         logout: function(){
             // TODO : clear session ID from local storage, and possibly all user data
-            app.navigate('login', true);
+            appRouter.navigate('login', true);
         }
     });
 });

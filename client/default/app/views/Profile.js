@@ -70,7 +70,7 @@ define(['jquery',
 	};
 
 	function _cancel(){
-		app.navigate('home', true);
+		appRouter.navigate('home', true);
 	}
 
 

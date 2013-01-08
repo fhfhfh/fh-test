@@ -3,7 +3,7 @@
  */
 
 define([
-    'zepto',
+    'jquery',
     'underscore',
     'backbone',
     'text!templates/pages/WelcomeVideo.html',
@@ -13,8 +13,8 @@ define([
     return Backbone.View.extend({
 
         events: {
-            'click #close' : 'close',
-            'click video'  : 'toggleState'
+            'click #close'       : 'close',
+            'click #welcomeVideo': 'toggleState'
         },
 
         initialize: function() {
@@ -32,7 +32,7 @@ define([
             // dummy vid
             // http://mirrorblender.top-ix.org/peach/bigbuckbunny_movies/big_buck_bunny_480p_h264.mov
             var vid = this.$('#video');
-            var html =  '<video  poster="img/video/VideoPlaceholder.png" autoplay="autoplay">' +
+            var html =  '<video id="welcomeVideo"  poster="img/video/VideoPlaceholder.png" autoplay="autoplay">' +
                         '<source src=' + url +' type="video/mp4" />' +
                         'Your browser does not support the video tag.' +
                         '</video>';
@@ -61,7 +61,8 @@ define([
         },
 
         close: function(){
-            app.navigate('home', true, true);
+            $(this).remove();
+            appRouter.navigate('home', true, true);
         }
     });
 });

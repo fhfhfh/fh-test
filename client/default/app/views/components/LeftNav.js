@@ -42,9 +42,8 @@ define([
 
             this.$el.find('li').removeClass('selected');
             element.addClass('selected');
-            console.log(id);
 
-            app.navigate(id, true);
+            appRouter.navigate(id, true);
         },
 
     });

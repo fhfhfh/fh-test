@@ -66,7 +66,7 @@ require([
       appkey: 'doesnmatterhere',
       mode: 'dev'
     }, function(res) {
-      var appRouter = new AppRouter();
+      window.appRouter = new AppRouter();
     }, function(msg, err) {
       console.log(msg, err);
       Backbone.trigger('notify', 'FeedHenry init failed!');

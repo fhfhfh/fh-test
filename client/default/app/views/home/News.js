@@ -9,7 +9,8 @@ define(['jquery',
         'collections/NewsItems',
         'text!templates/components/News.html',
         'text!templates/components/NewsItem.html',
-], function($, _, Backbone, NewsItems, template, itemTemplate) {
+        'views/WelcomeVideo'
+], function($, _, Backbone, NewsItems, template, itemTemplate, WelcomeVideo) {
 
 	//interface--------------------------------------
 	var news = Backbone.View.extend({
@@ -98,6 +99,8 @@ define(['jquery',
     };
 
     function _playVideo(element) {
+      var url = $(element.currentTarget).find('source')[0].src;
+
       var video = $(element.currentTarget).find('video')[0];
 
       // There's no need to do any paused state checking for now; the PhoneGap

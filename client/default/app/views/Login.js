@@ -71,7 +71,7 @@ define([
               welcome = new WelcomeView();
               welcome.loadVideo('http://mirrorblender.top-ix.org/peach/bigbuckbunny_movies/big_buck_bunny_480p_h264.mov');  
             } else {
-              app.navigate('home', true, true);
+              appRouter.navigate('home', true, true);
             }
           }
         });

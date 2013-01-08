@@ -2,7 +2,7 @@ define([
   'jquery',
   'underscore',
   'backbone',
-  '../views/Login',
+  'views/Login',
   'views/Main',
   'views/Profile',
   'views/Widgets',
@@ -41,18 +41,18 @@ define([
       _.bindAll(this);
 
       // TODO: Make this actually check for a valid session.
-      this.on('all', function(event) {
-        var route = event.replace('route:', '');
+      // this.on('all', function(event) {
+      //   var route = event.replace('route:', '');
 
-        if (this.routes.hasOwnProperty(route) && route !== 'login') {
-          this.postLoginRoute = route;
+      //   if (this.routes.hasOwnProperty(route) && route !== 'login') {
+      //     this.postLoginRoute = route;
 
-          this.navigate('login', {
-            trigger: true,
-            replace: true
-          });
-        }
-      });
+          // this.navigate('login', {
+          //   trigger: true,
+          //   replace: true
+          // });
+        // }
+      // });
 
       Backbone.history.start({
 
@@ -93,14 +93,14 @@ define([
     },
 
     home: function() {
-      this.navigate('login', {
-        trigger: true,
-        replace: true
-      });
+      // this.navigate('login', {
+      //   trigger: true,
+      //   replace: true
+      // });
       // this.ensureMain();
-//      this.mainView = new MainView();
-//      this.topBar.show();
-//      this.leftNav.show();
+     this.topBar.show();
+     this.leftNav.show();
+     this.mainView = new MainView();
     },
 
     widgets:function(){
