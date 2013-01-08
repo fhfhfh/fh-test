@@ -20,24 +20,9 @@ define(['zepto',
 
 
 	//implementation-------------------------------
-//	var user = new User();
-//
-//	function _validate(username, pw){
-//		if(username != undefined && username != '' && pw != undefined && pw != ''){
-//			return true;
-//		} else {
-//			return false;
-//		}
-//	}
-
 	function _logout(){
-//		var self = this;
 		var params = "";
-//			'userId'	: username,
-//			'password'	: password
-//		};
-
-		// Call login cloud function
+                // Call logout cloud function
 		Acts.call('logoutAction', params, 
 			function(res){
 				var session = res.head.sessionId;
@@ -61,6 +46,6 @@ define(['zepto',
 	};
 	
 
-	return login;
+	return logout;
 
 });

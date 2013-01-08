@@ -4,40 +4,37 @@
 	Quotes model
 --------------------*/
 define(['zepto',
-        'underscore',
-        'backbone',
-        //'models/Store',
-        'models/Acts'
-], function($, _, Backbone, Acts) {
+    'underscore',
+    'backbone',
+    //'models/Store',
+    'models/Acts'
+    ], function($, _, Backbone, Acts) {
 
-	//interface----------------------------------
-	var quotes = {
-		//Backbone specific attributes
+        //interface----------------------------------
+        var quotes = {
+            //Backbone specific attributes
 		
-		fetchQuotes  : _fetchQuotes
-	}
+            fetchQuotes  : _fetchQuotes
+        }
 	
-	//scripts------------------------------------
+        //scripts------------------------------------
 
 
-	//implementation-------------------------------
+        //implementation-------------------------------
 
 	
-	function _fetchQuotes(callback){
-            
-           // alert("model");
-		// fetch Quotes profile from cloud
-		Acts.call('fetchQuotesAction', {}, 
+        function _fetchQuotes(callback){
+            // fetch Quotes profile from cloud
+            Acts.call('fetchQuotesAction', {}, 
                 function(res){
-                 return callback(res);
+                    return callback(res);
                     
                 }, function(err, msg){
                     console.log(err);
-                    
                 }
                 );
-	};
+        };
 
-	return quotes;
+        return quotes;
 
-});
+    });

@@ -37,14 +37,14 @@ define(['zepto',
             el 		: $('#body'),
 
             initialize			: _initialize,		// Used to refresh iScroll on content
-            render				: _render,
+            render			: _render,
             showNews			: _showNews,		// Show news tab
             showGoals			: _showGoals,		// Show goals tab
             showAlerts 			: _showAlerts,		// Show alerts tab
             showCal 			: _showCal,		// Show calendar tab
-            toggleSelectedTab	: _toggleSelectedTab,// switch between tabs
+            toggleSelectedTab           : _toggleSelectedTab,// switch between tabs
             showProfile 		: _showProfile ,		// open user profile page
-            showLogout 		: _showLogout, 		// logout and open Login page
+            showLogout                  : _showLogout, 		// logout and open Login page
             setPeachyPoints 		: _setPeachyPoints
         });
 
@@ -149,7 +149,7 @@ define(['zepto',
             Acts.call('peachyPointsAction', {}, 
                 function(res){
                     var points = res.payload.points[0].peachyPoints;
-                   this.$('#points-button em').html(points);
+                    this.$('#points-button em').html(points);
                 }, 
                 function(err, msg){
                     console.log(err);

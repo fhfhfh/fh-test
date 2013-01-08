@@ -32,7 +32,7 @@ var defaults = {
 	
 	// editing
 	//editable: false,
-	disableDragging: true,
+	//disableDragging: false,
 	//disableResizing: false,
 	
 	allDayDefault: true,
@@ -84,7 +84,7 @@ var defaults = {
 	},
 	
 	selectable: false,
-	unselectAuto: false,
+	unselectAuto: true,
 	
 	dropAccept: '*'
 	
