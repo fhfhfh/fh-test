@@ -7,6 +7,18 @@
 module.exports = function(grunt) {
   grunt.initConfig({
 
+    fhinit: {
+      ios: {
+        file: 'builds/ios/www/app/app.js',
+        config: {
+          host: 'https://securehealthhub.feedhenry.com',
+          appid: '2MZDpXsUThCoLHsCb4-UoNNH',
+          appkey: '4c81bba36a10bcf9bd7a47a8cad91b94be3679a5',
+          mode: 'dev'
+        }
+      }
+    },
+
     // Config for the LESS to CSS conversions.
     less: {
       dev: {
@@ -88,6 +100,23 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-requirejs');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-copy');
+
+  grunt.registerMultiTask('fhinit',
+      'Replace $fh.init params with proper config',
+      function() {
+        var regex = /(\$fh\.init\()\{[\s\S]*?\}/,
+            initConfig, file, contents;
+
+        this.requiresConfig('fhinit');
+
+        initConfig = JSON.stringify(grunt.config('fhinit.' + this.target + '.config'));
+
+        file = grunt.config('fhinit.' + this.target + '.file');
+        contents = grunt.file.read(file);
+        contents = contents.replace(regex, '$1' + initConfig);
+
+        grunt.file.write(file, contents);
+      });
 
   // We use a very specific setup for client-side tests, so in our case Grunt's
   // built in or official support for the Qunit and Jasmine testing frameworks
@@ -181,7 +210,7 @@ module.exports = function(grunt) {
       });
 
   grunt.registerTask('default', 'less:development');
-  grunt.registerTask('ios', 'fhbuild:ios less:ios requirejs:ios clean:ios');
+  grunt.registerTask('ios', 'fhbuild:ios less:ios fhinit:ios requirejs:ios clean:ios');
 
   // TODO: Look into including server running within client-test task.
   grunt.registerTask('test', 'server client-tests');
