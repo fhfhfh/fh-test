@@ -58,10 +58,14 @@ require([
     new NotificationManager();
     new FastClick(document.body);
 
+    var host = window.cordova ?
+        'http://127.0.0.1:8888' :
+        window.location.origin || 'http://127.0.0.1:8888';
+
     // TODO: This should be configure for appropriate app domain once created.
     // Also note window.location.origin is WebKit only.
     $fh.init({
-      host: window.location.origin || 'http://127.0.0.1:8888',
+      host: host,
       appid: 'doesntmatterhere',
       appkey: 'doesnmatterhere',
       mode: 'dev'

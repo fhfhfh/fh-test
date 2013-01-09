@@ -33,7 +33,7 @@ module.exports = function(grunt) {
         options: {
           baseUrl: "builds/ios/www/app/",
           mainConfigFile: 'builds/ios/www/app/app.js',
-          name: "main",
+          name: "app",
           out: "builds/ios/www/app/app.js",
           preserveLicenseComments: false
         }
