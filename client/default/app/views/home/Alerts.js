@@ -29,29 +29,36 @@ define(['jquery',
 
 		render : function(){
 			this.$el.html(tpl);
-			console.log($(this)[0]);
 			return $(this)[0];
 		},
 
 		showAll: function(){
+			this.$('li').removeClass('selected');
+			$('#allBtn').addClass('selected');
 			$('#alert-list').show();
 			$('#reminder-list').show();
 			$('#expiration-list').show();
 		},
 
 		showAlerts: function(){
+			this.$('li').removeClass('selected');
+			$('#alertsBtn').addClass('selected');
 			$('#alert-list').show();
 			$('#reminder-list').hide();
 			$('#expiration-list').hide();
 		},
 
 		showReminders: function(){
+			this.$('li').removeClass('selected');
+			$('#remindersBtn').addClass('selected');
 			$('#alert-list').hide();
 			$('#reminder-list').show();
 			$('#expiration-list').hide();
 		},
 
 		showExpirations: function(){
+			this.$('li').removeClass('selected');
+			$('#expirationsBtn').addClass('selected');
 			$('#alert-list').hide();
 			$('#reminder-list').hide();
 			$('#expiration-list').show();
