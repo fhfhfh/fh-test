@@ -203,6 +203,8 @@ to {
 #top-bar #avatar {
     float: right;
     margin-top: 7px;
+    width: 50px;
+    height: 40px;
 }
 #top-bar-buttons {
     list-style-type: none;

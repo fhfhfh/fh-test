@@ -14,8 +14,8 @@ define(['zepto',
     'iScroll',
     'models/Acts',
     'models/User',
-  //  'controllers/PeachyPoints'
-    ], function($, _, Backbone, template, NewsView, GoalsView, AlertsView, CalView, iScroll, Acts, User) {
+    'controllers/avatars'
+    ], function($, _, Backbone, template, NewsView, GoalsView, AlertsView, CalView, iScroll, Acts, User,controller ) {
 
 
         //interface----------------------------------
@@ -45,7 +45,8 @@ define(['zepto',
             toggleSelectedTab           : _toggleSelectedTab,// switch between tabs
             showProfile 		: _showProfile ,		// open user profile page
             showLogout                  : _showLogout, 		// logout and open Login page
-            setPeachyPoints 		: _setPeachyPoints
+            setPeachyPoints 		: _setPeachyPoints,
+            setAvatar                   : _setAvatar
         });
 
 
@@ -56,6 +57,7 @@ define(['zepto',
             _.bindAll(this);
             var self = this;
             this.setPeachyPoints();
+            this.setAvatar();
             Backbone.View.prototype.refreshScroll = function() {
                 setTimeout(function() {
                     if (self.iscroll) {
@@ -67,6 +69,7 @@ define(['zepto',
             this.refreshScroll();
             this.render();
             
+            
         };
 
         function _render(){
@@ -74,8 +77,7 @@ define(['zepto',
             var scroller	= $el.find('#main-content')[0];
 
             this.showAlerts();
-
-            this.iscroll = new iScroll(scroller, {
+             this.iscroll = new iScroll(scroller, {
                 hscroll: false,
                 fixedScrollbar: true,
                 bounce: false,
@@ -156,5 +158,17 @@ define(['zepto',
                 }
                 );
         }
+        
+        
+         function _setAvatar() {
+            controller.loadAvatars(function(url){
+                var tempurl = url.replace('"', "");
+                var tempurl = tempurl.replace('"', "");
+                this.$('#avatar').attr("src", tempurl);
+            });
+        };
+        
+        
+        
         return main;
     });

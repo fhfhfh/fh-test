@@ -29,7 +29,9 @@ var appConfig = {
         "userProfile":"/PeachyWebApi/api/profileaccount/",
          "alert":"/PeachyWebApi/api/alerts",
          "peachyPoints":"/PeachyWebApi/api/peachyPoints/",
-         "quotes":"/PeachyWebApi/api/quotes/"
+         "quotes":"/PeachyWebApi/api/quotes/",
+         "avatars":"/PeachyWebApi/api/Avatars/",
+         "news":"/PeachyWebApi/api/News/"
      },
       "session": {
         // Inactivity timeout (Seconds)
