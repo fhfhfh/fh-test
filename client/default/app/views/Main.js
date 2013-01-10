@@ -73,7 +73,7 @@ define(['zepto',
             var $el			= $('#body').html(template);
             var scroller	= $el.find('#main-content')[0];
 
-            this.showNews();
+            this.showAlerts();
 
             this.iscroll = new iScroll(scroller, {
                 hscroll: false,

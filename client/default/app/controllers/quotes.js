@@ -20,7 +20,7 @@ define(['zepto',
             Quotes.fetchQuotes(function(res, data){
                 if(res){
                     var i =Math.floor(Math.random()*3);
-                    alert(i);
+                    
                     el.find('#loading-snippet #first').html(JSON.stringify(res.payload.quotes[i].quote));
                     el.find('#loading-snippet #second').html(JSON.stringify(res.payload.quotes[i].author));
                 

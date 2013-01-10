@@ -18,11 +18,23 @@ define(['zepto',
 	    events		: {
 	    },
 	    template	: _.template(template),
+            events  : {
+	    	'click #all'            : 'showAll',
+	    	'click #alert_btn'	: 'showAlerts',
+                'click #reminder_btn'	: 'showReminder',
+                'click #expiration_btn'	: 'showExpiration'
+	    },
 	    el 		: $('#home-content'),
+            
 
 	    //Function interface
 		initialize	: _initialize,
 		render		: _render,		// return template
+                showAll         : _showAll,
+                showAlerts      : _showAlerts,
+                showReminder    : _showReminder,
+                showExpiration  : _showExpiration
+                
 
 	});
 
@@ -38,6 +50,23 @@ define(['zepto',
 		var html = '<section id="alerts">'+template+'</section>';
 
 		return html;
+	};
+        
+        function _showAll(){
+		alert("Show All");
+                console.log("**********&&&&&&&&&^^^^^^^^^^^^%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
+	};
+        
+        function _showAlerts(){
+		alert("Show Alerts");
+	};
+        
+        function _showReminder(){
+		alert("Show Reminder");
+	};
+        
+        function _showExpiration(){
+		alert("Show Expiration");
 	};
 
 
