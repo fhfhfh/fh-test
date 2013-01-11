@@ -8,9 +8,10 @@ define(['jquery',
         'backbone',
         'views/ContainerView',
         'views/main/Home',
+        'views/components/TopBar',
         'text!templates/main.html',
         'iscroll'
-], function($, _, Backbone, ContainerView, HomeView, template, iScroll) {
+], function($, _, Backbone, ContainerView, HomeView, TopBar, template, iScroll) {
 
 
 	//interface----------------------------------
@@ -30,12 +31,16 @@ define(['jquery',
       this.$el.html(template);
       this.$content = this.$('#main-content');
       this.$nav = this.$('#main-nav');
+      this.$topBar = this.$('#top-bar');
+
       this.iscroll = new iScroll(this.$('#main-iscroll')[0], {
         hscroll: false,
         fixedScrollbar: true,
         bounce: false,
         vScrollbar: false
       });
+
+      var topbar = new TopBar();
 
       this.setActiveView(((options && options.activeView) || 'home'));
 
