@@ -40,3 +40,6 @@ META-INF/
 # want to prevent having outdated, mismatching filesets in the repo. If you
 # need a build, get the latest revision and run the relevant grunt build task.
 builds/ios/www/*
+
+# SASS cache folder exists in some branches as remnant of SASS usage...
+.sass-cache

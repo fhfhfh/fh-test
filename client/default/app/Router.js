@@ -1,4 +1,6 @@
-// Backbone Router module
+/**
+ * @fileOverview The main
+ */
 
 define(['zepto',
         'underscore',

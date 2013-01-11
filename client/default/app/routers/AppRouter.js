@@ -1,91 +1,83 @@
+/**
+ * @fileOverview The main Backbone Router of the application.
+ */
+
 define([
   'jquery',
   'underscore',
   'backbone',
+  'models/Session',
   'views/Login',
   'views/Main',
-  'views/Profile',
-  'views/Widgets',
-  'views/HealthHub',
-  'views/Connect',
-  'views/Calendar',
-  'views/Library',
-  'views/components/LeftNav',
-  'views/components/TopBar',
-    'views/PageNotFound'
-], function($, _, Backbone, LoginView, MainView, ProfileView, WidgetView, HealthHubView, ConnectView, CalendarView, LibraryView, NavView, TopBar, PageNotFoundView) {
+  'views/PageNotFound'
+], function($, _, Backbone, Session, LoginView, MainView, PageNotFoundView) {
 
   return Backbone.Router.extend({
-    topBar : new TopBar(),
-    leftNav: new NavView(),
 
+    // Everything within the app (bar the notifications) should be contained
+    // within this div.
     $content: $('#content'),
 
     routes: {
-      ''             : 'startup',
-      'login'        : 'login',
-      'home'         : 'home',
-      'widgets'      : 'widgets',
-      'healthHub'    : 'healthHub',
-      'connect'      : 'connect',
-      'calendar'     : 'calendar',
-      'library'      : 'library',
-//      'home/news'  : 'homeNews',
-//      'home/alerts': 'homeAlerts',
-//      'home/goals' : 'homeGoals',
-      'profile'      : 'profile',
+      '': 'startup',
+      'login': 'login',
+      'home(/:page)': 'home',
+
+      'widgets': 'widgets',
+      'healthHub': 'healthHub',
+      'connect': 'connect',
+      'calendar': 'calendar',
+      'library': 'library',
+      //      'home/news'  : 'homeNews',
+      //      'home/alerts': 'homeAlerts',
+      //      'home/goals' : 'homeGoals',
+      'profile': 'profile',
+
       '*invalidUrl': 'pageNotFound'
     },
 
     initialize: function(options) {
+      var self = this;
+
       _.bindAll(this);
 
-      if (options && options.session) {
-        this.session = options.session;
-      }
-
-      // TODO: Make this actually check for a valid session.
-      // this.on('all', function(event) {
-      //   var route = event.replace('route:', '');
-
-      //   if (this.routes.hasOwnProperty(route) && route !== 'login') {
-      //     this.postLoginRoute = route;
-
-          // this.navigate('login', {
-          //   trigger: true,
-          //   replace: true
-          // });
-        // }
-      // });
-      console.log(options && options.silent);
+      // The router should be the only object within the app that requires
+      // access to the session object itself.
+      this.session = new Session();
 
       Backbone.history.start({
 
         // We disable pushState support within PhoneGap instances of the app, as
         // this has been known to cause problems.
+        // TODO: Evaluate whether we shouldn't just turn this off everywhere.
         pushState: !window.cordova,
 
         // To facilitate running unit tests, we provide a hook to allow our test
-        // runner to disable firing a route straight away.
-        silent: true
+        // runner to disable firing a route straight away. When testing the
+        // router, pass it the option 'silent: true' when initialising.
+        silent: (self.options && self.options.silent) || false
       });
     },
 
     startup: function() {
       if (this.session.isValid()) {
-        this.navigate('home', true);
+        this.navigate('home', {
+          trigger: true,
+          replace: true
+        });
       } else {
-        // this.navigate('login', true);
+        this.navigate('login', {
+          trigger: true,
+          replace: true
+        });
       }
     },
 
     login: function() {
-
-      // TODO: When implemented, clear localStorage appropriately.
       var loginView = new LoginView();
-      $('#content').html(loginView.render().el);
-      this.topBar.hide();
-      this.leftNav.hide();
+
+      this.session.logout();
+      this.$content.html(loginView.render().el);
     },
 
     ensureMain: function() {
@@ -96,48 +88,40 @@ define([
       }
     },
 
-    home: function() {
-      // this.navigate('login', {
-      //   trigger: true,
-      //   replace: true
-      // });
-      // this.ensureMain();
-     // this.topBar.show();
-     // this.leftNav.show();
-     this.navigate('login', true);
+    home: function(page) {
+      this.ensureMain();
+      if (this.mainView.setActiveView(page)) {
+        this.$content.html(this.mainView.render().el);
+      }
     },
 
-    widgets:function(){
-      this.widgetView = new WidgetView();
-    },
-    healthHub: function(){
-      this.healthHubView = new HealthHubView();
-    },
-    connect: function(){
-      this.connectView = new ConnectView();
-    },
-    calendar: function(){
-      this.calendarView = new CalendarView();
-    },
-    library: function(){
-      this.libraryView = new LibraryView();
-    },
+    pageNotFound: function(invalidUrl) {
+      this.$content.html((new PageNotFoundView()).render().el);
+    }
+
+    // TODO: Cleanup below...
+//    widgets:function(){
+//      this.widgetView = new WidgetView();
+//    },
+//    healthHub: function(){
+//      this.healthHubView = new HealthHubView();
+//    },
+//    connect: function(){
+//      this.connectView = new ConnectView();
+//    },
+//    calendar: function(){
+//      this.calendarView = new CalendarView();
+//    },
+//    library: function(){
+//      this.libraryView = new LibraryView();
+//    },
 
 
     // TODO: Re-evaluate this function.
-    profile: function() {
-      this.leftNav.hide();
-      this.topBar.showProfile();
-      new ProfileView();
-    },
-
-    // TODO: This should show a useful 404 message or else just call startup.
-    default: function() {
-      this.navigate('login', true);
-    },
-
-    pageNotFound: function(path) {
-      this.$content.html((new PageNotFoundView()).render().el);
-    }
+//    profile: function() {
+//      this.leftNav.hide();
+//      this.topBar.showProfile();
+//      new ProfileView();
+//    }
   });
 });

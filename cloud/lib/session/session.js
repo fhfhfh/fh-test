@@ -1,5 +1,5 @@
 // Dependencies
-var config = require('config/config.js').getConfig();
+var config = require('../../config/config.js').getConfig();
 var log = require('lib/log/log.js');
 var uuid = require('lib/uuid/uuid.js');
 var utils = require('utils/utils.js');

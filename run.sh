@@ -1,1 +1,0 @@
-sass --watch "client/default/sass:client/default/css" &
