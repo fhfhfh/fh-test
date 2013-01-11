@@ -41,7 +41,7 @@ define(['jquery',
 		this.$el.html(template);
 		var html = '<section id="goals">'+template+'</section>';
 		this.displayGoals();
-		return html;
+		return this;
 	};
 
 	function _addGoal(){

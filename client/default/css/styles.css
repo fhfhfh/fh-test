@@ -305,24 +305,24 @@ input {
   -webkit-transition: all .2s linear;
   -webkit-transform: translate3d(0, 0, 0);
 }
-#main-content {
-  height: 100%;
-  border-radius: 10px;
-}
-#main-content > div {
+#main-container > div {
   color: #000;
   padding-top: 10px;
   padding-bottom: 25px;
   position: relative;
   min-height: 100%;
 }
-#main-content > div > div {
+#main-container > div > div {
   background-color: #fff;
   box-shadow: 0 7px 0 -4px #cccccc, 0 12px 0 -7px #8b8b8b;
   min-height: 300px;
   padding: 10px;
   -webkit-border-radius: 9px;
   border-radius: 9px;
+}
+#main-content {
+  height: 100%;
+  border-radius: 10px;
 }
 #content-tab-list {
   list-style-type: none;

@@ -4,15 +4,25 @@ define([
   'backbone',
   'views/ContainerView',
   'views/main/home/News',
-  'text!templates/main/home.html'
-], function($, _, Backbone, ContainerView, NewsView, template) {
+  'views/main/home/Goals',
+  'views/main/home/Alerts',
+  'text!templates/home.html'
+], function($, _, Backbone, ContainerView, NewsView, GoalsView, AlertsView, template) {
 
   return ContainerView.extend({
     tagName	: 'section',
     id		: 'home',
 
+    events : {
+      'click #show-news' : 'showNews',
+      'click #show-alerts' : 'showAlerts',
+      'click #show-goals' : 'showGoals',
+    },
+
     subViews: {
-      news: new NewsView()
+      news  : new NewsView(),
+      goals : new GoalsView(),
+      alerts: new AlertsView()
     },
 
     initialize: function(options) {
@@ -29,6 +39,25 @@ define([
 
     render: function() {
       return this;
-    }
+    },
+
+    showNews : function(){
+      this.$('li').removeClass('selected');
+      this.$('#show-news').addClass('selected');
+      this.setActiveView('news');
+    },
+
+    showAlerts : function(){
+      this.$('li').removeClass('selected');
+      this.$('#show-alerts').addClass('selected');
+      this.setActiveView('alerts');
+    },
+
+    showGoals : function(){
+      this.$('li').removeClass('selected');
+      this.$('#show-goals').addClass('selected');
+      this.setActiveView('goals');
+    },
+
   });
 });
