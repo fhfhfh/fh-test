@@ -40,7 +40,7 @@ define([
         },
 
         showProfile: function(){
-            appRouter.navigate('profile', true);
+            Backbone.history.navigate('profile', true);
 
             $('#top-bar-buttons').html('<li><button id="cancel">Cancel</button></li>' +
                 '<li><button id="save">Save</button></li>');
@@ -52,7 +52,7 @@ define([
         },
 
         cancel: function(){
-            appRouter.navigate('home', true);
+            Backbone.history.navigate('home', true);
 
             $('#top-bar-buttons').html(
                 '<li><button id="points-button"><em>200</em> points</button></li>'+
@@ -63,7 +63,7 @@ define([
 
         logout: function(){
             // TODO : clear session ID from local storage, and possibly all user data
-            appRouter.navigate('login', true);
+            Backbone.history.navigate('login', true);
         }
     });
 });

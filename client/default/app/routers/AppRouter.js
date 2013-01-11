@@ -9,14 +9,16 @@ define([
   'models/Session',
   'views/Login',
   'views/Main',
-  'views/PageNotFound'
-], function($, _, Backbone, Session, LoginView, MainView, PageNotFoundView) {
+  'views/PageNotFound',
+  'views/Profile'
+], function($, _, Backbone, Session, LoginView, MainView, PageNotFoundView, ProfileView) {
 
   return Backbone.Router.extend({
 
     // Everything within the app (bar the notifications) should be contained
     // within this div.
     $content: $('#content'),
+    $topBar: $('#topBar'),
 
     routes: {
       '': 'startup',
@@ -78,6 +80,7 @@ define([
 
       this.session.logout();
       this.$content.html(loginView.render().el);
+      this.$topBar.hide();
     },
 
     ensureMain: function() {
@@ -90,6 +93,7 @@ define([
 
     home: function(page) {
       this.ensureMain();
+      this.$topBar.show();
       if (page) {
         if (this.mainView.subViews.home.setActiveView(page)) {
           this.$content.html(this.mainView.render().el);
@@ -101,7 +105,7 @@ define([
 
     pageNotFound: function(invalidUrl) {
       this.$content.html((new PageNotFoundView()).render().el);
-    }
+    },
 
     // TODO: Cleanup below...
 //    widgets:function(){
@@ -122,10 +126,8 @@ define([
 
 
     // TODO: Re-evaluate this function.
-//    profile: function() {
-//      this.leftNav.hide();
-//      this.topBar.showProfile();
-//      new ProfileView();
-//    }
+   profile: function() {
+    this.$content.html((new ProfileView()).render().el);
+   }
   });
 });

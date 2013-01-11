@@ -10,8 +10,13 @@ define(['jquery',
         'views/main/Home',
         'views/components/TopBar',
         'text!templates/main.html',
-        'iscroll'
-], function($, _, Backbone, ContainerView, HomeView, TopBar, template, iScroll) {
+        'iscroll',
+        'views/Widgets',
+        'views/HealthHub',
+        'views/Connect',
+        'views/Calendar',
+        'views/Library',
+], function($, _, Backbone, ContainerView, HomeView, TopBar, template, iScroll, WidgetsView, HealthHubView, ConnectView, CalendarView, LibraryView) {
 
 
 	//interface----------------------------------
@@ -20,7 +25,12 @@ define(['jquery',
     id		: 'main',
 
     subViews: {
-      home: new HomeView()
+      home: new HomeView(),
+      widgets : new WidgetsView(),
+      healthHub : new HealthHubView(),
+      connect : new ConnectView(),
+      calendar : new CalendarView(),
+      library : new LibraryView()
     },
 
     initialize: function(options) {

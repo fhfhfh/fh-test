@@ -18,11 +18,10 @@ define(['jquery',
 		// Backbone specific attributes
 		tagName	: 'section',
 	    id		: 'profile',
-	    el 		: $('#content'),
 	    template: _.template(template),
-	    events  : {
-	    	'click #save'	: 'saveDetails',
-	    	'click #cancel'	: 'cancel'
+	    events : {
+	    	'change #birthday': 'ageCalc',
+            'click #address': 'showAddr'
 	    },
 
 	    //Function interface
@@ -30,7 +29,9 @@ define(['jquery',
 		render		: _render,		// return template
 		populate 	: _populate, 	// Populate all detail fields
 		saveDetails : _saveDetails,	// Save details to user model
-		cancel 		: _cancel		// navigate back to home page
+		cancel 		: _cancel,		// navigate back to home page
+		ageCalc     : _ageCalc,     // Calculate age of user based on DOB field
+        showAddr     : _showAddr    // Pop-up box to show all address fields
 	});
 
 
@@ -70,8 +71,27 @@ define(['jquery',
 	};
 
 	function _cancel(){
-		appRouter.navigate('home', true);
-	}
+		Backbone.history.navigate('home', true);
+	};
+
+	function _ageCalc(){
+        var self = this;
+        var dob = new Date(self.$('#birthday').val()) || new Date();
+        var msg = this.$('#age');
+        var today = new Date();
+
+        var diff = today.getTime() - dob.getTime();
+        var age = Math.floor(diff / (1000 * 60 * 60 * 24 * 365.25));
+
+        if(age > 0){
+            msg.html(age + ' years old');
+        }
+    };
+
+    function _showAddr(){
+        this.$('#address').blur();
+        console.log('pop');
+    }
 
 
 
