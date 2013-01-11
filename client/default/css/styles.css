@@ -765,7 +765,7 @@ li {
   background-color: #3d3d3d;
   color: #fff;
 }
-#alerts #buttons li .selected {
+#alerts #buttons li.selected {
   color: #fff;
   background-color: #545454;
 }
