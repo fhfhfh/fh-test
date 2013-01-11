@@ -10,20 +10,33 @@ define(['underscore', 'backbone', 'feedhenry', 'models/Acts'], function(_, Backb
 
     localStorageKey: 'peachy_session',
 
+    // The amount of time, in milliseconds, that the session remains valid for.
+    timeout: 1000 * 60 * 60,
+
     initialize: function() {
       _.bindAll(this);
     },
 
     defaults: {
-      username: '',
-      password: '',
       sessionId: '',
-      timestamp: null
+      timestamp: 0
+    },
+
+    /**
+     * Check to ensure a session is within it's timeout period. If no timestamp
+     * is given, checks against itself.
+     *
+     * @param {number} [timestamp] A result of Date.valueOf() to check against.
+     * @return {boolean} Whether the session should be valid or not.
+     */
+    isValid: function(timestamp) {
+      timestamp = timestamp || this.get('timestamp');
+      return ((new Date()).valueOf() - timestamp) < this.timeout;
     },
 
     /**
      * Will attempt to set the session from localStorage, if a session exists
-     * there and if that session is within an hour old.
+     * there and if that session is within the timeout period.
      *
      * @return {boolean} Whether or not we successfully retrieved the session.
      */
@@ -37,27 +50,53 @@ define(['underscore', 'backbone', 'feedhenry', 'models/Acts'], function(_, Backb
         return false;
       }
 
-      if (((new Date()).valueOf() - jsonSession.timestamp) > (1000 * 60 * 60)) {
+      if (this.isValid(jsonSession.timestamp)) {
+        for (prop in jsonSession) {
+          if (prop in this.defaults) {
+            this.set(prop, jsonSession[prop]);
+          }
+        }
+        return true;
+      } else {
         return false;
       }
+    },
 
-      for (prop in jsonSession) {
-        if (prop in this.defaults) {
-          this.set(prop, jsonSession[prop]);
-        }
+    /**
+     * A nice interface for attempting to login to the app. Basically delegates
+     * to fetch. If all parameters aren't provided, it becomes a no-op.
+     *
+     * @param {string} username The username given by the user.
+     * @param {string} password The password given by the user.
+     * @param {object} callbacks A 'success' and 'error' callback are expected.
+     */
+    login: function(username, password, callbacks) {
+      var options;
+
+      if (!username || !password ||
+          !callbacks || !callbacks.success || !callbacks.error) {
+        return;
       }
-      return true;
+
+      options = callbacks;
+      options.username = username;
+      options.password = password;
+      this.fetch(options);
     },
 
     fetch: function(options) {
       return this.sync('read', this, options);
     },
 
+    save: function() {
+      return this.sync('create', this);
+    },
+
     sync: function(method, model, options) {
 
       switch (method) {
         case 'read':
-          attemptLogin(model.get('username'), model.get('password'));
+          attemptLogin(options);
           break;
         case 'create':
           saveSession();
@@ -67,10 +106,10 @@ define(['underscore', 'backbone', 'feedhenry', 'models/Acts'], function(_, Backb
           break;
       }
 
-      function attemptLogin(username, password) {
+      function attemptLogin(options) {
         var params = {
-          userId: username,
-          password: password
+          userId: options.username,
+          password: options.password
         };
 
         Acts.call('loginAction', params,
@@ -78,27 +117,18 @@ define(['underscore', 'backbone', 'feedhenry', 'models/Acts'], function(_, Backb
               model.set('sessionId', res.head.sessionId);
               model.set('timestamp', (new Date()).valueOf());
               model.trigger('sync', model, res);
-              if (options && options.success) {
-                options.success(model, res);
-              }
+              options.success();
             }, function(err, msg){
               model.set('sessionId', '');
               model.set('timestamp', null);
               model.trigger('error', model, err, msg);
-              if (options && options.error) {
-                options.error(model, err, msg);
-              }
+              options.error(err, msg);
             }
         );
       }
 
       function saveSession() {
-        var self = this;
-
-        localStorage.setItem(this.localStorageKey, JSON.stringify({
-          'sessionId': self.get('sessionId'),
-          'timestamp': self.get('timestamp')
-        }));
+        localStorage.setItem(this.localStorageKey, this.toJSON());
       }
     }
   });
