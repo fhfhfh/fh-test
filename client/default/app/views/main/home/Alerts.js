@@ -29,6 +29,7 @@ define(['jquery',
 
 		render : function(){
 			this.$el.html(tpl);
+			this.$('#allBtn').addClass('selected');
 			return $(this)[0];
 		},
 

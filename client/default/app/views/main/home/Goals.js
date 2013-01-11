@@ -77,7 +77,7 @@ define(['jquery',
             var index = i;
             var obj = data[i];
             var div = $(pieceArr[i]);
-            $(div).html(obj.title).attr('info', obj.data);
+            $(div).html('<p>' + obj.title + '</p>').attr('info', obj.data);
         }
 
     };

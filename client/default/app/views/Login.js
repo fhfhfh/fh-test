@@ -67,13 +67,13 @@ define([
 
         self.controller.login(username, password, function(res){
           if(res){
-            if(res.video){
+            // if(res.video){
               welcome = new WelcomeView();
-              welcome.loadVideo('http://mirrorblender.top-ix.org/peach/bigbuckbunny_movies/big_buck_bunny_480p_h264.mov');
               $('#content').html(welcome.render().el);
-            } else {
-              Backbone.history.navigate('home', true, true);
-            }
+              welcome.loadVideo('http://mirrorblender.top-ix.org/peach/bigbuckbunny_movies/big_buck_bunny_480p_h264.mov');
+            // } else {
+              // Backbone.history.navigate('home', true, true);
+            // }
           }
         });
 

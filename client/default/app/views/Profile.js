@@ -89,7 +89,7 @@ define(['jquery',
     };
 
     function _showAddr(){
-        this.$('#address').blur();
+        // this.$('#address').blur();
         console.log('pop');
     }
 

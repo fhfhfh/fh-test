@@ -49,6 +49,7 @@ define(['jquery',
 				console.log(res);
 			}, function(err, msg){
 				console.log(err);
+				err.video = true;
 				return callback(err, msg);
 			}
 		);

@@ -724,7 +724,7 @@ li {
   margin: -1px;
   width: 30%;
   height: 110px;
-  padding: 50px;
+  padding: 30px;
   text-align: center;
   border: 1px solid #000;
   color: #fff;
@@ -732,6 +732,9 @@ li {
   background-color: #cdcdcd;
   display: inline-block;
   font: bold 16px "Avenir Next Bold", Helvetica, Arial, sans-serif;
+}
+#goals #grid .piece p {
+  vertical-align: middle;
 }
 #goals #grid .left:after {
   content: ' ';
@@ -744,8 +747,8 @@ li {
   border-left: none;
   border-top: none;
   position: relative;
-  left: 78px;
-  bottom: 37px;
+  left: 57px;
+  bottom: 20px;
   border-bottom: none;
 }
 #goals #add-goal {
