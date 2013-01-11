@@ -1,10 +1,10 @@
 // Dependencies
-var config = require('../../config/config.js').getConfig();
-var log = require('../log/log.js');
-var uuid = require('../uuid/uuid.js');
-var utils = require('../../utils/utils.js');
+var config = require('config/config.js').getConfig();
+var log = require('lib/log/log.js');
+var uuid = require('lib/uuid/uuid.js');
+var utils = require('utils/utils.js');
 var util = require('util');
-var jsonUtils = require('../jsonUtils.js');
+var jsonUtils = require('lib/jsonUtils.js');
 //var respUtils = require('utils/responseUtils.js');
 
 

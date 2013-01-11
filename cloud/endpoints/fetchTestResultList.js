@@ -30,7 +30,7 @@ var success = {
 }
 ;
 
-var jsonUtils = require('../lib/jsonUtils.js');
+var jsonUtils = require('lib/jsonUtils.js');
 var fetchTestResultListEndpoint = function() {
   // Exposed operations
   this.fetchTestResult = function fetchTestResult(reqJson, callback){

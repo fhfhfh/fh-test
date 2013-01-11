@@ -27,7 +27,7 @@ var success = {
 }
 ;
 
-var jsonUtils = require('../lib/jsonUtils.js');
+var jsonUtils = require('lib/jsonUtils.js');
 var searchAllergyEndpoint = function() {
   // Exposed operations
   this.searchAllergy = function searchAllergy(reqJson, callback){

@@ -55,12 +55,13 @@ var loginEndpoint = function() {
             'Content-Type' : 'application/json'
         };
      
-        
+        var env = appConfig.current;
+                       
         // preparing the post options
         var optionsPost = {
-            host : appConfig.environments.development.urls.baseUrl,
+            host : appConfig.environments[env].urls.baseUrl,
             port : 8888,
-            path : appConfig.environments.development.urls.auth,
+            path : appConfig.environments[env].urls.auth,
             method : 'POST',
             headers : postHeaders
         };

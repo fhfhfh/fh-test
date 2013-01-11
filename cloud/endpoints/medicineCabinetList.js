@@ -68,7 +68,7 @@ var success = {
 
 ;
 
-var jsonUtils = require('../lib/jsonUtils.js');
+var jsonUtils = require('lib/jsonUtils.js');
 var medicineCabinetEndpoint = function() {
   // Exposed operations
   this.medicineCabinet = function medicineCabinet(reqJson, callback){

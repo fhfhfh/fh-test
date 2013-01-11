@@ -44,13 +44,13 @@ var userProfileEndpoint = function() {
                     'Content-Type' : 'application/json',
                     'sessionId' : apiSessionId
                 };
-     
+                var env = appConfig.current;
   
                 // perparing the GET options
                 var optionsGet = {
-                    host : appConfig.environments.development.urls.baseUrl,
+                    host : appConfig.environments[env].urls.baseUrl,
                     port : 8888,
-                    path : appConfig.environments.development.urls.userProfile,
+                    path : appConfig.environments[env].urls.userProfile,
                     method : 'GET',
                     headers : getHeaders
                 };

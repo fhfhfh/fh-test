@@ -22,8 +22,11 @@ var fetchMedicalHistoryEndpoint = require("./endpoints/fetchMedicalHistory.js")
 var searchAllergyEndpoint = require("./endpoints/searchAllergy.js")
 var addAllergyEndpoint = require("./endpoints/addAllergy.js")
 var fetchFeaturedContentEndpoint = require("./endpoints/fetchFeaturedContent.js")
-//var fetchMedicalHistoryEndpoint = require("./endpoints/fetchMedicalHistory.js")
-
+var fetchAlertEndpoint = require("endpoints/fetchAlert.js")
+var fetchQuotesEndpoint = require("endpoints/fetchQuotes.js")
+var fetchVideosEndpoint = require("endpoints/fetchVideos.js")
+var fetchNewsEndpoint = require("endpoints/fetchNews.js")
+var fetchAvatarsEndpoint = require("endpoints/fetchAvatars.js")
 
 
 // mock service if not on $fh
@@ -53,8 +56,11 @@ exports.fetchMedicalHistoryAction = fetchMedicalHistoryAction;
 exports.searchAllergyAction = searchAllergyAction;
 exports.addAllergyAction = addAllergyAction;
 exports.fetchFeaturedContentAction = fetchFeaturedContentAction;
-//exports.fetchMedicalHistoryAction = fetchMedicalHistoryAction;
-
+exports.fetchAlertAction = fetchAlertAction;
+exports.fetchQuotesAction = fetchQuotesAction;
+exports.fetchVideosAction = fetchVideosAction;
+exports.fetchNewsAction = fetchNewsAction;
+exports.fetchAvatarsAction = fetchAvatarsAction;
 
 
 //--------------------------------------login----------------------------------------
@@ -239,5 +245,47 @@ function fetchFeaturedContentAction(params, callback) {
 
 
 
-//userProfileEndpoint.userProfile(function () {
-//  });sup3rhighw@y   medicineCabinetAction
+//---------------------------------------fetchAlerts--------------------------------------------------------------------
+
+function fetchAlertAction(params, callback) {
+  console.log(JSON.stringify(params));
+  fetchAlertEndpoint.fetchAlert(params,function cb(err, respData) {
+    callback(err,respData);
+  });
+}
+
+//---------------------------------------fetchQuotes--------------------------------------------------------------------
+
+function fetchQuotesAction(params, callback) {
+  console.log(JSON.stringify(params));
+  fetchQuotesEndpoint.fetchQuotes(params,function cb(err, respData) {
+    callback(err,respData);
+  });
+}
+
+//---------------------------------------fetchVideos--------------------------------------------------------------------
+
+function fetchVideosAction(params, callback) {
+  console.log(JSON.stringify(params));
+  fetchVideosEndpoint.fetchVideos(params,function cb(err, respData) {
+    callback(err,respData);
+  });
+}
+
+//---------------------------------------fetchNews--------------------------------------------------------------------
+
+function fetchNewsAction(params, callback) {
+  console.log(JSON.stringify(params));
+  fetchNewsEndpoint.fetchNews(params,function cb(err, respData) {
+    callback(err,respData);
+  });
+}
+
+//---------------------------------------fetchAvatars--------------------------------------------------------------------
+
+function fetchAvatarsAction(params, callback) {
+  console.log(JSON.stringify(params));
+  fetchAvatarsEndpoint.fetchAvatars(params,function cb(err, respData) {
+    callback(err,respData);
+  });
+}

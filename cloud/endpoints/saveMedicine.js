@@ -22,7 +22,7 @@ var success = {
   }
 };
 
-var jsonUtils = require('../lib/jsonUtils.js');
+var jsonUtils = require('lib/jsonUtils.js');
 var saveMedicineEndpoint = function() {
   // Exposed operations
   this.saveMedicine = function saveMedicine(reqJson, callback){

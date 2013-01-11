@@ -53,7 +53,7 @@ var success = {
   }
 };
 
-var jsonUtils = require('../lib/jsonUtils.js');
+var jsonUtils = require('lib/jsonUtils.js');
 var fetchMedicalHistoryEndpoint = function() {
   // Exposed operations
   this.fetchMedicalHistory = function fetchMedicalHistory(reqJson, callback){

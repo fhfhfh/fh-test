@@ -1,0 +1,33 @@
+// Used to map cloud function names to their
+// relevant payload names, as per JSON request/response spec
+
+<<<<<<< HEAD
+define(['jquery',
+=======
+define(['zepto',
+>>>>>>> origin/mindstixInt
+        'underscore',
+        'backbone',
+        'models/Acts'
+], function($, _, Backbone, Acts) {
+
+
+	// TODO -- complete map for all cloud functions
+	var map = {
+<<<<<<< HEAD
+		//function name : payload name
+		
+=======
+>>>>>>> origin/mindstixInt
+		'loginAction' : 'login',
+		'logoutAction': 'logout',
+		'userProfileAction' : 'userProfile'
+	};
+
+	return map;
+
+<<<<<<< HEAD
+});
+=======
+});
+>>>>>>> origin/mindstixInt

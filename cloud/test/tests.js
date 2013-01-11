@@ -2,7 +2,7 @@ var runner = require('./lib/runner'),
     async = require('async'),
 
 tests = [];
-tests.push('testLoginAction');
+tests.push('testAlert');
 
   var testFuncs = [];
 
