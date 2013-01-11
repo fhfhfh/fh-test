@@ -49,7 +49,11 @@ define(['underscore', 'backbone', 'feedhenry', 'models/Acts'], function(_, Backb
       return true;
     },
 
-    sync: function(method, model) {
+    fetch: function(options) {
+      return this.sync('read', this, options);
+    },
+
+    sync: function(method, model, options) {
 
       switch (method) {
         case 'read':
@@ -74,16 +78,27 @@ define(['underscore', 'backbone', 'feedhenry', 'models/Acts'], function(_, Backb
               model.set('sessionId', res.head.sessionId);
               model.set('timestamp', (new Date()).valueOf());
               model.trigger('sync', model, res);
+              if (options && options.success) {
+                options.success(model, res);
+              }
             }, function(err, msg){
               model.set('sessionId', '');
               model.set('timestamp', null);
               model.trigger('error', model, err, msg);
+              if (options && options.error) {
+                options.error(model, err, msg);
+              }
             }
         );
       }
 
       function saveSession() {
-        localStorage.setItem('peachy_session', model.toJSON());
+        var self = this;
+
+        localStorage.setItem(this.localStorageKey, JSON.stringify({
+          'sessionId': self.get('sessionId'),
+          'timestamp': self.get('timestamp')
+        }));
       }
     }
   });

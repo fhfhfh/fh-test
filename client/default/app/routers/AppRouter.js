@@ -40,6 +40,10 @@ define([
     initialize: function(options) {
       _.bindAll(this);
 
+      if (options && options.session) {
+        this.session = options.session;
+      }
+
       // TODO: Make this actually check for a valid session.
       // this.on('all', function(event) {
       //   var route = event.replace('route:', '');
@@ -53,6 +57,7 @@ define([
           // });
         // }
       // });
+      console.log(options && options.silent);
 
       Backbone.history.start({
 
@@ -62,17 +67,16 @@ define([
 
         // To facilitate running unit tests, we provide a hook to allow our test
         // runner to disable firing a route straight away.
-        silent: !!(options && options.testMode)
+        silent: true
       });
     },
 
     startup: function() {
-
-      // TODO: Implement auto-login system for user cred storage locally.
-      this.navigate('login', {
-        trigger: true,
-        replace: true
-      });
+      if (this.session.isValid()) {
+        this.navigate('home', true);
+      } else {
+        // this.navigate('login', true);
+      }
     },
 
     login: function() {
@@ -98,9 +102,9 @@ define([
       //   replace: true
       // });
       // this.ensureMain();
-     this.topBar.show();
-     this.leftNav.show();
-     this.mainView = new MainView();
+     // this.topBar.show();
+     // this.leftNav.show();
+     this.navigate('login', true);
     },
 
     widgets:function(){

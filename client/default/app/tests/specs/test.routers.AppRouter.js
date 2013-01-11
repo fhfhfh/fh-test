@@ -36,7 +36,12 @@ define([
   }
 
   describe('AppRouter', function() {
-    var appRouter = new AppRouter({ testMode: true }),
+    var appRouter = new AppRouter({
+          silent: true,
+          session: {
+            isValid: function() {}
+          }
+        }),
         stubbedMainFuncs = [],
         stubbedTestFuncs = [],
         $content = $('#content');
@@ -64,6 +69,32 @@ define([
       restoreStubbedFuncs(stubbedMainFuncs);
     });
 
+    describe('#startup', function() {
+//      describe('when valid session present', function() {
+//        it('should route directly to \'home\'', function() {
+//          sinon.stub(appRouter.session, 'isValid', function() {
+//            return true;
+//          });
+//          appRouter.startup();
+//          forceReflow();
+//          expect($content.find('#home')).to.have.length(1);
+//          appRouter.session.isValid.restore();
+//        });
+//      });
+      describe('when valid session not present', function() {
+
+        it('should route directly to login', function() {
+          sinon.stub(appRouter.session, 'isValid', function() {
+            return false;
+          });
+          appRouter.startup();
+          forceReflow();
+          expect($content.find('#login')).to.have.length(1);
+          appRouter.session.isValid.restore();
+        });
+      });
+    });
+
     describe('when a valid session is present', function() {
       afterEach(function() {
         restoreStubbedFuncs(stubbedTestFuncs);
@@ -78,16 +109,18 @@ define([
         restoreStubbedFuncs(stubbedTestFuncs);
       });
 
-      it('should route to 404 for any invalid URL request', function() {
-        appRouter.navigate('does_not_exist', true);
-        forceReflow();
-        expect($content.find('#404')).to.have.length(1);
-      });
       it('should route to login for any valid URL request when not logged in', function() {
         appRouter.navigate('home', true);
         forceReflow();
         expect($content.find('#login')).to.have.length(1);
       });
+
+      it('should route to 404 for any invalid URL request', function() {
+        appRouter.navigate('does_not_exist', true);
+        forceReflow();
+        expect($content.find('#404')).to.have.length(1);
+      });
+
       it('should pass requested URL to login function for proper routing later');
     });
   });

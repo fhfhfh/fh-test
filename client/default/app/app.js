@@ -12,7 +12,7 @@ require.config({
     'backbone': 'lib/backbone',
     'fastclick': 'lib/fastclick',
     'iscroll': 'lib/iscroll',
-    'highChart': 'lib/HighCharts',
+    'highChart': 'lib/HighCharts'
   },
   shim: {
     'feedhenry': {
@@ -41,8 +41,9 @@ require([
     'backbone',
     'fastclick',
     'NotificationManager',
-    'routers/AppRouter'
-], function($fh, $, Backbone, FastClick, NotificationManager, AppRouter) {
+    'routers/AppRouter',
+    'models/Session'
+], function($fh, $, Backbone, FastClick, NotificationManager, AppRouter, Session) {
 
   // To enable development (and future deployment) on desktop browsers, we make
   // sure that we use the appropriate DOM ready event.
@@ -58,19 +59,24 @@ require([
     new NotificationManager();
     new FastClick(document.body);
 
-    var host = window.cordova ?
-        'http://127.0.0.1:8888' :
-        window.location.origin || 'http://127.0.0.1:8888';
-
     // TODO: This should be configure for appropriate app domain once created.
     // Also note window.location.origin is WebKit only.
     $fh.init({
-      host: host,
+      host: window.cordova ?
+          'http://127.0.0.1:8888' :
+          window.location.origin || 'http://127.0.0.1:8888',
       appid: 'doesntmatterhere',
       appkey: 'doesnmatterhere',
       mode: 'dev'
     }, function(res) {
-      window.appRouter = new AppRouter();
+      var appRouter,
+          session = new Session();
+
+      session.getFromJSON();
+
+      appRouter = new AppRouter({
+        session: session
+      });
     }, function(msg, err) {
       console.log(msg, err);
       Backbone.trigger('notify', 'FeedHenry init failed!');
