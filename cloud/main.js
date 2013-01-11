@@ -22,11 +22,11 @@ var fetchMedicalHistoryEndpoint = require("./endpoints/fetchMedicalHistory.js")
 var searchAllergyEndpoint = require("./endpoints/searchAllergy.js")
 var addAllergyEndpoint = require("./endpoints/addAllergy.js")
 var fetchFeaturedContentEndpoint = require("./endpoints/fetchFeaturedContent.js")
-var fetchAlertEndpoint = require("endpoints/fetchAlert.js")
-var fetchQuotesEndpoint = require("endpoints/fetchQuotes.js")
-var fetchVideosEndpoint = require("endpoints/fetchVideos.js")
-var fetchNewsEndpoint = require("endpoints/fetchNews.js")
-var fetchAvatarsEndpoint = require("endpoints/fetchAvatars.js")
+var fetchAlertEndpoint = require("./endpoints/fetchAlert.js")
+var fetchQuotesEndpoint = require("./endpoints/fetchQuotes.js")
+var fetchVideosEndpoint = require("./endpoints/fetchVideos.js")
+var fetchNewsEndpoint = require("./endpoints/fetchNews.js")
+var fetchAvatarsEndpoint = require("./endpoints/fetchAvatars.js")
 
 
 // mock service if not on $fh

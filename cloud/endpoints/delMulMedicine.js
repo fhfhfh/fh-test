@@ -23,7 +23,7 @@ var success = {
   }
 };
 
-var jsonUtils = require('lib/jsonUtils.js');
+var jsonUtils = require('../lib/jsonUtils.js');
 var delMulMedicineEndpoint = function() {
   // Exposed operations
   this.delMulMedicine = function delMulMedicine(reqJson, callback){

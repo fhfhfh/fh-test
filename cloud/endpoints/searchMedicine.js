@@ -29,7 +29,7 @@ var success = {
 
 ;
 
-var jsonUtils = require('lib/jsonUtils.js');
+var jsonUtils = require('../lib/jsonUtils.js');
 var searchMedicineEndpoint = function() {
   // Exposed operations
   this.searchMedicine = function searchMedicine(reqJson, callback){

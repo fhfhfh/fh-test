@@ -69,7 +69,8 @@ define([
           if(res){
             if(res.video){
               welcome = new WelcomeView();
-              welcome.loadVideo('http://mirrorblender.top-ix.org/peach/bigbuckbunny_movies/big_buck_bunny_480p_h264.mov');  
+              welcome.loadVideo('http://mirrorblender.top-ix.org/peach/bigbuckbunny_movies/big_buck_bunny_480p_h264.mov');
+              $('#content').html(welcome.render().el);
             } else {
               appRouter.navigate('home', true, true);
             }

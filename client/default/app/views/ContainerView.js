@@ -9,22 +9,49 @@ define(['underscore', 'backbone'], function(_, Backbone) {
   return Backbone.View.extend({
 
     _configure: function(options) {
-      if (options &&
-          options.subViews &&
-          _.isArray(options.subViews) &&
-          options.subViews.length) {
-        this.subViews = options.subViews;
+      if (options && options.subViews) {
+        this.subViews = this.subViews ?
+            _.extend(this.subViews, options.subViews) :
+            options.subViews;
+      } else {
+        this.subViews = this.subViews || {};
       }
       return Backbone.View.prototype._configure.apply(this, arguments);
     },
 
     remove: function() {
-      if (this.subViews && this.subViews.length) {
-        while (this.subViews.length) {
-          this.subViews.pop().remove();
-        }
-      }
+      _.each(this.subViews, function(subView, key, subViews) {
+        subView.remove();
+        delete subViews[key];
+      });
       return Backbone.View.prototype.remove.call(this);
+    },
+
+    setActiveView: function(view) {
+      if (view in this.subViews) {
+        if (this.$nav) {
+          this.$nav.find('a').each(function() {
+            if ($(this).prop('data-view') === view) {
+              $(this).addClass('current');
+            } else {
+              $(this).removeClass('current');
+            }
+          });
+        }
+        this.$content.html(this.subViews[view].render().el);
+        if (this.refreshScroll) {
+          this.refreshScroll();
+        }
+        return this;
+      } else {
+
+        // TODO: Try to ensure this doesn't replace the URL in question.
+        Backbone.history.navigate('404', {
+          trigger: false,
+          replace: false
+        });
+        return false;
+      }
     }
   });
 });

@@ -816,7 +816,7 @@ li {
   background-position: top right;
   background-repeat: no-repeat;
 }
-#side-nav {
+#main-nav {
   list-style-type: none;
   width: 110px;
   overflow: visible;
@@ -824,7 +824,7 @@ li {
   margin-top: 65px;
   margin-left: 5px;
 }
-#side-nav li {
+#main-nav li {
   width: 120px;
   text-align: center;
   color: rgba(255, 255, 255, 0.8);
@@ -833,56 +833,56 @@ li {
   margin: 0 auto;
   font: bold 13px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
 }
-#side-nav li.selected {
+#main-nav li.selected {
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
   background-color: white;
   color: #2f3137;
 }
-#side-nav li.selected h2 {
+#main-nav li.selected h2 {
   font: bold 13px "Avenir Next Bold", Helvetica, Arial, sans-serif;
 }
-#side-nav h2 {
+#main-nav h2 {
   margin: 0;
   display: block;
   font-weight: bold;
   font-size: 10pt;
   margin-top: 5px;
 }
-#side-nav #home img {
+#main-nav #home img {
   content: url('../img/nav/HomeWhite.png');
 }
-#side-nav #home.selected img {
+#main-nav #home.selected img {
   content: url('../img/nav/HomeDark.png');
 }
-#side-nav #widgets img {
+#main-nav #widgets img {
   content: url('../img/nav/WidgetsWhite.png');
 }
-#side-nav #widgets.selected img {
+#main-nav #widgets.selected img {
   content: url('../img/nav/WidgetsDark.png');
 }
-#side-nav #healthHub img {
+#main-nav #healthHub img {
   content: url('../img/nav/HubWhite.png');
 }
-#side-nav #healthHub.selected img {
+#main-nav #healthHub.selected img {
   content: url('../img/nav/HubDark.png');
 }
-#side-nav #connect img {
+#main-nav #connect img {
   content: url('../img/nav/ConnectWhite.png');
 }
-#side-nav #connect.selected img {
+#main-nav #connect.selected img {
   content: url('../img/nav/ConnectDark.png');
 }
-#side-nav #calendar img {
+#main-nav #calendar img {
   content: url('../img/nav/CalendarWhite.png');
 }
-#side-nav #calendar.selected img {
+#main-nav #calendar.selected img {
   content: url('../img/nav/CalendarDark.png');
 }
-#side-nav #library img {
+#main-nav #library img {
   content: url('../img/nav/LibraryWhite.png');
 }
-#side-nav #library.selected img {
+#main-nav #library.selected img {
   content: url('../img/nav/LibraryDark.png');
 }
 #top-bar {

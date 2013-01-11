@@ -11,6 +11,8 @@ define([
 ], function($, _, Backbone, tpl) {
 
     return Backbone.View.extend({
+      tagName: 'div',
+      id: 'welcome-video',
 
         events: {
             'click #close'       : 'close',
@@ -23,9 +25,8 @@ define([
         },
 
         render: function() {
-            this.$el = $('#content');
             this.$el.html(tpl);
-            return this.$el;
+            return this;
         },
 
         loadVideo: function(url){
@@ -61,8 +62,11 @@ define([
         },
 
         close: function(){
-            $(this).remove();
-            appRouter.navigate('home', true, true);
+            this.remove();
+            Backbone.history.navigate('home', {
+              trigger: true,
+              replace: true
+            });
         }
     });
 });

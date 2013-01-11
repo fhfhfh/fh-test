@@ -1,5 +1,5 @@
 // Dependencies
-var config = require('config/config.js').getConfig();
+var config = require('../../config/config.js').getConfig();
 
 /**
  * Module for a logger.

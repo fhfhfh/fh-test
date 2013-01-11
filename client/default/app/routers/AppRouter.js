@@ -40,9 +40,6 @@ define([
       var self = this;
 
       _.bindAll(this);
-
-      // The router should be the only object within the app that requires
-      // access to the session object itself.
       this.session = new Session();
 
       Backbone.history.start({
@@ -74,7 +71,10 @@ define([
     },
 
     login: function() {
-      var loginView = new LoginView();
+      var self = this,
+          loginView = new LoginView({
+            session: self.session
+          });
 
       this.session.logout();
       this.$content.html(loginView.render().el);
@@ -90,7 +90,11 @@ define([
 
     home: function(page) {
       this.ensureMain();
-      if (this.mainView.setActiveView(page)) {
+      if (page) {
+        if (this.mainView.subViews.home.setActiveView(page)) {
+          this.$content.html(this.mainView.render().el);
+        }
+      } else {
         this.$content.html(this.mainView.render().el);
       }
     },

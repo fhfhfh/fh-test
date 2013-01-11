@@ -15,6 +15,7 @@ define(['underscore', 'backbone', 'feedhenry', 'models/Acts'], function(_, Backb
 
     initialize: function() {
       _.bindAll(this);
+      this.getFromJSON();
     },
 
     defaults: {
@@ -82,6 +83,12 @@ define(['underscore', 'backbone', 'feedhenry', 'models/Acts'], function(_, Backb
       options.username = username;
       options.password = password;
       this.fetch(options);
+    },
+
+    logout: function() {
+      this.set('sessionId', '');
+      this.set('timestamp', 0);
+      localStorage.removeItem(this.localStorageKey);
     },
 
     fetch: function(options) {

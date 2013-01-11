@@ -29,7 +29,7 @@ var userProfileEndpoint = function() {
     this.userProfile = function userProfile(reqJson, callback){
       
         // Extract sessionId from request params
-        var sessionId = jsonUtils.getPath(reqJson, "request.head.sessionId").trim();
+        var sessionId = jsonUtils.getPath(reqJson, "request.head.sessionId");
         
         //Fetching session details
         sessionManager.getSession(sessionId, function(err, data ){

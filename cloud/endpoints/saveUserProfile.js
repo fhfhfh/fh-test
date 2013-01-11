@@ -24,7 +24,7 @@ var success = {
 }
 ;
 
-var jsonUtils = require('lib/jsonUtils.js');
+var jsonUtils = require('../lib/jsonUtils.js');
 var saveUserProfileEndpoint = function() {
   // Exposed operations
   this.sup = function sup(reqJson, callback){
