@@ -122,7 +122,6 @@ define(['jquery',
         var state	= this.$('#state').val();
 
         var text = line1 + "\n" + line2 + "\n" + zip + "\n" + state;
-
         this.$('#address').val(text);
 
     	box.fadeOut({}, 300);
