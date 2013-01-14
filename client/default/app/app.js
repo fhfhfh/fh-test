@@ -68,8 +68,8 @@ require([
       host: window.cordova ?
           'http://127.0.0.1:8888' :
           window.location.origin || 'http://127.0.0.1:8888',
-      appid: 'doesntmatterhere',
-      appkey: 'doesnmatterhere',
+      appid: '2MZDpXsUThCoLHsCb4-UoNNH',
+      appkey: '4c81bba36a10bcf9bd7a47a8cad91b94be3679a5',
       mode: 'dev'
     }, function() {
       new AppRouter();
