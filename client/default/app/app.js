@@ -68,9 +68,7 @@ require([
       appkey: 'doesnmatterhere',
       mode: 'dev'
     }, function() {
-      alert('Before');
       new AppRouter();
-      alert('After');
     }, function() {
       Backbone.trigger('notify', 'FeedHenry init failed!');
     });
