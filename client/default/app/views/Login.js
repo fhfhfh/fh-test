@@ -65,15 +65,18 @@ define([
 
       if (username && password) {
 
-        self.controller.login(username, password, function(res){
-          if(res){
-            // if(res.video){
+        self.controller.login(username, password, function(res, msg){
+          if(res === true){
+            if(msg.video){
               welcome = new WelcomeView();
               $('#content').html(welcome.render().el);
               welcome.loadVideo('http://mirrorblender.top-ix.org/peach/bigbuckbunny_movies/big_buck_bunny_480p_h264.mov');
-            // } else {
-              // Backbone.history.navigate('home', true, true);
-            // }
+            } else {
+              Backbone.history.navigate('home', true, true);
+            }
+          } else {
+            Backbone.trigger('notify', 'Error: ' + msg.message);
+            self.showLogin();    
           }
         });
 

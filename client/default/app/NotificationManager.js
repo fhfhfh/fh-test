@@ -38,7 +38,11 @@ define([
     },
 
     close: function() {
-      this.remove();
+      var self = this;
+      $(this.$el).fadeOut(300, function(){
+        self.remove();
+      });
+      
       Backbone.trigger('notify:close', this);
     }
   });

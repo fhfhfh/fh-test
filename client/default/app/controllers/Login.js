@@ -45,10 +45,10 @@ define(['jquery',
 				var session = res.head.sessionId;
 				self.loggedIn(session, username);
 				res.video = true;
-				return callback(res);
+				return callback(true, res);
 				console.log(res);
 			}, function(err, msg){
-				console.log(err);
+				console.log(err, msg);
 				err.video = true;
 				return callback(err, msg);
 			}
