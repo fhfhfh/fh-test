@@ -47,17 +47,13 @@ define([
 
       Backbone.history.start({
 
-        // We disable pushState support within PhoneGap instances of the app, as
-        // this has been known to cause problems.
-        // TODO: Evaluate whether we shouldn't just turn this off everywhere.
-        pushState: !window.cordova,
+        // This breaks relative URLs when on, so leave off until evaluating options for the desktop version!
+        pushState: false,
 
         // To facilitate running unit tests, we provide a hook to allow our test
         // runner to disable firing a route straight away. When testing the
         // router, pass it the option 'silent: true' when initialising.
-        silent: (self.options && self.options.silent) || false,
-
-        // root : document.location.pathname
+        silent: (self.options && self.options.silent) || false
       });
     },
 
