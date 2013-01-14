@@ -1,16 +1,16 @@
 /**
  * Application Configuration.
- * 
+ *
  */
 var appConfig = {
-    
+
   //
   // Common Configuration Values
   //
 
 
   "current": "development",
-    
+
   //
   // Configuration Values for each Environment
   //
@@ -24,7 +24,7 @@ var appConfig = {
         "level": "DEBUG"
       },
       "urls": {
-        "baseUrl":"99.71.210.208",                 
+        "baseUrl":"108.87.132.242",
         "auth":"/PeachyWebApi/api/authentication/",
         "userProfile":"/PeachyWebApi/api/profileaccount/",
          "alert":"/PeachyWebApi/api/alerts",
@@ -38,12 +38,12 @@ var appConfig = {
         "lifetime": 24 *  60 * 60
       }
     },
-    
+
     //
     // Staging Environment
     //
     "staging": {
-      
+
       "urls": {
         "auth":"",
         "list":""
@@ -57,7 +57,7 @@ var appConfig = {
     // Load Testing Environment
     //
     "loadtest": {
-     
+
       "urls": {
         "auth":"",
         "list":""
@@ -67,12 +67,12 @@ var appConfig = {
         "lifetime": 24 *  60 * 60
       }
     },
-    
+
     //
     // Production Environment
     //
     "production": {
-      
+
       "urls": {
         "auth":"",
         "list":""
@@ -84,8 +84,8 @@ var appConfig = {
     }
 
   }
-    
-    
+
+
 }
 
 module.exports = appConfig;
