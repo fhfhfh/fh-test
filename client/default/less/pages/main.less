@@ -17,22 +17,22 @@
     opacity: 1;
     -webkit-transition: all .2s linear;
     -webkit-transform: translate3d(0, 0, 0);
+}
+
+#main-iscroll {
+    color: #000;
+    padding-top: 10px;
+    padding-bottom: 25px;
+    position: relative;
+    height: 100%;
 
     & > div {
-        color: #000;
-        padding-top: 10px;
-        padding-bottom: 25px;
-        position: relative;
-        min-height: 100%;
+        background-color: #fff;
+        box-shadow: 0 7px 0 -4px #ccc, 0 12px 0 -7px rgb(139, 139, 139);
+        min-height: 300px;
+        padding: 10px;
 
-        & > div {
-            background-color: #fff;
-            box-shadow: 0 7px 0 -4px #ccc, 0 12px 0 -7px rgb(139, 139, 139);
-            min-height: 300px;
-            padding: 10px;
-
-            .border-radius(9px);
-        }
+        .border-radius(9px);
     }
 }
 
@@ -42,7 +42,7 @@
     border-radius: 10px;
 
 
-    
+
 }
 
 

@@ -39,8 +39,6 @@ define(['jquery',
     initialize: function(options) {
       var self = this;
 
-      _.bindAll(this);
-
       this.$el.html(template);
       this.$content = this.$('#main-content');
       this.$nav = this.$('#main-nav');
@@ -52,17 +50,22 @@ define(['jquery',
         bounce: false,
         vScrollbar: false
       });
+
+      Backbone.View.prototype.refreshScroll = function() {
+          setTimeout(function() {
+              if (self.iscroll) {
+                  self.iscroll.refresh.call(self.iscroll);
+              }
+          }, 100);
+      };
+
+      _.bindAll(this);
+
       var topbar = new TopBar();
 
       this.setActiveView(((options && options.activeView) || 'home'));
 
-      Backbone.View.prototype.refreshScroll = function() {
-        setTimeout(function() {
-          if (self.iscroll) {
-            self.iscroll.refresh.call(self.iscroll);
-          }
-        }, 100);
-      };
+
     },
 
     render: function() {
