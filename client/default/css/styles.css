@@ -67,31 +67,18 @@ input {
   background-image: -webkit-linear-gradient(bottom, #1eff00 0%, #1aa807 85%);
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #1eff00), color-stop(0.85, #1aa807));
 }
-#notifications {
+#notification {
   position: absolute;
-  top: 0;
-  right: 15px;
-  width: 25%;
-}
-.notification {
-  position: relative;
-  width: 100%;
-  margin-top: 15px;
-  display: block;
+  top: 5px;
+  right: 5px;
+  border-radius: 10px;
   border: 3px solid #fff000;
   color: #fff;
-  z-index: 2000000000;
-  padding: 15px;
+  font: bold 13px "Avenir Next Bold", Helvetica, Arial, sans-serif;
+  z-index: 100;
+  padding: 20px;
   background: #000000;
   background: rgba(0, 0, 0, 0.8);
-  -webkit-border-radius: 10px;
-  border-radius: 10px;
-  font: bold 13px "Avenir Next Bold", Helvetica, Arial, sans-serif;
-  -webkit-transition: all .1s linear;
-  opacity: 1;
-}
-.notification.hidden {
-  opacity: 0;
 }
 /*
  * This file covers the login and loading screens, which both constitute the
@@ -594,7 +581,7 @@ li {
   position: relative;
   width: 90%;
   height: 30%;
-  margin-top: 20%;
+  margin-top: 25%;
   margin-right: auto;
   margin-left: auto;
   background-color: #fff;
@@ -609,7 +596,7 @@ li {
   display: block;
 }
 #welcome #video video {
-  height: 40%;
+  height: 35%;
 }
 #welcome #video .status {
   position: relative;
@@ -626,7 +613,7 @@ li {
 #welcome #info {
   position: absolute;
   left: 6%;
-  top: 14%;
+  top: 16%;
   color: #5a5a5a;
 }
 #welcome #buttons {
@@ -722,16 +709,18 @@ li {
 }
 #goals #grid .piece {
   margin: -1px;
-  width: 30%;
+  width: 27%;
   height: 110px;
-  padding: 30px;
+  padding: 23px;
   text-align: center;
   border: 1px solid #000;
   color: #fff;
   text-shadow: 3px 3px 5px #000;
+  text-shadow: 2px 2px 5px #000000, -2px 2px 5px #000000, 2px -2px 5px #000000, -2px -2px 5px #000000;
   background-color: #cdcdcd;
   display: inline-block;
-  font: bold 16px "Avenir Next Bold", Helvetica, Arial, sans-serif;
+  font: bold 14px "Avenir Next Bold", Helvetica, Arial, sans-serif;
+  z-index: 5;
 }
 #goals #grid .piece p {
   vertical-align: middle;
@@ -747,19 +736,20 @@ li {
   border-left: none;
   border-top: none;
   position: relative;
-  left: 57px;
+  left: 50px;
   bottom: 20px;
   border-bottom: none;
 }
-#goals #add-goal {
-  -webkit-border-radius: 8px;
-  border-radius: 8px;
-  border: 2px solid #cdcdcd;
-  font: bold 16px "Avenir Next Bold", Helvetica, Arial, sans-serif;
-  color: #b3b3b3;
-  background-color: transparent;
-  width: 100%;
-  padding: 10px;
+#goals #bgImg {
+  height: 500px;
+  width: 500px;
+  background-image: url('../img/goals/beach.jpg');
+  background-size: 116%;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 150px;
+  left: 76px;
+  opacity: 0.3;
 }
 #alerts {
   padding: 15px;
@@ -784,7 +774,7 @@ li {
 }
 #alerts #buttons li {
   font: bold 14px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
-  width: 22.9%;
+  width: 22%;
   margin: 5px;
   background-color: #e6e6e6;
   border-radius: 10px;
@@ -922,6 +912,7 @@ li {
 #top-bar {
   height: 55px;
   background-color: rgba(255, 255, 255, 0.1);
+  background-image: url('../img/bg.png');
   margin: 0;
   padding: 0 15px;
   border-bottom: 2px solid rgba(255, 255, 255, 0.2);

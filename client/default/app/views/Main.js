@@ -49,7 +49,6 @@ define(['jquery',
         bounce: false,
         vScrollbar: false
       });
-
       var topbar = new TopBar();
 
       this.setActiveView(((options && options.activeView) || 'home'));

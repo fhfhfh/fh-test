@@ -54,7 +54,9 @@ define([
         // To facilitate running unit tests, we provide a hook to allow our test
         // runner to disable firing a route straight away. When testing the
         // router, pass it the option 'silent: true' when initialising.
-        silent: (self.options && self.options.silent) || false
+        silent: (self.options && self.options.silent) || false,
+
+        root : document.location.pathname
       });
     },
 

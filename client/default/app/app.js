@@ -13,7 +13,6 @@ require.config({
     'backbone': 'lib/backbone',
     'fastclick': 'lib/fastclick',
     'iscroll': 'lib/iscroll'
-//    'highChart': 'lib/HighCharts'
   },
   shim: {
     'feedhenry': {
@@ -29,9 +28,6 @@ require.config({
     'iscroll' : {
       exports: 'iScroll'
     }
-//    'highChart': {
-//      exports: 'Highcharts'
-//    }
   }
 });
 

@@ -14,16 +14,21 @@
         text-align: center;
         .piece {
             margin: -1px;
-            width: 30%;
+            width: 27%;
             height: 110px;
-            padding: 30px;
+            padding: 23px;
             text-align: center;
             border: 1px solid #000;
             color: #fff;
             text-shadow: 3px 3px 5px #000;
+            text-shadow: 2px 2px 5px #000,
+                        -2px 2px 5px #000,
+                        2px -2px 5px #000,
+                        -2px -2px 5px #000;
             background-color: #cdcdcd;
             display: inline-block;
-            .avenir-bold(16px);
+            .avenir-bold(14px);
+            z-index: 5;
 
             p {
                 // display: inline;
@@ -42,21 +47,21 @@
             border-left: none;
             border-top: none;
             position: relative;
-            left: 57px;
+            left: 50px;
             bottom: 20px;
             border-bottom: none;
         }
     }
 
-
-
-    #add-goal {
-        .border-radius(8px);
-        border: 2px solid #cdcdcd;
-        .avenir-bold(16px);
-        color: #b3b3b3;
-        background-color: transparent;
-        width: 100%;
-        padding: 10px;
+    #bgImg {
+        height: 500px;
+        width: 500px;
+        background-image: url('../img/goals/beach.jpg');
+        background-size: 116%;
+        background-repeat: no-repeat;
+        position: absolute;
+        top: 150px;
+        left: 76px;
+        opacity: 0.3;
     }
 }

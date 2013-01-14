@@ -14,11 +14,12 @@ define([
 ], function($, _, Backbone) {
 
   var DefaultView = Backbone.View.extend({
-    tagName: 'aside',
+    tagName: 'div',
     className: 'notification',
+    id: 'notification',
 
     events: {
-      'click': 'closeNotification'
+      'click': 'close'
     },
 
     initialize: function() {
@@ -76,7 +77,7 @@ define([
     Backbone.on('notify:close', function(notification) {
       self.queue.shift();
       if (self.queue.length) {
-        self.showView(queue[0]);
+        self.showView(self.queue[0]);
       }
     });
   }
