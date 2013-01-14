@@ -14,7 +14,7 @@ define(['jquery',
         'views/Widgets',
         'views/HealthHub',
         'views/Connect',
-        'views/Calendar',
+        'views/home/cal',
         'views/Library',
 ], function($, _, Backbone, ContainerView, HomeView, TopBar, template, iScroll, WidgetsView, HealthHubView, ConnectView, CalendarView, LibraryView) {
 
@@ -23,6 +23,9 @@ define(['jquery',
 	return ContainerView.extend({
 		tagName	: 'section',
     id		: 'main',
+    events : {
+      'click #calendar' : 'calendar'
+    },
 
     subViews: {
       home: new HomeView(),
@@ -65,6 +68,10 @@ define(['jquery',
     render: function() {
       this.refreshScroll();
       return this;
+    },
+
+    calendar: function() {
+      this.setActiveView('calendar');
     }
 	});
 });

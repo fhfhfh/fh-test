@@ -10,8 +10,9 @@ define([
   'views/Login',
   'views/Main',
   'views/PageNotFound',
-  'views/Profile'
-], function($, _, Backbone, Session, LoginView, MainView, PageNotFoundView, ProfileView) {
+  'views/Profile',
+  'views/home/cal'
+], function($, _, Backbone, Session, LoginView, MainView, PageNotFoundView, ProfileView, CalendarView) {
 
   return Backbone.Router.extend({
 
@@ -56,7 +57,7 @@ define([
         // router, pass it the option 'silent: true' when initialising.
         silent: (self.options && self.options.silent) || false,
 
-        root : document.location.pathname
+        // root : document.location.pathname
       });
     },
 
@@ -119,9 +120,9 @@ define([
 //    connect: function(){
 //      this.connectView = new ConnectView();
 //    },
-//    calendar: function(){
-//      this.calendarView = new CalendarView();
-//    },
+   calendar: function(){
+     // this.$content.html((new CalendarView()).render().el);
+   },
 //    library: function(){
 //      this.libraryView = new LibraryView();
 //    },

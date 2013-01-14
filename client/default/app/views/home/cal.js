@@ -3,7 +3,7 @@
 
 	View containing user goals
 --------------------*/
-define(['zepto',
+define(['jquery',
         'underscore',
         'backbone',
         'text!templates/components/cal.html'
@@ -18,7 +18,7 @@ define(['zepto',
 	    events		: {
 	    },
 	    template	: _.template(template),
-	    el 		: $('#home-content'),
+
 
 	    //Function interface
 		initialize	: _initialize,
@@ -45,7 +45,7 @@ define(['zepto',
 		this.$el.html(template);
 		var html = '<section id="calendar1">'+template+'</section>';
 
-		return html;
+		return this;
 	};
 
 	return calendar1;

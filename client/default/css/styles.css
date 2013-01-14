@@ -43,6 +43,16 @@ input {
   padding: 5px 10px 5px 10px;
   font: bold 14px "Avenir Next Bold", Helvetica, Arial, sans-serif;
 }
+.btnSmall {
+  display: inline;
+  border-radius: 5px;
+  border: 1px solid #d38800;
+  height: 20px;
+  margin: 10px;
+  color: white;
+  padding: 2px 5px 2px 5px;
+  font: bold 12px "Avenir Next Bold", Helvetica, Arial, sans-serif;
+}
 .decline {
   background-color: orange;
   background-image: linear-gradient(bottom, #f26622 0%, #feb000 85%);
@@ -567,6 +577,34 @@ li {
   background-size: 70%;
   background-repeat: no-repeat;
   float: right;
+}
+#addressBox {
+  display: none;
+  position: absolute;
+  top: 250px;
+  left: 60px;
+  background-color: #fff;
+  border-radius: 10px;
+  border: 1px solid #000;
+  padding: 20px;
+  color: #000;
+}
+#addressBox h4 {
+  color: #2B60DE;
+}
+#addressBox li {
+  position: relative;
+  bottom: 22px;
+  left: 180px;
+}
+#addressBox label {
+  display: inline-block;
+  width: 60px;
+}
+#addressBox input {
+  padding: 5px;
+  border-radius: 5px;
+  margin-top: 5px;
 }
 #welcome #mask {
   position: absolute;

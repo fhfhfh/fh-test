@@ -9,8 +9,9 @@ define(['jquery',
         'models/Acts',
         'models/User',
         'text!templates/pages/Profile.html',
+        'text!templates/components/AddressBox.html',
         'controllers/Profile'
-], function($, _, Backbone, Acts, User, template, Controller) {
+], function($, _, Backbone, Acts, User, template, addressBox, Controller) {
 
 	//interface ---------------------------
 	var profile = Backbone.View.extend({
@@ -21,7 +22,8 @@ define(['jquery',
 	    template: _.template(template),
 	    events : {
 	    	'change #birthday': 'ageCalc',
-            'click #address': 'showAddr'
+            'click #address': 'showAddr',
+            'click #done' : 'closeAddr'
 	    },
 
 	    //Function interface
@@ -31,7 +33,8 @@ define(['jquery',
 		saveDetails : _saveDetails,	// Save details to user model
 		cancel 		: _cancel,		// navigate back to home page
 		ageCalc     : _ageCalc,     // Calculate age of user based on DOB field
-        showAddr     : _showAddr    // Pop-up box to show all address fields
+        showAddr    : _showAddr,   // Pop-up box to show all address fields
+        closeAddr 	: _closeAddr
 	});
 
 
@@ -89,8 +92,40 @@ define(['jquery',
     };
 
     function _showAddr(){
-        // this.$('#address').blur();
+    	var self 	= this;
+        var target	= this.$('#address');
+        var text	= target.val();
+        var box 	= $(addressBox);
+        target.blur();
+
+        this.$el.append(box);
+
+        box = this.$('#addressBox');
+
+        box.fadeIn({}, 300 );
+
+        var vals = text.split('\n');
+
+        this.$('#line1').val(vals[0]);
+        this.$('#line2').val(vals[1]);
+        this.$('#zip').val(vals[2]);
+        this.$('#state').val(vals[3]);
+
         console.log('pop');
+    };
+
+    function _closeAddr(){
+    	var box		= this.$('#addressBox');
+    	var line1	= this.$('#line1').val();
+        var line2	= this.$('#line2').val();
+        var zip		= this.$('#zip').val();
+        var state	= this.$('#state').val();
+
+        var text = line1 + "\n" + line2 + "\n" + zip + "\n" + state;
+
+        this.$('#address').val(text);
+
+    	box.fadeOut({}, 300);
     }
 
 
