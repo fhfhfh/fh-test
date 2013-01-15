@@ -39,13 +39,13 @@ define(['jquery',
 		this.$content = this.$('#home-content');
 		this.$nav = this.$('#home-nav');
 		// this.$('#show-news').addClass('selected');
-		this.render();
+		//this.render();
 	};
 
 	function _render(){
 		return this;
 	};
-	
+
 	return healthHub;
 
 });
