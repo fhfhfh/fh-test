@@ -24,6 +24,7 @@ define(['jquery',
 		tagName	: 'section',
     id		: 'main',
     events : {
+      'click #home' : 'home',
       'click #widgets' : 'widgets',
       'click #healthHub' : 'healthHub',
       'click #connect' : 'connect',
@@ -74,6 +75,12 @@ define(['jquery',
     render: function() {
       this.refreshScroll();
       return this;
+    },
+
+    home: function() {
+      this.setActiveView('home');
+      this.$nav.find('li').removeClass('selected');
+      this.$('#home').addClass('selected');
     },
 
     widgets: function() {

@@ -593,9 +593,9 @@ li {
   color: #2B60DE;
 }
 #addressBox li {
-  position: relative;
-  bottom: 22px;
-  left: 180px;
+  position: absolute;
+  top: 7px;
+  right: 10px;
 }
 #addressBox label {
   display: inline-block;
@@ -634,7 +634,8 @@ li {
   display: block;
 }
 #welcome #video video {
-  height: 35%;
+  height: 356px;
+  width: 100%;
 }
 #welcome #video .status {
   position: relative;
@@ -956,7 +957,7 @@ li {
   border-bottom: 2px solid rgba(255, 255, 255, 0.2);
   width: 100%;
   box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.15);
-  position: fixed;
+  position: absolute;
   z-index: 10;
   -webkit-transition: all .2s linear;
   -webkit-transform: translate3d(0, 0, 0);
