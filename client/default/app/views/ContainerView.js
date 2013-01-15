@@ -29,6 +29,7 @@ define(['underscore', 'backbone'], function(_, Backbone) {
 
     setActiveView: function(view) {
       if (view in this.subViews) {
+        this.activeView = this.subViews[view];
         if (this.$nav) {
           this.$nav.find('a').each(function() {
             if ($(this).prop('data-view') === view) {
@@ -39,7 +40,7 @@ define(['underscore', 'backbone'], function(_, Backbone) {
           });
         }
         this.$content.html(this.subViews[view].render().el);
-        this.subViews[view].delegateEvents();
+        this.activeView.delegateEvents();
         if (this.refreshScroll) {
           this.refreshScroll();
         }

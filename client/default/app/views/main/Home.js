@@ -39,6 +39,7 @@ define([
     },
 
     render: function() {
+      this.delegateEvents();
       return this;
     },
 

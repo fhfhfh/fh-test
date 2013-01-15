@@ -74,6 +74,10 @@ define(['jquery',
 
     render: function() {
       this.refreshScroll();
+      this.delegateEvents();
+      if (this.activeView) {
+        this.activeView.delegateEvents();
+      }
       return this;
     },
 
