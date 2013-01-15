@@ -68,9 +68,11 @@ define([
         self.controller.login(username, password, function(res, msg){
           if(res === true){
             if(msg.video){
-              welcome = new WelcomeView();
-              $('#content').html(welcome.render().el);
-              welcome.loadVideo('http://mirrorblender.top-ix.org/peach/bigbuckbunny_movies/big_buck_bunny_480p_h264.mov');
+              setTimeout(function(){
+                welcome = new WelcomeView();
+                $('#content').html(welcome.render().el);
+                welcome.loadVideo('http://mirrorblender.top-ix.org/peach/bigbuckbunny_movies/big_buck_bunny_480p_h264.mov');
+              }, 3000);
             } else {
               Backbone.history.navigate('home', true, true);
             }

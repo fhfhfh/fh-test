@@ -24,7 +24,10 @@ define(['jquery',
 		tagName	: 'section',
     id		: 'main',
     events : {
-      'click #calendar' : 'calendar'
+      'click #widgets' : 'widgets',
+      'click #healthHub' : 'healthHub',
+      'click #connect' : 'connect',
+      'click #library' : 'library',
     },
 
     subViews: {
@@ -73,8 +76,28 @@ define(['jquery',
       return this;
     },
 
-    calendar: function() {
-      this.setActiveView('calendar');
+    widgets: function() {
+      this.setActiveView('widgets');
+      this.$nav.find('li').removeClass('selected');
+      this.$('#widgets').addClass('selected');
+    },
+
+    healthHub: function() {
+      this.setActiveView('healthHub');
+      this.$nav.find('li').removeClass('selected');
+      this.$('#healthHub').addClass('selected');
+    },
+
+    connect: function() {
+      Backbone.trigger('notify', 'Under Construction');
+      // this.setActiveView('connect');
+    },
+
+    library: function() {
+      Backbone.trigger('notify', 'Under Construction');
+      // this.setActiveView('library');
     }
+
+
 	});
 });
