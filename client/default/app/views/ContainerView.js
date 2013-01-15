@@ -39,6 +39,7 @@ define(['underscore', 'backbone'], function(_, Backbone) {
           });
         }
         this.$content.html(this.subViews[view].render().el);
+        this.subViews[view].delegateEvents();
         if (this.refreshScroll) {
           this.refreshScroll();
         }
