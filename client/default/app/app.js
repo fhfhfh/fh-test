@@ -12,7 +12,8 @@ require.config({
     'underscore': 'lib/underscore',
     'backbone': 'lib/backbone',
     'fastclick': 'lib/fastclick',
-    'iscroll': 'lib/iscroll'
+    'iscroll': 'lib/iscroll',
+    'fullcalendar': 'fullcalendar/fullcalendar/fullcalendar'
   },
   shim: {
     'feedhenry': {
@@ -27,6 +28,10 @@ require.config({
     },
     'iscroll' : {
       exports: 'iScroll'
+    },
+    'fullcalendar': {
+      deps: ['jquery'],
+      exports: '$.fn.fullCalendar'
     }
   }
 });
@@ -38,7 +43,8 @@ require([
     'backbone',
     'fastclick',
     'NotificationManager',
-    'routers/AppRouter'
+    'routers/AppRouter',
+    'fullcalendar'
 ], function($fh, $, Backbone, FastClick, NotificationManager, AppRouter) {
 
   // To enable development (and future deployment) on desktop browsers, we make

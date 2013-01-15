@@ -14,7 +14,7 @@ define(['jquery',
         'views/Widgets',
         'views/HealthHub',
         'views/Connect',
-        'views/home/cal',
+        'views/cal',
         'views/Library',
 ], function($, _, Backbone, ContainerView, HomeView, TopBar, template, iScroll, WidgetsView, HealthHubView, ConnectView, CalendarView, LibraryView) {
 
@@ -28,7 +28,8 @@ define(['jquery',
       'click #widgets' : 'widgets',
       'click #healthHub' : 'healthHub',
       'click #connect' : 'connect',
-      'click #library' : 'library',
+      'click #calendar': 'calendar',
+      'click #library' : 'library'
     },
 
     subViews: {
@@ -74,6 +75,10 @@ define(['jquery',
 
     render: function() {
       this.refreshScroll();
+      this.delegateEvents();
+      if (this.activeView) {
+        this.activeView.delegateEvents();
+      }
       return this;
     },
 
@@ -93,6 +98,11 @@ define(['jquery',
       this.setActiveView('healthHub');
       this.$nav.find('li').removeClass('selected');
       this.$('#healthHub').addClass('selected');
+    },
+
+    calendar: function() {
+      this.setActiveView('calendar');
+      console.log('here');
     },
 
     connect: function() {

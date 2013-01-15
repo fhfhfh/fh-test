@@ -77,6 +77,9 @@ input {
   background-image: -webkit-linear-gradient(bottom, #1eff00 0%, #1aa807 85%);
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #1eff00), color-stop(0.85, #1aa807));
 }
+.fc-content {
+  min-height: 300px !important;
+}
 #notification {
   position: absolute;
   top: 5px;

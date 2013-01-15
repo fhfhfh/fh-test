@@ -18,7 +18,7 @@ define(['jquery',
 	    events		: {
 	    },
 	    template	: _.template(template),
-
+	    // el 		: $('#home-content'),
 
 	    //Function interface
 		initialize	: _initialize,
@@ -43,10 +43,8 @@ define(['jquery',
 
 	function _render(){
 		this.$el.html(template);
-		var html = '<section id="calendar1">'+template+'</section>';
-
 		return this;
-	};
+	}
 
 	return calendar1;
 

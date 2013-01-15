@@ -16,7 +16,7 @@ define([
     events : {
       'click #show-news' : 'showNews',
       'click #show-alerts' : 'showAlerts',
-      'click #show-goals' : 'showGoals',
+      'click #show-goals' : 'showGoals'
     },
 
     subViews: {
@@ -34,11 +34,12 @@ define([
       this.$content = this.$('#home-content');
       this.$nav = this.$('#home-nav');
       this.$('#show-news').addClass('selected');
-      
+
       this.setActiveView(((options && options.activeView) || 'news'));
     },
 
     render: function() {
+      this.delegateEvents();
       return this;
     },
 
@@ -58,7 +59,6 @@ define([
       this.$('li').removeClass('selected');
       this.$('#show-goals').addClass('selected');
       this.setActiveView('goals');
-    },
-
+    }
   });
 });

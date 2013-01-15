@@ -11,7 +11,7 @@ define([
   'views/Main',
   'views/PageNotFound',
   'views/Profile',
-  'views/home/cal'
+  'views/cal'
 ], function($, _, Backbone, Session, LoginView, MainView, PageNotFoundView, ProfileView, CalendarView) {
 
   return Backbone.Router.extend({
@@ -117,6 +117,7 @@ define([
 //      this.connectView = new ConnectView();
 //    },
    calendar: function(){
+     this.$content.html((new CalendarView()).render().el);
      // this.$content.html((new CalendarView()).render().el);
    },
 //    library: function(){

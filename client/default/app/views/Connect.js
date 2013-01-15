@@ -44,8 +44,8 @@ define(['jquery',
 			}, 100);
 		};
 
-		this.refreshScroll();
-		this.render();
+		//this.refreshScroll();
+		//this.render();
 	};
 
 	function _render(){
@@ -61,7 +61,7 @@ define(['jquery',
 
 		return this;
 	};
-	
+
 	return connect;
 
 });
