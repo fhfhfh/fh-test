@@ -483,20 +483,20 @@ li {
 }
 #general-body li input,
 #general-body li select,
-#general-body li textarea {
+#general-body li div#address {
   background-color: #fff;
   outline: none;
   border: none;
   width: 60%;
   font: bold 13px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
 }
-#general-body li textarea,
-#general-body li img {
-  height: 65px;
-}
 #general-body li img {
   width: 90%;
   margin-right: 5px;
+  height: 65px;
+}
+#general-body li#address {
+  vertical-align: top;
 }
 #general-body li.w10 {
   width: 10%;
@@ -530,6 +530,12 @@ li {
 }
 #general-body li.w100 {
   width: 100%;
+}
+#general-body li div#address {
+  height: 65px;
+  width: 85%;
+  float: right;
+  color: #000;
 }
 #general-body .age {
   font: bold 13px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;

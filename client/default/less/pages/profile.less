@@ -68,7 +68,7 @@ li {
 			padding-right: 10px;
 		}
 
-		input, select, textarea {
+		input, select, div#address {
 			background-color: #fff;
 			outline: none;
 			border: none;
@@ -76,13 +76,14 @@ li {
 			.avenir-demi(13px);
 		}
 
-		textarea, img{
-			height: 65px;
-		}
-
 		img {
 			width: 90%;
 			margin-right: 5px;
+			height: 65px;
+		}
+
+		&#address {
+			vertical-align: top;
 		}
 
 		&.w10 {
@@ -117,6 +118,13 @@ li {
 		}
 		&.w100 {
 			width: 100%;
+		}
+
+		div#address {
+			height: 65px;
+			width: 85%;
+			float: right;
+			color: #000;
 		}
 	}
 

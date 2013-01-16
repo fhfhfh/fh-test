@@ -7,8 +7,9 @@ define(['jquery',
         'underscore',
         'backbone',
         'cloudFunctionMap',
-    'feedhenry'
-], function($, _, Backbone, map, $fh) {
+	    'feedhenry',
+	    'models/Session'
+], function($, _, Backbone, map, $fh, Session) {
 
 
 	//interface----------------------------------
@@ -24,7 +25,12 @@ define(['jquery',
 		var payload = {};
 		var payloadName = map[func]; // use mapping file to get payload name for function
 		payload[payloadName] = params;
-	
+
+		// TODO: get Session from localStorage
+
+		//-----------------------
+		
+
 		//create required request structure
 		params = {
 			"request" : {

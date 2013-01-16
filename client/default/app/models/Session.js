@@ -4,7 +4,7 @@
  */
 
 
-define(['underscore', 'backbone', 'feedhenry', 'models/Acts'], function(_, Backbone, $fh, Acts) {
+define(['underscore', 'backbone', 'feedhenry', 'controllers/Login'], function(_, Backbone, $fh, LoginController) {
 
   return Backbone.Model.extend({
 
@@ -16,6 +16,9 @@ define(['underscore', 'backbone', 'feedhenry', 'models/Acts'], function(_, Backb
     initialize: function() {
       _.bindAll(this);
       this.getFromJSON();
+      console.log('SESSSSION');
+
+      this.loginController = new LoginController();
     },
 
     defaults: {
@@ -114,24 +117,40 @@ define(['underscore', 'backbone', 'feedhenry', 'models/Acts'], function(_, Backb
       }
 
       function attemptLogin(options) {
-        var params = {
-          userId: options.username,
-          password: options.password
-        };
+        var user = options.username;
+        var pass = options.password;
+        // var params = {
+        //   userId: options.username,
+        //   password: options.password
+        // };
 
-        Acts.call('loginAction', params,
-            function(res){
-              model.set('sessionId', res.head.sessionId);
-              model.set('timestamp', (new Date()).valueOf());
-              model.trigger('sync', model, res);
-              options.success();
-            }, function(err, msg){
-              model.set('sessionId', '');
-              model.set('timestamp', null);
-              model.trigger('error', model, err, msg);
-              options.error(err, msg);
-            }
-        );
+
+        loginController.login(user, pass, function(bool, res){
+          if(bool === true){
+            model.set('sessionId', res.head.sessionId);
+            model.set('timestamp', (new Date()).valueOf());
+            model.trigger('sync', model, res);
+            options.success();
+          } else {
+            model.set('sessionId', '');
+            model.set('timestamp', null);
+            model.trigger('error', model, err, msg);
+            options.error(err, msg);
+          }
+        });
+        // Acts.call('loginAction', params,
+        //     function(res){
+        //       model.set('sessionId', res.head.sessionId);
+        //       model.set('timestamp', (new Date()).valueOf());
+        //       model.trigger('sync', model, res);
+        //       options.success();
+        //     }, function(err, msg){
+        //       model.set('sessionId', '');
+        //       model.set('timestamp', null);
+        //       model.trigger('error', model, err, msg);
+        //       options.error(err, msg);
+        //     }
+        // );
       }
 
       function saveSession() {

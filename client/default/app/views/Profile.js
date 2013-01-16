@@ -43,7 +43,7 @@ define(['jquery',
 	var controller	= new Controller();
 
 	function _initialize(){
-		this.render();
+		// this.render();
 	};
 
 	function _render(){
@@ -93,8 +93,8 @@ define(['jquery',
 
     function _showAddr(){
     	var self 	= this;
-        var target	= this.$('#address');
-        var text	= target.val();
+        var target	= this.$('#address').find('div')[0];
+        var text	= target.innerText;
         var box 	= $(addressBox);
         target.blur();
 
@@ -110,8 +110,6 @@ define(['jquery',
         this.$('#line2').val(vals[1]);
         this.$('#zip').val(vals[2]);
         this.$('#state').val(vals[3]);
-
-        console.log('pop');
     };
 
     function _closeAddr(){
@@ -122,7 +120,8 @@ define(['jquery',
         var state	= this.$('#state').val();
 
         var text = line1 + "\n" + line2 + "\n" + zip + "\n" + state;
-        this.$('#address').val(text);
+        this.$('div#address').val(text);
+        this.$('div#address')[0].innerText = text;
 
     	box.fadeOut({}, 300);
     }

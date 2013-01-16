@@ -7,14 +7,14 @@ define([
     'underscore',
     'backbone',
     'text!templates/components/TopBar.html',
-    'controllers/Profile'
-], function($, _, Backbone, tpl, ProfCtrl) {
+    'views/Profile'
+], function($, _, Backbone, tpl, ProfView) {
 
     return Backbone.View.extend({
 
         events: {
             'click #profile-button' : 'showProfile',
-            'click #save'   : 'saveDetails',
+            'click #save'   : 'saveProf',
             'click #cancel' : 'cancel',
             'click #logo'   : 'logout'
         },
@@ -22,7 +22,7 @@ define([
         initialize: function() {
             _.bindAll(this);
             this.render();
-            profCtrl = new ProfCtrl();
+            profView = new ProfView();
         },
 
         render: function() {
@@ -46,9 +46,8 @@ define([
                 '<li><button id="save">Save</button></li>');
         },
 
-        saveDetails: function(){
-            profCtrl.saveProfile(this);
-            console.log('Saving...');
+        saveProf: function(){
+            profView.saveDetails();
         },
 
         cancel: function(){
