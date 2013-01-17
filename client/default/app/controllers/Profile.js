@@ -14,7 +14,7 @@ define(['jquery',
 	var profile = Backbone.Model.extend({
 
 		saveProfile 	: _saveProfile,
-		validate 		: _validate
+		validateInputs	: _validateInputs
 	});
 
 
@@ -24,53 +24,40 @@ define(['jquery',
 	function _saveProfile(view){
 		var el = view.$el;
 		var profile, details; // used to store the unchaged user info
-		console.log(el);
+
 		// all input values from view
 		var inputs = {
-			firstName	: el.find('#firstName').val() || '',
-			middleName	: el.find('#middleName').val() || '',
-			lastName	: el.find('#lastName').val() || '',
-			sex			: el.find('#sex').val() || '',
-			email		: el.find('#email').val() || '',
-			birthday	: el.find('#birthday').val() || '',
-			address		: el.find('div#address').innerText || '',
-
-			phone		: el.find('#phone').val() || '',
-			mobile		: el.find('#mobile').val() || ''
-		};
-
-		var inputs2 = {
 			firstName	: $('#firstName').val(),
 			middleName	: $('#middleName').val(),
 			lastName	: $('#lastName').val(),
 			sex			: $('#sex').val(),
 			email		: $('#email').val(),
 			birthday	: $('#birthday').val(),
-			address		: $('div#address')[0].value,
+			address		: $('div#address')[0].innerText || '',
 
 			phone		: $('#phone').val(),
 			mobile		: $('#mobile').val()
 		};
 
-		console.log(inputs);
-		console.log(inputs2);
-
 		// call form validation function
-		var valid = this.validate(inputs2);
+		var valid = this.validateInputs(inputs);
 		if(valid === true){
 			// load user profile from localStorage before saving
 			var prof = user.loadUser(function(res, data){
 				if(res){
-					profile = data;
+					var profile = data || {};
 					profile.userDetails = inputs;
 					// save profile to localStorage
 					user.setProfile(profile);
 					user.saveUser(function(res){
 						Backbone.trigger('notify', 'Profile Saved!');
-					}); // no need for callback
+						// simulate user navigating back to Home screen
+						$('#topBar #cancel').click(); 
+					});
+				} else {
+					console.log('prof load fail');
 				}
-			});
-			// TODO: save profile to user model and local storage	
+			});	
 		} else {
 			Backbone.trigger('notify', valid);
 			return;
@@ -82,18 +69,17 @@ define(['jquery',
 	 * - check null values
 	 * - check numeric values
 	 */
-	function _validate(inputs) {
+	function _validateInputs(inputs) {
 		var d = inputs;
-		console.log(d);
 		//check for null values
 		for(var prop in d){
 			if(d.hasOwnProperty(prop)){
-				if(d.prop == undefined || d.prop.length <1){
-					console.log(d.prop, prop);
+				if(d[prop] == undefined || d[prop].length <1){
+					console.log(prop, ': fail');
 					return 'Please Fill in all fields';
 				}
 				else {
-					return true;
+					console.log(prop, ': ok');
 				}
 			}
 		}

@@ -3,11 +3,11 @@
 
 	Module used to save/load values to/from local storage
 --------------------*/
-define(['zepto',
+define(['jquery',
         'underscore',
         'backbone',
-        'map'
-], function($, _, Backbone, map) {
+        'feedhenry'
+], function($, _, Backbone, $fh) {
 
 
 	//interface----------------------------------
@@ -24,27 +24,32 @@ define(['zepto',
 	function _save(modelName, model, callback){
 		var model = model || {};
 
-		$fh.data({
-			act : 'save',
-			key : modelName,
-			val : model
-		}, function(){
-                        console.log("SESSION SAVE"+model);
-			return callback(true);
-		}, function(msg, err){
-			return callback(msg, err);
-		});
+		localStorage.setItem(modelName, model);
+		return callback(true);
+		// $fh.data({
+		// 	act : 'save',
+		// 	key : modelName,
+		// 	val : model
+		// }, function(){
+  //                       console.log("SESSION SAVE"+model);
+		// 	return callback(true);
+		// }, function(msg, err){
+		// 	return callback(msg, err);
+		// });
 	};
 
 	function _load(modelName, callback){
 
-		$fh.data({
-			key : modelName
-		}, function(res){
-			return callback(true, res);
-		}, function(msg, err){
-			return callback(msg, err);
-		});
+		var res =localStorage.getItem(modelName);
+		return callback(true, res);
+		
+		// $fh.data({
+		// 	key : modelName
+		// }, function(res){
+		// 	return callback(true, res);
+		// }, function(msg, err){
+		// 	return callback(msg, err);
+		// });
 	};
 
 	function _clear(modelName, callback){

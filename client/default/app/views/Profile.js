@@ -34,7 +34,8 @@ define(['jquery',
 		cancel 		: _cancel,		// navigate back to home page
 		ageCalc     : _ageCalc,     // Calculate age of user based on DOB field
         showAddr    : _showAddr,   // Pop-up box to show all address fields
-        closeAddr 	: _closeAddr
+        closeAddr 	: _closeAddr,
+        mapValues 	: _mapValues
 	});
 
 
@@ -43,23 +44,28 @@ define(['jquery',
 	var controller	= new Controller();
 
 	function _initialize(){
-		// this.render();
+
 	};
 
 	function _render(){
 		var self = this;
-		var details = this.populate();
-		this.$el.html(this.template(details));
+		this.$el.html(this.template());
+		this.populate();
 
 		return this;
 	};
 
 	function _populate(){
 		var details;
+		var self = this;
 
 		user.loadUser(function(res, data){
 			if(res){
-				details = data.userDetails;
+				if(data){
+					
+					details = data.userDetails || {};
+					self.mapValues(details);
+				}
 			}else{
 				alert('TODO: error handling');
 			}
@@ -70,7 +76,6 @@ define(['jquery',
 
 	function _saveDetails(){
 		controller.saveProfile(this);
-		console.log('Saving...');
 	};
 
 	function _cancel(){
@@ -124,6 +129,24 @@ define(['jquery',
         this.$('div#address')[0].innerText = text;
 
     	box.fadeOut({}, 300);
+    };
+
+    function _mapValues(details){
+    	var d = details;
+
+    	this.$('#firstName').val(d.firstName);
+    	this.$('#middleName').val(d.middleName);
+    	this.$('#lastName').val(d.lastName);
+    	this.$('#firstName').val(d.firstName);
+    	this.$('#sex option[value="' + d.sex + '"]').attr('selected', 'selected');
+    	this.$('#firstName').val(d.firstName);
+    	this.$('#email').val(d.email);
+    	this.$('#birthday').val(d.birthday);
+    	this.$('div#address')[0].innerText = d.address;
+    	this.$('#phone').val(d.phone);
+    	this.$('#mobile').val(d.mobile);
+
+    	this.ageCalc();
     }
 
 

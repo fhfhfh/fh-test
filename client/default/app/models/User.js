@@ -6,9 +6,9 @@
 define(['jquery',
         'underscore',
         'backbone',
-       // 'models/Store',
+       'models/Store',
         'models/Acts'
-], function($, _, Backbone, Acts) {
+], function($, _, Backbone, store, Acts) {
 
 	//interface----------------------------------
 	var user = Backbone.Model.extend({
@@ -76,30 +76,31 @@ define(['jquery',
 	function _saveUser(callback){
 		var prof =this.getProfile();
 		prof = JSON.stringify(prof);
-
-//		store.save('userProfile', prof, function(res){
-//			if(res){
-//				return callback(true);
-//			}
-//			else {
-//				return callback(false);
-//			}
-//		});
+		
+		store.save('userProfile', prof, function(res){
+			if(res){
+				return callback(true);
+			}
+			else {
+				return callback(false);
+			}
+		});
 	};
 
 	function _loadUser(callback){
 		var self = this;
-//		store.load('userProfile', function(res, data){
-//			var obj = JSON.parse(data.val);
-//			console.log(obj);
-//			if(res){
-//				self.setProfile(obj);
-//				return callback(res, obj);
-//			}
-//			else {
-//				return callback(false);
-//			}
-//		});
+		store.load('userProfile', function(res, data){
+			// var obj = JSON.parse(data.val); // $fh.data returned obj
+			var obj = JSON.parse(data);
+			console.log(obj);
+			if(res){
+				self.setProfile(obj);
+				return callback(res, obj);
+			}
+			else {
+				return callback(false);
+			}
+		});
 	};
 
 	function _fetchUser(callback){
