@@ -54,18 +54,24 @@ define(['jquery',
 
 	function _clear(modelName, callback){
 
-		$fh.data({
-			act : 'remove',
-			key : modelName
-		}, function(){
-			return callback(true);
-		}, function(msg, err){
-			return callback(msg, err);
-		});
+		localStorage.removeItem(modelName);
+		return callback(true);
+		// $fh.data({
+		// 	act : 'remove',
+		// 	key : modelName
+		// }, function(){
+		// 	return callback(true);
+		// }, function(msg, err){
+		// 	return callback(msg, err);
+		// });
 	};
 
 	function _clearAll(callback){
-		// TODO -- write clear all function to wipe storage
+
+		console.log('Clearing LocalStorage');
+		localStorage.clear();
+		return true;
+
 	};
 
 	return store;

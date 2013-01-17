@@ -8,8 +8,8 @@ define([
   'underscore',
   'backbone',
   'feedhenry',
-  'text!templates/login.html',
-  'text!templates/login-loading.html',
+  'text!templates/pages/Login.html',
+  'text!templates/pages/Loading.html',
   'controllers/Login',
   'views/WelcomeVideo'
 ], function($, _, Backbone, $fh, loginTpl, loadingTpl, loginController, WelcomeView) {

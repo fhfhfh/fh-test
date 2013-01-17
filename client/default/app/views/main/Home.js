@@ -6,7 +6,7 @@ define([
   'views/main/home/News',
   'views/main/home/Goals',
   'views/main/home/Alerts',
-  'text!templates/home.html'
+  'text!templates/pages/Home.html'
 ], function($, _, Backbone, ContainerView, NewsView, GoalsView, AlertsView, template) {
 
   return ContainerView.extend({

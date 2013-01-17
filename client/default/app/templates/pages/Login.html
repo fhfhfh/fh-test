@@ -1,21 +1,22 @@
-    <!-- Multiple background images within CSS would be ideal here, however IE wouldn't support this
-         so we instead use an img element. -->
-    <img src="img/corner-logo.png" alt="" class="corner-logo" >
+<div class="corner-logo"></div>
 
-    <div id="login-box">
-        <div id="login-box-center">
-            <img src="img/login-logo.png" alt="Peachy" id="login-logo">
+<div id="login-box">
+    <div id="login-box-center">
+
+        <div id="login-display">
+            <div class="login-logo"></div>
             <h2 id="login-caption">Personal Wellness Management, Only Sweeter.</h2>
 
-            <form id="login-form">
+            <form id="login-form" action="javascript:void(0);">
                 <h2>Sign in to your Peachy Account</h2>
                 <input id="username" type="text" placeholder="Name">
                 <input id="password" type="password" placeholder="Password">
-                <button type="button" id="signin"><img src="img/sign-in.png" alt="">Sign In</button>
+                <button type="submit" id="signin"><img src="img/sign-in.png" alt="">Sign In</button>
             </form>
 
             <button id="login-help-button" type="button">Need Help? Tap Here.</button>
         </div>
     </div>
-    <aside class="copyright-bottom">&copy; 2012 SecureHealthHub</aside>
-    <link rel="stylesheet" href="css/styles.css"/>
+</div>
+
+<aside class="copyright-bottom">&copy; 2012 SecureHealthHub</aside>
