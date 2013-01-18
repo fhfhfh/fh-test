@@ -57,7 +57,7 @@ define(['jquery',
 
 	function _loggedIn(session, username){
 		var self = this;
-		user.setSession(session);
+		localStorage.setItem('peachy_session', session);
 		user.setName(username);
 		
 		// Get user profile from cloud

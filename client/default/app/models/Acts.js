@@ -27,7 +27,8 @@ define(['jquery',
 		payload[payloadName] = params;
 
 		// TODO: get Session from localStorage
-
+		var session = localStorage.getItem('peachy_session');
+		head.sessionId = session;
 		//-----------------------
 		
 
@@ -43,13 +44,8 @@ define(['jquery',
 			'act' : func,
 			'req' : params
 		}, function(res){
-			console.log(res);
-			// var status = res.response.payload[payloadName].status;
-			// //success
-			// if(status.indexOf('ERR') == -1){
-				console.log('Act Success', res);
-				return successFn(res.response);	
-			// }
+			console.log('Act Success', res);
+			return successFn(res.response);	
 		}, function(err, msg){
 			console.log('Act Fail', err);
 			return failFn(err, msg);

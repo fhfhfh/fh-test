@@ -5,7 +5,12 @@ define(['backbone', 'models/NewsItem'], function(Backbone, NewsItem) {
 	// interface---------------------------------
 	var collection = Backbone.Collection.extend({
 		//Backbone specific attributes
-		model : NewsItem
+		model : NewsItem,
+
+		initialize: function(){
+
+		},
+
 
 	});
 

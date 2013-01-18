@@ -16,7 +16,6 @@ define(['underscore', 'backbone', 'feedhenry', 'controllers/Login'], function(_,
     initialize: function() {
       _.bindAll(this);
       this.getFromJSON();
-      console.log('SESSSSION');
 
       this.loginController = new LoginController();
     },
@@ -49,7 +48,7 @@ define(['underscore', 'backbone', 'feedhenry', 'controllers/Login'], function(_,
           prop;
 
       if (jsonSession) {
-        jsonSession = JSON.parse(jsonSession);
+        // jsonSession = JSON.parse(jsonSession);
       } else {
         return false;
       }

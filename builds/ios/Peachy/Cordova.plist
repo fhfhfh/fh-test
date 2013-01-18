@@ -23,13 +23,15 @@
 	<key>AllowInlineMediaPlayback</key>
 	<false/>
 	<key>OpenAllWhitelistURLsInWebView</key>
-	<false/>
+	<true/>
 	<key>BackupWebStorage</key>
 	<string>none</string>
 	<key>ExternalHosts</key>
 	<array>
 		<string>127.0.0.1</string>
 		<string>localhost</string>
+		<string>*.ytimg.com</string>
+		<string>*.youtube.com</string>
 		<string>*.feedhenry.com</string>
 		<string>*.feedhenry.net</string>
 		<string>http://mirrorblender.top-ix.org</string>

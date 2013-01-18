@@ -15,8 +15,9 @@ define(['jquery',
         'views/HealthHub',
         'views/Connect',
         'views/cal',
-        'views/Library',
-], function($, _, Backbone, ContainerView, HomeView, TopBar, template, iScroll, WidgetsView, HealthHubView, ConnectView, CalendarView, LibraryView) {
+        'views/Library'
+], function($, _, Backbone, ContainerView, HomeView, TopBar, template, iScroll, 
+  WidgetsView, HealthHubView, ConnectView, CalendarView, LibraryView) {
 
 
 	//interface----------------------------------
@@ -69,8 +70,6 @@ define(['jquery',
       var topbar = new TopBar();
 
       this.setActiveView(((options && options.activeView) || 'home'));
-
-
     },
 
     render: function() {
@@ -113,7 +112,9 @@ define(['jquery',
     library: function() {
       Backbone.trigger('notify', 'Under Construction');
       // this.setActiveView('library');
-    }
+    },
+
+    
 
 
 	});

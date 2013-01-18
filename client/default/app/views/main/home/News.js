@@ -9,8 +9,9 @@ define(['jquery',
         'collections/NewsItems',
         'text!templates/components/News.html',
         'text!templates/components/NewsItem.html',
-        'views/WelcomeVideo'
-], function($, _, Backbone, NewsItems, template, itemTemplate, WelcomeVideo) {
+        'views/WelcomeVideo',
+        'models/Acts'
+], function($, _, Backbone, NewsItems, template, itemTemplate, WelcomeVideo, Act) {
 
 	//interface--------------------------------------
 	var news = Backbone.View.extend({
@@ -32,7 +33,8 @@ define(['jquery',
 		render		: _render,		// return template
 		loadNews 	: _loadNews, 	// Load more news items to page
 		playVideo 	: _playVideo,	// begin video playback
-		appendItems : _appendItems
+		appendItems : _appendItems,
+		addArray 	: _addArray
 	});
 
 
@@ -71,12 +73,9 @@ define(['jquery',
 		var self = this;
 		var itemsString = '';
 		this.collection.forEach(function(item) {
-			// console.log(item);
 			itemsString += self.itemTemplate(item.toJSON());
-
 		});
 		this.$el.html(this.template({newsItems: itemsString}));
-		// this.refreshScroll();
 		return this;
 	};
 
@@ -108,6 +107,39 @@ define(['jquery',
       // clickable once playing.
       video.play();
     };
+
+    function _addArray(){
+    	this.collection = new NewsItems(arr);
+
+    	var newsArr = [];
+
+		Act.call('fetchNewsAction', {}, 
+			function(res){
+				newsArr = res.payload.News;
+				console.log(newsArr);
+			}, function(err, msg){
+				console.log(err, msg);
+		});
+
+      var arr = [];
+      for(var i = 0; i<newsArr.length; i++){
+        var item = newsArr[i];
+        arr.push(
+          new NewsItem({  title       : item[title], 
+                          description : item[description],
+                          newsId      : item[newsId],
+                          url         : item[url]
+                        })
+          );
+      }
+
+      var news = this.subViews.news;
+      console.log(news);
+      news.collection.add(arr);
+      // NewsView.addArray(arr);
+      console.log(news);
+      console.log(arr);
+    }
 
 	return news;
 

@@ -634,6 +634,7 @@ li {
   background-color: #fff;
   padding: 5px;
   border-radius: 10px;
+  text-align: center;
 }
 #welcome #video img,
 #welcome #video video {

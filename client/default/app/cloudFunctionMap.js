@@ -12,7 +12,8 @@ define(['jquery',
 	var map = {
 		'loginAction' : 'login',
 		'logoutAction': 'logout',
-		'userProfileAction' : 'userProfile'
+		'fetchProfileAction' : 'userProfile',
+		'fetchNewsAction' : '' // no payload needed
 	};
 
 	return map;

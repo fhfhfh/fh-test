@@ -71,7 +71,8 @@ define([
               setTimeout(function(){
                 welcome = new WelcomeView();
                 $('#content').html(welcome.render().el);
-                welcome.loadVideo('http://mirrorblender.top-ix.org/peach/bigbuckbunny_movies/big_buck_bunny_480p_h264.mov');
+                welcome.loadVideo('"http://www.youtube.com/embed/xqkBW1NCRLQ"');
+                // welcome.loadVideo('http://mirrorblender.top-ix.org/peach/bigbuckbunny_movies/big_buck_bunny_480p_h264.mov');
               }, 3000);
             } else {
               Backbone.history.navigate('home', true, true);
