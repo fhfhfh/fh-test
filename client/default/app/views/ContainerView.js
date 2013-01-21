@@ -28,6 +28,7 @@ define(['underscore', 'backbone'], function(_, Backbone) {
     },
 
     setActiveView: function(view) {
+      var self = this;
       if (view in this.subViews) {
         this.activeView = this.subViews[view];
         if (this.$nav) {
@@ -39,7 +40,9 @@ define(['underscore', 'backbone'], function(_, Backbone) {
             }
           });
         }
-        this.$content.html(this.subViews[view].render().el);
+        this.$content.html(this.activeView.render().el);
+        // this.assign(this.activeView, self.$content);
+
         this.activeView.delegateEvents();
         if (this.refreshScroll) {
           this.refreshScroll();
@@ -54,6 +57,10 @@ define(['underscore', 'backbone'], function(_, Backbone) {
         });
         return false;
       }
-    }
+    },
+
+    assign : function (view, selector) {
+      view.setElement(this.$(selector)).render().el;
+  }
   });
 });

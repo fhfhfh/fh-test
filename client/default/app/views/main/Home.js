@@ -31,6 +31,8 @@ define([
 
       _.bindAll(this);
 
+      
+      // this.setElement( this.el );
       this.$el.html(template);
       this.$content = this.$('#home-content');
       this.$nav = this.$('#home-nav');
@@ -40,10 +42,12 @@ define([
     },
 
     render: function() {
+      var self = this;
       this.delegateEvents();
       if (this.activeView) {
         this.activeView.delegateEvents();
       }
+      console.log('||||||||||');
       return this;
     },
 

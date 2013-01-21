@@ -19,10 +19,11 @@ define(['jquery',
 		// Backbone specific attributes
 		tagName		: 'section',
 	    id			: 'news-and-information',
-	    collection	: null,
+	    NewsIndex 	: 0,
+	    visible		: 0,
 	    events		: {
 	    	'click #load-more-news': 'loadNews',
-	    	'click .video-preview': 'playVideo'
+	    	'click .description' : 'videoScreen'
 	    },
 	    template	: _.template(template),
 	    itemTemplate: _.template(itemTemplate),
@@ -32,9 +33,8 @@ define(['jquery',
 		initialize	: _initialize,
 		render		: _render,		// return template
 		loadNews 	: _loadNews, 	// Load more news items to page
-		playVideo 	: _playVideo,	// begin video playback
 		appendItems : _appendItems,
-		addArray 	: _addArray
+		videoScreen	: _videoScreen
 	});
 
 
@@ -42,30 +42,7 @@ define(['jquery',
 
 	function _initialize(){
 		_.bindAll(this);
-		// TODO - move into collection file 
-		this.collection = new NewsItems([
-			{
-				headline: 'Making Smart Choices',
-				text: [
-					'Hypoglycemia is the medical term for a low blood sugar level.',
-					'Diet can help control hypoglycemia. Learn more about nutrition',
-					'for hypoglycemia in this health video.'
-				].join(' '),
-				videoCaption: 'Choices For Hypoglycemics',
-				duration: '23:10'
-			},
-			{
-				headline: 'What is Type 1 Diabetes?',
-				text: [
-					'Diabetes is a disease wherein the body cannot produce adequate',
-					'amounts of insulin to regulate blood sugar. Learn more about',
-					'diabetes including treatment options in this medical video.'
-				].join(' '),
-				videoCaption: 'Living With Diabetes',
-				duration: '12:32'
-	        }
-		]);
-
+		this.collection = new NewsItems();
 		this.collection.on('add', this.appendItems);
 	};
 
@@ -84,62 +61,34 @@ define(['jquery',
         this.$('ul').append(this.itemTemplate(items.toJSON()));
       } else {
         var itemsString = '';
-        items.forEach(function(item) {
-          itemsString += self.itemTemplate(item.toJSON());
-        });
+		itemsString += self.itemTemplate(self.collection.at(self.NewsIndex).toJSON());
+		itemsString += self.itemTemplate(self.collection.at(self.NewsIndex+1).toJSON());
         this.$('ul').append(itemsString);
       }
       this.refreshScroll();
     };
 
-    function _loadNews() {
-      // TODO: Implement proper functionality once API is in place.
-      this.collection.add(this.collection.toJSON());
+    function _loadNews(e) {
+    	e.preventDefault();
+    	e.stopPropagation();
+    	if(this.NewsIndex <= this.visible){
+    		Backbone.trigger('notify', 'No more news available');
+    		return;
+    	}
+    	console.log('load');
     };
 
-    function _playVideo(element) {
-      var url = $(element.currentTarget).find('source')[0].src;
+    //show video and details on full screen
+    function _videoScreen(e) {
+    	e.preventDefault();
+    	e.stopPropagation();
+    	var id		= $(e.currentTarget).closest('li').attr('data-id');
+    	var item	= this.collection.get(id);
+    	console.log(id, item);
+    	// TODO: change to videoScreen here
+	};
 
-      var video = $(element.currentTarget).find('video')[0];
-
-      // There's no need to do any paused state checking for now; the PhoneGap
-      // variant will only play in fullscreen, and so the element will NOT be
-      // clickable once playing.
-      video.play();
-    };
-
-    function _addArray(){
-    	this.collection = new NewsItems(arr);
-
-    	var newsArr = [];
-
-		Act.call('fetchNewsAction', {}, 
-			function(res){
-				newsArr = res.payload.News;
-				console.log(newsArr);
-			}, function(err, msg){
-				console.log(err, msg);
-		});
-
-      var arr = [];
-      for(var i = 0; i<newsArr.length; i++){
-        var item = newsArr[i];
-        arr.push(
-          new NewsItem({  title       : item[title], 
-                          description : item[description],
-                          newsId      : item[newsId],
-                          url         : item[url]
-                        })
-          );
-      }
-
-      var news = this.subViews.news;
-      console.log(news);
-      news.collection.add(arr);
-      // NewsView.addArray(arr);
-      console.log(news);
-      console.log(arr);
-    }
+ 
 
 	return news;
 

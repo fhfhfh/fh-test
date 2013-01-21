@@ -1,4 +1,7 @@
-define(['backbone', 'models/NewsItem'], function(Backbone, NewsItem) {
+define(['backbone', 
+		'models/NewsItem',
+		'models/Acts'
+		], function(Backbone, NewsItem, Act) {
 
 	// TODO: Implement any custom logic necessary once backend in place.
 
@@ -8,9 +11,56 @@ define(['backbone', 'models/NewsItem'], function(Backbone, NewsItem) {
 		model : NewsItem,
 
 		initialize: function(){
+			var self = this;
 
+			// TODO: remove this, once $fh.init has been sped up.
+			// setTimeout to ensure $fh.init completes before calling Fetch
+			setTimeout(function(){
+				self.fetch();
+			}, 2200);
+			
 		},
 
+
+		fetch: function(){
+			var newsArr = [];
+			var arr = [];
+			var self = this;
+
+			console.log('Fetching...');
+            Act.call('fetchNewsAction', {}, 
+		        function(res){
+		          var newsArr = res.payload.News;
+
+		          for(var i = 0; i<newsArr.length; i++){
+					var item = newsArr[i];
+
+					//create short description
+					var short = item.description;
+					if(short.length > 200){
+						short = short.substring(0,200) + '...';
+					} 
+
+					arr.push(
+						new NewsItem({  
+							'id' 				: item.newsId,
+							'title'				: item.title, 
+							'description'		: item.description,
+							'shortDescription'	: item.description.substring(0, 200) + '...',
+							'newsId'			: item.newsId,
+							'url'				: item.url
+						})
+					);
+					self.add(arr[i]);
+				  }
+				  console.log(arr);
+				  return arr;
+
+		        }, function(err, msg){
+		          console.log(err, msg);
+		        }
+		    );
+		},
 
 	});
 

@@ -10,10 +10,16 @@ define(['backbone'], function(Backbone) {
 
 	var newsItem = Backbone.Model.extend({
 
-		title: 'No title available',
-		description : 'No description available',
-		newsId : '',
-		url : ''
+		defaults: {
+			title			: 'Untitled',
+			description		: 'Description not available',
+			shortDescription: 'Description not available',
+			watched			: ''
+		},
+
+		initialize: function(){
+			console.log('New Model!');
+		},
 
 	});
 

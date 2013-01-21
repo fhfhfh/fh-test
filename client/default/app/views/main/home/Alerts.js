@@ -15,6 +15,7 @@ define(['jquery',
 		tagName		: 'section',
 	    id			: 'alerts',
 	    events		: {
+	    	"click"					: "bind",
 	    	"click #allBtn"			: "showAll",
 	    	"click #alertsBtn"		: "showAlerts",
 	    	"click #remindersBtn"	: "showReminders",
@@ -25,6 +26,11 @@ define(['jquery',
 
 		initialize : function(){
 			_.bindAll(this);
+		},
+
+		bind: function(e){
+			e.preventDefault();
+			e.stopPropagation();
 		},
 
 		render : function(){
