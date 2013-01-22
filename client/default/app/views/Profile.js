@@ -4,153 +4,218 @@
 	View for all user details
 --------------------*/
 define(['jquery',
-        'underscore',
-        'backbone',
-        'models/Acts',
-        'models/User',
-        'text!templates/pages/Profile.html',
-        'text!templates/components/AddressBox.html',
-        'controllers/Profile'
-], function($, _, Backbone, Acts, User, template, addressBox, Controller) {
+    'underscore',
+    'backbone',
+    'models/Acts',
+    'models/User',
+    'text!templates/pages/Profile.html',
+    'text!templates/components/AddressBox.html',
+    'controllers/Profile',
+    'controllers/avatars'
+    ], function($, _, Backbone, Acts, User, template, addressBox, Controller,controller1) {
 
-	//interface ---------------------------
-	var profile = Backbone.View.extend({
+        //interface ---------------------------
+        var profile = Backbone.View.extend({
 
-		// Backbone specific attributes
-		tagName	: 'section',
-	    id		: 'profile',
-	    template: _.template(template),
-	    events : {
-	    	'change #birthday': 'ageCalc',
-            'click #address': 'showAddr',
-            'click #done' : 'closeAddr'
-	    },
+            // Backbone specific attributes
+            tagName	: 'section',
+            id		: 'profile',
+            template: _.template(template),
+            events : {
+                'change #birthday': 'ageCalc',
+                'click #address': 'showAddr',
+                'click #done' : 'closeAddr',
+                'click #profile-avatar': "popup",
+                'click #cancelpop'  :'popup'
+            },
 
-	    //Function interface
-		initialize	: _initialize,
-		render		: _render,		// return template
-		populate 	: _populate, 	// Populate all detail fields
-		saveDetails : _saveDetails,	// Save details to user model
-		cancel 		: _cancel,		// navigate back to home page
-		ageCalc     : _ageCalc,     // Calculate age of user based on DOB field
-        showAddr    : _showAddr,   // Pop-up box to show all address fields
-        closeAddr 	: _closeAddr,
-        mapValues 	: _mapValues
-	});
+            //Function interface
+            initialize	: _initialize,
+            render		: _render,		// return template
+            populate 	: _populate, 	// Populate all detail fields
+            saveDetails : _saveDetails,	// Save details to user model
+            cancel 		: _cancel,
+            popup               : _popup,		// navigate back to home page
+            ageCalc     : _ageCalc,     // Calculate age of user based on DOB field
+            showAddr    : _showAddr,   // Pop-up box to show all address fields
+            closeAddr 	: _closeAddr,
+            mapValues 	: _mapValues,
+            setAvatar           : _setAvatar
+        });
 
 
-	//implementation-------------------------------
-	var user		= new User();
-	var controller	= new Controller();
+        //implementation-------------------------------
+        var user		= new User();
+        var controller	= new Controller();
+        var imgUrl="";
+        function _initialize(){
 
-	function _initialize(){
+        };
 
-	};
+        function _render(){
+            var self = this;
+            this.$el.html(this.template());
+            this.setAvatar();
+            this.populate();
 
-	function _render(){
-		var self = this;
-		this.$el.html(this.template());
-		this.populate();
+            return this;
+        };
 
-		return this;
-	};
+        function _populate(){
+            var details;
+            var self = this;
 
-	function _populate(){
-		var details;
-		var self = this;
-
-		user.loadUser(function(res, data){
-			if(res){
-				if(data){
+            user.loadUser(function(res, data){
+                if(res){
+                    if(data){
 					
-					details = data.userDetails || {};
-					self.mapValues(details);
-				}
-			}else{
-				alert('TODO: error handling');
-			}
-		});
+                        details = data.userDetails || {};
+                        self.mapValues(details);
+                    }
+                }else{
+                    alert('TODO: error handling');
+                }
+            });
 
-		return details;
-	};
+            return details;
+        };
 
-	function _saveDetails(){
-		controller.saveProfile(this);
-	};
+        function _saveDetails(){
+            controller.saveProfile(this);
+        };
 
-	function _cancel(){
-		Backbone.history.navigate('home', true);
-	};
+        function _cancel(){
+            Backbone.history.navigate('home', true);
+        };
 
-	function _ageCalc(){
-        var self = this;
-        var dob = new Date(self.$('#birthday').val()) || new Date();
-        var msg = this.$('#age');
-        var today = new Date();
+        function _ageCalc(){
+            var self = this;
+            var dob = new Date(self.$('#birthday').val()) || new Date();
+            var msg = this.$('#age');
+            var today = new Date();
 
-        var diff = today.getTime() - dob.getTime();
-        var age = Math.floor(diff / (1000 * 60 * 60 * 24 * 365.25));
+            var diff = today.getTime() - dob.getTime();
+            var age = Math.floor(diff / (1000 * 60 * 60 * 24 * 365.25));
 
-        if(age > 0){
-            msg.html(age + ' years old');
+            if(age > 0){
+                msg.html(age + ' years old');
+            }
+        };
+
+        function _showAddr(){
+            var self 	= this;
+            var target	= this.$('#address').find('div')[0];
+            var text	= target.innerText;
+            var box 	= $(addressBox);
+            target.blur();
+
+            this.$el.append(box);
+
+            box = this.$('#addressBox');
+
+            box.fadeIn({}, 300 );
+
+            var vals = text.split('\n');
+
+            this.$('#line1').val(vals[0]);
+            this.$('#line2').val(vals[1]);
+            this.$('#zip').val(vals[2]);
+            this.$('#state').val(vals[3]);
+        };
+
+        function _closeAddr(){
+            var box		= this.$('#addressBox');
+            var line1	= this.$('#line1').val();
+            var line2	= this.$('#line2').val();
+            var zip		= this.$('#zip').val();
+            var state	= this.$('#state').val();
+
+            var text = line1 + "\n" + line2 + "\n" + zip + "\n" + state;
+            this.$('div#address').val(text);
+            this.$('div#address')[0].innerText = text;
+
+            box.fadeOut({}, 300);
+        };
+
+        function _mapValues(details){
+            var d = details;
+
+            this.$('#firstName').val(d.firstName);
+            this.$('#middleName').val(d.middleName);
+            this.$('#lastName').val(d.lastName);
+            this.$('#firstName').val(d.firstName);
+            this.$('#sex option[value="' + d.sex + '"]').attr('selected', 'selected');
+            this.$('#firstName').val(d.firstName);
+            this.$('#email').val(d.email);
+            this.$('#birthday').val(d.birthday);
+            this.$('div#address')[0].innerText = d.address;
+            this.$('#phone').val(d.phone);
+            this.$('#mobile').val(d.mobile);
+
+            this.ageCalc();
+        };
+    
+    
+        function _popup(){
+            
+            $('#PopupDiv').html("");
+            if($('#PopupDiv #popup_inner_div'));
+            {
+                var temp;
+                var selected;
+                var popupDiv = $('#PopupDiv');
+                popupDiv.append("<h1 align='center'>Select Avatar Image</h1>");
+                popupDiv.append("<div id='popup_inner_div' style='padding : 2%'></div>");
+                $('#PopupDiv #popup_inner_div').append("<ul id='popup_ul'>"); 
+                for (i=0; i<imgUrl.avatars.length; i++)
+                {
+                    var abc = imgUrl.avatars[i].imageUrl;
+                    var xyz = imgUrl.avatars[i].avatarId;
+                    var tempurl = abc.replace('"', "");
+                    var tempurl = tempurl.replace('"', "");
+                    $('#PopupDiv #popup_inner_div #popup_ul').append("<li style=' margin: 10px 20px 20px 20px' id='popup_li"+i+"'></li>");
+                    $('#PopupDiv #popup_inner_div #popup_li'+i).append("<img id='img"+i+"'class'popup_avatar' alt='"+xyz+"' style='height : 75px' id='theImg' src='"+tempurl+"'/>");
+                    $('#PopupDiv #popup_inner_div #popup_li'+i+" img").click(function(){
+                        selected = $(this).attr("alt");
+                        popupDiv.hide();
+                        popbtn(selected);
+                        text.innerHTML = "show";
+                    });
+                }
+                popupDiv.append("<button id='cancelpop' class='pop_btn'>Cancle</button></li>");
+                if(popupDiv.css("display")=="block") {
+                    
+                    popupDiv.hide();
+                    text.innerHTML = "show";
+                }
+                else {
+                    popupDiv.show();
+                    text.innerHTML = "hide";
+                }
+            }
         }
-    };
+        
+        
+        function popbtn(item) {
+            var avatarJson= {
+                avatarId : item
+            }
+            alert(JSON.stringify(avatarJson));
+        }
 
-    function _showAddr(){
-    	var self 	= this;
-        var target	= this.$('#address').find('div')[0];
-        var text	= target.innerText;
-        var box 	= $(addressBox);
-        target.blur();
+        function _setAvatar() {
+            controller1.loadAvatars(function(url){
+                var abc = url.avatars[1].imageUrl;
+                var tempurl = abc.replace('"', "");
+                var tempurl = tempurl.replace('"', "");
+                this.$('#avatar').attr("src", tempurl);
+                this.$('#account-information').find('img').attr("src", tempurl);
+                imgUrl = url;
+               
+                
+            });
+        };
 
-        this.$el.append(box);
+        return profile;
 
-        box = this.$('#addressBox');
-
-        box.fadeIn({}, 300 );
-
-        var vals = text.split('\n');
-
-        this.$('#line1').val(vals[0]);
-        this.$('#line2').val(vals[1]);
-        this.$('#zip').val(vals[2]);
-        this.$('#state').val(vals[3]);
-    };
-
-    function _closeAddr(){
-    	var box		= this.$('#addressBox');
-    	var line1	= this.$('#line1').val();
-        var line2	= this.$('#line2').val();
-        var zip		= this.$('#zip').val();
-        var state	= this.$('#state').val();
-
-        var text = line1 + "\n" + line2 + "\n" + zip + "\n" + state;
-        this.$('div#address').val(text);
-        this.$('div#address')[0].innerText = text;
-
-    	box.fadeOut({}, 300);
-    };
-
-    function _mapValues(details){
-    	var d = details;
-
-    	this.$('#firstName').val(d.firstName);
-    	this.$('#middleName').val(d.middleName);
-    	this.$('#lastName').val(d.lastName);
-    	this.$('#firstName').val(d.firstName);
-    	this.$('#sex option[value="' + d.sex + '"]').attr('selected', 'selected');
-    	this.$('#firstName').val(d.firstName);
-    	this.$('#email').val(d.email);
-    	this.$('#birthday').val(d.birthday);
-    	this.$('div#address')[0].innerText = d.address;
-    	this.$('#phone').val(d.phone);
-    	this.$('#mobile').val(d.mobile);
-
-    	this.ageCalc();
-    }
-
-
-
-	return profile;
-
-});
+    });
