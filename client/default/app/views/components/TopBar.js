@@ -57,16 +57,30 @@ define([
 
             cancel: function(){
                 Backbone.history.navigate('home', true);
-
+                var points = this.setPeachyPoints();
                 $('#top-bar-buttons').html(
                     '<li><button id="points-button"><em>200</em> points</button></li>'+
                     '<li><button><img src="img/Search.png" alt="Search"></button></li>'+
                     '<li><button><img src="img/Help.png" alt="Help"></button></li>'+
                     '<li><button id="profile-button"><img src="img/OptionsGear.png" alt="Options"></button></li>');
+                this.$('#points-button em').html(points);
+                this.setAvatar();
+                 
             },
 
             logout: function(){
                 // TODO : clear session ID from local storage, and possibly all user data
+                var params = "";
+            Acts.call('logoutAction', params, 
+                function(res){
+                    App.navigate('Login', true)
+                    
+                }, function(err, msg){
+                    console.log(err);
+                    App.navigate('Login', true)
+                    
+                }
+                );
                 Backbone.history.navigate('login', true);
             },
         
@@ -75,6 +89,7 @@ define([
                     function(res){
                         var points = res.payload.points[0].peachyPoints;
                         this.$('#points-button em').html(points);
+                        return(points);
                     }, 
                     function(err, msg){
                         console.log(err);
