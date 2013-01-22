@@ -7,8 +7,9 @@ define([
     'underscore',
     'backbone',
     'text!templates/components/TopBar.html',
-    'views/Profile'
-], function($, _, Backbone, tpl, ProfView) {
+    'views/Profile',
+      'models/Acts'
+], function($, _, Backbone, tpl, ProfView, Acts) {
 
     return Backbone.View.extend({
 
@@ -16,11 +17,13 @@ define([
             'click #profile-button' : 'showProfile',
             'click #save'   : 'saveProf',
             'click #cancel' : 'cancel',
-            'click #logo'   : 'logout'
+            'click #logo'   : 'logout',
+         'click #points-button'	        : 'setPeachyPoints'
         },
 
         initialize: function() {
             _.bindAll(this);
+              this.setPeachyPoints();
             this.render();
             profView = new ProfView();
         },
@@ -63,6 +66,19 @@ define([
         logout: function(){
             // TODO : clear session ID from local storage, and possibly all user data
             Backbone.history.navigate('login', true);
+        },
+        
+          setPeachyPoints : function(){
+         Acts.call('peachyPointsAction', {}, 
+                function(res){
+                    var points = res.payload.points[0].peachyPoints;
+                    this.$('#points-button em').html(points);
+                }, 
+                function(err, msg){
+                    console.log(err);
+                }
+                );
         }
+        
     });
 });

@@ -24,7 +24,6 @@ var addAllergyEndpoint = require("./endpoints/addAllergy.js")
 var fetchFeaturedContentEndpoint = require("./endpoints/fetchFeaturedContent.js")
 var fetchAlertEndpoint = require("./endpoints/fetchAlert.js")
 var fetchQuotesEndpoint = require("./endpoints/fetchQuotes.js")
-var fetchVideosEndpoint = require("./endpoints/fetchVideos.js")
 var fetchNewsEndpoint = require("./endpoints/fetchNews.js")
 var fetchAvatarsEndpoint = require("./endpoints/fetchAvatars.js")
 
@@ -58,7 +57,6 @@ exports.addAllergyAction = addAllergyAction;
 exports.fetchFeaturedContentAction = fetchFeaturedContentAction;
 exports.fetchAlertAction = fetchAlertAction;
 exports.fetchQuotesAction = fetchQuotesAction;
-exports.fetchVideosAction = fetchVideosAction;
 exports.fetchNewsAction = fetchNewsAction;
 exports.fetchAvatarsAction = fetchAvatarsAction;
 
@@ -263,14 +261,6 @@ function fetchQuotesAction(params, callback) {
   });
 }
 
-//---------------------------------------fetchVideos--------------------------------------------------------------------
-
-function fetchVideosAction(params, callback) {
-  console.log(JSON.stringify(params));
-  fetchVideosEndpoint.fetchVideos(params,function cb(err, respData) {
-    callback(err,respData);
-  });
-}
 
 //---------------------------------------fetchNews--------------------------------------------------------------------
 

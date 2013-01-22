@@ -35,21 +35,15 @@ var ResponseUtils = function() {
      * @param statusObject returned from sf.
      * @return JSON
      */
-    function constructStatusResponse(opName, code, status) {
-        var message;
-        
-        if(opName == "error"){ // there is some error
-          message = constants.getStatusMessage(code, status);
-        }
-        
+    function constructStatusResponse(opName, code, status,jsonObj) {
+        var message;       
         var wrapper = this.constructResponse();
-        //message = constants[statusMsg]? constants[statusMsg] : statusMsg;
-        wrapper.response.payload[opName] = {
-            "status" : {
-                "code" : code,
-                "msg" : message 
-            }
+        wrapper.response.payload = jsonObj;
+        wrapper.response.payload["status"] = {
+            "msg" : status,
+            "code" : code
         };
+       
         return wrapper;
 
     }
