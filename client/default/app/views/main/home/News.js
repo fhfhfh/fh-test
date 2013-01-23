@@ -27,7 +27,6 @@ define(['jquery',
 	    },
 	    template	: _.template(template),
 	    itemTemplate: _.template(itemTemplate),
-	    // el 		: $('#main-container'),
 
 	    //Function interface
 		initialize	: _initialize,
@@ -49,33 +48,46 @@ define(['jquery',
 	function _render(){
 		var self = this;
 		var itemsString = '';
-		this.collection.fetch();
-		this.collection.forEach(function(item) {
-			itemsString += self.itemTemplate(item.toJSON());
-		});
+		// this.collection.fetch();
+		// this.collection.forEach(function(item) {
+		// 	itemsString += self.itemTemplate(item.toJSON());
+		// });
 		this.$el.html(this.template({newsItems: itemsString}));
 		return this;
 	};
 
 	function _appendItems(items) {
-      if (!items.length) {
-        this.$('ul').append(this.itemTemplate(items.toJSON()));
-      } else {
+		var self = this;
+		if($('.clearfix').length >0){
+			return;
+		}
+      // if (!items.length) {
+      //   this.$('ul').append(this.itemTemplate(items.toJSON()));
+      // } else {
+      	console.log(self.collection);
         var itemsString = '';
-		itemsString += self.itemTemplate(self.collection.at(self.NewsIndex).toJSON());
-		itemsString += self.itemTemplate(self.collection.at(self.NewsIndex+1).toJSON());
+		itemsString += self.itemTemplate(self.collection.at(0).toJSON());
+		// itemsString += self.itemTemplate(self.collection.at(1).toJSON());
         this.$('ul').append(itemsString);
-      }
+      // }
       this.refreshScroll();
     };
 
     function _loadNews(e) {
     	e.preventDefault();
     	e.stopPropagation();
-    	if(this.NewsIndex <= this.visible){
-    		Backbone.trigger('notify', 'No more news available');
-    		return;
-    	}
+    	
+    	// if(this.NewsIndex <= this.visible){
+    	// 	Backbone.trigger('notify', 'No more news available');
+    	// 	return;
+    	// }
+    	if($('.clearfix').length >0){
+			Backbone.trigger('notify', 'No more news available');
+			return;
+		}
+		// window.collection = this.collection;
+		this.collection.reset();
+		this.collection.fetch();
     	console.log('load');
     };
 
