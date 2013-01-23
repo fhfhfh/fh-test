@@ -8,8 +8,8 @@ define(['jquery',
         'backbone',
         'cloudFunctionMap',
 	    'feedhenry',
-	    'models/Session'
-], function($, _, Backbone, map, $fh, Session) {
+	    'models/session'
+], function($, _, Backbone, map, $fh, session) {
 
 
 	//interface----------------------------------
@@ -19,7 +19,7 @@ define(['jquery',
 	};
 
 	//implementation-------------------------------
-	
+
 	function _call(func, params, successFn, failFn){
 		var head = {};
 		var payload = {};
@@ -31,11 +31,9 @@ define(['jquery',
 		}
 		
 
-		// TODO: get Session from localStorage
-		var session = localStorage.getItem('peachy_session');
-		head.sessionId = session;
+		head.sessionId = session.get('id');
 		//-----------------------
-		
+
 
 		//create required request structure
 		params = {
@@ -50,7 +48,7 @@ define(['jquery',
 			'req' : params
 		}, function(res){
 			console.log('Act Success', res);
-			return successFn(res.response);	
+			return successFn(res.response);
 		}, function(err, msg){
 			console.log('Act Fail', err);
 			return failFn(err, msg);
