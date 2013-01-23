@@ -12,8 +12,9 @@ define([
     'text!templates/pages/Loading.html',
     'controllers/Login',
     'views/WelcomeVideo',
-    'models/quotes'
-    ], function($, _, Backbone, $fh, loginTpl, loadingTpl, loginController, WelcomeView, Quotes) {
+    'models/quotes',
+    'models/session'
+    ], function($, _, Backbone, $fh, loginTpl, loadingTpl, loginController, WelcomeView, Quotes, session) {
 
         return Backbone.View.extend({
             tagName: 'section',
@@ -66,40 +67,36 @@ define([
                 var quote = "";
                 if (username && password) {
 
-                    self.controller.login(username, password, function(res, msg){
-                        if(res === true){
-                           Quotes.fetchQuotes(function(res, data){
-                           if(res){
-                                quote=res;
-                                var i =Math.floor(Math.random()*3);
-//                    
-                              self.$('#loading-display #loading-snippet #first').html(JSON.stringify(res.payload.quotes[i].quote));
-                               self.$('#loading-display #second').html(JSON.stringify(res.payload.quotes[i].author));
-                
-                            }
-                        });
-                            if(msg.video){
-                                setTimeout(function(){
-                                    welcome = new WelcomeView();
-                                    $('#content').html(welcome.render().el);
-                                    welcome.loadVideo('"http://www.youtube.com/embed/xqkBW1NCRLQ"');
-                                // welcome.loadVideo('http://mirrorblender.top-ix.org/peach/bigbuckbunny_movies/big_buck_bunny_480p_h264.mov');
-                                }, 3000);
-                            } else {
-                                Backbone.history.navigate('home', true, true);
-                            }
-                            
-                        } else {
-                            Backbone.trigger('notify', 'Error: ' + msg.message);
-                            self.showLogin();    
-                        }
-                    });
+                  session.login(username, password, {
+                    success: function() {
+                      Quotes.fetchQuotes(function(res, data){
+                        if(res){
+                          quote=res;
+                          var i =Math.floor(Math.random()*3);
+                          self.$('#loading-display #loading-snippet #first').html(JSON.stringify(res.payload.quotes[i].quote));
+                          self.$('#loading-display #second').html(JSON.stringify(res.payload.quotes[i].author));
 
+                        }
+                      });
+
+                      // TODO: Show properly based on property.
+                      setTimeout(function(){
+                        var welcome = new WelcomeView();
+                        $('#content').html(welcome.render().el);
+                        welcome.loadVideo('"http://www.youtube.com/embed/xqkBW1NCRLQ"');
+                        // welcome.loadVideo('http://mirrorblender.top-ix.org/peach/bigbuckbunny_movies/big_buck_bunny_480p_h264.mov');
+                      }, 3000);
+                    },
+
+                    error: function() {
+                      Backbone.trigger('notify', 'Error logging in.');
+                      self.showLogin();
+                    }
+                  });
                 } else {
                     Backbone.trigger('notify', 'Please fill in both fields...');
                     return;
                 }
-
                 this.showLoading();
             },
 
@@ -120,7 +117,7 @@ define([
                     // call stack to complete.
                     setTimeout(function() {
                         self.$('#loading-display').removeClass('hidden');
-                        
+
 
                     }, 0);
                 }, 300);

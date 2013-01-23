@@ -6,13 +6,13 @@ define([
   'jquery',
   'underscore',
   'backbone',
-  'models/Session',
+  'models/session',
   'views/Login',
   'views/Main',
   'views/PageNotFound',
   'views/Profile',
   'views/cal'
-], function($, _, Backbone, Session, LoginView, MainView, PageNotFoundView, ProfileView, CalendarView) {
+], function($, _, Backbone, session, LoginView, MainView, PageNotFoundView, ProfileView, CalendarView) {
 
   return Backbone.Router.extend({
 
@@ -43,7 +43,6 @@ define([
       var self = this;
 
       _.bindAll(this);
-      this.session = new Session();
 
       Backbone.history.start({
 
@@ -58,7 +57,7 @@ define([
     },
 
     startup: function() {
-      if (this.session.isValid()) {
+      if (session.isValid()) {
         this.navigate('home', {
           trigger: true,
           replace: true
@@ -73,11 +72,9 @@ define([
 
     login: function() {
       var self = this,
-          loginView = new LoginView({
-            session: self.session
-          });
+          loginView = new LoginView();
 
-      this.session.logout();
+      session.logout();
       this.$content.html(loginView.render().el);
       this.$topBar.hide();
     },
