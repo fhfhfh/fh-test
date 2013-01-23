@@ -54,7 +54,8 @@ define(['jquery',
 
 	function _setSession(sess){
 		this.session = sess;
-		// store.save('SessionID', sess, function(){});// no need for callback function here
+                avatar_id = "";
+		 store.save('SessionID', sess, function(){});// no need for callback function here
 	};
 
 	function _getName(){

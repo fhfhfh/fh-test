@@ -47,7 +47,7 @@ define(['jquery',
         //implementation-------------------------------
         var user		= new User();
         var controller	= new Controller();
-        var imgUrl="";
+    //    var imgUrl="";
         var selected="";
         var avatar;
         function _initialize(){
@@ -202,7 +202,7 @@ define(['jquery',
             var avatarJson= {
                 avatarId : item
             }
-           for (i=0; i<imgUrl.avatars.length; i++)
+            for (i=0; i<imgUrl.avatars.length; i++)
             {   
                 if(imgUrl.avatars[i].avatarId == item)
                 {
@@ -211,7 +211,7 @@ define(['jquery',
                     var tempurl = tempurl.replace('"', "");
                     this.$('#avatar').attr("src", tempurl);
                     this.$('#account-information').find('img').attr("src", tempurl);
-                
+                    avatar_id = item
                 }
             }
         }
@@ -224,14 +224,15 @@ define(['jquery',
                     for (i=0; i<url.avatars.length; i++)
                     {
                         if(url.avatars[i].avatarId == avatar)
-                       { var abc = url.avatars[i].imageUrl;
-                        var tempurl = abc.replace('"', "");
-                        var tempurl = tempurl.replace('"', "");
-                        this.$('#avatar').attr("src", tempurl);
-                        this.$('#account-information').find('img').attr("src", tempurl);
-                        imgUrl = url;
-                        selected = avatar;
-                       }
+                        {
+                            var abc = url.avatars[i].imageUrl;
+                            var tempurl = abc.replace('"', "");
+                            var tempurl = tempurl.replace('"', "");
+                            this.$('#avatar').attr("src", tempurl);
+                            this.$('#account-information').find('img').attr("src", tempurl);
+                            imgUrl = url;
+                            selected = avatar;
+                        }
                     }
                 }else{
                     for (i=0; i<imgUrl.avatars.length; i++)

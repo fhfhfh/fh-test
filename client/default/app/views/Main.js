@@ -80,6 +80,7 @@ define(['jquery',
             render: function() {
                 this.refreshScroll();
                 this.delegateEvents();
+                this.$topBar = this.$('#top-bar');
                 if (this.activeView) {
                     this.activeView.delegateEvents();
                 }

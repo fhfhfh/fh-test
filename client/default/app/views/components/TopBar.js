@@ -64,12 +64,15 @@ define([
                     '<li><button><img src="img/Help.png" alt="Help"></button></li>'+
                     '<li><button id="profile-button"><img src="img/OptionsGear.png" alt="Options"></button></li>');
                 this.$('#points-button em').html(points);
-               // this.setAvatar();
+                //this.setAvatar();
                  
             },
 
             logout: function(){
-                // TODO : clear session ID from local storage, and possibly all user data
+               
+               avatar_id = "";
+               imgUrl= "";
+               // TODO : clear session ID from local storage, and possibly all user data
                 var params = "";
             Acts.call('logoutAction', params, 
                 function(res){
@@ -101,6 +104,7 @@ define([
             controller.loadAvatars(function(url){
                 for (i=0; i<url.avatars.length; i++)
                     {
+                       alert("avatar_id");
                        if(url.avatars[i].avatarId == avatar_id)
                        { var abc = url.avatars[i].imageUrl;
                         var tempurl = abc.replace('"', "");
