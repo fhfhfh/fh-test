@@ -12,13 +12,6 @@ define(['backbone',
 
 		initialize: function(){
 			var self = this;
-
-			// TODO: remove this, once $fh.init has been sped up.
-			// setTimeout to ensure $fh.init completes before calling Fetch
-			setTimeout(function(){
-				self.fetch();
-			}, 2200);
-			
 		},
 
 

@@ -536,8 +536,8 @@ li {
   width: 100%;
 }
 #general-body li div#address {
-  height: 65px;
-  width: 85%;
+  height: 68px;
+  width: 84%;
   float: right;
   color: #000;
 }
@@ -983,6 +983,7 @@ li {
 #top-bar #avatar {
   float: right;
   margin-top: 7px;
+  height: 40px;
 }
 #top-bar-buttons {
   list-style-type: none;

@@ -7,8 +7,9 @@ define(['jquery',
         'underscore',
         'backbone',
         'models/Acts',
-        'models/User'
-], function($, _, Backbone, Acts, User) {
+        'models/User',
+        'hash'
+], function($, _, Backbone, Acts, User, hash) {
 
 	//interface----------------------------------
 	var profile = Backbone.Model.extend({
@@ -25,6 +26,14 @@ define(['jquery',
 		var el = view.$el;
 		var profile, details; // used to store the unchaged user info
 
+		// break address box into individual variables
+		var home = $('div#address')[0].innerText || '';
+		home = home.split('\n');
+		var address1	= home[0] || '';
+		var address2	= home[1] || '';
+		var zip			= home[2] || '';
+		var state		= home[3] || '';
+
 		// all input values from view
 		var inputs = {
 			firstName	: $('#firstName').val(),
@@ -32,11 +41,16 @@ define(['jquery',
 			lastName	: $('#lastName').val(),
 			sex			: $('#sex').val(),
 			email		: $('#email').val(),
-			birthday	: $('#birthday').val(),
-			address		: $('div#address')[0].innerText || '',
-
+			dob 		: $('#birthday').val(),
+			address1	: address1,
+			address2	: address2,
+			zip 		: zip,
+			state 		: state,
 			phone		: $('#phone').val(),
-			mobile		: $('#mobile').val()
+			mobile		: $('#mobile').val(),
+			// last check before saving profile
+			username	: $('#username').val(),
+			password	: $('#password').val(),
 		};
 
 		// call form validation function
@@ -75,28 +89,33 @@ define(['jquery',
 		for(var prop in d){
 			if(d.hasOwnProperty(prop)){
 				if(d[prop] == undefined || d[prop].length <1){
-					if(prop != 'middleName' && prop != 'mobile'){
+					if(prop === 'password'){
+						return 'Please enter your password to make profile changes';
+					}
+					else if(prop === 'middleName' || prop === 'mobile'){
+						console.log(prop, ': not required');	
+					}
+					else {
 						console.log(prop, ': fail');
-						return 'Please Fill in all fields';	
+						return 'Please Fill in all fields (' +prop+')';	
 					}
 					
 				}
-				else {
-					console.log(prop, ': ok');
+				else if(prop === 'password') {
+					console.log(d[prop]);
+					console.log(user);
+					var hashPassword	= d[prop].hashCode();
+					var currentPassword	= user.getPassword();
+					console.log(hashPassword, currentPassword);
+					if(hashPassword != currentPassword){
+						return 'Incorrect Password';
+					}
+				}
+				else if(prop === 'phone' && isNaN(d[prop])){
+					return 'Please enter a valid number for Home Phone';
 				}
 			}
 		}
-
-		//check for null values
-		// if(d.firstName.length <1 || d.middleName.length <1 || d.lastName.length <1 ||
-		// 	d.email.length <1 || d.birthday.length <1 || d.address.length <1 || d.phone.length <1 || 
-		// 	d.mobile.length <1){
-		// 	return 'Please Fill in all fields';
-		// } else if(isNaN(parseInt(d.mobile)) || isNaN(parseInt(d.phone))) {
-		// 	return 'Check phone numbers only contain Numeric values';
-		// } else {
-		// 	// TODO: email validation
-		// }
 
 		return true;
 	}

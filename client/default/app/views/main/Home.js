@@ -36,7 +36,7 @@ define([
       this.$nav = this.$('#home-nav');
       this.$('#show-news').addClass('selected');
 
-      this.setActiveView(((options && options.activeView) || 'news'));
+      this.setActiveView(((options && options.activeView) || 'alerts'));
     },
 
     render: function() {

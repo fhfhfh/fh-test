@@ -49,6 +49,7 @@ define(['jquery',
 	function _render(){
 		var self = this;
 		var itemsString = '';
+		this.collection.fetch();
 		this.collection.forEach(function(item) {
 			itemsString += self.itemTemplate(item.toJSON());
 		});

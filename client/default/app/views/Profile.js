@@ -45,11 +45,10 @@ define(['jquery',
 
 
         //implementation-------------------------------
-        var user		= new User();
-        var controller	= new Controller();
-        var imgUrl="";
+        var user       = new User();
+        var controller = new Controller();
+        var imgUrl     ="";
         function _initialize(){
-
         };
 
         function _render(){
@@ -64,7 +63,6 @@ define(['jquery',
         function _populate(){
             var details;
             var self = this;
-
             user.loadUser(function(res, data){
                 if(res){
                     if(data){
@@ -139,6 +137,11 @@ define(['jquery',
 
         function _mapValues(details){
             var d = details;
+            console.log(d); 
+
+            // TODO: remove once Steve has updated numbers in db
+            d.phone = d.phone.replace('.', '');
+            d.mobile = d.mobile.replace('.', '');
 
             this.$('#firstName').val(d.firstName);
             this.$('#middleName').val(d.middleName);
@@ -147,10 +150,12 @@ define(['jquery',
             this.$('#sex option[value="' + d.sex + '"]').attr('selected', 'selected');
             this.$('#firstName').val(d.firstName);
             this.$('#email').val(d.email);
-            this.$('#birthday').val(d.birthday);
-            this.$('div#address')[0].innerText = d.address;
+            this.$('#birthday').val(d.dob);
+            this.$('div#address')[0].innerText = d.address1 +'\n'+ d.address2 +'\n'+ d.zip +'\n'+ d.state;
             this.$('#phone').val(d.phone);
             this.$('#mobile').val(d.mobile);
+
+            this.$('#username').val(d.username || user.name);
 
             this.ageCalc();
         };

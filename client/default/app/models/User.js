@@ -6,7 +6,7 @@
 define(['jquery',
         'underscore',
         'backbone',
-       'models/Store',
+       	'models/Store',
         'models/Acts'
 ], function($, _, Backbone, store, Acts) {
 
@@ -15,20 +15,24 @@ define(['jquery',
 		//Backbone specific attributes
 		session : null,
 		name 	: null,
+		pword 	: null,
 		profile : null,
 
-		getSession : _getSession,	// get user sessionId from local storage
-		setSession : _setSession,
-		getName    : _getName,		// get Username
-		setName    : _setName,
-		getProfile : _getProfile,	// get all profile info
-		setProfile : _setProfile,
-		saveUser   : _saveUser,		// save user profile info to local storage
-		loadUser   : _loadUser,
-		fetchUser  : _fetchUser
+		getSession		: _getSession,	// get user sessionId from local storage
+		setSession		: _setSession,
+		getName			: _getName,		// get Username
+		setName			: _setName,
+		getPassword		: _getPassword,	// get Username
+		setPassword		: _setPassword,
+		getProfile		: _getProfile,	// get all profile info
+		setProfile		: _setProfile,
+		saveUser		: _saveUser,	// save user profile info to local storage
+		loadUser		: _loadUser,
+		fetchUser		: _fetchUser,
+		saveUserOnline	: _saveUserOnline
 	});
-	
-	//scripts------------------------------------
+
+
 
 
 	//implementation-------------------------------
@@ -54,16 +58,48 @@ define(['jquery',
 
 	function _setSession(sess){
 		this.session = sess;
-		// store.save('SessionID', sess, function(){});// no need for callback function here
 	};
 
 	function _getName(){
-		return this.name;
+		var self = this;
+		store.load('Peachy_username',function(res, data){
+			if(res){
+				self.setName(data);
+				return data;
+			}
+			else {
+				return self.name;
+			}
+		});
 	};
 
 	function _setName(username){
 		this.name = username;
+		store.save('Peachy_username', username, function(){});
 	};
+
+
+
+	function _getPassword(){
+		var self = this;
+		store.load('Peachy_hashpword',function(res, data){
+			if(res){
+				self.setPassword(data);
+				return data;
+			}
+			else {
+				return self.pword;
+			}
+		});
+	};
+
+	function _setPassword(password){
+		this.pword = password;
+		var hash = password.hashCode();
+
+		store.save('Peachy_hashpword', hash, function(){});
+	};
+
 
 	function _getProfile(){
 		return this.profile;
@@ -75,10 +111,12 @@ define(['jquery',
 
 	function _saveUser(callback){
 		var prof =this.getProfile();
+		var self = this;
 		prof = JSON.stringify(prof);
 		
 		store.save('userProfile', prof, function(res){
 			if(res){
+				// self.saveUserOnline();
 				return callback(true);
 			}
 			else {
@@ -90,10 +128,9 @@ define(['jquery',
 	function _loadUser(callback){
 		var self = this;
 		store.load('userProfile', function(res, data){
-			// var obj = JSON.parse(data.val); // $fh.data returned obj
 			var obj = JSON.parse(data);
-			console.log(obj);
 			if(res){
+				obj.userDetails.username =  self.name ||self.getName();
 				self.setProfile(obj);
 				return callback(res, obj);
 			}
@@ -120,6 +157,20 @@ define(['jquery',
     		}
 		);
 	};
+
+	function _saveUserOnline(){
+		var prof = this.profile;
+
+		Acts.call('saveUserProfileAction', prof, 
+    		function(res){
+    			Backbone.trigger('notify', 'Profile Saved to Cloud');
+    		},
+    		function(err, msg){
+    			console.log('Failed to save Profile', msg);
+    			Backbone.trigger('notify', 'Failed to Save Profile to Cloud');	
+    		}
+		);
+	}
 
 	return user;
 

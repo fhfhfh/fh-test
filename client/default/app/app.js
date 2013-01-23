@@ -13,7 +13,8 @@ require.config({
     'backbone': 'lib/backbone',
     'fastclick': 'lib/fastclick',
     'iscroll': 'lib/iscroll',
-    'fullcalendar': 'fullcalendar/fullcalendar/fullcalendar'
+    'fullcalendar': 'fullcalendar/fullcalendar/fullcalendar',
+    'hash' : 'lib/hash'
   },
   shim: {
     'feedhenry': {

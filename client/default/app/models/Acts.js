@@ -24,7 +24,12 @@ define(['jquery',
 		var head = {};
 		var payload = {};
 		var payloadName = map[func]; // use mapping file to get payload name for function
-		payload[payloadName] = params;
+		if(payloadName === ''){
+			payload = params;
+		}else {
+			payload[payloadName] = params;	
+		}
+		
 
 		// TODO: get Session from localStorage
 		var session = localStorage.getItem('peachy_session');

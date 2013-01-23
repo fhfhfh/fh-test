@@ -10,10 +10,12 @@ define(['jquery',
 
 	// TODO -- complete map for all cloud functions
 	var map = {
-		'loginAction' : 'login',
-		'logoutAction': 'logout',
-		'fetchProfileAction' : 'userProfile',
-		'fetchNewsAction' : '' // no payload needed
+		'loginAction'			: 'login',
+		'logoutAction'			: 'logout',
+		'fetchProfileAction'	: 'userProfile',
+		'saveUserProfileAction'	: '',
+		'fetchNewsAction'		: '' // no payload needed
+
 	};
 
 	return map;

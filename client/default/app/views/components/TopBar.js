@@ -24,8 +24,8 @@ define([
 
             initialize: function() {
                 _.bindAll(this);
-                this.setPeachyPoints();
-                this.setAvatar();
+                // this.setPeachyPoints();
+                // this.setAvatar();
                 this.render();
                 profView = new ProfView();
             },

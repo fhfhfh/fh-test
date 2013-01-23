@@ -7,8 +7,9 @@ define(['jquery',
     'underscore',
     'backbone',
     'models/Acts',
-    'models/User'
-    ], function($, _, Backbone, Acts, User) {
+    'models/User',
+    'hash'
+    ], function($, _, Backbone, Acts, User, hash) {
 
         //interface----------------------------------
         var login = Backbone.Model.extend({
@@ -43,7 +44,7 @@ define(['jquery',
             Acts.call('loginAction', params, 
                 function(res){
                     var session = res.head.sessionId;
-                    self.loggedIn(session, username);
+                    self.loggedIn(session, username, password);
                     res.video = true;
                     return callback(true, res);
                     console.log(res);
@@ -55,12 +56,13 @@ define(['jquery',
                 );
         };
 
-        function _loggedIn(session, username){
+        function _loggedIn(session, username, password){
             var self = this;
             user.setSession(session);
 
             localStorage.setItem('peachy_session', session);
             user.setName(username);
+            user.setPassword(password);
 		
             // Get user profile from cloud
             user.fetchUser(function(res){
