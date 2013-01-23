@@ -48,6 +48,8 @@ define(['jquery',
         var user		= new User();
         var controller	= new Controller();
         var imgUrl="";
+        var selected="";
+        var avatar;
         function _initialize(){
 
         };
@@ -151,7 +153,7 @@ define(['jquery',
             this.$('div#address')[0].innerText = d.address;
             this.$('#phone').val(d.phone);
             this.$('#mobile').val(d.mobile);
-
+            avatar = d.avatarId;
             this.ageCalc();
         };
     
@@ -162,7 +164,7 @@ define(['jquery',
             if($('#PopupDiv #popup_inner_div'));
             {
                 var temp;
-                var selected;
+                // var selected;
                 var popupDiv = $('#PopupDiv');
                 popupDiv.append("<h1 align='center'>Select Avatar Image</h1>");
                 popupDiv.append("<div id='popup_inner_div' style='padding : 2%'></div>");
@@ -200,18 +202,51 @@ define(['jquery',
             var avatarJson= {
                 avatarId : item
             }
-            alert(JSON.stringify(avatarJson));
+           for (i=0; i<imgUrl.avatars.length; i++)
+            {   
+                if(imgUrl.avatars[i].avatarId == item)
+                {
+                    var abc = imgUrl.avatars[i].imageUrl;
+                    var tempurl = abc.replace('"', "");
+                    var tempurl = tempurl.replace('"', "");
+                    this.$('#avatar').attr("src", tempurl);
+                    this.$('#account-information').find('img').attr("src", tempurl);
+                
+                }
+            }
         }
+
 
         function _setAvatar() {
             controller1.loadAvatars(function(url){
-                var abc = url.avatars[1].imageUrl;
-                var tempurl = abc.replace('"', "");
-                var tempurl = tempurl.replace('"', "");
-                this.$('#avatar').attr("src", tempurl);
-                this.$('#account-information').find('img').attr("src", tempurl);
-                imgUrl = url;
-               
+                if(imgUrl == "")
+                {
+                    for (i=0; i<url.avatars.length; i++)
+                    {
+                        if(url.avatars[i].avatarId == avatar)
+                       { var abc = url.avatars[i].imageUrl;
+                        var tempurl = abc.replace('"', "");
+                        var tempurl = tempurl.replace('"', "");
+                        this.$('#avatar').attr("src", tempurl);
+                        this.$('#account-information').find('img').attr("src", tempurl);
+                        imgUrl = url;
+                        selected = avatar;
+                       }
+                    }
+                }else{
+                    for (i=0; i<imgUrl.avatars.length; i++)
+                    {   
+                        if(imgUrl.avatars[i].avatarId == selected)
+                        {
+                            var abc = imgUrl.avatars[i].imageUrl;
+                            var tempurl = abc.replace('"', "");
+                            var tempurl = tempurl.replace('"', "");
+                            this.$('#avatar').attr("src", tempurl);
+                            this.$('#account-information').find('img').attr("src", tempurl);
+                
+                        }
+                    }
+                }
                 
             });
         };

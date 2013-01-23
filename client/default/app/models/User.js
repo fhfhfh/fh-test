@@ -108,7 +108,9 @@ define(['jquery',
 		// fetch user profile from cloud
 		Acts.call('userProfileAction', {}, 
     		function(res){
-    			self.setProfile(res.payload);
+                    self.setProfile(res.payload);
+                        
+                        avatar_id = res.payload.userDetails.avatarId;
     			self.saveUser(function(res){
     				console.log('Saved User: ',res);
     				return callback(true);

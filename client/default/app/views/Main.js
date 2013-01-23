@@ -16,11 +16,10 @@ define(['jquery',
     'views/Connect',
     'views/cal',
     'views/Library',
-    'controllers/avatars',
     'models/Acts',
     
     ], function($, _, Backbone, ContainerView, HomeView, TopBar, template, iScroll, 
-        WidgetsView, HealthHubView, ConnectView, CalendarView, LibraryView,controller,Acts) {
+        WidgetsView, HealthHubView, ConnectView, CalendarView, LibraryView,Acts) {
 
 
         //interface----------------------------------
@@ -37,7 +36,7 @@ define(['jquery',
             },
     
             setPeachyPoints 		: _setPeachyPoints,
-            setAvatar                 : _setAvatar,
+      
 
             subViews: {
                 home: new HomeView(),
@@ -51,7 +50,6 @@ define(['jquery',
             initialize: function(options) {
                 var self = this;
                 this.setPeachyPoints();
-                this.setAvatar();
                 this.$el.html(template);
                 this.$content = this.$('#main-content');
                 this.$nav = this.$('#main-nav');
@@ -140,12 +138,5 @@ define(['jquery',
         
         
         
-        function _setAvatar() {
-            controller.loadAvatars(function(url){
-                var abc = url.avatars[1].imageUrl;
-                var tempurl = abc.replace('"', "");
-                var tempurl = tempurl.replace('"', "");
-                this.$('#avatar').attr("src", tempurl);
-            });
-        };
+        
     });
