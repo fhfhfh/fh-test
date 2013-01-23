@@ -2,21 +2,10 @@ var http = require('http');
 var sessionManager = require('../lib/session/session.js');
 var jsonUtils = require('../lib/jsonUtils.js');
 var appConfig = require('../config/appConfig.js')
+var constants = require('../config/constants.js');
+var respUtils = require("../utils/responseUtils.js");
+var log = require('../lib/log/log.js');
 
-
-//Error response JSON
-var fail = {
-    "response": {
-        "head": {},
-        "payload": {
-            "status": {
-                "code": "ERR_401",
-                "msg": "Incorrect credentials. Authentication failed."
-				
-            }
-        }
-    }
-};
 
 
 /**
@@ -30,17 +19,19 @@ var loginEndpoint = function() {
      */
     this.login = function login(reqJson, callback){
          
+        log.debug("[loginEndpoint][Login] >> [REQ]: " + JSON.stringify(reqJson)); 
         // Validate request
         var validationResp = validateLoginRequest(reqJson);
         if (!validationResp.status) {
-            
+            log.debug("[loginEndpoint][Login] Bad input - validation failed,: " + JSON.stringify(reqJson));
+            var fail = respUtils.constructStatusResponse("Login", constants.RESP_AUTH_FAILED, validationResp.msg,{});
             return callback(fail, null);
         }
         
         // Extract request params
         var userId = jsonUtils.getPath(reqJson, "request.payload.login.userId").trim();
         var password = jsonUtils.getPath(reqJson, "request.payload.login.password").trim();
-        
+        log.debug("[loginEndpoint][Login] UserName:" + userId + " Password:" + password);
         
         var jsonObj = {
             login: {
@@ -60,7 +51,7 @@ var loginEndpoint = function() {
         // preparing the post options
         var optionsPost = {
             host : appConfig.environments[env].urls.baseUrl,
-            port : 8888,
+            port : appConfig.environments[env].urls.port,
             path : appConfig.environments[env].urls.auth,
             method : 'POST',
             headers : postHeaders
@@ -73,10 +64,9 @@ var loginEndpoint = function() {
             if (res.statusCode == 200)
             {
                 apiSessionId = res.headers.sessionid;
-                console.log("API Session ID :- "+apiSessionId);
                 if(!apiSessionId)
                 {
-                    console.log("Invalid User");
+                    var fail = respUtils.constructStatusResponse("Login", constants.RESP_SERVER_ERROR, "Internal Server Error",{});
                     return callback(fail,null);
                 }
                 else
@@ -86,43 +76,33 @@ var loginEndpoint = function() {
 
                         // Trouble?
                         if (errMsg != null) {
+                            var fail = respUtils.constructStatusResponse("Login", constants.RESP_SERVER_ERROR, errMsg,{});
                             return callback(fail, null);
                         }
 
                         // Initialize session state.
                         var sessionId = data.sessionId;
-                        console.log("WELCOME USER "+ sessionId);
-                    
+                        
                         //preparing object for apiSession
                         var sessionAttrs = {
                             "apiSessionId": apiSessionId
                         };
                  
-                
+                        log.debug("Attempting to Save to SessionId: " + sessionId );
                         //adding apisession into session
                         sessionManager.setSessionAttributes(sessionId, sessionAttrs, function onSessionSetAttr(errMsg, success){
                          
                             // Trouble?
                             if (errMsg != null) {
+                                var fail = respUtils.constructStatusResponse("Login", constants.RESP_SERVER_ERROR, errMsg,{});
                                 return callback(fail, null);
                             }
                         
+                            var success = respUtils.constructStatusResponse("Login", constants.RESP_SUCCESS, "Login Successful",{});
+                            success.response.head["sessionId"] = sessionId;
                             //returing success and sessionId to the client 
-                            return callback(null, {
-                                "response": {
-                                    "head": {
-                                        "sessionId": sessionId
-                                    },
-                                    "payload": {
-                                        "status": {
-                                            "code": "SUCCESS_200",
-                                            "msg": "Login Successful."
-                                        }
-                                    }
-                                }
-                            }
-                            );
-                                                                                        
+                            return callback(null,success);
+                                                                                                   
                         });
                 
                     });
@@ -130,6 +110,7 @@ var loginEndpoint = function() {
             }
             else
             {
+                var fail = respUtils.constructStatusResponse("Login", constants.RESP_AUTH_FAILED, "Authentication Fail",{});
                 return callback(fail, null);
             }
         });
@@ -140,6 +121,8 @@ var loginEndpoint = function() {
         
         reqPost.on('error', function(e) {
             console.error(e);
+            log.error("[loginEndpoint][login][regPost] >> " + e);
+            var fail = respUtils.constructStatusResponse("Login", constants.RESP_AUTH_FAILED, "Authentication Fail",{});
             callback(fail,null)
             
         });

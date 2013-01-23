@@ -18,7 +18,13 @@ var fetchNewsEndpoint = function() {
      */
     // Exposed operations
     this.fetchNews = function fetchNews(reqJson, callback){
-      
+        if (jsonUtils.getPath(reqJson, "request.head.sessionId") == null)         
+        {
+            log.error("[fetchNewsEndpoint][fetchNews] >> SessionId Not Available");
+            var responseJson = respUtils.constructStatusResponse("fetchNews", constants.RESP_AUTH_FAILED, "Authentication  Fail",{});
+            return callback(responseJson,null) 
+        }
+        
         // Extract sessionId from request params
         var sessionId = jsonUtils.getPath(reqJson, "request.head.sessionId").trim();
         
@@ -48,7 +54,18 @@ var fetchNewsEndpoint = function() {
 
                 // doing the HTTP GET call
                 var reqGet = http.request(optionsGet, function(res) {
-                    if (res.statusCode == 200)
+                        
+                    if (res.statusCode == 403)
+                    {
+                         var fail = respUtils.constructStatusResponse("fetchNews", constants.RESP_AUTH_FAILED, "Authentication  Fail",{});
+                        return  callback(fail,null) 
+                    }
+                    else if (res.statusCode == 500)
+                    {
+                        var fail = respUtils.constructStatusResponse("fetchNews", constants.RESP_SERVER_ERROR, "Internal server error",{});
+                        return  callback(fail,null) 
+                    }
+                    else if (res.statusCode == 200)
                     {                    
                         console.log("statusCode: "+ res.statusCode);
                         var data="";
@@ -92,6 +109,7 @@ var fetchNewsEndpoint = function() {
                 return callback(responseJson,null) 
             }
         });           
+        
     }
 }
 module.exports = new fetchNewsEndpoint();
