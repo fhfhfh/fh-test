@@ -49,7 +49,7 @@ var fetchVideosEndpoint = function() {
                 // perparing the GET options
                 var optionsGet = {
                     host : appConfig.environments[env].urls.baseUrl,
-                    port : 8888,
+                    port : appConfig.environments[env].urls.port,
                     path : appConfig.environments[env].urls.quotes,
                     method : 'GET',
                     headers : getHeaders

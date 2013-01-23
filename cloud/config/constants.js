@@ -8,6 +8,7 @@ var Constants = function() {
     this.RESP_BAD_INPUT = "ERR_400";
     this.RESP_AUTH_FAILED = "ERR_401";
     this.RESP_SERVER_ERROR = "ERR_500";
+    this.RESP_Forbidden_ERROR = "ERR_403";
    
 };
 

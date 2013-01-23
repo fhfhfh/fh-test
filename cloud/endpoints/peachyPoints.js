@@ -1,28 +1,15 @@
-var http = require('http');
-var sessionManager = require('../lib/session/session.js');
-var appConfig = require('../config/appConfig.js')
-var jsonUtils = require('../lib/jsonUtils.js');
-
-var fail = {
-    "response": {
-        "head": {
-        },
-        "payload": {
-            "status": {
-                "code": "ERR_YYY",
-                "msg": "Error Message."
-            }
-        }
-    }
-};
-
-
-
-
 /**
  * NodeJS Module: Encapsulates logic for peachyPointsEndpoint.
  * 
  */
+var http = require('http');
+var sessionManager = require('../lib/session/session.js');
+var appConfig = require('../config/appConfig.js')
+var jsonUtils = require('../lib/jsonUtils.js');
+var constants = require('../config/constants.js');
+var respUtils = require("../utils/responseUtils.js");
+var log = require('../lib/log/log.js');
+
 
 var peachyPointsEndpoint = function() {
     /**
@@ -30,13 +17,19 @@ var peachyPointsEndpoint = function() {
      */
     // Exposed operations
     this.peachyPoints = function peachyPoints(reqJson, callback){
+       if (jsonUtils.getPath(reqJson, "request.head.sessionId") == null)         
+        {
+            log.error("[peachyPointsEndpoint][peachyPoints] >> SessionId Not Available");
+            var responseJson = respUtils.constructStatusResponse("peachyPoints", constants.RESP_AUTH_FAILED, "Authentication  Fail",{});
+            return callback(responseJson,null) 
+        }
         // Extract request params
         var sessionId = jsonUtils.getPath(reqJson, "request.head.sessionId").trim();
               
         
         //Fetching session details
         sessionManager.getSession(sessionId, function(err, data ){
-            console.log("\n\nSESSION DETAILS   :-"+JSON.stringify(data)+"\n\n");
+            log.info("[peachypointsEndpoint][peachyPoints] >> Session Details :"+JSON.stringify(data));
             if(data)
             {
                 //Setting the apiSession to fetch the peachyPoints details      
@@ -52,19 +45,25 @@ var peachyPointsEndpoint = function() {
                 // perparing the GET options
                 var optionsGet = {
                     host : appConfig.environments[env].urls.baseUrl,
-                    port : 8888,
+                    port : appConfig.environments[env].urls.port,
                     path : appConfig.environments[env].urls.peachyPoints,
                     method : 'GET',
                     headers : getHeaders
                 };
 
-
-                console.info('Options prepared:/n/n');
-                console.info(optionsGet);
-                          
                 // doing the HTTP GET call
                 var reqGet = http.request(optionsGet, function(res) {
-                    if (res.statusCode == 200)
+                    if (res.statusCode == 403)
+                    {
+                         var fail = respUtils.constructStatusResponse("peachyPoints", constants.RESP_AUTH_FAILED, "Authentication  Fail",{});
+                        return  callback(fail,null) 
+                    }
+                    else if (res.statusCode == 500)
+                    {
+                        var fail = respUtils.constructStatusResponse("peachyPoints", constants.RESP_SERVER_ERROR, "Internal server error",{});
+                        return  callback(fail,null) 
+                    }
+                    else if (res.statusCode == 200)
                     {                    
                         console.log("statusCode: "+ res.statusCode);
                         var data="";
@@ -78,45 +77,35 @@ var peachyPointsEndpoint = function() {
                                 var jsonObject;
                                 //converting the response data into JSON object
                                 jsonObject= JSON.parse(data.toString());
-                                var jsonObj = {
-                                    "response": {
-                                        "head": {},
-                                        "payload": jsonObject, 
-                                        "status":  {
-                                            "code": "Success_200",
-                                            "msg": "Success"
-                                        }
-                                    }
-                                }
+                                var jsonObj = respUtils.constructStatusResponse("peachyPoints", constants.RESP_SUCCESS, "PeachyPoints Successful",jsonObject);
                                 return callback(null,jsonObj) //callback returning the response JSON back to client 
                             }
-                            else
+                            else        //if complete data not found
                             {
-                                // Error ...!!!
+                                var fail = respUtils.constructStatusResponse("peachyPoints", constants.RESP_SERVER_ERROR, "Internal server error",{});
                                 return  callback(fail,null) 
                             }
                         })
                     }
-                    else
+                    else               //if GET call is not successful  
                     {
-                        return callback(fail, null);
+                        var fail = respUtils.constructStatusResponse("peachyPoints", constants.RESP_SERVER_ERROR, "Internal server error",{});
+                        return  callback(fail,null) 
                     }
                 });
  
                 reqGet.end();
                 reqGet.on('error', function(e) {
-                    console.error(e);
+                    log.error("[peachyPointsEndpoint][peachyPoint][regGet] >> " + e);
                     return  callback(fail,null)
                 });
-            } // end of if(data)
-            else
+            } 
+            else        //If session not found
             {
-                // Error...!!!
-                return callback(fail,null) 
+                var responseJson = respUtils.constructStatusResponse("peachyPoints", constants.RESP_AUTH_FAILED, "Authentication  Fail",{});
+                return callback(responseJson,null) 
             }
-        }); 
-        
-           
+        });           
     }
 }
 module.exports = new peachyPointsEndpoint();

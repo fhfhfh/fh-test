@@ -1,3 +1,8 @@
+
+var constants = require('../config/constants.js');
+var respUtils = require("../utils/responseUtils.js");
+
+
 var fail = {
   "response": {
     "head": {},
@@ -26,9 +31,15 @@ var success = {
 
 var jsonUtils = require('../lib/jsonUtils.js');
 var addAllergyEndpoint = function() {
+    
+   
   // Exposed operations
   this.addAllergy = function addAllergy(reqJson, callback){
     // Extract request params
+    
+  
+    
+    
     var sessionId = jsonUtils.getPath(reqJson, "request.head.sessionId").trim();
     if(sessionId=="4860-9e4b-3ca8d2cb3df7")
     {
