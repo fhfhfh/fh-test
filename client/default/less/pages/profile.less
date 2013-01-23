@@ -63,9 +63,17 @@ li {
 		border: 1px solid #c0c0c0;
 		.avenir-medium(11px);
 
+
 		label {
-			color: #2B60DE;
+			.avenir-demi(11px);
+			color: #a8a8a8;
 			padding-right: 10px;
+		}
+
+		&.required {
+			label {				
+				color: #2B60DE;
+			}
 		}
 
 		input, select, div#address {

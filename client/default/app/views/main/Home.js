@@ -31,8 +31,6 @@ define([
 
       _.bindAll(this);
 
-      
-      // this.setElement( this.el );
       this.$el.html(template);
       this.$content = this.$('#home-content');
       this.$nav = this.$('#home-nav');
@@ -47,7 +45,6 @@ define([
       if (this.activeView) {
         this.activeView.delegateEvents();
       }
-      console.log('||||||||||');
       return this;
     },
 
@@ -69,35 +66,5 @@ define([
       this.setActiveView('goals');
     },
 
-    fetchInfo: function(){
-      var newsArr = [];
-
-      // Act.call('fetchNewsAction', {}, 
-      //   function(res){
-      //     newsArr = res.payload.News;
-      //     console.log(newsArr);
-      //   }, function(err, msg){
-      //     console.log(err, msg);
-      //   });
-
-      var arr = [];
-      for(var i = 0; i<newsArr.length; i++){
-        var item = newsArr[i];
-        arr.push(
-          new NewsItem({  title       : item[title], 
-                          description : item[description],
-                          newsId      : item[newsId],
-                          url         : item[url]
-                        })
-          );
-      }
-
-      var news = this.subViews.news;
-      console.log(news);
-      news.collection.add(arr);
-      // NewsView.addArray(arr);
-      console.log(news);
-      console.log(arr);
-    }
   });
 });
