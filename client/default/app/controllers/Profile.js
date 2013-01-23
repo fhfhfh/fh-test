@@ -75,8 +75,11 @@ define(['jquery',
 		for(var prop in d){
 			if(d.hasOwnProperty(prop)){
 				if(d[prop] == undefined || d[prop].length <1){
-					console.log(prop, ': fail');
-					return 'Please Fill in all fields';
+					if(prop != 'middleName' && prop != 'mobile'){
+						console.log(prop, ': fail');
+						return 'Please Fill in all fields';	
+					}
+					
 				}
 				else {
 					console.log(prop, ': ok');
