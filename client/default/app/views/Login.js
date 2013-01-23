@@ -68,10 +68,8 @@ define([
 
                     self.controller.login(username, password, function(res, msg){
                         if(res === true){
-                           // alert("@$#@$#@$#@$#@");
-                            Quotes.fetchQuotes(function(res, data){
-                            //alert("Login"+JSON.stringify(res));
-                            if(res){
+                           Quotes.fetchQuotes(function(res, data){
+                           if(res){
                                 quote=res;
                                 var i =Math.floor(Math.random()*3);
 //                    

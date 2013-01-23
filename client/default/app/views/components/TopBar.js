@@ -104,7 +104,7 @@ define([
             controller.loadAvatars(function(url){
                 for (i=0; i<url.avatars.length; i++)
                     {
-                       alert("avatar_id");
+                       
                        if(url.avatars[i].avatarId == avatar_id)
                        { var abc = url.avatars[i].imageUrl;
                         var tempurl = abc.replace('"', "");
