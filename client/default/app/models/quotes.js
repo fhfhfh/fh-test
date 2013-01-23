@@ -27,9 +27,10 @@ define(['jquery',
             // fetch Quotes profile from cloud
             Acts.call('fetchQuotesAction', {}, 
                 function(res){
-                    return callback(res);
+                   return callback(res);
                     
                 }, function(err, msg){
+                    alert("error "+JSON.stringify(msg));
                     console.log(err);
                 }
                 );

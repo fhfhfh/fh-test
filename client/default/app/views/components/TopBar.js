@@ -107,9 +107,7 @@ define([
                         var tempurl = tempurl.replace('"', "");
                         this.$('#avatar').attr("src", tempurl);
                         this.$('#account-information').find('img').attr("src", tempurl);
-                        //avtarUrl = tempurl;
-                       // imgUrl = url;
-                        //selected = avatar;
+                        
                        }
                     }
             });
