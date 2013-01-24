@@ -8,15 +8,49 @@ define([
   'backbone',
   'models/Store',
   'models/Acts'
-], function(_, Backbone, Store, Acts) {
+], function(_, Backbone, Store, Act) {
 
-  var Session = Backbone.Model.extend({
+  var alerts = Backbone.Model.extend({
 
     storageKey: 'peachy_alerts',
-    alerts : [],
+    entries: {
+        alerts     : [],
+        reminders  : [],
+        expirations: []
+    },
 
     initialize: function() {
       _.bindAll(this);
+    },
+
+    fetchAlerts: function(callback){
+        var self = this;
+
+        Act.call('fetchAlertAction', {}
+        , function(res) {
+            var entries = res.payload.alerts;
+
+            //organise entries in model
+            for(var i=0; i<entries.length; i++){
+                if(entries[i].noticeCatagory === "Alerts"){
+                    self.entries.alerts.push(entries[i]);
+                }
+                else if(entries[i].noticeCatagory === "Reminders"){
+                    self.entries.reminders.push(entries[i]);   
+                }
+                else if(entries[i].noticeCatagory === "Expirations"){
+                    self.entries.expirations.push(entries[i]);   
+                }
+            }
+            console.log(self.entries);
+            var strEntries = JSON.stringify(self.entries);
+            Store.save(self.storageKey, self.entries, function(){});
+
+            return callback(self.entries);
+        }, function(err, msg) {
+            Backbone.trigger('notify', 'Failed to fetch user alerts from cloud');
+            return callback(false);
+        });
     },
 
     sync: function(method, model, options) {
@@ -35,7 +69,7 @@ define([
       }
 
       function getAlerts() {
-        Acts('fetchAlertsAction', {}, 
+        Act.call('fetchAlertAction', {} 
         , function(res) {
           options.success(model, res, options);
           self.trigger('sync', model, res, options);
@@ -64,5 +98,5 @@ define([
     }
   });
 
-  return new Session();
+  return alerts;
 });

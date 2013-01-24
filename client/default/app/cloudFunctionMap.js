@@ -14,8 +14,8 @@ define(['jquery',
 		'logoutAction'			: 'logout',
 		'fetchProfileAction'	: 'userProfile',
 		'saveUserProfileAction'	: '',
-		'fetchNewsAction'		: '' // no payload needed
-
+		'fetchNewsAction'		: '', // no payload needed
+		'fetchAlertsAction'		: ''
 	};
 
 	return map;

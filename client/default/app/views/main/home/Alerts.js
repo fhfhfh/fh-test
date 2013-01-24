@@ -6,8 +6,9 @@
 define(['jquery',
         'underscore',
         'backbone',
-        'text!templates/components/Alerts.html'
-], function($, _, Backbone, tpl) {
+        'text!templates/components/Alerts.html',
+        'models/Alerts'
+], function($, _, Backbone, tpl, Alerts) {
 
 	return Backbone.View.extend({
 
@@ -15,7 +16,7 @@ define(['jquery',
 		tagName		: 'section',
 	    id			: 'alerts',
 	    events		: {
-	    	"click"					: "bind",
+	    	"click #add-alert"		: "bind",
 	    	"click #allBtn"			: "showAll",
 	    	"click #alertsBtn"		: "showAlerts",
 	    	"click #remindersBtn"	: "showReminders",
@@ -26,11 +27,14 @@ define(['jquery',
 
 		initialize : function(){
 			_.bindAll(this);
+			this.model = new Alerts();
 		},
 
 		bind: function(e){
-			e.preventDefault();
-			e.stopPropagation();
+			var self = this;
+			this.model.fetchAlerts(function(res){
+				self.populate();
+			});
 		},
 
 		render : function(){
@@ -70,5 +74,18 @@ define(['jquery',
 			$('#reminder-list').hide();
 			$('#expiration-list').show();
 		},
+
+		populate: function(){
+			console.log(this.model);
+			var entries = this.model.entries;
+
+			for(var obj in entries){
+				console.log(obj);
+			}
+			// <div class="alert redtip">
+			// 	You haven't completed your health risk assessment.
+			// 	<span id="date">Yesterday</span>
+			// </div>
+		}
 	});
 });

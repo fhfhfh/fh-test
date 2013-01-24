@@ -5,10 +5,10 @@
 
 
 define([
-  'underscore',
-  'backbone',
-  'feedhenry',
-  'models/Store'
+'underscore',
+'backbone',
+'feedhenry',
+'models/Store'
 ], function(_, Backbone, $fh, Store) {
 
   var Session = Backbone.Model.extend({
