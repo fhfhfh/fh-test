@@ -24,6 +24,12 @@ var logoutEndpoint = function() {
     this.logout = function logout(reqJson, callback){
         
         log.debug("[LogoutEndpoint][Logout] >> [REQ]: " + JSON.stringify(reqJson)); 
+        if (jsonUtils.getPath(reqJson, "request.head.sessionId") == null)         
+        {
+            log.error("[LogoutEndpoint][Logout] >> SessionId Not Available");
+            // success response
+            return callback(null, successResponseJson); 
+        }
         
         // Extract sessionId from request params
         var sessionId = jsonUtils.getPath(reqJson, "request.head.sessionId").trim();
@@ -59,7 +65,7 @@ var logoutEndpoint = function() {
                 //doing the http request
                 var reqPost = http.request(optionspost, function(res,err) {
                     log.info("[LogoutEndpoint][Logout] >> Status Code :"+res.statusCode); 
-                   // console.log("statusCode: "+res.statusCode);
+                    // console.log("statusCode: "+res.statusCode);
                     if (res.statusCode==200)
                     {
                         //Distroying session 
@@ -81,7 +87,7 @@ var logoutEndpoint = function() {
             else
             {
                 log.info("[LogoutEndpoint][Logout] >> Session Id Not Found"); 
-              // success response
+                // success response
                 return callback(null, successResponseJson);                
             }
         });
