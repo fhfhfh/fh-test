@@ -19,7 +19,7 @@ var loginEndpoint = function() {
      */
     this.login = function login(reqJson, callback){
          
-        log.debug("[loginEndpoint][Login] >> [REQ]: " + JSON.stringify(reqJson)); 
+        // log.debug("[loginEndpoint][Login] >> [REQ]: " + JSON.stringify(reqJson)); 
         // Validate request
         var validationResp = validateLoginRequest(reqJson);
         if (!validationResp.status) {
@@ -97,14 +97,19 @@ var loginEndpoint = function() {
                                 var fail = respUtils.constructStatusResponse("Login", constants.RESP_SERVER_ERROR, errMsg,{});
                                 return callback(fail, null);
                             }
-                        
-                            var success = respUtils.constructStatusResponse("Login", constants.RESP_SUCCESS, "Login Successful",{});
+                            var success = respUtils.constructResponse();
                             success.response.head["sessionId"] = sessionId;
                             //returing success and sessionId to the client 
-                            return callback(null,success);
-                                                                                                   
+                            userProfile(sessionId,function cb(err, respData) {
+                                if(err)
+                                {
+                                    var fail = respUtils.constructStatusResponse("Login", constants.RESP_SERVER_ERROR, errMsg,{});
+                                    return callback(fail, null);                                        
+                                }
+                                success.response.payload = respData.response.payload;
+                                return callback(null,success);
+                            });
                         });
-                
                     });
                 }
             }
@@ -118,7 +123,6 @@ var loginEndpoint = function() {
         
         reqPost.write(JSON.stringify(jsonObj));
         reqPost.end();
-        
         reqPost.on('error', function(e) {
             console.error(e);
             log.error("[loginEndpoint][login][regPost] >> " + e);
@@ -169,3 +173,89 @@ function validateLoginRequest(reqJson) {
     return resp;
 
 } 
+
+
+
+
+/**
+     * Process fetchUserProfile request.
+     */
+// Exposed operations
+function userProfile(reqJson, callback){
+      
+    // Extract sessionId from request params
+    var sessionId = reqJson;
+        
+    //Fetching session details
+    sessionManager.getSession(sessionId, function(err, data ){
+        log.info("[userProfiletEndpoint][userProfile] >> Session Details :"+JSON.stringify(data)); 
+        if(data)
+        {
+            //Setting the apiSession to fetch the profile details      
+            var apiSessionId = data.apiSessionId;
+        
+            // preparing the header
+            var getHeaders = {
+                'Content-Type' : 'application/json',
+                'sessionId' : apiSessionId
+            };
+            var env = appConfig.current;
+  
+            // perparing the GET options
+            var optionsGet = {
+                host : appConfig.environments[env].urls.baseUrl,
+                port : appConfig.environments[env].urls.port,
+                path : appConfig.environments[env].urls.userProfile,
+                method : 'GET',
+                headers : getHeaders
+            };
+
+
+            // doing the HTTP GET call
+            var reqGet = http.request(optionsGet, function(res) {
+                if (res.statusCode == 200)
+                {                    
+                    var data="";
+                    res.on('data', function(d) {
+                        //fetching the complete response that comes in chunks in 'data'
+                        data+=d; 
+                    });
+                    res.on('end',function(){
+                        if(data)
+                        {
+                            var jsonObject;
+                            //converting the response data into JSON object
+                            jsonObject= JSON.parse(data.toString());
+                            var jsonObj = respUtils.constructResponse();
+                            jsonObj.response.payload = jsonObject;
+                            return callback(null,jsonObj) //callback returning the response JSON back to client 
+                        }
+                        else        //if complete data not found
+                        {
+                            var fail = respUtils.constructStatusResponse("userProfile", constants.RESP_SERVER_ERROR, "Internal server error",{});
+                            return  callback(fail,null) 
+                        }
+                    })
+                }
+                else               //if GET call is not successful  
+                {
+                    var fail = respUtils.constructStatusResponse("userProfile", constants.RESP_SERVER_ERROR, "Internal server error",{});
+                    return  callback(fail,null) 
+                }
+            });
+ 
+            reqGet.end();
+            reqGet.on('error', function(e) {
+                console.error(e);
+                log.error("[userProfileEndpoint][userProfile][regGet] >> " + e);
+                var fail = respUtils.constructStatusResponse("fetchNews", constants.RESP_SERVER_ERROR, e,{});
+                return  callback(fail,null)
+            });
+        } 
+        else        //If session not found
+        {
+            var responseJson = respUtils.constructStatusResponse("userProfile", constants.RESP_AUTH_FAILED, "Authentication  Fail",{});
+            return callback(responseJson,null) 
+        }
+    });           
+}
