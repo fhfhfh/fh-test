@@ -59,45 +59,52 @@ define([
                     $('#signin').prop('disabled', false);
                 }
             },
-
             login: function() {
                 var self = this;
                 var username = $('#username').val();
                 var password = $('#password').val();
                 var quote = "";
                 if (username && password) {
+                    self.controller.login(username, password, function(url){
+                        self.showVideo(url);
+                    });
 
-                  session.login(username, password, {
-                    success: function() {
-                      Quotes.fetchQuotes(function(res, data){
-                        if(res){
-                          quote=res;
-                          var i =Math.floor(Math.random()*3);
-                          self.$('#loading-display #loading-snippet #first').html(JSON.stringify(res.payload.quotes[i].quote));
-                          self.$('#loading-display #second').html(JSON.stringify(res.payload.quotes[i].author));
+                  // session.login(username, password, {
+                  //   success: function() {
+                  //     Quotes.fetchQuotes(function(res, data){
+                  //       if(res){
+                  //         quote=res;
+                  //         var i =Math.floor(Math.random()*3);
+                  //         self.$('#loading-display #loading-snippet #first').html(JSON.stringify(res.payload.quotes[i].quote));
+                  //         self.$('#loading-display #second').html(JSON.stringify(res.payload.quotes[i].author));
 
-                        }
-                      });
+                  //       }
+                  //     });
 
-                      // TODO: Show properly based on property.
-                      setTimeout(function(){
-                        var welcome = new WelcomeView();
-                        $('#content').html(welcome.render().el);
-                        welcome.loadVideo('"http://www.youtube.com/embed/xqkBW1NCRLQ"');
-                        // welcome.loadVideo('http://mirrorblender.top-ix.org/peach/bigbuckbunny_movies/big_buck_bunny_480p_h264.mov');
-                      }, 3000);
-                    },
+                  //     // TODO: Show properly based on property.
+                  //     setTimeout(function(){
+                  //       var welcome = new WelcomeView();
+                  //       $('#content').html(welcome.render().el);
+                  //       welcome.loadVideo('"http://www.youtube.com/embed/xqkBW1NCRLQ"');
+                  //     }, 3000);
+                  //   },
 
-                    error: function() {
-                      Backbone.trigger('notify', 'Error logging in.');
-                      self.showLogin();
-                    }
-                  });
+                  //   error: function() {
+                  //     Backbone.trigger('notify', 'Error logging in.');
+                  //     self.showLogin();
+                  //   }
+                  // });
                 } else {
                     Backbone.trigger('notify', 'Please fill in both fields...');
                     return;
                 }
                 this.showLoading();
+            },
+
+            showVideo: function(url){
+                var welcome = new WelcomeView();
+                $('#content').html(welcome.render().el);
+                welcome.loadVideo('"http://www.youtube.com/embed/xqkBW1NCRLQ"');
             },
 
             showLoading: function() {

@@ -7,8 +7,9 @@
 define([
   'underscore',
   'backbone',
-  'feedhenry'
-], function(_, Backbone, $fh) {
+  'feedhenry',
+  'models/Store'
+], function(_, Backbone, $fh, Store) {
 
   var Session = Backbone.Model.extend({
 
@@ -64,8 +65,11 @@ define([
      * the router to listen for this and route to login.
      */
     logout: function() {
+      var self = this;
+      
       this.clear();
-      localStorage.removeItem(this.storageKey);
+      // localStorage.removeItem(this.storageKey);
+      Store.clear(self.storageKey, function(){});
       Backbone.trigger('logout');
     },
 
@@ -113,12 +117,16 @@ define([
 
       // TODO: Make this more compliant with what Backbone expects...
       function saveSession() {
-        localStorage.setItem(self.storageKey, self.toJSON());
-        options.success(model, {
-          head: {
-            sessionId: self.get('id')
-          }
-        }, options);
+        var self = this;
+
+        Store.save(self.storageKey, self.get('id'), function(){});
+
+        // localStorage.setItem(self.storageKey, self.toJSON());
+        // options.success(model, {
+        //   head: {
+        //     sessionId: self.get('id')
+        //   }
+        // }, options);
       }
     },
 

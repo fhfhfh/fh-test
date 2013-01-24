@@ -8,8 +8,10 @@ define(['jquery',
     'backbone',
     'models/Acts',
     'models/User',
-    'hash'
-    ], function($, _, Backbone, Acts, User, hash) {
+    'hash',
+    'models/session',
+    'models/quotes'
+    ], function($, _, Backbone, Acts, User, hash, session, Quotes) {
 
         //interface----------------------------------
         var login = Backbone.Model.extend({
@@ -40,27 +42,29 @@ define(['jquery',
                 'password'	: password
             };
 
-            // Call login cloud function
-            Acts.call('loginAction', params, 
-                function(res){
-                    var session = res.head.sessionId;
-                    self.loggedIn(session, username, password);
-                    res.video = true;
-                    return callback(true, res);
-                    console.log(res);
-                }, function(err, msg){
-                    console.log(err, msg);
-                    err.video = true;
-                    return callback(err, msg);
+            session.login(username, password, {
+                success: function() {
+                    self.loggedIn(username, password);
+                    Quotes.fetchQuotes(function(res, data){
+                        if(res){
+                            quote=res;
+                            var i =Math.floor(Math.random()*3);
+                            $('#loading-display #loading-snippet #first').html(JSON.stringify(res.payload.quotes[i].quote));
+                            $('#loading-display #second').html(JSON.stringify(res.payload.quotes[i].author));
+                            return callback(true);
+                        }
+                    });
+                },
+
+                error: function() {
+                Backbone.trigger('notify', 'Error logging in.');
+                self.showLogin();
                 }
-                );
+            });
         };
 
-        function _loggedIn(session, username, password){
+        function _loggedIn(username, password){
             var self = this;
-            user.setSession(session);
-
-            localStorage.setItem('peachy_session', session);
             user.setName(username);
             user.setPassword(password);
 		

@@ -132,7 +132,7 @@ define(['jquery',
 		var self = this;
 		store.load('userProfile', function(res, data){
 			var obj = JSON.parse(data);
-			if(res){
+			if(res && obj){
 				obj.userDetails.username =  self.name ||self.getName();
 				self.setProfile(obj);
 				return callback(res, obj);

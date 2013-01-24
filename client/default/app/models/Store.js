@@ -26,44 +26,18 @@ define(['jquery',
 
 		localStorage.setItem(modelName, model);
 		return callback(true);
-		// $fh.data({
-		// 	act : 'save',
-		// 	key : modelName,
-		// 	val : model
-		// }, function(){
-  //                       console.log("SESSION SAVE"+model);
-		// 	return callback(true);
-		// }, function(msg, err){
-		// 	return callback(msg, err);
-		// });
 	};
 
 	function _load(modelName, callback){
 
 		var res =localStorage.getItem(modelName);
 		return callback(true, res);
-		
-		// $fh.data({
-		// 	key : modelName
-		// }, function(res){
-		// 	return callback(true, res);
-		// }, function(msg, err){
-		// 	return callback(msg, err);
-		// });
 	};
 
 	function _clear(modelName, callback){
 
 		localStorage.removeItem(modelName);
 		return callback(true);
-		// $fh.data({
-		// 	act : 'remove',
-		// 	key : modelName
-		// }, function(){
-		// 	return callback(true);
-		// }, function(msg, err){
-		// 	return callback(msg, err);
-		// });
 	};
 
 	function _clearAll(callback){
