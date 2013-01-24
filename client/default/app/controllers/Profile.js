@@ -108,7 +108,7 @@ define(['jquery',
 					var currentPassword	= user.getPassword();
 					console.log(hashPassword, currentPassword);
 					if(hashPassword != currentPassword){
-						return 'Incorrect Password';
+						// return 'Incorrect Password';
 					}
 				}
 				else if(prop === 'phone' && isNaN(d[prop])){

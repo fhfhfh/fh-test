@@ -51,7 +51,9 @@ define(['jquery',
                             var i =Math.floor(Math.random()*3);
                             $('#loading-display #loading-snippet #first').html(JSON.stringify(res.payload.quotes[i].quote));
                             $('#loading-display #second').html(JSON.stringify(res.payload.quotes[i].author));
-                            return callback(true);
+                            setTimeout(function(){
+                                return callback(true);
+                            }, 3000);                    
                         }
                     });
                 },

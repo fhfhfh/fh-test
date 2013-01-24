@@ -188,18 +188,18 @@ define(['jquery',
                         selected = $(this).attr("alt");
                         popupDiv.hide();
                         popbtn(selected);
-                        text.innerHTML = "show";
+                        // text.innerHTML = "show";
                     });
                 }
-                popupDiv.append("<button id='cancelpop' class='pop_btn'>Cancle</button></li>");
+                popupDiv.append("<button id='cancelpop' class='pop_btn'>Cancel</button></li>");
                 if(popupDiv.css("display")=="block") {
                     
                     popupDiv.hide();
-                    text.innerHTML = "show";
+                    // text.innerHTML = "show";
                 }
                 else {
                     popupDiv.show();
-                    text.innerHTML = "hide";
+                    // text.innerHTML = "hide";
                 }
             }
         }
