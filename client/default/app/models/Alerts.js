@@ -53,49 +53,49 @@ define([
         });
     },
 
-    sync: function(method, model, options) {
-      var self = this;
+    // sync: function(method, model, options) {
+    //   var self = this;
 
-      switch (method) {
-        case 'read':
-          getAlerts();
-          break;
-        case 'create':
-          saveAlerts();
-          break;
-        case 'update':
-          saveAlerts();
-          break;
-      }
+    //   switch (method) {
+    //     case 'read':
+    //       getAlerts();
+    //       break;
+    //     case 'create':
+    //       saveAlerts();
+    //       break;
+    //     case 'update':
+    //       saveAlerts();
+    //       break;
+    //   }
 
-      function getAlerts() {
-        Act.call('fetchAlertAction', {} 
-        , function(res) {
-          options.success(model, res, options);
-          self.trigger('sync', model, res, options);
-        }, function(err, msg) {
-          var theError = {
-            err: err,
-            msg: msg
-          };
-          options.error(model, theError, options);
-          self.trigger('error', model, theError, options)
-        });
-      }
+    //   function getAlerts() {
+    //     Act.call('fetchAlertAction', {} 
+    //     , function(res) {
+    //       options.success(model, res, options);
+    //       self.trigger('sync', model, res, options);
+    //     }, function(err, msg) {
+    //       var theError = {
+    //         err: err,
+    //         msg: msg
+    //       };
+    //       options.error(model, theError, options);
+    //       self.trigger('error', model, theError, options)
+    //     });
+    //   }
 
-      function saveSession() {
-        var self = this;
+    //   function saveSession() {
+    //     var self = this;
 
-        Store.save(self.storageKey, self.get('id'), function(){});
-      }
-    },
+    //     Store.save(self.storageKey, self.get('id'), function(){});
+    //   }
+    // },
 
-    parse: function(res) {
-      return {
-        id: res.response.head.sessionId,
-        timestamp: (new Date()).valueOf()
-      };
-    }
+    // parse: function(res) {
+    //   return {
+    //     id: res.response.head.sessionId,
+    //     timestamp: (new Date()).valueOf()
+    //   };
+    // }
   });
 
   return alerts;

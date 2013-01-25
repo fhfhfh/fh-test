@@ -36,12 +36,21 @@ input {
 }
 .btn {
   border-radius: 5px;
-  border: 1px solid #d38800;
+  border: 1px solid black;
+  box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.15);
   height: 30px;
   margin: 20px;
   color: white;
   padding: 5px 10px 5px 10px;
   font: bold 14px "Avenir Next Bold", Helvetica, Arial, sans-serif;
+  background-image: linear-gradient(bottom, #1f1f1f 0%, #525252 85%);
+  background-image: -webkit-linear-gradient(bottom, #1f1f1f 0%, #525252 85%);
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #1f1f1f), color-stop(0.85, #525252));
+}
+.btn:active {
+  background-image: linear-gradient(bottom, #525252 0%, #1f1f1f 85%);
+  background-image: -webkit-linear-gradient(bottom, #525252 0%, #1f1f1f 85%);
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #525252), color-stop(0.85, #1f1f1f));
 }
 .btnSmall {
   display: inline;
@@ -715,6 +724,83 @@ li {
   margin-left: auto;
   margin-right: auto;
   text-align: center;
+}
+#VideoPlayback {
+  height: 100%;
+}
+#VideoPlayback #top #leftLogo {
+  display: inline-block;
+  margin: 10px;
+}
+#VideoPlayback #top #buttonContainer {
+  display: inline-block;
+  float: right;
+}
+#VideoPlayback #top #buttonContainer .btn {
+  margin: 10px;
+}
+#VideoPlayback #videoContainer {
+  margin-top: 60px;
+  height: 300px;
+  text-align: center;
+}
+#VideoPlayback #videoContainer > div {
+  display: inline-block;
+  height: 300px;
+  border: 10px solid #cdcdcd;
+  border-radius: 10px;
+}
+#VideoPlayback #videoContainer #currentVideo {
+  width: 550px;
+}
+#VideoPlayback #videoContainer #currentVideo iframe {
+  width: 100%;
+  height: 100%;
+}
+#VideoPlayback #videoContainer #previousVideo {
+  float: left;
+  margin-left: -10px;
+  background-color: blue;
+}
+#VideoPlayback #videoContainer #nextVideo {
+  float: right;
+  margin-right: -10px;
+  background-color: red;
+}
+#VideoPlayback #videoDescription {
+  height: 100%;
+  padding: 20px;
+  padding-left: 30px;
+  padding-right: 30px;
+  margin-top: 60px;
+  background-color: #fff;
+  color: #000;
+}
+#VideoPlayback #videoDescription h2 {
+  font: bold 16px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
+  display: inline;
+}
+#VideoPlayback #videoDescription p {
+  font: normal 12px "Avenir Next", Helvetica, Arial, sans-serif;
+  display: inline;
+}
+#VideoPlayback #videoDescription #title {
+  margin: 30px;
+}
+#VideoPlayback #videoDescription #videoActions {
+  margin: 10px;
+  height: 50px;
+}
+#VideoPlayback #videoDescription #videoActions #time {
+  float: left;
+}
+#VideoPlayback #videoDescription #videoActions #actions {
+  float: right;
+}
+#VideoPlayback #videoDescription #favBtn {
+  height: 100%;
+  text-align: center;
+  margin-top: 100px;
 }
 #news-and-information {
   padding: 15px;

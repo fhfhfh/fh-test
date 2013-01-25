@@ -77,10 +77,25 @@ define(['jquery',
 
 		populate: function(){
 			console.log(this.model);
-			var entries = this.model.entries;
+			var entries		= this.model.entries;
+			var alerts		= entries.alerts;
+			var reminders	= entries.reminders;
+			var expirations	= entries.expirations;
 
-			for(var obj in entries){
-				console.log(obj);
+			for(var i=0; i<alerts.length; i++){
+				var html = '';
+				console.log(i);
+				$('#alert-list').append(html);
+			}
+			for(var i=0; i<reminders.length; i++){
+				var html = '';
+				console.log(i);
+				$('#reminder-list').append(html);
+			}
+			for(var i=0; i<expirations.length; i++){
+				var html = '';
+				console.log(i);
+				$('#expiration-list').append(html);
 			}
 			// <div class="alert redtip">
 			// 	You haven't completed your health risk assessment.

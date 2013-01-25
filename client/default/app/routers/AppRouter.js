@@ -11,8 +11,9 @@ define([
   'views/Main',
   'views/PageNotFound',
   'views/Profile',
-  'views/cal'
-], function($, _, Backbone, session, LoginView, MainView, PageNotFoundView, ProfileView, CalendarView) {
+  'views/cal',
+  'views/Video'
+], function($, _, Backbone, session, LoginView, MainView, PageNotFoundView, ProfileView, CalendarView, VideoView) {
 
   return Backbone.Router.extend({
 
@@ -22,15 +23,16 @@ define([
     $topBar: $('#topBar'),
 
     routes: {
-      '': 'startup',
-      'login': 'login',
-      'home(/:page)': 'home',
+      ''         : 'startup',
+      'login'    : 'login',
+      'home(     /:page)': 'home',
 
-      'widgets': 'widgets',
+      'widgets'  : 'widgets',
       'healthHub': 'healthHub',
-      'connect': 'connect',
-      'calendar': 'calendar',
-      'library': 'library',
+      'connect'  : 'connect',
+      'calendar' : 'calendar',
+      'library'  : 'library',
+      'video'    : 'video',
       //      'home/news'  : 'homeNews',
       //      'home/alerts': 'homeAlerts',
       //      'home/goals' : 'homeGoals',
@@ -125,6 +127,12 @@ define([
     // TODO: Re-evaluate this function.
    profile: function() {
     this.$content.html((new ProfileView()).render().el);
+   },
+
+   video: function() {
+    this.$topBar.hide();
+    this.$content.html((new VideoView()).render().el);
    }
+
   });
 });
