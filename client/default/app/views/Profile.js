@@ -230,7 +230,7 @@ define(['jquery',
                 {
                     for (i=0; i<url.avatars.length; i++)
                     {
-                        if(url.avatars[i].avatarId == avatar)
+                        if(url.avatars[i].avatarId == avatar_id)
                         {
                             var abc = url.avatars[i].imageUrl;
                             var tempurl = abc.replace('"', "");
@@ -242,9 +242,9 @@ define(['jquery',
                         }
                     }
                 }else{
-                    for (i=0; i<imgUrl.avatars.length; i++)
+                    for (i=0; i<url.avatars.length; i++)
                     {   
-                        if(imgUrl.avatars[i].avatarId == selected)
+                        if(url.avatars[i].avatarId == selected)
                         {
                             var abc = imgUrl.avatars[i].imageUrl;
                             var tempurl = abc.replace('"', "");

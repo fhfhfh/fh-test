@@ -17,9 +17,10 @@ define(['jquery',
     'views/cal',
     'views/Library',
     'models/Acts',
+    'models/avatars',
     
     ], function($, _, Backbone, ContainerView, HomeView, TopBar, template, iScroll, 
-        WidgetsView, HealthHubView, ConnectView, CalendarView, LibraryView,Acts) {
+        WidgetsView, HealthHubView, ConnectView, CalendarView, LibraryView,Acts,Avatars) {
 
 
         //interface----------------------------------
@@ -36,6 +37,7 @@ define(['jquery',
             },
     
             setPeachyPoints 		: _setPeachyPoints,
+            setAvatars                  : _setAvatars,
       
 
             subViews: {
@@ -50,6 +52,7 @@ define(['jquery',
             initialize: function(options) {
                 var self = this;
                 this.setPeachyPoints();
+                this.setAvatars();
                 this.$el.html(template);
                 this.$content = this.$('#main-content');
                 this.$nav = this.$('#main-nav');
@@ -133,11 +136,27 @@ define(['jquery',
                 }, 
                 function(err, msg){
                     console.log(err);
-                }
-                );
+                });
         }
         
-        
+        function _setAvatars(){
+            Avatars.fetchAvatars(function (res){
+                if (res)
+                {
+                    for (i=0; i<res.payload.avatars.length; i++)
+                    {
+                        if(res.payload.avatars[i].avatarId == avatar_id)
+                        {
+                            var abc = res.payload.avatars[i].imageUrl;
+                            var tempurl = abc.replace('"', "");
+                            var tempurl = tempurl.replace('"', "");
+                            this.$('#avatar').attr("src", tempurl);
+                            
+                        }
+                    }
+                }
+            });
+        }
         
         
     });
