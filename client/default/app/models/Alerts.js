@@ -42,9 +42,8 @@ define([
                     self.entries.expirations.push(entries[i]);   
                 }
             }
-            console.log(self.entries);
             var strEntries = JSON.stringify(self.entries);
-            Store.save(self.storageKey, self.entries, function(){});
+            Store.save(self.storageKey, strEntries, function(){});
 
             return callback(self.entries);
         }, function(err, msg) {

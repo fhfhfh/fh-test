@@ -66,7 +66,12 @@ define([
                 var quote = "";
                 if (username && password) {
                     self.controller.login(username, password, function(url){
-                        self.showVideo(url);
+                        if(url === false){
+                            Backbone.history.navigate('home', true, true);
+                        }
+                        else {
+                            self.showVideo(url);
+                        }
                     });
 
                   // session.login(username, password, {
@@ -104,7 +109,7 @@ define([
             showVideo: function(url){
                 var welcome = new WelcomeView();
                 $('#content').html(welcome.render().el);
-                welcome.loadVideo('"http://www.youtube.com/embed/xqkBW1NCRLQ"');
+                welcome.loadVideo(url);
             },
 
             showLoading: function() {

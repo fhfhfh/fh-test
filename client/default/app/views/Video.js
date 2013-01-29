@@ -13,18 +13,26 @@ define([
     return Backbone.View.extend({
       tagName: 'div',
       id: 'VideoPlayback',
+      template: _.template(tpl),
 
         events: {
-            'click #close'       : 'close'
+            'click #doneBtn'   : 'close'
         },
 
         initialize: function() {
             _.bindAll(this);
+            this.video = JSON.parse(localStorage.getItem('tempVid'));
+            localStorage.removeItem('tempVid');
             this.render();
         },
 
         render: function() {
-            this.$el.html(tpl);
+            var self = this;
+            this.$el.html(self.template({
+                url: self.video.url,
+                title: self.video.title,
+                description: self.video.description
+            }));
             return this;
         },
 
@@ -41,32 +49,11 @@ define([
             vid.html(html);
         },
 
-        toggleState: function(){
-            var self = this;
-            var video = this.$('video')[0];
-            var videoWrapper = this.$('#video');
-
-            var status= $('<p class="status"></p>');
-            videoWrapper.append(status);
-            status = this.$('.status')[0];
-
-            if(video.paused){
-                video.play();
-                // TODO: fadeout the status message
-                self.$('.status').remove();
-            }
-            else{
-                status.innerHTML = 'PAUSED';
-                video.pause();
-            }
-        },
 
         close: function(){
             this.remove();
-            Backbone.history.navigate('home', {
-              trigger: true,
-              replace: true
-            });
+            // Backbone.history.back();
+            Backbone.history.navigate('home', true);
         }
     });
 });

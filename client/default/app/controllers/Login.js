@@ -52,7 +52,7 @@ define(['jquery',
                             $('#loading-display #loading-snippet #first').html(JSON.stringify(res.payload.quotes[i].quote));
                             $('#loading-display #second').html(JSON.stringify(res.payload.quotes[i].author));
                             setTimeout(function(){
-                                return callback(true);
+                                return callback(session.attributes.video);
                             }, 3000);                    
                         }
                     });
@@ -71,8 +71,8 @@ define(['jquery',
             user.setPassword(password);
 		
             // Get user profile from cloud
-            user.fetchUser(function(res){
-                console.log(res);
+            user.setProfile(session.attributes.userProfile);
+            user.saveUser(function(res){
             });
         };
 	

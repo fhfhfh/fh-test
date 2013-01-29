@@ -32,16 +32,20 @@ define(['backbone',
 					var short = item.description;
 					if(short.length > 200){
 						short = short.substring(0,200) + '...';
-					} 
+					}
+
+					var img = item.url.split('embed/')[1];
+					var imgAddr = 'http://img.youtube.com/vi/'+img+'/0.jpg'
 
 					arr.push(
 						new NewsItem({  
 							'id' 				: item.newsId,
 							'title'				: item.title, 
 							'description'		: item.description,
-							'shortDescription'	: item.description.substring(0, 200) + '...',
+							'shortDescription'	: short,
 							'newsId'			: item.newsId,
-							'url'				: item.url
+							'url'				: item.url,
+							'imgUrl' 			: imgAddr
 						})
 					);
 					self.add(arr[i]);

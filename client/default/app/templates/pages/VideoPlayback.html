@@ -6,7 +6,7 @@
 	</div>
 
 	<div id="buttonContainer">
-		<li class="btn">Done</li>
+		<li id="doneBtn" class="btn">Done</li>
 	</div>
 </div>
 
@@ -18,7 +18,9 @@
 	</div>
 
 	<div id="currentVideo">
-		<iframe></iframe>
+		<iframe src="<%=url%>?modestbranding=1;tite=;controls=0">
+			
+		</iframe>
 	</div>
 
 	<div id="nextVideo">
@@ -36,7 +38,7 @@
 <div id="videoDescription">
 	<div id="title">
 		<img src="img/VideoPlay.png"/>
-		<h2>Low Sodium Lifestyle</h2>
+		<h2><%= title%></h2>
 	</div>
 
 	<hr/>
@@ -55,7 +57,7 @@
 	</div>
 
 	<div id="description">
-		<p>A low-sodium diet can cause you to initially lose weight because your body will require less water intake. Use a low-sodium diet to lose weight with help from a licensed and registered dietitian and nutritionist in this free video on weight loss.</p>
+		<p><%=description%></p>
 	</div>
 
 	<div id="favBtn">

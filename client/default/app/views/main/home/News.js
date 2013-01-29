@@ -23,7 +23,7 @@ define(['jquery',
 	    visible		: 0,
 	    events		: {
 	    	'click #load-more-news': 'loadNews',
-	    	'click .description' : 'videoScreen'
+	    	'click .clearfix' : 'videoScreen'
 	    },
 	    template	: _.template(template),
 	    itemTemplate: _.template(itemTemplate),
@@ -48,40 +48,34 @@ define(['jquery',
 	function _render(){
 		var self = this;
 		var itemsString = '';
-		// this.collection.fetch();
-		// this.collection.forEach(function(item) {
-		// 	itemsString += self.itemTemplate(item.toJSON());
-		// });
+
+		this.collection.fetch();
+		this.collection.forEach(function(item) {
+			itemsString += self.itemTemplate(item.toJSON());
+		});
 		this.$el.html(this.template({newsItems: itemsString}));
 		return this;
 	};
 
 	function _appendItems(items) {
 		var self = this;
-		if($('.clearfix').length >0){
-			return;
-		}
-      // if (!items.length) {
-      //   this.$('ul').append(this.itemTemplate(items.toJSON()));
-      // } else {
+		// if($('.clearfix').length >0){
+		// 	return;
+		// }
+		if (!items.length) {
+			this.$('ul').append(this.itemTemplate(items.toJSON()));
+		} else {
       	console.log(self.collection);
         var itemsString = '';
 		itemsString += self.itemTemplate(self.collection.at(0).toJSON());
-		// itemsString += self.itemTemplate(self.collection.at(1).toJSON());
         this.$('ul').append(itemsString);
-      // }
+      }
       this.refreshScroll();
     };
 
-    function _loadNews(e) {
-    	e.preventDefault();
-    	e.stopPropagation();
-    	
-    	// if(this.NewsIndex <= this.visible){
-    	// 	Backbone.trigger('notify', 'No more news available');
-    	// 	return;
-    	// }
-    	if($('.clearfix').length >0){
+    function _loadNews() {
+
+    	if($('.clearfix').length >5){
 			Backbone.trigger('notify', 'No more news available');
 			return;
 		}
@@ -98,7 +92,11 @@ define(['jquery',
     	var id		= $(e.currentTarget).closest('li').attr('data-id');
     	var item	= this.collection.get(id);
     	console.log(id, item);
+    	
+    	localStorage.setItem('tempVid', JSON.stringify(item));
     	// TODO: change to videoScreen here
+    	Backbone.history.navigate('video', true, true);
+
 	};
 
  

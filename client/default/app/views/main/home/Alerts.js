@@ -40,6 +40,7 @@ define(['jquery',
 		render : function(){
 			this.$el.html(tpl);
 			this.$('#allBtn').addClass('selected');
+			this.bind();
 			return this;
 		},
 
@@ -76,31 +77,72 @@ define(['jquery',
 		},
 
 		populate: function(){
-			console.log(this.model);
+			var self = this;
 			var entries		= this.model.entries;
 			var alerts		= entries.alerts;
 			var reminders	= entries.reminders;
 			var expirations	= entries.expirations;
 
 			for(var i=0; i<alerts.length; i++){
-				var html = '';
-				console.log(i);
+				var cls = self.mapAlert(alerts[i].noticeSeverityText);
+				var html = 
+					'<div class="alert '+cls+'">'+
+					alerts[i].noticeSummary +
+					'<span id="date">' + alerts[i].noticeDueDate.split(' ')[0] +'</span></div>'
 				$('#alert-list').append(html);
 			}
 			for(var i=0; i<reminders.length; i++){
-				var html = '';
-				console.log(i);
+				var cls = self.mapAlert(reminders[i].noticeSeverityText);
+				var html = 
+					'<div class="alert '+cls+'">'+
+					reminders[i].noticeSummary +
+					'<span id="date">' + reminders[i].noticeDueDate.split(' ')[0] +'</span></div>'
 				$('#reminder-list').append(html);
 			}
 			for(var i=0; i<expirations.length; i++){
-				var html = '';
-				console.log(i);
+				var cls = self.mapAlert(expirations[i].noticeSeverityText);
+				var html = 
+					'<div class="alert '+cls+'">'+
+					expirations[i].noticeSummary +
+					'<span id="date">' + expirations[i].noticeDueDate.split(' ')[0] +'</span></div>'
 				$('#expiration-list').append(html);
+			}
+
+			if(alerts.length < 1){
+				$('#alert-list').append('<p> No alerts added yet.</p>');
+			}
+			if(reminders.length < 1){
+				$('#reminder-list').append('<p> No reminders added yet.</p>');
+			}
+			if(expirations.length < 1){
+				$('#expiration-list').append('<p> No expirations added yet.</p>');
 			}
 			// <div class="alert redtip">
 			// 	You haven't completed your health risk assessment.
 			// 	<span id="date">Yesterday</span>
 			// </div>
+		},
+
+
+		// map an alerts priority to a css class
+		mapAlert: function(priority){
+			var cls = '';
+			switch(priority){
+				case 'High':
+					cls = 'redtip';
+					break;
+				case 'Medium':
+					cls = 'orangetip';
+					break;
+				case 'Low':
+					cls = '';
+					break;
+				default:
+					cls = '';
+					break;
+			}
+			return cls;
 		}
+
 	});
 });

@@ -1,13 +1,12 @@
 <li class="clearfix" data-id="<%= id %>">
     <div class="video-preview">
 
-        <iframe width="310" height="175" src="<%= url%>?modestbranding=1;tite=;controls=0"
+        <!-- <iframe width="310" height="175" src="<%= url%>?modestbranding=1;tite=;controls=0"
             frameborder="0" allowfullscreen>
-        </iframe>
+        </iframe> -->
 
 
-        <!-- TODO: Use proper image & description once API is in place. -->
-        <!-- <img src="img/VideoPlaceholder.png" alt="Headline 1"> -->
+        <img src="<%= imgUrl%>" alt="Headline" width="310" height="175" />
         <div class="title"><%= title %><span class="duration">(<%=  '' %>)</span></div>
     </div>
     <div class="description">

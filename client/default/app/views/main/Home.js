@@ -36,11 +36,13 @@ define([
       this.$nav = this.$('#home-nav');
       this.$('#show-news').addClass('selected');
 
-      this.setActiveView(((options && options.activeView) || 'news'));
+      // self.setActiveView(((options && options.activeView) || 'news'));  
+      
     },
 
     render: function() {
       var self = this;
+      self.setActiveView('news');  
       this.delegateEvents();
       if (this.activeView) {
         this.activeView.delegateEvents();

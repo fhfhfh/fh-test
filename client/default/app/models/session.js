@@ -17,6 +17,7 @@ define([
 
     // The amount of time, in milliseconds, that the session remains valid for.
     timeout: 1000 * 60 * 60,
+    video: 'null',
 
     initialize: function() {
       _.bindAll(this);
@@ -105,6 +106,7 @@ define([
         }, function(res) {
           options.success(model, res, options);
           self.trigger('sync', model, res, options);
+
         }, function(err, msg) {
           var theError = {
             err: err,
@@ -131,9 +133,21 @@ define([
     },
 
     parse: function(res) {
+      // check video status ---------------
+      var flag = res.response.payload.userDetails.postLoginVideo;
+      var url = res.response.payload.userDetails.postLoginVideoUrl;
+      var video = false;
+
+      if(flag == 1){
+        video = url;
+      }
+      // ----------------------------------
+
       return {
         id: res.response.head.sessionId,
-        timestamp: (new Date()).valueOf()
+        timestamp: (new Date()).valueOf(),
+        userProfile: res.response.payload,
+        video: video
       };
     }
   });
