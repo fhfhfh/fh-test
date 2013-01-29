@@ -634,6 +634,7 @@ li {
     height: 70%;
     width: 70%;
     display: block;
+    color: black;
     display: none;
     top: 15%;
     left: 15%;
@@ -642,6 +643,41 @@ li {
     box-shadow: 10px 10px 5px #888888;
     border: 1px solid #888888;
 }
+
+#passwordDiv {
+/*    position: fixed;*/
+    background: #fff ;
+    color: black;
+    height: 30%;
+    position: fixed;
+    width: 40%;
+    display: block;
+    display: none;
+    top: 40%;
+    left:30%;
+    -moz-border-radius: 20px;
+    -webkit-border-radius: 20px;
+    box-shadow: 10px 10px 5px #888888;
+    border: 1px solid #888888;
+}
+
+#pass_mess{
+    display: none;
+    color: red;
+    font-size: 11px;
+}
+
+.popup_wrapper{
+    display: none;
+     height: 100%;
+    width: 100%;
+    position: fixed;
+    background: lightgray;
+    left: 0;
+    top: 0;
+    opacity: 0.5;
+}
+
 .pop_btn {
     background-color: blue;
     height: 30px;

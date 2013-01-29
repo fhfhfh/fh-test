@@ -26,7 +26,10 @@ define(['jquery',
                 'click #address': 'showAddr',
                 'click #done' : 'closeAddr',
                 'click #profile-avatar': "popup",
-                'click #cancelpop'  :'popup'
+                'click #cancelpop'  :'popup',
+                'change #password' : 'password',
+                'click #cancelPass'  :'password',
+                'click #okPass'  :'ok'
             },
 
             //Function interface
@@ -40,7 +43,9 @@ define(['jquery',
             showAddr    : _showAddr,   // Pop-up box to show all address fields
             closeAddr 	: _closeAddr,
             mapValues 	: _mapValues,
-            setAvatar           : _setAvatar
+            setAvatar           : _setAvatar,
+            password    : _password,
+            ok          : _ok
         });
 
 
@@ -48,7 +53,7 @@ define(['jquery',
 
         var user		= new User();
         var controller	= new Controller();
-    //    var imgUrl="";
+        //    var imgUrl="";
         var selected="";
         var avatar;
         function _initialize(){
@@ -84,6 +89,46 @@ define(['jquery',
         function _saveDetails(){
             controller.saveProfile(this);
         };
+        
+        function _password(){ 
+            var passwordDiv = $('#passwordDiv');
+             $('#confirmPassword_txt').val("");
+              $('#pass_mess').hide();
+            if(passwordDiv.css("display")=="block") {
+                    
+                passwordDiv.hide();
+                 $('#cover_div').hide();
+            }
+            else {
+                $('#cover_div').show();
+                passwordDiv.show();
+            }
+            
+        };
+        
+        function _ok(){ 
+            var pass1;
+            var pass2;
+            pass1 = $('#password').val();
+            pass2 = $('#confirmPassword_txt').val();
+            if(pass1 == pass2)
+            {
+              $('#passwordDiv').hide();
+               $('#cover_div').hide();
+       }
+            else
+                { 
+                    $('#password').val(pass1);
+                    $('#confirmPassword_txt').val("");
+                    $('#pass_mess').show();
+                    $('#confirmPassword_txt').focus(function(){
+                        $('#pass_mess').hide();
+                        
+                    });
+            }
+                
+        };
+        
 
         function _cancel(){
             Backbone.history.navigate('home', true);
@@ -167,41 +212,40 @@ define(['jquery',
     
         function _popup(){
             
+            var popupDiv = $('#PopupDiv');
             $('#PopupDiv').html("");
-            if($('#PopupDiv #popup_inner_div'));
+            popupDiv.append("<h1 align='center'>Select Avatar Image</h1>");
+            popupDiv.append("<div id='popup_inner_div' style='padding : 2%'></div>");
+            $('#PopupDiv #popup_inner_div').append("<ul id='popup_ul'>"); 
+            for (i=0; i<imgUrl.avatars.length; i++)
             {
-                var temp;
-                // var selected;
-                var popupDiv = $('#PopupDiv');
-                popupDiv.append("<h1 align='center'>Select Avatar Image</h1>");
-                popupDiv.append("<div id='popup_inner_div' style='padding : 2%'></div>");
-                $('#PopupDiv #popup_inner_div').append("<ul id='popup_ul'>"); 
-                for (i=0; i<imgUrl.avatars.length; i++)
-                {
-                    var abc = imgUrl.avatars[i].imageUrl;
-                    var xyz = imgUrl.avatars[i].avatarId;
-                    var tempurl = abc.replace('"', "");
-                    var tempurl = tempurl.replace('"', "");
-                    $('#PopupDiv #popup_inner_div #popup_ul').append("<li style=' margin: 10px 20px 20px 20px' id='popup_li"+i+"'></li>");
-                    $('#PopupDiv #popup_inner_div #popup_li'+i).append("<img id='img"+i+"'class'popup_avatar' alt='"+xyz+"' style='height : 75px' id='theImg' src='"+tempurl+"'/>");
-                    $('#PopupDiv #popup_inner_div #popup_li'+i+" img").click(function(){
-                        selected = $(this).attr("alt");
-                        popupDiv.hide();
-                        popbtn(selected);
-                        // text.innerHTML = "show";
-                    });
-                }
-                popupDiv.append("<button id='cancelpop' class='pop_btn'>Cancel</button></li>");
-                if(popupDiv.css("display")=="block") {
-                    
+                var abc = imgUrl.avatars[i].imageUrl;
+                var xyz = imgUrl.avatars[i].avatarId;
+                var tempurl = abc.replace('"', "");
+                var tempurl = tempurl.replace('"', "");
+                $('#PopupDiv #popup_inner_div #popup_ul').append("<li style=' margin: 10px 20px 20px 20px' id='popup_li"+i+"'></li>");
+                $('#PopupDiv #popup_inner_div #popup_li'+i).append("<img id='img"+i+"'class'popup_avatar' alt='"+xyz+"' style='height : 75px' id='theImg' src='"+tempurl+"'/>");
+                $('#PopupDiv #popup_inner_div #popup_li'+i+" img").click(function(){
+                    selected = $(this).attr("alt");
                     popupDiv.hide();
-                    // text.innerHTML = "show";
-                }
-                else {
-                    popupDiv.show();
-                    // text.innerHTML = "hide";
-                }
+                    $('#cover_div').hide();
+                    popbtn(selected);
+                // text.innerHTML = "show";
+                });
             }
+            popupDiv.append("<button id='cancelpop' class='pop_btn'>Cancel</button></li>");
+            if(popupDiv.css("display")=="block") {
+                    
+                popupDiv.hide();
+                 $('#cover_div').hide();
+            // text.innerHTML = "show";
+            }
+            else {
+                popupDiv.show();
+                 $('#cover_div').show();
+            // text.innerHTML = "hide";
+            }
+            
         }
         
         
