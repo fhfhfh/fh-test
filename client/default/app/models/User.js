@@ -150,7 +150,7 @@ define(['jquery',
     		function(res){
                     self.setProfile(res.payload);
                         
-                        avatar_id = res.payload.userDetails.avatarId;
+                        
     			self.saveUser(function(res){
     				console.log('Saved User: ',res);
     				return callback(true);

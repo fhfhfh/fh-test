@@ -105,6 +105,7 @@ define([
           }
         }, function(res) {
           options.success(model, res, options);
+          avatar_id = res.response.payload.userDetails.avatarId;
           self.trigger('sync', model, res, options);
 
         }, function(err, msg) {
