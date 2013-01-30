@@ -1,8 +1,9 @@
 <h1>Calendar</h1>
-
-<div>
-<div id='calendar-content' > </div>
+<center>
+<div >
+    <div id='calendar-content' style="width: 85%"> </div>
 </div>
+</center>
 
 <script type='text/javascript'>
 
@@ -19,7 +20,7 @@
                 center: 'title',
                 right: 'month,agendaWeek,agendaDay'
             },
-
+            
             eventClick: function(event) {
                 if (event.end)
                     alert("Title : "+event.title+"\nStart Date :"+event.start+"\nEnd Date :"+event.end);
@@ -27,22 +28,20 @@
                     alert("Title : "+event.title+"\nStart Date :"+event.start);
             },
             mouseover: false ,
-
-
             selectable: true,
             selectHelper: true,
             select: function(start, end, allDay) {
                 var title = prompt('Event Title:');
                 if (title) {
                     calendar.fullCalendar('renderEvent',
-                            {
-                                title: title,
-                                start: start,
-                                end: end,
-                                allDay: allDay
-                            },
-                            true // make the event "stick"
-                    );
+                    {
+                        title: title,
+                        start: start,
+                        end: end,
+                        allDay: allDay
+                    },
+                    true // make the event "stick"
+                );
                 }
                 calendar.fullCalendar('unselect');
             },
