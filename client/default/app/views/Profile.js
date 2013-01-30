@@ -212,7 +212,6 @@ define(['jquery',
     
     
         function _popup(){
-            alert("popup"+imgUrl);
             var popupDiv = $('#PopupDiv');
             $('#PopupDiv').html("");
             popupDiv.append("<h1 align='center'>Select Avatar Image</h1>");
@@ -278,11 +277,10 @@ define(['jquery',
                     for (i=0; i<url.avatars.length; i++)
                     {
                         if(url.avatars[i].avatarId == avatar_id)
-                        {alert("Here"+JSON.stringify(url));
+                        {
                             var abc = url.avatars[i].imageUrl;
                             var tempurl = abc.replace('"', "");
                             var tempurl = tempurl.replace('"', "");
-                            alert(tempurl);
                             this.$('#avatar').attr("src", tempurl);
                             this.$('#account-information').find('img').attr("src", tempurl);
                             imgUrl = url;
