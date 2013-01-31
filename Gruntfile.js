@@ -35,6 +35,14 @@ module.exports = function(grunt) {
     },
 
     less: {
+      dev: {
+        files: {
+          'client/default/css/styles.css': 'client/default/less/styles.less'
+        },
+        options: {
+          compress: false
+        }
+      },
       ios: {
         files: {
           'builds/ios/www/css/styles.css': 'builds/ios/www/less/styles.less'
