@@ -91,10 +91,8 @@ define(['jquery',
     	e.stopPropagation();
     	var id		= $(e.currentTarget).closest('li').attr('data-id');
     	var item	= this.collection.get(id);
-    	console.log(id, item);
     	
     	localStorage.setItem('tempVid', JSON.stringify(item));
-    	// TODO: change to videoScreen here
     	Backbone.history.navigate('video', true, true);
 
 	};

@@ -8,7 +8,7 @@ define([
     'underscore',
     'backbone',
     'feedhenry',
-    'text!templates/pages/login.html',
+    'text!templates/pages/Login.html',
     'controllers/Login',
     'views/WelcomeVideo',
     'models/quotes',
