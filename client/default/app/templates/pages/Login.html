@@ -1,21 +1,56 @@
-<div class="corner-logo"></div>
+<div id="login-container" class="visible">
+    <div>
 
-<div id="login-box">
-    <div id="login-box-center">
-        <div id="login-display">
-            <div class="login-logo"></div>
-            <h2 id="login-caption">Personal Wellness Management, Only Sweeter.</h2>
+        <div class="box">
+            <div class="left">
+                <div class="login-logo"></div>
+                <h2 class="login-caption">Personal Wellness Management, Only
+                    Sweeter.</h2>
+
+                <aside class="copyright">&copy; 2012 SecureHealthHub</aside>
+
+            </div>
 
             <form id="login-form" action="javascript:void(0);">
                 <h2>Sign in to your Peachy Account</h2>
-                <input id="username" type="text" placeholder="Name">
-                <input id="password" type="password" placeholder="Password">
-                <button type="submit" id="signin"><img src="img/sign-in.png" alt="">Sign In</button>
+
+                <label for="username">Username</label>
+                <input id="username" type="text" placeholder="Username"
+                       required>
+
+                <label for="password">Password</label>
+                <input id="password" type="password" placeholder="Password"
+                       required>
+
+                <button type="submit" id="signin" class="login">Sign In</button>
             </form>
 
-            <button id="login-help-button" type="button">Need Help? Tap Here.</button>
+            <button id="login-help-button" type="button"><span>Need Help? Tap
+                Here.</span></button>
         </div>
+
     </div>
 </div>
 
-<aside class="copyright-bottom">&copy; 2012 SecureHealthHub</aside>
+<div id="loading-container">
+    <div>
+
+        <div class="box">
+            <div class="login-logo"></div>
+
+            <p id="login-loading-message">Securely Logging In&hellip;</p>
+
+            <div id="loading-snippet">
+                <p>Did you know a medium-size apple has 90 calories and
+                    3&frac12; grams of dietary fiber?</p>
+
+                <p>Maybe that's why they say “an apple-a-day keeps the doctor
+                    away.”</p>
+            </div>
+        </div>
+
+        <aside class="copyright">&copy; 2012 SecureHealthHub</aside>
+    </div>
+</div>
+
+<aside class="copyright">&copy; 2012 SecureHealthHub</aside>

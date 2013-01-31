@@ -1,98 +1,115 @@
-/*
- * This file covers the login and loading screens, which both constitute the
- * full login experience. They also share majority styling, compared to the rest
- * of the app.
- */
-
-#login-display,
-#loading-display {
-    .force3D();
-}
+@box: rgba(26, 26, 26, 0.25);
+@helpBox: rgba(26, 26, 26, 0.15);
+@inputBg: #e6e6e6;
+@inputPlaceholder: #2b6991;
 
 #login {
-    height: 100%;
-    min-height: 100%;
-}
-
-.corner-logo {
-    position: absolute;
-    top: 15px;
-    left: 15px;
-    width: 99px;
-    height: 24px;
-    background-image: url('../img/login/PeachyLogoWhite.png');
-    background-position: center center;
-    background-repeat: no-repeat;
+    background: url('../img/login/PeachyLogoWhite.png') 15px 15px no-repeat;
     background-size: 99px 24px;
+
+    @media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
+        background-image: url('../img/login/PeachyLogoWhite@2x.png');
+    }
+
+
 }
 
-#login-box {
-    width: 340px;
-    margin: 0 auto;
-    position: relative;
+#login-container,
+#loading-container {
+    position: absolute;
+    top: 0;
+
+    // Vertical centering setup...
     display: table;
+    width: 100%;
     height: 100%;
 
-    &.loading {
-        width: 440px;
+    & > div {
+        display: table-cell;
+        vertical-align: middle;
+        text-align: center;
+    }
+
+    // Visibility & transitioning setup...
+    -webkit-transform: translate3d(0, 0, 0);
+    -webkit-transition: all .4s ease;
+    -webkit-transition-delay: now;
+    opacity: 0;
+    overflow: hidden;
+
+    &.visible {
+        opacity: 1;
+        -webkit-transition-delay: .6s;
+    }
+
+
+    .box {
+        position: relative;
+        overflow: hidden;
+        background-color: @box;
+        border-radius: 12px;
+        margin: 0 auto;
     }
 }
 
-#login-box-center {
-    display: table-cell;
-    position: relative;
-    vertical-align: middle;
-}
+#login-container {
+    z-index: 10;
 
-.copyright-bottom {
-    position: absolute;
-    bottom: 15px;
-    text-align: center;
-    width: 100%;
-    text-shadow: 0 -2px 1px black;
+    .box {
+        width: 340px;
+        background-color: transparent;
 
-    .avenir-medium(12px);
-}
+        @media only screen and (orientation: landscape) {
+            width: 720px;
+            background-color: @box;
 
-
-/* Login Section -------------------------------------------------------------*/
-
-#login-display {
-    -webkit-transition: opacity .2s linear;
-    opacity: 1;
-
-    &.hidden {
-        opacity: 0;
+            .left {
+                width: 50%;
+                float: left;
+                padding: 30px 15px 0 30px;
+            }
+        }
     }
-}
 
-.login-logo {
-    display: block;
-    margin: 0 auto;
-    width: 229px;
-    height: 54px;
-    background-image: url('../img/login/PeachyLogoHero.png');
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: 229px 54px;
-}
+    .copyright {
+        display: none;
+        margin-top: 2em;
 
-#login-caption {
-    text-align: center;
-    margin-top: 5px;
-
-    .avenir-medium(14px);
+        @media only screen and (orientation: landscape) {
+            display: block;
+        }
+    }
 }
 
 #login-form {
+    background-color: @box;
+    padding: 30px;
     margin: 30px 0;
-    background-color: rgba(26, 26, 26, 0.25);
-    padding: 30px 30px 30px 30px;
-    overflow: hidden; /* Clears floats */
+    border-radius: 12px;
+    overflow: hidden;
 
-    .border-radius(12px);
+    @media only screen and (orientation: landscape) {
+        background-color: transparent;
+        width: 50%;
+        float: right;
+        margin: 0;
+    }
+
+    // We visually hide the label, however we ensure that they're readable
+    // by screen-readers.
+    label {
+        border: 0;
+        clip: rect(0 0 0 0);
+        height: 1px;
+        margin: -1px;
+        overflow: hidden;
+        padding: 0;
+        position: absolute;
+        width: 1px;
+    }
 
     h2 {
+        margin-top: 0;
         margin-bottom: 30px;
         text-align: center;
 
@@ -104,11 +121,11 @@
         display: block;
         margin: 10px 0;
         height: 46px;
-        .border-radius(8px);
+        border-radius: 8px;
         border: none;
         background-color: #e6e6e6;
-        padding: 0 10px;
         color: #2b6991;
+        padding: 0 10px;
 
         .avenir(13px);
 
@@ -118,54 +135,82 @@
             .avenir(13px);
         }
     }
-
-    button {
-        border-radius: 5px;
-        border: 1px solid rgb(211, 136, 0);
-        background-color: orange;
-        height: 30px;
-        margin-top: 30px;
-        color: white;
-        float: right;
-        padding: 0 10px;
-        line-height: 28px;
-
-        .background-gradient(#f26622, #feb000);
-        .avenir-bold(14px);
-
-        img {
-            margin-right: 5px;
-            vertical-align: text-bottom;
-        }
-    }
 }
 
 #login-help-button {
     border: none;
-    padding: 15px 30px;
-    background-color: rgba(0,0,0,0.15);
     width: 100%;
-    color: #fff;
+    padding: 0;
+    background-color: transparent;
     text-shadow: 0 -2px 1px black;
+    color: #fff;
 
-    .border-radius(8px);
     .avenir-demi(14px);
+
+    span {
+        display: block;
+        background-color: @helpBox;
+        padding: 15px 30px;
+        border-radius: 8px;
+    }
+
+    @media only screen and (orientation: landscape) {
+        position: absolute;
+        width: 50%;
+        bottom: 30px;
+        left: 0;
+
+        span {
+            margin: 0 15px 0 30px;
+        }
+    }
+}
+
+.login-logo {
+    display: block;
+    margin: 0 auto;
+    width: 229px;
+    height: 54px;
+    background: url('../img/login/PeachyLogoHero.png') center center no-repeat;
+    background-size: 229px 54px;
+
+    @media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
+        background-image: url('../img/login/PeachyLogoHero@2x.png');
+    }
+}
+
+.login-caption {
+    text-align: center;
+    margin-top: 5px;
+
+    .avenir-medium(14px);
 }
 
 
-/* Loading Section -----------------------------------------------------------*/
+#loading-container {
+    .box {
+        width: 440px;
+        padding: 30px 30px 60px 30px;
+        background-image: url('../img/loading-watermark2.png');
+        background-repeat: no-repeat;
+        background-position: 93% 95%;
+        background-size: 234px 173px;
 
-#loading-display {
-    background: rgba(26, 26, 26, 0.25) url(../img/loading-watermark2.png) right bottom no-repeat;
-    padding: 60px 60px 110px 60px;
-    text-align: center;
-    .border-radius(12px);
+        // TODO: Edit transparency of loading watermark and enable retina.
 
-    -webkit-transition: opacity .6s linear;
-    opacity: 1;
+//        @media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
+//            background-image: url('../img/login/PeachWatermark@2x.png');
+//        }
+    }
 
-    &.hidden {
-        opacity: 0;
+    .copyright {
+        display: none;
+
+        @media only screen and (orientation: landscape) {
+            display: block;
+            position: relative;
+            top: 60px;
+        }
     }
 }
 
@@ -187,45 +232,53 @@
     }
 }
 
-// CSS Animations for fading in and out.
 
-@-webkit-keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
+.copyright {
+    .avenir-medium(12px);
+    text-shadow: 0 -2px 1px #000;
+    text-align: center;
+}
 
-    to {
-        opacity: 1;
+#login > .copyright {
+    position: absolute;
+    bottom: 15px;
+    width: 100%;
+
+    @media only screen and (orientation: landscape) {
+        display: none;
     }
 }
 
-@-webkit-keyframes fadeOut {
-    from {
-        opacity: 1;
-    }
+button {
+    border-radius: 5px;
+    border: 1px solid;
+    color: #fff;
+    padding: 0 10px;
 
-    to {
-        opacity: 0;
-    }
-}
+    &.login {
+        border-color: rgb(211, 136, 0);
+        background-color: orange;
+        height: 30px;
+        margin-top: 30px;
+        float: right;
+        line-height: 28px;
+        -webkit-transition: all .1s linear;
 
-#login,
-#loading {
-    -webkit-transform: translate3d(0, 0, 0);
-    -webkit-animation-duration: .4s;
-    -webkit-animation-name: fadeIn;
-}
+        .background-gradient(#f26622, #feb000);
+        .avenir-bold(14px);
 
-// Retina & high-res image replacements.
-@media
-(-webkit-min-device-pixel-ratio: 1.5),
-(min-resolution: 144dpi) {
+        &:before {
+            content: url('../../img/login/SignInPower.png');
+            margin-right: 5px;
+            vertical-align: sub;
+        }
 
-    .corner-logo {
-        background-image: url('../img/login/PeachyLogoWhite@2x.png');
-    }
-
-    .login-logo {
-        background-image: url('../img/login/PeachyLogoHero@2x.png');
+        &[disabled],
+        &:disabled {
+            border-color: #fff;
+            background-image: none;
+            background-color: transparent;
+            opacity: .2;
+        }
     }
 }

@@ -8,13 +8,12 @@ define([
     'underscore',
     'backbone',
     'feedhenry',
-    'text!templates/pages/Login.html',
-    'text!templates/pages/Loading.html',
+    'text!templates/pages/login.html',
     'controllers/Login',
     'views/WelcomeVideo',
     'models/quotes',
     'models/session'
-    ], function($, _, Backbone, $fh, loginTpl, loadingTpl, loginController, WelcomeView, Quotes, session) {
+    ], function($, _, Backbone, $fh, loginTpl, loginController, WelcomeView, Quotes, session) {
 
         return Backbone.View.extend({
             tagName: 'section',
@@ -45,20 +44,28 @@ define([
                 return this;
             },
 
-            /**
-     * Ensures sign-in button is disabled until the user enters both a username
-     * and a password.
-     */
-            toggleSigninButton: function() {
+          /**
+           * Ensures sign-in button is disabled until the user enters both a username
+           * and a password.
+           *
+           * @param {boolean} [val] If provided, ignore inputs and set to this.
+           */
+          toggleSigninButton: function(val) {
+            var $username = this.$('#username'),
+                $password = this.$('#password'),
+                $button = this.$('#signin');
 
-                // TODO: Cache selectors (carefully ensuring presence in the DOM).
+            if (typeof val === 'boolean') {
+              $button.prop('disabled', val);
+            } else {
+              if (!$username.val() || !$password.val()) {
+                $button.prop('disabled', true);
+              } else {
+                $button.prop('disabled', false);
+              }
+            }
+          },
 
-                if (!$('#username').val() || !$('#password').val()) {
-                    $('#signin').prop('disabled', true);
-                } else {
-                    $('#signin').prop('disabled', false);
-                }
-            },
             login: function() {
                 var self = this;
                 var username = $('#username').val();
@@ -112,49 +119,17 @@ define([
                 welcome.loadVideo(url);
             },
 
-            showLoading: function() {
-                var self = this;
+          showLoading: function() {
+            this.toggleSigninButton(true);
+            this.$('#login-container').removeClass('visible');
+            this.$('#loading-container').addClass('visible');
+          },
 
-                var loginEl = this.$('#login-display');
-                loginEl.addClass('hidden');
-
-                // Give the animation time to complete...
-                setTimeout(function() {
-                    self.loginEl = loginEl.remove();
-                    self.$('#login-box').addClass('loading');
-                    self.$('#login-box-center').html(loadingTpl);
-
-                    // The animation won't be triggered unless we allow the DOM manipulation
-                    // to complete, so we must place this inside a zero timeout to allow the
-                    // call stack to complete.
-                    setTimeout(function() {
-                        self.$('#loading-display').removeClass('hidden');
-
-
-                    }, 0);
-                }, 300);
-            },
-
-            showLogin: function() {
-                var self = this;
-
-                var loadingEl = this.$('#loading-display');
-                loadingEl.addClass('hidden');
-
-                // Give the animation time to complete...
-                setTimeout(function() {
-                    loadingEl.remove();
-                    self.$('#login-box').removeClass('loading');
-                    self.$('#login-box-center').html(self.loginEl);
-
-                    // The animation won't be triggered unless we allow the DOM manipulation
-                    // to complete, so we must place this inside a zero timeout to allow the
-                    // call stack to complete.
-                    setTimeout(function() {
-                        self.$('#login-display').removeClass('hidden');
-                    }, 0);
-                }, 300);
-            },
+          showLogin: function() {
+            this.toggleSigninButton();
+            this.$('#login-container').addClass('visible');
+            this.$('#loading-container').removeClass('visible');
+          },
 
             loginHelp: function() {
                 Backbone.trigger('notify', 'Coming soon...');
