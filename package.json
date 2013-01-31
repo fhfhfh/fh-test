@@ -5,10 +5,12 @@
   "description": "Peachy application for SecureHealthHub.",
   "dependencies": {},
   "devDependencies": {
-    "grunt-contrib-less": "0.3.x",
-    "grunt-contrib-clean": "0.3.x",
-    "grunt-contrib-copy": "0.3.x",
-    "grunt-contrib-requirejs": "0.3.x",
-    "mocha-phantomjs": "1.1.x"
+    "grunt": "~0.4",
+    "grunt-contrib-clean": "git://github.com/gruntjs/grunt-contrib-clean.git#7bfd90c6d9",
+    "grunt-contrib-copy": "~0.4",
+    "grunt-contrib-less": "~0.5",
+    "grunt-contrib-requirejs": "~0.4",
+    "phantomjs": "~1.8",
+    "mocha-phantomjs": "~1.1"
   }
 }
