@@ -419,6 +419,10 @@ input {
 .fc-content {
   min-height: 300px !important;
 }
+ul {
+  margin: 0;
+  padding: 0;
+}
 #notification {
   position: absolute;
   top: 5px;
@@ -637,13 +641,13 @@ input {
     display: none;
   }
 }
-button {
+#login button {
   border-radius: 5px;
   border: 1px solid;
   color: #fff;
   padding: 0 10px;
 }
-button.login {
+#login button.login {
   border-color: #d38800;
   background-color: orange;
   height: 30px;
@@ -656,18 +660,18 @@ button.login {
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #f26622), color-stop(0.85, #feb000));
   font: bold 14px "Avenir Next Bold", Helvetica, Arial, sans-serif;
 }
-button.login:active {
+#login button.login:active {
   background-image: linear-gradient(bottom, #feb000 0%, #f26622 85%);
   background-image: -webkit-linear-gradient(bottom, #feb000 0%, #f26622 85%);
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #feb000), color-stop(0.85, #f26622));
 }
-button.login:before {
+#login button.login:before {
   content: url('../../img/login/SignInPower.png');
   margin-right: 5px;
   vertical-align: sub;
 }
-button.login[disabled],
-button.login:disabled {
+#login button.login[disabled],
+#login button.login:disabled {
   border-color: #fff;
   background-image: none;
   background-color: transparent;

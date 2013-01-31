@@ -249,36 +249,39 @@
     }
 }
 
-button {
-    border-radius: 5px;
-    border: 1px solid;
-    color: #fff;
-    padding: 0 10px;
+#login {
+    button {
+        border-radius: 5px;
+        border: 1px solid;
+        color: #fff;
+        padding: 0 10px;
 
-    &.login {
-        border-color: rgb(211, 136, 0);
-        background-color: orange;
-        height: 30px;
-        margin-top: 30px;
-        float: right;
-        line-height: 28px;
-        -webkit-transition: all .1s linear;
+        &.login {
+            border-color: rgb(211, 136, 0);
+            background-color: orange;
+            height: 30px;
+            margin-top: 30px;
+            float: right;
+            line-height: 28px;
+            -webkit-transition: all .1s linear;
 
-        .background-gradient(#f26622, #feb000);
-        .avenir-bold(14px);
+            .background-gradient(#f26622, #feb000);
+            .avenir-bold(14px);
 
-        &:before {
-            content: url('../../img/login/SignInPower.png');
-            margin-right: 5px;
-            vertical-align: sub;
-        }
+            &:before {
+                content: url('../../img/login/SignInPower.png');
+                margin-right: 5px;
+                vertical-align: sub;
+            }
 
-        &[disabled],
-        &:disabled {
-            border-color: #fff;
-            background-image: none;
-            background-color: transparent;
-            opacity: .2;
+            &[disabled],
+            &:disabled {
+                border-color: #fff;
+                background-image: none;
+                background-color: transparent;
+                opacity: .2;
+            }
         }
     }
 }
+
