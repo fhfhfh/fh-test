@@ -711,35 +711,8 @@ ul {
  */
 #main {
   height: 100%;
-}
-#main-container {
-  position: absolute;
-  top: 55px;
-  bottom: 0;
-  left: 100px;
-  right: 15px;
-  opacity: 1;
-  -webkit-transition: all .2s linear;
-  -webkit-transform: translate3d(0, 0, 0);
-}
-#main-iscroll {
-  color: #000;
-  padding-top: 10px;
-  padding-bottom: 25px;
-  position: relative;
-  height: 100%;
-}
-#main-iscroll > div {
-  background-color: #fff;
-  box-shadow: 0 7px 0 -4px #cccccc, 0 12px 0 -7px #8b8b8b;
-  min-height: 300px;
-  padding: 10px;
-  -webkit-border-radius: 9px;
-  border-radius: 9px;
-}
-#main-content {
-  height: 100%;
-  border-radius: 10px;
+  padding-right: 15px;
+  padding-top: 50px;
 }
 #content-tab-list {
   list-style-type: none;
@@ -791,39 +764,6 @@ ul {
 #home-content {
   min-height: 100px;
 }
-#adverts {
-  background-color: #e6e6e6;
-  -webkit-border-radius: 6px;
-  border-radius: 6px;
-  overflow: hidden;
-  padding: 20px;
-}
-#adverts img {
-  float: right;
-  margin-left: 20px;
-}
-#adverts h3 {
-  font: bold 15px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
-  color: #2b6891;
-  text-shadow: 0 1px 1px #fff;
-  line-height: 1.5;
-}
-#adverts h3 em {
-  color: #808080;
-  font-style: normal;
-}
-#adverts span,
-#adverts p {
-  font: normal 12px "Avenir Next", Helvetica, Arial, sans-serif;
-  text-shadow: 0 1px 1px #fff;
-  color: #343434;
-  line-height: 2;
-}
-#adverts span {
-  color: #2b6891;
-  display: block;
-  margin: 10px 0;
-}
 .overlaid #top-bar {
   border-bottom-color: transparent;
   background-color: transparent;
@@ -831,6 +771,41 @@ ul {
 }
 .overlaid #main-container {
   opacity: 0;
+}
+.iscroll-container {
+  height: 100%;
+  overflow: visible;
+  position: relative;
+}
+.iscroll-inner {
+  padding-top: 15px;
+  padding-bottom: 20px;
+}
+.page {
+  overflow: hidden;
+  background-color: #fff;
+  box-shadow: 0 7px 0 -4px #cccccc, 0 12px 0 -7px #8b8b8b;
+  padding: 15px;
+  border-radius: 10px;
+}
+#main-iscroll {
+  color: #000;
+}
+#main-content {
+  min-height: 300px;
+}
+@media only screen and (orientation: landscape) {
+  #main-content {
+    width: 100%;
+    float: left;
+  }
+  #main-content > div,
+  #main-content > ul {
+    margin-right: 270px;
+  }
+}
+#child-content {
+  padding: 15px;
 }
 li {
   list-style-type: none;
@@ -1463,7 +1438,7 @@ li {
   width: 110px;
   overflow: visible;
   float: left;
-  margin-top: 65px;
+  margin-top: 15px;
   margin-left: 5px;
 }
 #main-nav li {
@@ -1612,4 +1587,59 @@ li {
   background-image: linear-gradient(bottom, #000000 0%, #cdcdcd 85%);
   background-image: -webkit-linear-gradient(bottom, #000000 0%, #cdcdcd 85%);
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #000000), color-stop(0.85, #cdcdcd));
+}
+.ads {
+  position: relative;
+  background-color: #ebebeb;
+  border-radius: 8px;
+  margin: 0;
+  padding: 30px;
+  overflow: hidden;
+}
+@media only screen and (orientation: landscape) {
+  .ads {
+    float: left;
+    margin-left: -260px;
+    width: 260px;
+    padding-bottom: 260px;
+  }
+}
+.ad-content {
+  overflow: hidden;
+}
+.ad-title {
+  color: #2b6891;
+  margin-top: 0;
+  margin-bottom: 5px;
+  font: bold 15px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
+}
+.ad-notice {
+  color: #808080;
+  text-shadow: 0 1px 1px #fff;
+}
+.ad-date {
+  color: #2b6891;
+  text-shadow: 0 1px 1px #fff;
+  font: normal 12px "Avenir Next", Helvetica, Arial, sans-serif;
+}
+.ad-text {
+  color: #343434;
+  margin-bottom: 0;
+  font: normal 12px "Avenir Next", Helvetica, Arial, sans-serif;
+  line-height: 2;
+}
+.ad-image {
+  float: right;
+  margin-left: 30px;
+  width: 200px;
+  height: 200px;
+}
+@media only screen and (orientation: landscape) {
+  .ad-image {
+    float: none;
+    margin-left: 0;
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
+  }
 }

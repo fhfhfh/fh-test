@@ -18,8 +18,8 @@ define(['jquery',
     'views/Library',
     'models/Acts',
     'models/avatars',
-    
-    ], function($, _, Backbone, ContainerView, HomeView, TopBar, template, iScroll, 
+
+    ], function($, _, Backbone, ContainerView, HomeView, TopBar, template, iScroll,
         WidgetsView, HealthHubView, ConnectView, CalendarView, LibraryView,Acts,Avatars) {
 
 
@@ -35,10 +35,10 @@ define(['jquery',
                 'click #calendar': 'calendar',
                 'click #library' : 'library'
             },
-    
+
             setPeachyPoints 		: _setPeachyPoints,
             setAvatars                  : _setAvatars,
-      
+
 
             subViews: {
                 home: new HomeView(),
@@ -54,7 +54,7 @@ define(['jquery',
                 this.setPeachyPoints();
                 this.setAvatars();
                 this.$el.html(template);
-                this.$content = this.$('#main-content');
+                this.$content = this.$('#child-content');
                 this.$nav = this.$('#main-nav');
                 this.$topBar = this.$('#top-bar');
 
@@ -123,22 +123,22 @@ define(['jquery',
             // this.setActiveView('library');
             }
 
-    
+
 
 
         });
-        
+
         function _setPeachyPoints(){
-            Acts.call('peachyPointsAction', {}, 
+            Acts.call('peachyPointsAction', {},
                 function(res){
                     var points = res.payload.points[0].peachyPoints;
                     this.$('#points-button em').html(points);
-                }, 
+                },
                 function(err, msg){
                     console.log(err);
                 });
         }
-        
+
         function _setAvatars(){
             Avatars.fetchAvatars(function (res){
                 if (res)
@@ -151,12 +151,12 @@ define(['jquery',
                             var tempurl = abc.replace('"', "");
                             var tempurl = tempurl.replace('"', "");
                             this.$('#avatar').attr("src", tempurl);
-                            
+
                         }
                     }
                 }
             });
         }
-        
-        
+
+
     });

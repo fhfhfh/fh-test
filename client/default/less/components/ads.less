@@ -1,0 +1,61 @@
+@landscape: ~"only screen and (orientation: landscape)";
+
+.ads {
+    position: relative;
+    background-color: #ebebeb;
+    border-radius: 8px;
+    margin: 0;
+    padding: 30px;
+    overflow: hidden;
+
+    @media @landscape {
+        float: left;
+        margin-left: -260px;
+        width: 260px;
+        padding-bottom: 260px;
+    }
+}
+
+.ad-content {
+    overflow: hidden;
+}
+
+.ad-title {
+    color: #2b6891;
+    margin-top: 0;
+    margin-bottom: 5px;
+    .avenir-demi(15px);
+}
+
+.ad-notice {
+    color: #808080;
+    text-shadow: 0 1px 1px #fff;
+}
+
+.ad-date {
+    color: #2b6891;
+    text-shadow: 0 1px 1px #fff;
+    .avenir(12px);
+}
+
+.ad-text {
+    color: #343434;
+    margin-bottom: 0;
+    .avenir(12px);
+    line-height: 2;
+}
+
+.ad-image {
+    float: right;
+    margin-left: 30px;
+    width: 200px;
+    height: 200px;
+
+    @media @landscape {
+        float: none;
+        margin-left: 0;
+        position: absolute;
+        bottom: 30px;
+        left: 30px;
+    }
+}

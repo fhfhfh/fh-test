@@ -6,43 +6,8 @@
  */
 #main {
     height: 100%;
-}
-
-#main-container {
-    position: absolute;
-    top: 55px;
-    bottom: 0;
-    left: 100px;
-    right: 15px;
-    opacity: 1;
-    -webkit-transition: all .2s linear;
-    -webkit-transform: translate3d(0, 0, 0);
-}
-
-#main-iscroll {
-    color: #000;
-    padding-top: 10px;
-    padding-bottom: 25px;
-    position: relative;
-    height: 100%;
-
-    & > div {
-        background-color: #fff;
-        box-shadow: 0 7px 0 -4px #ccc, 0 12px 0 -7px rgb(139, 139, 139);
-        min-height: 300px;
-        padding: 10px;
-
-        .border-radius(9px);
-    }
-}
-
-
-#main-content {
-    height: 100%;
-    border-radius: 10px;
-
-
-
+    padding-right: 15px;
+    padding-top: 50px;
 }
 
 
@@ -95,43 +60,6 @@
     min-height: 100px;
 }
 
-#adverts {
-    background-color: #e6e6e6;
-    .border-radius(6px);
-    overflow: hidden;
-    padding: 20px;
-
-    img {
-        float: right;
-        margin-left: 20px;
-    }
-
-    h3 {
-        .avenir-demi(15px);
-        color: #2b6891;
-        text-shadow: 0 1px 1px #fff;
-        line-height: 1.5;
-
-        em {
-            color: #808080;
-            font-style: normal;
-        }
-    }
-
-    span, p {
-        .avenir(12px);
-        text-shadow: 0 1px 1px #fff;
-        color: #343434;
-        line-height: 2;
-    }
-
-    span {
-        color: #2b6891;
-        display: block;
-        margin: 10px 0;
-    }
-}
-
 
 .overlaid {
     #top-bar {
@@ -143,4 +71,51 @@
     #main-container {
         opacity: 0;
     }
+}
+
+
+.iscroll-container {
+    height: 100%;
+    overflow: visible;
+    position: relative;
+}
+
+.iscroll-inner {
+    padding-top: 15px;
+    padding-bottom: 20px;
+}
+
+.page {
+    overflow: hidden;
+    background-color: #fff;
+    box-shadow: 0 7px 0 -4px #ccc, 0 12px 0 -7px rgb(139, 139, 139);
+    padding: 15px;
+
+    border-radius: 10px;
+}
+
+#main-iscroll {
+    color: #000;
+
+    & > div {
+
+    }
+}
+
+#main-content {
+    min-height: 300px;
+
+    @media @landscape {
+    width: 100%;
+    float: left;
+
+& > div,
+& > ul {
+    margin-right: 270px;
+}
+}
+    }
+
+#child-content {
+    padding: 15px;
 }
