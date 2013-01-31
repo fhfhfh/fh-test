@@ -1,36 +1,36 @@
-/*
- * This is the general styling for the app, which covers setting up the box
- * model to be used, along with any format resets and basic styling.
- */
-
+// Sensible box model. See http://paulirish.com/2012/box-sizing-border-box-ftw/
+// for more info.
 * {
-    // Apply sensible box model to all elements.
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
 
-    // Reset all margin and padding; we'll be explicit with everything, due to
-    // the need for future cross-browser compatibility.
-    margin: 0;
-    padding: 0;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
 }
 
+input,
+textarea {
+    -webkit-user-select: text;
+    user-select: text;
+}
+
+// All of our full page content area elements require this styling...
 html,
 body,
-#content {
+#content,
+#content > section {
     height: 100%;
     overflow: hidden;
+    position: relative;
 }
 
 body {
-    .avenir(16px);
     color: #fff;
+    background: url('../img/backgrounds/BackgroundTileGray.png') left top repeat;
 
-    // We use separate explicit background properties to allow for overriding
-    // for 'retina' and other high DPI displays.
-    background-image: url('../img/backgrounds/BackgroundTileGray.png');
-    background-position: left top;
-    background-repeat: repeat;
+    .avenir(16px);
 }
 
 // Remove the default WebKit focus glow from form elements. For the purpose of
@@ -39,6 +39,7 @@ textarea,
 input {
     outline: none;
 }
+
 
 .btn {
     border-radius: 5px;
