@@ -677,6 +677,32 @@ ul {
   background-color: transparent;
   opacity: .2;
 }
+#login #login-help-button {
+  border: none;
+  width: 100%;
+  padding: 0;
+  background-color: transparent;
+  text-shadow: 0 -2px 1px #000000;
+  color: #fff;
+  font: bold 14px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
+}
+#login #login-help-button span {
+  display: block;
+  background-color: rgba(26, 26, 26, 0.15);
+  padding: 15px 30px;
+  border-radius: 8px;
+}
+@media only screen and (orientation: landscape) {
+  #login #login-help-button {
+    position: absolute;
+    width: 50%;
+    bottom: 30px;
+    left: 0;
+  }
+  #login #login-help-button span {
+    margin: 0 15px 0 30px;
+  }
+}
 /*
  * This file covers the main viewport of the app; this is the 'base' layer of
  * the main hub of the app, which in turn contains various sections such as

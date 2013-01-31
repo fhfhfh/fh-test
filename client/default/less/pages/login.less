@@ -283,5 +283,34 @@
             }
         }
     }
+
+    #login-help-button {
+        border: none;
+        width: 100%;
+        padding: 0;
+        background-color: transparent;
+        text-shadow: 0 -2px 1px black;
+        color: #fff;
+
+        .avenir-demi(14px);
+
+        span {
+            display: block;
+            background-color: @helpBox;
+            padding: 15px 30px;
+            border-radius: 8px;
+        }
+
+        @media only screen and (orientation: landscape) {
+            position: absolute;
+            width: 50%;
+            bottom: 30px;
+            left: 0;
+
+            span {
+                margin: 0 15px 0 30px;
+            }
+        }
+    }
 }
 
