@@ -40,9 +40,19 @@ define(['jquery',
 	//implementation-------------------------------
 
 	function _initialize(){
+		var self = this;
 		_.bindAll(this);
 		this.collection = new NewsItems();
 		this.collection.on('add', this.appendItems);
+
+		setInterval(function(){
+			if(self.visible == 0){
+				$('#show-news aside.badge').html('');	
+			}else {
+				$('#show-news aside.badge').html(self.visible);
+			}
+			
+		}, 1000);
 	};
 
 	function _render(){
@@ -54,6 +64,7 @@ define(['jquery',
 			itemsString += self.itemTemplate(item.toJSON());
 		});
 		this.$el.html(this.template({newsItems: itemsString}));
+		this.visible = $('.clearfix').length;
 		return this;
 	};
 
@@ -71,6 +82,7 @@ define(['jquery',
         this.$('ul').append(itemsString);
       }
       this.refreshScroll();
+      this.visible = $('.clearfix').length;
     };
 
     function _loadNews() {
@@ -79,7 +91,6 @@ define(['jquery',
 			Backbone.trigger('notify', 'No more news available');
 			return;
 		}
-		// window.collection = this.collection;
 		this.collection.reset();
 		this.collection.fetch();
     	console.log('load');

@@ -18,7 +18,6 @@ define(['backbone'], function(Backbone) {
 		},
 
 		initialize: function(){
-			console.log('New Model!');
 		},
 
 	});

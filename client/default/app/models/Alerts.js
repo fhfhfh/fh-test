@@ -23,6 +23,16 @@ define([
       _.bindAll(this);
     },
 
+    isEmpty: function(){
+        var e = this.entries;
+        if(e.alerts.length + e.reminders.length + e.expirations.length < 1){
+            return true;
+        }
+        else {
+            return false;
+        }
+    },
+
     fetchAlerts: function(callback){
         var self = this;
 

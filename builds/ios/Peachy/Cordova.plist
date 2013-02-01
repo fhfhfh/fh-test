@@ -29,12 +29,12 @@
 	<key>ExternalHosts</key>
 	<array>
 		<string>127.0.0.1</string>
+		<string>108.87.132.242:8888/*</string>
 		<string>localhost</string>
 		<string>*.ytimg.com</string>
 		<string>*.youtube.com</string>
 		<string>*.feedhenry.com</string>
 		<string>*.feedhenry.net</string>
-		<string>http://mirrorblender.top-ix.org</string>
 	</array>
 	<key>Plugins</key>
 	<dict>

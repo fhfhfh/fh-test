@@ -32,12 +32,20 @@ define(['jquery',
 
 		bind: function(e){
 			var self = this;
-			this.model.fetchAlerts(function(res){
+
+			// check if model is empty and if screen has been populated
+			if(this.model.isEmpty()){
+				this.model.fetchAlerts(function(res){
+					self.populate();
+				});
+			}
+			else if(self.count() <= 3){
 				self.populate();
-			});
+			}
 		},
 
 		render : function(){
+			console.log('asd');
 			this.$el.html(tpl);
 			this.$('#allBtn').addClass('selected');
 			this.bind();
@@ -83,13 +91,18 @@ define(['jquery',
 			var reminders	= entries.reminders;
 			var expirations	= entries.expirations;
 
+			// empty all alerts etc.
+			$('#alert-list div').html('');
+			$('#reminder-list div').html('');
+			$('#expiration-list div').html('');
+
 			for(var i=0; i<alerts.length; i++){
 				var cls = self.mapAlert(alerts[i].noticeSeverityText);
 				var html = 
 					'<div class="alert '+cls+'">'+
 					alerts[i].noticeSummary +
 					'<span id="date">' + alerts[i].noticeDueDate.split(' ')[0] +'</span></div>'
-				$('#alert-list').append(html);
+				self.$('#alert-list').append(html);
 			}
 			for(var i=0; i<reminders.length; i++){
 				var cls = self.mapAlert(reminders[i].noticeSeverityText);
@@ -97,7 +110,7 @@ define(['jquery',
 					'<div class="alert '+cls+'">'+
 					reminders[i].noticeSummary +
 					'<span id="date">' + reminders[i].noticeDueDate.split(' ')[0] +'</span></div>'
-				$('#reminder-list').append(html);
+				self.$('#reminder-list').append(html);
 			}
 			for(var i=0; i<expirations.length; i++){
 				var cls = self.mapAlert(expirations[i].noticeSeverityText);
@@ -105,7 +118,7 @@ define(['jquery',
 					'<div class="alert '+cls+'">'+
 					expirations[i].noticeSummary +
 					'<span id="date">' + expirations[i].noticeDueDate.split(' ')[0] +'</span></div>'
-				$('#expiration-list').append(html);
+				self.$('#expiration-list').append(html);
 			}
 
 			if(alerts.length < 1){
@@ -142,6 +155,15 @@ define(['jquery',
 					break;
 			}
 			return cls;
+		},
+
+		count: function(){
+			var total = 0
+			total += $('#alert-list').length;
+			total += $('#reminder-list').length;
+			total += $('#expiration-list').length;
+			console.log('total', total);
+			return total;
 		}
 
 	});

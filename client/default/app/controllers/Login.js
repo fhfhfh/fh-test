@@ -49,11 +49,15 @@ define(['jquery',
                         if(res){
                             quote=res;
                             var i =Math.floor(Math.random()*3);
-                            $('#loading-display #loading-snippet #first').html(JSON.stringify(res.payload.quotes[i].quote));
-                            $('#loading-display #second').html(JSON.stringify(res.payload.quotes[i].author));
+                            $('#loading-snippet #first').html(JSON.stringify(res.payload.quotes[i].quote));
+                            $('#loading-snippet #second').html(JSON.stringify(res.payload.quotes[i].author));
                             setTimeout(function(){
                                 return callback(session.attributes.video);
                             }, 3000);                    
+                        }
+                        else {
+                            $('#loading-snippet #first').html("Did you know a medium-size apple has 90 calories and 3&frac12; grams of dietary fiber?");
+                            $('#loading-snippet #second').html("Maybe that's why they say “an apple-a-day keeps the doctor away.”");
                         }
                     });
                 },
