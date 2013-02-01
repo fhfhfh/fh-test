@@ -107,6 +107,7 @@ define([
           options.success(model, res, options);
           avatar_id = res.response.payload.userDetails.avatarId;
           self.trigger('sync', model, res, options);
+          saveSession();
 
         }, function(err, msg) {
           var theError = {
@@ -120,7 +121,6 @@ define([
 
       // TODO: Make this more compliant with what Backbone expects...
       function saveSession() {
-        var self = this;
 
         Store.save(self.storageKey, self.get('id'), function(){});
 

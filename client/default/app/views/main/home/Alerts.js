@@ -45,7 +45,6 @@ define(['jquery',
 		},
 
 		render : function(){
-			console.log('asd');
 			this.$el.html(tpl);
 			this.$('#allBtn').addClass('selected');
 			this.bind();
@@ -162,7 +161,7 @@ define(['jquery',
 			total += $('#alert-list').length;
 			total += $('#reminder-list').length;
 			total += $('#expiration-list').length;
-			console.log('total', total);
+			
 			return total;
 		}
 

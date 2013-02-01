@@ -47,11 +47,12 @@ define(['jquery',
                     self.loggedIn(username, password);
                     Quotes.fetchQuotes(function(res, data){
                         if(res){
-                           // quote=res;
-                         //  alert(JSON.stringify(res));
+  
                             var i =Math.floor(Math.random()*3);
                             $('#loading-snippet #first').html(JSON.stringify(res.payload.quotes[i].quote));
                             $('#loading-snippet #second').html(JSON.stringify(res.payload.quotes[i].author));
+
+                            // allow user time to read quote
                             setTimeout(function(){
                                 return callback(session.attributes.video,res);
                             }, 3000);                    
@@ -75,7 +76,6 @@ define(['jquery',
             user.setName(username);
             user.setPassword(password);
 		
-            // Get user profile from cloud
             user.setProfile(session.attributes.userProfile);
             user.saveUser(function(res){
             });
