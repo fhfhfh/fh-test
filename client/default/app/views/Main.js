@@ -110,7 +110,8 @@ define(['jquery',
 
             calendar: function() {
                 this.setActiveView('calendar');
-                console.log('here');
+                this.$nav.find('li').removeClass('selected');
+                this.$('#calendar').addClass('selected');
             },
 
             connect: function() {
