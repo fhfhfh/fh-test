@@ -84,6 +84,8 @@ define(['jquery',
                 this.refreshScroll();
                 this.delegateEvents();
                 this.$topBar = this.$('#top-bar');
+                this.setAvatars();
+                this.setPeachyPoints();
                 if (this.activeView) {
                     this.activeView.delegateEvents();
                 }
