@@ -3,7 +3,7 @@
 
 	Quotes page Controller
 --------------------*/
-define(['zepto',
+define(['jquery',
     'underscore',
     'backbone',
     'models/quotes'
@@ -15,17 +15,15 @@ define(['zepto',
         };
 
 
-        function _loadQuotes(view){
-            var el = view.$el;
-            Quotes.fetchQuotes(function(res, data){
+        function _loadQuotes(callback){
+               Quotes.fetchQuotes(function(res, data){
                 if(res){
-                    var i =Math.floor(Math.random()*3);
-                    
-                    el.find('#loading-snippet #first').html(JSON.stringify(res.payload.quotes[i].quote));
-                    el.find('#loading-snippet #second').html(JSON.stringify(res.payload.quotes[i].author));
-                
+                  return callback(res);
                 }
-            });
+                
+                
+                });
+           
 
         }
 	
