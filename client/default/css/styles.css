@@ -996,6 +996,7 @@ li {
 }
 #addressBox h4 {
   color: #2B60DE;
+  display: inline;
 }
 #addressBox li {
   position: absolute;
@@ -1304,7 +1305,7 @@ li {
   margin: -1px;
   width: 27%;
   height: 110px;
-  padding: 23px;
+  padding: 20px;
   text-align: center;
   border: 1px solid #000;
   color: #fff;
@@ -1335,13 +1336,13 @@ li {
 }
 #goals #bgImg {
   height: 500px;
-  width: 500px;
+  width: 452px;
   background-image: url('../img/goals/beach.jpg');
   background-size: 116%;
   background-repeat: no-repeat;
   position: absolute;
-  top: 150px;
-  left: 76px;
+  top: 185px;
+  left: 94px;
   opacity: 0.3;
 }
 #alerts {
