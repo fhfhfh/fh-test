@@ -59,7 +59,7 @@ define([
                 Backbone.history.navigate('home', true);
                 var points = this.setPeachyPoints();
                 $('#top-bar-buttons').html(
-                    '<li><button id="points-button"><em>200</em> points</button></li>'+
+                    '<li><button id="points-button"><em></em> points</button></li>'+
                     '<li><button><img src="img/Search.png" alt="Search"></button></li>'+
                     '<li><button><img src="img/Help.png" alt="Help"></button></li>'+
                     '<li><button id="profile-button"><img src="img/OptionsGear.png" alt="Options"></button></li>');
