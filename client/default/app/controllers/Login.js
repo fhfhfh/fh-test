@@ -47,12 +47,13 @@ define(['jquery',
                     self.loggedIn(username, password);
                     Quotes.fetchQuotes(function(res, data){
                         if(res){
-                            quote=res;
+                           // quote=res;
+                         //  alert(JSON.stringify(res));
                             var i =Math.floor(Math.random()*3);
                             $('#loading-snippet #first').html(JSON.stringify(res.payload.quotes[i].quote));
                             $('#loading-snippet #second').html(JSON.stringify(res.payload.quotes[i].author));
                             setTimeout(function(){
-                                return callback(session.attributes.video);
+                                return callback(session.attributes.video,res);
                             }, 3000);                    
                         }
                         else {

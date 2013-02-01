@@ -11,9 +11,9 @@ define([
     'text!templates/pages/Login.html',
     'controllers/Login',
     'views/WelcomeVideo',
-    'models/quotes',
+    'controllers/quotes',
     'models/session'
-    ], function($, _, Backbone, $fh, loginTpl, loginController, WelcomeView, Quotes, session) {
+    ], function($, _, Backbone, $fh, loginTpl, loginController, WelcomeView,controllerQuotes, session) {
 
         return Backbone.View.extend({
             tagName: 'section',
@@ -44,27 +44,27 @@ define([
                 return this;
             },
 
-          /**
+            /**
            * Ensures sign-in button is disabled until the user enters both a username
            * and a password.
            *
            * @param {boolean} [val] If provided, ignore inputs and set to this.
            */
-          toggleSigninButton: function(val) {
-            var $username = this.$('#username'),
+            toggleSigninButton: function(val) {
+                var $username = this.$('#username'),
                 $password = this.$('#password'),
                 $button = this.$('#signin');
 
-            if (typeof val === 'boolean') {
-              $button.prop('disabled', val);
-            } else {
-              if (!$username.val() || !$password.val()) {
-                $button.prop('disabled', true);
-              } else {
-                $button.prop('disabled', false);
-              }
-            }
-          },
+                if (typeof val === 'boolean') {
+                    $button.prop('disabled', val);
+                } else {
+                    if (!$username.val() || !$password.val()) {
+                        $button.prop('disabled', true);
+                    } else {
+                        $button.prop('disabled', false);
+                    }
+                }
+            },
 
             login: function() {
                 var self = this;
@@ -72,7 +72,7 @@ define([
                 var password = $('#password').val();
                 var quote = "";
                 if (username && password) {
-                    self.controller.login(username, password, function(url){
+                    self.controller.login(username, password, function(url,res){
                         if(url === false){
                             Backbone.history.navigate('home', true, true);
                         }
@@ -81,31 +81,31 @@ define([
                         }
                     });
 
-                  // session.login(username, password, {
-                  //   success: function() {
-                  //     Quotes.fetchQuotes(function(res, data){
-                  //       if(res){
-                  //         quote=res;
-                  //         var i =Math.floor(Math.random()*3);
-                  //         self.$('#loading-display #loading-snippet #first').html(JSON.stringify(res.payload.quotes[i].quote));
-                  //         self.$('#loading-display #second').html(JSON.stringify(res.payload.quotes[i].author));
+                // session.login(username, password, {
+                //   success: function() {
+                //     Quotes.fetchQuotes(function(res, data){
+                //       if(res){
+                //         quote=res;
+                //         var i =Math.floor(Math.random()*3);
+                //         self.$('#loading-display #loading-snippet #first').html(JSON.stringify(res.payload.quotes[i].quote));
+                //         self.$('#loading-display #second').html(JSON.stringify(res.payload.quotes[i].author));
 
-                  //       }
-                  //     });
+                //       }
+                //     });
 
-                  //     // TODO: Show properly based on property.
-                  //     setTimeout(function(){
-                  //       var welcome = new WelcomeView();
-                  //       $('#content').html(welcome.render().el);
-                  //       welcome.loadVideo('"http://www.youtube.com/embed/xqkBW1NCRLQ"');
-                  //     }, 3000);
-                  //   },
+                //     // TODO: Show properly based on property.
+                //     setTimeout(function(){
+                //       var welcome = new WelcomeView();
+                //       $('#content').html(welcome.render().el);
+                //       welcome.loadVideo('"http://www.youtube.com/embed/xqkBW1NCRLQ"');
+                //     }, 3000);
+                //   },
 
-                  //   error: function() {
-                  //     Backbone.trigger('notify', 'Error logging in.');
-                  //     self.showLogin();
-                  //   }
-                  // });
+                //   error: function() {
+                //     Backbone.trigger('notify', 'Error logging in.');
+                //     self.showLogin();
+                //   }
+                // });
                 } else {
                     Backbone.trigger('notify', 'Please fill in both fields...');
                     return;
@@ -119,17 +119,28 @@ define([
                 welcome.loadVideo(url);
             },
 
-          showLoading: function() {
-            this.toggleSigninButton(true);
-            this.$('#login-container').removeClass('visible');
-            this.$('#loading-container').addClass('visible');
-          },
+            showLoading: function() {
+                this.toggleSigninButton(true);
+                this.$('#login-container').removeClass('visible');
+                this.$('#loading-container').addClass('visible');
+                controllerQuotes.loadQuotes(function (res){
+                    if(res){
+                        var i =Math.floor(Math.random()*3);
+                        $('#loading-container #loading-snippet #first').html(JSON.stringify(res.payload.quotes[i].quote));
+                        $('#loading-container #loading-snippet #second').html(JSON.stringify(res.payload.quotes[i].author));
+                    }
+                    else
+                    {
+                        console.log("Error in fetching quotes")
+                    }
+                })
+            },
 
-          showLogin: function() {
-            this.toggleSigninButton();
-            this.$('#login-container').addClass('visible');
-            this.$('#loading-container').removeClass('visible');
-          },
+            showLogin: function() {
+                this.toggleSigninButton();
+                this.$('#login-container').addClass('visible');
+                this.$('#loading-container').removeClass('visible');
+            },
 
             loginHelp: function() {
                 Backbone.trigger('notify', 'Coming soon...');

@@ -84,6 +84,8 @@ define(['jquery',
                 this.refreshScroll();
                 this.delegateEvents();
                 this.$topBar = this.$('#top-bar');
+                this.setAvatars();
+                this.setPeachyPoints();
                 if (this.activeView) {
                     this.activeView.delegateEvents();
                 }
@@ -110,7 +112,8 @@ define(['jquery',
 
             calendar: function() {
                 this.setActiveView('calendar');
-                console.log('here');
+                this.$nav.find('li').removeClass('selected');
+                this.$('#calendar').addClass('selected');
             },
 
             connect: function() {
