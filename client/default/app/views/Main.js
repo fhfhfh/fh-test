@@ -22,8 +22,6 @@ define(['jquery',
     ], function($, _, Backbone, ContainerView, HomeView, TopBar, template, iScroll,
         WidgetsView, HealthHubView, ConnectView, CalendarView, LibraryView,Acts,Avatars) {
 
-
-        //interface----------------------------------
         return ContainerView.extend({
             tagName	: 'section',
             id		: 'main',
