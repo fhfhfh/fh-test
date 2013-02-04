@@ -158,10 +158,10 @@ define(['jquery',
 
 		count: function(){
 			var total = 0
-			total += $('#alert-list').length;
-			total += $('#reminder-list').length;
-			total += $('#expiration-list').length;
-			
+			total += $('#alert-list').children().length;
+			total += $('#reminder-list').children().length;
+			total += $('#expiration-list').children().length;
+			console.log(total);
 			return total;
 		}
 
