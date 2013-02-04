@@ -6,9 +6,8 @@ define([
   'views/main/home/News',
   'views/main/home/Goals',
   'views/main/home/Alerts',
-  'text!templates/pages/Home.html',
-  'models/Acts'
-], function($, _, Backbone, ContainerView, NewsView, GoalsView, AlertsView, template, Act) {
+  'text!templates/pages/Home.html'
+], function($, _, Backbone, ContainerView, NewsView, GoalsView, AlertsView, template) {
 
   return ContainerView.extend({
     tagName	: 'section',

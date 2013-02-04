@@ -17,8 +17,7 @@ define([
             id: 'welcome-video',
 
             events: {
-                'click #close'       : 'close',
-                'click #welcomeVideo': 'toggleState'
+                'click #close'       : 'close'
             },
 
             initialize: function() {
@@ -34,11 +33,8 @@ define([
             },
 
             loadVideo: function(url){
-                url = 'http://www.youtube.com/embed/xqkBW1NCRLQ';
-                // dummy vid
-                // http://mirrorblender.top-ix.org/peach/bigbuckbunny_movies/big_buck_bunny_480p_h264.mov
                 var vid = this.$('#video');
-                // http://www.youtube.com/embed/qF1kNnHOHrE
+
                 var html = '<iframe width="600" height="345"'+
                 'src="'+url+'?modestbranding=1;tite=;controls=0"'+
                 'frameborder="0" allowfullscreen></iframe>';
@@ -46,45 +42,12 @@ define([
                 vid.html(html);
             },
 
-            toggleState: function(){
-                var self = this;
-                var video = this.$('video')[0];
-                var videoWrapper = this.$('#video');
-
-                var status= $('<p class="status"></p>');
-                videoWrapper.append(status);
-                status = this.$('.status')[0];
-
-                if(video.paused){
-                    video.play();
-                    // TODO: fadeout the status message
-                    self.$('.status').remove();
-                }
-                else{
-                    status.innerHTML = 'PAUSED';
-                    video.pause();
-                }
-            },
-
             close: function(){
                 var user = new User();
                 var topbar = new TopBar();
-                var flag=0;
-                user.loadUser(function(res, data){
-                    if(res){
-                        if(data){
-					
-                            details = data.userDetails || {};
-                            this.$topBar = this.$('#top-bar');
-                            flag = 1;
-                        }
-                    }else{
-                        flag = 0;
-                        alert('TODO: error handling');
-                    }
-                });
+                var flag = this.newData;
                 
-                if (flag == 1)
+                if (flag == '0')
                 {
                     this.remove();
                     Backbone.history.navigate('home', {

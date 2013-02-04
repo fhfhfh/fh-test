@@ -54,7 +54,7 @@ define(['jquery',
 
                             // allow user time to read quote
                             setTimeout(function(){
-                                return callback(session.attributes.video,res);
+                                return callback(res, session.attributes.video, session.attributes.newData);
                             }, 3000);                    
                         }
                         else {
@@ -66,7 +66,7 @@ define(['jquery',
 
                 error: function() {
                 Backbone.trigger('notify', 'Error logging in.');
-                self.showLogin();
+                return callback(false);
                 }
             });
         };

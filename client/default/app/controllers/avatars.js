@@ -6,8 +6,9 @@
 define(['jquery',
     'underscore',
     'backbone',
-    'models/avatars'
-    ], function($, _, Backbone, Avatars) {
+    'models/avatars',
+    'models/Store'
+    ], function($, _, Backbone, Avatars, Store) {
 
         //interface----------------------------------
         var avatars = {
@@ -17,7 +18,13 @@ define(['jquery',
 
         function _loadAvatars(cb){
             Avatars.fetchAvatars(function(res, data){
-                return cb(res.payload);   
+
+                // Store avatars to local Storage.
+                var data = JSON.stringify(res.payload);
+                Store.save('peachy_avatars', data, function(){
+                    return cb(res.payload);
+                })
+                
 
             });
                         

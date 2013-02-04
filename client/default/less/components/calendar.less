@@ -1,0 +1,48 @@
+#tableContainer {
+	width: 100%;
+
+	#calTable {
+		width: 100%;
+		border: 3px solid #c7f0f6;
+
+		tr#head {
+			text-align: center;
+			background-color: #77b5fe;
+
+			&:hover {
+				background-color: #77b5fe;
+			}
+		}
+
+		td {
+			width: 10%;
+			height: 80px;
+			border: 1px solid #c7f0f6;
+		}
+
+		.days td {
+			vertical-align: top;
+			.day {
+				float: right;
+				.avenir-medium(12px);
+			}
+
+			&:hover {
+				background-color: #c7f0f6;
+			}
+
+			#popDate {
+				// display: none;
+				position: absolute;
+				padding: 10px;
+				border: 1px solid #000;
+				border-radius: 10px;
+				background-color: #fff;
+			}
+		}
+
+		.today{
+			background-color: #7fb0db;
+		}
+	}
+}

@@ -137,7 +137,8 @@ define([
       // check video status ---------------
       var flag = res.response.payload.userDetails.postLoginVideo;
       var url = res.response.payload.userDetails.postLoginVideoUrl;
-      var video = false;
+      var newData = res.response.payload.userDetails.newDataValidation;
+      var video = null;
 
       if(flag == 1){
         video = url;
@@ -148,7 +149,8 @@ define([
         id: res.response.head.sessionId,
         timestamp: (new Date()).valueOf(),
         userProfile: res.response.payload,
-        video: video
+        video: video,
+        newData: newData
       };
     }
   });

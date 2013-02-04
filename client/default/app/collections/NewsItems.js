@@ -50,7 +50,6 @@ define(['backbone',
 					);
 					self.add(arr[i]);
 				  }
-				  console.log(arr);
 				  return arr;
 
 		        }, function(err, msg){

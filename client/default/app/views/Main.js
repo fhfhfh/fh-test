@@ -11,11 +11,11 @@ define(['jquery',
     'views/components/TopBar',
     'text!templates/pages/Main.html',
     'iscroll',
-    'views/Widgets',
-    'views/HealthHub',
-    'views/Connect',
-    'views/cal',
-    'views/Library',
+    'views/main/Widgets',
+    'views/main/HealthHub',
+    'views/main/Connect',
+    'views/main/Calendar',
+    'views/main/Library',
     'models/Acts',
     'models/avatars',
 
@@ -82,8 +82,7 @@ define(['jquery',
                 this.refreshScroll();
                 this.delegateEvents();
                 this.$topBar = this.$('#top-bar');
-                this.setAvatars();
-                this.setPeachyPoints();
+
                 if (this.activeView) {
                     this.activeView.delegateEvents();
                 }
