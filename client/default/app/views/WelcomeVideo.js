@@ -36,7 +36,7 @@ define([
                 var vid = this.$('#video');
 
                 var html = '<iframe width="600" height="345"'+
-                'src="'+url+'?modestbranding=1;tite=;controls=0"'+
+                'src="'+url+'?modestbranding=1;rel=0;controls=1"'+
                 'frameborder="0" allowfullscreen></iframe>';
 
                 vid.html(html);
