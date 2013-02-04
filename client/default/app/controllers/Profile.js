@@ -48,6 +48,7 @@ define(['jquery',
 			state 		: state,
 			phone		: $('#phone').val(),
 			mobile		: $('#mobile').val(),
+			avatarId 	: $('#profile-avatar').attr('imgId'),
 			// last check before saving profile
 			username	: $('#username').val(),
 			password	: $('#password').val(),

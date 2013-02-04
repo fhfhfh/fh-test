@@ -14,8 +14,10 @@ define(['jquery',
 		tagName		: 'section',
 	    id			: 'month',
 	    events		: {
-	    	'mousedown .days td' : 'hover',
-	    	'mouseup .days td' : 'hoverOff'
+	    	'mousedown .days td'	: 'hover',
+	    	'touchstart .days td'	: 'hover',
+	    	'mouseup .days td'		: 'hoverOff',
+	    	'touchend .days td'		: 'hoverOff'
 	    },
 	    template	: _.template(tpl),
 
@@ -79,7 +81,7 @@ define(['jquery',
 				else {
 					cls = '';
 				}
-				
+
 				$(days[i]).html("<div class='day'>" + num + "</div>");
 				$(days[i]).addClass(cls);
 				

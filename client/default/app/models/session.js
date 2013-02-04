@@ -149,8 +149,7 @@ define([
         id: res.response.head.sessionId,
         timestamp: (new Date()).valueOf(),
         userProfile: res.response.payload,
-        video: video,
-        newData: newData
+        video: video
       };
     }
   });

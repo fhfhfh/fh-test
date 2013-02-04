@@ -18,9 +18,10 @@ define(['jquery',
     'views/main/Library',
     'models/Acts',
     'models/avatars',
+    'models/Store'
 
     ], function($, _, Backbone, ContainerView, HomeView, TopBar, template, iScroll,
-        WidgetsView, HealthHubView, ConnectView, CalendarView, LibraryView,Acts,Avatars) {
+        WidgetsView, HealthHubView, ConnectView, CalendarView, LibraryView,Acts,Avatars,Store) {
 
         return ContainerView.extend({
             tagName	: 'section',
@@ -74,8 +75,8 @@ define(['jquery',
                 _.bindAll(this);
 
                 var topbar = new TopBar();
-
                 this.setActiveView(((options && options.activeView) || 'home'));
+                this.checkUser();
             },
 
             render: function() {
@@ -86,7 +87,26 @@ define(['jquery',
                 if (this.activeView) {
                     this.activeView.delegateEvents();
                 }
+                 
                 return this;
+            },
+
+
+            // Check if we need to show Profile page first
+            checkUser: function(){
+                Store.load('userProfile', function(res, data){
+                    var data = JSON.parse(data);
+                    var userDetails = data.userDetails;
+
+                    if(userDetails.newDataValidation == '1'){
+                        setTimeout(function(){
+                            Backbone.history.navigate('profile', true, true);
+                            $('#top-bar-buttons').html('<li><button id="cancel">Cancel</button></li>' +
+                            '<li><button id="save">Save</button></li>');    
+                        }, 200);
+                        
+                    }
+                });
             },
 
             home: function() {
@@ -148,9 +168,7 @@ define(['jquery',
                         if(res.payload.avatars[i].avatarId == avatar_id)
                         {
                             var abc = res.payload.avatars[i].imageUrl;
-                            var tempurl = abc.replace('"', "");
-                            var tempurl = tempurl.replace('"', "");
-                            this.$('#avatar').attr("src", tempurl);
+                            this.$('#avatar').attr("src", abc);
 
                         }
                     }

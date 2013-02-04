@@ -423,9 +423,6 @@ ul {
   margin: 0;
   padding: 0;
 }
-section {
-  padding: 15px;
-}
 section h1 {
   color: #2b6891;
   margin: 30px 0 20px 0;
@@ -1091,6 +1088,24 @@ li {
   height: 30px;
   width: 30px;
 }
+#avatarSelect {
+  position: absolute;
+  top: 300px;
+  left: 200px;
+  width: 50%;
+  background-color: #fff;
+  border: 1px solid #000;
+  border-radius: 10px;
+  box-shadow: 10px 10px 5px #888888;
+  text-align: center;
+}
+#avatarSelect img {
+  height: 80px;
+  padding: 5px;
+}
+#avatarSelect h1 {
+  margin: 10px;
+}
 #welcome #mask {
   position: absolute;
   top: 0;
@@ -1313,7 +1328,7 @@ li {
   margin: -1px;
   width: 27%;
   height: 110px;
-  padding: 20px;
+  padding: 14px;
   text-align: center;
   border: 1px solid #000;
   color: #fff;

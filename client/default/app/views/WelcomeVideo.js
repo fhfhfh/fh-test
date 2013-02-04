@@ -43,31 +43,11 @@ define([
             },
 
             close: function(){
-                var user = new User();
-                var topbar = new TopBar();
-                var flag = this.newData;
-                
-                if (flag == '0')
-                {
-                    this.remove();
-                    Backbone.history.navigate('home', {
-                        trigger: true,
-                        replace: true
-                    });
-                }
-                else
-                {
-                    this.remove();
-                    Backbone.history.navigate('home', {
-                        trigger: true,
-                        replace: true
-                    });
-                    Backbone.history.navigate('profile', true);
-                    $('#top-bar-buttons').html('<li><button id="cancel">Cancel</button></li>' +
-                        '<li><button id="save">Save</button></li>');
-          
-                }
-           
+                this.remove();
+                Backbone.history.navigate('home', {
+                    trigger: true,
+                    replace: true
+                });           
             }
         });
     });

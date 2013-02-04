@@ -54,7 +54,7 @@ define(['jquery',
 
                             // allow user time to read quote
                             setTimeout(function(){
-                                return callback(res, session.attributes.video, session.attributes.newData);
+                                return callback(res, session.attributes.video);
                             }, 3000);                    
                         }
                         else {

@@ -11,8 +11,8 @@ define(['jquery',
     'text!templates/pages/Profile.html',
     'text!templates/components/AddressBox.html',
     'controllers/Profile',
-    'controllers/avatars'
-    ], function($, _, Backbone, Acts, User, template, addressBox, Controller,controller1) {
+    'models/Store'
+    ], function($, _, Backbone, Acts, User, template, addressBox, Controller, Store) {
 
         //interface ---------------------------
         var profile = Backbone.View.extend({
@@ -22,14 +22,17 @@ define(['jquery',
             id		: 'profile',
             template: _.template(template),
             events : {
-                'change #birthday': 'ageCalc',
-                'click #address': 'showAddr',
-                'click #done' : 'closeAddr',
+                'change #birthday'     : 'ageCalc',
+                'click #address'       : 'showAddr',
+                'click #done'          : 'closeAddr',
                 'click #profile-avatar': "popup",
-                'click #cancelpop'  :'popup',
-                'change #password' : 'password',
-                'click #cancelPass'  :'password',
-                'click #okPass'  :'ok'
+                'click #cancelpop'     :'popup',
+                'change #password'     : 'password',
+                'click #cancelPass'    :'password',
+                'click #okPass'        :'ok',
+
+                'click #closeAvatar'   : 'closeAvatar',
+                'click .avatarPic'     : 'pickAvatar'
             },
 
             //Function interface
@@ -45,27 +48,31 @@ define(['jquery',
             mapValues 	: _mapValues,
             setAvatar           : _setAvatar,
             password    : _password,
-            ok          : _ok
+            ok          : _ok,
+            closeAvatar : _closeAvatar,
+            pickAvatar  : _pickAvatar
         });
 
 
         //implementation-------------------------------
 
-        var user		= new User();
-        var controller	= new Controller();
-//        var controller1 = new Controller1();
-        //    var imgUrl="";
-        var selected="";
+        var user       = new User();
+        var controller = new Controller();
+        var selected   ="";
         var avatar;
+
         function _initialize(){
+            var self = this;
+            Store.load('peachy_avatars', function(res, data){
+                self.avatars = JSON.parse(data).avatars;
+            });
         };
 
         function _render(){
             var self = this;
             this.$el.html(this.template());
-            this.setAvatar();
+            // this.setAvatar();
             this.populate();
-
             return this;
         };
 
@@ -185,8 +192,8 @@ define(['jquery',
         };
 
         function _mapValues(details){
+            var self = this;
             var d = details;
-            console.log(d); 
 
             // TODO: remove once Steve has updated numbers in db
             d.phone = d.phone.replace('.', '');
@@ -203,69 +210,93 @@ define(['jquery',
             this.$('div#address')[0].innerText = d.address1 +'\n'+ d.address2 +'\n'+ d.zip +'\n'+ d.state;
             this.$('#phone').val(d.phone);
             this.$('#mobile').val(d.mobile);
-
             this.$('#username').val(d.username || user.name);
 
-            avatar = d.avatarId;
-            this.ageCalc();
-        };
-    
-    
-        function _popup(){
-            var popupDiv = $('#PopupDiv');
-            $('#PopupDiv').html("");
-            popupDiv.append("<h1 align='center'>Select Avatar Image</h1>");
-            popupDiv.append("<div id='popup_inner_div' style='padding : 2%'></div>");
-            $('#PopupDiv #popup_inner_div').append("<ul id='popup_ul'>"); 
-            for (i=0; i<imgUrl.avatars.length; i++)
-            {
-                var abc = imgUrl.avatars[i].imageUrl;
-                var xyz = imgUrl.avatars[i].avatarId;
-                var tempurl = abc.replace('"', "");
-                var tempurl = tempurl.replace('"', "");
-                $('#PopupDiv #popup_inner_div #popup_ul').append("<li style=' margin: 10px 20px 20px 20px' id='popup_li"+i+"'></li>");
-                $('#PopupDiv #popup_inner_div #popup_li'+i).append("<img id='img"+i+"'class'popup_avatar' alt='"+xyz+"' style='height : 75px' id='theImg' src='"+tempurl+"'/>");
-                $('#PopupDiv #popup_inner_div #popup_li'+i+" img").click(function(){
-                    selected = $(this).attr("alt");
-                    popupDiv.hide();
-                    $('#cover_div').hide();
-                    popbtn(selected);
-                // text.innerHTML = "show";
-                });
-            }
-            popupDiv.append("<button id='cancelpop' class='pop_btn'>Cancel</button></li>");
-            if(popupDiv.css("display")=="block") {
-                    
-                popupDiv.hide();
-                 $('#cover_div').hide();
-            // text.innerHTML = "show";
-            }
-            else {
-                popupDiv.show();
-                 $('#cover_div').show();
-            // text.innerHTML = "hide";
-            }
+
             
-        }
-        
-        
-        function popbtn(item) {
-            var avatarJson= {
-                avatarId : item
-            }
-            for (i=0; i<imgUrl.avatars.length; i++)
-            {   
-                if(imgUrl.avatars[i].avatarId == item)
-                {
-                    var abc = imgUrl.avatars[i].imageUrl;
-                    var tempurl = abc.replace('"', "");
-                    var tempurl = tempurl.replace('"', "");
-                    this.$('#avatar').attr("src", tempurl);
-                    this.$('#account-information').find('img').attr("src", tempurl);
-                    avatar_id = item
+            avatar = d.avatarId;
+
+            for(var i=0; i<self.avatars.length; i++){
+                if(self.avatars[i].avatarId == d.avatarId){
+                    self.$('#profile-avatar').attr('src', self.avatars[i].imageUrl).attr('imgId', d.avatarId);
                 }
             }
+            this.avatarId = d.avatarId;
+            this.ageCalc();
+        };
+
+        function _popup(){
+            var self = this;
+            var box = $('<div id="avatarSelect"></div>');
+            var html = '<h1>Select an Avatar</h1>';
+
+            for(var i =0; i<self.avatars.length; i++){
+                var src = self.avatars[i].imageUrl;
+                var imgId = self.avatars[i].avatarId;
+                html += '<img class="avatarPic" imgId="' + imgId +'" src="'+src+'"/>';
+            }
+            html += '<br/><li id="closeAvatar" class="decline btn">Cancel</li>';
+            box.html(html);
+
+            $('#profile').append(box);
         }
+    
+    
+        // function _popup(){
+        //     var popupDiv = $('#PopupDiv');
+        //     $('#PopupDiv').html("");
+        //     popupDiv.append("<h1 align='center'>Select Avatar Image</h1>");
+        //     popupDiv.append("<div id='popup_inner_div' style='padding : 2%'></div>");
+        //     $('#PopupDiv #popup_inner_div').append("<ul id='popup_ul'>"); 
+        //     for (i=0; i<imgUrl.avatars.length; i++)
+        //     {
+        //         var abc = imgUrl.avatars[i].imageUrl;
+        //         var xyz = imgUrl.avatars[i].avatarId;
+        //         var tempurl = abc.replace('"', "");
+        //         var tempurl = tempurl.replace('"', "");
+        //         $('#PopupDiv #popup_inner_div #popup_ul').append("<li style=' margin: 10px 20px 20px 20px' id='popup_li"+i+"'></li>");
+        //         $('#PopupDiv #popup_inner_div #popup_li'+i).append("<img id='img"+i+"'class'popup_avatar' alt='"+xyz+"' style='height : 75px' id='theImg' src='"+tempurl+"'/>");
+        //         $('#PopupDiv #popup_inner_div #popup_li'+i+" img").click(function(){
+        //             selected = $(this).attr("alt");
+        //             popupDiv.hide();
+        //             $('#cover_div').hide();
+        //             popbtn(selected);
+        //         // text.innerHTML = "show";
+        //         });
+        //     }
+        //     popupDiv.append("<button id='cancelpop' class='pop_btn'>Cancel</button></li>");
+        //     if(popupDiv.css("display")=="block") {
+                    
+        //         popupDiv.hide();
+        //          $('#cover_div').hide();
+        //     // text.innerHTML = "show";
+        //     }
+        //     else {
+        //         popupDiv.show();
+        //          $('#cover_div').show();
+        //     // text.innerHTML = "hide";
+        //     }
+            
+        // }
+        
+        
+        // function popbtn(item) {
+        //     var avatarJson= {
+        //         avatarId : item
+        //     }
+        //     for (i=0; i<imgUrl.avatars.length; i++)
+        //     {   
+        //         if(imgUrl.avatars[i].avatarId == item)
+        //         {
+        //             var abc = imgUrl.avatars[i].imageUrl;
+        //             var tempurl = abc.replace('"', "");
+        //             var tempurl = tempurl.replace('"', "");
+        //             this.$('#avatar').attr("src", tempurl);
+        //             this.$('#account-information').find('img').attr("src", tempurl);
+        //             avatar_id = item
+        //         }
+        //     }
+        // }
 
 
         function _setAvatar() {
@@ -304,6 +335,20 @@ define(['jquery',
                 
             });
         };
+
+        function _closeAvatar(){
+            $('#avatarSelect').remove();
+        };
+
+        function _pickAvatar(e){
+            var e = $(e.currentTarget);
+            var id = e.attr('imgId');
+            var src = e.attr('src');
+
+            this.$('#profile-avatar').attr('src',src).attr('imgId', id);
+            $('#avatar').attr('src', src);
+            $('#avatarSelect').remove();
+        }
 
         return profile;
 

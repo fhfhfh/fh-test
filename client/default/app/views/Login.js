@@ -71,17 +71,12 @@ define([
                 var password = $('#password').val();
                 var quote = "";
                 if (username && password) {
-                    self.controller.login(username, password, function(res,url,newData){
+                    self.controller.login(username, password, function(res,url){
                         if(res === false){
                             self.showLogin();
                         }
                         else if(url != null) {
-                            self.showVideo(url, newData);
-                        }
-                        else if(newData == '1'){
-                            // call home view first to initialise main app navigation
-                            Backbone.history.navigate('home', true, true);
-                            Backbone.history.navigate('profile', true, true);
+                            self.showVideo(url);
                         }
                         else {
                             Backbone.history.navigate('home', true, true);
@@ -95,10 +90,9 @@ define([
                 this.showLoading();
             },
 
-            showVideo: function(url, newData){
+            showVideo: function(url){
                 var welcome = new WelcomeView();
                 $('#content').html(welcome.render().el);
-                welcome.newData = newData;
                 welcome.loadVideo(url);
             },
 
