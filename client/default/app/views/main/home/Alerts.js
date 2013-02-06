@@ -16,7 +16,7 @@ define(['jquery',
 		tagName		: 'section',
 	    id			: 'alerts',
 	    events		: {
-	    	"click #add-alert"		: "bind",
+	    	"click #add-alert"		: "checkAlerts",
 	    	"click #allBtn"			: "showAll",
 	    	"click #alertsBtn"		: "showAlerts",
 	    	"click #remindersBtn"	: "showReminders",
@@ -30,7 +30,7 @@ define(['jquery',
 			this.model = new Alerts();
 		},
 
-		bind: function(e){
+		checkAlerts: function(e){
 			var self = this;
 
 			// check if model is empty and if screen has been populated
@@ -47,7 +47,7 @@ define(['jquery',
 		render : function(){
 			this.$el.html(tpl);
 			this.$('#allBtn').addClass('selected');
-			this.bind();
+			this.checkAlerts();
 			return this;
 		},
 
@@ -161,7 +161,7 @@ define(['jquery',
 			total += $('#alert-list').children().length;
 			total += $('#reminder-list').children().length;
 			total += $('#expiration-list').children().length;
-			console.log(total);
+			
 			return total;
 		}
 

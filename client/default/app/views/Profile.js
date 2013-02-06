@@ -64,7 +64,13 @@ define(['jquery',
         function _initialize(){
             var self = this;
             Store.load('peachy_avatars', function(res, data){
-                self.avatars = JSON.parse(data).avatars;
+                if(res && data){
+                    self.avatars = JSON.parse(data).avatars;    
+                }
+                else {
+                    self.avatars = [];
+                }
+                
             });
         };
 

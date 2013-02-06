@@ -792,6 +792,7 @@ section h1 {
   box-shadow: 0 7px 0 -4px #cccccc, 0 12px 0 -7px #8b8b8b;
   padding: 15px;
   border-radius: 10px;
+  margin-bottom: 30px;
 }
 #main-iscroll {
   color: #000;
@@ -1264,6 +1265,12 @@ li {
 }
 #news-and-information #headlines li .video-preview img {
   display: block;
+}
+#news-and-information #headlines li .video-preview .watched {
+  display: none;
+  position: absolute;
+  top: -12px;
+  left: 228px;
 }
 #news-and-information #headlines li .video-preview .title {
   position: absolute;
