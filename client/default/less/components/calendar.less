@@ -5,15 +5,6 @@
 		width: 100%;
 		border: 3px solid #c7f0f6;
 
-		tr#head {
-			text-align: center;
-			background-color: #77b5fe;
-
-			&:hover {
-				background-color: #77b5fe;
-			}
-		}
-
 		td {
 			width: 10%;
 			height: 80px;
@@ -30,19 +21,82 @@
 			&:hover {
 				background-color: #c7f0f6;
 			}
-
-			#popDate {
-				// display: none;
-				position: absolute;
-				padding: 10px;
-				border: 1px solid #000;
-				border-radius: 10px;
-				background-color: #fff;
-			}
 		}
 
 		.today{
 			background-color: #7fb0db;
 		}
+	}
+}
+
+section#month {
+
+	h2 {
+		color: #2b6891;
+		.avenir-demi(15px);
+	}
+}
+
+#popDate {
+	position: absolute;
+	height: 150px;
+	width: 200px;
+	padding: 10px;
+	border: 2px solid #2b6891;
+	box-shadow: 0px 0px 5px #2b6891;
+	border-radius: 10px;
+	background-color: #fff;
+
+	h3 {
+		display: inline;
+		.avenir-bold(14px);
+	}
+
+	img {
+		float: right;
+		height: 20px;
+		width: 20px;
+	}
+
+	li {
+		list-style: disc;
+		.avenir(14px);
+		display: list-item;
+		padding: 5px;
+
+		&.energy 	{color: green}
+		&.mood 		{color: orange}
+		&.diet 		{color: blue}
+
+		span {
+			color: #000;
+		}
+	}
+
+	#attrList {
+		margin-top: 30px;
+	}
+
+
+	.arrow-border {
+		border-color: #2b6891 transparent transparent transparent;
+		border-style: solid;
+		border-width: 10px;
+		height:0;
+		width:0;
+		position:absolute;
+		bottom:-22px;
+		left:30px;
+	}
+
+	.arrow {
+		border-color: #fff transparent transparent transparent;
+		border-style: solid;
+		border-width: 10px;
+		height:0;
+		width:0;
+		position:absolute;
+		bottom:-19px;
+		left:30px;
 	}
 }

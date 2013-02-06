@@ -6,7 +6,8 @@ define(['jquery',
         'underscore',
         'backbone',
         'text!templates/components/Month.html',
-], function($, _, Backbone, tpl) {
+        'text!templates/popups/DayEvents.html',
+], function($, _, Backbone, tpl, dayEventTpl) {
 
 	return Backbone.View.extend({
 
@@ -14,12 +15,11 @@ define(['jquery',
 		tagName		: 'section',
 	    id			: 'month',
 	    events		: {
-	    	'mousedown .days td'	: 'hover',
-	    	'touchstart .days td'	: 'hover',
-	    	'mouseup .days td'		: 'hoverOff',
-	    	'touchend .days td'		: 'hoverOff'
+	    	'click .days td'	: 'eventsOn'
+	    	// 'click .days td'	: 'eventsOff',
 	    },
 	    template	: _.template(tpl),
+	    dayTpl 		: _.template(dayEventTpl),
 
 
 		initialize : function(){
@@ -89,12 +89,27 @@ define(['jquery',
 			}
 		},
 
-		hover: function(e){
-			var target = e.currentTarget;			
-			$(target).append("<div id='popDate'>Hello World</div>");
+		eventsOn: function(e){
+			$('#popDate').remove();
+
+			var target = e.currentTarget;
+			var html = 	this.dayTpl({
+				date: 'Febuary 6, 2013',
+				energy: 'energy',
+				mood: 'mood',
+				diet: 'diet'
+			});
+			$(target).append(html);
+			$('#popDate').hide().slideDown(200);
+
+
+			// Close window after 3 seconds
+			setTimeout(function(){
+				$(target).find('#popDate').slideUp(200);
+			}, 3000);
 		},
 
-		hoverOff: function(e){
+		eventsOff: function(e){
 			var target = e.currentTarget;
 			$('#popDate').remove();
 		}

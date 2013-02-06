@@ -1681,13 +1681,6 @@ li {
   width: 100%;
   border: 3px solid #c7f0f6;
 }
-#tableContainer #calTable tr#head {
-  text-align: center;
-  background-color: #77b5fe;
-}
-#tableContainer #calTable tr#head:hover {
-  background-color: #77b5fe;
-}
 #tableContainer #calTable td {
   width: 10%;
   height: 80px;
@@ -1703,13 +1696,70 @@ li {
 #tableContainer #calTable .days td:hover {
   background-color: #c7f0f6;
 }
-#tableContainer #calTable .days td #popDate {
+#tableContainer #calTable .today {
+  background-color: #7fb0db;
+}
+section#month h2 {
+  color: #2b6891;
+  font: bold 15px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
+}
+#popDate {
   position: absolute;
+  height: 150px;
+  width: 200px;
   padding: 10px;
-  border: 1px solid #000;
+  border: 2px solid #2b6891;
+  box-shadow: 0px 0px 5px #2b6891;
   border-radius: 10px;
   background-color: #fff;
 }
-#tableContainer #calTable .today {
-  background-color: #7fb0db;
+#popDate h3 {
+  display: inline;
+  font: bold 14px "Avenir Next Bold", Helvetica, Arial, sans-serif;
+}
+#popDate img {
+  float: right;
+  height: 20px;
+  width: 20px;
+}
+#popDate li {
+  list-style: disc;
+  font: normal 14px "Avenir Next", Helvetica, Arial, sans-serif;
+  display: list-item;
+  padding: 5px;
+}
+#popDate li.energy {
+  color: #008000;
+}
+#popDate li.mood {
+  color: #ffa500;
+}
+#popDate li.diet {
+  color: #0000ff;
+}
+#popDate li span {
+  color: #000;
+}
+#popDate #attrList {
+  margin-top: 30px;
+}
+#popDate .arrow-border {
+  border-color: #2b6891 transparent transparent transparent;
+  border-style: solid;
+  border-width: 10px;
+  height: 0;
+  width: 0;
+  position: absolute;
+  bottom: -22px;
+  left: 30px;
+}
+#popDate .arrow {
+  border-color: #fff transparent transparent transparent;
+  border-style: solid;
+  border-width: 10px;
+  height: 0;
+  width: 0;
+  position: absolute;
+  bottom: -19px;
+  left: 30px;
 }

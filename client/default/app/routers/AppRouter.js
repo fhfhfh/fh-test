@@ -56,6 +56,7 @@ define([
         // router, pass it the option 'silent: true' when initialising.
         silent: (self.options && self.options.silent) || false
       });
+
     },
 
     startup: function() {
@@ -116,7 +117,8 @@ define([
 //      this.connectView = new ConnectView();
 //    },
    calendar: function(){
-     this.$content.html((new CalendarView()).render().el);
+     this.ensureMain();
+     this.mainView.setActiveView('calendar');
      // this.$content.html((new CalendarView()).render().el);
    },
 //    library: function(){

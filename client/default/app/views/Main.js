@@ -128,9 +128,10 @@ define(['jquery',
             },
 
             calendar: function() {
-                this.setActiveView('calendar');
+                // this.setActiveView('calendar');
                 this.$nav.find('li').removeClass('selected');
                 this.$('#calendar').addClass('selected');
+                Backbone.history.navigate('calendar', true);
             },
 
             connect: function() {
