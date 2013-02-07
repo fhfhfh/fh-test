@@ -92,27 +92,39 @@ define(['jquery',
 		eventsOn: function(e){
 			$('#popDate').remove();
 
+			var self = this;
+			var month = this.monthName[self.month];
 			var target = e.currentTarget;
+			var day = $(target).find('.day').html();
+
 			var html = 	this.dayTpl({
-				date: 'Febuary 6, 2013',
+				date: month + ' ' + day + ', ' + self.year,
 				energy: 'energy',
 				mood: 'mood',
 				diet: 'diet'
 			});
-			$(target).append(html);
-			$('#popDate').hide().slideDown(200);
+
+			if(day != undefined){
+				$(target).append(html);
+				$('#popDate').hide().slideDown(200);
 
 
-			// Close window after 3 seconds
-			setTimeout(function(){
-				$(target).find('#popDate').slideUp(200);
-			}, 3000);
+				// Close window after 3 seconds
+				setTimeout(function(){
+					$(target).find('#popDate').slideUp(200);
+				}, 3000);
+			}
 		},
 
 		eventsOff: function(e){
 			var target = e.currentTarget;
 			$('#popDate').remove();
-		}
+		},
+
+		monthName: [
+		'January', 'Febuary', 'March', 'April', 'May', 'June', 'July', 'August', 'September',
+		'October', 'November', 'December'
+		]
 
 	});
 });

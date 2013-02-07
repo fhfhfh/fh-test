@@ -1,50 +1,67 @@
-/**
- * Backbone view for the HealthHub screen of the app
- */
+define([
+  'jquery',
+  'underscore',
+  'backbone',
+  'views/ContainerView',
+  'views/main/healthHub/History',
+  'views/main/healthHub/Hub',
+  'views/main/healthHub/Conditions',
+  'text!templates/pages/HealthHub.html'
+], function($, _, Backbone, ContainerView, HistoryView, HubView, ConditionsView, template) {
 
-define(['jquery',
-        'underscore',
-        'backbone',
-        'iscroll',
-        'models/Acts',
-        'models/User',
-        'text!templates/pages/HealthHub.html'
-], function($, _, Backbone, iScroll, Acts, User, template) {
+  return ContainerView.extend({
+    tagName	: 'section',
+    id		: 'healthHub',
 
+    events : {
+      'click #show-history'		: 'showHistory',
+      'click #show-hub'			: 'showHub',
+      'click #show-conditions'	: 'showConditions'
+    },
 
-	//interface----------------------------------
-	var healthHub = Backbone.View.extend({
+    subViews: {
+      history	: new HistoryView(),
+      hub		: new HubView(),
+      conditions: new ConditionsView()
+    },
 
-		// Backbone specific attributes
-		tagName	: 'section',
-	    id		: 'healthHub',
-	    events	: {
-	    },
-	    template: template,
+    initialize: function(options) {
+      var self = this;
+      _.bindAll(this);
 
-			initialize			: _initialize,		// Used to refresh iScroll on content
-			render				: _render
+      this.$el.html(template);
+      this.$content = this.$('#healthHub-content');
+      this.$('#show-history').addClass('selected');
+    },
 
-	});
+    render: function() {
+      var self = this;
+      self.setActiveView('history');  
+      this.delegateEvents();
+      if (this.activeView) {
+        this.activeView.delegateEvents();
+        this.setActiveView(self.activeView);
+      }
+      return this;
+    },
 
+    showHistory : function(){
+      this.$('li').removeClass('selected');
+      this.$('#show-history').addClass('selected');
+      this.setActiveView('history');
+    },
 
-	//implementation-------------------------------
-	var user = new User();
+    showHub : function(){
+      this.$('li').removeClass('selected');
+      this.$('#show-hub').addClass('selected');
+      this.setActiveView('hub');
+    },
 
-	function _initialize(){
-		_.bindAll(this);
-      	var self = this;
+    showConditions : function(){
+      this.$('li').removeClass('selected');
+      this.$('#show-conditions').addClass('selected');
+      this.setActiveView('conditions');
+    }
 
-		this.$el.html(template);
-		this.$content = this.$('#home-content');
-		this.$nav = this.$('#home-nav');
-		// this.$('#show-news').addClass('selected');
-	};
-
-	function _render(){
-		return this;
-	};
-
-	return healthHub;
-
+  });
 });

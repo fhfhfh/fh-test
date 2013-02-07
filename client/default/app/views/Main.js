@@ -17,7 +17,7 @@ define(['jquery',
     'views/main/Calendar',
     'views/main/Library',
     'models/Acts',
-    'models/avatars',
+    'controllers/avatars',
     'models/Store'
 
     ], function($, _, Backbone, ContainerView, HomeView, TopBar, template, iScroll,
@@ -110,9 +110,10 @@ define(['jquery',
             },
 
             home: function() {
-                this.setActiveView('home');
+                // this.setActiveView('home');
                 this.$nav.find('li').removeClass('selected');
                 this.$('#home').addClass('selected');
+                Backbone.history.navigate('home', true);
             },
 
             widgets: function() {
@@ -122,9 +123,10 @@ define(['jquery',
             },
 
             healthHub: function() {
-                this.setActiveView('healthHub');
+                // this.setActiveView('healthHub');
                 this.$nav.find('li').removeClass('selected');
                 this.$('#healthHub').addClass('selected');
+                Backbone.history.navigate('healthHub', true);
             },
 
             calendar: function() {
@@ -161,18 +163,19 @@ define(['jquery',
         }
 
         function _setAvatars(){
-            Avatars.fetchAvatars(function (res){
+            
+            Avatars.loadAvatars(function (res){
                 if (res)
                 {
-                    for (i=0; i<res.payload.avatars.length; i++)
-                    {
-                        if(res.payload.avatars[i].avatarId == avatar_id)
-                        {
-                            var abc = res.payload.avatars[i].imageUrl;
-                            this.$('#avatar').attr("src", abc);
+                    // for (i=0; i<res.payload.avatars.length; i++)
+                    // {
+                    //     if(res.payload.avatars[i].avatarId == avatar_id)
+                    //     {
+                    //         var abc = res.payload.avatars[i].imageUrl;
+                    //         this.$('#avatar').attr("src", abc);
 
-                        }
-                    }
+                    //     }
+                    // }
                 }
             });
         }
