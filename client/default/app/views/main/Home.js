@@ -41,6 +41,7 @@ define([
 
     render: function() {
       var self = this;
+      
       self.setActiveView('news');  
       this.delegateEvents();
       if (this.activeView) {
@@ -49,22 +50,31 @@ define([
       return this;
     },
 
+    refreshScroll: function(){
+      if(this.container){
+        this.container.refreshScroll();  
+      }
+    },
+
     showNews : function(){
       this.$('li').removeClass('selected');
       this.$('#show-news').addClass('selected');
       this.setActiveView('news');
+      this.refreshScroll();
     },
 
     showAlerts : function(){
       this.$('li').removeClass('selected');
       this.$('#show-alerts').addClass('selected');
       this.setActiveView('alerts');
+      this.refreshScroll();
     },
 
     showGoals : function(){
       this.$('li').removeClass('selected');
       this.$('#show-goals').addClass('selected');
       this.setActiveView('goals');
+      this.refreshScroll();
     },
 
   });

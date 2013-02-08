@@ -32,15 +32,16 @@ define([
       this.$el.html(template);
       this.$content = this.$('#healthHub-content');
       this.$('#show-history').addClass('selected');
+      
     },
 
     render: function() {
       var self = this;
-      self.setActiveView('history');  
+      this.setActiveView('history');
       this.delegateEvents();
       if (this.activeView) {
         this.activeView.delegateEvents();
-        this.setActiveView(self.activeView);
+        // this.setActiveView(self.activeView);
       }
       return this;
     },

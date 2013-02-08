@@ -37,7 +37,7 @@ define([
                 // TODO: Remove this in production!
                 this.$('#username').val('jsmith101');
                 this.$('#password').val('12345');
-
+                this.controller.quotes();
                 this.toggleSigninButton();
 
                 return this;
@@ -92,11 +92,15 @@ define([
 
             showVideo: function(url){
                 var welcome = new WelcomeView();
-                $('#content').html(welcome.render().el);
+                var renderedPage = welcome.render();
+                $('#content').html('');
+                $(renderedPage.el).appendTo($('#content')).hide().fadeIn(400);
                 welcome.loadVideo(url);
+                
             },
 
             showLoading: function() {
+                this.$('input').blur();
                 this.toggleSigninButton(true);
                 this.$('#login-container').removeClass('visible');
                 this.$('#loading-container').addClass('visible');

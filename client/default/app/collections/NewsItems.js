@@ -20,7 +20,6 @@ define(['backbone',
 			var arr = [];
 			var self = this;
 
-			console.log('Fetching...');
             Act.call('fetchNewsAction', {}, 
 		        function(res){
 		          var newsArr = res.payload.News;

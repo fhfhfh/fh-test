@@ -5,12 +5,16 @@
 --------------------*/
 define(['jquery',
         'underscore',
-        'models/User'
-], function($, _, Backbone, Acts, User) {
+        'models/User',
+        'controllers/avatars',
+], function($, _, User, Avatars) {
 
-	//interface----------------------------------
-	window.MainController = {
+	var ctr = {
 
 		fetchAll : function(){
-			
+			Avatars.loadAvatars(function(){});
 		}
+	}
+
+	return ctr;
+});

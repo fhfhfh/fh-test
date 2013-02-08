@@ -6,13 +6,14 @@
 define(['jquery',
     'underscore',
     'backbone',
+    'iscroll',
     'models/Acts',
     'models/User',
     'text!templates/pages/Profile.html',
     'text!templates/components/AddressBox.html',
     'controllers/Profile',
     'models/Store'
-    ], function($, _, Backbone, Acts, User, template, addressBox, Controller, Store) {
+    ], function($, _, Backbone, iscroll, Acts, User, template, addressBox, Controller, Store) {
 
         //interface ---------------------------
         var profile = Backbone.View.extend({
@@ -26,12 +27,12 @@ define(['jquery',
                 'click #address'       : 'showAddr',
                 'click #done'          : 'closeAddr',
                 'click #profile-avatar': "popup",
-                'click #cancelpop'     :'popup',
-                'change #password'     : 'password',
-                'click #cancelPass'    :'password',
-                'click #okPass'        :'ok',
-
                 'click #closeAvatar'   : 'closeAvatar',
+                'change #password'     : 'password',
+                'click #cancelPass'    : 'password',
+                'click #okPass'        : 'ok',
+                'change input'         : 'validate',
+                'click li'             : 'focusInput',
                 'click .avatarPic'     : 'pickAvatar'
             },
 
@@ -40,17 +41,19 @@ define(['jquery',
             render		: _render,		// return template
             populate 	: _populate, 	// Populate all detail fields
             saveDetails : _saveDetails,	// Save details to user model
-            cancel 		: _cancel,
-            popup               : _popup,		// navigate back to home page
+            cancel 		: _cancel,     // navigate back to home page
+            popup       : _popup,		
             ageCalc     : _ageCalc,     // Calculate age of user based on DOB field
             showAddr    : _showAddr,   // Pop-up box to show all address fields
             closeAddr 	: _closeAddr,
             mapValues 	: _mapValues,
-            setAvatar           : _setAvatar,
+            setAvatar   : _setAvatar,
             password    : _password,
             ok          : _ok,
             closeAvatar : _closeAvatar,
-            pickAvatar  : _pickAvatar
+            pickAvatar  : _pickAvatar,
+            focusInput  : _focusInput,
+            validate    : _validate
         });
 
 
@@ -60,6 +63,7 @@ define(['jquery',
         var controller = new Controller();
         var selected   ="";
         var avatar;
+
 
         function _initialize(){
             var self = this;
@@ -72,12 +76,29 @@ define(['jquery',
                 }
                 
             });
+            this.$el.html(this.template());
+
+            // iScroll ---------------------------
+            this.iscroll = new iScroll(this.$('#profile-iscroll')[0], {
+                hscroll: false,
+                fixedScrollbar: true,
+                bounce: false,
+                vScrollbar: false
+            });
+
+            Backbone.View.prototype.refreshScroll = function() {
+                setTimeout(function() {
+                    if (self.iscroll) {
+                        self.iscroll.refresh.call(self.iscroll);
+                    }
+                }, 100);
+            };
+            // ------------------------------------------
         };
 
         function _render(){
             var self = this;
-            this.$el.html(this.template());
-            // this.setAvatar();
+            this.refreshScroll();
             this.populate();
             return this;
         };
@@ -93,7 +114,7 @@ define(['jquery',
                         self.mapValues(details);
                     }
                 }else{
-                    alert('TODO: error handling');
+                    alert('User Details Not Loaded');
                 }
             });
 
@@ -116,6 +137,7 @@ define(['jquery',
             else {
                 $('#cover_div').show();
                 passwordDiv.show();
+                $('#confirmPassword_txt').focus();
             }
             
         };
@@ -127,8 +149,10 @@ define(['jquery',
             pass2 = $('#confirmPassword_txt').val();
             if(pass1 == pass2)
             {
-              $('#passwordDiv').hide();
-               $('#cover_div').hide();
+                // TODO: reset password here
+                Backbone.trigger('notify', 'Password Reset Functionality not added!');
+                $('#passwordDiv').hide();
+                $('#cover_div').hide();
        }
             else
                 { 
@@ -218,8 +242,6 @@ define(['jquery',
             this.$('#mobile').val(d.mobile);
             this.$('#username').val(d.username || user.name);
 
-
-            
             avatar = d.avatarId;
 
             for(var i=0; i<self.avatars.length; i++){
@@ -235,6 +257,11 @@ define(['jquery',
             var self = this;
             var box = $('<div id="avatarSelect"></div>');
             var html = '<h1>Select an Avatar</h1>';
+
+            if(self.avatars.length == 0){
+                console.log('uh oh');
+                self.initialize();
+            }
 
             for(var i =0; i<self.avatars.length; i++){
                 var src = self.avatars[i].imageUrl;
@@ -306,40 +333,39 @@ define(['jquery',
 
 
         function _setAvatar() {
-            
-            controller1.loadAvatars(function(url){
-               // 
-                if(imgUrl == "")
-                {
-                    for (i=0; i<url.avatars.length; i++)
-                    {
-                        if(url.avatars[i].avatarId == avatar_id)
-                        {
-                            var abc = url.avatars[i].imageUrl;
-                            var tempurl = abc.replace('"', "");
-                            var tempurl = tempurl.replace('"', "");
-                            this.$('#avatar').attr("src", tempurl);
-                            this.$('#account-information').find('img').attr("src", tempurl);
-                            imgUrl = url;
-                            selected = avatar;
-                        }
-                    }
-                }else{
-                    for (i=0; i<url.avatars.length; i++)
-                    {   
-                        if(url.avatars[i].avatarId == selected)
-                        {
-                            var abc = imgUrl.avatars[i].imageUrl;
-                            var tempurl = abc.replace('"', "");
-                            var tempurl = tempurl.replace('"', "");
-                            this.$('#avatar').attr("src", tempurl);
-                            this.$('#account-information').find('img').attr("src", tempurl);
+        //     controller1.loadAvatars(function(url){
+        //        // 
+        //         if(imgUrl == "")
+        //         {
+        //             for (i=0; i<url.avatars.length; i++)
+        //             {
+        //                 if(url.avatars[i].avatarId == avatar_id)
+        //                 {
+        //                     var abc = url.avatars[i].imageUrl;
+        //                     var tempurl = abc.replace('"', "");
+        //                     var tempurl = tempurl.replace('"', "");
+        //                     this.$('#avatar').attr("src", tempurl);
+        //                     this.$('#account-information').find('img').attr("src", tempurl);
+        //                     imgUrl = url;
+        //                     selected = avatar;
+        //                 }
+        //             }
+        //         }else{
+        //             for (i=0; i<url.avatars.length; i++)
+        //             {   
+        //                 if(url.avatars[i].avatarId == selected)
+        //                 {
+        //                     var abc = imgUrl.avatars[i].imageUrl;
+        //                     var tempurl = abc.replace('"', "");
+        //                     var tempurl = tempurl.replace('"', "");
+        //                     this.$('#avatar').attr("src", tempurl);
+        //                     this.$('#account-information').find('img').attr("src", tempurl);
                 
-                        }
-                    }
-                }
+        //                 }
+        //             }
+        //         }
                 
-            });
+        //     });
         };
 
         function _closeAvatar(){
@@ -354,6 +380,18 @@ define(['jquery',
             this.$('#profile-avatar').attr('src',src).attr('imgId', id);
             $('#avatar').attr('src', src);
             $('#avatarSelect').remove();
+        };
+
+        function _focusInput(e){
+            var target = e.currentTarget;
+
+            // $(target).find('input').focus();
+        };
+
+        function _validate(e){
+            var target = e.currentTarget;
+
+            console.log(target);
         }
 
         return profile;

@@ -51,6 +51,12 @@ define(['jquery',
 			return this;
 		},
 
+		refreshScroll: function(){
+			if(this.container){
+				this.container.refreshScroll();  
+			}
+		},
+
 		showAll: function(){
 			this.$('li').removeClass('selected');
 			$('#allBtn').addClass('selected');
@@ -133,6 +139,8 @@ define(['jquery',
 			// 	You haven't completed your health risk assessment.
 			// 	<span id="date">Yesterday</span>
 			// </div>
+
+			this.refreshScroll();
 		},
 
 

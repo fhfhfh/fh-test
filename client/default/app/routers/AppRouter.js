@@ -85,7 +85,6 @@ define([
         home: function(page) {
             this.ensureMain();
             this.$topBar.show();
-            console.log(this.mainView.activeView);
             if (page) {
                 if (this.mainView.subViews.home.setActiveView(page)) {
                     this.$content.html(this.mainView.render().el);

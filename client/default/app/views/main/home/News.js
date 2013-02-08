@@ -59,6 +59,12 @@ define(['jquery',
 			return this;
 		},
 
+		refreshScroll: function(){
+			if(this.container){
+				this.container.refreshScroll();  
+			}
+		},
+
 		checkNews: function(){
 			// check if collection is empty
 			if(this.collection.isEmpty()){
@@ -75,11 +81,11 @@ define(['jquery',
 				}
 				
 			} else {
-	        var itemsString = '';
-			itemsString += self.itemTemplate(self.collection.at(0).toJSON());
-	        this.$('ul').append(itemsString);
-	      }
-	      this.refreshScroll();
+		        var itemsString = '';
+				itemsString += self.itemTemplate(self.collection.at(0).toJSON());
+		        this.$('ul').append(itemsString);
+			}
+			this.refreshScroll();
 	    },
 
 	    loadNews: function() {
@@ -120,14 +126,12 @@ define(['jquery',
 		watched: function(){
 			var self = this;
 			var li = this.$('li');
-			console.log(li);
 
 			for(var i=0; i<li.length; i++){
 				var id = self.$(li[i]).attr('data-id');
 				var wIcon = self.$(li[i]).find('.watched');
 				var item	= self.collection.get(id);
 				
-				console.log(item);
 				if(item.attributes.watched == '1'){
 					console.log('SHOW');
 					console.log(wIcon);

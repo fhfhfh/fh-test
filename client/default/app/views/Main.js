@@ -17,11 +17,10 @@ define(['jquery',
     'views/main/Calendar',
     'views/main/Library',
     'models/Acts',
-    'controllers/avatars',
     'models/Store'
 
     ], function($, _, Backbone, ContainerView, HomeView, TopBar, template, iScroll,
-        WidgetsView, HealthHubView, ConnectView, CalendarView, LibraryView,Acts,Avatars,Store) {
+        WidgetsView, HealthHubView, ConnectView, CalendarView, LibraryView,Acts,Store) {
 
         return ContainerView.extend({
             tagName	: 'section',
@@ -36,7 +35,6 @@ define(['jquery',
             },
 
             setPeachyPoints 		: _setPeachyPoints,
-            setAvatars                  : _setAvatars,
 
 
             subViews: {
@@ -51,7 +49,6 @@ define(['jquery',
             initialize: function(options) {
                 var self = this;
                 this.setPeachyPoints();
-                this.setAvatars();
                 this.$el.html(template);
                 this.$content = this.$('#child-content');
                 this.$nav = this.$('#main-nav');
@@ -98,12 +95,12 @@ define(['jquery',
                     var data = JSON.parse(data);
                     var userDetails = data.userDetails;
 
-                    if(userDetails.newDataValidation == '1'){
+                    if(userDetails.newDataValidation == '0'){
                         setTimeout(function(){
                             Backbone.history.navigate('profile', true, true);
                             $('#top-bar-buttons').html('<li><button id="cancel">Cancel</button></li>' +
                             '<li><button id="save">Save</button></li>');    
-                        }, 200);
+                        }, 100);
                         
                     }
                 });
@@ -161,24 +158,4 @@ define(['jquery',
                     console.log(err);
                 });
         }
-
-        function _setAvatars(){
-            
-            Avatars.loadAvatars(function (res){
-                if (res)
-                {
-                    // for (i=0; i<res.payload.avatars.length; i++)
-                    // {
-                    //     if(res.payload.avatars[i].avatarId == avatar_id)
-                    //     {
-                    //         var abc = res.payload.avatars[i].imageUrl;
-                    //         this.$('#avatar').attr("src", abc);
-
-                    //     }
-                    // }
-                }
-            });
-        }
-
-
     });

@@ -60,6 +60,7 @@ define([
     setActiveView: function(view) {
       var self = this,
           previousView = this.activeView;
+
       if (this.subViews.hasOwnProperty(view)) {
         if (this.activeView === this.subViews[view]) {
           return true;
@@ -76,13 +77,19 @@ define([
             }
           });
         }
+
         this.$content.html(this.activeView.render().el);
         if (previousView) {
           previousView.undelegateEvents();
         }
+
         this.activeView.delegateEvents();
+        this.activeView.container = this;
+        
         if (this.refreshScroll) {
           this.refreshScroll();
+        } else if(this.container && this.container.refreshScroll){
+          this.container.refreshScroll();
         }
         return true;
       } else {
