@@ -1,0 +1,51 @@
+#viewBtn {
+	float: right;
+	padding: 5px;
+	background-color: #ababab;
+	border-radius: 5px;
+
+	&:hover{
+		background-color: #5b5b5b;
+	}
+
+}
+
+.dataGrid {
+	width: 100%;
+	background-color: #cfcfcf;
+	margin: 15px 0px 15px 0px;
+	border-radius: 10px;
+	.avenir(14px);
+	box-shadow: 0px 2px 2px #ababab;
+
+	#title {
+		padding: 10px;
+		height: 50px;
+		vertical-align: middle;
+
+		h2 {
+			.avenir-demi(14px);
+			color: #000000;
+		}
+	}
+
+	#body {
+		#row {
+			padding: 15px;
+			height: 40px;
+
+			.value{
+				position: absolute;
+				left: 370px;
+			}
+		}
+
+		#row:nth-child(odd){
+			background-color: #e6e6e6;
+		}
+
+		#row:last-child{
+			border-radius: 0 0 10px 10px;
+		}
+	}
+}

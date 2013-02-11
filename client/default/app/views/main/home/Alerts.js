@@ -33,8 +33,15 @@ define(['jquery',
 		checkAlerts: function(e){
 			var self = this;
 
+			// User clicked Sync button
+			if(e){
+				self.model.fetchAlerts(function(res){
+					self.populate();
+					return;
+				});
+			}
 			// check if model is empty and if screen has been populated
-			if(this.model.isEmpty()){
+			else if(this.model.isEmpty()){
 				this.model.fetchAlerts(function(res){
 					self.populate();
 				});
@@ -63,6 +70,7 @@ define(['jquery',
 			$('#alert-list').show();
 			$('#reminder-list').show();
 			$('#expiration-list').show();
+			this.refreshScroll();
 		},
 
 		showAlerts: function(){
@@ -71,6 +79,7 @@ define(['jquery',
 			$('#alert-list').show();
 			$('#reminder-list').hide();
 			$('#expiration-list').hide();
+			this.refreshScroll();
 		},
 
 		showReminders: function(){
@@ -79,6 +88,7 @@ define(['jquery',
 			$('#alert-list').hide();
 			$('#reminder-list').show();
 			$('#expiration-list').hide();
+			this.refreshScroll();
 		},
 
 		showExpirations: function(){
@@ -87,6 +97,7 @@ define(['jquery',
 			$('#alert-list').hide();
 			$('#reminder-list').hide();
 			$('#expiration-list').show();
+			this.refreshScroll();
 		},
 
 		populate: function(){
@@ -97,9 +108,9 @@ define(['jquery',
 			var expirations	= entries.expirations;
 
 			// empty all alerts etc.
-			$('#alert-list div').html('');
-			$('#reminder-list div').html('');
-			$('#expiration-list div').html('');
+			$('#alert-list div').remove();
+			$('#reminder-list div').remove();
+			$('#expiration-list div').remove();
 
 			for(var i=0; i<alerts.length; i++){
 				var cls = self.mapAlert(alerts[i].noticeSeverityText);

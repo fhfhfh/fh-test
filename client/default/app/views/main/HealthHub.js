@@ -4,10 +4,10 @@ define([
   'backbone',
   'views/ContainerView',
   'views/main/healthHub/History',
-  'views/main/healthHub/Hub',
+  'views/main/healthHub/Data',
   'views/main/healthHub/Conditions',
   'text!templates/pages/HealthHub.html'
-], function($, _, Backbone, ContainerView, HistoryView, HubView, ConditionsView, template) {
+], function($, _, Backbone, ContainerView, HistoryView, DataView, ConditionsView, template) {
 
   return ContainerView.extend({
     tagName	: 'section',
@@ -15,13 +15,13 @@ define([
 
     events : {
       'click #show-history'		: 'showHistory',
-      'click #show-hub'			: 'showHub',
+      'click #show-data'			: 'showData',
       'click #show-conditions'	: 'showConditions'
     },
 
     subViews: {
       history	: new HistoryView(),
-      hub		: new HubView(),
+      data		: new DataView(),
       conditions: new ConditionsView()
     },
 
@@ -31,13 +31,13 @@ define([
 
       this.$el.html(template);
       this.$content = this.$('#healthHub-content');
-      this.$('#show-history').addClass('selected');
+      this.$('#show-data').addClass('selected');
       
     },
 
     render: function() {
       var self = this;
-      this.setActiveView('history');
+      this.setActiveView('data');
       this.delegateEvents();
       if (this.activeView) {
         this.activeView.delegateEvents();
@@ -52,10 +52,10 @@ define([
       this.setActiveView('history');
     },
 
-    showHub : function(){
+    showData : function(){
       this.$('li').removeClass('selected');
-      this.$('#show-hub').addClass('selected');
-      this.setActiveView('hub');
+      this.$('#show-data').addClass('selected');
+      this.setActiveView('data');
     },
 
     showConditions : function(){

@@ -65,7 +65,8 @@ define(['jquery',
 					// save profile to localStorage
 					user.setProfile(profile);
 					user.saveUser(function(res){
-						Backbone.trigger('notify', 'Profile Saved!');
+						user.saveUserOnline();
+		
 						// simulate user navigating back to Home screen
 						$('#topBar #cancel').click(); 
 					});
@@ -89,6 +90,32 @@ define(['jquery',
 		//check for null values
 		for(var prop in d){
 			if(d.hasOwnProperty(prop)){
+				if(prop === 'password') {
+					// console.log(d[prop]);
+					// console.log(user);
+					// var hashPassword	= d[prop].hashCode();
+					// var currentPassword	= user.getPassword();
+					// console.log(hashPassword, currentPassword);
+					// if(hashPassword != currentPassword){
+					// 	// return 'Incorrect Password';
+					// }
+				}
+				else if(prop === 'phone'){
+					if(d[prop].length != 10 || isNaN(d[prop])){
+						return 'Please enter a valid Home Phone number (10 digits)';
+					}
+				}
+				else if(prop === 'mobile'){
+					if(isNaN(d[prop]) && d[prop].length > 0){
+						return 'Please enter a valid Mobile Phone number';
+					}
+				}
+				else if(prop === 'email'){
+					if(d[prop].indexOf('@') == -1 || d[prop].indexOf('.') == -1){
+						return 'Please enter a valid email address';
+					}
+				}
+
 				if(d[prop] == undefined || d[prop].length <1){
 					if(prop === 'password'){
 						return 'Please enter your password to make profile changes';
@@ -100,20 +127,6 @@ define(['jquery',
 						console.log(prop, ': fail');
 						return 'Please Fill in all fields (' +prop+')';	
 					}
-					
-				}
-				else if(prop === 'password') {
-					console.log(d[prop]);
-					console.log(user);
-					var hashPassword	= d[prop].hashCode();
-					var currentPassword	= user.getPassword();
-					console.log(hashPassword, currentPassword);
-					if(hashPassword != currentPassword){
-						// return 'Incorrect Password';
-					}
-				}
-				else if(prop === 'phone' && isNaN(d[prop])){
-					return 'Please enter a valid number for Home Phone';
 				}
 			}
 		}

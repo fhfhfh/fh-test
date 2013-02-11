@@ -36,6 +36,12 @@ define([
     fetchAlerts: function(callback){
         var self = this;
 
+        // Empty current entries
+        this.entries.alerts      = [];
+        this.entries.reminders   = [];
+        this.entries.expirations = [];
+        
+
         Act.call('fetchAlertAction', {}
         , function(res) {
             var entries = res.payload.alerts;

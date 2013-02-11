@@ -1130,14 +1130,7 @@ li {
 }
 #welcome #video {
   position: relative;
-  width: 90%;
-  height: 30%;
   margin-top: 25%;
-  margin-right: auto;
-  margin-left: auto;
-  background-color: #fff;
-  padding: 5px;
-  border-radius: 10px;
   text-align: center;
 }
 #welcome #video img,
@@ -1217,6 +1210,9 @@ li {
   float: right;
   margin-right: -10px;
   background-color: red;
+}
+#VideoPlayback #scroller {
+  padding-bottom: 450px;
 }
 #VideoPlayback #videoDescription {
   height: 100%;
@@ -1774,4 +1770,48 @@ section#month h2 {
   position: absolute;
   bottom: -19px;
   left: 30px;
+}
+section#insights img {
+  width: 576px;
+  margin-top: 20px;
+}
+#viewBtn {
+  float: right;
+  padding: 5px;
+  background-color: #ababab;
+  border-radius: 5px;
+}
+#viewBtn:hover {
+  background-color: #5b5b5b;
+}
+.dataGrid {
+  width: 100%;
+  background-color: #cfcfcf;
+  margin: 10px 0px 10px 0px;
+  border-radius: 10px;
+  font: normal 14px "Avenir Next", Helvetica, Arial, sans-serif;
+  box-shadow: 0px 2px 2px #ababab;
+}
+.dataGrid #title {
+  padding: 10px;
+  height: 50px;
+  vertical-align: middle;
+}
+.dataGrid #title h2 {
+  font: bold 14px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
+  color: #000000;
+}
+.dataGrid #body #row {
+  padding: 15px;
+  height: 40px;
+}
+.dataGrid #body #row .value {
+  position: absolute;
+  left: 370px;
+}
+.dataGrid #body #row:nth-child(odd) {
+  background-color: #e6e6e6;
+}
+.dataGrid #body #row:last-child {
+  border-radius: 0 0 10px 10px;
 }

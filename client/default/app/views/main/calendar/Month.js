@@ -15,11 +15,15 @@ define(['jquery',
 		tagName		: 'section',
 	    id			: 'month',
 	    events		: {
-	    	'click .days td'	: 'eventsOn'
-	    	// 'click .days td'	: 'eventsOff',
+	    	'click .days td'	: 'eventsOn',
+	    	'click #editEvents'	: 'editEvent'
 	    },
 	    template	: _.template(tpl),
 	    dayTpl 		: _.template(dayEventTpl),
+	    monthName: [
+		'January', 'Febuary', 'March', 'April', 'May', 'June', 'July', 'August', 'September',
+		'October', 'November', 'December'
+		],
 
 
 		initialize : function(){
@@ -89,6 +93,11 @@ define(['jquery',
 			}
 		},
 
+
+		/* Show a pop-up to display information/events
+		 * about a given day. These events will be read dynamically from
+		 * an Events model/collection for each date.
+		 */
 		eventsOn: function(e){
 			$('#popDate').remove();
 
@@ -97,11 +106,13 @@ define(['jquery',
 			var target = e.currentTarget;
 			var day = $(target).find('.day').html();
 
+			var dateModel = '';// get Events model Item for the date that is clicked
+
 			var html = 	this.dayTpl({
 				date: month + ' ' + day + ', ' + self.year,
-				energy: 'energy',
-				mood: 'mood',
-				diet: 'diet'
+				energy: dateModel.energy || 'n/a',
+				mood: dateModel.mood || 'n/a',
+				diet: dateModel.diet || 'n/a'
 			});
 
 			if(day != undefined){
@@ -112,19 +123,15 @@ define(['jquery',
 				// Close window after 3 seconds
 				setTimeout(function(){
 					$(target).find('#popDate').slideUp(200);
-				}, 3000);
+				}, 4000);
 			}
 		},
 
-		eventsOff: function(e){
-			var target = e.currentTarget;
-			$('#popDate').remove();
-		},
-
-		monthName: [
-		'January', 'Febuary', 'March', 'April', 'May', 'June', 'July', 'August', 'September',
-		'October', 'November', 'December'
-		]
+		// Open pop-up for editing/adding/removing events
+		// Need more information on what is required here
+		editEvent: function(e){
+			alert('Need information on what is needed here')
+		}
 
 	});
 });

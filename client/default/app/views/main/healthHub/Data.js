@@ -5,14 +5,14 @@
 define(['jquery',
         'underscore',
         'backbone',
-        'text!templates/components/Hub.html',
+        'text!templates/components/Data.html',
 ], function($, _, Backbone, tpl) {
 
 	return Backbone.View.extend({
 
 		// Backbone specific attributes
 		tagName		: 'section',
-	    id			: 'hub',
+	    id			: 'data',
 	    events		: {
 	    },
 	    template	: _.template(tpl),

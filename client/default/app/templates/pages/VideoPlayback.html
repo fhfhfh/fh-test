@@ -35,32 +35,36 @@
 
 <!-- _________________ Bottom Half ___________________ -->
 
-<div id="videoDescription">
-	<div id="title">
-		<img src="img/VideoPlay.png"/>
-		<h2><%= title%></h2>
-	</div>
+<div id="video-iscroll" class="iscroll-container">
+	<div id="scroller">
+		<div id="videoDescription">
+			<div id="title">
+				<img src="img/VideoPlay.png"/>
+				<h2><%= title%></h2>
+			</div>
 
-	<hr/>
+			<hr/>
 
-	<div id="videoActions">
-		<div id="time">
-			<img src="img/VideoPlay.png"/>
-			<p>1 min 28 sec</p>
+			<div id="videoActions">
+				<div id="time">
+					<img src="img/VideoPlay.png"/>
+					<p>1 min 28 sec</p>
+				</div>
+
+				<div id="actions">
+					<img src="img/VideoPlay.png"/>
+					<img src="img/VideoPlay.png"/>
+					<img src="img/VideoPlay.png"/>
+				</div>
+			</div>
+
+			<div id="description">
+				<p><%=description%></p>
+			</div>
+
+			<div id="favBtn">
+				<li class="btn decline">Remove from Favorites</li>
+			</div>
 		</div>
-
-		<div id="actions">
-			<img src="img/VideoPlay.png"/>
-			<img src="img/VideoPlay.png"/>
-			<img src="img/VideoPlay.png"/>
-		</div>
-	</div>
-
-	<div id="description">
-		<p><%=description%></p>
-	</div>
-
-	<div id="favBtn">
-		<li class="btn decline">Remove from Favourites</li>
 	</div>
 </div>

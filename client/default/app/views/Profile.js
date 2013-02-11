@@ -214,6 +214,13 @@ define(['jquery',
             var zip		= this.$('#zip').val();
             var state	= this.$('#state').val();
 
+            if(zip.length != 5 || isNaN(zip)){
+                return Backbone.trigger('notify', 'Please enter a valid Zip (5 digits)');
+            }
+            else if(line1.length ==0 || line2.length == 0 || state.length == 0){
+                return Backbone.trigger('notify', 'Please fill in all Address Lines');
+            }
+
             var text = line1 + "\n" + line2 + "\n" + zip + "\n" + state;
             this.$('div#address').val(text);
             this.$('div#address')[0].innerText = text;
@@ -389,9 +396,20 @@ define(['jquery',
         };
 
         function _validate(e){
-            var target = e.currentTarget;
+            var target  = e.currentTarget;
+            var id      = $(target).attr('id');
+            var val     = $(target).val();
 
-            console.log(target);
+            if(id === 'email'){
+                if(val.indexOf('@') == -1 || val.indexOf('.') == -1){
+                    Backbone.trigger('notify', 'Please enter a valid email address');
+                }
+            }
+            else if(id === 'phone'){
+                if(val.length != 10 || isNaN(val)){
+                    Backbone.trigger('notify', 'Please enter a valid phone number (10 digits)');
+                }
+            }
         }
 
         return profile;

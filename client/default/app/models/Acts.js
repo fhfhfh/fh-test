@@ -57,9 +57,11 @@ define(['jquery',
 			'req' : params
 		}, function(res){
 			console.log('Act Success', res.response.payload, res);
+			// alert('Act Success ' + func);
 			return successFn(res.response);
 		}, function(err, msg){
 			console.log('Act Fail', err);
+			// alert('Act Fail ' + func);
 			return failFn(err, msg);
 		});
 	};
