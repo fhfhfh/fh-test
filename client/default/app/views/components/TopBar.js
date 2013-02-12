@@ -76,10 +76,10 @@ define([
                 var params = "";
                 Acts.call('logoutAction', params, 
                     function(res){
-                        Backbone.history.navigate('Login', true)
+                        Backbone.history.navigate('login', true)
                     }, function(err, msg){
                         console.log(err);
-                        Backbone.history.navigate('Login', true)
+                        Backbone.history.navigate('login', true)
                     }
                 );
             },
