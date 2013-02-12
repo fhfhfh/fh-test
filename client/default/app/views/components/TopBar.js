@@ -76,15 +76,12 @@ define([
                 var params = "";
                 Acts.call('logoutAction', params, 
                     function(res){
-                        App.navigate('Login', true)
-                    
+                        Backbone.history.navigate('Login', true)
                     }, function(err, msg){
                         console.log(err);
-                        App.navigate('Login', true)
-                    
+                        Backbone.history.navigate('Login', true)
                     }
-                    );
-                Backbone.history.navigate('login', true);
+                );
             },
         
             setPeachyPoints : function(){
