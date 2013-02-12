@@ -29,10 +29,25 @@ define(['jquery',
 		// break address box into individual variables
 		var home = $('div#address')[0].innerText || '';
 		home = home.split('\n');
-		var address1	= home[0] || '';
-		var address2	= home[1] || '';
-		var zip			= home[2] || '';
-		var state		= home[3] || '';
+
+		var address1;
+		var address2;	
+		var zip;	
+		var state;
+
+
+		if(home.length == 3){
+			address1	= home[0] || '';
+			zip			= home[1] || '';
+			state		= home[2] || '';
+		}
+		else {
+			address1	= home[0] || '';
+			address2	= home[1] || '';
+			zip			= home[2] || '';
+			state		= home[3] || '';
+		}
+		
 
 		// all input values from view
 		var inputs = {
@@ -65,10 +80,14 @@ define(['jquery',
 					// save profile to localStorage
 					user.setProfile(profile);
 					user.saveUser(function(res){
-						user.saveUserOnline();
+						user.saveUserOnline(function(res){
+							if(res){
+								// simulate user navigating back to Home screen
+								$('#topBar #cancel').click(); 		
+							}
+						});
 		
-						// simulate user navigating back to Home screen
-						$('#topBar #cancel').click(); 
+						
 					});
 				} else {
 					console.log('prof load fail');
@@ -120,7 +139,7 @@ define(['jquery',
 					if(prop === 'password'){
 						return 'Please enter your password to make profile changes';
 					}
-					else if(prop === 'middleName' || prop === 'mobile'){
+					else if(prop === 'middleName' || prop === 'mobile' || prop === 'address2'){
 						console.log(prop, ': not required');	
 					}
 					else {

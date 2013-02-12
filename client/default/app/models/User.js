@@ -163,14 +163,16 @@ define(['jquery',
 		);
 	};
 
-	function _saveUserOnline(){
+	function _saveUserOnline(callback){
 		var prof = this.profile;
 
 		Acts.call('saveUserProfileAction', prof, 
     		function(res){
+    			callback(true);
     			Backbone.trigger('notify', 'Profile Saved to Cloud');
     		},
     		function(err, msg){
+    			callback(false);
     			console.log('Failed to save Profile', msg);
     			Backbone.trigger('notify', 'Failed to Save Profile to Cloud');	
     		}

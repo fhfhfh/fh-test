@@ -10,7 +10,7 @@ define(['jquery',
     'models/Acts',
     'models/User',
     'text!templates/pages/Profile.html',
-    'text!templates/components/AddressBox.html',
+    'text!templates/popups/AddressBox.html',
     'controllers/Profile',
     'models/Store'
     ], function($, _, Backbone, iscroll, Acts, User, template, addressBox, Controller, Store) {
@@ -202,9 +202,16 @@ define(['jquery',
             var vals = text.split('\n');
 
             this.$('#line1').val(vals[0]);
-            this.$('#line2').val(vals[1]);
-            this.$('#zip').val(vals[2]);
-            this.$('#state').val(vals[3]);
+
+            if(vals.length == 3){
+                this.$('#zip').val(vals[1]);
+                this.$('#state').val(vals[2]);    
+            }
+            else {
+                this.$('#line2').val(vals[1]);
+                this.$('#zip').val(vals[2]);
+                this.$('#state').val(vals[3]);    
+            }
         };
 
         function _closeAddr(){
@@ -213,15 +220,22 @@ define(['jquery',
             var line2	= this.$('#line2').val();
             var zip		= this.$('#zip').val();
             var state	= this.$('#state').val();
+            var text    = '';
 
             if(zip.length != 5 || isNaN(zip)){
                 return Backbone.trigger('notify', 'Please enter a valid Zip (5 digits)');
             }
-            else if(line1.length ==0 || line2.length == 0 || state.length == 0){
-                return Backbone.trigger('notify', 'Please fill in all Address Lines');
+            else if(line1.length ==0 || state.length == 0){
+                return Backbone.trigger('notify', 'Please fill in Address and State');
             }
 
-            var text = line1 + "\n" + line2 + "\n" + zip + "\n" + state;
+            if(line2.length == 0){
+                text = line1 + "\n" + zip + "\n" + state;    
+            }
+            else {
+                text = line1 + "\n" + line2 + "\n" + zip + "\n" + state;    
+            }
+            
             this.$('div#address').val(text);
             this.$('div#address')[0].innerText = text;
 
@@ -232,9 +246,12 @@ define(['jquery',
             var self = this;
             var d = details;
 
-            // TODO: remove once Steve has updated numbers in db
-            d.phone = d.phone.replace('.', '');
-            d.mobile = d.mobile.replace('.', '');
+            if(d.address2 == undefined){
+                var addr = d.address1 +'\n'+ d.zip +'\n'+ d.state;
+            }
+            else {
+                var addr = d.address1 +'\n'+ d.address2 +'\n'+ d.zip +'\n'+ d.state;
+            }
 
             this.$('#firstName').val(d.firstName);
             this.$('#middleName').val(d.middleName);
@@ -244,7 +261,7 @@ define(['jquery',
             this.$('#firstName').val(d.firstName);
             this.$('#email').val(d.email);
             this.$('#birthday').val(d.dob);
-            this.$('div#address')[0].innerText = d.address1 +'\n'+ d.address2 +'\n'+ d.zip +'\n'+ d.state;
+            this.$('div#address')[0].innerText = addr;
             this.$('#phone').val(d.phone);
             this.$('#mobile').val(d.mobile);
             this.$('#username').val(d.username || user.name);

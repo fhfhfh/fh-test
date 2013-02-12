@@ -1018,10 +1018,14 @@ li {
   display: inline-block;
   width: 60px;
 }
-#addressBox input {
+#addressBox input,
+#addressBox select {
   padding: 5px;
   border-radius: 5px;
   margin-top: 5px;
+  outline: none;
+  background-color: #ffffff;
+  width: 200px;
 }
 #PopupDiv {
   position: fixed;
@@ -1787,7 +1791,7 @@ section#insights img {
 .dataGrid {
   width: 100%;
   background-color: #cfcfcf;
-  margin: 10px 0px 10px 0px;
+  margin: 15px 0px 15px 0px;
   border-radius: 10px;
   font: normal 14px "Avenir Next", Helvetica, Arial, sans-serif;
   box-shadow: 0px 2px 2px #ababab;
@@ -1814,4 +1818,50 @@ section#insights img {
 }
 .dataGrid #body #row:last-child {
   border-radius: 0 0 10px 10px;
+}
+#filterView {
+  position: absolute;
+  top: 160px;
+  left: 420px;
+  width: 200px;
+  text-align: center;
+  background-image: linear-gradient(bottom, #000000 9%, #2b6891 99%);
+  background-image: -webkit-linear-gradient(bottom, #000000 9%, #2b6891 99%);
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0.9, #000000), color-stop(0.99, #2b6891));
+  border-radius: 10px;
+  padding: 5px;
+  box-shadow: 2px 2px 5px #ababab;
+}
+#filterView h2 {
+  font: bold 14px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
+  color: #ffffff;
+}
+#filterView #body {
+  font: bold 12px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
+  text-align: left;
+  min-height: 100px;
+  background-color: #ffffff;
+  border-radius: 5px;
+}
+#filterView #body input[type=checkbox] {
+  display: none;
+  padding: 0 0 0 0px;
+}
+#filterView #body input[type=checkbox] + label {
+  display: inline-block;
+}
+#filterView #body input[type=checkbox]:checked + label {
+  display: inline-block;
+}
+#filterView #body input[type=checkbox]:checked + label img {
+  display: inline-block;
+}
+#filterView #body label {
+  display: inline-block;
+  width: 100%;
+  padding: 10px;
+}
+#filterView #body label img {
+  float: right;
+  display: none;
 }

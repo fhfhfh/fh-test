@@ -46,6 +46,12 @@ define([
       return this;
     },
 
+    refreshScroll: function(){
+      if(this.container){
+        this.container.refreshScroll();  
+      }
+    },
+
     showHistory : function(){
       this.$('li').removeClass('selected');
       this.$('#show-history').addClass('selected');
