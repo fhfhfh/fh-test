@@ -270,7 +270,7 @@ define(['jquery',
 
             for(var i=0; i<self.avatars.length; i++){
                 if(self.avatars[i].avatarId == d.avatarId){
-                    self.$('#profile-avatar').attr('src', self.avatars[i].imageUrl).attr('imgId', d.avatarId);
+                    self.$('#profile-avatar').attr('src', "data:image/png;base64,"+self.avatars[i].image64).attr('imgId', d.avatarId);
                 }
             }
             this.avatarId = d.avatarId;
@@ -288,7 +288,7 @@ define(['jquery',
             }
 
             for(var i =0; i<self.avatars.length; i++){
-                var src = self.avatars[i].imageUrl;
+                var src = "data:image/png;base64,"+self.avatars[i].image64;
                 var imgId = self.avatars[i].avatarId;
                 html += '<img class="avatarPic" imgId="' + imgId +'" src="'+src+'"/>';
             }
