@@ -1813,6 +1813,11 @@ section#insights img {
   position: absolute;
   left: 370px;
 }
+.dataGrid #body #row:after {
+  content: url('../img/icons/smallArrow.png');
+  float: right;
+  clear: right;
+}
 .dataGrid #body #row:nth-child(odd) {
   background-color: #e6e6e6;
 }

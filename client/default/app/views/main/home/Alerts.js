@@ -138,12 +138,15 @@ define(['jquery',
 			}
 
 			if(alerts.length < 1){
+				$('#alert-list p').remove();
 				$('#alert-list').append('<p> No alerts added yet.</p>');
 			}
 			if(reminders.length < 1){
+				$('#reminder-list p').remove();
 				$('#reminder-list').append('<p> No reminders added yet.</p>');
 			}
 			if(expirations.length < 1){
+				$('#expiration-list p').remove();
 				$('#expiration-list').append('<p> No expirations added yet.</p>');
 			}
 			// <div class="alert redtip">

@@ -116,28 +116,28 @@ define(['jquery',
 	    	var item	= this.collection.get(id);
 
 	    	// add 'watched' icon
-	    	$(e.currentTarget).closest('li').find('.watched').show();
-	    	item.set('watched', '1');
+	    	// $(e.currentTarget).closest('li').find('.watched').show();
+	    	// item.set('watched', '1');
 
 	    	localStorage.setItem('tempVid', JSON.stringify(item));
 	    	Backbone.history.navigate('video', true, true);
 		},
 
 		watched: function(){
-			var self = this;
-			var li = this.$('li');
+			// var self = this;
+			// var li = this.$('li');
 
-			for(var i=0; i<li.length; i++){
-				var id = self.$(li[i]).attr('data-id');
-				var wIcon = self.$(li[i]).find('.watched');
-				var item	= self.collection.get(id);
+			// for(var i=0; i<li.length; i++){
+			// 	var id = self.$(li[i]).attr('data-id');
+			// 	var wIcon = self.$(li[i]).find('.watched');
+			// 	var item	= self.collection.get(id);
 				
-				if(item.attributes.watched == '1'){
-					console.log('SHOW');
-					console.log(wIcon);
-					wIcon.show();
-				}
-			}
+			// 	if(item.attributes.watched == '1'){
+			// 		console.log('SHOW');
+			// 		console.log(wIcon);
+			// 		wIcon.show();
+			// 	}
+			// }
 		}
 	});
 

@@ -42,15 +42,16 @@ define([
                 bounce: false,
                 vScrollbar: false
             });
-
-            Backbone.View.prototype.refreshScroll = function() {
-                setTimeout(function() {
-                    if (self.iscroll) {
-                        self.iscroll.refresh.call(self.iscroll);
-                    }
-                }, 100);
-            };
             // ------------------------------------------
+        },
+
+        refreshScroll: function(){
+            var self = this;
+            setTimeout(function() {
+                if (self.iscroll) {
+                    self.iscroll.refresh.call(self.iscroll);
+                }
+            }, 10);
         },
 
         render: function() {
