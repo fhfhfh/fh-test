@@ -107,45 +107,40 @@ define(['jquery',
             },
 
             home: function() {
-                // this.setActiveView('home');
+                this.setActiveView('home');
                 this.$nav.find('li').removeClass('selected');
                 this.$('#home').addClass('selected');
-                Backbone.history.navigate('home', true);
+                Backbone.history.navigate('home', false);
             },
 
             widgets: function() {
                 this.setActiveView('widgets');
                 this.$nav.find('li').removeClass('selected');
                 this.$('#widgets').addClass('selected');
+                // Backbone.history.navigate('widgets', false);
             },
 
             healthHub: function() {
-                // this.setActiveView('healthHub');
+                this.setActiveView('healthHub');
                 this.$nav.find('li').removeClass('selected');
                 this.$('#healthHub').addClass('selected');
-                Backbone.history.navigate('healthHub', true);
+                // Backbone.history.navigate('healthHub', false);
             },
 
             calendar: function() {
-                // this.setActiveView('calendar');
+                this.setActiveView('calendar');
                 this.$nav.find('li').removeClass('selected');
                 this.$('#calendar').addClass('selected');
-                Backbone.history.navigate('calendar', true);
+                // Backbone.history.navigate('calendar', false);
             },
 
             connect: function() {
                 Backbone.trigger('notify', 'Under Construction');
-            // this.setActiveView('connect');
             },
 
             library: function() {
                 Backbone.trigger('notify', 'Under Construction');
-            // this.setActiveView('library');
             }
-
-
-
-
         });
 
         function _setPeachyPoints(){

@@ -1219,7 +1219,7 @@ li {
   padding-bottom: 450px;
 }
 #VideoPlayback #videoDescription {
-  height: 100%;
+  height: 550px;
   padding: 20px;
   padding-left: 30px;
   padding-right: 30px;
@@ -1852,21 +1852,23 @@ section#insights img {
   display: none;
   padding: 0 0 0 0px;
 }
-#filterView #body input[type=checkbox] + label {
+#filterView #body label.checked {
   display: inline-block;
 }
-#filterView #body input[type=checkbox]:checked + label {
+#filterView #body label.checked img {
   display: inline-block;
-}
-#filterView #body input[type=checkbox]:checked + label img {
-  display: inline-block;
+  background-color: #2a9c3b;
 }
 #filterView #body label {
   display: inline-block;
   width: 100%;
   padding: 10px;
+  height: 35px;
 }
 #filterView #body label img {
   float: right;
   display: none;
+  background-color: #ffffff;
+  padding: 2px;
+  border-radius: 5px;
 }

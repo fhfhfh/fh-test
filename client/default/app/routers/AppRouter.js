@@ -89,8 +89,9 @@ define([
                 if (this.mainView.subViews.home.setActiveView(page)) {
                     this.$content.html(this.mainView.render().el);
                 }
-            } else if(this.mainView.activeView.el.id != 'home') {
-                this.mainView.setActiveView('home');
+            // } else if(this.mainView.activeView.el.id != 'home') {
+            //   console.log(this.mainView.activeView.el.id);
+            //     this.mainView.setActiveView('home');
             } else {
                 this.$content.html(this.mainView.render().el);
             }
@@ -101,19 +102,21 @@ define([
         },
 
         // TODO: Cleanup below...
-    //    widgets:function(){
-    //      this.widgetView = new WidgetView();
-    //    },
+       widgets:function(){
+          this.ensureMain();
+          this.$content.html(this.mainView.render().el);
+       },
+
        healthHub: function(){
         this.ensureMain();
-         this.mainView.setActiveView('healthHub');
+        this.$content.html(this.mainView.render().el);
        },
     //    connect: function(){
     //      this.connectView = new ConnectView();
     //    },
        calendar: function(){
-         this.ensureMain();
-         this.mainView.setActiveView('calendar');
+          this.ensureMain();
+          this.$content.html(this.mainView.render().el);
        },
     //    library: function(){
     //      this.libraryView = new LibraryView();

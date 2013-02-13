@@ -34,7 +34,7 @@ define(['jquery',
 
 		showFilter: function(){
 			var self = this;
-			var body = "<input type='checkbox' checked name='family' value='true' id='family'/><label data-id='familyHistory' for='family'>Family History <img src='img/Search.png'/></label><input type='checkbox' checked name='social' value='true' id='social'/><label data-id='socialHistory' for='social'>Social History<img src='img/Search.png'/></label>";
+			var body = "<input type='checkbox' checked name='family' value='true' id='family'/><label data-id='familyHistory' class='checked' for='family'>Family History <img src='img/Search.png'/></label><input type='checkbox' checked name='social' value='true' id='social'/><label data-id='socialHistory' class='checked' for='social'>Social History<img src='img/Search.png'/></label>";
 			
 			// close existing popup
 			if($('div #filterView').length > 0){
@@ -49,6 +49,8 @@ define(['jquery',
 		changeView: function(e){
 			var target	= e.currentTarget;
 			var div		= $(target).attr('data-id');
+
+			$(target).toggleClass('checked');
 
 			$('#' +div).toggle();
 			this.container.refreshScroll();

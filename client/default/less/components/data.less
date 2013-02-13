@@ -84,23 +84,39 @@
 		    padding: 0 0 0 0px;
 		}
 
-		input[type=checkbox] + label {
-			display:inline-block;
-		}
+		// input[type=checkbox] + label {
+		// 	display:inline-block;
+		// }
 
-		input[type=checkbox]:checked + label {
-			display:inline-block;
+		// input[type=checkbox]:checked + label {
+		// 	display:inline-block;
 
-			img {display: inline-block}
+		// 	img {
+		// 		display: inline-block;
+		// 		background-color: #2a9c3b;
+		// 	}
+		// }
+
+		label.checked {
+			display: inline-block;
+
+			img{
+				display: inline-block;
+				background-color: #2a9c3b;
+			}
 		}
 
 		label {
 			display: inline-block;
 			width: 100%;
 			padding: 10px;
+			height: 35px;
 			img {
 				float: right;
 				display: none;
+				background-color: #ffffff;
+				padding: 2px;
+				border-radius: 5px;
 			}
 		}
 	}

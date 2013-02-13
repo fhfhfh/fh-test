@@ -56,7 +56,8 @@ define([
             },
 
             cancel: function(){
-                Backbone.history.navigate('home', true);
+                // Backbone.history.navigate('home', true);
+                window.history.back();
                 var points = this.setPeachyPoints();
                 $('#top-bar-buttons').html(
                     '<li><button id="points-button"><em></em> points</button></li>'+
