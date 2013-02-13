@@ -31,8 +31,6 @@ define([
 
       this.$el.html(template);
       this.$content = this.$('#healthHub-content');
-      this.$('#show-data').addClass('selected');
-      
     },
 
     render: function() {
@@ -43,6 +41,8 @@ define([
         this.activeView.delegateEvents();
         // this.setActiveView(self.activeView);
       }
+      this.$('li').removeClass('selected');
+      this.$('#show-data').addClass('selected');
       return this;
     },
 

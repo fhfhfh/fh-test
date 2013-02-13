@@ -65,7 +65,7 @@ define([
     }
 
     if (!this.$el || !this.$el.length) {
-      this.$el = $(document.body);
+      this.$el = $('#notifications');
     }
 
     this.timeout = (options && options.timeout) || 4000;

@@ -33,7 +33,7 @@ define([
       this.$el.html(template);
       this.$content = this.$('#home-content');
       this.$nav = this.$('#home-nav');
-      this.$('#show-news').addClass('selected');
+      
 
       // self.setActiveView(((options && options.activeView) || 'news'));  
       
@@ -47,6 +47,8 @@ define([
       if (this.activeView) {
         this.activeView.delegateEvents();
       }
+      this.$('li').removeClass('selected');
+      this.$('#show-news').addClass('selected');
       return this;
     },
 

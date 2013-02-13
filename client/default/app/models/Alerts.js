@@ -36,6 +36,11 @@ define([
     fetchAlerts: function(callback){
         var self = this;
 
+        var alertsOld = this.entries.alerts;
+        var remindersOld = this.entries.reminders;
+        var expirationsOld = this.entries.expirations;
+
+
         // Empty current entries
         this.entries.alerts      = [];
         this.entries.reminders   = [];
@@ -58,6 +63,12 @@ define([
                     self.entries.expirations.push(entries[i]);   
                 }
             }
+
+            if(alertsOld == self.entries.alerts && remindersOld == self.entries.reminders && expirationsOld == self.entries.expirations){
+                Backbone.trigger('notify', 'Alerts are up-to-date!');
+            }
+
+
             var strEntries = JSON.stringify(self.entries);
             Store.save(self.storageKey, strEntries, function(){});
 
@@ -67,43 +78,6 @@ define([
             return callback(false);
         });
     },
-
-    // sync: function(method, model, options) {
-    //   var self = this;
-
-    //   switch (method) {
-    //     case 'read':
-    //       getAlerts();
-    //       break;
-    //     case 'create':
-    //       saveAlerts();
-    //       break;
-    //     case 'update':
-    //       saveAlerts();
-    //       break;
-    //   }
-
-    //   function getAlerts() {
-    //     Act.call('fetchAlertAction', {} 
-    //     , function(res) {
-    //       options.success(model, res, options);
-    //       self.trigger('sync', model, res, options);
-    //     }, function(err, msg) {
-    //       var theError = {
-    //         err: err,
-    //         msg: msg
-    //       };
-    //       options.error(model, theError, options);
-    //       self.trigger('error', model, theError, options)
-    //     });
-    //   }
-
-    //   function saveSession() {
-    //     var self = this;
-
-    //     Store.save(self.storageKey, self.get('id'), function(){});
-    //   }
-    // },
 
     // parse: function(res) {
     //   return {

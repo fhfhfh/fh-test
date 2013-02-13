@@ -428,10 +428,15 @@ section h1 {
   margin: 30px 0 20px 0;
   font: bold 20px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
 }
-#notification {
+#notifications {
   position: absolute;
-  top: 5px;
-  right: 5px;
+  top: 20px;
+  right: 10px;
+  width: 25%;
+  height: 100%;
+}
+#notification {
+  margin: 10px;
   border-radius: 10px;
   border: 3px solid #fff000;
   color: #fff;
@@ -440,6 +445,9 @@ section h1 {
   padding: 20px;
   background: #000000;
   background: rgba(0, 0, 0, 0.8);
+}
+#notification p {
+  text-align: center;
 }
 #login {
   background: url('../img/login/PeachyLogoWhite.png') 15px 15px no-repeat;

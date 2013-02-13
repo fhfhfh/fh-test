@@ -33,8 +33,6 @@ define([
 
       this.$el.html(template);
       this.$content = this.$('#calendar-content');
-      this.$('#show-month').addClass('selected'); 
-      
     },
 
     render: function() {
@@ -44,6 +42,8 @@ define([
       if (this.activeView) {
         this.activeView.delegateEvents();
       }
+      this.$('li').removeClass('selected');
+      this.$('#show-month').addClass('selected');
       return this;
     },
 
