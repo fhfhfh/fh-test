@@ -32,9 +32,8 @@ define(['backbone',
 					if(short.length > 200){
 						short = short.substring(0,200) + '...';
 					}
-
-					var img = item.url.split('embed/')[1];
-					var imgAddr = 'http://img.youtube.com/vi/'+img+'/0.jpg'
+                                        var img = item.url.split('embed/')[1];
+					var imgAddr = 'data:image/png;base64,'+newsArr[i].videoImgBase64;//'http://img.youtube.com/vi/'+img+'/0.jpg'
 
 					arr.push(
 						new NewsItem({  

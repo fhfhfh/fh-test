@@ -51,11 +51,13 @@ define(['jquery',
 
 			for(var i =0; i<self.visible; i++){
 				str += self.itemTemplate(self.collection.at(i).toJSON());
+                                
+			
 			}
 
 			this.checkNews();
 			this.watched();
-			this.$el.html(this.template({newsItems: str}));
+                        this.$el.html(this.template({newsItems: str}));
 			return this;
 		},
 
