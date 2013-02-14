@@ -23,7 +23,8 @@ define(['backbone',
             Act.call('fetchNewsAction', {}, 
 		        function(res){
 		          var newsArr = res.payload.News;
-
+                           console.log("\nres   :--"+JSON.stringify(res));
+                           console.log("\n\nnewsArr   :--"+JSON.stringify(newsArr));
 		          for(var i = 0; i<newsArr.length; i++){
 					var item = newsArr[i];
 
