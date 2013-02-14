@@ -13,7 +13,8 @@ define([
     ], function($, _, Backbone, tpl, ProfView, Acts,controller) {
 
         return Backbone.View.extend({
-
+            avatarSrc : "",
+            peachyPoints : "",
             events: {
                 'click #profile-button' : 'showProfile',
                 'click #save'   : 'saveProf',
@@ -59,6 +60,10 @@ define([
                 // Backbone.history.navigate('home', true);
                 window.history.back();
                 var points = this.setPeachyPoints();
+                //var setAvatars=this.setAvatar();
+                var image = avatarSrc;
+                this.$('#avatar').attr("src", "data:image/png;base64,"+image);
+                this.$('#account-information').find('img').attr("src", "data:image/png;base64,"+image);
                 $('#top-bar-buttons').html(
                     '<li><button id="points-button"><em></em> points</button></li>'+
                     '<li><button><img src="img/Search.png" alt="Search"></button></li>'+
@@ -73,6 +78,7 @@ define([
                
                 avatar_id = "";
                 imgUrl= "";
+                var setAvatars=this.setAvatar();
                 // TODO : clear session ID from local storage, and possibly all user data
                 var params = "";
                 Acts.call('logoutAction', params, 
@@ -90,6 +96,7 @@ define([
                     function(res){
                         var points = res.payload.points[0].peachyPoints;
                         this.$('#points-button em').html(points);
+                        peachyPoints = points;
                         return(points);
                     }, 
                     function(err, msg){
@@ -106,6 +113,8 @@ define([
                         if(url.avatars[i].avatarId == avatar_id)
                         { 
                             var image = url.avatars[i].image64;
+                            avatarSrc = image;
+                            
                             this.$('#avatar').attr("src", "data:image/png;base64,"+image);
                             this.$('#account-information').find('img').attr("src", "data:image/png;base64,"+image);
                         

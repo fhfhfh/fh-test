@@ -85,7 +85,6 @@ var fetchNewsEndpoint = function() {
                                 
                                 var jsonObj = respUtils.constructStatusResponse("fetchNews", constants.RESP_SUCCESS, "fetchNews Success",jsonObject);
                                 initQueue(jsonObj,function finalCallback(res){
-                                    console.log(JSON.stringify(res));
                                     callback(null,res);      //callback returning the success response JSON back to client
                                 });
                             }

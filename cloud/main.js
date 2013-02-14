@@ -79,7 +79,7 @@ exports.fetchImmunizationAction = fetchImmunizationAction;
 
 //--------------------------------------login----------------------------------------
 function loginAction(params, callback) {
-  
+  console.log("Login check");
   loginEndpoint.login(params,function cb(err, respData) {
     callback(err,respData);
   });

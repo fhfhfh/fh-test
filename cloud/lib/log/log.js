@@ -61,9 +61,9 @@ var Logger = function() {
         var now = new Date();
         var datePrefix = now.toJSON();
         
-        if(level >= config.log.currentLogLevel) {
+//        if(level >= config.log.currentLogLevel) {
             console.log(levelPrefix + " " + datePrefix + ":" + message);
-        }
+//        }
         
     }
     
