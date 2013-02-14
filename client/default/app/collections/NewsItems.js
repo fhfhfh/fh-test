@@ -34,7 +34,7 @@ define(['backbone',
 					}
                                         var img = item.url.split('embed/')[1];
 					var imgAddr = 'data:image/png;base64,'+newsArr[i].videoImgBase64;//'http://img.youtube.com/vi/'+img+'/0.jpg'
-
+                                        console.log("\nvideo image source :- "+imgAddr);
 					arr.push(
 						new NewsItem({  
 							'id' 				: item.newsId,
