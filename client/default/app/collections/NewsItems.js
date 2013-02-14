@@ -21,8 +21,6 @@ define(['backbone',
             Act.call('fetchNewsAction', {}, 
 		        function(res){
 		          var newsArr = res.payload.News;
-                           console.log("\nres   :--"+JSON.stringify(res));
-                           console.log("\n\nnewsArr   :--"+JSON.stringify(newsArr));
 		          for(var i = 0; i<newsArr.length; i++){
 					var item = newsArr[i];
 
@@ -31,12 +29,16 @@ define(['backbone',
 					if(short.length > 200){
 						short = short.substring(0,200) + '...';
 					}
-					
+
 					var imgData = "data:image/png;base64," + item.videoImgBase64;
 
 					var time = parseInt(item.videoLength);
 					var min = Math.floor(time/60);
 					var sec = time - min*60;
+
+					if(sec < 10){
+						sec = "0" + sec;
+					}
 					var timeStr = min +":"+sec;
 
 					arr.push(

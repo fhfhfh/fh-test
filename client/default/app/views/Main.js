@@ -129,7 +129,7 @@ define(['jquery',
             },
 
             medicine: function() {
-                this.setActiveView('healthhub');
+                this.setActiveView('home');
                 this.$nav.find('li').removeClass('selected');
                 this.$('#medicine').addClass('selected');
                 // Backbone.history.navigate('medicine', false);

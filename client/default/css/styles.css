@@ -1560,6 +1560,12 @@ li {
 #main-nav #healthHub.selected img {
   content: url('../img/nav/HubDark.png');
 }
+#main-nav #medicine img {
+  content: url('../img/nav/HubWhite.png');
+}
+#main-nav #medicine.selected img {
+  content: url('../img/nav/HubDark.png');
+}
 #main-nav #connect img {
   content: url('../img/nav/ConnectWhite.png');
 }
