@@ -28,9 +28,11 @@ define([
             this.video = JSON.parse(localStorage.getItem('tempVid'));
             localStorage.removeItem('tempVid');
 
+
             this.$el.html(self.template({
                 url: self.video.url,
                 title: self.video.title,
+                time: self.video.duration,
                 description: self.video.description
             }));
 

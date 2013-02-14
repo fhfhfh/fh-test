@@ -3,9 +3,7 @@ define(['backbone',
 		'models/Acts'
 		], function(Backbone, NewsItem, Act) {
 
-	// TODO: Implement any custom logic necessary once backend in place.
 
-	// interface---------------------------------
 	var collection = Backbone.Collection.extend({
 		//Backbone specific attributes
 		model : NewsItem,
@@ -36,6 +34,13 @@ define(['backbone',
 					var img = item.url.split('embed/')[1];
 					var imgAddr = 'http://img.youtube.com/vi/'+img+'/0.jpg'
 
+					var imgData = "data:image/png;base64," + item.videoImgBase64;
+
+					var time = parseInt(item.videoLength);
+					var min = Math.floor(time/60);
+					var sec = time - min*60;
+					var timeStr = min +":"+sec;
+
 					arr.push(
 						new NewsItem({  
 							'id' 				: item.newsId,
@@ -44,7 +49,8 @@ define(['backbone',
 							'shortDescription'	: short,
 							'newsId'			: item.newsId,
 							'url'				: item.url,
-							'imgUrl' 			: imgAddr
+							'imgUrl' 			: imgData,
+							'duration' 			: timeStr
 						})
 					);
 					self.add(arr[i]);
@@ -58,8 +64,6 @@ define(['backbone',
 		},
 
 	});
-
-	// implementation----------------------------
 
 	return collection;
 });

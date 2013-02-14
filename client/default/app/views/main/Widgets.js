@@ -1,63 +1,74 @@
-/**
- * Backbone view for the Widgets screen of the app
- */
+define([
+  'jquery',
+  'underscore',
+  'backbone',
+  'views/ContainerView',
+  'views/main/widgets/WidgetLibrary',
+  'views/main/widgets/MyWidgets',
+  'views/main/widgets/RecommendedWidgets',
+  'text!templates/pages/Widgets.html'
+], function($, _, Backbone, ContainerView, LibraryView, MyWidgetsView, RecommendedView, template) {
 
-define(['jquery',
-        'underscore',
-        'backbone',
-        'iscroll',
-        'models/Acts',
-        'models/User',
-        'text!templates/pages/Widgets.html'
-], function($, _, Backbone, iScroll, Acts, User, template) {
+  return ContainerView.extend({
+    tagName	: 'section',
+    id		: 'widgets',
 
+    events : {
+      'click #show-library'		: 'showLibrary',
+      'click #show-myWidgets'	: 'showMyWidgets',
+      'click #show-recommended'	: 'showRecommended'
+    },
 
-	//interface----------------------------------
-	var widgets = Backbone.View.extend({
+    subViews: {
+      library		: new LibraryView(),
+      myWidgets		: new MyWidgetsView(),
+      recommended	: new RecommendedView()
+    },
 
-		// Backbone specific attributes
-		tagName	: 'section',
-	    id		: 'widgets',
-	    events	: {
-	    },
-	    template: template,
+    initialize: function(options) {
+      var self = this;
+      _.bindAll(this);
 
-			initialize			: _initialize,		// Used to refresh iScroll on content
-			render				: _render,
-			toggleSelectedTab	: _toggleSelectedTab,// switch between tabs
+      this.$el.html(template);
+      this.$content = this.$('#widgets-content');
+    },
 
-	});
+    render: function() {
+      var self = this;
+      this.setActiveView('library');
+      this.delegateEvents();
+      if (this.activeView) {
+        this.activeView.delegateEvents();
+        // this.setActiveView(self.activeView);
+      }
+      this.$('li').removeClass('selected');
+      this.$('#show-library').addClass('selected');
+      return this;
+    },
 
+    refreshScroll: function(){
+      if(this.container){
+        this.container.refreshScroll();  
+      }
+    },
 
-	//implementation-------------------------------
-	var user = new User();
+    showLibrary : function(){
+      this.$('li').removeClass('selected');
+      this.$('#show-library').addClass('selected');
+      this.setActiveView('library');
+    },
 
-	function _initialize(){
-		_.bindAll(this);
-      	var self = this;
+    showMyWidgets : function(){
+      this.$('li').removeClass('selected');
+      this.$('#show-myWidgets').addClass('selected');
+      this.setActiveView('myWidgets');
+    },
 
-		this.$el.html(template);
-		this.$content = this.$('#home-content');
-		this.$nav = this.$('#home-nav');
-		// this.$('#show-news').addClass('selected');
-		this.render();
-	};
+    showRecommended : function(){
+      this.$('li').removeClass('selected');
+      this.$('#show-recommended').addClass('selected');
+      this.setActiveView('recommended');
+    }
 
-	function _render(){
-		return this;
-	};
-
-    function _toggleSelectedTab(selectedId) {
-		this.$('#content-tab-list li').each(function(index, tab) {
-			tab = $(tab);
-			if (tab.attr('id') == selectedId) {
-				tab.addClass('selected');
-			} else {
-				tab.removeClass('selected');
-			}
-		})
-    };
-	
-	return widgets;
-
+  });
 });

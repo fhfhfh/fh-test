@@ -53,14 +53,47 @@ define([
 
             //organise entries in model
             for(var i=0; i<entries.length; i++){
+                // ----------- ALERTS -------------------------
                 if(entries[i].noticeCatagory === "Alerts"){
-                    self.entries.alerts.push(entries[i]);
+                    var item = entries[i];
+                    var today= new Date();
+                    item.dueDate = new Date(item.noticeDueDate.split(' ')[0]);
+
+                    if(self.checkToday(item.dueDate, today)){
+                        item.dueDate = 'Today';
+                        self.entries.alerts.push(item);
+                    } else {
+                        item.dueDate = item.noticeDueDate.split(' ')[0];
+                        self.entries.alerts.push(item);
+                    }
                 }
+                // ------------- REMINDERS ---------------------------
                 else if(entries[i].noticeCatagory === "Reminders"){
-                    self.entries.reminders.push(entries[i]);   
+                    var item = entries[i];
+                    var today= new Date();
+                    item.dueDate = new Date(item.noticeDueDate.split(' ')[0]);
+
+                    if(self.checkToday(item.dueDate, today)){
+                        item.dueDate = 'Today';
+                        self.entries.reminders.push(item);
+                    } else {
+                        item.dueDate = item.noticeDueDate.split(' ')[0];
+                        self.entries.reminders.push(item);
+                    }
                 }
+                // ------------- EXPIRATIONS ----------------------------
                 else if(entries[i].noticeCatagory === "Expirations"){
-                    self.entries.expirations.push(entries[i]);   
+                    var item = entries[i];
+                    var today= new Date();
+                    item.dueDate = new Date(item.noticeDueDate.split(' ')[0]);
+
+                    if(self.checkToday(item.dueDate, today)){
+                        item.dueDate = 'Today';
+                        self.entries.expirations.push(item); 
+                    } else {
+                        item.dueDate = item.noticeDueDate.split(' ')[0];
+                        self.entries.expirations.push(item); 
+                    }     
                 }
             }
 
@@ -79,12 +112,12 @@ define([
         });
     },
 
-    // parse: function(res) {
-    //   return {
-    //     id: res.response.head.sessionId,
-    //     timestamp: (new Date()).valueOf()
-    //   };
-    // }
+    checkToday: function(d1, d2){
+        return d1.getUTCFullYear() == d2.getUTCFullYear() &&
+            d1.getUTCMonth() == d2.getUTCMonth() &&
+            d1.getUTCDate() == d2.getUTCDate();
+    }
+
   });
 
   return alerts;

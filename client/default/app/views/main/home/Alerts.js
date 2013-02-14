@@ -117,7 +117,7 @@ define(['jquery',
 				var html = 
 					'<div class="alert '+cls+'">'+
 					alerts[i].noticeSummary +
-					'<span id="date">' + alerts[i].noticeDueDate.split(' ')[0] +'</span></div>'
+					'<span id="date">' + alerts[i].dueDate +'</span></div>'
 				self.$('#alert-list').append(html);
 			}
 			for(var i=0; i<reminders.length; i++){
@@ -125,7 +125,7 @@ define(['jquery',
 				var html = 
 					'<div class="alert '+cls+'">'+
 					reminders[i].noticeSummary +
-					'<span id="date">' + reminders[i].noticeDueDate.split(' ')[0] +'</span></div>'
+					'<span id="date">' + reminders[i].dueDate +'</span></div>'
 				self.$('#reminder-list').append(html);
 			}
 			for(var i=0; i<expirations.length; i++){
@@ -133,7 +133,7 @@ define(['jquery',
 				var html = 
 					'<div class="alert '+cls+'">'+
 					expirations[i].noticeSummary +
-					'<span id="date">' + expirations[i].noticeDueDate.split(' ')[0] +'</span></div>'
+					'<span id="date">' + expirations[i].dueDate +'</span></div>'
 				self.$('#expiration-list').append(html);
 			}
 

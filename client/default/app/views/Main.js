@@ -29,6 +29,7 @@ define(['jquery',
                 'click #home' : 'home',
                 'click #widgets' : 'widgets',
                 'click #healthHub' : 'healthHub',
+                'click #medicine' : 'medicine',
                 'click #connect' : 'connect',
                 'click #calendar': 'calendar',
                 'click #library' : 'library'
@@ -127,6 +128,13 @@ define(['jquery',
                 // Backbone.history.navigate('healthHub', false);
             },
 
+            medicine: function() {
+                this.setActiveView('healthhub');
+                this.$nav.find('li').removeClass('selected');
+                this.$('#medicine').addClass('selected');
+                // Backbone.history.navigate('medicine', false);
+            },
+
             calendar: function() {
                 this.setActiveView('calendar');
                 this.$nav.find('li').removeClass('selected');
@@ -139,7 +147,9 @@ define(['jquery',
             },
 
             library: function() {
-                Backbone.trigger('notify', 'Under Construction');
+                this.setActiveView('library');
+                this.$nav.find('li').removeClass('selected');
+                this.$('#library').addClass('selected');
             }
         });
 

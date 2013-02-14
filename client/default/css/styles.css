@@ -728,7 +728,8 @@ section h1 {
   padding-right: 15px;
   padding-top: 50px;
 }
-#content-tab-list {
+#content-tab-list,
+#content-tab-list4 {
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -760,6 +761,30 @@ section h1 {
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #ffffff), color-stop(0.85, #cccccc));
 }
 #content-tab-list li.selected {
+  background-color: #fff;
+  background-image: none;
+}
+#content-tab-list4 li {
+  display: inline-block;
+  width: 22%;
+  margin: 0 1%;
+  padding: 10px 5px;
+  color: #2f3137;
+  text-shadow: 0 1px 1px #fff;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  position: relative;
+  background-image: linear-gradient(bottom, #cccccc 0%, #ffffff 85%);
+  background-image: -webkit-linear-gradient(bottom, #cccccc 0%, #ffffff 85%);
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #cccccc), color-stop(0.85, #ffffff));
+  font: bold 14px "Avenir Next Bold", Helvetica, Arial, sans-serif;
+}
+#content-tab-list4 li:active {
+  background-image: linear-gradient(bottom, #ffffff 0%, #cccccc 85%);
+  background-image: -webkit-linear-gradient(bottom, #ffffff 0%, #cccccc 85%);
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #ffffff), color-stop(0.85, #cccccc));
+}
+#content-tab-list4 li.selected {
   background-color: #fff;
   background-image: none;
 }

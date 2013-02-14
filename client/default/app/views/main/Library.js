@@ -1,67 +1,83 @@
-/**
- * Backbone view for the Library screen of the app
- */
+define([
+  'jquery',
+  'underscore',
+  'backbone',
+  'views/ContainerView',
+  'views/main/library/Featured',
+  'views/main/library/Videos',
+  'views/main/library/Articles',
+  'views/main/library/Suggested',
+  'text!templates/pages/Library.html'
+], function($, _, Backbone, ContainerView, FeaturedView, VideosView, ArticlesView, SuggestedView, template) {
 
-define(['jquery',
-        'underscore',
-        'backbone',
-        'iscroll',
-        'models/Acts',
-        'models/User',
-        'text!templates/pages/Library.html'
-], function($, _, Backbone, iScroll, Acts, User, template) {
+  return ContainerView.extend({
+    tagName	: 'section',
+    id		: 'library',
 
+    events : {
+      'click #show-featured'	: 'showFeatured',
+      'click #show-videos'		: 'showVideos',
+      'click #show-articles'	: 'showArticles',
+      'click #show-suggested'	: 'showSuggested'
+    },
 
-	//interface----------------------------------
-	var library = Backbone.View.extend({
+    subViews: {
+      featured	: new FeaturedView(),
+      videos	: new VideosView(),
+      articles	: new ArticlesView(),
+      suggested	: new SuggestedView(),
+    },
 
-		// Backbone specific attributes
-		tagName	: 'section',
-	    id		: 'main-content',
-	    el 		: $('#content'),
-	    events	: {
-	    },
-	    template: template,
+    initialize: function(options) {
+      var self = this;
+      _.bindAll(this);
 
-			initialize			: _initialize,		// Used to refresh iScroll on content
-			render				: _render
+      this.$el.html(template);
+      this.$content = this.$('#library-content');
+    },
 
-	});
+    render: function() {
+      var self = this;
+      this.setActiveView('featured');
+      this.delegateEvents();
+      if (this.activeView) {
+        this.activeView.delegateEvents();
+        // this.setActiveView(self.activeView);
+      }
+      this.$('li').removeClass('selected');
+      this.$('#show-featured').addClass('selected');
+      return this;
+    },
 
+    refreshScroll: function(){
+      if(this.container){
+        this.container.refreshScroll();  
+      }
+    },
 
-	//implementation-------------------------------
-	var user = new User();
+    showFeatured : function(){
+      this.$('li').removeClass('selected');
+      this.$('#show-featured').addClass('selected');
+      this.setActiveView('featured');
+    },
 
-	function _initialize(){
-		_.bindAll(this);
-      	var self = this;
+    showVideos : function(){
+      this.$('li').removeClass('selected');
+      this.$('#show-videos').addClass('selected');
+      this.setActiveView('videos');
+    },
 
-		Backbone.View.prototype.refreshScroll = function() {
-			setTimeout(function() {
-				if (self.iscroll) {
-					self.iscroll.refresh.call(self.iscroll);
-				}
-			}, 100);
-		};
+    showArticles : function(){
+      this.$('li').removeClass('selected');
+      this.$('#show-articles').addClass('selected');
+      this.setActiveView('articles');
+    },
 
-		// this.refreshScroll();
-		// this.render();
-	};
+    showSuggested : function(){
+      this.$('li').removeClass('selected');
+      this.$('#show-suggested').addClass('selected');
+      this.setActiveView('suggested');
+    }
 
-	function _render(){
-		this.$el.html(template);
-		var scroller = this.$el.find('#main-content')[0];
-
-		this.iscroll = new iScroll(scroller, {
-			hscroll: false,
-			fixedScrollbar: true,
-			bounce: false,
-			vScrollbar: false
-        });
-
-		return this;
-	};
-
-	return library;
-
+  });
 });

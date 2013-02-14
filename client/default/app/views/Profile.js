@@ -110,7 +110,7 @@ define(['jquery',
                 if(res){
                     if(data){
 					
-                        details = data.userDetails || {};
+                        details = data || {};
                         self.mapValues(details);
                     }
                 }else{
@@ -244,8 +244,13 @@ define(['jquery',
 
         function _mapValues(details){
             var self = this;
-            var d = details;
+            var d    = details.userDetails;
+            var d2   = details.providers;
+            var d3   = details.linkedAccounts;
 
+
+            // Map User Details Fields ---------------------------------
+            // ---------------------------------------------------------
             if(d.address2 == undefined){
                 var addr = d.address1 +'\n'+ d.zip +'\n'+ d.state;
             }
@@ -265,7 +270,6 @@ define(['jquery',
             this.$('#phone').val(d.phone);
             this.$('#mobile').val(d.mobile);
             this.$('#username').val(d.username || user.name);
-
             avatar = d.avatarId;
 
             for(var i=0; i<self.avatars.length; i++){
@@ -274,6 +278,48 @@ define(['jquery',
                 }
             }
             this.avatarId = d.avatarId;
+            // ----------------------------------------------------------
+
+
+            // Map Providers Details ------------------------------------
+            // ----------------------------------------------------------
+
+            var box = this.$('#physicianBox');
+            box.html();
+
+            for(var i=0; i<d2.length; i++){
+                var item = d2[i];
+
+                var html =  "<div id='physician'>"+
+                                "<div id='name'>" + item.firstName + ' ' + item.lastName + "</div>"+
+                                "<div id='job'>" + item.type + "</div>"+
+                                "<div id='email'>" + item.emailAddress + "</div>"+
+                                "<div id='phone'>" + item.officePhone + "</div>"+
+                            "</div>";
+                box.append(html);
+            }
+            // -----------------------------------------------------------
+
+
+            // Map Linked Accounts Details ------------------------------------
+            // ----------------------------------------------------------
+
+            var box = this.$('#linkedBox');
+            box.html();
+
+            for(var i=0; i<d3.length; i++){
+                var item = d3[i];
+                console.log(item);
+                var html =  "<div id='account'>"+
+                                "<div id='name'>" + item.firstName + ' ' + item.lastName + "</div>"+
+                                "<div id='job'>" + item.type + "</div>"+
+                                "<div id='email'>" + item.emailAddress + "</div>"+
+                                "<div id='phone'>" + item.officePhone + "</div>"+
+                            "</div>";
+                box.append(html);
+            }
+            // -----------------------------------------------------------
+
             this.ageCalc();
         };
 
