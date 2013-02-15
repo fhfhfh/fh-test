@@ -281,7 +281,7 @@ function fetchQuotesAction(params, callback) {
 //---------------------------------------fetchNews--------------------------------------------------------------------
 
 function fetchNewsAction(params, callback) {
-  
+  console.log("************News Check***********");
   fetchNewsEndpoint.fetchNews(params,function cb(err, respData) {
     callback(err,respData);
   });
