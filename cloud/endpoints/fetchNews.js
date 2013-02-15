@@ -85,6 +85,7 @@ var fetchNewsEndpoint = function() {
                                 
                                 var jsonObj = respUtils.constructStatusResponse("fetchNews", constants.RESP_SUCCESS, "fetchNews Success",jsonObject);
                                 initQueue(jsonObj,function finalCallback(res){
+                                    //console.log(JSON.stringify(res));
                                     callback(null,res);      //callback returning the success response JSON back to client
                                 });
                             }
@@ -131,7 +132,7 @@ var fetchNewsEndpoint = function() {
                 idStr = arr[arr.length-1];
                 id = idStr.substring(0, idStr.length-1);
             }
-            var url =  imgFetch.replace("{ID}",id);
+           
             //passing video id to fetch video length
             fetchVideoLength(id,function vidCallback(err,resp){ 
                 if(resp!=null)
@@ -141,25 +142,21 @@ var fetchNewsEndpoint = function() {
                     log.error("[fetchNewsEndpoint][initQueue] >> Video length not found "+err);
                     task["videoLength"] = "00";
                 }
-            });
-            
-            
-            //Requesting image from the URL
-            request({
-                url: url,
-                encoding: null
-            }, function (err, res, body){
-                if (!err && res && res.statusCode == 200) {        
-                    var image = body.toString('base64');    //Encoding image into base64 
-                    task["videoImgBase64"] = image;         //adding videoImageBase64 into object
-                    finalJson.push(task);                   //Pushing complete video object into finalJson
-                    queueCallBack();
-                } 
-                else    //If image request fails
-                {
-                    log.debug("[fetchNewsEndpoint]"+"[initQueue]>> Image request failed, " + err);
-                    queueCallBack(err);
-                }
+                
+                //Requesting funtion to fetch image from the URL and return base64 converted image data
+                convertBase64(id,function base64Callback(err,response){
+                    if(response!=null)
+                    {
+                        task["videoImgBase64"] = response;         //adding videoImageBase64 into object
+                        finalJson.push(task);                   //Pushing complete video object into finalJson
+                        queueCallBack();
+                    }
+                    else
+                    {
+                        log.debug("[fetchNewsEndpoint]"+"[initQueue]>> Image request failed, " + err);
+                        queueCallBack(err);
+                    }
+                });
             });
         }, 1);
                                 
@@ -180,6 +177,25 @@ var fetchNewsEndpoint = function() {
                     log.error("[fetchNewsEndpoint][fetchNews][regGet] >> No Data To Convert For video "+err);
             });
         }
+    }
+    
+    
+    function convertBase64(vidId, base64Callback){ //Function for Requesting image from the URL and converting it into base64
+        var url =  imgFetch.replace("{ID}",vidId);
+        request({
+            url: url,
+            encoding: null
+        }, function (err, res, body){
+            if (!err && res && res.statusCode == 200) {        
+                var image = body.toString('base64');    //Encoding image into base64 
+                
+                 return base64Callback(null,image);    
+            } 
+            else    //If image request fails
+            {
+                return base64Callback(err,null);
+        }
+        });
     }
     
     

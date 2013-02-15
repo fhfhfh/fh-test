@@ -75,7 +75,6 @@ var fetchImmunizationsEndpoint = function() {
                             if(data)
                             {
                                 var jsonObject;
-                                console.log("\n\n@@@@@@@@@@@"+data+"************");
                                 //converting the response data into JSON object
                                 jsonObject= JSON.parse(data.toString());
                                 var jsonObj = respUtils.constructStatusResponse("fetchImmunizations", constants.RESP_SUCCESS, "fetchImmunizations Success",jsonObject);
