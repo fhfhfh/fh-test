@@ -271,7 +271,7 @@ function fetchAlertAction(params, callback) {
 //---------------------------------------fetchQuotes--------------------------------------------------------------------
 
 function fetchQuotesAction(params, callback) {
-  
+  console.log("***********check Quotes****************");
   fetchQuotesEndpoint.fetchQuotes(params,function cb(err, respData) {
     callback(err,respData);
   });
