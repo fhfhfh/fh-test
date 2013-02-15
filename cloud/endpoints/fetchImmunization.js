@@ -1,5 +1,5 @@
 /**
- * NodeJS Module: Encapsulates logic for fetchImmunization Endpoint.
+ * NodeJS Module: Encapsulates logic for fetchImmunizations Endpoint.
  * 
  */
 
@@ -11,17 +11,17 @@ var constants = require('../config/constants.js');
 var respUtils = require("../utils/responseUtils.js");
 var log = require('../lib/log/log.js');
 
-var fetchImmunizationEndpoint = function() {
+var fetchImmunizationsEndpoint = function() {
     
     /**
-     * Process fetchImmunization request.
+     * Process fetchImmunizations request.
      */
     // Exposed operations
-    this.fetchImmunization = function fetchImmunization(reqJson, callback){
+    this.fetchImmunizations = function fetchImmunizations(reqJson, callback){
       if (jsonUtils.getPath(reqJson, "request.head.sessionId") == null)         
         {
-            log.error("[fetchImmunizationEndpoint][fetchImmunization] >> SessionId Not Available");
-            var responseJson = respUtils.constructStatusResponse("fetchImmunization", constants.RESP_AUTH_FAILED, "Authentication  Fail",{});
+            log.error("[fetchImmunizationsEndpoint][fetchImmunizations] >> SessionId Not Available");
+            var responseJson = respUtils.constructStatusResponse("fetchImmunizations", constants.RESP_AUTH_FAILED, "Authentication  Fail",{});
             return callback(responseJson,null) 
         }
         // Extract sessionId from request params
@@ -29,7 +29,7 @@ var fetchImmunizationEndpoint = function() {
         
         //Fetching session details
         sessionManager.getSession(sessionId, function(err, data ){
-            log.info("[fetchImmunizationEndpoint][fetchImmunization] >> Session Details :"+JSON.stringify(data));
+            log.info("[fetchImmunizationsEndpoint][fetchImmunizations] >> Session Details :"+JSON.stringify(data));
             if(data)
             {
                 //Setting the apiSession to fetch the Immunization details      
@@ -55,12 +55,12 @@ var fetchImmunizationEndpoint = function() {
                 var reqGet = http.request(optionsGet, function(res) {
                     if (res.statusCode == 403)
                     {
-                         var fail = respUtils.constructStatusResponse("fetchImmunization", constants.RESP_AUTH_FAILED, "Authentication  Fail",{});
+                         var fail = respUtils.constructStatusResponse("fetchImmunizations", constants.RESP_AUTH_FAILED, "Authentication  Fail",{});
                         return  callback(fail,null) 
                     }
                     else if (res.statusCode == 500)
                     {
-                        var fail = respUtils.constructStatusResponse("fetchImmunization", constants.RESP_SERVER_ERROR, "Internal server error",{});
+                        var fail = respUtils.constructStatusResponse("fetchImmunizations", constants.RESP_SERVER_ERROR, "Internal server error",{});
                         return  callback(fail,null) 
                     }
                    
@@ -78,36 +78,36 @@ var fetchImmunizationEndpoint = function() {
                                 console.log("\n\n@@@@@@@@@@@"+data+"************");
                                 //converting the response data into JSON object
                                 jsonObject= JSON.parse(data.toString());
-                                var jsonObj = respUtils.constructStatusResponse("fetchImmunization", constants.RESP_SUCCESS, "fetchImmunization Success",jsonObject);
+                                var jsonObj = respUtils.constructStatusResponse("fetchImmunizations", constants.RESP_SUCCESS, "fetchImmunizations Success",jsonObject);
                                 return callback(null,jsonObj) //callback returning the success response JSON back to client 
                             }
                             else        //if complete data not found
                             {
-                                var fail = respUtils.constructStatusResponse("fetchImmunization", constants.RESP_SERVER_ERROR, "Internal server error",{});
+                                var fail = respUtils.constructStatusResponse("fetchImmunizations", constants.RESP_SERVER_ERROR, "Internal server error",{});
                                 return  callback(fail,null) 
                             }
                         })
                     }
                     else               //if GET call is not successful  
                     {
-                        var fail = respUtils.constructStatusResponse("fetchImmunization", constants.RESP_SERVER_ERROR, "Internal server error",{});
+                        var fail = respUtils.constructStatusResponse("fetchImmunizations", constants.RESP_SERVER_ERROR, "Internal server error",{});
                         return  callback(fail,null) 
                     }
                 });
  
                 reqGet.end();
                 reqGet.on('error', function(e) {
-                    log.error("[fetchImmunizationEndpoint][fetchImmunization][regGet] >> " + e);
-                    var fail = respUtils.constructStatusResponse("fetchImmunization", constants.RESP_SERVER_ERROR, e,{});
+                    log.error("[fetchImmunizationsEndpoint][fetchImmunizations][regGet] >> " + e);
+                    var fail = respUtils.constructStatusResponse("fetchImmunizations", constants.RESP_SERVER_ERROR, e,{});
                     return  callback(fail,null)
                 });
             } 
             else        //If session not found
             {
-                var responseJson = respUtils.constructStatusResponse("fetchImmunization", constants.RESP_AUTH_FAILED, "Authentication  Fail",{});
+                var responseJson = respUtils.constructStatusResponse("fetchImmunizations", constants.RESP_AUTH_FAILED, "Authentication  Fail",{});
                 return callback(responseJson,null) 
             }
         });           
     }
 }
-module.exports = new fetchImmunizationEndpoint();
+module.exports = new fetchImmunizationsEndpoint();

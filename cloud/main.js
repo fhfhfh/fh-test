@@ -33,7 +33,7 @@ var fetchFamilyHistoryEndpoint = require("./endpoints/fetchFamilyHistory.js")
 var fetchProceduresEndpoint = require("./endpoints/fetchProcedures.js")
 
 var fetchEncountersEndpoint = require("./endpoints/fetchEncounters.js")
-var fetchImmunizationEndpoint = require("./endpoints/fetchImmunization.js")
+var fetchImmunizationsEndpoint = require("./endpoints/fetchImmunization.js")
 
 // mock service if not on $fh
 if (!process.env.FH_DOMAIN){
@@ -73,7 +73,7 @@ exports.fetchFamilyHistoryAction = fetchFamilyHistoryAction;
 exports.fetchProceduresAction = fetchProceduresAction;
 
 exports.fetchEncountersAction = fetchEncountersAction;
-exports.fetchImmunizationAction = fetchImmunizationAction;
+exports.fetchImmunizationsAction = fetchImmunizationsAction;
 
 
 
@@ -351,10 +351,10 @@ function fetchEncountersAction(params, callback) {
   });
 }
 
-//---------------------------------------fetchImmunization--------------------------------------------------------------------
+//---------------------------------------fetchImmunizations--------------------------------------------------------------------
 
-function fetchImmunizationAction(params, callback) {
-  fetchImmunizationEndpoint.fetchImmunization(params,function cb(err, respData) {
+function fetchImmunizationsAction(params, callback) {
+  fetchImmunizationsEndpoint.fetchImmunizations(params,function cb(err, respData) {
     callback(err,respData);
   });
 }
