@@ -39,7 +39,8 @@ var appConfig = {
                 "procedures":"/PeachyWebApi/api/Procedures/",
                 "problems":"/PeachyWebApi/api/Problems/",
                 "immunizations":"/PeachyWebApi/api/Immunizations/",
-                "encounters":"/PeachyWebApi/api/Encounters/"
+                "encounters":"/PeachyWebApi/api/Encounters/",
+                "vitalsigns":"/PeachyWebApi/api/vitalsigns/"
             },
             "session": {
                 // Inactivity timeout (Seconds)

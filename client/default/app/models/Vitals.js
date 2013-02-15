@@ -18,7 +18,7 @@ define(['backbone',
 			var self = this;
 			var data = {};
 
-			Act.call('fetchVitalSignsAction', {}, function(res){
+			Act.call('fetchVitalsignsAction', {}, function(res){
 				data = res.payload.vitalSigns[0];
 
 				self.attributes = self.parse(data);

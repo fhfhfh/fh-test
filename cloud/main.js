@@ -31,7 +31,7 @@ var fetchAllergiesEndpoint = require("./endpoints/fetchAllergies.js")
 var fetchSocialHistoryEndpoint = require("./endpoints/fetchSocialHistory.js")
 var fetchFamilyHistoryEndpoint = require("./endpoints/fetchFamilyHistory.js")
 var fetchProceduresEndpoint = require("./endpoints/fetchProcedures.js")
-
+var fetchVitalsignsEndpoint = require("./endpoints/fetchVitalsigns.js")
 var fetchEncountersEndpoint = require("./endpoints/fetchEncounters.js")
 var fetchImmunizationsEndpoint = require("./endpoints/fetchImmunization.js")
 
@@ -71,7 +71,7 @@ exports.fetchAllergiesAction = fetchAllergiesAction;
 exports.fetchSocialHistoryAction = fetchSocialHistoryAction;
 exports.fetchFamilyHistoryAction = fetchFamilyHistoryAction;
 exports.fetchProceduresAction = fetchProceduresAction;
-
+exports.fetchVitalsignsAction = fetchVitalsignsAction;
 exports.fetchEncountersAction = fetchEncountersAction;
 exports.fetchImmunizationsAction = fetchImmunizationsAction;
 
@@ -355,6 +355,15 @@ function fetchEncountersAction(params, callback) {
 
 function fetchImmunizationsAction(params, callback) {
   fetchImmunizationsEndpoint.fetchImmunizations(params,function cb(err, respData) {
+    callback(err,respData);
+  });
+}
+
+//---------------------------------------fetchVitalsigns--------------------------------------------------------------------
+
+function fetchVitalsignsAction(params, callback) {
+  console.log(JSON.stringify(params));
+  fetchVitalsignsEndpoint.fetchVitalsigns(params,function cb(err, respData) {
     callback(err,respData);
   });
 }
