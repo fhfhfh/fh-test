@@ -164,6 +164,7 @@ var fetchNewsEndpoint = function() {
         q.drain = function()     // Draining Queue 
         {        
             jsonObj.response.payload.News = finalJson;
+            log.info("[fetchNewsEndpoint][Queue_drain] >> *********** Draining Queue ******** :");
             return finalCallback(jsonObj);   //callback returning the final JSON including base64 encoded images and video length
         }
           
@@ -182,10 +183,12 @@ var fetchNewsEndpoint = function() {
     
     function convertBase64(vidId, base64Callback){ //Function for Requesting image from the URL and converting it into base64
         var url =  imgFetch.replace("{ID}",vidId);
+         log.info("[fetchNewsEndpoint][convertBase64] >> *********** Making Request ******** :"+vidId);
         request({
             url: url,
             encoding: null
         }, function (err, res, body){
+            log.info("[fetchNewsEndpoint][convertBase64] >> ***********GOT Response ******** :"+vidId);
             if (!err && res && res.statusCode == 200) {        
                 var image = body.toString('base64');    //Encoding image into base64 
                 
@@ -215,10 +218,11 @@ var fetchNewsEndpoint = function() {
             method : 'GET',
             headers : getHeaders
         };
-
+        
+        log.info("[fetchNewsEndpoint][fetchVideoLength] >> *********** Making Request ******** :"+vidId);
         // doing the HTTP GET call
         var reqGet = http.request(optionsGet, function(res) {
-
+            log.info("[fetchNewsEndpoint][fetchVideoLength] >> ***********GOT Response ******** :"+vidId);
             if (res && res.statusCode == 403)
             {
                 var fail = "Internal server error";
