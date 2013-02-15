@@ -158,7 +158,7 @@ var fetchNewsEndpoint = function() {
                     }
                 });
             });
-        }, 1);
+        }, 8);
                                 
                                 
         q.drain = function()     // Draining Queue 
