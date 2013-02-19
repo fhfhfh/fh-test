@@ -11,6 +11,7 @@ var appConfig = require('../config/appConfig.js')
 var jsonUtils = require('../lib/jsonUtils.js');
 var constants = require('../config/constants.js');
 var respUtils = require("../utils/responseUtils.js");
+var reqUtils = require("../utils/requestUtils.js");
 var log = require('../lib/log/log.js');
 const imgFetch = "http://img.youtube.com/vi/{ID}/0.jpg";
 const durationFetch = "/feeds/api/videos/{ID}?v=2&prettyprint=true&alt=json";
@@ -38,76 +39,23 @@ var fetchNewsEndpoint = function() {
             log.info("[fetchNewsEndpoint][fetchNews] >> Session Details :"+JSON.stringify(data));
             if(data)
             {
-                //Setting the apiSession to fetch the Alert details
-                var apiSessionId = data.apiSessionId;
-
-                // preparing the header
-                var getHeaders = {
-                    'Content-Type' : 'application/json',
-                    'sessionId' : apiSessionId
-                };
-                var env = appConfig.current;
-
-                // perparing the GET options
-                var optionsGet = {
-                    host : appConfig.environments[env].urls.baseUrl,
-                    port : appConfig.environments[env].urls.port,
-                    path : appConfig.environments[env].urls.news,
-                    method : 'GET',
-                    headers : getHeaders
-                };
-
-                // doing the HTTP GET call for fetching news data from basic Peachy API.
-                var reqGet = http.request(optionsGet, function(res) {
-
-                    if (res.statusCode == 403)
-                    {
-                        var fail = respUtils.constructStatusResponse("fetchNews", constants.RESP_AUTH_FAILED, "Authentication  Fail",{});
-                        return  callback(fail,null)
-                    }
-                    else if (res.statusCode == 500)
-                    {
-                        var fail = respUtils.constructStatusResponse("fetchNews", constants.RESP_SERVER_ERROR, "Internal server error",{});
-                        return  callback(fail,null)
-                    }
-                    else if (res.statusCode == 200)
-                    {
-                        var data="";
-                        res.on('data', function(d) {
-                            //fetching the complete response that comes in chunks in 'data'
-                            data+=d;
+                var requestJson = {
+                    EndPointName : "fetchNews",
+                    path : "news",
+                    apiSessionId : data.apiSessionId,
+                    method :"GET"
+                }
+                var respJson = reqUtils.makeRequestCall(requestJson, function(err,res){
+                    if(res != null){
+                        console.info(res);
+                        initQueue(res,function finalCallback(resp){
+                            callback(null,resp);      //callback returning the success response JSON back to client
                         });
-                        res.on('end',function(){
-                            if(data!="")
-                            {
-                                //converting the response data into JSON object
-                                var jsonObject= JSON.parse(data.toString());
-                                
-                                var jsonObj = respUtils.constructStatusResponse("fetchNews", constants.RESP_SUCCESS, "fetchNews Success",jsonObject);
-                                initQueue(jsonObj,function finalCallback(res){
-                                    //console.log(JSON.stringify(res));
-                                    callback(null,res);      //callback returning the success response JSON back to client
-                                });
-                            }
-                            else        //if complete data not found
-                            {
-                                var fail = respUtils.constructStatusResponse("fetchNews", constants.RESP_SERVER_ERROR, "Internal server error",{});
-                                return  callback(fail,null)
-                            }
-                        })
                     }
-                    else               //if GET call is not successful
+                    else
                     {
-                        var fail = respUtils.constructStatusResponse("fetchNews", constants.RESP_SERVER_ERROR, "Internal server error",{});
-                        return  callback(fail,null)
+                        return  callback(err,null);
                     }
-                });
-
-                reqGet.end();
-                reqGet.on('error', function(e) {
-                    log.error("[fetchNewsEndpoint][fetchNews][regGet] >> " + e);
-                    var fail = respUtils.constructStatusResponse("fetchNews", constants.RESP_SERVER_ERROR, e,{});
-                    return  callback(fail,null)
                 });
             }
             else        //If session not found
@@ -164,7 +112,7 @@ var fetchNewsEndpoint = function() {
         q.drain = function()     // Draining Queue 
         {        
             jsonObj.response.payload.News = finalJson;
-            log.info("[fetchNewsEndpoint][Queue_drain] >> *********** Draining Queue ******** :");
+            log.info("[fetchNewsEndpoint][Queue_drain] >>  Draining Queue ");
             return finalCallback(jsonObj);   //callback returning the final JSON including base64 encoded images and video length
         }
           
@@ -183,21 +131,19 @@ var fetchNewsEndpoint = function() {
     
     function convertBase64(vidId, base64Callback){ //Function for Requesting image from the URL and converting it into base64
         var url =  imgFetch.replace("{ID}",vidId);
-         log.info("[fetchNewsEndpoint][convertBase64] >> *********** Making Request ******** :"+vidId);
-        request({
+       request({
             url: url,
             encoding: null
         }, function (err, res, body){
-            log.info("[fetchNewsEndpoint][convertBase64] >> ***********GOT Response ******** :"+vidId);
             if (!err && res && res.statusCode == 200) {        
                 var image = body.toString('base64');    //Encoding image into base64 
                 
-                 return base64Callback(null,image);    
+                return base64Callback(null,image);    
             } 
             else    //If image request fails
             {
                 return base64Callback(err,null);
-        }
+            }
         });
     }
     
@@ -219,10 +165,8 @@ var fetchNewsEndpoint = function() {
             headers : getHeaders
         };
         
-        log.info("[fetchNewsEndpoint][fetchVideoLength] >> *********** Making Request ******** :"+vidId);
         // doing the HTTP GET call
         var reqGet = http.request(optionsGet, function(res) {
-            log.info("[fetchNewsEndpoint][fetchVideoLength] >> ***********GOT Response ******** :"+vidId);
             if (res && res.statusCode == 403)
             {
                 var fail = "Internal server error";

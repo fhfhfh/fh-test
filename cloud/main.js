@@ -31,9 +31,10 @@ var fetchAllergiesEndpoint = require("./endpoints/fetchAllergies.js")
 var fetchSocialHistoryEndpoint = require("./endpoints/fetchSocialHistory.js")
 var fetchFamilyHistoryEndpoint = require("./endpoints/fetchFamilyHistory.js")
 var fetchProceduresEndpoint = require("./endpoints/fetchProcedures.js")
-var fetchVitalsignsEndpoint = require("./endpoints/fetchVitalsigns.js")
-var fetchEncountersEndpoint = require("./endpoints/fetchEncounters.js")
 var fetchImmunizationsEndpoint = require("./endpoints/fetchImmunization.js")
+var fetchEncountersEndpoint = require("./endpoints/fetchEncounters.js")
+var fetchVitalsignsEndpoint = require("./endpoints/fetchVitalsigns.js")
+var fetchResultsEndpoint = require("./endpoints/fetchResults.js")
 
 // mock service if not on $fh
 if (!process.env.FH_DOMAIN){
@@ -71,15 +72,15 @@ exports.fetchAllergiesAction = fetchAllergiesAction;
 exports.fetchSocialHistoryAction = fetchSocialHistoryAction;
 exports.fetchFamilyHistoryAction = fetchFamilyHistoryAction;
 exports.fetchProceduresAction = fetchProceduresAction;
-exports.fetchVitalsignsAction = fetchVitalsignsAction;
-exports.fetchEncountersAction = fetchEncountersAction;
 exports.fetchImmunizationsAction = fetchImmunizationsAction;
+exports.fetchEncountersAction = fetchEncountersAction;
+exports.fetchVitalsignsAction = fetchVitalsignsAction;
+exports.fetchResultsAction = fetchResultsAction;
 
 
 
 //--------------------------------------login----------------------------------------
 function loginAction(params, callback) {
-  console.log("Login check");
   loginEndpoint.login(params,function cb(err, respData) {
     callback(err,respData);
   });
@@ -88,7 +89,6 @@ function loginAction(params, callback) {
 //-------------------------------------logout----------------------------------------
 
 function logoutAction(params, callback) {
-  
   logoutEndpoint.logout(params,function cb(err, respData) {
     callback(err,respData);
   });
@@ -96,7 +96,6 @@ function logoutAction(params, callback) {
 
 //--------------------------------------reset----------------------------------------
 function resetAction(params, callback) {
-  
   resetEndpoint.reset(params,function cb(err, respData) {
     callback(err,respData);
   });
@@ -106,7 +105,6 @@ function resetAction(params, callback) {
 //------------------------------------userProfile----------------------------------------
 
 function userProfileAction(params, callback) {
-  
   userProfileEndpoint.userProfile(params,function cb(err, respData) {
     callback(err,respData);
   });
@@ -115,7 +113,6 @@ function userProfileAction(params, callback) {
 
 
 function saveUserProfileAction(params, callback) {
-  
   saveUserProfileEndpoint.sup(params,function cb(err, respData) {
     callback(err,respData);
   });
@@ -125,7 +122,6 @@ function saveUserProfileAction(params, callback) {
 
 
 function peachyPointsAction(params, callback) {
-  
   peachyPointsEndpoint.peachyPoints(params,function cb(err, respData) {
     callback(err,respData);
   });
@@ -136,7 +132,6 @@ function peachyPointsAction(params, callback) {
 
 
 function medicineCabinetAction(params, callback) {
-  
   medicineCabinetEndpoint.medicineCabinet(params,function cb(err, respData) {
     callback(err,respData);
   });
@@ -145,7 +140,6 @@ function medicineCabinetAction(params, callback) {
 
 //--------------------------------------searchMedicine----------------------------------------
 function searchMedicineAction(params, callback) {
-  
   searchMedicineEndpoint.searchMedicine(params,function cb(err, respData) {
     callback(err,respData);
   });
@@ -155,7 +149,6 @@ function searchMedicineAction(params, callback) {
 
 //--------------------------------------savemedicine----------------------------------------
 function saveMedicineAction(params, callback) {
-  
   saveMedicineEndpoint.saveMedicine(params,function cb(err, respData) {
     callback(err,respData);
   });
@@ -163,7 +156,6 @@ function saveMedicineAction(params, callback) {
 
 //--------------------------------------deleteSinglemedicine----------------------------------------
 function delMedicineAction(params, callback) {
-  
   delMedicineEndpoint.delMedicine(params,function cb(err, respData) {
     callback(err,respData);
   });
@@ -172,7 +164,6 @@ function delMedicineAction(params, callback) {
 
 //--------------------------------------deleteMultipleMedicine----------------------------------------
 function delMulMedicineAction(params, callback) {
-  
   delMulMedicineEndpoint.delMulMedicine(params,function cb(err, respData) {
     callback(err,respData);
   });
@@ -180,7 +171,6 @@ function delMulMedicineAction(params, callback) {
 
 //--------------------------------------addReminderMedicine----------------------------------------
 function addReminderAction(params, callback) {
-  
   reminderMedicineEndpoint.addRem(params,function cb(err, respData) {
     callback(err,respData);
   });
@@ -189,7 +179,6 @@ function addReminderAction(params, callback) {
 
 //--------------------------------------addReminderMedicine----------------------------------------
 function fetchReminderAction(params, callback) {
-  
   fetchReminderListEndpoint.fetchReminder(params,function cb(err, respData) {
     callback(err,respData);
   });
@@ -197,7 +186,6 @@ function fetchReminderAction(params, callback) {
 
 //--------------------------------------Fetch Diagnosis Lis----------------------------------------
 function fetchDiagnosisListAction(params, callback) {
-  
   fetchDiagnosisListEndpoint.fetchDiagnosis(params,function cb(err, respData) {
     callback(err,respData);
   });
@@ -205,7 +193,6 @@ function fetchDiagnosisListAction(params, callback) {
 
 //--------------------------------------Fetch Test Result List-----------------------------------------
 function fetchTestResultListAction(params, callback) {
-  
   fetchTestResultListEndpoint.fetchTestResult(params,function cb(err, respData) {
     callback(err,respData);
   });
@@ -213,7 +200,6 @@ function fetchTestResultListAction(params, callback) {
 
 //--------------------------------------Filter Content-------------------------------------------------
 function filterContentAction(params, callback) {
-  
   filterContentEndpoint.filterContent(params,function cb(err, respData) {
     callback(err,respData);
   });
@@ -222,7 +208,6 @@ function filterContentAction(params, callback) {
 
 //--------------------------------------medicalHistory--------------------------------------------------
 function fetchMedicalHistoryAction(params, callback) {
-  
   fetchMedicalHistoryEndpoint.fetchMedicalHistory(params,function cb(err, respData) {
     callback(err,respData);
   });
@@ -232,7 +217,6 @@ function fetchMedicalHistoryAction(params, callback) {
 //--------------------------------------searchAllergy--------------------------------------------------
 
 function searchAllergyAction(params, callback) {
-  
   searchAllergyEndpoint.searchAllergy(params,function cb(err, respData) {
     callback(err,respData);
   });
@@ -242,7 +226,6 @@ function searchAllergyAction(params, callback) {
 //--------------------------------------addAllergy--------------------------------------------------
 
 function addAllergyAction(params, callback) {
-  
   addAllergyEndpoint.addAllergy(params,function cb(err, respData) {
     callback(err,respData);
   });
@@ -251,7 +234,6 @@ function addAllergyAction(params, callback) {
 //--------------------------------------fetchFeaturedContent--------------------------------------------------
 
 function fetchFeaturedContentAction(params, callback) {
-  
   fetchFeaturedContentEndpoint.fetchFeaturedContent(params,function cb(err, respData) {
     callback(err,respData);
   });
@@ -262,7 +244,6 @@ function fetchFeaturedContentAction(params, callback) {
 //---------------------------------------fetchAlerts--------------------------------------------------------------------
 
 function fetchAlertAction(params, callback) {
-  
   fetchAlertEndpoint.fetchAlert(params,function cb(err, respData) {
     callback(err,respData);
   });
@@ -271,7 +252,6 @@ function fetchAlertAction(params, callback) {
 //---------------------------------------fetchQuotes--------------------------------------------------------------------
 
 function fetchQuotesAction(params, callback) {
-  console.log("***********check Quotes****************");
   fetchQuotesEndpoint.fetchQuotes(params,function cb(err, respData) {
     callback(err,respData);
   });
@@ -281,7 +261,6 @@ function fetchQuotesAction(params, callback) {
 //---------------------------------------fetchNews--------------------------------------------------------------------
 
 function fetchNewsAction(params, callback) {
-  console.log("************News Check***********");
   fetchNewsEndpoint.fetchNews(params,function cb(err, respData) {
     callback(err,respData);
   });
@@ -290,7 +269,6 @@ function fetchNewsAction(params, callback) {
 //---------------------------------------fetchAvatars--------------------------------------------------------------------
 
 function fetchAvatarsAction(params, callback) {
-  
   fetchAvatarsEndpoint.fetchAvatars(params,function cb(err, respData) {
     callback(err,respData);
   });
@@ -300,7 +278,6 @@ function fetchAvatarsAction(params, callback) {
 //---------------------------------------fetchAllergies--------------------------------------------------------------------
 
 function fetchAllergiesAction(params, callback) {
-  
   fetchAllergiesEndpoint.fetchAllergies(params,function cb(err, respData) {
     callback(err,respData);
   });
@@ -309,8 +286,7 @@ function fetchAllergiesAction(params, callback) {
 //---------------------------------------fetchSocialHistory--------------------------------------------------------------------
 
 function fetchSocialHistoryAction(params, callback) {
-  
-  fetchSocialHistoryEndpoint.fetchSocialHistory(params,function cb(err, respData) {
+ fetchSocialHistoryEndpoint.fetchSocialHistory(params,function cb(err, respData) {
     callback(err,respData);
   });
 }
@@ -319,7 +295,6 @@ function fetchSocialHistoryAction(params, callback) {
 //---------------------------------------fetchNews--------------------------------------------------------------------
 
 function fetchFamilyHistoryAction(params, callback) {
-  
   fetchFamilyHistoryEndpoint.fetchFamilyHistory(params,function cb(err, respData) {
     callback(err,respData);
   });
@@ -328,7 +303,6 @@ function fetchFamilyHistoryAction(params, callback) {
 //---------------------------------------fetchAvatars--------------------------------------------------------------------
 
 function fetchProceduresAction(params, callback) {
-  
   fetchProceduresEndpoint.fetchProcedures(params,function cb(err, respData) {
     callback(err,respData);
   });
@@ -337,7 +311,6 @@ function fetchProceduresAction(params, callback) {
 //---------------------------------------fetchProblems--------------------------------------------------------------------
 
 function fetchProblemsAction(params, callback) {
-  
   fetchProblemsEndpoint.fetchProblems(params,function cb(err, respData) {
     callback(err,respData);
   });
@@ -351,7 +324,7 @@ function fetchEncountersAction(params, callback) {
   });
 }
 
-//---------------------------------------fetchImmunizations--------------------------------------------------------------------
+//---------------------------------------fetchImmunization--------------------------------------------------------------------
 
 function fetchImmunizationsAction(params, callback) {
   fetchImmunizationsEndpoint.fetchImmunizations(params,function cb(err, respData) {
@@ -359,11 +332,19 @@ function fetchImmunizationsAction(params, callback) {
   });
 }
 
+
 //---------------------------------------fetchVitalsigns--------------------------------------------------------------------
 
 function fetchVitalsignsAction(params, callback) {
-  console.log(JSON.stringify(params));
   fetchVitalsignsEndpoint.fetchVitalsigns(params,function cb(err, respData) {
+    callback(err,respData);
+  });
+}
+
+//---------------------------------------fetchResults--------------------------------------------------------------------
+
+function fetchResultsAction(params, callback) {
+  fetchResultsEndpoint.fetchResults(params,function cb(err, respData) {
     callback(err,respData);
   });
 }

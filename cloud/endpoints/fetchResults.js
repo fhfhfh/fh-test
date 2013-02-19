@@ -1,5 +1,5 @@
 /**
- * NodeJS Module: Encapsulates logic for peachyPointsEndpoint.
+ * NodeJS Module: Encapsulates logic for fetchResultsEndpoint.
  * 
  */
 var sessionManager = require('../lib/session/session.js');
@@ -11,12 +11,12 @@ var log = require('../lib/log/log.js');
 var reqUtils = require("../utils/requestUtils.js");
 
 
-var peachyPointsEndpoint = function() {
+var fetchResultsEndpoint = function() {
     /**
-     * Process peachyPoints request.
+     * Process fetchResults request.
      */
     // Exposed operations
-    this.peachyPoints = function peachyPoints(reqJson, callback){
+    this.fetchResults = function fetchResults(reqJson, callback){
        
         // Extract request params
         var sessionId = jsonUtils.getPath(reqJson, "request.head.sessionId").trim();
@@ -24,16 +24,16 @@ var peachyPointsEndpoint = function() {
         
         //Fetching session details
         sessionManager.getSession(sessionId, function(err, data ){
-            log.info("[peachypointsEndpoint][fetchAvatars] >> Session Details :"+JSON.stringify(data));
+            log.info("[fetchResultsEndpoint][fetchResults] >> Session Details :"+JSON.stringify(data));
             if(data != null)
             {
-                var requestJson = {
-                    EndPointName : "peachyPoints",
-                    path : "peachyPoints",
+                 var requestJson = {
+                    EndPointName : "fetchResults",
+                    path : "fetchResults",
                     apiSessionId : data.apiSessionId,
-                    method : "GET"
-                }
-               var respJson = reqUtils.makeRequestCall(requestJson, function(err,res){
+                     method :"GET"
+                }   
+                var respJson = reqUtils.makeRequestCall(requestJson, function(err,res){
                     if(res != null){
                         
                         callback(null,res);      //callback returning the success response JSON back to client
@@ -47,10 +47,10 @@ var peachyPointsEndpoint = function() {
             } 
             else        //If session not found
             {
-                var responseJson = respUtils.constructStatusResponse("peachyPoints", constants.RESP_AUTH_FAILED, "Authentication  Fail",{});
+                var responseJson = respUtils.constructStatusResponse("fetchResults", constants.RESP_AUTH_FAILED, "Authentication  Fail",{});
                 return callback(responseJson,null) 
             }
         });           
     }
 }
-module.exports = new peachyPointsEndpoint();
+module.exports = new fetchResultsEndpoint();
