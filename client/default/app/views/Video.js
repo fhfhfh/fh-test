@@ -12,21 +12,33 @@ define([
 ], function($, _, Backbone, iScroll, tpl) {
 
     return Backbone.View.extend({
-      tagName: 'section',
-      id: 'VideoPlayback',
-      template: _.template(tpl),
+        tagName: 'section',
+        id: 'VideoPlayback',
+        template: _.template(tpl),
+        video : {
+            url: '',
+            title: 'test',
+            time: '11:11',
+            description: 'asdfasdf'
+        },
 
         events: {
             'click #doneBtn'   : 'close',
-            'click #title'     : 'refreshScroll'
+            'click #title'     : 'refreshScroll',
+            'swipeleft #videoContainer' : 'log'
+        },
+
+        log:function(){
+            console.log('asdfgasdf');
         },
 
         initialize: function() {
             var self = this;
             _.bindAll(this);
 
-            this.video = JSON.parse(localStorage.getItem('tempVid'));
-            localStorage.removeItem('tempVid');
+
+            // this.video = JSON.parse(localStorage.getItem('tempVid'));
+            // localStorage.removeItem('tempVid');
 
 
             this.$el.html(self.template({
@@ -44,15 +56,32 @@ define([
                 bounce: false,
                 vScrollbar: false
             });
+
+            this.iscroll2 = new iScroll(this.$('#wrapper')[0], {
+                hscroll: true,
+                vscroll: false,
+                fixedScrollbar: true,
+                bounce: false,
+                hScrollbar: true
+            });            
             // ------------------------------------------
         },
 
         refreshScroll: function(){
+            // console.log('asd');
             var self = this;
             setTimeout(function() {
                 if (self.iscroll) {
                     self.iscroll.refresh.call(self.iscroll);
                 }
+                if(self.iscroll2){
+                    self.iscroll2.refresh.call(self.iscroll2);   
+                }
+                // var width = this.$('#videoContainer').width() - this.$('#pageDiv').width();
+                // console.log(width);
+                // this.$('#pageDiv').scrollLeft(width/2);
+                self.iscroll2.scrollToElement('#currentVideo', '1s');
+                window.scroll = self.iscroll2;
             }, 10);
         },
 

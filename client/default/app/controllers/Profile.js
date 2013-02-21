@@ -120,6 +120,7 @@ define(['jquery',
 					// }
 				}
 				else if(prop === 'phone'){
+					d[prop] = d[prop].replace(/\./g, '');
 					if(d[prop].length != 10 || isNaN(d[prop])){
 						return 'Please enter a valid Home Phone number (10 digits)';
 					}

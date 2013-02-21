@@ -79,6 +79,9 @@ require([
       mode: 'dev'
     }, function() {
       new AppRouter();
+
+      // $fh.fh_timeout = 120000;
+      
     }, function() {
       Backbone.trigger('notify', 'FeedHenry init failed!');
     });

@@ -1220,7 +1220,11 @@ li {
 #VideoPlayback #top #buttonContainer .btn {
   margin: 10px;
 }
+#VideoPlayback #pageDiv {
+  width: 100%;
+}
 #VideoPlayback #videoContainer {
+  display: inline-block;
   margin-top: 60px;
   height: 300px;
   text-align: center;
@@ -1250,6 +1254,10 @@ li {
 }
 #VideoPlayback #scroller {
   padding-bottom: 450px;
+}
+#VideoPlayback .hIscroll-container {
+  width: 100%;
+  position: relative;
 }
 #VideoPlayback #videoDescription {
   height: 550px;

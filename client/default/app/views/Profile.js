@@ -33,7 +33,9 @@ define(['jquery',
                 'click #okPass'        : 'ok',
                 'change input'         : 'validate',
                 'click li'             : 'focusInput',
-                'click .avatarPic'     : 'pickAvatar'
+                'click .avatarPic'     : 'pickAvatar',
+                'keyup #phone'       : 'maskInput',
+                'keyup #mobile'       : 'maskInput'
             },
 
             //Function interface
@@ -53,7 +55,8 @@ define(['jquery',
             closeAvatar : _closeAvatar,
             pickAvatar  : _pickAvatar,
             focusInput  : _focusInput,
-            validate    : _validate
+            validate    : _validate,
+            maskInput   : _maskInput
         });
 
 
@@ -120,6 +123,16 @@ define(['jquery',
 
             return details;
         };
+
+        function _maskInput(e){
+            var target = e.currentTarget;
+            var value = $(target).val().replace('.', '');
+            var length = value.length;
+
+            if(length == 3 || length == 6){
+                $(target).val($(target).val() + '.');
+            }
+        }
 
         function _saveDetails(){
             controller.saveProfile(this);
@@ -203,14 +216,14 @@ define(['jquery',
 
             this.$('#line1').val(vals[0]);
 
-            if(vals.length == 3){
-                this.$('#zip').val(vals[1]);
-                this.$('#state').val(vals[2]);    
+            if(vals.length == 3){                
+                this.$('#state').val(vals[1]);    
+                this.$('#zip').val(vals[2]);
             }
             else {
-                this.$('#line2').val(vals[1]);
-                this.$('#zip').val(vals[2]);
-                this.$('#state').val(vals[3]);    
+                this.$('#line2').val(vals[1]);                
+                this.$('#state').val(vals[2]);    
+                this.$('#zip').val(vals[3]);
             }
         };
 
@@ -230,10 +243,10 @@ define(['jquery',
             }
 
             if(line2.length == 0){
-                text = line1 + "\n" + zip + "\n" + state;    
+                text = line1 + "\n" + state + "\n" + zip;    
             }
             else {
-                text = line1 + "\n" + line2 + "\n" + zip + "\n" + state;    
+                text = line1 + "\n" + line2 + "\n" + state + "\n" + zip;    
             }
             
             this.$('div#address').val(text);
@@ -252,10 +265,10 @@ define(['jquery',
             // Map User Details Fields ---------------------------------
             // ---------------------------------------------------------
             if(d.address2 == undefined){
-                var addr = d.address1 +'\n'+ d.zip +'\n'+ d.state;
+                var addr = d.address1 +'\n'+ d.state +'\n'+ d.zip;
             }
             else {
-                var addr = d.address1 +'\n'+ d.address2 +'\n'+ d.zip +'\n'+ d.state;
+                var addr = d.address1 +'\n'+ d.address2 +'\n'+ d.state +'\n'+ d.zip;
             }
 
             this.$('#firstName').val(d.firstName);
@@ -469,7 +482,8 @@ define(['jquery',
                 }
             }
             else if(id === 'phone'){
-                if(val.length != 10 || isNaN(val)){
+                num = val.replace(/\./g, '');
+                if(num.length != 10 || isNaN(num)){
                     Backbone.trigger('notify', 'Please enter a valid phone number (10 digits)');
                 }
             }
