@@ -1,5 +1,5 @@
 /**
- * NodeJS Module: Encapsulates logic for updateProfileEndpoint.
+ * NodeJS Module: Encapsulates logic for saveUserProfileEndpoint.
  * 
  */
 var sessionManager = require('../lib/session/session.js');
@@ -11,12 +11,12 @@ var log = require('../lib/log/log.js');
 var reqUtils = require("../utils/requestUtils.js");
 
 
-var updateProfileEndpoint = function() {
+var saveUserProfileEndpoint = function() {
     /**
-     * Process updateProfile request.
+     * Process saveUserProfile request.
      */
     // Exposed operations
-    this.updateProfile = function updateProfile(reqJson, callback){
+    this.saveUserProfile = function saveUserProfile(reqJson, callback){
        
         // Extract request params
         var sessionId = jsonUtils.getPath(reqJson, "request.head.sessionId").trim();
@@ -24,12 +24,12 @@ var updateProfileEndpoint = function() {
         
         //Fetching session details
         sessionManager.getSession(sessionId, function(err, data ){
-            log.info("[updateProfileEndpoint][fetchupdateProfile] >> Session Details :"+JSON.stringify(data));
+            log.info("[saveUserProfileEndpoint][fetchsaveUserProfile] >> Session Details :"+JSON.stringify(data));
             if(data != null)
             {
                 
                 var requestJson = {
-                    EndPointName : "updateProfile",
+                    EndPointName : "saveUserProfile",
                     path : "userProfile",
                     apiSessionId : data.apiSessionId,
                     method :"PUT",
@@ -52,10 +52,10 @@ var updateProfileEndpoint = function() {
             } 
             else        //If session not found
             {
-                var responseJson = respUtils.constructStatusResponse("updateProfile", constants.RESP_AUTH_FAILED, "Authentication  Fail",{});
+                var responseJson = respUtils.constructStatusResponse("saveUserProfile", constants.RESP_AUTH_FAILED, "Authentication  Fail",{});
                 return callback(responseJson,null) 
             }
         });           
     }
 }
-module.exports = new updateProfileEndpoint();
+module.exports = new saveUserProfileEndpoint();

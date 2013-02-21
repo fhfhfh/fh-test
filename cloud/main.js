@@ -6,7 +6,7 @@ var loginEndpoint = require("./endpoints/login.js");
 var logoutEndpoint =  require("./endpoints/logout.js");
 var resetEndpoint = require("./endpoints/reset.js");
 var userProfileEndpoint =  require("./endpoints/userProfile.js");
-var updateProfileEndpoint = require("./endpoints/updateProfile.js");
+var saveUserProfileEndpoint = require("./endpoints/updateProfile.js");
 var peachyPointsEndpoint = require("./endpoints/peachyPoints.js")
 var medicineCabinetEndpoint = require("./endpoints/medicineCabinetList.js")
 var searchMedicineEndpoint = require("./endpoints/searchMedicine.js")
@@ -48,7 +48,7 @@ exports.loginAction = loginAction;
 exports.logoutAction = logoutAction;
 exports.resetAction = resetAction;
 exports.userProfileAction = userProfileAction;
-exports.updateProfileAction = updateProfileAction;
+exports.saveUserProfileAction = saveUserProfileAction;
 exports.peachyPointsAction = peachyPointsAction;
 exports.medicineCabinetAction = medicineCabinetAction;
 exports.searchMedicineAction = searchMedicineAction;
@@ -110,12 +110,12 @@ function userProfileAction(params, callback) {
     callback(err,respData);
   });
 }
-//----------------------------------updateProfile---------------------------------------
+//----------------------------------saveUserProfile---------------------------------------
 
 
-function updateProfileAction(params, callback) {
+function saveUserProfileAction(params, callback) {
   //console.log(JSON.stringify(params));
-  updateProfileEndpoint.updateProfile(params,function cb(err, respData) {
+  saveUserProfileEndpoint.saveUserProfile(params,function cb(err, respData) {
     callback(err,respData);
   });
 }

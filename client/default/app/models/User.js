@@ -165,7 +165,7 @@ define(['jquery',
 
 	function _saveUserOnline(callback){
                 var prof = this.profile;
-                Acts.call('updateProfileAction', prof, 
+                Acts.call('saveUserProfileAction', prof, 
     		function(res){
     			callback(true);
     			Backbone.trigger('notify', 'Profile Saved to Cloud');
