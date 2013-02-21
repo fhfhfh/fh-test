@@ -1,5 +1,5 @@
 /**
- * NodeJS Module: Encapsulates logic for peachyPointsEndpoint.
+ * NodeJS Module: Encapsulates logic for saveUserProfileEndpoint.
  * 
  */
 var sessionManager = require('../lib/session/session.js');
@@ -11,12 +11,12 @@ var log = require('../lib/log/log.js');
 var reqUtils = require("../utils/requestUtils.js");
 
 
-var peachyPointsEndpoint = function() {
+var saveUserProfileEndpoint = function() {
     /**
-     * Process peachyPoints request.
+     * Process saveUserProfile request.
      */
     // Exposed operations
-    this.peachyPoints = function peachyPoints(reqJson, callback){
+    this.saveUserProfile = function saveUserProfile(reqJson, callback){
        
         // Extract request params
         var sessionId = jsonUtils.getPath(reqJson, "request.head.sessionId").trim();
@@ -24,20 +24,25 @@ var peachyPointsEndpoint = function() {
         
         //Fetching session details
         sessionManager.getSession(sessionId, function(err, data ){
-            log.info("[peachypointsEndpoint][fetchAvatars] >> Session Details :"+JSON.stringify(data));
+            log.info("[saveUserProfileEndpoint][fetchsaveUserProfile] >> Session Details :"+JSON.stringify(data));
             if(data != null)
             {
+                
                 var requestJson = {
-                    EndPointName : "peachyPoints",
-                    path : "peachyPoints",
+                    EndPointName : "saveUserProfile",
+                    path : "userProfile",
                     apiSessionId : data.apiSessionId,
-                    method : "GET"
+                    method :"PUT",
+                    jsonObj : reqJson.request.payload
                 }
-               var respJson = reqUtils.makeRequestCall(requestJson, function(err,res){
+
+                var respJson = reqUtils.makeRequestCall(requestJson, function(err,res){
                     if(res != null){
-                        
-                        callback(null,res);      //callback returning the success response JSON back to client
-                       
+                    
+                        var jsonObject = res.response.payload;
+                        var jsonObj = respUtils.constructResponse();
+                        jsonObj.response.payload = jsonObject;
+                        return callback(null,jsonObj) //callback returning the response JSON back to client 
                     }
                     else
                     {
@@ -47,10 +52,10 @@ var peachyPointsEndpoint = function() {
             } 
             else        //If session not found
             {
-                var responseJson = respUtils.constructStatusResponse("peachyPoints", constants.RESP_AUTH_FAILED, "Authentication  Fail",{});
+                var responseJson = respUtils.constructStatusResponse("saveUserProfile", constants.RESP_AUTH_FAILED, "Authentication  Fail",{});
                 return callback(responseJson,null) 
             }
         });           
     }
 }
-module.exports = new peachyPointsEndpoint();
+module.exports = new saveUserProfileEndpoint();

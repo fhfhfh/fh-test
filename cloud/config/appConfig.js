@@ -32,7 +32,16 @@ var appConfig = {
                 "peachyPoints":"/PeachyWebApi/api/peachyPoints/",
                 "quotes":"/PeachyWebApi/api/quotes/",
                 "avatars":"/PeachyWebApi/api/Avatars/",
-                "news":"/PeachyWebApi/api/News/"
+                "news":"/PeachyWebApi/api/News/",
+                "familyHistory":"/PeachyWebApi/api/FamilyHistory/",
+                "socialHistory":"/PeachyWebApi/api/SocialHistory/",
+                "allergies":"/PeachyWebApi/api/Allergies/",
+                "procedures":"/PeachyWebApi/api/Procedures/",
+                "problems":"/PeachyWebApi/api/Problems/",
+                "immunizations":"/PeachyWebApi/api/Immunizations/",
+                "encounters":"/PeachyWebApi/api/Encounters/",
+                "vitalsigns":"/PeachyWebApi/api/vitalsigns/",
+                "fetchResults":"/PeachyWebApi/api/Results/"
             },
             "session": {
                 // Inactivity timeout (Seconds)

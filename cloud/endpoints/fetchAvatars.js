@@ -13,6 +13,7 @@ var jsonUtils = require('../lib/jsonUtils.js');
 var constants = require('../config/constants.js');
 var respUtils = require("../utils/responseUtils.js");
 var log = require('../lib/log/log.js');
+var reqUtils = require("../utils/requestUtils.js");
 
 var fetchAvatarsEndpoint = function() {
     
@@ -30,67 +31,23 @@ var fetchAvatarsEndpoint = function() {
             log.info("[fetchAvatarsEndpoint][fetchAvatars] >> Session Details :"+JSON.stringify(data));
             if(data)
             {
-                //Setting the apiSession to fetch the Avatars details      
-                var apiSessionId = data.apiSessionId;
-        
-                // preparing the header
-                var getHeaders = {
-                    'Content-Type' : 'application/json',
-                    'sessionId' : apiSessionId
-                };
-                var env = appConfig.current;
-  
-                // perparing the GET options
-                var optionsGet = {
-                    host : appConfig.environments[env].urls.baseUrl,
-                    port : appConfig.environments[env].urls.port,
-                    path : appConfig.environments[env].urls.avatars,
-                    method : 'GET',
-                    headers : getHeaders
-                };
+                var requestJson = {
+                    EndPointName : "fetchAvatars",
+                    path : "avatars",
+                    apiSessionId : data.apiSessionId,
+                    method : "GET"
+                }
+                var respJson = reqUtils.makeRequestCall(requestJson, function(err,res){
+                    if(res != null){
                         
-                // doing the HTTP GET call
-                var reqGet = http.request(optionsGet, function(res) {
-                    if (res.statusCode == 200)
-                    {                    
-                        var data="";
-                        res.on('data', function(d) {
-                            //fetching the complete response that comes in chunks in 'data'
-                            data+=d; 
+                        initQueue(res,function finalCallback(res){
+                            callback(null,res);      //callback returning the success response JSON back to client
                         });
-                        res.on('end',function(){
-                            if(data)
-                            {
-                                var jsonObject;
-//                                var avatars;
-                                
-                                //converting the response data into JSON object
-                                jsonObject= JSON.parse(data.toString());
-                                var jsonObj = respUtils.constructStatusResponse("fetchAvatars", constants.RESP_SUCCESS, "fetchAvatars Success",jsonObject);
-                                initQueue(jsonObj,function finalCallback(res){
-                                    callback(null,res);      //callback returning the success response JSON back to client
-                                });
-                               
-                            }
-                            else        //if complete data not found
-                            {
-                                var fail = respUtils.constructStatusResponse("fetchAvatars", constants.RESP_SERVER_ERROR, "Internal server error",{});
-                                return  callback(fail,null) 
-                            }
-                        })
                     }
-                    else               //if GET call is not successful  
+                    else
                     {
-                        var fail = respUtils.constructStatusResponse("fetchAvatars", constants.RESP_SERVER_ERROR, "Internal server error",{});
-                        return  callback(fail,null) 
+                        return  callback(err,null);
                     }
-                });
- 
-                reqGet.end();
-                reqGet.on('error', function(e) {
-                    log.error("[fetchAvatarsEndpoint][fetchAvatars][regGet] >> " + e);
-                    var fail = respUtils.constructStatusResponse("fetchAvatars", constants.RESP_SERVER_ERROR, e,{});
-                    return  callback(fail,null)
                 });
             } 
             else        //If session not found
@@ -106,20 +63,20 @@ var fetchAvatarsEndpoint = function() {
         var finalJson = [];
         var imgUrl;
         var q = async.queue(function (task, queueCallBack) {
-            var abc = task.imageUrl;
+            var url = task.imageUrl;
                                     
             //Requesting image from the URL
             request({
-                url: abc,
+                url: url,
                 encoding: null
             }, function (err, res, body){
                 
                 if (!err && res && res.statusCode == 200) {  
-                    log.debug("[fetchAvatarsEndpoint]"+"[initQueue]>> " + res.statusCode)
+                    log.debug("[fetchAvatarsEndpoint]"+"[initQueue] Status code>> " + res.statusCode)
                     var image = body.toString('base64');    //Encoding image into base64 
                     task["image64"] = image;
                     finalJson.push(task);
-//                  log.debug("[fetchAvatarsEndpoint]"+"[initQueue]>> , " + );
+                    //                  log.debug("[fetchAvatarsEndpoint]"+"[initQueue]>> , " + );
                     queueCallBack();
                 } 
                 else    //If image request fails
@@ -134,7 +91,7 @@ var fetchAvatarsEndpoint = function() {
                                 
         q.drain = function() {         // Draining Queue 
             jsonObj.response.payload.avatars = finalJson;
-             log.debug("[fetchAvatarsEndpoint]"+"[initQueue]>> final JSON retun")
+            log.debug("[fetchAvatarsEndpoint]"+"[initQueue]>> final JSON retun")
             return finalCallback(jsonObj);   //callback returning the final JSON including base64 encoded images 
         }
                                 

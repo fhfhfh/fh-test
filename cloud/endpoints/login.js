@@ -5,7 +5,7 @@ var appConfig = require('../config/appConfig.js')
 var constants = require('../config/constants.js');
 var respUtils = require("../utils/responseUtils.js");
 var log = require('../lib/log/log.js');
-
+var reqUtils = require("../utils/requestUtils.js");
 
 
 /**
@@ -39,31 +39,19 @@ var loginEndpoint = function() {
                 password: password
             }
         }
-         
-         
-        // preparing the header
-        var postHeaders = {
-            'Content-Type' : 'application/json'
-        };
-     
-        var env = appConfig.current;
-                       
-        // preparing the post options
-        var optionsPost = {
-            host : appConfig.environments[env].urls.baseUrl,
-            port : appConfig.environments[env].urls.port,
-            path : appConfig.environments[env].urls.auth,
-            method : 'POST',
-            headers : postHeaders
-        };
-
-        var apiSessionId = "";
         
-        // doing the POST call
-        var reqPost = http.request(optionsPost, function(res) {
-            if (res.statusCode == 200)
-            {
-                apiSessionId = res.headers.sessionid;
+          var requestJson = {
+                    EndPointName : "login",
+                    path : "auth",
+                    apiSessionId : "",
+                    method :"POST",
+                    jsonObj : jsonObj
+                }
+         var apiSessionId = "";
+          var respJson = reqUtils.makeRequestCall(requestJson, function(err,res){
+             
+             if(res != null){
+                 apiSessionId = res.headers.sessionid;
                 if(!apiSessionId)
                 {
                     var fail = respUtils.constructStatusResponse("Login", constants.RESP_SERVER_ERROR, "Internal Server Error",{});
@@ -112,24 +100,11 @@ var loginEndpoint = function() {
                         });
                     });
                 }
-            }
-            else
-            {
-                var fail = respUtils.constructStatusResponse("Login", constants.RESP_AUTH_FAILED, "Authentication Fail",{});
-                return callback(fail, null);
-            }
-        });
- 
-        
-        reqPost.write(JSON.stringify(jsonObj));
-        reqPost.end();
-        reqPost.on('error', function(e) {
-            console.error(e);
-            log.error("[loginEndpoint][login][regPost] >> " + e);
-            var fail = respUtils.constructStatusResponse("Login", constants.RESP_AUTH_FAILED, "Authentication Fail",{});
-            callback(fail,null)
-            
-        });
+                 
+             }
+             
+             
+          });
 
     }
 }
@@ -191,65 +166,24 @@ function userProfile(reqJson, callback){
         log.info("[userProfiletEndpoint][userProfile] >> Session Details :"+JSON.stringify(data)); 
         if(data)
         {
-            //Setting the apiSession to fetch the profile details      
-            var apiSessionId = data.apiSessionId;
-        
-            // preparing the header
-            var getHeaders = {
-                'Content-Type' : 'application/json',
-                'sessionId' : apiSessionId
-            };
-            var env = appConfig.current;
-  
-            // perparing the GET options
-            var optionsGet = {
-                host : appConfig.environments[env].urls.baseUrl,
-                port : appConfig.environments[env].urls.port,
-                path : appConfig.environments[env].urls.userProfile,
-                method : 'GET',
-                headers : getHeaders
-            };
-
-
-            // doing the HTTP GET call
-            var reqGet = http.request(optionsGet, function(res) {
-                if (res.statusCode == 200)
-                {                    
-                    var data="";
-                    res.on('data', function(d) {
-                        //fetching the complete response that comes in chunks in 'data'
-                        data+=d; 
-                    });
-                    res.on('end',function(){
-                        if(data)
-                        {
-                            var jsonObject;
-                            //converting the response data into JSON object
-                            jsonObject= JSON.parse(data.toString());
-                            var jsonObj = respUtils.constructResponse();
-                            jsonObj.response.payload = jsonObject;
-                            return callback(null,jsonObj) //callback returning the response JSON back to client 
-                        }
-                        else        //if complete data not found
-                        {
-                            var fail = respUtils.constructStatusResponse("userProfile", constants.RESP_SERVER_ERROR, "Internal server error",{});
-                            return  callback(fail,null) 
-                        }
-                    })
-                }
-                else               //if GET call is not successful  
+             var requestJson = {
+                    EndPointName : "userProfile",
+                    path : "userProfile",
+                    apiSessionId : data.apiSessionId,
+                     method :"GET"
+                }   
+            var respJson = reqUtils.makeRequestCall(requestJson, function(err,res){
+                if(res != null){
+                    
+                    var jsonObject = res.response.payload;
+                    var jsonObj = respUtils.constructResponse();
+                    jsonObj.response.payload = jsonObject;
+                    return callback(null,jsonObj) //callback returning the response JSON back to client 
+               }
+                else
                 {
-                    var fail = respUtils.constructStatusResponse("userProfile", constants.RESP_SERVER_ERROR, "Internal server error",{});
-                    return  callback(fail,null) 
+                    return  callback(err,null);
                 }
-            });
- 
-            reqGet.end();
-            reqGet.on('error', function(e) {
-                console.error(e);
-                log.error("[userProfileEndpoint][userProfile][regGet] >> " + e);
-                var fail = respUtils.constructStatusResponse("fetchNews", constants.RESP_SERVER_ERROR, e,{});
-                return  callback(fail,null)
             });
         } 
         else        //If session not found

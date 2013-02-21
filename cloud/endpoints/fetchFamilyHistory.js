@@ -31,73 +31,20 @@ var fetchFamilyHistoryEndpoint = function() {
             log.info("[fetchFamilyHistoryEndpoint][fetchFamilyHistory] >> Session Details :"+JSON.stringify(data));
             if(data)
             {
-                //Setting the apiSession to fetch the familyHistory details      
-                var apiSessionId = data.apiSessionId;
-        
-                // preparing the header
-                var getHeaders = {
-                    'Content-Type' : 'application/json',
-                    'sessionId' : apiSessionId
-                };
-                var env = appConfig.current;
-  
-                // perparing the GET options
-                var optionsGet = {
-                    host : appConfig.environments[env].urls.baseUrl,
-                    port : appConfig.environments[env].urls.port,
-                    path : appConfig.environments[env].urls.familyHistory,
-                    method : 'GET',
-                    headers : getHeaders
-                };
-
-                var reqGet = http.request(optionsGet, function(res) {
-                    if (res.statusCode == 403)
-                    {
-                         var fail = respUtils.constructStatusResponse("fetchFamilyHistory", constants.RESP_AUTH_FAILED, "Authentication  Fail",{});
-                        return  callback(fail,null) 
+               var requestJson = {
+                    EndPointName : "fetchFamilyHistory",
+                    path : "familyHistory",
+                    apiSessionId : data.apiSessionId,   //API sessionId to fetch details from API
+                    method : "GET"
+                }
+                // Calling respJson function to make request and getting final response
+                var respJson = reqUtils.makeRequestCall(requestJson, function(err,res){
+                    if(res != null){
+                        return callback(null,res);      //callback returning the success response JSON back to client
                     }
-                    else if (res.statusCode == 500)
-                    {
-                        var fail = respUtils.constructStatusResponse("fetchFamilyHistory", constants.RESP_SERVER_ERROR, "Internal server error",{});
-                        return  callback(fail,null) 
+                    else{
+                        return  callback(err,null);
                     }
-                   
-                   else if (res.statusCode == 200)
-                    {                    
-                        console.log("statusCode: "+ res.statusCode);
-                        var data="";
-                        res.on('data', function(d) {
-                            //fetching the complete response that comes in chunks in 'data'
-                            data+=d; 
-                        });
-                        res.on('end',function(){
-                            if(data)
-                            {
-                                var jsonObject;
-                                //converting the response data into JSON object
-                                jsonObject= JSON.parse(data.toString());
-                                var jsonObj = respUtils.constructStatusResponse("fetchFamilyHistory", constants.RESP_SUCCESS, "fetchFamilyHistory Success",jsonObject);
-                                return callback(null,jsonObj) //callback returning the response JSON back to client 
-                            }
-                            else        //if complete data not found
-                            {
-                                var fail = respUtils.constructStatusResponse("fetchFamilyHistory", constants.RESP_SERVER_ERROR, "Internal server error",{});
-                                // Error ...!!!
-                                return  callback(fail,null) 
-                            }
-                        })
-                    }
-                    else               //if GET call is not successful  
-                    {
-                        var fail = respUtils.constructStatusResponse("fetchFamilyHistory", constants.RESP_SERVER_ERROR, "Internal server error",{});
-                        return  callback(fail,null) 
-                    }
-                });
- 
-                reqGet.end();
-                reqGet.on('error', function(e) {
-                    log.error("[fetchFamilyHistoryEndpoint][fetchFamilyHistory][regGet] >> " + e);
-                    return  callback(fail,null)
                 });
             } 
             else        //If session not found
