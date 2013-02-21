@@ -35,6 +35,7 @@ var fetchImmunizationsEndpoint = require("./endpoints/fetchImmunization.js")
 var fetchEncountersEndpoint = require("./endpoints/fetchEncounters.js")
 var fetchVitalsignsEndpoint = require("./endpoints/fetchVitalsigns.js")
 var fetchResultsEndpoint = require("./endpoints/fetchResults.js")
+var healthHubEndpoint = require("./endpoints/healthHub.js")
 
 // mock service if not on $fh
 if (!process.env.FH_DOMAIN){
@@ -76,7 +77,7 @@ exports.fetchImmunizationsAction = fetchImmunizationsAction;
 exports.fetchEncountersAction = fetchEncountersAction;
 exports.fetchVitalsignsAction = fetchVitalsignsAction;
 exports.fetchResultsAction = fetchResultsAction;
-
+exports.healthHubAction = healthHubAction;
 
 
 //--------------------------------------login----------------------------------------
@@ -345,6 +346,14 @@ function fetchVitalsignsAction(params, callback) {
 
 function fetchResultsAction(params, callback) {
   fetchResultsEndpoint.fetchResults(params,function cb(err, respData) {
+    callback(err,respData);
+  });
+}
+
+//---------------------------------------healthHub--------------------------------------------------------------------
+
+function healthHubAction(params, callback) {
+  healthHubEndpoint.healthHub(params,function cb(err, respData) {
     callback(err,respData);
   });
 }
