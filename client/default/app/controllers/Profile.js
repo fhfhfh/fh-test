@@ -66,7 +66,7 @@ define(['jquery',
 			avatarId 	: $('#profile-avatar').attr('imgId'),
 			// last check before saving profile
 			username	: $('#username').val(),
-			password	: $('#password').val(),
+			password	: $('#password').val()
 		};
 
 		// call form validation function
@@ -136,15 +136,15 @@ define(['jquery',
 				}
 
 				if(d[prop] == undefined || d[prop].length <1){
-					if(prop === 'password'){
-						return 'Please enter your password to make profile changes';
-					}
-					else if(prop === 'middleName' || prop === 'mobile' || prop === 'address2'){
+//					if(prop === 'password'){
+//						return 'Please enter your password to make profile changes';
+//					}
+					 if(prop === 'middleName' || prop === 'mobile' || prop === 'address2'){
 						console.log(prop, ': not required');	
 					}
 					else {
-						console.log(prop, ': fail');
-						return 'Please Fill in all fields (' +prop+')';	
+//						console.log(prop, ': fail');
+//						return 'Please Fill in all fields (' +prop+')';	
 					}
 				}
 			}

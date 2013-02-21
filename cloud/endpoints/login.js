@@ -182,7 +182,7 @@ function userProfile(reqJson, callback){
                }
                 else
                 {
-                    return  callback(fail,null);
+                    return  callback(err,null);
                 }
             });
         } 
