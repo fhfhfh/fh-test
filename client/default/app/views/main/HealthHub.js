@@ -71,6 +71,12 @@ define([
                 this.$('li').removeClass('selected');
                 this.$('#show-data').addClass('selected');
                 this.setActiveView('data');
+                for(var i=0; i<resp.payload.vitalSigns.length; i++)
+                         {  
+                             $('div #data #measurements #body').append('<div id="row"><span class="name">Height</span><span class="value">'+resp.payload.vitalSigns[i].bodyHeight+'</span></div>');
+                            $('div #data #measurements #body').append('<div id="row"><span class="name">Weight</span><span class="value">'+resp.payload.vitalSigns[i].bodyWeight+'</span></div>');
+                            $('div #data #measurements #body').append('<div id="row"><span class="name">DiastolicBp</span><span class="value">'+resp.payload.vitalSigns[i].diastolicBp+'</span></div>');
+                         }
                 for(var i=0; i<resp.payload.results.length; i++)
                     $('div #data #testResults #body').append('<div id="row"><span class="name">'+resp.payload.results[i].testName+'</span><span class="value">'+resp.payload.results[i].result+' '+resp.payload.results[i].units+'</span></div>');
                 for(var i=0; i<resp.payload.immunizations.length; i++)
@@ -99,6 +105,12 @@ define([
                 controller.loadHealthHub(function (err, res){
                     if(res || resp == ""){
                         resp = res;
+                        for(var i=0; i<resp.payload.vitalSigns.length; i++)
+                         {  
+                             $('div #data #measurements #body').append('<div id="row"><span class="name">Height</span><span class="value">'+resp.payload.vitalSigns[i].bodyHeight+'</span></div>');
+                            $('div #data #measurements #body').append('<div id="row"><span class="name">Weight</span><span class="value">'+resp.payload.vitalSigns[i].bodyWeight+'</span></div>');
+                            $('div #data #measurements #body').append('<div id="row"><span class="name">DiastolicBp</span><span class="value">'+resp.payload.vitalSigns[i].diastolicBp+'</span></div>');
+                         }
                         for(var i=0; i<resp.payload.results.length; i++)
                             $('div #data #testResults #body').append('<div id="row"><span class="name">'+resp.payload.results[i].testName+'</span><span class="value">'+resp.payload.results[i].result+' '+resp.payload.results[i].units+'</span></div>');
                         for(var i=0; i<resp.payload.immunizations.length; i++)
@@ -108,6 +120,12 @@ define([
                 })
             else
             {
+                for(var i=0; i<resp.payload.vitalSigns.length; i++)
+                         {  
+                             $('div #data #measurements #body').append('<div id="row"><span class="name">Height</span><span class="value">'+resp.payload.vitalSigns[i].bodyHeight+'</span></div>');
+                            $('div #data #measurements #body').append('<div id="row"><span class="name">Weight</span><span class="value">'+resp.payload.vitalSigns[i].bodyWeight+'</span></div>');
+                            $('div #data #measurements #body').append('<div id="row"><span class="name">DiastolicBp</span><span class="value">'+resp.payload.vitalSigns[i].diastolicBp+'</span></div>');
+                         }
                 for(var i=0; i<resp.payload.results.length; i++)
                     $('div #data #testResults #body').append('<div id="row"><span class="name">'+resp.payload.results[i].testName+'</span><span class="value">'+resp.payload.results[i].result+' '+resp.payload.results[i].units+'</span></div>');
                 for(var i=0; i<resp.payload.immunizations.length; i++)
