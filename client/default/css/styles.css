@@ -416,6 +416,18 @@ input {
   background-image: -webkit-linear-gradient(bottom, #1eff00 0%, #1aa807 85%);
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #1eff00), color-stop(0.85, #1aa807));
 }
+.action {
+  background-color: #7fb0db;
+  background-image: linear-gradient(bottom, #1f1f1f 0%, #7fb0db 85%);
+  background-image: -webkit-linear-gradient(bottom, #1f1f1f 0%, #7fb0db 85%);
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #1f1f1f), color-stop(0.85, #7fb0db));
+  border: 1px solid #1f1f1f;
+}
+.action:active {
+  background-image: linear-gradient(bottom, #7fb0db 0%, #1f1f1f 85%);
+  background-image: -webkit-linear-gradient(bottom, #7fb0db 0%, #1f1f1f 85%);
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #7fb0db), color-stop(0.85, #1f1f1f));
+}
 .fc-content {
   min-height: 300px !important;
 }
@@ -426,28 +438,45 @@ ul {
 section h1 {
   color: #2b6891;
   margin: 30px 0 20px 0;
-  font: bold 20px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
+  font: bold 20px "Avenir Next Heavy", Helvetica, Arial, sans-serif;
 }
 #notifications {
   position: absolute;
-  top: 20px;
-  right: 10px;
-  width: 30%;
+  top: 250px;
+  right: 30%;
+  width: 40%;
   z-index: 11;
 }
 #notification {
-  margin: 10px;
+  text-align: center;
+  background-image: linear-gradient(bottom, #464646 0%, #1f1f1f 65%, #2e2e2e 21%, #525252 90%, #6b6b6b 100%);
+  background-image: -webkit-linear-gradient(bottom, #464646 0%, #1f1f1f 65%, #2e2e2e 21%, #525252 90%, #6b6b6b 100%);
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #464646), color-stop(0.65, #1f1f1f), color-stop(0.21, #2e2e2e), color-stop(0.9, #525252), color-stop(1, #6b6b6b));
   border-radius: 10px;
-  border: 3px solid #fff000;
-  color: #fff;
-  font: bold 13px "Avenir Next Bold", Helvetica, Arial, sans-serif;
-  z-index: 100;
-  padding: 20px;
-  background: #000000;
-  background: rgba(0, 0, 0, 0.8);
+  padding: 5px;
+  box-shadow: 2px 2px 5px #000000;
+}
+#notification h2 {
+  font: bold 16px "Avenir Next Heavy", Helvetica, Arial, sans-serif;
+  color: #ffffff;
 }
 #notification p {
+  font: normal 14px "Avenir Next", Helvetica, Arial, sans-serif;
+  padding-top: 25px;
   text-align: center;
+}
+#notification li {
+  width: 100px;
+}
+#modalMask {
+  display: none;
+  position: absolute;
+  background-color: #000000;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 10;
+  opacity: 0.6;
 }
 #login {
   background: url('../img/login/PeachyLogoWhite.png') 15px 15px no-repeat;
@@ -546,7 +575,7 @@ section h1 {
   margin-top: 0;
   margin-bottom: 30px;
   text-align: center;
-  font: bold 18px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
+  font: bold 18px "Avenir Next Heavy", Helvetica, Arial, sans-serif;
 }
 #login-form input {
   width: 100%;
@@ -572,7 +601,7 @@ section h1 {
   background-color: transparent;
   text-shadow: 0 -2px 1px #000000;
   color: #fff;
-  font: bold 14px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
+  font: bold 14px "Avenir Next Heavy", Helvetica, Arial, sans-serif;
 }
 #login-help-button span {
   display: block;
@@ -698,7 +727,7 @@ section h1 {
   background-color: transparent;
   text-shadow: 0 -2px 1px #000000;
   color: #fff;
-  font: bold 14px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
+  font: bold 14px "Avenir Next Heavy", Helvetica, Arial, sans-serif;
 }
 #login #login-help-button span {
   display: block;
@@ -736,8 +765,8 @@ section h1 {
   text-align: center;
   background: url('../img/bg.png') left top repeat;
   color: white;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
   padding-top: 15px;
 }
 #content-tab-list li {
@@ -747,8 +776,8 @@ section h1 {
   padding: 10px 5px;
   color: #2f3137;
   text-shadow: 0 1px 1px #fff;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
   position: relative;
   background-image: linear-gradient(bottom, #cccccc 0%, #ffffff 85%);
   background-image: -webkit-linear-gradient(bottom, #cccccc 0%, #ffffff 85%);
@@ -771,8 +800,8 @@ section h1 {
   padding: 10px 5px;
   color: #2f3137;
   text-shadow: 0 1px 1px #fff;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
   position: relative;
   background-image: linear-gradient(bottom, #cccccc 0%, #ffffff 85%);
   background-image: -webkit-linear-gradient(bottom, #cccccc 0%, #ffffff 85%);
@@ -789,7 +818,7 @@ section h1 {
   background-image: none;
 }
 .badge {
-  font: bold 13px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
+  font: bold 13px "Avenir Next Heavy", Helvetica, Arial, sans-serif;
   background-color: orange;
   border-top-left-radius: 5px;
   border-bottom-right-radius: 5px;
@@ -824,8 +853,7 @@ section h1 {
   overflow: hidden;
   background-color: #fff;
   box-shadow: 0 7px 0 -4px #cccccc, 0 12px 0 -7px #8b8b8b;
-  padding: 15px;
-  border-radius: 10px;
+  border-radius: 8px;
   margin-bottom: 30px;
 }
 #main-iscroll {
@@ -836,7 +864,7 @@ section h1 {
 }
 @media only screen and (orientation: landscape) {
   #main-content {
-    width: 100%;
+    width: 98%;
     float: left;
   }
   #main-content > div,
@@ -914,7 +942,7 @@ li {
   font: normal 11px "Avenir Next Medium", Helvetica, Arial, sans-serif;
 }
 #general-body li label {
-  font: bold 11px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
+  font: bold 11px "Avenir Next Heavy", Helvetica, Arial, sans-serif;
   color: #a8a8a8;
   padding-right: 10px;
 }
@@ -928,7 +956,7 @@ li {
   outline: none;
   border: none;
   width: 65%;
-  font: bold 13px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
+  font: bold 13px "Avenir Next Heavy", Helvetica, Arial, sans-serif;
 }
 #general-body li img {
   width: 90%;
@@ -978,7 +1006,7 @@ li {
   color: #000;
 }
 #general-body .age {
-  font: bold 13px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
+  font: bold 13px "Avenir Next Heavy", Helvetica, Arial, sans-serif;
   color: #cdcdcd;
 }
 #general-body form {
@@ -1037,6 +1065,7 @@ li {
   border: 1px solid #000;
   padding: 20px;
   color: #000;
+  z-index: 11;
 }
 #addressBox h4 {
   color: #2B60DE;
@@ -1091,6 +1120,7 @@ li {
   -webkit-border-radius: 20px;
   box-shadow: 10px 10px 5px #888888;
   border: 1px solid #888888;
+  z-index: 11;
 }
 #pass_mess {
   display: none;
@@ -1224,6 +1254,7 @@ li {
   width: 100%;
 }
 #VideoPlayback #videoContainer {
+  width: 100%;
   display: inline-block;
   margin-top: 60px;
   height: 300px;
@@ -1269,7 +1300,7 @@ li {
   color: #000;
 }
 #VideoPlayback #videoDescription h2 {
-  font: bold 16px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
+  font: bold 16px "Avenir Next Heavy", Helvetica, Arial, sans-serif;
   display: inline;
 }
 #VideoPlayback #videoDescription p {
@@ -1300,7 +1331,7 @@ li {
 #news-and-information h1 {
   color: #2b6891;
   margin: 30px 0 20px 0;
-  font: bold 20px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
+  font: bold 20px "Avenir Next Heavy", Helvetica, Arial, sans-serif;
 }
 #news-and-information #headlines {
   list-style-type: none;
@@ -1341,7 +1372,7 @@ li {
 #news-and-information #headlines li .video-preview .title .duration {
   margin-left: 5px;
   color: rgba(255, 255, 255, 0.5);
-  font: bold 11px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
+  font: bold 11px "Avenir Next Heavy", Helvetica, Arial, sans-serif;
 }
 #news-and-information #headlines li .description {
   margin-bottom: 40px;
@@ -1350,7 +1381,7 @@ li {
 }
 #news-and-information #headlines li .description h2 {
   color: #1a1a1a;
-  font: bold 13px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
+  font: bold 13px "Avenir Next Heavy", Helvetica, Arial, sans-serif;
 }
 #news-and-information #headlines li .description p {
   color: #343434;
@@ -1379,7 +1410,7 @@ li {
 #goals h1 {
   color: #2b6891;
   margin: 30px 0 20px 0;
-  font: bold 20px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
+  font: bold 20px "Avenir Next Heavy", Helvetica, Arial, sans-serif;
 }
 #goals #grid {
   text-align: center;
@@ -1434,7 +1465,7 @@ li {
 #alerts h1 {
   color: #2b6891;
   margin: 30px 0 20px 0;
-  font: bold 20px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
+  font: bold 20px "Avenir Next Heavy", Helvetica, Arial, sans-serif;
 }
 #alerts #add-alert {
   -webkit-border-radius: 8px;
@@ -1450,11 +1481,11 @@ li {
   width: 100%;
 }
 #alerts #buttons li {
-  font: bold 14px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
+  font: bold 14px "Avenir Next Heavy", Helvetica, Arial, sans-serif;
   width: 22%;
   margin: 5px;
   background-color: #e6e6e6;
-  border-radius: 10px;
+  border-radius: 12px;
   text-align: center;
   color: #8c8c8c;
   padding: 4px 0 4px 0;
@@ -1519,7 +1550,7 @@ li {
 }
 #main-nav {
   list-style-type: none;
-  width: 110px;
+  width: 100px;
   overflow: visible;
   float: left;
   margin-top: 15px;
@@ -1529,14 +1560,14 @@ li {
   width: 120px;
   text-align: center;
   color: rgba(255, 255, 255, 0.8);
-  padding: 15px 15px 15px 5px;
+  padding: 30px 20px 15px 0px;
   display: block;
   margin: 0 auto;
-  font: bold 13px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
+  font: bold 13px "Avenir Next Heavy", Helvetica, Arial, sans-serif;
 }
 #main-nav li.selected {
-  border-top-left-radius: 5px;
-  border-bottom-left-radius: 5px;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
   background-color: white;
   color: #2f3137;
 }
@@ -1682,13 +1713,15 @@ li {
   position: relative;
   background-color: #ebebeb;
   border-radius: 8px;
-  margin: 0;
   padding: 30px;
   overflow: hidden;
+  margin: 15px;
 }
 @media only screen and (orientation: landscape) {
   .ads {
     float: left;
+    margin: 15px;
+    margin-right: 0px;
     margin-left: -260px;
     width: 260px;
     padding-bottom: 260px;
@@ -1701,7 +1734,7 @@ li {
   color: #2b6891;
   margin-top: 0;
   margin-bottom: 5px;
-  font: bold 15px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
+  font: bold 15px "Avenir Next Heavy", Helvetica, Arial, sans-serif;
 }
 .ad-notice {
   color: #808080;
@@ -1760,7 +1793,7 @@ li {
 }
 section#month h2 {
   color: #2b6891;
-  font: bold 15px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
+  font: bold 15px "Avenir Next Heavy", Helvetica, Arial, sans-serif;
 }
 #popDate {
   position: absolute;
@@ -1849,7 +1882,7 @@ section#insights img {
   vertical-align: middle;
 }
 .dataGrid #title h2 {
-  font: bold 14px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
+  font: bold 14px "Avenir Next Heavy", Helvetica, Arial, sans-serif;
   color: #000000;
 }
 .dataGrid #body #row {
@@ -1874,7 +1907,7 @@ section#insights img {
 #filterView {
   position: absolute;
   top: 160px;
-  left: 420px;
+  left: 435px;
   width: 200px;
   text-align: center;
   background-image: linear-gradient(bottom, #000000 9%, #2b6891 99%);
@@ -1885,11 +1918,11 @@ section#insights img {
   box-shadow: 2px 2px 5px #ababab;
 }
 #filterView h2 {
-  font: bold 14px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
+  font: bold 14px "Avenir Next Heavy", Helvetica, Arial, sans-serif;
   color: #ffffff;
 }
 #filterView #body {
-  font: bold 12px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
+  font: bold 12px "Avenir Next Heavy", Helvetica, Arial, sans-serif;
   text-align: left;
   min-height: 100px;
   background-color: #ffffff;

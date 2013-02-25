@@ -19,7 +19,7 @@ define([
     id: 'notification',
 
     events: {
-      'click': 'close'
+      'click li': 'close'
     },
 
     initialize: function() {
@@ -33,7 +33,7 @@ define([
     },
 
     render: function() {
-      this.$el.html('<p>' + this.options.msg + '</p>');
+      this.$el.html('<h2>' +this.options.title+'</h2><p>' + this.options.msg + '</p><li class="btn action">OK</li>');
       return this;
     },
 
@@ -41,6 +41,7 @@ define([
       var self = this;
       $(this.$el).fadeOut(300, function(){
         self.remove();
+        $('#modalMask').hide();
       });
       
       Backbone.trigger('notify:close', this);
@@ -70,9 +71,11 @@ define([
 
     this.timeout = (options && options.timeout) || 4000;
 
-    Backbone.on('notify', function(msg) {
+    Backbone.on('notify', function(msg, title) {
+      var title = title || 'Alert';
       var newNotification = new self.View({
-        msg: msg
+        msg: msg,
+        title: title
       });
       self.queue.push(newNotification);
       self.showView(newNotification);
@@ -92,8 +95,9 @@ define([
     if (!this.queue[0].isVisible) {
       this.$el.append(notification.render().el);
       setTimeout(function() {
-        notification.close();
+        // notification.close();
       }, this.timeout);
+      $('#modalMask').show();
     }
   };
 

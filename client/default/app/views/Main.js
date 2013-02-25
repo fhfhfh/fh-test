@@ -61,7 +61,7 @@ define(['jquery',
                     bounce: false,
                     vScrollbar: false
                 });
-
+                
                 Backbone.View.prototype.refreshScroll = function() {
                     setTimeout(function() {
                         if (self.iscroll) {
