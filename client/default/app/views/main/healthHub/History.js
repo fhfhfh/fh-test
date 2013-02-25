@@ -24,16 +24,18 @@ define(['jquery',
 
 		initialize : function(){
 			_.bindAll(this);
+                        
 		},
 
 		render: function(){
 			var self = this;
 			this.$el.html(this.template());
-			return this;
+                        return this;
+                        setValue();
 		},
 
 		showFilter: function(){
-			var self = this;
+                        var self = this;
 			var body = "<input type='checkbox' checked name='family' value='true' id='family'/><label data-id='familyHistory' class='checked' for='family'>Family History <img src='img/Search.png'/></label><input type='checkbox' checked name='social' value='true' id='social'/><label data-id='socialHistory' class='checked' for='social'>Social History<img src='img/Search.png'/></label>";
 			
 			// close existing popup
@@ -55,6 +57,10 @@ define(['jquery',
 			$('#' +div).toggle();
 			this.container.refreshScroll();
 		}
+                
 
 	});
+        
+           
+       
 });

@@ -1,7 +1,7 @@
 /*--------------------
-	app/models/Avatars
+	app/models/HealthHub
 
-	Avatars model
+	HealthHub model
 --------------------*/
 define(['jquery',
     'underscore',
@@ -14,20 +14,20 @@ define(['jquery',
         var avatars = {
             //Backbone specific attributes
 		
-            fetchAvatars  : _fetchAvatars
+            fetchHealthHub  : _fetchHealthHub
         }
 	
         //implementation-------------------------------
 
 	
-        function _fetchAvatars(callback){
-            // fetch Avatars profile from cloud
-            Acts.call('fetchAvatarsAction', {}, 
+        function _fetchHealthHub(callback){
+            // fetch HealthHub  from cloud
+            Acts.call('healthHubAction', {}, 
                 function(res){
-                    return callback(res);
+                    return callback(null,res);
                     
                 }, function(err, msg){
-                    console.log(err);
+                    console.log(err,null);
                 }
                 );
         };
