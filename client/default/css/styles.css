@@ -1778,8 +1778,8 @@ section#month h2 {
 }
 #popDate img {
   float: right;
-  height: 20px;
-  width: 20px;
+  height: 30px;
+  width: 30px;
 }
 #popDate li {
   list-style: disc;
