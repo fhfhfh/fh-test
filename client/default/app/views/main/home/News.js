@@ -93,7 +93,11 @@ define(['jquery',
 	    	var str  = '';
 
 	    	if($('.clearfix').length == this.collection.length){
-				Backbone.trigger('notify', 'No more news available');
+	    		var oldCollection = self.collection;
+	    		this.collection.fetch();
+	    		if(oldCollection == self.collection){
+	    			Backbone.trigger('notify', 'No more news available', 'Peachy');	
+	    		}
 				return;
 			} else if(('.clearfix').length == this.collection.length -1){
 				str += self.itemTemplate(self.collection.at(self.visible).toJSON());

@@ -25,7 +25,8 @@ define(['jquery',
             events : {
                 'change #birthday'     : 'ageCalc',
                 'click #address'       : 'showAddr',
-                'click #done'          : 'closeAddr',
+                'click #AddrSave'      : 'closeAddr',
+                'click #AddrCancel'    : 'closeAddr',
                 'click #profile-avatar': "popup",
                 'click #closeAvatar'   : 'closeAvatar',
                 'change #password'     : 'password',
@@ -199,7 +200,8 @@ define(['jquery',
             }
         };
 
-        function _showAddr(){
+        function _showAddr(e){
+            e.stopPropagation();
             var self 	= this;
             var target	= this.$('#address').find('div')[0];
             var text	= target.innerText;

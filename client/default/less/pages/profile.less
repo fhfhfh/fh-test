@@ -25,14 +25,18 @@ li {
 
 	li {
 		width : 24%;
-		.avenir-bold(15px);
+		.avenir(15px);
 		text-align: center;
 		padding: 10px;
 
 		&.selected {
+			.avenir-bold(15px);
 			border-radius: 5px;
-			border: 1px solid #FFFF00;
-			box-shadow: 0 0 10px #FFFF00;
+			border: 2px solid #FFFF00;
+		}
+
+		img {
+			margin-right: 10px;
 		}
 	}
 
@@ -49,6 +53,7 @@ li {
 	color: #000;
 	padding: 6%;
     margin-bottom: 30px;
+    .avenir(11px);
 
 
 	#loginInfo{
@@ -67,11 +72,11 @@ li {
 		background-color: #fff;
 		border-radius: 5px;
 		border: 1px solid #c0c0c0;
-		.avenir-medium(11px);
+		.avenir(11px);
 
 
 		label {
-			.avenir-demi(11px);
+			.avenir(11px);
 			color: #a8a8a8;
 			padding-right: 10px;
 		}
@@ -87,7 +92,7 @@ li {
 			outline: none;
 			border: none;
 			width: 65%;
-			.avenir-demi(13px);
+			.avenir(13px);
 		}
 
 		img {
@@ -188,30 +193,66 @@ li {
 
 #addressBox {
 	display: none;
-	position: absolute;
-	top: 250px;
-	left: 60px;
-	background-color: #fff;
-	border-radius: 10px;
-	border: 1px solid #000;
-	padding: 20px;
-	color: #000;
-	z-index: 11;
+	z-index: 10;
+	border: none;
+	text-align: center;
+	background-image: linear-gradient(bottom, rgb(70,70,70) 0%, rgb(31,31,31) 65%, rgb(46,46,46) 21%, rgb(82,82,82) 90%, rgb(107,107,107) 100%);
+    background-image: -webkit-linear-gradient(bottom, rgb(70,70,70) 0%, rgb(31,31,31) 65%, rgb(46,46,46) 21%, rgb(82,82,82) 90%, rgb(107,107,107) 100%);
+    background-image: -webkit-gradient(
+        linear,
+        left bottom,
+        left top,
+        color-stop(0, rgb(70,70,70)),
+        color-stop(0.65, rgb(31,31,31)),
+        color-stop(0.21, rgb(46,46,46)),
+        color-stop(0.9, rgb(82,82,82)),
+        color-stop(1, rgb(107,107,107))
+    );
 
-	h4 {
-		color: #2B60DE;
-		display: inline;
+	border-radius: 10px;
+	padding: 5px;
+	box-shadow: 2px 2px 5px #000000;
+
+	h2 {
+		.avenir-demi(16px);
+		color: #ffffff;
 	}
 
 	li {
-		position: absolute;
-		top: 7px;
-		right: 10px;
+		display: block;
+		background-color: #ffffff;
+		border-radius: 5px;
 	}
 
-	label {
-		display: inline-block;
-		width: 60px;
+	li {
+		margin: 5px;
+		padding: 8px;
+		padding-right: 0px;
+		background-color: #fff;
+		border-radius: 5px;
+		border: 1px solid #c0c0c0;
+		.avenir(11px);
+
+
+		label {
+			.avenir(11px);
+			color: #a8a8a8;
+			padding-right: 10px;
+		}
+
+		&.required {
+			label {				
+				color: #2B60DE;
+			}
+		}
+
+		input, select, div#address {
+			background-color: #fff;
+			outline: none;
+			border: none;
+			width: 65%;
+			.avenir(13px);
+		}
 	}
 
 	input, select {
@@ -219,6 +260,7 @@ li {
 		border-radius: 5px;
 		margin-top: 5px;
 		outline: none;
+		border: none;
 		background-color: #ffffff;
 		width: 200px;
 	}
