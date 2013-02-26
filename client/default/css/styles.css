@@ -440,6 +440,56 @@ section h1 {
   margin: 30px 0 20px 0;
   font: bold 20px "Avenir Next Heavy", Helvetica, Arial, sans-serif;
 }
+.popup {
+  display: none;
+  position: absolute;
+  top: 300px;
+  left: 30%;
+  width: 40%;
+  z-index: 10;
+  border: none;
+  text-align: center;
+  background-image: linear-gradient(bottom, #464646 0%, #1f1f1f 65%, #2e2e2e 21%, #525252 90%, #6b6b6b 100%);
+  background-image: -webkit-linear-gradient(bottom, #464646 0%, #1f1f1f 65%, #2e2e2e 21%, #525252 90%, #6b6b6b 100%);
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #464646), color-stop(0.65, #1f1f1f), color-stop(0.21, #2e2e2e), color-stop(0.9, #525252), color-stop(1, #6b6b6b));
+  border-radius: 10px;
+  padding: 5px;
+  box-shadow: 2px 2px 5px #000000;
+  font: normal 13px "Avenir Next", Helvetica, Arial, sans-serif;
+}
+.popup h2 {
+  text-shadow: 2px 2px #000000;
+  font: bold 16px "Avenir Next Heavy", Helvetica, Arial, sans-serif;
+  color: #ffffff;
+  padding-bottom: 20px;
+}
+.popup li {
+  display: block;
+  background-color: #ffffff;
+  margin: 10px 5px;
+  padding: 8px;
+  padding-right: 0px;
+  background-color: #fff;
+  border-radius: 5px;
+  border: 1px solid #c0c0c0;
+}
+.popup li label {
+  color: #000000;
+  padding-right: 10px;
+}
+.popup li input,
+.popup li select,
+.popup li div#address {
+  background-color: #fff;
+  outline: none;
+  border: none;
+  width: 65%;
+}
+.popup li.btn {
+  display: inline-block;
+  width: 100px;
+  border: 1px solid #000000;
+}
 #notifications {
   position: absolute;
   top: 250px;
@@ -912,7 +962,7 @@ li {
 #main-tabs li.selected {
   font: bold 15px "Avenir Next Bold", Helvetica, Arial, sans-serif;
   border-radius: 5px;
-  border: 2px solid #FFFF00;
+  border: 2px solid #FFF1a0;
 }
 #main-tabs li img {
   margin-right: 10px;
@@ -1059,130 +1109,32 @@ li {
   background-repeat: no-repeat;
   float: right;
 }
-#addressBox {
-  display: none;
-  z-index: 10;
-  border: none;
-  text-align: center;
-  background-image: linear-gradient(bottom, #464646 0%, #1f1f1f 65%, #2e2e2e 21%, #525252 90%, #6b6b6b 100%);
-  background-image: -webkit-linear-gradient(bottom, #464646 0%, #1f1f1f 65%, #2e2e2e 21%, #525252 90%, #6b6b6b 100%);
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #464646), color-stop(0.65, #1f1f1f), color-stop(0.21, #2e2e2e), color-stop(0.9, #525252), color-stop(1, #6b6b6b));
-  border-radius: 10px;
-  padding: 5px;
-  box-shadow: 2px 2px 5px #000000;
-}
-#addressBox h2 {
-  font: bold 16px "Avenir Next Heavy", Helvetica, Arial, sans-serif;
-  color: #ffffff;
-}
 #addressBox li {
-  display: block;
-  background-color: #ffffff;
-  border-radius: 5px;
-}
-#addressBox li {
-  margin: 5px;
   padding: 8px;
-  padding-right: 0px;
-  background-color: #fff;
-  border-radius: 5px;
-  border: 1px solid #c0c0c0;
-  font: normal 11px "Avenir Next", Helvetica, Arial, sans-serif;
 }
 #addressBox li label {
-  font: normal 11px "Avenir Next", Helvetica, Arial, sans-serif;
   color: #a8a8a8;
   padding-right: 10px;
 }
 #addressBox li.required label {
   color: #2B60DE;
 }
-#addressBox li input,
-#addressBox li select,
-#addressBox li div#address {
-  background-color: #fff;
-  outline: none;
-  border: none;
-  width: 65%;
-  font: normal 13px "Avenir Next", Helvetica, Arial, sans-serif;
-}
-#addressBox input,
-#addressBox select {
-  padding: 5px;
-  border-radius: 5px;
-  margin-top: 5px;
-  outline: none;
-  border: none;
-  background-color: #ffffff;
-  width: 200px;
-}
-#PopupDiv {
-  position: fixed;
-  background: #fff ;
-  height: 70%;
-  width: 70%;
-  display: block;
-  color: black;
-  display: none;
-  top: 15%;
-  left: 15%;
-  -moz-border-radius: 20px;
-  -webkit-border-radius: 20px;
-  box-shadow: 10px 10px 5px #888888;
-  border: 1px solid #888888;
-}
 #passwordDiv {
-  /*    position: fixed;*/
-
-  background: #fff ;
-  color: black;
-  height: 30%;
-  position: fixed;
-  width: 40%;
-  display: block;
-  display: none;
-  top: 40%;
-  left: 30%;
-  -moz-border-radius: 20px;
-  -webkit-border-radius: 20px;
-  box-shadow: 10px 10px 5px #888888;
-  border: 1px solid #888888;
-  z-index: 11;
+  z-index: 10;
 }
-#pass_mess {
-  display: none;
-  color: red;
-  font-size: 11px;
+#passwordDiv li.btn {
+  border: 1px solid #000000;
+  margin: 10px 5px;
+  padding: 5px;
+  font: bold 14px "Avenir Next Bold", Helvetica, Arial, sans-serif;
 }
-.popup_wrapper {
-  display: none;
-  height: 100%;
-  width: 100%;
-  position: fixed;
-  background: lightgray;
-  left: 0;
-  top: 0;
-  opacity: 0.5;
+#passwordDiv label {
+  float: left;
+  width: 125px;
 }
-.pop_btn {
-  background-color: blue;
-  height: 30px;
-  padding: 0 10px;
-  vertical-align: middle;
-  -webkit-border-radius: 5px;
-  border-radius: 5px;
-  border: 1px solid black;
-  box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.15);
-  color: #fff;
-  font: bold 13px "Avenir Next Bold", Helvetica, Arial, sans-serif;
-  background-image: linear-gradient(bottom, #464646 0%, #1f1f1f 50%, #2e2e2e 51%, #525252 73%, #6b6b6b 100%);
-  background-image: -webkit-linear-gradient(bottom, #464646 0%, #1f1f1f 50%, #2e2e2e 51%, #525252 73%, #6b6b6b 100%);
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #464646), color-stop(0.5, #1f1f1f), color-stop(0.51, #2e2e2e), color-stop(0.73, #525252), color-stop(1, #6b6b6b));
-}
-.pop_btn:active {
-  background-image: linear-gradient(bottom, #cdcdcd 0%, #000000 85%);
-  background-image: -webkit-linear-gradient(bottom, #cdcdcd 0%, #000000 85%);
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #cdcdcd), color-stop(0.85, #000000));
+#passwordDiv #confirmPassword_txt,
+#passwordDiv #confirmPassword_txt2 {
+  width: 50%;
 }
 .popup_avatar {
   height: 30px;
@@ -1205,13 +1157,6 @@ li {
 }
 #avatarSelect h1 {
   margin: 10px;
-}
-#passwordDiv label {
-  float: left;
-  width: 60px;
-}
-#passwordDiv #confirmPassword_txt {
-  width: 50%;
 }
 #welcome #mask {
   position: absolute;
@@ -1660,7 +1605,7 @@ li {
   width: 100%;
   box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.15);
   position: absolute;
-  z-index: 10;
+  z-index: 8;
   -webkit-transition: all .2s linear;
   -webkit-transform: translate3d(0, 0, 0);
 }
@@ -1697,6 +1642,9 @@ li {
   background-image: linear-gradient(bottom, #464646 0%, #1f1f1f 50%, #2e2e2e 51%, #525252 73%, #6b6b6b 100%);
   background-image: -webkit-linear-gradient(bottom, #464646 0%, #1f1f1f 50%, #2e2e2e 51%, #525252 73%, #6b6b6b 100%);
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #464646), color-stop(0.5, #1f1f1f), color-stop(0.51, #2e2e2e), color-stop(0.73, #525252), color-stop(1, #6b6b6b));
+}
+#top-bar-buttons li button#save {
+  border: 2px solid #fff1a0;
 }
 #top-bar-buttons li button img {
   display: block;

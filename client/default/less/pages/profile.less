@@ -32,7 +32,7 @@ li {
 		&.selected {
 			.avenir-bold(15px);
 			border-radius: 5px;
-			border: 2px solid #FFFF00;
+			border: 2px solid #FFF1a0;
 		}
 
 		img {
@@ -192,50 +192,10 @@ li {
 }
 
 #addressBox {
-	display: none;
-	z-index: 10;
-	border: none;
-	text-align: center;
-	background-image: linear-gradient(bottom, rgb(70,70,70) 0%, rgb(31,31,31) 65%, rgb(46,46,46) 21%, rgb(82,82,82) 90%, rgb(107,107,107) 100%);
-    background-image: -webkit-linear-gradient(bottom, rgb(70,70,70) 0%, rgb(31,31,31) 65%, rgb(46,46,46) 21%, rgb(82,82,82) 90%, rgb(107,107,107) 100%);
-    background-image: -webkit-gradient(
-        linear,
-        left bottom,
-        left top,
-        color-stop(0, rgb(70,70,70)),
-        color-stop(0.65, rgb(31,31,31)),
-        color-stop(0.21, rgb(46,46,46)),
-        color-stop(0.9, rgb(82,82,82)),
-        color-stop(1, rgb(107,107,107))
-    );
-
-	border-radius: 10px;
-	padding: 5px;
-	box-shadow: 2px 2px 5px #000000;
-
-	h2 {
-		.avenir-demi(16px);
-		color: #ffffff;
-	}
 
 	li {
-		display: block;
-		background-color: #ffffff;
-		border-radius: 5px;
-	}
-
-	li {
-		margin: 5px;
 		padding: 8px;
-		padding-right: 0px;
-		background-color: #fff;
-		border-radius: 5px;
-		border: 1px solid #c0c0c0;
-		.avenir(11px);
-
-
 		label {
-			.avenir(11px);
 			color: #a8a8a8;
 			padding-right: 10px;
 		}
@@ -245,101 +205,27 @@ li {
 				color: #2B60DE;
 			}
 		}
-
-		input, select, div#address {
-			background-color: #fff;
-			outline: none;
-			border: none;
-			width: 65%;
-			.avenir(13px);
-		}
-	}
-
-	input, select {
-		padding: 5px;
-		border-radius: 5px;
-		margin-top: 5px;
-		outline: none;
-		border: none;
-		background-color: #ffffff;
-		width: 200px;
 	}
 }
 
-
-#PopupDiv {
-    position: fixed;
-    background: #fff ;
-    height: 70%;
-    width: 70%;
-    display: block;
-    color: black;
-    display: none;
-    top: 15%;
-    left: 15%;
-    -moz-border-radius: 20px;
-    -webkit-border-radius: 20px;
-    box-shadow: 10px 10px 5px #888888;
-    border: 1px solid #888888;
-}
 
 #passwordDiv {
-/*    position: fixed;*/
-    background: #fff ;
-    color: black;
-    height: 30%;
-    position: fixed;
-    width: 40%;
-    display: block;
-    display: none;
-    top: 40%;
-    left:30%;
-    -moz-border-radius: 20px;
-    -webkit-border-radius: 20px;
-    box-shadow: 10px 10px 5px #888888;
-    border: 1px solid #888888;
-    z-index: 11;
-}
+	z-index: 10;
+	li.btn {
+		border: 1px solid #000000;
+		margin: 10px 5px;
+		padding: 5px;
+		.avenir-bold(14px);
+	}
 
-#pass_mess{
-    display: none;
-    color: red;
-    font-size: 11px;
-}
+	label {
+		float: left;
+		width: 125px;
+	}
 
-.popup_wrapper{
-    display: none;
-     height: 100%;
-    width: 100%;
-    position: fixed;
-    background: lightgray;
-    left: 0;
-    top: 0;
-    opacity: 0.5;
-}
-
-
-.pop_btn{
-    background-color: blue;
-    height: 30px;
-    padding: 0 10px;
-    vertical-align: middle;
-    -webkit-border-radius: 5px;
-    border-radius: 5px;
-    border: 1px solid black;
-    box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.15);
-    color: #fff;
-    font: bold 13px "Avenir Next Bold", Helvetica, Arial, sans-serif;
-    background-image: linear-gradient(bottom, #464646 0%, #1f1f1f 50%, #2e2e2e 51%, #525252 73%, #6b6b6b 100%);
-    background-image: -webkit-linear-gradient(bottom, #464646 0%, #1f1f1f 50%, #2e2e2e 51%, #525252 73%, #6b6b6b 100%);
-    background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #464646), color-stop(0.5, #1f1f1f), color-stop(0.51, #2e2e2e), color-stop(0.73, #525252), color-stop(1, #6b6b6b));
-
-}
-
-.pop_btn:active {
-    background-image: linear-gradient(bottom, #cdcdcd 0%, #000000 85%);
-    background-image: -webkit-linear-gradient(bottom, #cdcdcd 0%, #000000 85%);
-    background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #cdcdcd), color-stop(0.85, #000000));
+	#confirmPassword_txt, #confirmPassword_txt2 {
+		width: 50%;
+	}
 }
 
 .popup_avatar{
@@ -368,15 +254,3 @@ li {
 	}
 
 }
-
-#passwordDiv {
-	label {
-		float: left;
-		width: 60px;
-	}
-
-	#confirmPassword_txt {
-		width: 50%;
-	}	
-}
-

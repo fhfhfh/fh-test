@@ -71,7 +71,7 @@ define(['jquery',
                 },
 
                 error: function() {
-                Backbone.trigger('notify', 'Error logging in.');
+                Backbone.trigger('notify', 'Error logging in.', 'Login Error');
                 return callback(false);
                 }
             });

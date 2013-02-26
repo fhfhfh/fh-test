@@ -84,7 +84,7 @@ define([
                     });
 
                 } else {
-                    Backbone.trigger('notify', 'Please fill in both fields...');
+                    Backbone.trigger('notify', 'Please fill in both fields...', 'Login Error');
                     return;
                 }
                 this.showLoading();

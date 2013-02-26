@@ -11,9 +11,10 @@ define(['jquery',
     'models/User',
     'text!templates/pages/Profile.html',
     'text!templates/popups/AddressBox.html',
+    'text!templates/popups/PasswordBox.html',
     'controllers/Profile',
     'models/Store'
-    ], function($, _, Backbone, iscroll, Acts, User, template, addressBox, Controller, Store) {
+    ], function($, _, Backbone, iscroll, Acts, User, template, addressBox, passwordBox, Controller, Store) {
 
         //interface ---------------------------
         var profile = Backbone.View.extend({
@@ -29,14 +30,14 @@ define(['jquery',
                 'click #AddrCancel'    : 'closeAddr',
                 'click #profile-avatar': "popup",
                 'click #closeAvatar'   : 'closeAvatar',
-                'change #password'     : 'password',
+                'click #password'      : 'password',
                 'click #cancelPass'    : 'password',
-                'click #okPass'        : 'ok',
+                'click #okPass'        : 'password',
                 'change input'         : 'validate',
                 'click li'             : 'focusInput',
                 'click .avatarPic'     : 'pickAvatar',
-                'keyup #phone'       : 'maskInput',
-                'keyup #mobile'       : 'maskInput'
+                'keyup #phone'         : 'maskInput',
+                'keyup #mobile'        : 'maskInput'
             },
 
             //Function interface
@@ -52,7 +53,6 @@ define(['jquery',
             mapValues 	: _mapValues,
             setAvatar   : _setAvatar,
             password    : _password,
-            ok          : _ok,
             closeAvatar : _closeAvatar,
             pickAvatar  : _pickAvatar,
             focusInput  : _focusInput,
@@ -139,49 +139,37 @@ define(['jquery',
             controller.saveProfile(this);
         };
         
-        function _password(){ 
-            var passwordDiv = $('#passwordDiv');
-             $('#confirmPassword_txt').val("");
-              $('#pass_mess').hide();
-            if(passwordDiv.css("display")=="block") {
-                    
-                passwordDiv.hide();
-                 $('#cover_div').hide();
+        function _password(e){
+            e.stopPropagation();
+            if(e && e.currentTarget.id == 'cancelPass'){
+                $('#passwordDiv').hide();
+                $('#modalMask').hide();
+            }
+            else if(e && e.currentTarget.id == 'okPass'){
+                var pass1 = $('#confirmPassword_txt').val();
+                var pass2 = $('#confirmPassword_txt2').val();
+                if(pass1 == pass2 && pass1 != ''){
+                    Backbone.trigger('notify', 'Password Reset Functionality not added!');
+                    $('#passwordDiv').hide();
+                    $('#modalMask').hide();
+                }
+                else if(pass1 == ''){
+                    Backbone.trigger('notify', 'Password can not be empty!', 'Password Error');
+                }
+                else { 
+                    Backbone.trigger('notify', 'Passwords do not match!', 'Password Error');
+                }
             }
             else {
-                $('#cover_div').show();
-                passwordDiv.show();
-                $('#confirmPassword_txt').focus();
-            }
-            
+                var box     = $(passwordBox);
+                this.$el.append(box);
+                $('#passwordDiv').show();
+                $('#modalMask').show();   
+                $('#confirmPassword_txt').val("").focus();
+                $('#confirmPassword_txt2').val("");
+            }              
         };
         
-        function _ok(){ 
-            var pass1;
-            var pass2;
-            pass1 = $('#password').val();
-            pass2 = $('#confirmPassword_txt').val();
-            if(pass1 == pass2)
-            {
-                // TODO: reset password here
-                Backbone.trigger('notify', 'Password Reset Functionality not added!');
-                $('#passwordDiv').hide();
-                $('#cover_div').hide();
-       }
-            else
-                { 
-                    $('#password').val(pass1);
-                    $('#confirmPassword_txt').val("");
-                    $('#pass_mess').show();
-                    $('#confirmPassword_txt').focus(function(){
-                        $('#pass_mess').hide();
-                        
-                    });
-            }
-                
-        };
-        
-
         function _cancel(){
             Backbone.history.navigate('home', true);
         };
@@ -208,6 +196,7 @@ define(['jquery',
             var box 	= $(addressBox);
             target.blur();
 
+            $('#modalMask').show();
             this.$el.append(box);
 
             box = this.$('#addressBox');
@@ -229,8 +218,15 @@ define(['jquery',
             }
         };
 
-        function _closeAddr(){
-            var box		= this.$('#addressBox');
+        function _closeAddr(e){
+            var target  = e.currentTarget;
+            var box     = this.$('#addressBox');
+            if(target.id == 'AddrCancel'){
+                box.fadeOut({}, 300);
+                $('#modalMask').hide();
+                return;
+            }
+
             var line1	= this.$('#line1').val();
             var line2	= this.$('#line2').val();
             var zip		= this.$('#zip').val();
@@ -255,6 +251,7 @@ define(['jquery',
             this.$('div#address')[0].innerText = text;
 
             box.fadeOut({}, 300);
+            $('#modalMask').hide();
         };
 
         function _mapValues(details){
@@ -285,6 +282,7 @@ define(['jquery',
             this.$('#phone').val(d.phone);
             this.$('#mobile').val(d.mobile);
             this.$('#username').val(d.username || user.name);
+            this.$('input#password').val('12345678');
             avatar = d.avatarId;
 
             for(var i=0; i<self.avatars.length; i++){
@@ -324,12 +322,12 @@ define(['jquery',
 
             for(var i=0; i<d3.length; i++){
                 var item = d3[i];
-                console.log(item);
+   
                 var html =  "<div id='account'>"+
-                                "<div id='name'>" + item.firstName + ' ' + item.lastName + "</div>"+
-                                "<div id='job'>" + item.type + "</div>"+
-                                "<div id='email'>" + item.emailAddress + "</div>"+
-                                "<div id='phone'>" + item.officePhone + "</div>"+
+                                "<div id='name'>" + item.userDetails.firstName + ' ' + item.userDetails.lastName + "</div>"+
+                                "<div id='job'>" + item.relationship +  "</div>"+
+                                "<div id='email'>" + item.userDetails.email + "</div>"+
+                                "<div id='phone'>" + item.userDetails.phone + "</div>"+
                             "</div>";
                 box.append(html);
             }

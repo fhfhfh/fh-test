@@ -98,7 +98,7 @@ define([
             }
 
             if(alertsOld == self.entries.alerts && remindersOld == self.entries.reminders && expirationsOld == self.entries.expirations){
-                Backbone.trigger('notify', 'Alerts are up-to-date!');
+                Backbone.trigger('notify', 'Alerts are up-to-date!', 'Sync Complete');
             }
 
 
@@ -107,7 +107,7 @@ define([
 
             return callback(self.entries);
         }, function(err, msg) {
-            Backbone.trigger('notify', 'Failed to fetch user alerts from cloud');
+            Backbone.trigger('notify', 'Failed to fetch user alerts from cloud', 'Sync Failure');
             return callback(false);
         });
     },

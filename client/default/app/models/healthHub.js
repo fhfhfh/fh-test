@@ -11,7 +11,7 @@ define(['jquery',
     ], function($, _, Backbone, Acts) {
 
         //interface----------------------------------
-        var avatars = {
+        var healthHub = {
             //Backbone specific attributes
 		
             fetchHealthHub  : _fetchHealthHub
@@ -32,6 +32,6 @@ define(['jquery',
                 );
         };
 
-        return avatars;
+        return healthHub;
 
     });

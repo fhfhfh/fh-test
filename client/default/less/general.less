@@ -104,3 +104,71 @@ section {
         .avenir-demi(20px);
     }
 }
+
+
+.popup {
+    display: none;
+    position: absolute;
+    top: 300px;
+    left: 30%;
+    width: 40%;
+    z-index: 10;
+    border: none;
+    text-align: center;
+    background-image: linear-gradient(bottom, rgb(70,70,70) 0%, rgb(31,31,31) 65%, rgb(46,46,46) 21%, rgb(82,82,82) 90%, rgb(107,107,107) 100%);
+    background-image: -webkit-linear-gradient(bottom, rgb(70,70,70) 0%, rgb(31,31,31) 65%, rgb(46,46,46) 21%, rgb(82,82,82) 90%, rgb(107,107,107) 100%);
+    background-image: -webkit-gradient(
+        linear,
+        left bottom,
+        left top,
+        color-stop(0, rgb(70,70,70)),
+        color-stop(0.65, rgb(31,31,31)),
+        color-stop(0.21, rgb(46,46,46)),
+        color-stop(0.9, rgb(82,82,82)),
+        color-stop(1, rgb(107,107,107))
+    );
+
+    border-radius: 10px;
+    padding: 5px;
+    box-shadow: 2px 2px 5px #000000;
+    .avenir(13px);
+
+
+    h2 {
+        text-shadow: 2px 2px #000000;
+        .avenir-demi(16px);
+        color: #ffffff;
+        padding-bottom: 20px;
+    }
+
+    li {
+        display: block;
+        background-color: #ffffff;
+        border-radius: 5px;
+        margin: 10px 5px;
+        padding: 8px;
+        padding-right: 0px;
+        background-color: #fff;
+        border-radius: 5px;
+        border: 1px solid #c0c0c0;
+
+
+        label {
+            color: #000000;
+            padding-right: 10px;
+        }
+
+        input, select, div#address {
+            background-color: #fff;
+            outline: none;
+            border: none;
+            width: 65%;        
+        }
+    }
+
+    li.btn{
+        display: inline-block;
+        width: 100px;
+        border: 1px solid #000000;
+    }
+}

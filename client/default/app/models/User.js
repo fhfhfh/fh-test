@@ -170,16 +170,11 @@ define(['jquery',
     			callback(true);
     			Backbone.trigger('notify', 'Profile Saved to Cloud');
     		},
-                function(err, msg){
-                    callback(true);
-    			Backbone.trigger('notify', 'Profile Saved to Cloud');
-                }
-                
-//    		function(err, msg){
-//    			callback(false);
-//    			console.log('Failed to save Profile', msg);
-//    			Backbone.trigger('notify', 'Failed to Save Profile to Cloud------'+err);	
-//    		}
+            function(err, msg){
+                callback(false);
+                console.log(msg, err);
+				Backbone.trigger('notify', 'Failed to Save Profile to Cloud', 'Error: ' +err);
+            }             
 		);
 	}
 

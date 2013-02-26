@@ -1,7 +1,7 @@
-<div id="addressBox">
-	<h4>Address</h4>
+<div id="addressBox" class="popup">
+	<h2>Address</h2>
 
-	<li>
+	<li class="required">
 		<label for="line1">Line 1</label>
 		<input id="line1" type="text" /><br/>
 	</li>
@@ -12,7 +12,7 @@
 	</li>
 
 
-	<li>
+	<li class="required">
 		<label for="State">State</label>
 		<select id="state">
 			<option value="AL">Alabama</option>
@@ -75,14 +75,14 @@
 		</select><br/>
 	</li>
 
-	<li>
+	<li class="required">
 		<label for="zip">Zip</label>
 		<input id="zip" type="text" maxlength="5"/><br/>
 	</li>
 
 
-	<li id="AddrSave" class="btn">Save</li>
 	<li id="AddrCancel" class="btn">Cancel</li>
+	<li id="AddrSave" class="btn">Save</li>
 
 </div>
 

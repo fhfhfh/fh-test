@@ -29,23 +29,22 @@ define(['jquery',
 		// break address box into individual variables
 		var home = $('div#address')[0].innerText || '';
 		home = home.split('\n');
-
+		
 		var address1;
 		var address2;	
 		var zip;	
 		var state;
 
-
 		if(home.length == 3){
 			address1	= home[0] || '';
-			zip			= home[1] || '';
-			state		= home[2] || '';
+			state		= home[1] || '';
+			zip			= home[2] || '';
 		}
 		else {
 			address1	= home[0] || '';
 			address2	= home[1] || '';
-			zip			= home[2] || '';
-			state		= home[3] || '';
+			state		= home[2] || '';
+			zip			= home[3] || '';
 		}
 		
 
@@ -94,7 +93,7 @@ define(['jquery',
 				}
 			});	
 		} else {
-			Backbone.trigger('notify', valid);
+			Backbone.trigger('notify', valid, 'Validation Error');
 			return;
 		}
 	};

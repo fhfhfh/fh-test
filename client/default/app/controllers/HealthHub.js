@@ -6,32 +6,29 @@
 define(['jquery',
     'underscore',
     'backbone',
-    'models/healthHub'
-    ], function($, _, Backbone, HealthHub) {
+    'models/healthHub',
+    'models/Store'
+    ], function($, _, Backbone, HealthHub, Store) {
 
         //interface----------------------------------
-        var quotes = {
+        var healthHub = {
             loadHealthHub 	: _loadHealthHub 
         };
 
 
         function _loadHealthHub(callback){
-              HealthHub.fetchHealthHub(function(err, res){
+            HealthHub.fetchHealthHub(function(err, res){
                 if(res){
-                  return callback(null,res);
+                    Store.save('peachy_healthHub', res, function(){
+                        return callback(null,res);    
+                    });                    
                 }
-                else
-                    {
-                         return callback(err,null);
-                    }
-                
-                
-                });
-           
-
+                else{
+                    return callback(err,null);
+                }
+            });
         }
-	
 
-        return quotes;
+        return healthHub;
 
     });

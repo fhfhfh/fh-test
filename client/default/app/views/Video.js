@@ -15,12 +15,12 @@ define([
         tagName: 'section',
         id: 'VideoPlayback',
         template: _.template(tpl),
-        video : {
-            url: '',
-            title: 'test',
-            time: '11:11',
-            description: 'asdfasdf'
-        },
+        // video : {
+        //     url: '',
+        //     title: 'test',
+        //     time: '11:11',
+        //     description: 'asdfasdf'
+        // },
 
         events: {
             'click #doneBtn'   : 'close',
@@ -37,8 +37,8 @@ define([
             _.bindAll(this);
 
 
-            // this.video = JSON.parse(localStorage.getItem('tempVid'));
-            // localStorage.removeItem('tempVid');
+            this.video = JSON.parse(localStorage.getItem('tempVid'));
+            localStorage.removeItem('tempVid');
 
 
             this.$el.html(self.template({
