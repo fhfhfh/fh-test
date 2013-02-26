@@ -1,44 +1,61 @@
 <!--<h1> Today is <%= today %> </h1>-->
 <h1 id="monthName"> <%= this.monthName[this.month]+",  "+this.year%> </h1>
 <div>
- <input type="button" id="preMonth_btn" class="pop_btn" value="Previous Month" style="margin-bottom: 5px">   
-<input type="button" id="currentMonth_btn" class="pop_btn" value="Today" style="margin-bottom: 5px">
-<input type="button" id="month_btn" class="pop_btn" value="Next Month" style="margin-bottom: 5px" ></div>
+    <input type="button" id="preMonth_btn" class="pop_btn" value="Previous Month" style="margin-bottom: 5px">   
+    <input type="button" id="currentMonth_btn" class="pop_btn" value="Today" style="margin-bottom: 5px">
+    <input type="button" id="month_btn" class="pop_btn" value="Next Month" style="margin-bottom: 5px" ></div>
 <!--<p id="month_name"></p>-->
 <div id='tableContainer'>
-	<table id="calTable">
-		 <tr id="head" style =" text-align: center">
-			<td>Sun</td>
-			<td>Mon</td>
-			<td>Tues</td>
-			<td>Wed</td>
-			<td>Thur</td>
-			<td>Fri</td>
-			<td>Sat</td>
-		</tr> 
+    <table id="calTable">
+        <tr id="head" style =" text-align: center">
+            <td>Sun</td>
+            <td>Mon</td>
+            <td>Tues</td>
+            <td>Wed</td>
+            <td>Thur</td>
+            <td>Fri</td>
+            <td>Sat</td>
+        </tr> 
 
-		<tr id="1" class="days">
-			<td></td><td></td><td></td><td></td><td></td><td></td><td></td>
-		</tr>
-		<tr id="2" class="days">
-			<td></td><td></td><td></td><td></td><td></td><td></td><td></td>
-		</tr>
-		<tr id="3" class="days">
-			<td></td><td></td><td></td><td></td><td></td><td></td><td></td>
-		</tr>
-		<tr id="4" class="days">
-			<td></td><td></td><td></td><td></td><td></td><td></td><td></td>
-		</tr>
-		<tr id="5" class="days">
-			<td></td><td></td><td></td><td></td><td></td><td></td><td></td>
-		</tr>
-                <tr id="6" class="days">
-			<td></td><td></td><td></td><td></td><td></td><td></td><td></td>
-		</tr>
-	</table>
+        <tr id="1" class="days">
+            <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+        </tr>
+        <tr id="2" class="days">
+            <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+        </tr>
+        <tr id="3" class="days">
+            <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+        </tr>
+        <tr id="4" class="days">
+            <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+        </tr>
+        <tr id="5" class="days">
+            <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+        </tr>
+        <tr id="6" class="days">
+            <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+        </tr>
+    </table>
 </div>
 
 <div id="soFar">
-	<h2>So far this month</h2>
-	<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting</p>
+    <h2>So far this month</h2>
+    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting</p>
+</div>
+
+<div class="popup_wrapper" id="cover_div"></div>
+<div class="Popup" id="evt_div" align="center" style="padding: 10px;min-width: 200px;height: auto"> 
+     <h1 align='center' style="color: white;top: -30px;position: relative;">Add Event</h1>
+    <div id='evt_inner_div'>
+        <div id="evt_form" style="padding-bottom: 15px">
+            <table id="evt_form_table" align="center" >
+                <tr><td><label style="color: white;"> Event Name</label></td>
+                <td> <input type="text" id="evt_name"/></td></tr>
+                <tr><td><label style="color: white;"> Event Details</label></td>
+                <td> <input type="text" id="evt_details"/></td></tr>
+            </table>
+        </div>
+        <button id='cancel_evt' class='pop_btn' style="width: 90px">Cancel</button>
+        <button id='ok_evt' class='pop_btn' style="width: 90px;margin-left:20px">OK</button>
+    </div>
 </div>

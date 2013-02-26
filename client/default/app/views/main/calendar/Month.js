@@ -8,9 +8,9 @@ define(['jquery',
     'text!templates/components/Month.html',
     'text!templates/popups/DayEvents.html',
     ], function($, _, Backbone, tpl, dayEventTpl) {
-
+        var evtArr = [];
         return Backbone.View.extend({
-
+               
             // Backbone specific attributes
             tagName		: 'section',
             id			: 'month',
@@ -19,9 +19,13 @@ define(['jquery',
                 'click #editEvents'	: 'editEvent',
                 'click #month_btn'      : 'nextMonth',
                 'click #preMonth_btn'      : 'previousMonth',
-                'click #currentMonth_btn' :'currentMonth'
+                'click #currentMonth_btn' :'currentMonth',
+                'click #cancel_evt'    : 'editEvent',
+                'click #ok_evt'     :'saveEvent'
             },
             template	: _.template(tpl),
+            evt_day    :   "",
+            
             dayTpl 		: _.template(dayEventTpl),
             monthName: [
             'January', 'Febuary', 'March', 'April', 'May', 'June', 'July', 'August', 'September',
@@ -140,28 +144,39 @@ define(['jquery',
 
 
             /* Show a pop-up to display information/events
-		 * about a given day. These events will be read dynamically from
-		 * an Events model/collection for each date.
-		 */
+* about a given day. These events will be read dynamically from
+* an Events model/collection for each date.
+*/
             eventsOn: function(e){
                 $('#popDate').remove();
-
+                var evtArrLength = evtArr.length;
                 var self = this;
                 var month = this.monthName[self.month];
                 var target = e.currentTarget;
                 var day = $(target).find('.day').html();
-
                 var dateModel = '';// get Events model Item for the date that is clicked
-
+                evt_day = day;
+               
                 var html = 	this.dayTpl({
                     date: month + ' ' + day + ', ' + self.year,
                     energy: dateModel.energy || 'n/a',
                     mood: dateModel.mood || 'n/a',
                     diet: dateModel.diet || 'n/a'
                 });
-
+                
+                
                 if(day != undefined){
                     $(target).append(html);
+                    
+                    if(evtArrLength >0)
+                    {
+                        for(var i=0;i<evtArrLength;i++)
+                        {
+                            if(evtArr[i].day == evt_day && evtArr[i].month == this.month && evtArr[i].year == this.year)
+                                $("#attrList").append('<li class="energy"><span>'+evtArr[i].name+' - '+evtArr[i].details+'</span></li>');
+                        //                                alert(evtArr[i].name);
+                        }
+                    }
                     $('#popDate').hide().slideDown(200);
 
 
@@ -175,7 +190,26 @@ define(['jquery',
             // Open pop-up for editing/adding/removing events
             // Need more information on what is required here
             editEvent: function(e){
-                alert('Need information on what is needed here')
+                if(evt_day == '')
+                    return;
+                var self = this;
+                var month = this.monthName[self.month];
+                var target = e.currentTarget;
+                var day = $(target).find('.day').html();
+                console.log(e);
+                var dateModel = '';// get Events model Item for the date that is clicked
+                $('#evt_div h1').html("Add Event For "+evt_day+"  "+month+" "+this.year);
+                var evt_div = $('#evt_div');
+                if(evt_div.css("display")=="block") {
+                    evt_div.hide();
+                    $('#cover_div').hide();
+                }
+                else {
+                    $('#cover_div').show();
+                    evt_div.show();
+                    $('#confirmPassword_txt').focus();
+                }
+            //                alert('Need information on what is needed here')
             },
             
             setMonth : function(month){
@@ -202,7 +236,7 @@ define(['jquery',
                         $(days[i]).addClass(' ');
                     }
                     cls = '';
-                     if(num == today && self.year == date.getFullYear() && this.month == date.getMonth()){
+                    if(num == today && self.year == date.getFullYear() && this.month == date.getMonth()){
                         cls = 'today';
                     }
                     $(days[i]).html("<div class='day'>  </div>");
@@ -212,6 +246,30 @@ define(['jquery',
                     }
                     num = num +1;
                 }
+            },
+            
+            saveEvent : function(){
+                var obj = {
+                    name : $('#evt_name').val(),
+                    details : $('#evt_details').val(),
+                    day : evt_day,
+                    month : this.month,
+                    year : this.year
+                }
+                
+                if(obj.name !="" && obj.details !="")
+                {
+                    evtArr.push(obj);
+                    alert(JSON.stringify(evtArr));
+                    
+                //                    alert($('#tableContainer #calTable'));
+                }
+                $('#evt_name').val("");
+                $('#evt_details').val("");
+                $('#evt_div').hide();
+                $('#cover_div').hide();
+                
+                
             }
         });
     });

@@ -17,6 +17,13 @@ var peachyPointsEndpoint = function() {
      */
     // Exposed operations
     this.peachyPoints = function peachyPoints(reqJson, callback){
+        
+        if (jsonUtils.getPath(reqJson, "request.head.sessionId") == null)         
+        {
+            log.error("[peachyPointsEndpoint][peachyPoints] >> SessionId Not Available");
+            var responseJson = respUtils.constructStatusResponse("peachyPoints", constants.RESP_AUTH_FAILED, "Authentication  Fail",{});
+            return callback(responseJson,null) 
+        }
        
         // Extract request params
         var sessionId = jsonUtils.getPath(reqJson, "request.head.sessionId").trim();
