@@ -22,6 +22,13 @@ var fetchAvatarsEndpoint = function() {
      */
     // Exposed operations
     this.fetchAvatars = function fetchAvatars(reqJson, callback){
+        
+        if (jsonUtils.getPath(reqJson, "request.head.sessionId") == null)         
+        {
+            log.error("[fetchAvatarsEndpoint][fetchAvatars] >> SessionId Not Available");
+            var responseJson = respUtils.constructStatusResponse("fetchAvatars", constants.RESP_AUTH_FAILED, "Authentication  Fail",{});
+            return callback(responseJson,null) 
+        }
       
         // Extract sessionId from request params
         var sessionId = jsonUtils.getPath(reqJson, "request.head.sessionId").trim();
