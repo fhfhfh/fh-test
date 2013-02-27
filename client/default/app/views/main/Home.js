@@ -32,8 +32,14 @@ define([
 
       this.$el.html(template);
       this.$content = this.$('#home-content');
-      this.$nav = this.$('#home-nav');
-      
+      this.$nav = this.$('#home-nav');    
+
+      this.iscroll = new iScroll(this.$('#wrapper')[0], {
+          hscroll: false,
+          fixedScrollbar: true,
+          bounce: false,
+          vScrollbar: false
+      });  
 
       // self.setActiveView(((options && options.activeView) || 'news'));  
       
@@ -49,12 +55,14 @@ define([
       }
       this.$('li').removeClass('selected');
       this.$('#show-news').addClass('selected');
+
       return this;
     },
 
     refreshScroll: function(){
-      if(this.container){
-        this.container.refreshScroll();  
+      var self = this;
+      if(this.iscroll){
+      this.iscroll.refresh.call(self.iscroll);        
       }
     },
 

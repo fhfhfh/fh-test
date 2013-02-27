@@ -31,6 +31,13 @@ define([
 
       this.$el.html(template);
       this.$content = this.$('#widgets-content');
+
+      this.iscroll = new iScroll(this.$('#wrapper')[0], {
+          hscroll: false,
+          fixedScrollbar: true,
+          bounce: false,
+          vScrollbar: false
+      });
     },
 
     render: function() {
@@ -47,8 +54,9 @@ define([
     },
 
     refreshScroll: function(){
-      if(this.container){
-        this.container.refreshScroll();  
+      var self = this;
+      if(this.iscroll){
+        this.iscroll.refresh.call(self.iscroll);        
       }
     },
 
@@ -56,18 +64,21 @@ define([
       this.$('li').removeClass('selected');
       this.$('#show-library').addClass('selected');
       this.setActiveView('library');
+      this.refreshScroll();
     },
 
     showMyWidgets : function(){
       this.$('li').removeClass('selected');
       this.$('#show-myWidgets').addClass('selected');
       this.setActiveView('myWidgets');
+      this.refreshScroll();
     },
 
     showRecommended : function(){
       this.$('li').removeClass('selected');
       this.$('#show-recommended').addClass('selected');
       this.setActiveView('recommended');
+      this.refreshScroll();
     }
 
   });

@@ -33,6 +33,13 @@ define([
                 
                 this.$el.html(template);
                 this.$content = this.$('#healthHub-content');
+
+                this.iscroll = new iScroll(this.$('#wrapper')[0], {
+                    hscroll: false,
+                    fixedScrollbar: true,
+                    bounce: false,
+                    vScrollbar: false
+                });
             },
 
             render: function() {
@@ -47,13 +54,14 @@ define([
                 setValue();
                 this.$('li').removeClass('selected');
                 this.$('#show-data').addClass('selected');
-                
+                this.refreshScroll();
                 return this;
             },
 
             refreshScroll: function(){
-                if(this.container){
-                    this.container.refreshScroll();  
+                var self = this;
+                if(this.iscroll){
+                    this.iscroll.refresh.call(self.iscroll);        
                 }
             },
 
@@ -65,6 +73,7 @@ define([
                     $('div #history #familyHistory #body').append('<div id="row"><span class="name">'+resp.payload.familyHistories[i].familyMember+'</span><span class="value">'+resp.payload.familyHistories[i].diagnosis+'</span></div>');
                 for(var i=0; i<resp.payload.familyHistories.length; i++)
                     $('div #history #socialHistory #body').append('<div id="row"><span class="name">'+resp.payload.socialHistories[i].socialHistoryElement+'</span><span class="value">'+resp.payload.socialHistories[i].description+'</span></div>');
+                this.refreshScroll();
             },
 
             showData : function(){
@@ -81,7 +90,7 @@ define([
                     $('div #data #testResults #body').append('<div id="row"><span class="name">'+resp.payload.results[i].testName+'</span><span class="value">'+resp.payload.results[i].result+' '+resp.payload.results[i].units+'</span></div>');
                 for(var i=0; i<resp.payload.immunizations.length; i++)
                     $('div #data #immunizations #body').append('<div id="row"><span class="name">'+resp.payload.immunizations[i].vaccine+'</span><span class="value">'+resp.payload.immunizations[i].status+'</span></div>');
-                
+                this.refreshScroll();
             },
 
             showConditions : function(){
@@ -96,7 +105,7 @@ define([
                     $('div #conditions #allergies #body').append('<div id="row"><span class="name">'+resp.payload.allergies[i].allergry+'</span><span class="value">'+resp.payload.allergies[i].reaction+'</span></div>');
                 for(var i=0; i<resp.payload.encounters.length; i++)
                     $('div #conditions #recentVisits #body').append('<div id="row"><span class="name">'+resp.payload.encounters[i].encounter+'</span><span class="value">'+resp.payload.encounters[i].location+'</span></div>');
-                
+                this.refreshScroll();
             }
 
         });
