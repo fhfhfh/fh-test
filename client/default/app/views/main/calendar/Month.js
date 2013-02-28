@@ -9,6 +9,7 @@ define(['jquery',
     'text!templates/popups/DayEvents.html',
     ], function($, _, Backbone, tpl, dayEventTpl) {
         var evtArr = [];
+        var target="";
         return Backbone.View.extend({
                
             // Backbone specific attributes
@@ -152,7 +153,7 @@ define(['jquery',
                 var evtArrLength = evtArr.length;
                 var self = this;
                 var month = this.monthName[self.month];
-                var target = e.currentTarget;
+                target = e.currentTarget;
                 var day = $(target).find('.day').html();
                 var dateModel = '';// get Events model Item for the date that is clicked
                 evt_day = day;
@@ -172,9 +173,11 @@ define(['jquery',
                     {
                         for(var i=0;i<evtArrLength;i++)
                         {
-                            if(evtArr[i].day == evt_day && evtArr[i].month == this.month && evtArr[i].year == this.year)
+                            
+                            if(evtArr[i].day == evt_day && evtArr[i].month == this.month && evtArr[i].year == this.year){
                                 $("#attrList").append('<li class="energy"><span>'+evtArr[i].name+' - '+evtArr[i].details+'</span></li>');
-                        //                                alert(evtArr[i].name);
+                            //                                alert(evtArr[i].name);
+                            }
                         }
                     }
                     $('#popDate').hide().slideDown(200);
@@ -231,10 +234,7 @@ define(['jquery',
                 var num = 1;
                 for(var i=first; i<42 + first ; i++){
                     
-                    if(days[i].className == 'today'){
-                        $(days[i]).removeClass('today')
-                        $(days[i]).addClass(' ');
-                    }
+                    
                     cls = '';
                     if(num == today && self.year == date.getFullYear() && this.month == date.getMonth()){
                         cls = 'today';
@@ -244,8 +244,27 @@ define(['jquery',
                         $(days[i]).html("<div class='day'>" + num + "</div>");
                         $(days[i]).addClass(cls);
                     }
+                    
+                    if(days[i] && days[i].className == 'today'){
+                        $(days[i]).removeClass('today')
+                        $(days[i]).addClass(' ');
+                    }
+                    
                     num = num +1;
                 }
+                
+                    if(evtArr.length >0)
+                {
+                    for(var i=0;i<evtArr.length;i++)
+                    {
+                       if(evtArr[i].day == evt_day && evtArr[i].month == this.month && evtArr[i].year == this.year){
+                            $(target).append(evtArr[i].img);
+                            console.log($('.day').html());
+                        }
+                    }
+                        
+                }
+                
             },
             
             saveEvent : function(){
@@ -254,16 +273,31 @@ define(['jquery',
                     details : $('#evt_details').val(),
                     day : evt_day,
                     month : this.month,
-                    year : this.year
+                    year : this.year,
+                    img : "<img src='img/calendar/FaceHappy@2x.png' style='margin-top: 12%;margin-left: 30%;'>"
                 }
                 
                 if(obj.name !="" && obj.details !="")
                 {
                     evtArr.push(obj);
                     alert(JSON.stringify(evtArr));
+                    var num=1;
+                    var day = $(target).find('.day').html();
+                    //alert(target.html());
+                    
+                    var days = this.$('.days td');
+                    for(var i=1; i<42 + 1 ; i++){
+                        if(num == obj.day ){
+                            //                            $(target).find(' td').css("");
+                            $(target).append(obj.img);
+                        } 
+                        
+                        num++;
+                    }
                     
                 //                    alert($('#tableContainer #calTable'));
                 }
+                //                alert($("#tableContainer #calTable .days td").html());
                 $('#evt_name').val("");
                 $('#evt_details').val("");
                 $('#evt_div').hide();

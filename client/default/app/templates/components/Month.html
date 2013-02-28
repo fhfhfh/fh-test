@@ -1,9 +1,9 @@
 <!--<h1> Today is <%= today %> </h1>-->
 <h1 id="monthName"> <%= this.monthName[this.month]+",  "+this.year%> </h1>
 <div>
-    <input type="button" id="preMonth_btn" class="pop_btn" value="Previous Month" style="margin-bottom: 5px">   
-    <input type="button" id="currentMonth_btn" class="pop_btn" value="Today" style="margin-bottom: 5px">
-    <input type="button" id="month_btn" class="pop_btn" value="Next Month" style="margin-bottom: 5px" ></div>
+    <input type="button" id="preMonth_btn" class="btn" value="Previous Month" style="margin-bottom: 5px">   
+    <input type="button" id="currentMonth_btn" class="btn" value="Today" style="margin-bottom: 5px">
+    <input type="button" id="month_btn" class="btn" value="Next Month" style="margin-bottom: 5px" ></div>
 <!--<p id="month_name"></p>-->
 <div id='tableContainer'>
     <table id="calTable">
@@ -45,17 +45,15 @@
 
 <div class="popup_wrapper" id="cover_div"></div>
 <div class="Popup" id="evt_div" align="center" style="padding: 10px;min-width: 200px;height: auto"> 
-     <h1 align='center' style="color: white;top: -30px;position: relative;">Add Event</h1>
+    <h1 align='center' style="color: white;top: -15px;position: relative;">Add Event</h1>
     <div id='evt_inner_div'>
         <div id="evt_form" style="padding-bottom: 15px">
-            <table id="evt_form_table" align="center" >
-                <tr><td><label style="color: white;"> Event Name</label></td>
-                <td> <input type="text" id="evt_name"/></td></tr>
-                <tr><td><label style="color: white;"> Event Details</label></td>
-                <td> <input type="text" id="evt_details"/></td></tr>
-            </table>
+                <li class="required"><label>Title</label>
+                    <input id="evt_name" style="outline: none;  border: none;" type="text" ></li>
+                 <li class="required"><label>Details</label>
+                    <input id="evt_details" style="outline: none;  border: none;" type="text" ></li>
         </div>
-        <button id='cancel_evt' class='pop_btn' style="width: 90px">Cancel</button>
-        <button id='ok_evt' class='pop_btn' style="width: 90px;margin-left:20px">OK</button>
+        <button id='cancel_evt' class='btn' style="width: 90px">Cancel</button>
+        <button id='ok_evt' class='btn' style="width: 90px;margin-left:20px">OK</button>
     </div>
 </div>
