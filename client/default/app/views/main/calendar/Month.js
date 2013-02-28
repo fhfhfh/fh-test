@@ -99,6 +99,17 @@ define(['jquery',
 
                     $(days[i]).html("<div class='day'>" + num + "</div>");
                     $(days[i]).addClass(cls);
+                    
+                     if(evtArr.length>=0){
+//                        alert(this.month+"     evtArr.month  "+evtArr[j].month)
+                       for( var j=0; j <= evtArr.length; j++){
+                    if(evtArr[j] && num == evtArr[j].day && this.month == evtArr[j].month && this.year == evtArr[j].year){
+//                        alert("yes"+JSON.stringify(evtArr[j]+"  num "+num));
+//                    alert("Here"+JSON.stringify($(days[i])));
+                    $(days[i]).css({'background-color':'rgb(255, 246, 218)'});
+                    $(days[i]).append(evtArr[j].img);
+//                    j++;
+                }}}
 				
                     num = num +1;
                 }
@@ -116,6 +127,7 @@ define(['jquery',
                 else{
                     $("#monthName").html(this.monthName[this.month+1]+","+this.year);
                     var tempMonth = this.month;
+//                    alert("this.month+1 :- "+(this.month+1)+"  this.month  "+this.month)
                     this.setMonth(this.month+1);
                 }
             },
@@ -173,11 +185,8 @@ define(['jquery',
                     {
                         for(var i=0;i<evtArrLength;i++)
                         {
-                            
-                            if(evtArr[i].day == evt_day && evtArr[i].month == this.month && evtArr[i].year == this.year){
+                            if(evtArr[i].day == evt_day && evtArr[i].month == this.month && evtArr[i].year == this.year)
                                 $("#attrList").append('<li class="energy"><span>'+evtArr[i].name+' - '+evtArr[i].details+'</span></li>');
-                            //                                alert(evtArr[i].name);
-                            }
                         }
                     }
                     $('#popDate').hide().slideDown(200);
@@ -233,8 +242,11 @@ define(['jquery',
                 var monthLength = this.daysInMonth(this.month, self.year);
                 var num = 1;
                 for(var i=first; i<42 + first ; i++){
-                    
-                    
+                     $(days[i]).css({'background-color':'white'});
+                    if(days[i] && days[i].className == 'today'){
+                        $(days[i]).removeClass('today')
+                        $(days[i]).addClass(' ');
+                    }
                     cls = '';
                     if(num == today && self.year == date.getFullYear() && this.month == date.getMonth()){
                         cls = 'today';
@@ -244,27 +256,18 @@ define(['jquery',
                         $(days[i]).html("<div class='day'>" + num + "</div>");
                         $(days[i]).addClass(cls);
                     }
+                    if(evtArr.length>=0){
+                        
+                       for( var j=0; j <= evtArr.length; j++){
+                           if($(target).css('background-color')!= 'rgb(255, 246, 218)'){
+                    if(evtArr[j] && num == evtArr[j].day && month == evtArr[j].month && this.year == evtArr[j].year){
                     
-                    if(days[i] && days[i].className == 'today'){
-                        $(days[i]).removeClass('today')
-                        $(days[i]).addClass(' ');
-                    }
-                    
+                    $(days[i]).css({'background-color':'rgb(255, 246, 218)'});
+                    $(days[i]).append(evtArr[j].img);
+//                    }
+                }}}}
                     num = num +1;
                 }
-                
-                    if(evtArr.length >0)
-                {
-                    for(var i=0;i<evtArr.length;i++)
-                    {
-                       if(evtArr[i].day == evt_day && evtArr[i].month == this.month && evtArr[i].year == this.year){
-                            $(target).append(evtArr[i].img);
-                            console.log($('.day').html());
-                        }
-                    }
-                        
-                }
-                
             },
             
             saveEvent : function(){
@@ -274,30 +277,25 @@ define(['jquery',
                     day : evt_day,
                     month : this.month,
                     year : this.year,
-                    img : "<img src='img/calendar/FaceHappy@2x.png' style='margin-top: 12%;margin-left: 30%;'>"
+                    img : "<img src='img/calendar/DaceHappyWhite@2x.png' style='margin-top: 12%;height : 50px'>"
                 }
-                
                 if(obj.name !="" && obj.details !="")
                 {
                     evtArr.push(obj);
-                    alert(JSON.stringify(evtArr));
                     var num=1;
                     var day = $(target).find('.day').html();
-                    //alert(target.html());
-                    
                     var days = this.$('.days td');
+                    if($(target).css('background-color')!= 'rgb(255, 246, 218)')
                     for(var i=1; i<42 + 1 ; i++){
                         if(num == obj.day ){
-                            //                            $(target).find(' td').css("");
                             $(target).append(obj.img);
+                            $(target).css({align : 'center'});
+                            $(target).css({'background-color':'rgb(255, 246, 218)'});
+                            alert($(target).css('background-color'));
                         } 
-                        
                         num++;
                     }
-                    
-                //                    alert($('#tableContainer #calTable'));
                 }
-                //                alert($("#tableContainer #calTable .days td").html());
                 $('#evt_name').val("");
                 $('#evt_details').val("");
                 $('#evt_div').hide();

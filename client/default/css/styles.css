@@ -1760,6 +1760,7 @@ li {
 }
 #tableContainer #calTable .days td {
   vertical-align: top;
+  text-align: center;
 }
 #tableContainer #calTable .days td .day {
   float: right;
@@ -1807,8 +1808,9 @@ section#month h2 {
   padding-right: 30px;
 }
 #popDate {
+    text-align: left;
   position: absolute;
-  height: 150px;
+  height: 250px;
   width: 200px;
   padding: 10px;
   border: 2px solid #2b6891;
