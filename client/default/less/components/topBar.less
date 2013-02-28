@@ -15,12 +15,39 @@
     #logo {
         float: left;
         margin-top: 15px;
+        background-image: url('../img/logo-top-bar.png');
+        width: 121px;
+        height: 30px;
+        content: '';
+
+        @media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
+        background-image: url('../img/logo-top-bar@2x.png');
+    }
     }
 
     #avatar {
         float: right;
         margin-top: 7px;
         height: 40px;
+    }
+
+    &.profileBar {
+        border-bottom: none;
+        box-shadow: none;
+
+        li.profileBtn {
+            display: inline-block;
+        }
+
+        li.homeBtn {
+            display: none;
+        }
+
+        button {
+            width: 100px;
+            margin-right: 10px;
+        }
+
     }
 }
 
@@ -33,6 +60,10 @@
     li {
         display: inline-block;
         margin-right: 7px;
+
+        &.profileBtn{
+            display: none;
+        }
 
         button {
             background-color: blue;

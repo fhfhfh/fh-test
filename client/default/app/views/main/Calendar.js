@@ -51,7 +51,7 @@ define([
       }
       this.$('li').removeClass('selected');
       this.$('#show-month').addClass('selected');
-      this.refreshScroll();
+      // this.refreshScroll();
       return this;
     },
 

@@ -123,13 +123,6 @@ define([
       function saveSession() {
 
         Store.save(self.storageKey, self.get('id'), function(){});
-
-        // localStorage.setItem(self.storageKey, self.toJSON());
-        // options.success(model, {
-        //   head: {
-        //     sessionId: self.get('id')
-        //   }
-        // }, options);
       }
     },
 

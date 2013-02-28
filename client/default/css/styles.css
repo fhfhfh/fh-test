@@ -900,7 +900,8 @@ section h1 {
   position: relative;
 }
 .iscroll-inner {
-  padding-bottom: 20px;
+  padding-bottom: 30px;
+  min-height: 300px;
 }
 .page {
   overflow: hidden;
@@ -915,7 +916,7 @@ section h1 {
   color: #000;
 }
 #main-content {
-  min-height: 300px;
+  min-height: 400px;
 }
 @media only screen and (orientation: landscape) {
   #main-content {
@@ -945,18 +946,13 @@ li {
   -webkit-transform: translate3d(0, 0, 0);
 }
 #main-tabs {
-  background-image: linear-gradient(bottom, #000000 0%, #3e3535 85%);
-  background-image: -webkit-linear-gradient(bottom, #000000 0%, #3e3535 85%);
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #000000), color-stop(0.85, #3e3535));
   border-radius: 10px 10px 0 0;
   border: 1px solid #fff;
   padding: 5px;
   margin-top: 10px;
-}
-#main-tabs:active {
-  background-image: linear-gradient(bottom, #3e3535 0%, #000000 85%);
-  background-image: -webkit-linear-gradient(bottom, #3e3535 0%, #000000 85%);
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #3e3535), color-stop(0.85, #000000));
+  background-color: #000000;
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #2b2b2b), color-stop(0.5, #717171), color-stop(0.5, #000000), color-stop(1, #6e6e6e));
+  background-image: -moz-linear-gradient(center top, #2b2b2b 0%, #717171 50%, #000000 50%, #6e6e6e 100%);
 }
 #main-tabs li {
   width: 24%;
@@ -1287,6 +1283,10 @@ li {
 #VideoPlayback #videoDescription #title {
   margin: 30px;
 }
+#VideoPlayback #videoDescription #title img,
+#VideoPlayback #videoDescription #title h2 {
+  vertical-align: middle;
+}
 #VideoPlayback #videoDescription #videoActions {
   margin: 10px;
   height: 50px;
@@ -1294,13 +1294,79 @@ li {
 #VideoPlayback #videoDescription #videoActions #time {
   float: left;
 }
+#VideoPlayback #videoDescription #videoActions #time img,
+#VideoPlayback #videoDescription #videoActions #time p {
+  vertical-align: middle;
+}
 #VideoPlayback #videoDescription #videoActions #actions {
   float: right;
+}
+#VideoPlayback #videoDescription #videoActions #actions img {
+  margin-left: 30px;
 }
 #VideoPlayback #videoDescription #favBtn {
   height: 100%;
   text-align: center;
   margin-top: 100px;
+}
+#cabinet {
+  width: 100%;
+  background: url('../img/cabinetBg.png') left top repeat;
+  border-radius: 8px;
+  color: #ffffff;
+  font: normal 12px "Avenir Next", Helvetica, Arial, sans-serif;
+}
+#cabinet #cabinetHeader {
+  border-bottom: 1px solid #000000;
+  box-shadow: 0 5px 20px #cbcbcb;
+  width: 100%;
+  text-align: center;
+  padding-bottom: 20px;
+}
+#cabinet #cabinetHeader .cabinetFolder {
+  display: inline-block;
+  margin: 5px;
+  height: 120px;
+  width: 120px;
+  padding: 10px;
+  box-shadow: 0px 0px 2px #cdcdcd;
+  border-radius: 5px;
+  background-color: rgba(26, 26, 26, 0.25);
+  font: bold 14px "Avenir Next Bold", Helvetica, Arial, sans-serif;
+  text-align: center;
+}
+#cabinet #cabinetBody {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  width: 100%;
+}
+#cabinet #cabinetBody .row {
+  height: 160px;
+  border-bottom: 1px solid #000000;
+  box-shadow: 0 5px 20px #cbcbcb;
+  padding-top: 20px;
+  padding-bottom: 10px;
+}
+#cabinet #cabinetBody .row .cabinetItem {
+  display: inline-block;
+  margin: 5px;
+  height: 120px;
+  width: 142px;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: rgba(26, 26, 26, 0.25);
+  text-align: center;
+}
+#cabinet #cabinetBody .row .cabinetItem .thumbnail {
+  height: 100px;
+  background: url('../img/AdPlaceholder.png') no-repeat;
+  background-size: 100px;
+  background-position: center;
+}
+#cabinet #cabinetBody .row .cabinetItem .filetype {
+  float: right;
+  margin-top: 70px;
+  margin-right: 15px;
 }
 #news-and-information {
   padding: 15px;
@@ -1577,10 +1643,10 @@ li {
   content: url('../img/nav/HubDark.png');
 }
 #main-nav #medicine img {
-  content: url('../img/nav/HubWhite.png');
+  content: url('../img/nav/CabinetWhite.png');
 }
 #main-nav #medicine.selected img {
-  content: url('../img/nav/HubDark.png');
+  content: url('../img/nav/CabinetDark.png');
 }
 #main-nav #connect img {
   content: url('../img/nav/ConnectWhite.png');
@@ -1617,11 +1683,34 @@ li {
 #top-bar #logo {
   float: left;
   margin-top: 15px;
+  background-image: url('../img/logo-top-bar.png');
+  width: 121px;
+  height: 30px;
+  content: '';
+}
+@media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
+  #top-bar #logo {
+    background-image: url('../img/logo-top-bar@2x.png');
+  }
 }
 #top-bar #avatar {
   float: right;
   margin-top: 7px;
   height: 40px;
+}
+#top-bar.profileBar {
+  border-bottom: none;
+  box-shadow: none;
+}
+#top-bar.profileBar li.profileBtn {
+  display: inline-block;
+}
+#top-bar.profileBar li.homeBtn {
+  display: none;
+}
+#top-bar.profileBar button {
+  width: 100px;
+  margin-right: 10px;
 }
 #top-bar-buttons {
   list-style-type: none;
@@ -1632,6 +1721,9 @@ li {
 #top-bar-buttons li {
   display: inline-block;
   margin-right: 7px;
+}
+#top-bar-buttons li.profileBtn {
+  display: none;
 }
 #top-bar-buttons li button {
   background-color: blue;
@@ -1872,12 +1964,7 @@ section#insights img {
 }
 #viewBtn {
   float: right;
-  padding: 5px;
-  background-color: #ababab;
-  border-radius: 5px;
-}
-#viewBtn:hover {
-  background-color: #5b5b5b;
+  margin-right: 8px;
 }
 .dataGrid {
   width: 100%;
@@ -1917,8 +2004,8 @@ section#insights img {
 }
 #filterView {
   position: absolute;
-  top: 160px;
-  left: 435px;
+  top: 40px;
+  left: 415px;
   width: 200px;
   text-align: center;
   background-image: linear-gradient(bottom, #000000 9%, #2b6891 99%);
@@ -1948,7 +2035,6 @@ section#insights img {
 }
 #filterView #body label.checked img {
   display: inline-block;
-  background-color: #2a9c3b;
 }
 #filterView #body label {
   display: inline-block;
@@ -1959,7 +2045,14 @@ section#insights img {
 #filterView #body label img {
   float: right;
   display: none;
-  background-color: #ffffff;
-  padding: 2px;
-  border-radius: 5px;
+  height: 25px;
+}
+#filterView:before {
+  border-bottom: 15px solid #2b6891;
+  border-right: 20px solid transparent;
+  border-left: 20px solid transparent;
+  top: -12px;
+  content: '';
+  position: absolute;
+  right: 3px;
 }
