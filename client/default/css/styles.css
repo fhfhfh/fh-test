@@ -507,7 +507,7 @@ section h1 {
   box-shadow: 2px 2px 5px #000000;
 }
 #notification h2 {
-  font: bold 16px "Avenir Next Heavy", Helvetica, Arial, sans-serif;
+  font: bold 16px "Avenir Next", Helvetica, Arial, sans-serif;
   color: #ffffff;
 }
 #notification p {
@@ -1061,7 +1061,7 @@ li {
   color: #000;
 }
 #general-body .age {
-  font: bold 13px "Avenir Next Heavy", Helvetica, Arial, sans-serif;
+  font: bold 13px "Avenir Next", Helvetica, Arial, sans-serif;
   color: #cdcdcd;
 }
 #general-body form {
@@ -1273,7 +1273,7 @@ li {
   color: #000;
 }
 #VideoPlayback #videoDescription h2 {
-  font: bold 16px "Avenir Next Heavy", Helvetica, Arial, sans-serif;
+  font: bold 16px "Avenir Next", Helvetica, Arial, sans-serif;
   display: inline;
 }
 #VideoPlayback #videoDescription p {
@@ -1415,7 +1415,7 @@ li {
 #news-and-information #headlines li .video-preview .title .duration {
   margin-left: 5px;
   color: rgba(255, 255, 255, 0.5);
-  font: bold 11px "Avenir Next Heavy", Helvetica, Arial, sans-serif;
+  font: bold 11px "Avenir Next", Helvetica, Arial, sans-serif;
 }
 #news-and-information #headlines li .description {
   margin-bottom: 40px;
@@ -1424,7 +1424,7 @@ li {
 }
 #news-and-information #headlines li .description h2 {
   color: #1a1a1a;
-  font: bold 13px "Avenir Next Heavy", Helvetica, Arial, sans-serif;
+  font: bold 13px "Avenir Next", Helvetica, Arial, sans-serif;
 }
 #news-and-information #headlines li .description p {
   color: #343434;
@@ -1453,7 +1453,7 @@ li {
 #goals h1 {
   color: #2b6891;
   margin: 30px 0 20px 0;
-  font: bold 20px "Avenir Next Heavy", Helvetica, Arial, sans-serif;
+  font: bold 20px "Avenir Next", Helvetica, Arial, sans-serif;
 }
 #goals #grid {
   text-align: center;
@@ -1508,7 +1508,7 @@ li {
 #alerts h1 {
   color: #2b6891;
   margin: 30px 0 20px 0;
-  font: bold 20px "Avenir Next Heavy", Helvetica, Arial, sans-serif;
+  font: bold 20px "Avenir Next", Helvetica, Arial, sans-serif;
 }
 #alerts #add-alert {
   -webkit-border-radius: 8px;
@@ -1524,7 +1524,7 @@ li {
   width: 100%;
 }
 #alerts #buttons li {
-  font: bold 14px "Avenir Next Heavy", Helvetica, Arial, sans-serif;
+  font: bold 14px "Avenir Next", Helvetica, Arial, sans-serif;
   width: 22%;
   margin: 5px;
   background-color: #e6e6e6;
@@ -1806,7 +1806,7 @@ li {
   color: #2b6891;
   margin-top: 0;
   margin-bottom: 5px;
-  font: bold 15px "Avenir Next Heavy", Helvetica, Arial, sans-serif;
+  font: bold 15px "Avenir Next", Helvetica, Arial, sans-serif;
 }
 .ad-notice {
   color: #808080;
@@ -2031,7 +2031,7 @@ section#insights img {
   vertical-align: middle;
 }
 .dataGrid #title h2 {
-  font: bold 14px "Avenir Next Heavy", Helvetica, Arial, sans-serif;
+  font: bold 14px "Avenir Next", Helvetica, Arial, sans-serif;
   color: #000000;
 }
 .dataGrid #body #row {
@@ -2071,7 +2071,7 @@ section#insights img {
   color: #ffffff;
 }
 #filterView #body {
-  font: bold 12px "Avenir Next Heavy", Helvetica, Arial, sans-serif;
+  font: bold 12px "Avenir Next", Helvetica, Arial, sans-serif;
   text-align: left;
   min-height: 100px;
   background-color: #ffffff;
