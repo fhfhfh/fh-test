@@ -34,10 +34,10 @@ define(['jquery',
 
 		showFilter: function(){
 			var self = this;
-			var body = 	"<label data-id='recentVisits' class='checked'>Recent Visits<img src='img/Search.png'/></label>"+
-						"<label data-id='problems' class='checked'>Problems<img src='img/Search.png'/></label>"+
-						"<label data-id='procedures' class='checked'>Procedures<img src='img/Search.png'/></label>"+
-						"<label data-id='allergies' class='checked'>Allergies<img src='img/Search.png'/></label>";
+			var body = 	"<label data-id='recentVisits' class='checked'>Recent Visits<img src='img/healthHub/CheckmarkOrange.png'/></label>"+
+						"<label data-id='problems' class='checked'>Problems<img src='img/healthHub/CheckmarkOrange.png'/></label>"+
+						"<label data-id='procedures' class='checked'>Procedures<img src='img/healthHub/CheckmarkOrange.png'/></label>"+
+						"<label data-id='allergies' class='checked'>Allergies<img src='img/healthHub/CheckmarkOrange.png'/></label>";
 			
 			// close existing popup
 			if($('div #filterView').length > 0){

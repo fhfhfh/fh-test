@@ -1,13 +1,6 @@
 #viewBtn {
 	float: right;
-	padding: 5px;
-	background-color: #ababab;
-	border-radius: 5px;
-
-	&:hover{
-		background-color: #5b5b5b;
-	}
-
+	margin-right: 8px;
 }
 
 .dataGrid {
@@ -24,7 +17,7 @@
 		vertical-align: middle;
 
 		h2 {
-			.avenir-demi(14px);
+			.avenir-bold(14px);
 			color: #000000;
 		}
 	}
@@ -58,8 +51,8 @@
 
 #filterView {
 	position: absolute;
-	top: 160px;
-	left: 435px;
+	top: 40px;
+	left: 415px;
 	width: 200px;
 	text-align: center;
 	.background-gradient-slight(#2b6891, #000000);
@@ -73,7 +66,7 @@
 	}
 
 	#body {
-		.avenir-demi(12px);
+		.avenir-bold(12px);
 		text-align: left;
 		min-height: 100px;
 		background-color: #ffffff;
@@ -84,25 +77,11 @@
 		    padding: 0 0 0 0px;
 		}
 
-		// input[type=checkbox] + label {
-		// 	display:inline-block;
-		// }
-
-		// input[type=checkbox]:checked + label {
-		// 	display:inline-block;
-
-		// 	img {
-		// 		display: inline-block;
-		// 		background-color: #2a9c3b;
-		// 	}
-		// }
-
 		label.checked {
 			display: inline-block;
 
 			img{
 				display: inline-block;
-				background-color: #2a9c3b;
 			}
 		}
 
@@ -114,11 +93,25 @@
 			img {
 				float: right;
 				display: none;
-				background-color: #ffffff;
-				padding: 2px;
-				border-radius: 5px;
+				height: 25px;
 			}
 		}
 	}
 
+}
+
+#filterView:before {
+    border-bottom: 15px solid #2b6891;
+    border-right: 20px solid transparent;
+    border-left: 20px solid transparent;
+    // bottom: 151px;
+    top: -12px;
+    content: '';
+    position: absolute;
+    right: 3px;
+}
+#filterView:before {
+    // border-right: 25px solid hsla(0,0%,0%,.1);
+    // bottom: -28px;
+    // right: 22px;
 }

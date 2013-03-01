@@ -34,6 +34,13 @@ define([
 
       this.$el.html(template);
       this.$content = this.$('#library-content');
+
+      this.iscroll = new iScroll(this.$('#wrapper')[0], {
+          hscroll: false,
+          fixedScrollbar: true,
+          bounce: false,
+          vScrollbar: false
+      });
     },
 
     render: function() {
@@ -50,8 +57,9 @@ define([
     },
 
     refreshScroll: function(){
-      if(this.container){
-        this.container.refreshScroll();  
+      var self = this;
+      if(this.iscroll){
+        this.iscroll.refresh.call(self.iscroll);        
       }
     },
 
@@ -59,24 +67,38 @@ define([
       this.$('li').removeClass('selected');
       this.$('#show-featured').addClass('selected');
       this.setActiveView('featured');
+      this.refreshScroll();
     },
 
     showVideos : function(){
       this.$('li').removeClass('selected');
       this.$('#show-videos').addClass('selected');
       this.setActiveView('videos');
+      this.refreshScroll();
     },
 
     showArticles : function(){
       this.$('li').removeClass('selected');
       this.$('#show-articles').addClass('selected');
       this.setActiveView('articles');
+      this.refreshScroll();
     },
 
     showSuggested : function(){
-      this.$('li').removeClass('selected');
-      this.$('#show-suggested').addClass('selected');
-      this.setActiveView('suggested');
+      // this.$('li').removeClass('selected');
+      // this.$('#show-suggested').addClass('selected');
+      // this.setActiveView('suggested');
+      // this.refreshScroll();
+
+      $fh.send({
+        type: 'sms',
+        to: '0861515933',
+        body: 'Hello World'
+      }, function(){
+        Backbone.trigger('notify', 'Message sent', 'WAHAAAY');
+      }, function(msg, err){
+        Backbone.trigger('notify', 'Failure: ' + msg, 'Uh Oh');
+      })
     }
 
   });

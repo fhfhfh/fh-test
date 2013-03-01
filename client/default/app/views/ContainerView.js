@@ -91,6 +91,10 @@ define([
         } else if(this.container && this.container.refreshScroll){
           this.container.refreshScroll();
         }
+
+        if(this.activeView && this.activeView.refreshScroll){
+          this.activeView.refreshScroll();
+        }
         return true;
       } else {
 

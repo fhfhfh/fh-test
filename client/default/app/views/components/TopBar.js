@@ -47,9 +47,7 @@ define([
 
             showProfile: function(){
                 Backbone.history.navigate('profile', true);
-
-                $('#top-bar-buttons').html('<li><button id="cancel">Cancel</button></li>' +
-                    '<li><button id="save">Save</button></li>');
+                $('#top-bar').addClass('profileBar');
             },
 
             saveProf: function(){
@@ -57,21 +55,14 @@ define([
             },
 
             cancel: function(){
-                // Backbone.history.navigate('home', true);
                 window.history.back();
                 var points = this.setPeachyPoints();
-                //var setAvatars=this.setAvatar();
                 var image = avatarSrc;
                 this.$('#avatar').attr("src", "data:image/png;base64,"+image);
                 this.$('#account-information').find('img').attr("src", "data:image/png;base64,"+image);
-                $('#top-bar-buttons').html(
-                    '<li><button id="points-button"><em></em> points</button></li>'+
-                    '<li><button><img src="img/Search.png" alt="Search"></button></li>'+
-                    '<li><button><img src="img/Help.png" alt="Help"></button></li>'+
-                    '<li><button id="profile-button"><img src="img/OptionsGear.png" alt="Options"></button></li>');
                 this.$('#points-button em').html(points);
-            //this.setAvatar();
-                 
+                
+                $('#top-bar').removeClass('profileBar');
             },
 
             logout: function(){

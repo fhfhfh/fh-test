@@ -45,7 +45,6 @@ define(['jquery',
             render		: _render,		// return template
             populate 	: _populate, 	// Populate all detail fields
             saveDetails : _saveDetails,	// Save details to user model
-            cancel 		: _cancel,     // navigate back to home page
             popup       : _popup,		
             ageCalc     : _ageCalc,     // Calculate age of user based on DOB field
             showAddr    : _showAddr,   // Pop-up box to show all address fields
@@ -168,10 +167,6 @@ define(['jquery',
                 $('#confirmPassword_txt').val("").focus();
                 $('#confirmPassword_txt2').val("");
             }              
-        };
-        
-        function _cancel(){
-            Backbone.history.navigate('home', true);
         };
 
         function _ageCalc(){

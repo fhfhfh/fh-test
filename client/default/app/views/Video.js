@@ -93,7 +93,8 @@ define([
 
         close: function(){
             this.remove();
-            Backbone.history.navigate('home', true);
+            // Backbone.history.navigate('home', true);
+            window.history.back();
         }
     });
 });

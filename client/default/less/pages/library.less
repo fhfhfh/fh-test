@@ -1,0 +1,66 @@
+#cabinet {
+	width: 100%;
+	background: url('../img/cabinetBg.png') left top repeat;
+	border-radius: 8px;
+	color: #ffffff;
+	.avenir(12px);
+
+	#cabinetHeader {
+		border-bottom: 1px solid #000000;
+		box-shadow: 0 5px 20px #cbcbcb;
+		width: 100%;
+		text-align: center;
+		padding-bottom: 20px;
+
+		.cabinetFolder {
+			display: inline-block;
+			margin: 5px;
+			height: 120px;
+			width: 120px;
+			padding: 10px;
+			box-shadow: 0px 0px 2px #cdcdcd;
+			border-radius: 5px;
+			background-color: rgba(26, 26, 26, 0.25);
+			.avenir-bold(14px);
+			text-align: center;
+		}
+	}
+
+	#cabinetBody {
+		padding-top: 20px;
+		padding-bottom: 20px;
+		width: 100%;
+
+		.row {
+			height: 160px;
+			border-bottom: 1px solid #000000;
+			box-shadow: 0 5px 20px #cbcbcb;
+			padding-top: 20px;
+			padding-bottom: 10px;
+
+			.cabinetItem {
+				display: inline-block;
+				margin: 5px;
+				height: 120px;
+				width: 142px;
+				padding: 10px;
+				border-radius: 5px;
+				background-color: rgba(26, 26, 26, 0.25);
+				text-align: center;
+
+				.thumbnail {
+					height: 100px;
+					background: url('../img/AdPlaceholder.png') no-repeat;
+					background-size: 100px;
+					background-position: center;
+
+				}
+				.filetype {
+					float: right;
+					margin-top: 70px;
+					margin-right: 15px;
+				}
+			}
+		}
+	}
+}
