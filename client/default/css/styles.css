@@ -372,7 +372,7 @@ input {
   margin: 20px;
   color: white;
   padding: 5px 10px 5px 10px;
-  font: bold 14px "Avenir Next Bold", Helvetica, Arial, sans-serif;
+  font: bold 14px "Avenir Next", Helvetica, Arial, sans-serif;
   background-image: linear-gradient(bottom, #1f1f1f 0%, #525252 85%);
   background-image: -webkit-linear-gradient(bottom, #1f1f1f 0%, #525252 85%);
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #1f1f1f), color-stop(0.85, #525252));
@@ -390,7 +390,7 @@ input {
   margin: 10px;
   color: white;
   padding: 2px 5px 2px 5px;
-  font: bold 12px "Avenir Next Bold", Helvetica, Arial, sans-serif;
+  font: bold 12px "Avenir Next", Helvetica, Arial, sans-serif;
 }
 .decline {
   background-color: orange;
@@ -438,7 +438,7 @@ ul {
 section h1 {
   color: #2b6891;
   margin: 30px 0 20px 0;
-  font: bold 20px "Avenir Next Heavy", Helvetica, Arial, sans-serif;
+  font: bold 20px "Avenir Next", Helvetica, Arial, sans-serif;
 }
 .popup {
   display: none;
@@ -714,7 +714,7 @@ section h1 {
 #loading-snippet p {
   line-height: 1.5;
   margin-top: 2em;
-  font: bold 18px "Avenir Next Bold", Helvetica, Arial, sans-serif;
+  font: bold 18px "Avenir Next", Helvetica, Arial, sans-serif;
 }
 #loading-snippet p:nth-of-type(2n) {
   font: normal 18px "Avenir Next", Helvetica, Arial, sans-serif;
@@ -751,7 +751,7 @@ section h1 {
   background-image: linear-gradient(bottom, #f26622 0%, #feb000 85%);
   background-image: -webkit-linear-gradient(bottom, #f26622 0%, #feb000 85%);
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #f26622), color-stop(0.85, #feb000));
-  font: bold 14px "Avenir Next Bold", Helvetica, Arial, sans-serif;
+  font: bold 14px "Avenir Next", Helvetica, Arial, sans-serif;
 }
 #login button.login:active {
   background-image: linear-gradient(bottom, #feb000 0%, #f26622 85%);
@@ -832,7 +832,7 @@ section h1 {
   background-image: linear-gradient(bottom, #cccccc 0%, #ffffff 85%);
   background-image: -webkit-linear-gradient(bottom, #cccccc 0%, #ffffff 85%);
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #cccccc), color-stop(0.85, #ffffff));
-  font: bold 14px "Avenir Next Bold", Helvetica, Arial, sans-serif;
+  font: bold 14px "Avenir Next", Helvetica, Arial, sans-serif;
 }
 #content-tab-list li:active {
   background-image: linear-gradient(bottom, #ffffff 0%, #cccccc 85%);
@@ -856,7 +856,7 @@ section h1 {
   background-image: linear-gradient(bottom, #cccccc 0%, #ffffff 85%);
   background-image: -webkit-linear-gradient(bottom, #cccccc 0%, #ffffff 85%);
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #cccccc), color-stop(0.85, #ffffff));
-  font: bold 14px "Avenir Next Bold", Helvetica, Arial, sans-serif;
+  font: bold 14px "Avenir Next", Helvetica, Arial, sans-serif;
 }
 #content-tab-list4 li:active {
   background-image: linear-gradient(bottom, #ffffff 0%, #cccccc 85%);
@@ -961,7 +961,7 @@ li {
   padding: 10px;
 }
 #main-tabs li.selected {
-  font: bold 15px "Avenir Next Bold", Helvetica, Arial, sans-serif;
+  font: bold 15px "Avenir Next", Helvetica, Arial, sans-serif;
   border-radius: 5px;
   border: 2px solid #FFF1a0;
 }
@@ -985,7 +985,7 @@ li {
   width: 30%;
 }
 #general-body h2 {
-  font: bold 17px "Avenir Next Bold", Helvetica, Arial, sans-serif;
+  font: bold 17px "Avenir Next", Helvetica, Arial, sans-serif;
 }
 #general-body li {
   margin: 5px;
@@ -1127,7 +1127,7 @@ li {
   border: 1px solid #000000;
   margin: 10px 5px;
   padding: 5px;
-  font: bold 14px "Avenir Next Bold", Helvetica, Arial, sans-serif;
+  font: bold 14px "Avenir Next", Helvetica, Arial, sans-serif;
 }
 #passwordDiv label {
   float: left;
@@ -1332,7 +1332,7 @@ li {
   box-shadow: 0px 0px 2px #cdcdcd;
   border-radius: 5px;
   background-color: rgba(26, 26, 26, 0.25);
-  font: bold 14px "Avenir Next Bold", Helvetica, Arial, sans-serif;
+  font: bold 14px "Avenir Next", Helvetica, Arial, sans-serif;
   text-align: center;
 }
 #cabinet #cabinetBody {
@@ -1374,7 +1374,7 @@ li {
 #news-and-information h1 {
   color: #2b6891;
   margin: 30px 0 20px 0;
-  font: bold 20px "Avenir Next Heavy", Helvetica, Arial, sans-serif;
+  font: bold 20px "Avenir Next", Helvetica, Arial, sans-serif;
 }
 #news-and-information #headlines {
   list-style-type: none;
@@ -1410,7 +1410,7 @@ li {
   background-position: 97% center;
   background-repeat: no-repeat;
   padding: 10px;
-  font: bold 12px "Avenir Next Bold", Helvetica, Arial, sans-serif;
+  font: bold 12px "Avenir Next", Helvetica, Arial, sans-serif;
 }
 #news-and-information #headlines li .video-preview .title .duration {
   margin-left: 5px;
@@ -1433,7 +1433,7 @@ li {
   line-height: 2;
 }
 #news-and-information #headlines li .description .more {
-  font: bold 12px "Avenir Next Bold", Helvetica, Arial, sans-serif;
+  font: bold 12px "Avenir Next", Helvetica, Arial, sans-serif;
   color: #2b6891;
   text-decoration: none;
 }
@@ -1441,7 +1441,7 @@ li {
   -webkit-border-radius: 8px;
   border-radius: 8px;
   border: 2px solid #cdcdcd;
-  font: bold 16px "Avenir Next Bold", Helvetica, Arial, sans-serif;
+  font: bold 16px "Avenir Next", Helvetica, Arial, sans-serif;
   color: #b3b3b3;
   background-color: transparent;
   width: 100%;
@@ -1470,7 +1470,7 @@ li {
   text-shadow: 2px 2px 5px #000000, -2px 2px 5px #000000, 2px -2px 5px #000000, -2px -2px 5px #000000;
   background-color: #cdcdcd;
   display: inline-block;
-  font: bold 14px "Avenir Next Bold", Helvetica, Arial, sans-serif;
+  font: bold 14px "Avenir Next", Helvetica, Arial, sans-serif;
   z-index: 5;
 }
 #goals #grid .piece p {
@@ -1514,7 +1514,7 @@ li {
   -webkit-border-radius: 8px;
   border-radius: 8px;
   border: 2px solid #cdcdcd;
-  font: bold 16px "Avenir Next Bold", Helvetica, Arial, sans-serif;
+  font: bold 16px "Avenir Next", Helvetica, Arial, sans-serif;
   color: #b3b3b3;
   background-color: transparent;
   width: 100%;
@@ -1606,7 +1606,7 @@ li {
   padding: 30px 20px 15px 0px;
   display: block;
   margin: 0 auto;
-  font: bold 13px "Avenir Next Heavy", Helvetica, Arial, sans-serif;
+  font: bold 13px "Avenir Next", Helvetica, Arial, sans-serif;
 }
 #main-nav li.selected {
   border-top-left-radius: 8px;
@@ -1615,7 +1615,7 @@ li {
   color: #2f3137;
 }
 #main-nav li.selected h2 {
-  font: bold 13px "Avenir Next Bold", Helvetica, Arial, sans-serif;
+  font: bold 13px "Avenir Next", Helvetica, Arial, sans-serif;
 }
 #main-nav h2 {
   margin: 0;
@@ -1735,7 +1735,7 @@ li {
   border: 1px solid black;
   box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.15);
   color: #fff;
-  font: bold 13px "Avenir Next Bold", Helvetica, Arial, sans-serif;
+  font: bold 13px "Avenir Next", Helvetica, Arial, sans-serif;
   background-image: linear-gradient(bottom, #464646 0%, #1f1f1f 50%, #2e2e2e 51%, #525252 73%, #6b6b6b 100%);
   background-image: -webkit-linear-gradient(bottom, #464646 0%, #1f1f1f 50%, #2e2e2e 51%, #525252 73%, #6b6b6b 100%);
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #464646), color-stop(0.5, #1f1f1f), color-stop(0.51, #2e2e2e), color-stop(0.73, #525252), color-stop(1, #6b6b6b));
@@ -1757,7 +1757,7 @@ li {
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #000000), color-stop(0.85, #cdcdcd));
 }
 #top-bar-buttons li #points-button {
-  font: bold 13px "Avenir Next Bold", Helvetica, Arial, sans-serif;
+  font: bold 13px "Avenir Next", Helvetica, Arial, sans-serif;
   background-image: url('../img/PointsButtonWatermark.png'), linear-gradient(bottom, #464646 0%, #1f1f1f 50%, #2e2e2e 51%, #525252 73%, #6b6b6b 100%);
   background-image: url('../img/PointsButtonWatermark.png'), -webkit-linear-gradient(bottom, #464646 0%, #1f1f1f 50%, #2e2e2e 51%, #525252 73%, #6b6b6b 100%);
   background-image: url('../img/PointsButtonWatermark.png'), -webkit-gradient(linear, left bottom, left top, color-stop(0, #464646), color-stop(0.5, #1f1f1f), color-stop(0.51, #2e2e2e), color-stop(0.73, #525252), color-stop(1, #6b6b6b));
@@ -1852,7 +1852,6 @@ li {
 }
 #tableContainer #calTable .days td {
   vertical-align: top;
-  text-align: center;
 }
 #tableContainer #calTable .days td .day {
   float: right;
@@ -1900,9 +1899,8 @@ section#month h2 {
   padding-right: 30px;
 }
 #popDate {
-    text-align: left;
   position: absolute;
-  height: 250px;
+  height: 150px;
   width: 200px;
   padding: 10px;
   border: 2px solid #2b6891;
@@ -1912,12 +1910,12 @@ section#month h2 {
 }
 #popDate h3 {
   display: inline;
-  font: bold 14px "Avenir Next Bold", Helvetica, Arial, sans-serif;
+  font: bold 14px "Avenir Next", Helvetica, Arial, sans-serif;
 }
 #popDate img {
   float: right;
-  height: 15px;
-  width: 15px;
+  height: 30px;
+  width: 30px;
 }
 #popDate li {
   list-style: disc;
@@ -1963,6 +1961,57 @@ section#month h2 {
 section#insights img {
   width: 576px;
   margin-top: 20px;
+}
+.popup_wrapper {
+  display: none;
+  height: 100%;
+  background: lightgray;
+  left: 0;
+  top: 0;
+  opacity: 0.5;
+  position: fixed;
+  width: 100%;
+}
+#evt_div {
+  position: fixed;
+  background-image: linear-gradient(bottom, #464646 0%, #1f1f1f 65%, #2e2e2e 21%, #525252 90%, #6b6b6b 100%);
+  background-image: -webkit-linear-gradient(bottom, #464646 0%, #1f1f1f 65%, #2e2e2e 21%, #525252 90%, #6b6b6b 100%);
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #464646), color-stop(0.65, #1f1f1f), color-stop(0.21, #2e2e2e), color-stop(0.9, #525252), color-stop(1, #6b6b6b));
+  z-index: 15;
+  height: 70%;
+  width: 35%;
+  display: block;
+  color: black;
+  display: none;
+  top: 15%;
+  left: 25%;
+  -moz-border-radius: 20px;
+  -webkit-border-radius: 20px;
+  box-shadow: 10px 10px 5px #888888;
+  border: 1px solid #888888;
+}
+#evt_form li {
+  display: block;
+  background-color: #ffffff;
+  margin: 10px 5px;
+  padding: 8px;
+  padding-right: 0px;
+  background-color: #fff;
+  border-radius: 5px;
+  border: 1px solid #c0c0c0;
+}
+#evt_form li label {
+  color: #000000;
+  padding-right: 10px;
+  float: left;
+  width: 125px;
+  font: normal 13px "Avenir Next", Helvetica, Arial, sans-serif;
+}
+#evt_div h1 {
+  text-shadow: 2px 2px #000000;
+  font: bold 16px "Avenir Next Heavy", Helvetica, Arial, sans-serif;
+  color: #ffffff;
+  padding-bottom: 20px;
 }
 #viewBtn {
   float: right;
@@ -2057,61 +2106,4 @@ section#insights img {
   content: '';
   position: absolute;
   right: 3px;
-}
-
-
-.popup_wrapper {
-display : none;
-height: 100%;
-background: lightgray;
-left: 0;
-top: 0;
-opacity: 0.5;
-position: fixed;
-width: 100%;
-}
-
-#evt_div {
-position: fixed;
-background-image: linear-gradient(bottom, #464646 0%, #1f1f1f 65%, #2e2e2e 21%, #525252 90%, #6b6b6b 100%);
-  background-image: -webkit-linear-gradient(bottom, #464646 0%, #1f1f1f 65%, #2e2e2e 21%, #525252 90%, #6b6b6b 100%);
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #464646), color-stop(0.65, #1f1f1f), color-stop(0.21, #2e2e2e), color-stop(0.9, #525252), color-stop(1, #6b6b6b));
-z-index: 15;
-height: 70%;
-width: 35%;
-display: block;
-color: black;
-display: none;
-top: 15%;
-left: 25%;
--moz-border-radius: 20px;
--webkit-border-radius: 20px;
-box-shadow: 10px 10px 5px #888888;
- border: 1px solid #888888;
-}
-
-#evt_form li {
-  display: block;
-  background-color: #ffffff;
-  margin: 10px 5px;
-  padding: 8px;
-  padding-right: 0px;
-  background-color: #fff;
-  border-radius: 5px;
-  border: 1px solid #c0c0c0;
-}
-#evt_form li label {
-  color: #000000;
-  padding-right: 10px;
-  float: left;
-  width: 125px;
-  font: normal 13px "Avenir Next", Helvetica, Arial, sans-serif;
-}
-
-#evt_div h1{
-    text-shadow: 2px 2px #000000;
-  font: bold 16px "Avenir Next Heavy", Helvetica, Arial, sans-serif;
-  color: #ffffff;
-  padding-bottom: 20px;
-  
 }
