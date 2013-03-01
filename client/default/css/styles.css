@@ -1868,10 +1868,10 @@ section#month h2 {
   bottom: -19px;
   left: 30px;
 }
-section#insights img {
+/*section#insights img {
   width: 576px;
   margin-top: 20px;
-}
+}*/
 #viewBtn {
   float: right;
   padding: 5px;
@@ -2021,4 +2021,12 @@ box-shadow: 10px 10px 5px #888888;
   color: #ffffff;
   padding-bottom: 20px;
   
+}
+
+
+
+#insight_div{
+    -webkit-border-radius: 20px;
+    box-shadow: -4px 0px 0px rgb(180, 180, 180);
+margin-left: 7px;
 }
