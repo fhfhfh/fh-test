@@ -16,11 +16,11 @@ define([
             avatarSrc : "",
             peachyPoints : "",
             events: {
-                'click #profile-button' : 'showProfile',
-                'click #save'   : 'saveProf',
-                'click #cancel' : 'cancel',
-                'click #logo'   : 'logout',
-                'click #points-button'	        : 'setPeachyPoints'
+                'click #profile-button': 'showProfile',
+                'click #save'          : 'saveProf',
+                'click #cancel'        : 'cancel',
+                'click #logo'          : 'logout',
+                'click #points-button' : 'setPeachyPoints'
             },
 
             initialize: function() {
@@ -57,7 +57,7 @@ define([
             cancel: function(){
                 window.history.back();
                 var points = this.setPeachyPoints();
-                var image = avatarSrc;
+                var image = this.avatarSrc;
                 this.$('#avatar').attr("src", "data:image/png;base64,"+image);
                 this.$('#account-information').find('img').attr("src", "data:image/png;base64,"+image);
                 this.$('#points-button em').html(points);
