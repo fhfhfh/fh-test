@@ -1,7 +1,7 @@
-<img src="img/calendar/IconCalendar.png" align ="right">
+<img id="insight_options" src="img/calendar/IconCalendar.png" align ="right">
 <h1>Today is <%= this.dayWeek%>,<%= this.monthName[this.month]+" "+this.day+", "+this.year%> </h1>
 <!--<img src="img/calendar/insights.png"/>-->
-<div id="insight_div" style="background-color: lightgrey;height:400px">
+<div id="insight_div">
     <div align="center" style="padding-top: 30px">
         <table>
             <tr>
@@ -12,8 +12,30 @@
                             This Week
                 </td>
             </tr>
-            <tr><td style="vertical-align: top;font-size: 30px;"> DOING GREAT</td></tr>
+            <tr><td style="vertical-align: top;font-size: 30px;font-weight: bold"> DOING GREAT</td></tr>
         </table>
         
+    </div>
+    <div id="insight_graph">
+        
+    </div>
+    <div id="mood_section">
+        <table>
+            <tr>
+                <td id="mood_img">
+                    <img src="img/calendar/FaceHappy.png">
+                </td>
+                <td id="mood_head_line">This week you're feeling better than your average.</td>
+                      </tr>
+                      <tr>
+                          <td></td>
+                          <td id="mood_desc">Your confidence is up and you're energy level are high.</td>
+                      </tr>
+        </table>
+    </div>
+</div>
+<div>
+    <div class="insight_list" style="height: 200px" border="bold">
+                
     </div>
 </div>
