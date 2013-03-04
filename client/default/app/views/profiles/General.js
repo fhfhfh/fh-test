@@ -245,7 +245,7 @@ define(['jquery',
             // ----------------------------------------------------------
 
             var box = this.$('#physicianBox');
-            box.html();
+            box.html('');
 
             for(var i=0; i<d2.length; i++){
                 var item = d2[i];
@@ -264,7 +264,7 @@ define(['jquery',
             // ----------------------------------------------------------
 
             var box = this.$('#linkedBox');
-            box.html();
+            box.html('');
 
             for(var i=0; i<d3.length; i++){
                 var item = d3[i];

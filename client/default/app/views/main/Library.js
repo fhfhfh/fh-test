@@ -15,10 +15,10 @@ define([
     id		: 'library',
 
     events : {
-      'click #show-featured'	: 'showFeatured',
-      'click #show-videos'		: 'showVideos',
-      'click #show-articles'	: 'showArticles',
-      'click #show-suggested'	: 'showSuggested'
+      'click #show-myMedia'    : 'showFeatured',
+      'click #show-readingRoom': 'showVideos',
+      'click #show-research'   : 'showArticles',
+      'click #show-suggested'  : 'showSuggested'
     },
 
     subViews: {
@@ -65,40 +65,30 @@ define([
 
     showFeatured : function(){
       this.$('li').removeClass('selected');
-      this.$('#show-featured').addClass('selected');
+      this.$('#show-myMedia').addClass('selected');
       this.setActiveView('featured');
       this.refreshScroll();
     },
 
     showVideos : function(){
       this.$('li').removeClass('selected');
-      this.$('#show-videos').addClass('selected');
+      this.$('#show-readingRoom').addClass('selected');
       this.setActiveView('videos');
       this.refreshScroll();
     },
 
     showArticles : function(){
       this.$('li').removeClass('selected');
-      this.$('#show-articles').addClass('selected');
+      this.$('#show-research').addClass('selected');
       this.setActiveView('articles');
       this.refreshScroll();
     },
 
     showSuggested : function(){
-      // this.$('li').removeClass('selected');
-      // this.$('#show-suggested').addClass('selected');
-      // this.setActiveView('suggested');
-      // this.refreshScroll();
-
-      $fh.send({
-        type: 'sms',
-        to: '0861515933',
-        body: 'Hello World'
-      }, function(){
-        Backbone.trigger('notify', 'Message sent', 'WAHAAAY');
-      }, function(msg, err){
-        Backbone.trigger('notify', 'Failure: ' + msg, 'Uh Oh');
-      })
+      this.$('li').removeClass('selected');
+      this.$('#show-suggested').addClass('selected');
+      this.setActiveView('suggested');
+      this.refreshScroll();
     }
 
   });
