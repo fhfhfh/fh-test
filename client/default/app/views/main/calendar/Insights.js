@@ -14,6 +14,7 @@ define(['jquery',
 		tagName		: 'section',
 	    id			: 'insights',
 	    events		: {
+                'click .insight_list '	: 'eventsOn'
 	    },
             monthName: [
             'January', 'Febuary', 'March', 'April', 'May', 'June', 'July', 'August', 'September',
@@ -43,6 +44,9 @@ define(['jquery',
                         this.renderIns();
                         return this;
 		},
+                eventsOn: function(){
+                  alert("No Information available");  
+                },
                 
                 renderIns: function(){
                     

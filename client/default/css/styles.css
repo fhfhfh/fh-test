@@ -2113,7 +2113,7 @@ section#month h2 {
     -webkit-border-radius: 10px;
     box-shadow: -2px 4px 4px #888888;
     margin-left : 15px;
-        
+
 }
 
 #mood_section{
@@ -2135,27 +2135,45 @@ section#month h2 {
     height: 45%;
     background-color: white;
     margin-top: 15px;
-     box-shadow: -12px 0px 12px white;
-       border-top: 5px solid lightgray;
+    box-shadow: -12px 0px 12px white;
+    border-top: 5px solid lightgray;
     border-bottom: 5px solid lightgray;
 }
 
 section#insights h1 {
-  margin-left: 50px;
+    margin-left: 50px;
 }
 
 #insight_options {
- 
-  margin-right: 40px;
+
+    margin-right: 40px;
 }
 
 #insight_div{
     background-color: #ebebeb;
     height: 441px;
-    
+
 }
 
 #mood_img img{
-   padding-right: 8px;
-   height: 25px;
+    padding-right: 8px;
+    height: 25px;
+}
+
+.insight_list{
+    border: 2px solid lightgray;
+    height: 70px;
+        -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    padding: 25px 0 0 20px;
+    margin-bottom: 10px;
+    font-size: 17px;
+}
+
+.insight_list table td {
+padding:10px;
+}
+
+.insight_list table img{
+    height: 25px;
 }
