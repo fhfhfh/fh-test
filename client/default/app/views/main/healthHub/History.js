@@ -7,7 +7,8 @@ define(['jquery',
         'backbone',
         'text!templates/components/History.html',
         'text!templates/popups/FilterView.html',
-], function($, _, Backbone, tpl, filterTpl) {
+        'text!templates/components/HealthHubRow.html',
+], function($, _, Backbone, tpl, filterTpl, rowTpl) {
 
 	return Backbone.View.extend({
 
@@ -24,14 +25,12 @@ define(['jquery',
 
 		initialize : function(){
 			_.bindAll(this);
-                        
+			this.$el.html(this.template());                        
 		},
 
 		render: function(){
-			var self = this;
-			this.$el.html(this.template());
-                        return this;
-                        setValue();
+			this.populate();
+            return this;
 		},
 
 		showFilter: function(){
@@ -56,11 +55,39 @@ define(['jquery',
 
 			$('#' +div).toggle();
 			this.container.refreshScroll();
-		}
-                
+		},
 
+		// Force param is a boolean, to say whether to force a refresh of data or not
+		populate: function(force){
+			var self = this;
+			var data = this.container.healthHubData;
+			var row = _.template(rowTpl);
+			if(data){
+
+				// Family History
+				if(force || self.$('#familyHistory #body #row').length < 1){
+					self.$('#familyHistory #body #row').remove();
+					var str = '';
+					for(var i=0; i<data.familyHistories.length; i++){
+
+						str += row({name: data.familyHistories[i].familyMember, 
+									value: data.familyHistories[i].diagnosis});
+				    }
+				    self.$('#familyHistory #body').append(str);
+				}
+
+				// Social History
+				if(force || self.$('#socialHistory #body #row').length < 1){
+					self.$('#socialHistory #body #row').remove();
+					var str = '';
+					for(var i=0; i<data.socialHistories.length; i++){
+
+						str += row({name: data.socialHistories[i].socialHistoryElement, 
+									value: data.socialHistories[i].description});			    
+				    }
+				    self.$('#socialHistory #body').append(str);
+				}
+			}
+		}  
 	});
-        
-           
-       
 });
