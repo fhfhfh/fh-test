@@ -3,7 +3,7 @@ define([
     'underscore',
     'backbone',
     'views/ContainerView',
-    'views/profiles/General',
+    'views/profile/General',
     'text!templates/pages/Profile.html'
 ], function($, _, Backbone, ContainerView, GeneralView, template) {
 
