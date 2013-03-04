@@ -2168,6 +2168,7 @@ section#insights h1 {
     padding: 25px 0 0 20px;
     margin-bottom: 10px;
     font-size: 14px;
+    font-weight: bold;
 }
 
 .insight_list table td {
