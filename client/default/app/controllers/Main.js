@@ -15,7 +15,8 @@ define(['jquery',
         'models/Problems',
         'models/Procedures',
         'models/SocialHistory',
-], function($, _, User, Avatars, Vitals, Allergies, Encounters, FamilyHistory, Immunizations, Problems, Procedures, SocialHistory) {
+        'controllers/HealthHub'
+], function($, _, User, Avatars, Vitals, Allergies, Encounters, FamilyHistory, Immunizations, Problems, Procedures, SocialHistory, HealthHub) {
 
 	// initialise models etc...
 	var vitals			= new Vitals();
@@ -34,11 +35,12 @@ define(['jquery',
 
 		fetchAll : function(){
 			Avatars.loadAvatars(function(){});
-			vitals.fetch();
+			HealthHub.loadHealthHub(function(){});
+			// vitals.fetch();
 			// allergies.fetch();
 			// encounters.fetch();
 			// fHistory.fetch();
-			immunizations.fetch();
+			// immunizations.fetch();
 			// problems.fetch();
 			// procedures.fetch();
 			// sHistory.fetch();

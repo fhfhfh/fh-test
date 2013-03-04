@@ -66,6 +66,8 @@ define([
           return true;
         }
         this.activeView = this.subViews[view];
+        this.activeView.container = this;
+        
         if (this.$nav) {
           this.$nav.find('a').each(function() {
 
@@ -84,7 +86,6 @@ define([
         }
 
         this.activeView.delegateEvents();
-        this.activeView.container = this;
         
         if (this.refreshScroll) {
           this.refreshScroll();
