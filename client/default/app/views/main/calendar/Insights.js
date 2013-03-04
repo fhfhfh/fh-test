@@ -29,7 +29,7 @@ define(['jquery',
                 this.date		= date;
                 this.month		= date.getMonth();
                 this.year		= date.getFullYear();
-                this.day                = date.getDay();
+                this.day                = date.getDate();
                 this.dayWeek            = this.monthDays[date.getUTCDay()];
 			this.date = new Date().toString('dddd, MMMM ,yyyy');
 		},
@@ -40,8 +40,13 @@ define(['jquery',
 			this.$el.html(this.template({
 				today: self.date
 			}));
+                        this.renderIns();
                         return this;
-		}
+		},
+                
+                renderIns: function(){
+                    
+                }
 
 	});
 });

@@ -1,14 +1,14 @@
 /*
  * This is the main 'hub' for all of our LESS styles. Styles are imported here
  * in the correct order, and the file may be overridden per target device.
- */
+*/
 /*! normalize.css v2.0.1 | MIT License | git.io/normalize */
 /* ==========================================================================
    HTML5 display definitions
    ========================================================================== */
 /*
  * Corrects `block` display not defined in IE 8/9.
- */
+*/
 article,
 aside,
 details,
@@ -20,29 +20,29 @@ hgroup,
 nav,
 section,
 summary {
-  display: block;
+    display: block;
 }
 /*
  * Corrects `inline-block` display not defined in IE 8/9.
- */
+*/
 audio,
 canvas,
 video {
-  display: inline-block;
+    display: inline-block;
 }
 /*
  * Prevents modern browsers from displaying `audio` without controls.
  * Remove excess height in iOS 5 devices.
- */
+*/
 audio:not([controls]) {
-  display: none;
-  height: 0;
+    display: none;
+    height: 0;
 }
 /*
  * Addresses styling for `hidden` attribute not present in IE 8/9.
- */
+*/
 [hidden] {
-  display: none;
+    display: none;
 }
 /* ==========================================================================
    Base
@@ -51,37 +51,37 @@ audio:not([controls]) {
  * 1. Sets default font family to sans-serif.
  * 2. Prevents iOS text size adjust after orientation change, without disabling
  *    user zoom.
- */
+*/
 html {
-  font-family: sans-serif;
-  /* 1 */
+    font-family: sans-serif;
+    /* 1 */
 
-  -webkit-text-size-adjust: 100%;
-  -ms-text-size-adjust: 100%;
-  /* 2 */
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    /* 2 */
 
 }
 /*
  * Removes default margin.
- */
+*/
 body {
-  margin: 0;
+    margin: 0;
 }
 /* ==========================================================================
    Links
    ========================================================================== */
 /*
  * Addresses `outline` inconsistency between Chrome and other browsers.
- */
+*/
 a:focus {
-  outline: thin dotted;
+    outline: thin dotted;
 }
 /*
  * Improves readability when focused and also mouse hovered in all browsers.
- */
+*/
 a:active,
 a:hover {
-  outline: 0;
+    outline: 0;
 }
 /* ==========================================================================
    Typography
@@ -89,155 +89,155 @@ a:hover {
 /*
  * Addresses `h1` font sizes within `section` and `article` in Firefox 4+,
  * Safari 5, and Chrome.
- */
+*/
 h1 {
-  font-size: 2em;
+    font-size: 2em;
 }
 /*
  * Addresses styling not present in IE 8/9, Safari 5, and Chrome.
- */
+*/
 abbr[title] {
-  border-bottom: 1px dotted;
+    border-bottom: 1px dotted;
 }
 /*
  * Addresses style set to `bolder` in Firefox 4+, Safari 5, and Chrome.
- */
+*/
 b,
 strong {
-  font-weight: bold;
+    font-weight: bold;
 }
 /*
  * Addresses styling not present in Safari 5 and Chrome.
- */
+*/
 dfn {
-  font-style: italic;
+    font-style: italic;
 }
 /*
  * Addresses styling not present in IE 8/9.
- */
+*/
 mark {
-  background: #ff0;
-  color: #000;
+    background: #ff0;
+    color: #000;
 }
 /*
  * Corrects font family set oddly in Safari 5 and Chrome.
- */
+*/
 code,
 kbd,
 pre,
 samp {
-  font-family: monospace, serif;
-  font-size: 1em;
+    font-family: monospace, serif;
+    font-size: 1em;
 }
 /*
  * Improves readability of pre-formatted text in all browsers.
- */
+*/
 pre {
-  white-space: pre;
-  white-space: pre-wrap;
-  word-wrap: break-word;
+    white-space: pre;
+    white-space: pre-wrap;
+    word-wrap: break-word;
 }
 /*
  * Sets consistent quote types.
- */
+*/
 q {
-  quotes: "\201C" "\201D" "\2018" "\2019";
+    quotes: "\201C" "\201D" "\2018" "\2019";
 }
 /*
  * Addresses inconsistent and variable font size in all browsers.
- */
+*/
 small {
-  font-size: 80%;
+    font-size: 80%;
 }
 /*
  * Prevents `sub` and `sup` affecting `line-height` in all browsers.
- */
+*/
 sub,
 sup {
-  font-size: 75%;
-  line-height: 0;
-  position: relative;
-  vertical-align: baseline;
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
 }
 sup {
-  top: -0.5em;
+    top: -0.5em;
 }
 sub {
-  bottom: -0.25em;
+    bottom: -0.25em;
 }
 /* ==========================================================================
    Embedded content
    ========================================================================== */
 /*
  * Removes border when inside `a` element in IE 8/9.
- */
+*/
 img {
-  border: 0;
+    border: 0;
 }
 /*
  * Corrects overflow displayed oddly in IE 9.
- */
+*/
 svg:not(:root) {
-  overflow: hidden;
+    overflow: hidden;
 }
 /* ==========================================================================
    Figures
    ========================================================================== */
 /*
  * Addresses margin not present in IE 8/9 and Safari 5.
- */
+*/
 figure {
-  margin: 0;
+    margin: 0;
 }
 /* ==========================================================================
    Forms
    ========================================================================== */
 /*
  * Define consistent border, margin, and padding.
- */
+*/
 fieldset {
-  border: 1px solid #c0c0c0;
-  margin: 0 2px;
-  padding: 0.35em 0.625em 0.75em;
+    border: 1px solid #c0c0c0;
+    margin: 0 2px;
+    padding: 0.35em 0.625em 0.75em;
 }
 /*
  * 1. Corrects color not being inherited in IE 8/9.
  * 2. Remove padding so people aren't caught out if they zero out fieldsets.
- */
+*/
 legend {
-  border: 0;
-  /* 1 */
+    border: 0;
+    /* 1 */
 
-  padding: 0;
-  /* 2 */
+    padding: 0;
+    /* 2 */
 
 }
 /*
  * 1. Corrects font family not being inherited in all browsers.
  * 2. Corrects font size not being inherited in all browsers.
  * 3. Addresses margins set differently in Firefox 4+, Safari 5, and Chrome
- */
+*/
 button,
 input,
 select,
 textarea {
-  font-family: inherit;
-  /* 1 */
+    font-family: inherit;
+    /* 1 */
 
-  font-size: 100%;
-  /* 2 */
+    font-size: 100%;
+    /* 2 */
 
-  margin: 0;
-  /* 3 */
+    margin: 0;
+    /* 3 */
 
 }
 /*
  * Addresses Firefox 4+ setting `line-height` on `input` using `!important` in
  * the UA stylesheet.
- */
+*/
 button,
 input {
-  line-height: normal;
+    line-height: normal;
 }
 /*
  * 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio`
@@ -245,79 +245,79 @@ input {
  * 2. Corrects inability to style clickable `input` types in iOS.
  * 3. Improves usability and consistency of cursor style between image-type
  *    `input` and others.
- */
+*/
 button,
 html input[type="button"],
 input[type="reset"],
 input[type="submit"] {
-  -webkit-appearance: button;
-  /* 2 */
+    -webkit-appearance: button;
+    /* 2 */
 
-  cursor: pointer;
-  /* 3 */
+    cursor: pointer;
+    /* 3 */
 
 }
 /*
  * Re-set default cursor for disabled elements.
- */
+*/
 button[disabled],
 input[disabled] {
-  cursor: default;
+    cursor: default;
 }
 /*
  * 1. Addresses box sizing set to `content-box` in IE 8/9.
  * 2. Removes excess padding in IE 8/9.
- */
+*/
 input[type="checkbox"],
 input[type="radio"] {
-  box-sizing: border-box;
-  /* 1 */
+    box-sizing: border-box;
+    /* 1 */
 
-  padding: 0;
-  /* 2 */
+    padding: 0;
+    /* 2 */
 
 }
 /*
  * 1. Addresses `appearance` set to `searchfield` in Safari 5 and Chrome.
  * 2. Addresses `box-sizing` set to `border-box` in Safari 5 and Chrome
  *    (include `-moz` to future-proof).
- */
+*/
 input[type="search"] {
-  -webkit-appearance: textfield;
-  /* 1 */
+    -webkit-appearance: textfield;
+    /* 1 */
 
-  -moz-box-sizing: content-box;
-  -webkit-box-sizing: content-box;
-  /* 2 */
+    -moz-box-sizing: content-box;
+    -webkit-box-sizing: content-box;
+    /* 2 */
 
-  box-sizing: content-box;
+    box-sizing: content-box;
 }
 /*
  * Removes inner padding and search cancel button in Safari 5 and Chrome
  * on OS X.
- */
+*/
 input[type="search"]::-webkit-search-cancel-button,
 input[type="search"]::-webkit-search-decoration {
-  -webkit-appearance: none;
+    -webkit-appearance: none;
 }
 /*
  * Removes inner padding and border in Firefox 4+.
- */
+*/
 button::-moz-focus-inner,
 input::-moz-focus-inner {
-  border: 0;
-  padding: 0;
+    border: 0;
+    padding: 0;
 }
 /*
  * 1. Removes default vertical scrollbar in IE 8/9.
  * 2. Improves readability and alignment in all browsers.
- */
+*/
 textarea {
-  overflow: auto;
-  /* 1 */
+    overflow: auto;
+    /* 1 */
 
-  vertical-align: top;
-  /* 2 */
+    vertical-align: top;
+    /* 2 */
 
 }
 /* ==========================================================================
@@ -325,1785 +325,1837 @@ textarea {
    ========================================================================== */
 /*
  * Remove most spacing between table cells.
- */
+*/
 table {
-  border-collapse: collapse;
-  border-spacing: 0;
+    border-collapse: collapse;
+    border-spacing: 0;
 }
 /*
  * Mixins for CSS3 properties and various reusable styles for the app.
  * TODO: Move CSS3 mixins into their own file.
- */
+*/
 * {
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  user-select: none;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
 }
 input,
 textarea {
-  -webkit-user-select: text;
-  user-select: text;
+    -webkit-user-select: text;
+    user-select: text;
 }
 html,
 body,
 #content,
 #content > section {
-  height: 100%;
-  overflow: hidden;
-  position: relative;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
 }
 body {
-  color: #fff;
-  background: url('../img/backgrounds/BackgroundTileGray.png') left top repeat;
-  font: normal 16px "Avenir Next", Helvetica, Arial, sans-serif;
+    color: #fff;
+    background: url('../img/backgrounds/BackgroundTileGray.png') left top repeat;
+    font: normal 16px "Avenir Next", Helvetica, Arial, sans-serif;
 }
 textarea,
 input {
-  outline: none;
+    outline: none;
 }
 .btn {
-  border-radius: 5px;
-  border: 1px solid black;
-  box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.15);
-  height: 30px;
-  margin: 20px;
-  color: white;
-  padding: 5px 10px 5px 10px;
-  font: bold 14px "Avenir Next", Helvetica, Arial, sans-serif;
-  background-image: linear-gradient(bottom, #1f1f1f 0%, #525252 85%);
-  background-image: -webkit-linear-gradient(bottom, #1f1f1f 0%, #525252 85%);
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #1f1f1f), color-stop(0.85, #525252));
+    border-radius: 5px;
+    border: 1px solid black;
+    box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.15);
+    height: 30px;
+    margin: 20px;
+    color: white;
+    padding: 5px 10px 5px 10px;
+    font: bold 14px "Avenir Next", Helvetica, Arial, sans-serif;
+    background-image: linear-gradient(bottom, #1f1f1f 0%, #525252 85%);
+    background-image: -webkit-linear-gradient(bottom, #1f1f1f 0%, #525252 85%);
+    background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #1f1f1f), color-stop(0.85, #525252));
 }
 .btn:active {
-  background-image: linear-gradient(bottom, #525252 0%, #1f1f1f 85%);
-  background-image: -webkit-linear-gradient(bottom, #525252 0%, #1f1f1f 85%);
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #525252), color-stop(0.85, #1f1f1f));
+    background-image: linear-gradient(bottom, #525252 0%, #1f1f1f 85%);
+    background-image: -webkit-linear-gradient(bottom, #525252 0%, #1f1f1f 85%);
+    background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #525252), color-stop(0.85, #1f1f1f));
 }
 .btnSmall {
-  display: inline;
-  border-radius: 5px;
-  border: 1px solid #d38800;
-  height: 20px;
-  margin: 10px;
-  color: white;
-  padding: 2px 5px 2px 5px;
-  font: bold 12px "Avenir Next", Helvetica, Arial, sans-serif;
+    display: inline;
+    border-radius: 5px;
+    border: 1px solid #d38800;
+    height: 20px;
+    margin: 10px;
+    color: white;
+    padding: 2px 5px 2px 5px;
+    font: bold 12px "Avenir Next", Helvetica, Arial, sans-serif;
 }
 .decline {
-  background-color: orange;
-  background-image: linear-gradient(bottom, #f26622 0%, #feb000 85%);
-  background-image: -webkit-linear-gradient(bottom, #f26622 0%, #feb000 85%);
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #f26622), color-stop(0.85, #feb000));
-  border: 1px solid #d38800;
+    background-color: orange;
+    background-image: linear-gradient(bottom, #f26622 0%, #feb000 85%);
+    background-image: -webkit-linear-gradient(bottom, #f26622 0%, #feb000 85%);
+    background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #f26622), color-stop(0.85, #feb000));
+    border: 1px solid #d38800;
 }
 .decline:active {
-  background-image: linear-gradient(bottom, #feb000 0%, #f26622 85%);
-  background-image: -webkit-linear-gradient(bottom, #feb000 0%, #f26622 85%);
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #feb000), color-stop(0.85, #f26622));
+    background-image: linear-gradient(bottom, #feb000 0%, #f26622 85%);
+    background-image: -webkit-linear-gradient(bottom, #feb000 0%, #f26622 85%);
+    background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #feb000), color-stop(0.85, #f26622));
 }
 .accept {
-  background-color: green;
-  background-image: linear-gradient(bottom, #1aa807 0%, #1eff00 85%);
-  background-image: -webkit-linear-gradient(bottom, #1aa807 0%, #1eff00 85%);
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #1aa807), color-stop(0.85, #1eff00));
-  border: 1px solid #1AA807;
+    background-color: green;
+    background-image: linear-gradient(bottom, #1aa807 0%, #1eff00 85%);
+    background-image: -webkit-linear-gradient(bottom, #1aa807 0%, #1eff00 85%);
+    background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #1aa807), color-stop(0.85, #1eff00));
+    border: 1px solid #1AA807;
 }
 .accept:active {
-  background-image: linear-gradient(bottom, #1eff00 0%, #1aa807 85%);
-  background-image: -webkit-linear-gradient(bottom, #1eff00 0%, #1aa807 85%);
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #1eff00), color-stop(0.85, #1aa807));
+    background-image: linear-gradient(bottom, #1eff00 0%, #1aa807 85%);
+    background-image: -webkit-linear-gradient(bottom, #1eff00 0%, #1aa807 85%);
+    background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #1eff00), color-stop(0.85, #1aa807));
 }
 .action {
-  background-color: #7fb0db;
-  background-image: linear-gradient(bottom, #1f1f1f 0%, #7fb0db 85%);
-  background-image: -webkit-linear-gradient(bottom, #1f1f1f 0%, #7fb0db 85%);
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #1f1f1f), color-stop(0.85, #7fb0db));
-  border: 1px solid #1f1f1f;
+    background-color: #7fb0db;
+    background-image: linear-gradient(bottom, #1f1f1f 0%, #7fb0db 85%);
+    background-image: -webkit-linear-gradient(bottom, #1f1f1f 0%, #7fb0db 85%);
+    background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #1f1f1f), color-stop(0.85, #7fb0db));
+    border: 1px solid #1f1f1f;
 }
 .action:active {
-  background-image: linear-gradient(bottom, #7fb0db 0%, #1f1f1f 85%);
-  background-image: -webkit-linear-gradient(bottom, #7fb0db 0%, #1f1f1f 85%);
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #7fb0db), color-stop(0.85, #1f1f1f));
+    background-image: linear-gradient(bottom, #7fb0db 0%, #1f1f1f 85%);
+    background-image: -webkit-linear-gradient(bottom, #7fb0db 0%, #1f1f1f 85%);
+    background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #7fb0db), color-stop(0.85, #1f1f1f));
 }
 .fc-content {
-  min-height: 300px !important;
+    min-height: 300px !important;
 }
 ul {
-  margin: 0;
-  padding: 0;
+    margin: 0;
+    padding: 0;
 }
 section h1 {
-  color: #2b6891;
-  margin: 30px 0 20px 0;
-  font: bold 20px "Avenir Next", Helvetica, Arial, sans-serif;
+    color: #2b6891;
+    margin: 30px 0 20px 0;
+    font: bold 20px "Avenir Next", Helvetica, Arial, sans-serif;
 }
 .popup {
-  display: none;
-  position: absolute;
-  top: 300px;
-  left: 30%;
-  width: 40%;
-  z-index: 10;
-  border: none;
-  text-align: center;
-  background-image: linear-gradient(bottom, #464646 0%, #1f1f1f 65%, #2e2e2e 21%, #525252 90%, #6b6b6b 100%);
-  background-image: -webkit-linear-gradient(bottom, #464646 0%, #1f1f1f 65%, #2e2e2e 21%, #525252 90%, #6b6b6b 100%);
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #464646), color-stop(0.65, #1f1f1f), color-stop(0.21, #2e2e2e), color-stop(0.9, #525252), color-stop(1, #6b6b6b));
-  border-radius: 10px;
-  padding: 5px;
-  box-shadow: 2px 2px 5px #000000;
-  font: normal 13px "Avenir Next", Helvetica, Arial, sans-serif;
+    display: none;
+    position: absolute;
+    top: 300px;
+    left: 30%;
+    width: 40%;
+    z-index: 10;
+    border: none;
+    text-align: center;
+    background-image: linear-gradient(bottom, #464646 0%, #1f1f1f 65%, #2e2e2e 21%, #525252 90%, #6b6b6b 100%);
+    background-image: -webkit-linear-gradient(bottom, #464646 0%, #1f1f1f 65%, #2e2e2e 21%, #525252 90%, #6b6b6b 100%);
+    background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #464646), color-stop(0.65, #1f1f1f), color-stop(0.21, #2e2e2e), color-stop(0.9, #525252), color-stop(1, #6b6b6b));
+    border-radius: 10px;
+    padding: 5px;
+    box-shadow: 2px 2px 5px #000000;
+    font: normal 13px "Avenir Next", Helvetica, Arial, sans-serif;
 }
 .popup h2 {
-  text-shadow: 2px 2px #000000;
-  font: bold 16px "Avenir Next Heavy", Helvetica, Arial, sans-serif;
-  color: #ffffff;
-  padding-bottom: 20px;
+    text-shadow: 2px 2px #000000;
+    font: bold 16px "Avenir Next Heavy", Helvetica, Arial, sans-serif;
+    color: #ffffff;
+    padding-bottom: 20px;
 }
 .popup li {
-  display: block;
-  background-color: #ffffff;
-  margin: 10px 5px;
-  padding: 8px;
-  padding-right: 0px;
-  background-color: #fff;
-  border-radius: 5px;
-  border: 1px solid #c0c0c0;
+    display: block;
+    background-color: #ffffff;
+    margin: 10px 5px;
+    padding: 8px;
+    padding-right: 0px;
+    background-color: #fff;
+    border-radius: 5px;
+    border: 1px solid #c0c0c0;
 }
 .popup li label {
-  color: #000000;
-  padding-right: 10px;
+    color: #000000;
+    padding-right: 10px;
 }
 .popup li input,
 .popup li select,
 .popup li div#address {
-  background-color: #fff;
-  outline: none;
-  border: none;
-  width: 65%;
+    background-color: #fff;
+    outline: none;
+    border: none;
+    width: 65%;
 }
 .popup li.btn {
-  display: inline-block;
-  width: 100px;
-  border: 1px solid #000000;
+    display: inline-block;
+    width: 100px;
+    border: 1px solid #000000;
 }
 #notifications {
-  position: absolute;
-  top: 250px;
-  right: 30%;
-  width: 40%;
-  z-index: 11;
+    position: absolute;
+    top: 250px;
+    right: 30%;
+    width: 40%;
+    z-index: 11;
 }
 #notification {
-  text-align: center;
-  background-image: linear-gradient(bottom, #464646 0%, #1f1f1f 65%, #2e2e2e 21%, #525252 90%, #6b6b6b 100%);
-  background-image: -webkit-linear-gradient(bottom, #464646 0%, #1f1f1f 65%, #2e2e2e 21%, #525252 90%, #6b6b6b 100%);
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #464646), color-stop(0.65, #1f1f1f), color-stop(0.21, #2e2e2e), color-stop(0.9, #525252), color-stop(1, #6b6b6b));
-  border-radius: 10px;
-  padding: 5px;
-  box-shadow: 2px 2px 5px #000000;
+    text-align: center;
+    background-image: linear-gradient(bottom, #464646 0%, #1f1f1f 65%, #2e2e2e 21%, #525252 90%, #6b6b6b 100%);
+    background-image: -webkit-linear-gradient(bottom, #464646 0%, #1f1f1f 65%, #2e2e2e 21%, #525252 90%, #6b6b6b 100%);
+    background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #464646), color-stop(0.65, #1f1f1f), color-stop(0.21, #2e2e2e), color-stop(0.9, #525252), color-stop(1, #6b6b6b));
+    border-radius: 10px;
+    padding: 5px;
+    box-shadow: 2px 2px 5px #000000;
 }
 #notification h2 {
-  font: bold 16px "Avenir Next", Helvetica, Arial, sans-serif;
-  color: #ffffff;
+    font: bold 16px "Avenir Next", Helvetica, Arial, sans-serif;
+    color: #ffffff;
 }
 #notification p {
-  font: normal 14px "Avenir Next", Helvetica, Arial, sans-serif;
-  padding-top: 25px;
-  text-align: center;
+    font: normal 14px "Avenir Next", Helvetica, Arial, sans-serif;
+    padding-top: 25px;
+    text-align: center;
 }
 #notification li {
-  width: 100px;
+    width: 100px;
 }
 #modalMask {
-  display: none;
-  position: absolute;
-  background-color: #000000;
-  top: 0;
-  height: 100%;
-  width: 100%;
-  z-index: 9;
-  opacity: 0.3;
+    display: none;
+    position: absolute;
+    background-color: #000000;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 9;
+    opacity: 0.3;
 }
 #login {
-  background: url('../img/login/PeachyLogoWhite.png') 15px 15px no-repeat;
-  background-size: 99px 24px;
+    background: url('../img/login/PeachyLogoWhite.png') 15px 15px no-repeat;
+    background-size: 99px 24px;
 }
 @media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
-  #login {
-    background-image: url('../img/login/PeachyLogoWhite@2x.png');
-  }
+    #login {
+        background-image: url('../img/login/PeachyLogoWhite@2x.png');
+    }
 }
 #login-container,
 #loading-container {
-  position: absolute;
-  top: 0;
-  display: table;
-  width: 100%;
-  height: 100%;
-  -webkit-transform: translate3d(0, 0, 0);
-  -webkit-transition: all .4s ease;
-  -webkit-transition-delay: now;
-  opacity: 0;
-  overflow: hidden;
+    position: absolute;
+    top: 0;
+    display: table;
+    width: 100%;
+    height: 100%;
+    -webkit-transform: translate3d(0, 0, 0);
+    -webkit-transition: all .4s ease;
+    -webkit-transition-delay: now;
+    opacity: 0;
+    overflow: hidden;
 }
 #login-container > div,
 #loading-container > div {
-  display: table-cell;
-  vertical-align: middle;
-  text-align: center;
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
 }
 #login-container.visible,
 #loading-container.visible {
-  opacity: 1;
-  -webkit-transition-delay: .6s;
+    opacity: 1;
+    -webkit-transition-delay: .6s;
 }
 #login-container .box,
 #loading-container .box {
-  position: relative;
-  overflow: hidden;
-  background-color: rgba(26, 26, 26, 0.25);
-  border-radius: 12px;
-  margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+    background-color: rgba(26, 26, 26, 0.25);
+    border-radius: 12px;
+    margin: 0 auto;
 }
 #login-container {
-  z-index: 10;
+    z-index: 10;
 }
 #login-container .box {
-  width: 340px;
-  background-color: transparent;
+    width: 340px;
+    background-color: transparent;
 }
 @media only screen and (orientation: landscape) {
-  #login-container .box {
-    width: 720px;
-    background-color: rgba(26, 26, 26, 0.25);
-  }
-  #login-container .box .left {
-    width: 50%;
-    float: left;
-    padding: 30px 15px 0 30px;
-  }
+    #login-container .box {
+        width: 720px;
+        background-color: rgba(26, 26, 26, 0.25);
+    }
+    #login-container .box .left {
+        width: 50%;
+        float: left;
+        padding: 30px 15px 0 30px;
+    }
 }
 #login-container .copyright {
-  display: none;
-  margin-top: 2em;
+    display: none;
+    margin-top: 2em;
 }
 @media only screen and (orientation: landscape) {
-  #login-container .copyright {
-    display: block;
-  }
+    #login-container .copyright {
+        display: block;
+    }
 }
 #login-form {
-  background-color: rgba(26, 26, 26, 0.25);
-  padding: 30px;
-  margin: 30px 0;
-  border-radius: 12px;
-  overflow: hidden;
+    background-color: rgba(26, 26, 26, 0.25);
+    padding: 30px;
+    margin: 30px 0;
+    border-radius: 12px;
+    overflow: hidden;
 }
 @media only screen and (orientation: landscape) {
-  #login-form {
-    background-color: transparent;
-    width: 50%;
-    float: right;
-    margin: 0;
-  }
+    #login-form {
+        background-color: transparent;
+        width: 50%;
+        float: right;
+        margin: 0;
+    }
 }
 #login-form label {
-  border: 0;
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  width: 1px;
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
 }
 #login-form h2 {
-  margin-top: 0;
-  margin-bottom: 30px;
-  text-align: center;
-  font: bold 18px "Avenir Next Heavy", Helvetica, Arial, sans-serif;
+    margin-top: 0;
+    margin-bottom: 30px;
+    text-align: center;
+    font: bold 18px "Avenir Next Heavy", Helvetica, Arial, sans-serif;
 }
 #login-form input {
-  width: 100%;
-  display: block;
-  margin: 10px 0;
-  height: 46px;
-  border-radius: 8px;
-  border: none;
-  background-color: #e6e6e6;
-  color: #2b6991;
-  padding: 0 10px;
-  text-transform: lowercase;
-  font: normal 13px "Avenir Next", Helvetica, Arial, sans-serif;
+    width: 100%;
+    display: block;
+    margin: 10px 0;
+    height: 46px;
+    border-radius: 8px;
+    border: none;
+    background-color: #e6e6e6;
+    color: #2b6991;
+    padding: 0 10px;
+    text-transform: lowercase;
+    font: normal 13px "Avenir Next", Helvetica, Arial, sans-serif;
 }
 #login-form input::-webkit-input-placeholder {
-  color: #2b6991;
-  font: normal 13px "Avenir Next", Helvetica, Arial, sans-serif;
+    color: #2b6991;
+    font: normal 13px "Avenir Next", Helvetica, Arial, sans-serif;
 }
 #login-help-button {
-  border: none;
-  width: 100%;
-  padding: 0;
-  background-color: transparent;
-  text-shadow: 0 -2px 1px #000000;
-  color: #fff;
-  font: bold 14px "Avenir Next Heavy", Helvetica, Arial, sans-serif;
+    border: none;
+    width: 100%;
+    padding: 0;
+    background-color: transparent;
+    text-shadow: 0 -2px 1px #000000;
+    color: #fff;
+    font: bold 14px "Avenir Next Heavy", Helvetica, Arial, sans-serif;
 }
 #login-help-button span {
-  display: block;
-  background-color: rgba(26, 26, 26, 0.15);
-  padding: 15px 30px;
-  border-radius: 8px;
+    display: block;
+    background-color: rgba(26, 26, 26, 0.15);
+    padding: 15px 30px;
+    border-radius: 8px;
 }
 @media only screen and (orientation: landscape) {
-  #login-help-button {
-    position: absolute;
-    width: 50%;
-    bottom: 30px;
-    left: 0;
-  }
-  #login-help-button span {
-    margin: 0 15px 0 30px;
-  }
+    #login-help-button {
+        position: absolute;
+        width: 50%;
+        bottom: 30px;
+        left: 0;
+    }
+    #login-help-button span {
+        margin: 0 15px 0 30px;
+    }
 }
 .login-logo {
-  display: block;
-  margin: 0 auto;
-  width: 229px;
-  height: 54px;
-  background: url('../img/login/PeachyLogoHero.png') center center no-repeat;
-  background-size: 229px 54px;
+    display: block;
+    margin: 0 auto;
+    width: 229px;
+    height: 54px;
+    background: url('../img/login/PeachyLogoHero.png') center center no-repeat;
+    background-size: 229px 54px;
 }
 @media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
-  .login-logo {
-    background-image: url('../img/login/PeachyLogoHero@2x.png');
-  }
+    .login-logo {
+        background-image: url('../img/login/PeachyLogoHero@2x.png');
+    }
 }
 .login-caption {
-  text-align: center;
-  margin-top: 5px;
-  font: normal 14px "Avenir Next Medium", Helvetica, Arial, sans-serif;
+    text-align: center;
+    margin-top: 5px;
+    font: normal 14px "Avenir Next Medium", Helvetica, Arial, sans-serif;
 }
 #loading-container .box {
-  width: 440px;
-  padding: 30px 30px 60px 30px;
-  background-image: url('../img/loading-watermark2.png');
-  background-repeat: no-repeat;
-  background-position: 93% 95%;
-  background-size: 234px 173px;
+    width: 440px;
+    padding: 30px 30px 60px 30px;
+    background-image: url('../img/loading-watermark2.png');
+    background-repeat: no-repeat;
+    background-position: 93% 95%;
+    background-size: 234px 173px;
 }
 #loading-container .copyright {
-  display: none;
+    display: none;
 }
 @media only screen and (orientation: landscape) {
-  #loading-container .copyright {
-    display: block;
-    position: relative;
-    top: 60px;
-  }
+    #loading-container .copyright {
+        display: block;
+        position: relative;
+        top: 60px;
+    }
 }
 #login-loading-message {
-  margin: 35px 0 30px 0;
-  color: #ffcc66;
-  font: normal 18px "Avenir Next Medium", Helvetica, Arial, sans-serif;
+    margin: 35px 0 30px 0;
+    color: #ffcc66;
+    font: normal 18px "Avenir Next Medium", Helvetica, Arial, sans-serif;
 }
 #loading-snippet p {
-  line-height: 1.5;
-  margin-top: 2em;
-  font: bold 18px "Avenir Next", Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    margin-top: 2em;
+    font: bold 18px "Avenir Next", Helvetica, Arial, sans-serif;
 }
 #loading-snippet p:nth-of-type(2n) {
-  font: normal 18px "Avenir Next", Helvetica, Arial, sans-serif;
+    font: normal 18px "Avenir Next", Helvetica, Arial, sans-serif;
 }
 .copyright {
-  font: normal 12px "Avenir Next Medium", Helvetica, Arial, sans-serif;
-  text-shadow: 0 -2px 1px #000000;
-  text-align: center;
+    font: normal 12px "Avenir Next Medium", Helvetica, Arial, sans-serif;
+    text-shadow: 0 -2px 1px #000000;
+    text-align: center;
 }
 #login > .copyright {
-  position: absolute;
-  bottom: 15px;
-  width: 100%;
+    position: absolute;
+    bottom: 15px;
+    width: 100%;
 }
 @media only screen and (orientation: landscape) {
-  #login > .copyright {
-    display: none;
-  }
+    #login > .copyright {
+        display: none;
+    }
 }
 #login button {
-  border-radius: 5px;
-  border: 1px solid;
-  color: #fff;
-  padding: 0 10px;
+    border-radius: 5px;
+    border: 1px solid;
+    color: #fff;
+    padding: 0 10px;
 }
 #login button.login {
-  border-color: #d38800;
-  background-color: orange;
-  height: 30px;
-  margin-top: 30px;
-  float: right;
-  line-height: 28px;
-  -webkit-transition: all .1s linear;
-  background-image: linear-gradient(bottom, #f26622 0%, #feb000 85%);
-  background-image: -webkit-linear-gradient(bottom, #f26622 0%, #feb000 85%);
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #f26622), color-stop(0.85, #feb000));
-  font: bold 14px "Avenir Next", Helvetica, Arial, sans-serif;
+    border-color: #d38800;
+    background-color: orange;
+    height: 30px;
+    margin-top: 30px;
+    float: right;
+    line-height: 28px;
+    -webkit-transition: all .1s linear;
+    background-image: linear-gradient(bottom, #f26622 0%, #feb000 85%);
+    background-image: -webkit-linear-gradient(bottom, #f26622 0%, #feb000 85%);
+    background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #f26622), color-stop(0.85, #feb000));
+    font: bold 14px "Avenir Next", Helvetica, Arial, sans-serif;
 }
 #login button.login:active {
-  background-image: linear-gradient(bottom, #feb000 0%, #f26622 85%);
-  background-image: -webkit-linear-gradient(bottom, #feb000 0%, #f26622 85%);
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #feb000), color-stop(0.85, #f26622));
+    background-image: linear-gradient(bottom, #feb000 0%, #f26622 85%);
+    background-image: -webkit-linear-gradient(bottom, #feb000 0%, #f26622 85%);
+    background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #feb000), color-stop(0.85, #f26622));
 }
 #login button.login:before {
-  content: url('../img/login/SignInPower.png');
-  margin-right: 5px;
-  vertical-align: sub;
+    content: url('../img/login/SignInPower.png');
+    margin-right: 5px;
+    vertical-align: sub;
 }
 #login button.login[disabled],
 #login button.login:disabled {
-  border-color: #fff;
-  background-image: none;
-  background-color: transparent;
-  opacity: .2;
+    border-color: #fff;
+    background-image: none;
+    background-color: transparent;
+    opacity: .2;
 }
 #login #login-help-button {
-  border: none;
-  width: 100%;
-  padding: 0;
-  background-color: transparent;
-  text-shadow: 0 -2px 1px #000000;
-  color: #fff;
-  font: bold 14px "Avenir Next Heavy", Helvetica, Arial, sans-serif;
+    border: none;
+    width: 100%;
+    padding: 0;
+    background-color: transparent;
+    text-shadow: 0 -2px 1px #000000;
+    color: #fff;
+    font: bold 14px "Avenir Next Heavy", Helvetica, Arial, sans-serif;
 }
 #login #login-help-button span {
-  display: block;
-  background-color: rgba(26, 26, 26, 0.15);
-  padding: 15px 30px;
-  border-radius: 8px;
+    display: block;
+    background-color: rgba(26, 26, 26, 0.15);
+    padding: 15px 30px;
+    border-radius: 8px;
 }
 @media only screen and (orientation: landscape) {
-  #login #login-help-button {
-    position: absolute;
-    width: 50%;
-    bottom: 30px;
-    left: 0;
-  }
-  #login #login-help-button span {
-    margin: 0 15px 0 30px;
-  }
+    #login #login-help-button {
+        position: absolute;
+        width: 50%;
+        bottom: 30px;
+        left: 0;
+    }
+    #login #login-help-button span {
+        margin: 0 15px 0 30px;
+    }
 }
 /*
  * This file covers the main viewport of the app; this is the 'base' layer of
  * the main hub of the app, which in turn contains various sections such as
  * alerts, news etc. All persistent elements should be styled here (navigation,
  * top-bar etc).
- */
+*/
 #main {
-  height: 100%;
-  padding-right: 15px;
-  padding-top: 50px;
+    height: 100%;
+    padding-right: 15px;
+    padding-top: 50px;
 }
 #content-tab-list,
 #content-tab-list4 {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  text-align: center;
-  background: url('../img/bg.png') left top repeat;
-  color: white;
-  border-top-left-radius: 8px;
-  border-top-right-radius: 8px;
-  padding-top: 15px;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    background: url('../img/bg.png') left top repeat;
+    color: white;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    padding-top: 15px;
 }
 #content-tab-list li {
-  display: inline-block;
-  width: 30%;
-  margin: 0 1%;
-  padding: 10px 5px;
-  color: #2f3137;
-  text-shadow: 0 1px 1px #fff;
-  border-top-left-radius: 8px;
-  border-top-right-radius: 8px;
-  position: relative;
-  background-image: linear-gradient(bottom, #cccccc 0%, #ffffff 85%);
-  background-image: -webkit-linear-gradient(bottom, #cccccc 0%, #ffffff 85%);
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #cccccc), color-stop(0.85, #ffffff));
-  font: bold 14px "Avenir Next", Helvetica, Arial, sans-serif;
+    display: inline-block;
+    width: 30%;
+    margin: 0 1%;
+    padding: 10px 5px;
+    color: #2f3137;
+    text-shadow: 0 1px 1px #fff;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    position: relative;
+    background-image: linear-gradient(bottom, #cccccc 0%, #ffffff 85%);
+    background-image: -webkit-linear-gradient(bottom, #cccccc 0%, #ffffff 85%);
+    background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #cccccc), color-stop(0.85, #ffffff));
+    font: bold 14px "Avenir Next", Helvetica, Arial, sans-serif;
 }
 #content-tab-list li:active {
-  background-image: linear-gradient(bottom, #ffffff 0%, #cccccc 85%);
-  background-image: -webkit-linear-gradient(bottom, #ffffff 0%, #cccccc 85%);
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #ffffff), color-stop(0.85, #cccccc));
+    background-image: linear-gradient(bottom, #ffffff 0%, #cccccc 85%);
+    background-image: -webkit-linear-gradient(bottom, #ffffff 0%, #cccccc 85%);
+    background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #ffffff), color-stop(0.85, #cccccc));
 }
 #content-tab-list li.selected {
-  background-color: #fff;
-  background-image: none;
+    background-color: #fff;
+    background-image: none;
 }
 #content-tab-list4 li {
-  display: inline-block;
-  width: 22%;
-  margin: 0 1%;
-  padding: 10px 5px;
-  color: #2f3137;
-  text-shadow: 0 1px 1px #fff;
-  border-top-left-radius: 8px;
-  border-top-right-radius: 8px;
-  position: relative;
-  background-image: linear-gradient(bottom, #cccccc 0%, #ffffff 85%);
-  background-image: -webkit-linear-gradient(bottom, #cccccc 0%, #ffffff 85%);
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #cccccc), color-stop(0.85, #ffffff));
-  font: bold 14px "Avenir Next", Helvetica, Arial, sans-serif;
+    display: inline-block;
+    width: 22%;
+    margin: 0 1%;
+    padding: 10px 5px;
+    color: #2f3137;
+    text-shadow: 0 1px 1px #fff;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    position: relative;
+    background-image: linear-gradient(bottom, #cccccc 0%, #ffffff 85%);
+    background-image: -webkit-linear-gradient(bottom, #cccccc 0%, #ffffff 85%);
+    background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #cccccc), color-stop(0.85, #ffffff));
+    font: bold 14px "Avenir Next", Helvetica, Arial, sans-serif;
 }
 #content-tab-list4 li:active {
-  background-image: linear-gradient(bottom, #ffffff 0%, #cccccc 85%);
-  background-image: -webkit-linear-gradient(bottom, #ffffff 0%, #cccccc 85%);
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #ffffff), color-stop(0.85, #cccccc));
+    background-image: linear-gradient(bottom, #ffffff 0%, #cccccc 85%);
+    background-image: -webkit-linear-gradient(bottom, #ffffff 0%, #cccccc 85%);
+    background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #ffffff), color-stop(0.85, #cccccc));
 }
 #content-tab-list4 li.selected {
-  background-color: #fff;
-  background-image: none;
+    background-color: #fff;
+    background-image: none;
 }
 .badge {
-  font: bold 13px "Avenir Next Heavy", Helvetica, Arial, sans-serif;
-  background-color: orange;
-  border-top-left-radius: 5px;
-  border-bottom-right-radius: 5px;
-  position: absolute;
-  top: 2px;
-  right: 2px;
-  padding: 0 6px;
-  color: white;
-  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.33);
+    font: bold 13px "Avenir Next Heavy", Helvetica, Arial, sans-serif;
+    background-color: orange;
+    border-top-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    padding: 0 6px;
+    color: white;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.33);
 }
 #home-content {
-  min-height: 150px;
+    min-height: 150px;
 }
 #wrapper {
-  max-height: 540px;
-  margin-top: 10px;
+    max-height: 540px;
+    margin-top: 10px;
 }
 .overlaid #top-bar {
-  border-bottom-color: transparent;
-  background-color: transparent;
-  box-shadow: none;
+    border-bottom-color: transparent;
+    background-color: transparent;
+    box-shadow: none;
 }
 .overlaid #main-container {
-  opacity: 0;
+    opacity: 0;
 }
 .iscroll-container {
-  height: 100%;
-  overflow: visible;
-  position: relative;
+    height: 100%;
+    overflow: visible;
+    position: relative;
 }
 .iscroll-inner {
-  padding-bottom: 30px;
-  min-height: 300px;
+    padding-bottom: 30px;
+    min-height: 300px;
 }
 .page {
-  overflow: hidden;
-  background-color: #fff;
-  box-shadow: 0 7px 0 -4px #cccccc, 0 12px 0 -7px #8b8b8b;
-  position: relative;
-  border-radius: 8px;
-  margin-bottom: 30px;
-  margin-top: 15px;
+    overflow: hidden;
+    background-color: #fff;
+    box-shadow: 0 7px 0 -4px #cccccc, 0 12px 0 -7px #8b8b8b;
+    position: relative;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    margin-top: 15px;
 }
 #mainDiv {
-  color: #000;
+    color: #000;
 }
 #main-content {
-  min-height: 400px;
+    min-height: 400px;
 }
 @media only screen and (orientation: landscape) {
-  #main-content {
-    width: 98%;
-    float: left;
-  }
-  #main-content > div,
-  #main-content > ul {
-    margin-right: 270px;
-  }
+    #main-content {
+        width: 98%;
+        float: left;
+    }
+    #main-content > div,
+    #main-content > ul {
+        margin-right: 270px;
+    }
 }
 #child-content {
-  padding: 15px;
+    padding: 15px;
 }
 li {
-  list-style-type: none;
-  display: inline-block;
+    list-style-type: none;
+    display: inline-block;
 }
 #profile-container {
-  position: absolute;
-  top: 55px;
-  bottom: 0;
-  left: 15px;
-  right: 15px;
-  opacity: 1;
-  -webkit-transition: all .2s linear;
-  -webkit-transform: translate3d(0, 0, 0);
+    position: absolute;
+    top: 55px;
+    bottom: 0;
+    left: 15px;
+    right: 15px;
+    opacity: 1;
+    -webkit-transition: all .2s linear;
+    -webkit-transform: translate3d(0, 0, 0);
 }
 #main-tabs {
-  border-radius: 10px 10px 0 0;
-  border: 1px solid #fff;
-  padding: 5px;
-  margin-top: 10px;
-  background-color: #000000;
-  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #2b2b2b), color-stop(0.5, #717171), color-stop(0.5, #000000), color-stop(1, #6e6e6e));
-  background-image: -moz-linear-gradient(center top, #2b2b2b 0%, #717171 50%, #000000 50%, #6e6e6e 100%);
+    border-radius: 10px 10px 0 0;
+    border: 1px solid #fff;
+    padding: 5px;
+    margin-top: 10px;
+    background-color: #000000;
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #2b2b2b), color-stop(0.5, #717171), color-stop(0.5, #000000), color-stop(1, #6e6e6e));
+    background-image: -moz-linear-gradient(center top, #2b2b2b 0%, #717171 50%, #000000 50%, #6e6e6e 100%);
 }
 #main-tabs li {
-  width: 24%;
-  font: normal 15px "Avenir Next Medium", Helvetica, Arial, sans-serif;
-  text-align: center;
-  padding: 10px;
+    width: 24%;
+    font: normal 15px "Avenir Next Medium", Helvetica, Arial, sans-serif;
+    text-align: center;
+    padding: 10px;
 }
 #main-tabs li.selected {
-  font: bold 15px "Avenir Next", Helvetica, Arial, sans-serif;
-  border-radius: 5px;
-  border: 2px solid #FFF1a0;
+    font: bold 15px "Avenir Next", Helvetica, Arial, sans-serif;
+    border-radius: 5px;
+    border: 2px solid #FFF1a0;
 }
 #main-tabs li img {
-  margin-right: 10px;
+    margin-right: 10px;
 }
 #scroller {
-  padding-bottom: 50px;
+    padding-bottom: 50px;
 }
 #general-body {
-  background-color: #fff;
-  background-image: url('../img/backgrounds/SettingsBackground.png');
-  border-radius: 0 0 10px 10px;
-  color: #000;
-  padding: 6%;
-  margin-bottom: 30px;
-  font: normal 11px "Avenir Next", Helvetica, Arial, sans-serif;
+    background-color: #fff;
+    background-image: url('../img/backgrounds/SettingsBackground.png');
+    border-radius: 0 0 10px 10px;
+    color: #000;
+    padding: 6%;
+    margin-bottom: 30px;
+    font: normal 11px "Avenir Next", Helvetica, Arial, sans-serif;
 }
 #general-body #loginInfo {
-  display: inline-block;
-  width: 30%;
+    display: inline-block;
+    width: 30%;
 }
 #general-body h2 {
-  font: bold 17px "Avenir Next", Helvetica, Arial, sans-serif;
+    font: bold 17px "Avenir Next", Helvetica, Arial, sans-serif;
 }
 #general-body li {
-  margin: 5px;
-  padding: 8px;
-  padding-right: 0px;
-  background-color: #fff;
-  border-radius: 5px;
-  border: 1px solid #c0c0c0;
-  font: normal 11px "Avenir Next", Helvetica, Arial, sans-serif;
+    margin: 5px;
+    padding: 8px;
+    padding-right: 0px;
+    background-color: #fff;
+    border-radius: 5px;
+    border: 1px solid #c0c0c0;
+    font: normal 11px "Avenir Next", Helvetica, Arial, sans-serif;
 }
 #general-body li label {
-  font: normal 11px "Avenir Next", Helvetica, Arial, sans-serif;
-  color: #a8a8a8;
-  padding-right: 10px;
+    font: normal 11px "Avenir Next", Helvetica, Arial, sans-serif;
+    color: #a8a8a8;
+    padding-right: 10px;
 }
 #general-body li.required label {
-  color: #2B60DE;
+    color: #2B60DE;
 }
 #general-body li input,
 #general-body li select,
 #general-body li div#address {
-  background-color: #fff;
-  outline: none;
-  border: none;
-  width: 65%;
-  font: normal 13px "Avenir Next", Helvetica, Arial, sans-serif;
+    background-color: #fff;
+    outline: none;
+    border: none;
+    width: 65%;
+    font: normal 13px "Avenir Next", Helvetica, Arial, sans-serif;
 }
 #general-body li img {
-  width: 90%;
-  margin-right: 5px;
-  height: 65px;
+    width: 90%;
+    margin-right: 5px;
+    height: 65px;
 }
 #general-body li#address {
-  vertical-align: top;
+    vertical-align: top;
 }
 #general-body li.w10 {
-  width: 10%;
+    width: 10%;
 }
 #general-body li.w15 {
-  width: 15%;
+    width: 15%;
 }
 #general-body li.w20 {
-  width: 20%;
+    width: 20%;
 }
 #general-body li.w22 {
-  width: 22%;
+    width: 22%;
 }
 #general-body li.w25 {
-  width: 25%;
+    width: 25%;
 }
 #general-body li.w30 {
-  width: 30%;
+    width: 30%;
 }
 #general-body li.w35 {
-  width: 35%;
+    width: 35%;
 }
 #general-body li.w42 {
-  width: 42%;
+    width: 42%;
 }
 #general-body li.w46 {
-  width: 46%;
+    width: 46%;
 }
 #general-body li.w47 {
-  width: 47%;
+    width: 47%;
 }
 #general-body li.w100 {
-  width: 100%;
+    width: 100%;
 }
 #general-body li div#address {
-  height: 68px;
-  width: 84%;
-  float: right;
-  color: #000;
+    height: 68px;
+    width: 84%;
+    float: right;
+    color: #000;
 }
 #general-body .age {
-  font: bold 13px "Avenir Next", Helvetica, Arial, sans-serif;
-  color: #cdcdcd;
+    font: bold 13px "Avenir Next", Helvetica, Arial, sans-serif;
+    color: #cdcdcd;
 }
 #general-body form {
-  margin-bottom: 20px;
+    margin-bottom: 20px;
 }
 #general-body #physicianBox,
 #general-body #linkedBox {
-  margin-top: 10px;
-  margin-bottom: 20px;
-  background-color: #fff;
-  border-radius: 10px;
-  border: 1px solid #c0c0c0;
-  height: 150px;
-  font: normal 13px "Avenir Next Medium", Helvetica, Arial, sans-serif;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    border: 1px solid #c0c0c0;
+    height: 150px;
+    font: normal 13px "Avenir Next Medium", Helvetica, Arial, sans-serif;
 }
 #general-body #physicianBox #physician,
 #general-body #linkedBox #physician,
 #general-body #physicianBox #account,
 #general-body #linkedBox #account {
-  padding: 10px;
-  border-bottom: 1px solid #c0c0c0;
+    padding: 10px;
+    border-bottom: 1px solid #c0c0c0;
 }
 #general-body #physicianBox #physician div,
 #general-body #linkedBox #physician div,
 #general-body #physicianBox #account div,
 #general-body #linkedBox #account div {
-  text-align: center;
-  width: 20%;
-  display: inline-block;
+    text-align: center;
+    width: 20%;
+    display: inline-block;
 }
 #general-body #physicianBox #physician div#email,
 #general-body #linkedBox #physician div#email,
 #general-body #physicianBox #account div#email,
 #general-body #linkedBox #account div#email {
-  width: 30%;
+    width: 30%;
 }
 #general-body #physicianBox #physician:after,
 #general-body #linkedBox #physician:after,
 #general-body #physicianBox #account:after,
 #general-body #linkedBox #account:after {
-  height: 20px;
-  width: 15px;
-  content: ' ';
-  background-image: url('../img/icons/smallArrow.png');
-  background-size: 70%;
-  background-repeat: no-repeat;
-  float: right;
+    height: 20px;
+    width: 15px;
+    content: ' ';
+    background-image: url('../img/icons/smallArrow.png');
+    background-size: 70%;
+    background-repeat: no-repeat;
+    float: right;
 }
 #addressBox li {
-  padding: 8px;
+    padding: 8px;
 }
 #addressBox li label {
-  color: #a8a8a8;
-  padding-right: 10px;
+    color: #a8a8a8;
+    padding-right: 10px;
 }
 #addressBox li.required label {
-  color: #2B60DE;
+    color: #2B60DE;
 }
 #passwordDiv {
-  z-index: 10;
+    z-index: 10;
 }
 #passwordDiv li.btn {
-  border: 1px solid #000000;
-  margin: 10px 5px;
-  padding: 5px;
-  font: bold 14px "Avenir Next", Helvetica, Arial, sans-serif;
+    border: 1px solid #000000;
+    margin: 10px 5px;
+    padding: 5px;
+    font: bold 14px "Avenir Next", Helvetica, Arial, sans-serif;
 }
 #passwordDiv label {
-  float: left;
-  width: 125px;
+    float: left;
+    width: 125px;
 }
 #passwordDiv #confirmPassword_txt,
 #passwordDiv #confirmPassword_txt2 {
-  width: 50%;
+    width: 50%;
 }
 .popup_avatar {
-  height: 30px;
-  width: 30px;
+    height: 30px;
+    width: 30px;
 }
 #avatarSelect {
-  position: absolute;
-  top: 300px;
-  left: 200px;
-  width: 50%;
-  background-color: #fff;
-  border: 1px solid #000;
-  border-radius: 10px;
-  box-shadow: 10px 10px 5px #888888;
-  text-align: center;
+    position: absolute;
+    top: 300px;
+    left: 200px;
+    width: 50%;
+    background-color: #fff;
+    border: 1px solid #000;
+    border-radius: 10px;
+    box-shadow: 10px 10px 5px #888888;
+    text-align: center;
 }
 #avatarSelect img {
-  height: 80px;
-  padding: 5px;
+    height: 80px;
+    padding: 5px;
 }
 #avatarSelect h1 {
-  margin: 10px;
+    margin: 10px;
 }
 #welcome #mask {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  background-color: #000;
-  opacity: 0.6;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #000;
+    opacity: 0.6;
 }
 #welcome #video {
-  position: relative;
-  margin-top: 25%;
-  text-align: center;
+    position: relative;
+    margin-top: 25%;
+    text-align: center;
 }
 #welcome #video img,
 #welcome #video video {
-  height: 10%;
-  margin-left: auto;
-  margin-right: auto;
-  display: block;
+    height: 10%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
 }
 #welcome #video video {
-  height: 356px;
-  width: 100%;
+    height: 356px;
+    width: 100%;
 }
 #welcome #video .status {
-  position: relative;
-  float: left;
-  bottom: 40%;
-  left: 6%;
-  color: #000;
-  z-index: 5;
-  background-color: #fff;
-  padding: 3px;
-  border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5px;
+    position: relative;
+    float: left;
+    bottom: 40%;
+    left: 6%;
+    color: #000;
+    z-index: 5;
+    background-color: #fff;
+    padding: 3px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
 }
 #welcome #info {
-  position: absolute;
-  left: 6%;
-  top: 16%;
-  color: #5a5a5a;
+    position: absolute;
+    left: 6%;
+    top: 16%;
+    color: #5a5a5a;
 }
 #welcome #buttons {
-  position: relative;
-  width: 60%;
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center;
+    position: relative;
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
 }
 #VideoPlayback {
-  height: 100%;
+    height: 100%;
 }
 #VideoPlayback #top #leftLogo {
-  display: inline-block;
-  margin: 10px;
+    display: inline-block;
+    margin: 10px;
 }
 #VideoPlayback #top #buttonContainer {
-  display: inline-block;
-  float: right;
+    display: inline-block;
+    float: right;
 }
 #VideoPlayback #top #buttonContainer .btn {
-  margin: 10px;
+    margin: 10px;
 }
 #VideoPlayback #pageDiv {
-  width: 100%;
+    width: 100%;
 }
 #VideoPlayback #videoContainer {
-  width: 100%;
-  display: inline-block;
-  margin-top: 60px;
-  height: 300px;
-  text-align: center;
+    width: 100%;
+    display: inline-block;
+    margin-top: 60px;
+    height: 300px;
+    text-align: center;
 }
 #VideoPlayback #videoContainer > div {
-  display: inline-block;
-  height: 300px;
-  border: 10px solid #cdcdcd;
-  border-radius: 10px;
+    display: inline-block;
+    height: 300px;
+    border: 10px solid #cdcdcd;
+    border-radius: 10px;
 }
 #VideoPlayback #videoContainer #currentVideo {
-  width: 550px;
+    width: 550px;
 }
 #VideoPlayback #videoContainer #currentVideo iframe {
-  width: 100%;
-  height: 100%;
+    width: 100%;
+    height: 100%;
 }
 #VideoPlayback #videoContainer #previousVideo {
-  float: left;
-  margin-left: -10px;
-  background-color: blue;
+    float: left;
+    margin-left: -10px;
+    background-color: blue;
 }
 #VideoPlayback #videoContainer #nextVideo {
-  float: right;
-  margin-right: -10px;
-  background-color: red;
+    float: right;
+    margin-right: -10px;
+    background-color: red;
 }
 #VideoPlayback #scroller {
-  padding-bottom: 450px;
+    padding-bottom: 450px;
 }
 #VideoPlayback .hIscroll-container {
-  width: 100%;
-  position: relative;
+    width: 100%;
+    position: relative;
 }
 #VideoPlayback #videoDescription {
-  height: 550px;
-  padding: 20px;
-  padding-left: 30px;
-  padding-right: 30px;
-  margin-top: 60px;
-  background-color: #fff;
-  color: #000;
+    height: 550px;
+    padding: 20px;
+    padding-left: 30px;
+    padding-right: 30px;
+    margin-top: 60px;
+    background-color: #fff;
+    color: #000;
 }
 #VideoPlayback #videoDescription h2 {
-  font: bold 16px "Avenir Next", Helvetica, Arial, sans-serif;
-  display: inline;
+    font: bold 16px "Avenir Next", Helvetica, Arial, sans-serif;
+    display: inline;
 }
 #VideoPlayback #videoDescription p {
-  font: normal 12px "Avenir Next", Helvetica, Arial, sans-serif;
-  display: inline;
+    font: normal 12px "Avenir Next", Helvetica, Arial, sans-serif;
+    display: inline;
 }
 #VideoPlayback #videoDescription #title {
-  margin: 30px;
+    margin: 30px;
 }
 #VideoPlayback #videoDescription #title img,
 #VideoPlayback #videoDescription #title h2 {
-  vertical-align: middle;
+    vertical-align: middle;
 }
 #VideoPlayback #videoDescription #videoActions {
-  margin: 10px;
-  height: 50px;
+    margin: 10px;
+    height: 50px;
 }
 #VideoPlayback #videoDescription #videoActions #time {
-  float: left;
+    float: left;
 }
 #VideoPlayback #videoDescription #videoActions #time img,
 #VideoPlayback #videoDescription #videoActions #time p {
-  vertical-align: middle;
+    vertical-align: middle;
 }
 #VideoPlayback #videoDescription #videoActions #actions {
-  float: right;
+    float: right;
 }
 #VideoPlayback #videoDescription #videoActions #actions img {
-  margin-left: 30px;
+    margin-left: 30px;
 }
 #VideoPlayback #videoDescription #favBtn {
-  height: 100%;
-  text-align: center;
-  margin-top: 100px;
+    height: 100%;
+    text-align: center;
+    margin-top: 100px;
 }
 #cabinet {
-  width: 100%;
-  background: url('../img/cabinetBg.png') left top repeat;
-  border-radius: 8px;
-  color: #ffffff;
-  font: normal 12px "Avenir Next", Helvetica, Arial, sans-serif;
+    width: 100%;
+    background: url('../img/cabinetBg.png') left top repeat;
+    border-radius: 8px;
+    color: #ffffff;
+    font: normal 12px "Avenir Next", Helvetica, Arial, sans-serif;
 }
 #cabinet #cabinetHeader {
-  border-bottom: 1px solid #000000;
-  box-shadow: 0 5px 20px #cbcbcb;
-  width: 100%;
-  text-align: center;
-  padding-bottom: 20px;
+    border-bottom: 1px solid #000000;
+    box-shadow: 0 5px 20px #cbcbcb;
+    width: 100%;
+    text-align: center;
+    padding-bottom: 20px;
 }
 #cabinet #cabinetHeader .cabinetFolder {
-  display: inline-block;
-  margin: 5px;
-  height: 120px;
-  width: 120px;
-  padding: 10px;
-  box-shadow: 0px 0px 2px #cdcdcd;
-  border-radius: 5px;
-  background-color: rgba(26, 26, 26, 0.25);
-  font: bold 14px "Avenir Next", Helvetica, Arial, sans-serif;
-  text-align: center;
+    display: inline-block;
+    margin: 5px;
+    height: 120px;
+    width: 120px;
+    padding: 10px;
+    box-shadow: 0px 0px 2px #cdcdcd;
+    border-radius: 5px;
+    background-color: rgba(26, 26, 26, 0.25);
+    font: bold 14px "Avenir Next", Helvetica, Arial, sans-serif;
+    text-align: center;
 }
 #cabinet #cabinetBody {
-  padding-top: 20px;
-  padding-bottom: 20px;
-  width: 100%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    width: 100%;
 }
 #cabinet #cabinetBody .row {
-  height: 160px;
-  border-bottom: 1px solid #000000;
-  box-shadow: 0 5px 20px #cbcbcb;
-  padding-top: 20px;
-  padding-bottom: 10px;
+    height: 160px;
+    border-bottom: 1px solid #000000;
+    box-shadow: 0 5px 20px #cbcbcb;
+    padding-top: 20px;
+    padding-bottom: 10px;
 }
 #cabinet #cabinetBody .row .cabinetItem {
-  display: inline-block;
-  margin: 5px;
-  height: 120px;
-  width: 142px;
-  padding: 10px;
-  border-radius: 5px;
-  background-color: rgba(26, 26, 26, 0.25);
-  text-align: center;
+    display: inline-block;
+    margin: 5px;
+    height: 120px;
+    width: 142px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: rgba(26, 26, 26, 0.25);
+    text-align: center;
 }
 #cabinet #cabinetBody .row .cabinetItem .thumbnail {
-  height: 100px;
-  background: url('../img/AdPlaceholder.png') no-repeat;
-  background-size: 100px;
-  background-position: center;
+    height: 100px;
+    background: url('../img/AdPlaceholder.png') no-repeat;
+    background-size: 100px;
+    background-position: center;
 }
 #cabinet #cabinetBody .row .cabinetItem .filetype {
-  float: right;
-  margin-top: 70px;
-  margin-right: 15px;
+    float: right;
+    margin-top: 70px;
+    margin-right: 15px;
 }
 #news-and-information {
-  padding: 15px;
+    padding: 15px;
 }
 #news-and-information h1 {
-  color: #2b6891;
-  margin: 30px 0 20px 0;
-  font: bold 20px "Avenir Next", Helvetica, Arial, sans-serif;
+    color: #2b6891;
+    margin: 30px 0 20px 0;
+    font: bold 20px "Avenir Next", Helvetica, Arial, sans-serif;
 }
 #news-and-information #headlines {
-  list-style-type: none;
-  overflow: hidden;
+    list-style-type: none;
+    overflow: hidden;
 }
 #news-and-information #headlines li {
-  min-height: 175px;
+    min-height: 175px;
 }
 #news-and-information #headlines li .video-preview {
-  position: relative;
-  float: left;
-  margin-right: 20px;
-  margin-bottom: 40px;
-  height: 175px;
+    position: relative;
+    float: left;
+    margin-right: 20px;
+    margin-bottom: 40px;
+    height: 175px;
 }
 #news-and-information #headlines li .video-preview img {
-  display: block;
+    display: block;
 }
 #news-and-information #headlines li .video-preview .watched {
-  display: none;
-  position: absolute;
-  top: -12px;
-  left: 228px;
+    display: none;
+    position: absolute;
+    top: -12px;
+    left: 228px;
 }
 #news-and-information #headlines li .video-preview .title {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  color: #fff;
-  background-color: rgba(0, 0, 0, 0.2);
-  background-image: url('../img/VideoPlay.png');
-  background-position: 97% center;
-  background-repeat: no-repeat;
-  padding: 10px;
-  font: bold 12px "Avenir Next", Helvetica, Arial, sans-serif;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.2);
+    background-image: url('../img/VideoPlay.png');
+    background-position: 97% center;
+    background-repeat: no-repeat;
+    padding: 10px;
+    font: bold 12px "Avenir Next", Helvetica, Arial, sans-serif;
 }
 #news-and-information #headlines li .video-preview .title .duration {
-  margin-left: 5px;
-  color: rgba(255, 255, 255, 0.5);
-  font: bold 11px "Avenir Next", Helvetica, Arial, sans-serif;
+    margin-left: 5px;
+    color: rgba(255, 255, 255, 0.5);
+    font: bold 11px "Avenir Next", Helvetica, Arial, sans-serif;
 }
 #news-and-information #headlines li .description {
-  margin-bottom: 40px;
-  min-width: 120px;
-  overflow: hidden;
+    margin-bottom: 40px;
+    min-width: 120px;
+    overflow: hidden;
 }
 #news-and-information #headlines li .description h2 {
-  color: #1a1a1a;
-  font: bold 13px "Avenir Next", Helvetica, Arial, sans-serif;
+    color: #1a1a1a;
+    font: bold 13px "Avenir Next", Helvetica, Arial, sans-serif;
 }
 #news-and-information #headlines li .description p {
-  color: #343434;
-  margin-top: 1em;
-  font: normal 12px "Avenir Next", Helvetica, Arial, sans-serif;
-  line-height: 2;
+    color: #343434;
+    margin-top: 1em;
+    font: normal 12px "Avenir Next", Helvetica, Arial, sans-serif;
+    line-height: 2;
 }
 #news-and-information #headlines li .description .more {
-  font: bold 12px "Avenir Next", Helvetica, Arial, sans-serif;
-  color: #2b6891;
-  text-decoration: none;
+    font: bold 12px "Avenir Next", Helvetica, Arial, sans-serif;
+    color: #2b6891;
+    text-decoration: none;
 }
 #news-and-information #load-more-news {
-  -webkit-border-radius: 8px;
-  border-radius: 8px;
-  border: 2px solid #cdcdcd;
-  font: bold 16px "Avenir Next", Helvetica, Arial, sans-serif;
-  color: #b3b3b3;
-  background-color: transparent;
-  width: 100%;
-  padding: 10px;
+    -webkit-border-radius: 8px;
+    border-radius: 8px;
+    border: 2px solid #cdcdcd;
+    font: bold 16px "Avenir Next", Helvetica, Arial, sans-serif;
+    color: #b3b3b3;
+    background-color: transparent;
+    width: 100%;
+    padding: 10px;
 }
 #goals {
-  padding: 15px;
+    padding: 15px;
 }
 #goals h1 {
-  color: #2b6891;
-  margin: 30px 0 20px 0;
-  font: bold 20px "Avenir Next", Helvetica, Arial, sans-serif;
+    color: #2b6891;
+    margin: 30px 0 20px 0;
+    font: bold 20px "Avenir Next", Helvetica, Arial, sans-serif;
 }
 #goals #grid {
-  text-align: center;
+    text-align: center;
 }
 #goals #grid .piece {
-  margin: -1px;
-  width: 27%;
-  height: 110px;
-  padding: 14px;
-  text-align: center;
-  border: 1px solid #000;
-  color: #fff;
-  text-shadow: 3px 3px 5px #000;
-  text-shadow: 2px 2px 5px #000000, -2px 2px 5px #000000, 2px -2px 5px #000000, -2px -2px 5px #000000;
-  background-color: #cdcdcd;
-  display: inline-block;
-  font: bold 14px "Avenir Next", Helvetica, Arial, sans-serif;
-  z-index: 5;
+    margin: -1px;
+    width: 27%;
+    height: 110px;
+    padding: 14px;
+    text-align: center;
+    border: 1px solid #000;
+    color: #fff;
+    text-shadow: 3px 3px 5px #000;
+    text-shadow: 2px 2px 5px #000000, -2px 2px 5px #000000, 2px -2px 5px #000000, -2px -2px 5px #000000;
+    background-color: #cdcdcd;
+    display: inline-block;
+    font: bold 14px "Avenir Next", Helvetica, Arial, sans-serif;
+    z-index: 5;
 }
 #goals #grid .piece p {
-  vertical-align: middle;
+    vertical-align: middle;
 }
 #goals #grid .left:after {
-  content: ' ';
-  width: 50px;
-  height: 50px;
-  background-color: #CDCDCD;
-  border-radius: 50%;
-  float: right;
-  border: 1px solid black;
-  border-left: none;
-  border-top: none;
-  position: relative;
-  left: 50px;
-  bottom: 20px;
-  border-bottom: none;
+    content: ' ';
+    width: 50px;
+    height: 50px;
+    background-color: #CDCDCD;
+    border-radius: 50%;
+    float: right;
+    border: 1px solid black;
+    border-left: none;
+    border-top: none;
+    position: relative;
+    left: 50px;
+    bottom: 20px;
+    border-bottom: none;
 }
 #goals #bgImg {
-  height: 500px;
-  width: 452px;
-  background-image: url('../img/goals/beach.jpg');
-  background-size: 116%;
-  background-repeat: no-repeat;
-  position: absolute;
-  top: 185px;
-  left: 94px;
-  opacity: 0.3;
+    height: 500px;
+    width: 452px;
+    background-image: url('../img/goals/beach.jpg');
+    background-size: 116%;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 185px;
+    left: 94px;
+    opacity: 0.3;
 }
 #alerts {
-  padding: 15px;
+    padding: 15px;
 }
 #alerts h1 {
-  color: #2b6891;
-  margin: 30px 0 20px 0;
-  font: bold 20px "Avenir Next", Helvetica, Arial, sans-serif;
+    color: #2b6891;
+    margin: 30px 0 20px 0;
+    font: bold 20px "Avenir Next", Helvetica, Arial, sans-serif;
 }
 #alerts #add-alert {
-  -webkit-border-radius: 8px;
-  border-radius: 8px;
-  border: 2px solid #cdcdcd;
-  font: bold 16px "Avenir Next", Helvetica, Arial, sans-serif;
-  color: #b3b3b3;
-  background-color: transparent;
-  width: 100%;
-  padding: 10px;
+    -webkit-border-radius: 8px;
+    border-radius: 8px;
+    border: 2px solid #cdcdcd;
+    font: bold 16px "Avenir Next", Helvetica, Arial, sans-serif;
+    color: #b3b3b3;
+    background-color: transparent;
+    width: 100%;
+    padding: 10px;
 }
 #alerts #buttons {
-  width: 100%;
+    width: 100%;
 }
 #alerts #buttons li {
-  font: bold 14px "Avenir Next", Helvetica, Arial, sans-serif;
-  width: 22%;
-  margin: 5px;
-  background-color: #e6e6e6;
-  border-radius: 12px;
-  text-align: center;
-  color: #8c8c8c;
-  padding: 4px 0 4px 0;
+    font: bold 14px "Avenir Next", Helvetica, Arial, sans-serif;
+    width: 22%;
+    margin: 5px;
+    background-color: #e6e6e6;
+    border-radius: 12px;
+    text-align: center;
+    color: #8c8c8c;
+    padding: 4px 0 4px 0;
 }
 #alerts #buttons li:hover {
-  background-color: #ccc;
+    background-color: #ccc;
 }
 #alerts #buttons li:active {
-  background-color: #3d3d3d;
-  color: #fff;
+    background-color: #3d3d3d;
+    color: #fff;
 }
 #alerts #buttons li.selected {
-  color: #fff;
-  background-color: #545454;
+    color: #fff;
+    background-color: #545454;
 }
 #alerts #buttons:first-child {
-  margin-left: 0;
+    margin-left: 0;
 }
 #alerts #buttons:last-child {
-  margin-right: 0;
+    margin-right: 0;
 }
 #alerts .alert {
-  font: normal 14px "Avenir Next Medium", Helvetica, Arial, sans-serif;
-  background-color: #e6e6e6;
-  width: 100%;
-  padding: 25px 0px 25px 20px;
-  border-radius: 10px;
-  box-shadow: 0px 2px 2px #ababab;
-  margin-bottom: 10px;
+    font: normal 14px "Avenir Next Medium", Helvetica, Arial, sans-serif;
+    background-color: #e6e6e6;
+    width: 100%;
+    padding: 25px 0px 25px 20px;
+    border-radius: 10px;
+    box-shadow: 0px 2px 2px #ababab;
+    margin-bottom: 10px;
 }
 #alerts .alert #date {
-  float: right;
-  color: #8c8c8c;
-  margin-right: 80px;
+    float: right;
+    color: #8c8c8c;
+    margin-right: 80px;
 }
 #alerts .alert:hover,
 #alerts .alert:active {
-  background-color: #ccc;
+    background-color: #ccc;
 }
 #alerts .alert:after {
-  position: relative;
-  content: url('../img/icons/smallArrow.png');
-  float: right;
-  clear: right;
-  bottom: 15px;
-  right: 25px;
+    position: relative;
+    content: url('../img/icons/smallArrow.png');
+    float: right;
+    clear: right;
+    bottom: 15px;
+    right: 25px;
 }
 #alerts .redtip {
-  background-image: url('../img/cornerTabs/red.png');
-  background-position: top right;
-  background-repeat: no-repeat;
+    background-image: url('../img/cornerTabs/red.png');
+    background-position: top right;
+    background-repeat: no-repeat;
 }
 #alerts .orangetip {
-  background-image: url('../img/cornerTabs/orange.png');
-  background-position: top right;
-  background-repeat: no-repeat;
+    background-image: url('../img/cornerTabs/orange.png');
+    background-position: top right;
+    background-repeat: no-repeat;
 }
 #alerts .greentip {
-  background-image: url('../img/cornerTabs/green.png');
-  background-position: top right;
-  background-repeat: no-repeat;
+    background-image: url('../img/cornerTabs/green.png');
+    background-position: top right;
+    background-repeat: no-repeat;
 }
 #main-nav {
-  list-style-type: none;
-  width: 100px;
-  overflow: visible;
-  float: left;
-  margin-top: 15px;
-  margin-left: 5px;
+    list-style-type: none;
+    width: 100px;
+    overflow: visible;
+    float: left;
+    margin-top: 15px;
+    margin-left: 5px;
 }
 #main-nav li {
-  width: 120px;
-  text-align: center;
-  color: rgba(255, 255, 255, 0.8);
-  padding: 30px 20px 15px 0px;
-  display: block;
-  margin: 0 auto;
-  font: bold 13px "Avenir Next", Helvetica, Arial, sans-serif;
+    width: 120px;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.8);
+    padding: 30px 20px 15px 0px;
+    display: block;
+    margin: 0 auto;
+    font: bold 13px "Avenir Next", Helvetica, Arial, sans-serif;
 }
 #main-nav li.selected {
-  border-top-left-radius: 8px;
-  border-bottom-left-radius: 8px;
-  background-color: white;
-  color: #2f3137;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    background-color: white;
+    color: #2f3137;
 }
 #main-nav li.selected h2 {
-  font: bold 13px "Avenir Next", Helvetica, Arial, sans-serif;
+    font: bold 13px "Avenir Next", Helvetica, Arial, sans-serif;
 }
 #main-nav h2 {
-  margin: 0;
-  display: block;
-  font-weight: bold;
-  font-size: 10pt;
-  margin-top: 5px;
+    margin: 0;
+    display: block;
+    font-weight: bold;
+    font-size: 10pt;
+    margin-top: 5px;
 }
 #main-nav #home img {
-  content: url('../img/nav/HomeWhite.png');
+    content: url('../img/nav/HomeWhite.png');
 }
 #main-nav #home.selected img {
-  content: url('../img/nav/HomeDark.png');
+    content: url('../img/nav/HomeDark.png');
 }
 #main-nav #widgets img {
-  content: url('../img/nav/WidgetsWhite.png');
+    content: url('../img/nav/WidgetsWhite.png');
 }
 #main-nav #widgets.selected img {
-  content: url('../img/nav/WidgetsDark.png');
+    content: url('../img/nav/WidgetsDark.png');
 }
 #main-nav #healthHub img {
-  content: url('../img/nav/HubWhite.png');
+    content: url('../img/nav/HubWhite.png');
 }
 #main-nav #healthHub.selected img {
-  content: url('../img/nav/HubDark.png');
+    content: url('../img/nav/HubDark.png');
 }
 #main-nav #medicine img {
-  content: url('../img/nav/CabinetWhite.png');
+    content: url('../img/nav/CabinetWhite.png');
 }
 #main-nav #medicine.selected img {
-  content: url('../img/nav/CabinetDark.png');
+    content: url('../img/nav/CabinetDark.png');
 }
 #main-nav #connect img {
-  content: url('../img/nav/ConnectWhite.png');
+    content: url('../img/nav/ConnectWhite.png');
 }
 #main-nav #connect.selected img {
-  content: url('../img/nav/ConnectDark.png');
+    content: url('../img/nav/ConnectDark.png');
 }
 #main-nav #calendar img {
-  content: url('../img/nav/CalendarWhite.png');
+    content: url('../img/nav/CalendarWhite.png');
 }
 #main-nav #calendar.selected img {
-  content: url('../img/nav/CalendarDark.png');
+    content: url('../img/nav/CalendarDark.png');
 }
 #main-nav #library img {
-  content: url('../img/nav/LibraryWhite.png');
+    content: url('../img/nav/LibraryWhite.png');
 }
 #main-nav #library.selected img {
-  content: url('../img/nav/LibraryDark.png');
+    content: url('../img/nav/LibraryDark.png');
 }
 #top-bar {
-  height: 55px;
-  background-color: rgba(255, 255, 255, 0.1);
-  background-image: url('../img/bg.png');
-  margin: 0;
-  padding: 0 15px;
-  border-bottom: 2px solid rgba(255, 255, 255, 0.2);
-  width: 100%;
-  box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.15);
-  position: absolute;
-  z-index: 8;
-  -webkit-transition: all .2s linear;
-  -webkit-transform: translate3d(0, 0, 0);
+    height: 55px;
+    background-color: rgba(255, 255, 255, 0.1);
+    background-image: url('../img/bg.png');
+    margin: 0;
+    padding: 0 15px;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+    width: 100%;
+    box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.15);
+    position: absolute;
+    z-index: 8;
+    -webkit-transition: all .2s linear;
+    -webkit-transform: translate3d(0, 0, 0);
 }
 #top-bar #logo {
-  float: left;
-  margin-top: 15px;
-  background-image: url('../img/logo-top-bar.png');
-  width: 121px;
-  height: 30px;
-  content: '';
+    float: left;
+    margin-top: 15px;
+    background-image: url('../img/logo-top-bar.png');
+    width: 121px;
+    height: 30px;
+    content: '';
 }
 @media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
-  #top-bar #logo {
-    background-image: url('../img/logo-top-bar@2x.png');
-  }
+    #top-bar #logo {
+        background-image: url('../img/logo-top-bar@2x.png');
+    }
 }
 #top-bar #avatar {
-  float: right;
-  margin-top: 7px;
-  height: 40px;
+    float: right;
+    margin-top: 7px;
+    height: 40px;
 }
 #top-bar.profileBar {
-  border-bottom: none;
-  box-shadow: none;
+    border-bottom: none;
+    box-shadow: none;
 }
 #top-bar.profileBar li.profileBtn {
-  display: inline-block;
+    display: inline-block;
 }
 #top-bar.profileBar li.homeBtn {
-  display: none;
+    display: none;
 }
 #top-bar.profileBar button {
-  width: 100px;
-  margin-right: 10px;
+    width: 100px;
+    margin-right: 10px;
 }
 #top-bar-buttons {
-  list-style-type: none;
-  height: 100%;
-  padding: 11px 0;
-  float: right;
+    list-style-type: none;
+    height: 100%;
+    padding: 11px 0;
+    float: right;
 }
 #top-bar-buttons li {
-  display: inline-block;
-  margin-right: 7px;
+    display: inline-block;
+    margin-right: 7px;
 }
 #top-bar-buttons li.profileBtn {
-  display: none;
+    display: none;
 }
 #top-bar-buttons li button {
-  background-color: blue;
-  height: 30px;
-  padding: 0 10px;
-  vertical-align: middle;
-  -webkit-border-radius: 5px;
-  border-radius: 5px;
-  border: 1px solid black;
-  box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.15);
-  color: #fff;
-  font: bold 13px "Avenir Next", Helvetica, Arial, sans-serif;
-  background-image: linear-gradient(bottom, #464646 0%, #1f1f1f 50%, #2e2e2e 51%, #525252 73%, #6b6b6b 100%);
-  background-image: -webkit-linear-gradient(bottom, #464646 0%, #1f1f1f 50%, #2e2e2e 51%, #525252 73%, #6b6b6b 100%);
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #464646), color-stop(0.5, #1f1f1f), color-stop(0.51, #2e2e2e), color-stop(0.73, #525252), color-stop(1, #6b6b6b));
+    background-color: blue;
+    height: 30px;
+    padding: 0 10px;
+    vertical-align: middle;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    border: 1px solid black;
+    box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.15);
+    color: #fff;
+    font: bold 13px "Avenir Next", Helvetica, Arial, sans-serif;
+    background-image: linear-gradient(bottom, #464646 0%, #1f1f1f 50%, #2e2e2e 51%, #525252 73%, #6b6b6b 100%);
+    background-image: -webkit-linear-gradient(bottom, #464646 0%, #1f1f1f 50%, #2e2e2e 51%, #525252 73%, #6b6b6b 100%);
+    background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #464646), color-stop(0.5, #1f1f1f), color-stop(0.51, #2e2e2e), color-stop(0.73, #525252), color-stop(1, #6b6b6b));
 }
 #top-bar-buttons li button#save {
-  border: 2px solid #fff1a0;
+    border: 2px solid #fff1a0;
 }
 #top-bar-buttons li button img {
-  display: block;
+    display: block;
 }
 #top-bar-buttons li button:active {
-  background-image: linear-gradient(bottom, #cdcdcd 0%, #000000 85%);
-  background-image: -webkit-linear-gradient(bottom, #cdcdcd 0%, #000000 85%);
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #cdcdcd), color-stop(0.85, #000000));
+    background-image: linear-gradient(bottom, #cdcdcd 0%, #000000 85%);
+    background-image: -webkit-linear-gradient(bottom, #cdcdcd 0%, #000000 85%);
+    background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #cdcdcd), color-stop(0.85, #000000));
 }
 #top-bar-buttons li button:active:active {
-  background-image: linear-gradient(bottom, #000000 0%, #cdcdcd 85%);
-  background-image: -webkit-linear-gradient(bottom, #000000 0%, #cdcdcd 85%);
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #000000), color-stop(0.85, #cdcdcd));
+    background-image: linear-gradient(bottom, #000000 0%, #cdcdcd 85%);
+    background-image: -webkit-linear-gradient(bottom, #000000 0%, #cdcdcd 85%);
+    background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #000000), color-stop(0.85, #cdcdcd));
 }
 #top-bar-buttons li #points-button {
-  font: bold 13px "Avenir Next", Helvetica, Arial, sans-serif;
-  background-image: url('../img/PointsButtonWatermark.png'), linear-gradient(bottom, #464646 0%, #1f1f1f 50%, #2e2e2e 51%, #525252 73%, #6b6b6b 100%);
-  background-image: url('../img/PointsButtonWatermark.png'), -webkit-linear-gradient(bottom, #464646 0%, #1f1f1f 50%, #2e2e2e 51%, #525252 73%, #6b6b6b 100%);
-  background-image: url('../img/PointsButtonWatermark.png'), -webkit-gradient(linear, left bottom, left top, color-stop(0, #464646), color-stop(0.5, #1f1f1f), color-stop(0.51, #2e2e2e), color-stop(0.73, #525252), color-stop(1, #6b6b6b));
-  background-position: left bottom;
-  background-repeat: no-repeat;
-  background-opacity: 0.2;
-  color: #fff;
+    font: bold 13px "Avenir Next", Helvetica, Arial, sans-serif;
+    background-image: url('../img/PointsButtonWatermark.png'), linear-gradient(bottom, #464646 0%, #1f1f1f 50%, #2e2e2e 51%, #525252 73%, #6b6b6b 100%);
+    background-image: url('../img/PointsButtonWatermark.png'), -webkit-linear-gradient(bottom, #464646 0%, #1f1f1f 50%, #2e2e2e 51%, #525252 73%, #6b6b6b 100%);
+    background-image: url('../img/PointsButtonWatermark.png'), -webkit-gradient(linear, left bottom, left top, color-stop(0, #464646), color-stop(0.5, #1f1f1f), color-stop(0.51, #2e2e2e), color-stop(0.73, #525252), color-stop(1, #6b6b6b));
+    background-position: left bottom;
+    background-repeat: no-repeat;
+    background-opacity: 0.2;
+    color: #fff;
 }
 #top-bar-buttons li #points-button em {
-  font-size: 14px;
-  color: #ff9d02;
-  font-style: normal;
+    font-size: 14px;
+    color: #ff9d02;
+    font-style: normal;
 }
 #top-bar-buttons li #points-button:active {
-  background-image: linear-gradient(bottom, #cdcdcd 0%, #000000 85%);
-  background-image: -webkit-linear-gradient(bottom, #cdcdcd 0%, #000000 85%);
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #cdcdcd), color-stop(0.85, #000000));
+    background-image: linear-gradient(bottom, #cdcdcd 0%, #000000 85%);
+    background-image: -webkit-linear-gradient(bottom, #cdcdcd 0%, #000000 85%);
+    background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #cdcdcd), color-stop(0.85, #000000));
 }
 #top-bar-buttons li #points-button:active:active {
-  background-image: linear-gradient(bottom, #000000 0%, #cdcdcd 85%);
-  background-image: -webkit-linear-gradient(bottom, #000000 0%, #cdcdcd 85%);
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #000000), color-stop(0.85, #cdcdcd));
+    background-image: linear-gradient(bottom, #000000 0%, #cdcdcd 85%);
+    background-image: -webkit-linear-gradient(bottom, #000000 0%, #cdcdcd 85%);
+    background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #000000), color-stop(0.85, #cdcdcd));
 }
 .ads {
-  position: relative;
-  background-color: #ebebeb;
-  border-radius: 8px;
-  padding: 30px;
-  overflow: hidden;
-  margin: 15px;
+    position: relative;
+    background-color: #ebebeb;
+    border-radius: 8px;
+    padding: 30px;
+    overflow: hidden;
+    margin: 15px;
 }
 @media only screen and (orientation: landscape) {
-  .ads {
-    float: left;
-    margin: 15px;
-    margin-right: 0px;
-    margin-left: -260px;
-    width: 260px;
-    padding-bottom: 260px;
-  }
+    .ads {
+        float: left;
+        margin: 15px;
+        margin-right: 0px;
+        margin-left: -260px;
+        width: 260px;
+        padding-bottom: 260px;
+    }
 }
 .ad-content {
-  overflow: hidden;
+    overflow: hidden;
 }
 .ad-title {
-  color: #2b6891;
-  margin-top: 0;
-  margin-bottom: 5px;
-  font: bold 15px "Avenir Next", Helvetica, Arial, sans-serif;
+    color: #2b6891;
+    margin-top: 0;
+    margin-bottom: 5px;
+    font: bold 15px "Avenir Next", Helvetica, Arial, sans-serif;
 }
 .ad-notice {
-  color: #808080;
-  text-shadow: 0 1px 1px #fff;
+    color: #808080;
+    text-shadow: 0 1px 1px #fff;
 }
 .ad-date {
-  color: #2b6891;
-  text-shadow: 0 1px 1px #fff;
-  font: normal 12px "Avenir Next", Helvetica, Arial, sans-serif;
+    color: #2b6891;
+    text-shadow: 0 1px 1px #fff;
+    font: normal 12px "Avenir Next", Helvetica, Arial, sans-serif;
 }
 .ad-text {
-  color: #343434;
-  margin-bottom: 0;
-  font: normal 12px "Avenir Next", Helvetica, Arial, sans-serif;
-  line-height: 2;
+    color: #343434;
+    margin-bottom: 0;
+    font: normal 12px "Avenir Next", Helvetica, Arial, sans-serif;
+    line-height: 2;
 }
 .ad-image {
-  float: right;
-  margin-left: 30px;
-  width: 200px;
-  height: 200px;
+    float: right;
+    margin-left: 30px;
+    width: 200px;
+    height: 200px;
 }
 @media only screen and (orientation: landscape) {
-  .ad-image {
-    float: none;
-    margin-left: 0;
-    position: absolute;
-    bottom: 30px;
-    left: 30px;
-  }
+    .ad-image {
+        float: none;
+        margin-left: 0;
+        position: absolute;
+        bottom: 30px;
+        left: 30px;
+    }
 }
 #tableContainer {
-  width: 100%;
+    width: 100%;
 }
 #tableContainer #calTable {
-  width: 100%;
-  border: 3px solid #c7f0f6;
+    width: 100%;
+    border: 3px solid #c7f0f6;
 }
 #tableContainer #calTable td {
-  width: 10%;
-  height: 80px;
-  border: 1px solid #c7f0f6;
+    width: 10%;
+    height: 80px;
+    border: 1px solid #c7f0f6;
 }
 #tableContainer #calTable .days td {
-  vertical-align: top;
+    vertical-align: top;
 }
 #tableContainer #calTable .days td .day {
-  float: right;
-  font: normal 12px "Avenir Next Medium", Helvetica, Arial, sans-serif;
+    float: right;
+    font: normal 12px "Avenir Next Medium", Helvetica, Arial, sans-serif;
 }
 #tableContainer #calTable .days td:hover {
-  background-color: #c7f0f6;
+    background-color: #c7f0f6;
 }
 #tableContainer #calTable .today {
-  background-color: #7fb0db;
+    background-color: #7fb0db;
 }
 section#month h2 {
-  color: #2b6891;
-  font: bold 15px "Avenir Next Heavy", Helvetica, Arial, sans-serif;
+    color: #2b6891;
+    font: bold 15px "Avenir Next Heavy", Helvetica, Arial, sans-serif;
 }
 #evt_div {
-  text-align: center;
-  background-image: linear-gradient(bottom, #464646 0%, #1f1f1f 65%, #2e2e2e 21%, #525252 90%, #6b6b6b 100%);
-  background-image: -webkit-linear-gradient(bottom, #464646 0%, #1f1f1f 65%, #2e2e2e 21%, #525252 90%, #6b6b6b 100%);
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #464646), color-stop(0.65, #1f1f1f), color-stop(0.21, #2e2e2e), color-stop(0.9, #525252), color-stop(1, #6b6b6b));
-  border-radius: 10px;
-  padding: 5px;
-  box-shadow: 2px 2px 5px #000000;
-  /*    position: fixed;*/
+    text-align: center;
+    background-image: linear-gradient(bottom, #464646 0%, #1f1f1f 65%, #2e2e2e 21%, #525252 90%, #6b6b6b 100%);
+    background-image: -webkit-linear-gradient(bottom, #464646 0%, #1f1f1f 65%, #2e2e2e 21%, #525252 90%, #6b6b6b 100%);
+    background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #464646), color-stop(0.65, #1f1f1f), color-stop(0.21, #2e2e2e), color-stop(0.9, #525252), color-stop(1, #6b6b6b));
+    border-radius: 10px;
+    padding: 5px;
+    box-shadow: 2px 2px 5px #000000;
+    /*    position: fixed;*/
 
-  /*  background: #fff ;*/
+    /*  background: #fff ;*/
 
-  color: black;
-  height: 30%;
-  position: fixed;
-  width: 40%;
-  display: block;
-  display: none;
-  top: 25%;
-  left: 30%;
-  -moz-border-radius: 20px;
-  -webkit-border-radius: 20px;
-  /*  box-shadow: 10px 10px 5px #888888;*/
+    color: black;
+    height: 30%;
+    position: fixed;
+    width: 40%;
+    display: block;
+    display: none;
+    top: 25%;
+    left: 30%;
+    -moz-border-radius: 20px;
+    -webkit-border-radius: 20px;
+    /*  box-shadow: 10px 10px 5px #888888;*/
 
-  /*  border: 1px solid #888888;*/
+    /*  border: 1px solid #888888;*/
 
-  z-index: 11;
+    z-index: 11;
 }
 #evt_form_table td {
-  padding-right: 30px;
+    padding-right: 30px;
 }
 #popDate {
-  position: absolute;
-  height: 150px;
-  width: 200px;
-  padding: 10px;
-  border: 2px solid #2b6891;
-  box-shadow: 0px 0px 5px #2b6891;
-  border-radius: 10px;
-  background-color: #fff;
+    position: absolute;
+    height: 250px;
+    width: 200px;
+    padding: 10px;
+    border: 2px solid #2b6891;
+    box-shadow: 0px 0px 5px #2b6891;
+    border-radius: 10px;
+    background-color: #fff;
 }
 #popDate h3 {
-  display: inline;
-  font: bold 14px "Avenir Next", Helvetica, Arial, sans-serif;
+    display: inline;
+    font: bold 14px "Avenir Next", Helvetica, Arial, sans-serif;
 }
 #popDate img {
-  float: right;
-  height: 30px;
-  width: 30px;
+    float: right;
+    height: 18px;
+    width: 15px;
 }
 #popDate li {
-  list-style: disc;
-  font: normal 14px "Avenir Next", Helvetica, Arial, sans-serif;
-  display: list-item;
-  padding: 5px;
+    list-style: disc;
+    font: normal 14px "Avenir Next", Helvetica, Arial, sans-serif;
+    display: list-item;
+    padding: 5px;
 }
 #popDate li.energy {
-  color: #008000;
+    color: #008000;
 }
 #popDate li.mood {
-  color: #ffa500;
+    color: #ffa500;
 }
 #popDate li.diet {
-  color: #0000ff;
+    color: #0000ff;
 }
 #popDate li span {
-  color: #000;
+    color: #000;
 }
 #popDate #attrList {
-  margin-top: 30px;
+    margin-top: 30px;
 }
 #popDate .arrow-border {
-  border-color: #2b6891 transparent transparent transparent;
-  border-style: solid;
-  border-width: 10px;
-  height: 0;
-  width: 0;
-  position: absolute;
-  bottom: -22px;
-  left: 30px;
+    border-color: #2b6891 transparent transparent transparent;
+    border-style: solid;
+    border-width: 10px;
+    height: 0;
+    width: 0;
+    position: absolute;
+    bottom: -22px;
+    left: 30px;
 }
 #popDate .arrow {
-  border-color: #fff transparent transparent transparent;
-  border-style: solid;
-  border-width: 10px;
-  height: 0;
-  width: 0;
-  position: absolute;
-  bottom: -19px;
-  left: 30px;
+    border-color: #fff transparent transparent transparent;
+    border-style: solid;
+    border-width: 10px;
+    height: 0;
+    width: 0;
+    position: absolute;
+    bottom: -19px;
+    left: 30px;
 }
-section#insights img {
+/*section#insights img {
   width: 576px;
   margin-top: 20px;
-}
+}*/
 .popup_wrapper {
-  display: none;
-  height: 100%;
-  background: lightgray;
-  left: 0;
-  top: 0;
-  opacity: 0.5;
-  position: fixed;
-  width: 100%;
+    display: none;
+    height: 100%;
+    background: lightgray;
+    left: 0;
+    top: 0;
+    opacity: 0.5;
+    position: fixed;
+    width: 100%;
 }
 #evt_div {
-  position: fixed;
-  background-image: linear-gradient(bottom, #464646 0%, #1f1f1f 65%, #2e2e2e 21%, #525252 90%, #6b6b6b 100%);
-  background-image: -webkit-linear-gradient(bottom, #464646 0%, #1f1f1f 65%, #2e2e2e 21%, #525252 90%, #6b6b6b 100%);
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #464646), color-stop(0.65, #1f1f1f), color-stop(0.21, #2e2e2e), color-stop(0.9, #525252), color-stop(1, #6b6b6b));
-  z-index: 15;
-  height: 70%;
-  width: 35%;
-  display: block;
-  color: black;
-  display: none;
-  top: 15%;
-  left: 25%;
-  -moz-border-radius: 20px;
-  -webkit-border-radius: 20px;
-  box-shadow: 10px 10px 5px #888888;
-  border: 1px solid #888888;
+    position: fixed;
+    background-image: linear-gradient(bottom, #464646 0%, #1f1f1f 65%, #2e2e2e 21%, #525252 90%, #6b6b6b 100%);
+    background-image: -webkit-linear-gradient(bottom, #464646 0%, #1f1f1f 65%, #2e2e2e 21%, #525252 90%, #6b6b6b 100%);
+    background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #464646), color-stop(0.65, #1f1f1f), color-stop(0.21, #2e2e2e), color-stop(0.9, #525252), color-stop(1, #6b6b6b));
+    z-index: 15;
+    height: 70%;
+    width: 35%;
+    display: block;
+    color: black;
+    display: none;
+    top: 15%;
+    left: 25%;
+    -moz-border-radius: 20px;
+    -webkit-border-radius: 20px;
+    box-shadow: 10px 10px 5px #888888;
+    border: 1px solid #888888;
 }
 #evt_form li {
-  display: block;
-  background-color: #ffffff;
-  margin: 10px 5px;
-  padding: 8px;
-  padding-right: 0px;
-  background-color: #fff;
-  border-radius: 5px;
-  border: 1px solid #c0c0c0;
+    display: block;
+    background-color: #ffffff;
+    margin: 10px 5px;
+    padding: 8px;
+    padding-right: 0px;
+    background-color: #fff;
+    border-radius: 5px;
+    border: 1px solid #c0c0c0;
 }
 #evt_form li label {
-  color: #000000;
-  padding-right: 10px;
-  float: left;
-  width: 125px;
-  font: normal 13px "Avenir Next", Helvetica, Arial, sans-serif;
+    color: #000000;
+    padding-right: 10px;
+    float: left;
+    width: 125px;
+    font: normal 13px "Avenir Next", Helvetica, Arial, sans-serif;
 }
 #evt_div h1 {
-  text-shadow: 2px 2px #000000;
-  font: bold 16px "Avenir Next Heavy", Helvetica, Arial, sans-serif;
-  color: #ffffff;
-  padding-bottom: 20px;
+    text-shadow: 2px 2px #000000;
+    font: bold 16px "Avenir Next Heavy", Helvetica, Arial, sans-serif;
+    color: #ffffff;
+    padding-bottom: 20px;
 }
 #viewBtn {
-  float: right;
-  margin-right: 8px;
+    float: right;
+    margin-right: 8px;
 }
 .dataGrid {
-  width: 100%;
-  background-color: #cfcfcf;
-  margin: 15px 0px 15px 0px;
-  border-radius: 10px;
-  font: normal 14px "Avenir Next", Helvetica, Arial, sans-serif;
-  box-shadow: 0px 2px 2px #ababab;
+    width: 100%;
+    background-color: #cfcfcf;
+    margin: 15px 0px 15px 0px;
+    border-radius: 10px;
+    font: normal 14px "Avenir Next", Helvetica, Arial, sans-serif;
+    box-shadow: 0px 2px 2px #ababab;
 }
 .dataGrid #title {
-  padding: 10px;
-  height: 50px;
-  vertical-align: middle;
+    padding: 10px;
+    height: 50px;
+    vertical-align: middle;
 }
 .dataGrid #title h2 {
-  font: bold 14px "Avenir Next", Helvetica, Arial, sans-serif;
-  color: #000000;
+    font: bold 14px "Avenir Next", Helvetica, Arial, sans-serif;
+    color: #000000;
 }
 .dataGrid #body #row {
-  padding: 15px;
-  height: 40px;
+    padding: 15px;
+    height: 40px;
 }
 .dataGrid #body #row .value {
-  position: absolute;
-  left: 370px;
+    position: absolute;
+    left: 370px;
 }
 .dataGrid #body #row:after {
-  content: url('../img/icons/smallArrow.png');
-  float: right;
-  clear: right;
+    content: url('../img/icons/smallArrow.png');
+    float: right;
+    clear: right;
 }
 .dataGrid #body #row:nth-child(odd) {
-  background-color: #e6e6e6;
+    background-color: #e6e6e6;
 }
 .dataGrid #body #row:last-child {
-  border-radius: 0 0 10px 10px;
+    border-radius: 0 0 10px 10px;
 }
 #filterView {
-  position: absolute;
-  top: 40px;
-  left: 415px;
-  width: 200px;
-  text-align: center;
-  background-image: linear-gradient(bottom, #000000 9%, #2b6891 99%);
-  background-image: -webkit-linear-gradient(bottom, #000000 9%, #2b6891 99%);
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0.9, #000000), color-stop(0.99, #2b6891));
-  border-radius: 10px;
-  padding: 5px;
-  box-shadow: 2px 2px 5px #ababab;
+    position: absolute;
+    top: 40px;
+    left: 415px;
+    width: 200px;
+    text-align: center;
+    background-image: linear-gradient(bottom, #000000 9%, #2b6891 99%);
+    background-image: -webkit-linear-gradient(bottom, #000000 9%, #2b6891 99%);
+    background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0.9, #000000), color-stop(0.99, #2b6891));
+    border-radius: 10px;
+    padding: 5px;
+    box-shadow: 2px 2px 5px #ababab;
 }
 #filterView h2 {
-  font: bold 14px "Avenir Next Heavy", Helvetica, Arial, sans-serif;
-  color: #ffffff;
+    font: bold 14px "Avenir Next Heavy", Helvetica, Arial, sans-serif;
+    color: #ffffff;
 }
 #filterView #body {
-  font: bold 12px "Avenir Next", Helvetica, Arial, sans-serif;
-  text-align: left;
-  min-height: 100px;
-  background-color: #ffffff;
-  border-radius: 5px;
+    font: bold 12px "Avenir Next", Helvetica, Arial, sans-serif;
+    text-align: left;
+    min-height: 100px;
+    background-color: #ffffff;
+    border-radius: 5px;
 }
 #filterView #body input[type=checkbox] {
-  display: none;
-  padding: 0 0 0 0px;
+    display: none;
+    padding: 0 0 0 0px;
 }
 #filterView #body label.checked {
-  display: inline-block;
+    display: inline-block;
 }
 #filterView #body label.checked img {
-  display: inline-block;
+    display: inline-block;
 }
 #filterView #body label {
-  display: inline-block;
-  width: 100%;
-  padding: 10px;
-  height: 35px;
+    display: inline-block;
+    width: 100%;
+    padding: 10px;
+    height: 35px;
 }
 #filterView #body label img {
-  float: right;
-  display: none;
-  height: 25px;
+    float: right;
+    display: none;
+    height: 25px;
 }
 #filterView:before {
-  border-bottom: 15px solid #2b6891;
-  border-right: 20px solid transparent;
-  border-left: 20px solid transparent;
-  top: -12px;
-  content: '';
-  position: absolute;
-  right: 3px;
+    border-bottom: 15px solid #2b6891;
+    border-right: 20px solid transparent;
+    border-left: 20px solid transparent;
+    top: -12px;
+    content: '';
+    position: absolute;
+    right: 3px;
+}
+
+#insight_div{
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    box-shadow: -2px 4px 4px #888888;
+    margin-left : 15px;
+        
+}
+
+#mood_section{
+    margin: 20px;
+    padding-top: 25px;
+}
+
+#mood_desc{
+    font-size: 14px;
+}
+
+
+#mood_head_line{
+    font-weight: bold;
+    font-size : 17px;
+}
+
+#insight_graph{
+    height: 45%;
+    background-color: white;
+    margin-top: 15px;
+     box-shadow: -12px 0px 12px white;
+       border-top: 5px solid lightgray;
+    border-bottom: 5px solid lightgray;
+}
+
+section#insights h1 {
+  margin-left: 50px;
+}
+
+#insight_options {
+ 
+  margin-right: 40px;
+}
+
+#insight_div{
+    background-color: #ebebeb;
+    height: 441px;
+    
+}
+
+#mood_img img{
+   padding-right: 8px;
+   height: 25px;
 }
