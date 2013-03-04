@@ -71,7 +71,7 @@ define([
                 this.setActiveView('history');
                 for(var i=0; i<resp.payload.familyHistories.length; i++)
                     $('div #history #familyHistory #body').append('<div id="row"><span class="name">'+resp.payload.familyHistories[i].familyMember+'</span><span class="value">'+resp.payload.familyHistories[i].diagnosis+'</span></div>');
-                for(var i=0; i<resp.payload.familyHistories.length; i++)
+                for(var i=0; i<resp.payload.socialHistories.length; i++)
                     $('div #history #socialHistory #body').append('<div id="row"><span class="name">'+resp.payload.socialHistories[i].socialHistoryElement+'</span><span class="value">'+resp.payload.socialHistories[i].description+'</span></div>');
                 this.refreshScroll();
             },
