@@ -1977,22 +1977,22 @@ section#month h2 {
   width: 100%;
 }
 #evt_div {
-  position: fixed;
-  background-image: linear-gradient(bottom, #464646 0%, #1f1f1f 65%, #2e2e2e 21%, #525252 90%, #6b6b6b 100%);
-  background-image: -webkit-linear-gradient(bottom, #464646 0%, #1f1f1f 65%, #2e2e2e 21%, #525252 90%, #6b6b6b 100%);
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #464646), color-stop(0.65, #1f1f1f), color-stop(0.21, #2e2e2e), color-stop(0.9, #525252), color-stop(1, #6b6b6b));
-  z-index: 15;
-  height: 70%;
-  width: 35%;
-  display: block;
-  color: black;
-  display: none;
-  top: 15%;
-  left: 25%;
-  -moz-border-radius: 20px;
-  -webkit-border-radius: 20px;
-  box-shadow: 10px 10px 5px #888888;
-  border: 1px solid #888888;
+    position: fixed;
+    background-image: linear-gradient(bottom, #464646 0%, #1f1f1f 65%, #2e2e2e 21%, #525252 90%, #6b6b6b 100%);
+    background-image: -webkit-linear-gradient(bottom, #464646 0%, #1f1f1f 65%, #2e2e2e 21%, #525252 90%, #6b6b6b 100%);
+    background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #464646), color-stop(0.65, #1f1f1f), color-stop(0.21, #2e2e2e), color-stop(0.9, #525252), color-stop(1, #6b6b6b));
+    z-index: 15;
+    height: 70%;
+    width: 60%;
+    display: block;
+    color: black;
+    display: none;
+    top: 15%;
+    left: 25%;
+    -moz-border-radius: 20px;
+    -webkit-border-radius: 20px;
+    box-shadow: 10px 10px 5px #888888;
+    border: 1px solid #888888;
 }
 #evt_form li {
   display: block;
@@ -2159,11 +2159,54 @@ section#insights h1 {
   height: 25px;
 }
 #filterView:before {
-  border-bottom: 15px solid #2b6891;
-  border-right: 20px solid transparent;
-  border-left: 20px solid transparent;
-  top: -12px;
-  content: '';
-  position: absolute;
-  right: 3px;
+    border-bottom: 15px solid #2b6891;
+    border-right: 20px solid transparent;
+    border-left: 20px solid transparent;
+    top: -12px;
+    content: '';
+    position: absolute;
+    right: 3px;
+}
+
+#insight_div{
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    box-shadow: -2px 4px 4px #888888;
+    margin-left : 15px;
+
+}
+
+#mood_section{
+    margin: 20px;
+    padding-top: 25px;
+}
+
+#mood_desc{
+    font-size: 14px;
+}
+
+
+#mood_head_line{
+    font-weight: bold;
+    font-size : 17px;
+}
+
+#insight_graph{
+    height: 45%;
+    background-color: white;
+    margin-top: 15px;
+    box-shadow: -12px 0px 12px white;
+    border-top: 5px solid lightgray;
+    border-bottom: 5px solid lightgray;
+}
+
+section#insights h1 {
+    margin-left: 50px;
+}
+
+#insight_options {
+
+    margin-right: 40px;
+    height: 20px;
+    width: 20px;
 }
