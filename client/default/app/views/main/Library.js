@@ -3,29 +3,29 @@ define([
   'underscore',
   'backbone',
   'views/ContainerView',
-  'views/main/library/Featured',
-  'views/main/library/Videos',
-  'views/main/library/Articles',
+  'views/main/library/MyMedia',
+  'views/main/library/ReadingRoom',
+  'views/main/library/Research',
   'views/main/library/Suggested',
   'text!templates/pages/Library.html'
-], function($, _, Backbone, ContainerView, FeaturedView, VideosView, ArticlesView, SuggestedView, template) {
+], function($, _, Backbone, ContainerView, MyMediaView, ReadingRoomView, ResearchView, SuggestedView, template) {
 
   return ContainerView.extend({
     tagName	: 'section',
     id		: 'library',
 
     events : {
-      'click #show-myMedia'    : 'showFeatured',
-      'click #show-readingRoom': 'showVideos',
-      'click #show-research'   : 'showArticles',
+      'click #show-myMedia'    : 'showMyMedia',
+      'click #show-readingRoom': 'showReadingRoom',
+      'click #show-research'   : 'showResearch',
       'click #show-suggested'  : 'showSuggested'
     },
 
     subViews: {
-      featured	: new FeaturedView(),
-      videos	: new VideosView(),
-      articles	: new ArticlesView(),
-      suggested	: new SuggestedView(),
+      myMedia    : new MyMediaView(),
+      readingRoom: new ReadingRoomView(),
+      research   : new ResearchView(),
+      suggested  : new SuggestedView(),
     },
 
     initialize: function(options) {
@@ -45,14 +45,14 @@ define([
 
     render: function() {
       var self = this;
-      this.setActiveView('featured');
+      this.setActiveView('myMedia');
       this.delegateEvents();
       if (this.activeView) {
         this.activeView.delegateEvents();
         // this.setActiveView(self.activeView);
       }
       this.$('li').removeClass('selected');
-      this.$('#show-featured').addClass('selected');
+      this.$('#show-myMedia').addClass('selected');
       return this;
     },
 
@@ -63,24 +63,24 @@ define([
       }
     },
 
-    showFeatured : function(){
+    showMyMedia : function(){
       this.$('li').removeClass('selected');
       this.$('#show-myMedia').addClass('selected');
-      this.setActiveView('featured');
+      this.setActiveView('myMedia');
       this.refreshScroll();
     },
 
-    showVideos : function(){
+    showReadingRoom : function(){
       this.$('li').removeClass('selected');
       this.$('#show-readingRoom').addClass('selected');
-      this.setActiveView('videos');
+      this.setActiveView('readingRoom');
       this.refreshScroll();
     },
 
-    showArticles : function(){
+    showResearch : function(){
       this.$('li').removeClass('selected');
       this.$('#show-research').addClass('selected');
-      this.setActiveView('articles');
+      this.setActiveView('research');
       this.refreshScroll();
     },
 
