@@ -1,5 +1,5 @@
 <!--<h1> Today is <%= today %> </h1>-->
-<img src="img/calendar/IconCalendar.png" align ="right">
+<img id="month_options" src="img/calendar/IconCalendar.png" align ="right" style="margin-right: 10px"/>
 <h1 id="monthName"> <%= this.monthName[this.month]+",  "+this.year%> </h1>
 
 <div>
@@ -51,9 +51,9 @@
     <div id='evt_inner_div'>
         <div id="evt_form" style="padding-bottom: 15px">
                 <li class="required"><label>Title</label>
-                    <input id="evt_name" style="outline: none;  border: none;" type="text" ></li>
+                    <input id="evt_name" style="outline: none;  border: none;" type="text" maxlength="50"></li>
                  <li class="required"><label>Details</label>
-                    <input id="evt_details" style="outline: none;  border: none;" type="text" ></li>
+                    <input id="evt_details" style="outline: none;  border: none;" type="text" maxlength="150"></li>
         </div>
         <button id='cancel_evt' class='btn' style="width: 90px">Cancel</button>
         <button id='ok_evt' class='btn' style="width: 90px;margin-left:20px">OK</button>

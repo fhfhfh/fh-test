@@ -2045,10 +2045,7 @@ section#month h2 {
 section#insights h1 {
   margin-left: 50px;
 }
-#insight_options {
-  margin-right: 40px;
-  height: 20px;
-}
+
 #insight_div {
   background-color: #ebebeb;
   height: 441px;
@@ -2206,7 +2203,6 @@ section#insights h1 {
 
 #insight_options {
 
-    margin-right: 40px;
-    height: 20px;
-    width: 20px;
+    margin-right: 10px;
+    
 }

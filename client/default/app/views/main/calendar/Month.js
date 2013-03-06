@@ -22,7 +22,8 @@ define(['jquery',
                 'click #preMonth_btn'      : 'previousMonth',
                 'click #currentMonth_btn' :'currentMonth',
                 'click #cancel_evt'    : 'editEvent',
-                'click #ok_evt'     :'saveEvent'
+                'click #ok_evt'     :'saveEvent',
+                'click #month_options'     :'monthOptions'
             },
             template	: _.template(tpl),
             evt_day    :   "",
@@ -104,244 +105,273 @@ define(['jquery',
                     if(evtArr.length>=0){
                         for( var j=0; j <= evtArr.length; j++){
                            
-                    if(evtArr[j] && num == evtArr[j].day && self.month == evtArr[j].month && this.year == evtArr[j].year){
-                        if($(days[i]).css('background-color')!= 'rgb(255, 246, 218)'){
-                            if(num == new Date().getDate() && this.month == new Date().getMonth() && this.year == new Date().getFullYear())
-                          {  
-                              $(days[i]).css({'background-color':'#7fb0db'});
-                                if($(days[i]).children().length <2)
-                                    {
-                                       $(days[i]).append(evtArr[j].img);
+                            if(evtArr[j] && num == evtArr[j].day && self.month == evtArr[j].month && this.year == evtArr[j].year){
+                                if($(days[i]).css('background-color')!= 'rgb(255, 246, 218)'){
+                                    if(num == new Date().getDate() && this.month == new Date().getMonth() && this.year == new Date().getFullYear())
+                                    {  
+                                        $(days[i]).css({
+                                            'background-color':'#7fb0db'
+                                        });
+                                        if($(days[i]).children().length <2)
+                                        {
+                                            $(days[i]).append(evtArr[j].img);
+                                        }
                                     }
-                          }
-                            else
-                               { $(days[i]).css({'background-color':'rgb(255, 246, 218)'});
-                            $(days[i]).append(evtArr[j].img);}
+                                    else
+                                    {
+                                        $(days[i]).css({
+                                            'background-color':'rgb(255, 246, 218)'
+                                        });
+                                        $(days[i]).append(evtArr[j].img);
+                                    }
+                                }
+                            }
                         }
                     }
-                }
-                    }
 				
-            num = num +1;
-        }
-        $("#monthName").html(this.monthName[this.month]+","+this.year);
-    },
+                    num = num +1;
+                }
+                $("#monthName").html(this.monthName[this.month]+","+this.year);
+            },
                 
-    nextMonth: function(){
-        var date		= new Date();
-        if(this.month>=11 )
-        {
-            this.month = -1;
-            this.year = this.year+1;
-        }
-        if(this.month+1 == date.getMonth() && this.year == date.getFullYear())
-            this.currentMonth();
-        else{
-            $("#monthName").html(this.monthName[this.month+1]+","+this.year);
-            var tempMonth = this.month;
-            //                    alert("this.month+1 :- "+(this.month+1)+"  this.month  "+this.month)
-            this.setMonth(this.month+1);
-        }
-    },
+            nextMonth: function(){
+                var date		= new Date();
+                if(this.month>=11 )
+                {
+                    this.month = -1;
+                    this.year = this.year+1;
+                }
+                if(this.month+1 == date.getMonth() && this.year == date.getFullYear())
+                    this.currentMonth();
+                else{
+                    $("#monthName").html(this.monthName[this.month+1]+","+this.year);
+                    var tempMonth = this.month;
+                    //                    alert("this.month+1 :- "+(this.month+1)+"  this.month  "+this.month)
+                    this.setMonth(this.month+1);
+                }
+            },
             
-    previousMonth: function(){
-        var date		= new Date();
-        if(this.month<=0 )
-        {
-            this.month = 12;
-            this.year = this.year-1;
-        }
-        if(this.month == date.month && this.year == date.getFullYear()){
-            this.renderCal();
-            return
-        }
-        $("#monthName").html(this.monthName[this.month-1]+","+this.year);
-        this.setMonth(this.month-1);
-    },
+            previousMonth: function(){
+                var date		= new Date();
+                if(this.month<=0 )
+                {
+                    this.month = 12;
+                    this.year = this.year-1;
+                }
+                if(this.month == date.month && this.year == date.getFullYear()){
+                    this.renderCal();
+                    return
+                }
+                $("#monthName").html(this.monthName[this.month-1]+","+this.year);
+                this.setMonth(this.month-1);
+            },
             
-    currentMonth : function(){
-        var date		= new Date();
-        this.year = date.getFullYear();
-        this.month = date.getMonth();
-        $("#monthName").html(this.monthName[this.month]+","+date.getFullYear());
-        this.setMonth(this.month)
-    },
+            currentMonth : function(){
+                var date		= new Date();
+                this.year = date.getFullYear();
+                this.month = date.getMonth();
+                $("#monthName").html(this.monthName[this.month]+","+date.getFullYear());
+                this.setMonth(this.month)
+            },
 
 
-    /* Show a pop-up to display information/events
+            /* Show a pop-up to display information/events
 * about a given day. These events will be read dynamically from
 * an Events model/collection for each date.
 */
-    eventsOn: function(e){
-        $('#popDate').remove();
-        var evtArrLength = evtArr.length;
-        var self = this;
-        var month = this.monthName[self.month];
-        target = e.currentTarget;
-        var day = $(target).find('.day').html();
-        var dateModel = '';// get Events model Item for the date that is clicked
-        evt_day = day;
+            eventsOn: function(e){
+                $('#popDate').remove();
+                var evtArrLength = evtArr.length;
+                var self = this;
+                var month = this.monthName[self.month];
+                target = e.currentTarget;
+                var day = $(target).find('.day').html();
+                //        alert( $(target).css("width"));
+                var dateModel = '';// get Events model Item for the date that is clicked
+                evt_day = day;
                
-        var html = 	this.dayTpl({
-            date: month + ' ' + day + ', ' + self.year,
-            energy: dateModel.energy || 'n/a',
-            mood: dateModel.mood || 'n/a',
-            diet: dateModel.diet || 'n/a'
-        });
+                var html = 	this.dayTpl({
+                    date: month + ' ' + day + ', ' + self.year,
+                    energy: dateModel.energy || 'Average',
+                    mood: dateModel.mood || 'Good',
+                    diet: dateModel.diet || 'Good'
+                });
                 
                 
-        if(day != undefined && day>0 ){
-            $(target).append(html);
+                if(day != undefined && day>0 ){
+                    $(target).append(html);
                     
-            if(evtArrLength >0)
-            {
-                for(var i=0;i<evtArrLength;i++)
-                {
-                    if(evtArr[i].day == evt_day && evtArr[i].month == this.month && evtArr[i].year == this.year)
-                        $("#attrList").append('<li class="energy"><span>'+evtArr[i].name+' - '+evtArr[i].details+'</span></li>');
-                }
-            }
-            $('#popDate').hide().slideDown(200);
-
-
-            // Close window after 3 seconds
-            setTimeout(function(){
-                $(target).find('#popDate').slideUp(200);
-            }, 4000);
-        }
-    },
-
-    // Open pop-up for editing/adding/removing events
-    // Need more information on what is required here
-    editEvent: function(e){
-        if(evt_day == '')
-            return;
-        var self = this;
-        var month = this.monthName[self.month];
-        var target = e.currentTarget;
-        var day = $(target).find('.day').html();
-        console.log(e);
-        var dateModel = '';// get Events model Item for the date that is clicked
-        $('#evt_div h1').html("Add Event For "+evt_day+"  "+month+" "+this.year);
-        var evt_div = $('#evt_div');
-        if(evt_div.css("display")=="block") {
-            evt_div.hide();
-            $('#cover_div').hide();
-        }
-        else {
-            $('#cover_div').show();
-            evt_div.show();
-            $('#confirmPassword_txt').focus();
-        }
-    //                alert('Need information on what is needed here')
-    },
-            
-    setMonth : function(month){
-        this.month = month;//date.getMonth();
-        var date		= new Date();
-        var dateObj = new Date();
-        dateObj.setFullYear(this.year);
-        dateObj.setMonth(this.month);
-        dateObj.setDate(1);
-        var first = dateObj.getDay();
-        this.firstDay = first;
-        var self = this;
-        var days = this.$('.days td');
-        var today = new Date().getDate();
-        var cls = '';
-        for(var i=0; i<= first ; i++){
-            $(days[i]).html("<div class='day'>  </div>");
-            $(days[i]).css({
-                'background-color':'white'
-            });
-        }
-        var monthLength = this.daysInMonth(this.month, self.year);
-        var num = 1;
-        for(var i=first; i<42 + first ; i++){
-            $(days[i]).css({
-                'background-color':'white'
-            });
-            if(days[i] && days[i].className == 'today'){
-                $(days[i]).removeClass('today')
-                $(days[i]).addClass(' ');
-            }
-            cls = '';
-            if(num == today && this.month == date.getMonth() && this.year == date.getFullYear()){
-                $(days[i]).css({'background-color':'#7fb0db'});
-                cls = 'today';
-            }
-            $(days[i]).html("<div class='day'>  </div>");
-            if(monthLength >= num){
-                $(days[i]).html("<div class='day'>" + num + "</div>");
-                $(days[i]).addClass(cls);
-            }
-            if(evtArr.length>=0){
-                        
-                for( var j=0; j <= evtArr.length; j++){
-                           
-                    if(evtArr[j] && num == evtArr[j].day && month == evtArr[j].month && this.year == evtArr[j].year){
-                        if($(days[i]).css('background-color')!= 'rgb(255, 246, 218)'){
-                            if(num == new Date().getDate() && this.month == new Date().getMonth() && this.year == new Date().getFullYear())
-                          {  
-                              $(days[i]).css({'background-color':'#7fb0db'});
-                                if($(days[i]).children().length <2)
-                                    {
-                                       $(days[i]).append(evtArr[j].img);
-                                    }
-                          }
-                            else
-                               { $(days[i]).css({'background-color':'rgb(255, 246, 218)'});
-                            $(days[i]).append(evtArr[j].img);}
+                    if(evtArrLength >0)
+                    {
+                        for(var i=0;i<evtArrLength;i++)
+                        {
+                            if(evtArr[i].day == evt_day && evtArr[i].month == this.month && evtArr[i].year == this.year)
+                                $("#attrList").append('<li class="energy"><span>'+evtArr[i].name+' - '+evtArr[i].details+'</span></li>');
                         }
                     }
+                    //            alert($('#popDate').css("left"))
+                    var temp = $(target).position().left+parseInt($(target).css("width"))-parseInt($('#popDate').css("width"));
+                    //            alert(temp)
+                    if(temp>10)
+                        $('#popDate').css("left",temp);
+                    $('#popDate').hide().slideDown(200);
+
+
+                    // Close window after 3 seconds
+                    setTimeout(function(){
+                        $(target).find('#popDate').slideUp(200);
+                    }, 8000);
                 }
-            }
-    num = num +1;
-}
-},
+            },
+
+            // Open pop-up for editing/adding/removing events
+            // Need more information on what is required here
+            editEvent: function(e){
+                if(evt_day == '')
+                    return;
+                var self = this;
+                var month = this.monthName[self.month];
+                var target = e.currentTarget;
+                var day = $(target).find('.day').html();
+                console.log(e);
+                var dateModel = '';// get Events model Item for the date that is clicked
+                $('#evt_div h1').html("Add Event For "+evt_day+"  "+month+" "+this.year);
+                var evt_div = $('#evt_div');
+                if(evt_div.css("display")=="block") {
+                    evt_div.hide();
+                    $('#cover_div').hide();
+                }
+                else {
+                    $('#cover_div').show();
+                    evt_div.show();
+                    $('#confirmPassword_txt').focus();
+                }
+            //                alert('Need information on what is needed here')
+            },
             
-saveEvent : function(){
-    var obj = {
-        name : $('#evt_name').val(),
-        details : $('#evt_details').val(),
-        day : evt_day,
-        month : this.month,
-        year : this.year,
-        img : "<img src='img/calendar/DaceHappyWhite@2x.png' style='margin-top: 12%;height : 50px'>"
-    }
-    if(obj.name !="" && obj.details !="")
-    {
-        evtArr.push(obj);
-        var num=1;
-        var day = $(target).find('.day').html();
-        var days = this.$('.days td');
-        if($(target).css('background-color')!= 'rgb(255, 246, 218)')
-            for(var i=1; i<42 + 1 ; i++){
-                if(num == obj.day ){
-                    if(num == new Date().getDate() && this.month == new Date().getMonth() && this.year == new Date().getFullYear())
-                          {  
-                              $(target).css({'background-color':'#7fb0db'});
-                                if($(target).children().length <=2)
+            setMonth : function(month){
+                this.month = month;//date.getMonth();
+                var date		= new Date();
+                var dateObj = new Date();
+                dateObj.setFullYear(this.year);
+                dateObj.setMonth(this.month);
+                dateObj.setDate(1);
+                var first = dateObj.getDay();
+                this.firstDay = first;
+                var self = this;
+                var days = this.$('.days td');
+                var today = new Date().getDate();
+                var cls = '';
+                for(var i=0; i<= first ; i++){
+                    $(days[i]).html("<div class='day'>  </div>");
+                    $(days[i]).css({
+                        'background-color':'white'
+                    });
+                }
+                var monthLength = this.daysInMonth(this.month, self.year);
+                var num = 1;
+                for(var i=first; i<42 + first ; i++){
+                    $(days[i]).css({
+                        'background-color':'white'
+                    });
+                    if(days[i] && days[i].className == 'today'){
+                        $(days[i]).removeClass('today')
+                        $(days[i]).addClass(' ');
+                    }
+                    cls = '';
+                    if(num == today && this.month == date.getMonth() && this.year == date.getFullYear()){
+                        $(days[i]).css({
+                            'background-color':'#7fb0db'
+                        });
+                        cls = 'today';
+                    }
+                    $(days[i]).html("<div class='day'>  </div>");
+                    if(monthLength >= num){
+                        $(days[i]).html("<div class='day'>" + num + "</div>");
+                        $(days[i]).addClass(cls);
+                    }
+                    if(evtArr.length>=0){
+                        
+                        for( var j=0; j <= evtArr.length; j++){
+                           
+                            if(evtArr[j] && num == evtArr[j].day && month == evtArr[j].month && this.year == evtArr[j].year){
+                                if($(days[i]).css('background-color')!= 'rgb(255, 246, 218)'){
+                                    if(num == new Date().getDate() && this.month == new Date().getMonth() && this.year == new Date().getFullYear())
+                                    {  
+                                        $(days[i]).css({
+                                            'background-color':'#7fb0db'
+                                        });
+                                        if($(days[i]).children().length <2)
+                                        {
+                                            $(days[i]).append(evtArr[j].img);
+                                        }
+                                    }
+                                    else
+                                    {
+                                        $(days[i]).css({
+                                            'background-color':'rgb(255, 246, 218)'
+                                        });
+                                        $(days[i]).append(evtArr[j].img);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    num = num +1;
+                }
+            },
+            
+            saveEvent : function(){
+                var obj = {
+                    name : $('#evt_name').val(),
+                    details : $('#evt_details').val(),
+                    day : evt_day,
+                    month : this.month,
+                    year : this.year,
+                    img : "<img src='img/calendar/DaceHappyWhite@2x.png' style='margin-top: 12%;height : 50px'>"
+                }
+                if(obj.name !="" && obj.details !="")
+                {
+                    evtArr.push(obj);
+                    var num=1;
+                    var day = $(target).find('.day').html();
+                    var days = this.$('.days td');
+                    if($(target).css('background-color')!= 'rgb(255, 246, 218)')
+                        for(var i=1; i<42 + 1 ; i++){
+                            if(num == obj.day ){
+                                if(num == new Date().getDate() && this.month == new Date().getMonth() && this.year == new Date().getFullYear())
+                                {  
+                                    $(target).css({
+                                        'background-color':'#7fb0db'
+                                    });
+                                    if($(target).children().length <=2)
                                     {
                                         $(target).append(obj.img);
                                     }
-                          }
-                      else{
+                                }
+                                else{
                                     
-                    $(target).append(obj.img);
-                    $(target).css({align : 'center'});
-                    $(target).css({'background-color':'rgb(255, 246, 218)'});
-                      }
-                } 
-                num++;
+                                    $(target).append(obj.img);
+                                    $(target).css({
+                                        align : 'center'
+                                    });
+                                    $(target).css({
+                                        'background-color':'rgb(255, 246, 218)'
+                                    });
+                                }
+                            } 
+                            num++;
+                        }
+                }
+                $('#evt_name').val("");
+                $('#evt_details').val("");
+                $('#evt_div').hide();
+                $('#cover_div').hide();
+                
+                
+            },
+            monthOptions : function(){
+                Backbone.trigger('notify', 'No Information available');
             }
-    }
-    $('#evt_name').val("");
-    $('#evt_details').val("");
-    $('#evt_div').hide();
-    $('#cover_div').hide();
-                
-                
-}
-});
-});
+        });
+    });
