@@ -6,7 +6,8 @@ define(['jquery',
         'underscore',
         'backbone',
         'text!templates/components/Suggested.html',
-], function($, _, Backbone, tpl) {
+        'views/components/AddFavorite'
+], function($, _, Backbone, tpl, View) {
 
 	return Backbone.View.extend({
 
@@ -14,6 +15,7 @@ define(['jquery',
 		tagName		: 'section',
 	    id			: 'suggested',
 	    events		: {
+	    	'click #newMedia' : 'addFavorite',
 	    },
 	    template	: _.template(tpl),
 
@@ -27,6 +29,13 @@ define(['jquery',
 
 			this.$el.html(this.template());
 			return this;
+		},
+
+		addFavorite: function(){
+			var obj = {eoin: 'crosbie'};
+			var view = new View(obj);
+			$('body').append(view.render());
+			view.show();
 		}
 
 	});
