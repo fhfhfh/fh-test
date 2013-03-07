@@ -3,13 +3,11 @@
 <div id="cabinet" class="cabinet">
 	<div id="cabinetHeader">
 		<div id="scroller">
-			<div class="cabinetFolder">Recipes <img class="folderImg" src="img/library/AllBoxes@2x.png"/></div>
-			<div class="cabinetFolder">Insomnia<img class="folderImg" src="img/library/AllBoxes@2x.png"/></div>
-			<div class="cabinetFolder">Flu Season<img class="folderImg" src="img/library/AllBoxes@2x.png"/></div>
-			<div class="cabinetFolder">Mom's Heart<img class="folderImg" src="img/library/AllBoxes@2x.png"/></div>
-			<div class="cabinetFolder">Insomnia<img class="folderImg" src="img/library/AllBoxes@2x.png"/></div>
-			<div class="cabinetFolder">Flu Season<img class="folderImg" src="img/library/AllBoxes@2x.png"/></div>
-			<div class="cabinetFolder">Mom's Heart<img class="folderImg" src="img/library/AllBoxes@2x.png"/></div>
+			<div id="0" class="cabinetFolder selected">
+				All
+				<img class="folderImg" src="img/library/OpenBox@2x.png"/>
+			</div>
+			<%= folders %>
 		</div>
 	</div>
 
@@ -32,31 +30,8 @@
 			</div>
 			<p>Preparing Salmon</p>
 		</div>
-		<div class="cabinetItem" folder="recipes">
-			<div class="thumbnail">
-				<img class="filetype" src="img/video/GlobeWhiteSmall.png"/>
-			</div>
-			Low Sodium Lifestyle
-		</div>
-		<div class="cabinetItem" folder="recipes">
-			<div class="thumbnail">
-				<img class="filetype" src="img/video/GlobeWhiteSmall.png"/>
-			</div>
-			Cooking Light
-		</div>
+		<%= items %>
 
-		<div class="cabinetItem" folder="fluseason">
-			<div class="thumbnail">
-				<img class="filetype" src="img/video/GlobeWhiteSmall.png"/>
-			</div>
-			Health.com
-		</div>
-		<div class="cabinetItem" folder="fluseason">
-			<div class="thumbnail">
-				<img class="filetype" src="img/video/GlobeWhiteSmall.png"/>
-			</div>
-			WebMD.com
-		</div>
 
 	</div>
 </div>

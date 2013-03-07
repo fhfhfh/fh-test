@@ -8,8 +8,8 @@ define([
     'backbone',
     'iscroll',
     'text!templates/pages/VideoPlayback.html',
-
-], function($, _, Backbone, iScroll, tpl) {
+    'views/components/AddFavorite'
+], function($, _, Backbone, iScroll, tpl, FavBox) {
 
     return Backbone.View.extend({
         tagName: 'section',
@@ -25,7 +25,7 @@ define([
         events: {
             'click #doneBtn'   : 'close',
             'click #title'     : 'refreshScroll',
-            'swipeleft #videoContainer' : 'log'
+            'click #saveBtn'    : 'addToFavorites'
         },
 
         log:function(){
@@ -95,6 +95,13 @@ define([
             this.remove();
             // Backbone.history.navigate('home', true);
             window.history.back();
+        },
+
+        addToFavorites: function(){
+            var self=this;
+            var view = new FavBox(self.video);
+            $('body').append(view.render());
+            view.show();
         }
     });
 });

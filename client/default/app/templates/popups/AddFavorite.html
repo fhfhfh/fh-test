@@ -2,11 +2,31 @@
 	<h2>Choose Folder(s)</h2>
 
 	<div id="body">
-		<%= list%>
+
+		<!-- Scrollable Folders -->
+		<div id="wrapper">
+			<div id="customFolders">
+				<input type='checkbox' name='favorites' value='true' id='favorites'/>
+				<label for='favorites'>
+					Favorites 
+					<img src='img/healthHub/CheckmarkOrange.png'/>
+				</label>
+				<%= list%>
+			</div>
+		</div>
+
+		<!-- Extra Folders -->
 		<hr/>
-		<input id="create" type="text" placeholder="Create New">
+		<input type='checkbox' name='readingRoom' value='true' id='readingRoom'/>
+		<label for='readingRoom'>
+			Reading Room 
+			<img src='img/healthHub/CheckmarkOrange.png'/>
+		</label>
+		<hr/>
+		<input id="create" type="text" placeholder="Create New" maxlength="20">
 			<img id="createImg" src='img/healthHub/CheckmarkOrange.png'/>
 		</input>
+
 	</div>
 	<li id="cancel" class="btn action">Cancel</li>
 	<li id="save" class="btn action">Save</li>

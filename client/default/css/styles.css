@@ -2243,12 +2243,19 @@ section#insights h1 {
   display: inline-block;
   width: 100%;
   padding: 10px;
-  height: 35px;
+  height: 25px;
 }
 #addFavorite #body label img {
   float: right;
   display: none;
   height: 25px;
+}
+#addFavorite #body #wrapper {
+  max-height: 105px;
+}
+#addFavorite #body #customFolders {
+  z-index: 1;
+  position: relative;
 }
 #addFavorite #create {
   color: #000000;

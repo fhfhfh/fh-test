@@ -32,7 +32,7 @@ define(['jquery',
 		},
 
 		addFavorite: function(){
-			var obj = {eoin: 'crosbie'};
+			var obj = {id:1, eoin: 'crosbie'};
 			var view = new View(obj);
 			$('body').append(view.render());
 			view.show();

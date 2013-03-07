@@ -14,7 +14,7 @@ define([
 
     return Backbone.View.extend({
         tagName: 'section',
-        id: 'addFavorite',
+        id: 'addFavoriteContainer',
         template: _.template(tpl),
         collection: libStore,
 
@@ -29,16 +29,41 @@ define([
             _.bindAll(this);
             
             // this.item is the media going to be added to a folder
-            this.item = this.options.item;
-
+            this.item = this.options;
             this.folders = folderStore.models;
         },
 
         render: function() {
+            var self=this;
             var itemStr = this.populate();
 
             this.$el.html(this.template({list:itemStr}));
+            this.iscroll = new iScroll(this.$('#wrapper')[0], {
+                vScrollbar: false,
+                bounceLock: true
+            });
+            self.iscroll.refresh();
+            this.checkModel();
+
             return this.$el;
+        },
+
+        checkModel: function(){
+            var self=this;
+            var i;
+            var itemModel = this.collection.get(self.item.id);
+
+            // check if model exists as a LibraryItem, if not, create it
+            if(!itemModel){
+                this.collection.addAsset(self.item);
+            } else {
+                console.log('model exists');
+                var checked =itemModel.get('folders');
+                console.log(checked);
+                for(i=0; i<checked.length;i++){
+                    this.$('label[for="' + checked[i]+'"]').addClass('checked');
+                }
+            }
         },
 
         populate: function(){
@@ -56,10 +81,11 @@ define([
         show: function(){
             $('#modalMask').show();
             this.$('.popup').show();
+            this.iscroll.refresh();
         },
         hide: function(){
             $('#modalMask').hide();
-            this.$('.popup').hide();
+            this.$('.popup').remove();
         },
 
         addTick: function(){
@@ -73,6 +99,7 @@ define([
         },
 
         toggleFolder: function(e){
+            e.stopPropagation();
             var target  = e.currentTarget;
             $(target).toggleClass('checked');
         },
@@ -83,21 +110,27 @@ define([
         },
 
         save: function(){
-            var item = '';
+            var item = this.item;
+            var itemModel = this.collection.get(item.id);
+            console.log(itemModel);
             var picked = $('label.checked');
-            var names = [];
+            var ids = [];
 
             for(var i=0; i<picked.length; i++){
                 var folder =$(picked[i]);
-                names.push(folder.text().toLowerCase().replace(/\s/g, ''));
+                ids.push(folder.attr('for'));
             }
 
             if(this.$('#create').val().length >0){
                 var name = this.$('#create').val();
-                names.push(name.toLowerCase().replace(/\s/g, ''));
-                folderStore.addFolder(name);
+                var id = folderStore.addFolder(name);
+                ids.push(id);
             }
-            console.log(names);
+
+            itemModel.set('folders',ids);
+            console.log(ids);
+            console.log(itemModel);
+            this.cancel();
         }
 
     });

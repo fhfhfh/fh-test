@@ -68,39 +68,45 @@ define(['jquery',
 
 				// Measurements
 				if(force || self.$('#measurements #body #row').length < 1){
-					// Clear measurements body
-					self.$('#measurements #body #row').remove();
+					if(data.vitalSigns){
+						// Clear measurements body
+						self.$('#measurements #body #row').remove();
 
-					var str = 	row({name: 'Height', value: data.vitalSigns[0].bodyHeight}) +
-								row({name: 'Weight', value: data.vitalSigns[0].bodyWeight}) +
-								row({name: 'Diastolic Bp', value: data.vitalSigns[0].diastolicBp}) +
-								row({name: 'Systolic Bp', value: data.vitalSigns[0].systolicBp});
+						var str = 	row({name: 'Height', value: data.vitalSigns[0].bodyHeight}) +
+									row({name: 'Weight', value: data.vitalSigns[0].bodyWeight}) +
+									row({name: 'Diastolic Bp', value: data.vitalSigns[0].diastolicBp}) +
+									row({name: 'Systolic Bp', value: data.vitalSigns[0].systolicBp});
 
-					self.$('#measurements #body').append(str);
+						self.$('#measurements #body').append(str);
+					}
 				}
 
 				// Test Results
 				if(force || self.$('#testResults #body #row').length < 1){
-					self.$('#testResults #body #row').remove();
-					var str = '';
-					for(var i=0; i<data.results.length; i++){
+					if(data.results){
+						self.$('#testResults #body #row').remove();
+						var str = '';
+						for(var i=0; i<data.results.length; i++){
 
-						str += row({name: data.results[i].testName, 
-									value: data.results[i].result + ' '+ data.results[i].units});
-				    }
-				    self.$('#testResults #body').append(str);
+							str += row({name: data.results[i].testName, 
+										value: data.results[i].result + ' '+ data.results[i].units});
+					    }
+					    self.$('#testResults #body').append(str);
+					}
 				}
 
 				// Immunizations
 				if(force || self.$('#immunizations #body #row').length < 1){
-					self.$('#immunizations #body #row').remove();
-					var str = '';
-					for(var i=0; i<data.immunizations.length; i++){
+					if(data.immunizations){
+						self.$('#immunizations #body #row').remove();
+						var str = '';
+						for(var i=0; i<data.immunizations.length; i++){
 
-						str += row({name: data.immunizations[i].vaccine, 
-									value: data.immunizations[i].status});					    
-				    }
-				    self.$('#immunizations #body').append(str);
+							str += row({name: data.immunizations[i].vaccine, 
+										value: data.immunizations[i].status});					    
+					    }
+					    self.$('#immunizations #body').append(str);
+					}
 				}
 			}
 		}

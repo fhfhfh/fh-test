@@ -1,3 +1,7 @@
+/*
+ * This is a Collection of all LibraryItems
+ */
+
 define(['backbone', 
 		'models/LibraryItem',
 		'models/Acts'
@@ -9,7 +13,17 @@ define(['backbone',
 		model : LibraryItem,
 
 		initialize: function(){
-			this.store = [];
+		},
+
+		addAsset: function(obj){
+			console.log(obj);
+			obj.shortTitle = obj.title;
+			if(obj.shortTitle.length > 20){
+				obj.shortTitle = obj.shortTitle.substring(0,15) + '...';
+			}
+
+			var asset = new LibraryItem(obj);
+			this.add(asset);
 		},
 
 
