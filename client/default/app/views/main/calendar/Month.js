@@ -10,6 +10,7 @@ define(['jquery',
     ], function($, _, Backbone, tpl, dayEventTpl) {
         var evtArr = [];
         var target="";
+        var timer ='';
         return Backbone.View.extend({
                
             // Backbone specific attributes
@@ -54,6 +55,7 @@ define(['jquery',
                 this.$el.html(this.template({
                     today: self.dateStr
                 }));
+                $('#popDate').remove();
                 this.renderCal();
 
                 return this;
@@ -89,6 +91,7 @@ define(['jquery',
                 var first = this.firstDay;
                 var today = new Date().getDate();
                 var cls = '';
+                $('#popDate').remove();
                 var monthLength = this.daysInMonth(self.month, self.year);
                 var num = 1;
                 for(var i=first; i<monthLength + first ; i++){
@@ -180,148 +183,169 @@ define(['jquery',
 * an Events model/collection for each date.
 */
             eventsOn: function(e){
-                $('#popDate').remove();
-                var evtArrLength = evtArr.length;
-                var self = this;
-                var month = this.monthName[self.month];
                 target = e.currentTarget;
-                var day = $(target).find('.day').html();
-                //        alert( $(target).css("width"));
-                var dateModel = '';// get Events model Item for the date that is clicked
-                evt_day = day;
+                if(!$(target).children("div[id='popDate']").is(":visible")){
+                if(timer != null)
+                {
+                    clearTimeout(timer);
+                    $('#popDate').remove();
+                    var evtArrLength = evtArr.length;
+                    var self = this;
+                    var month = this.monthName[self.month];
+                    var day = $(target).find('.day').html();
+                    var dateModel = '';// get Events model Item for the date that is clicked
+                    evt_day = day;
                
-                var html = 	this.dayTpl({
-                    date: month + ' ' + day + ', ' + self.year,
-                    energy: dateModel.energy || 'Average',
-                    mood: dateModel.mood || 'Good',
-                    diet: dateModel.diet || 'Good'
-                });
+                    var html = 	this.dayTpl({
+                        date: month + ' ' + day + ', ' + self.year,
+                        energy: dateModel.energy || 'Average',
+                        mood: dateModel.mood || 'Good',
+                        diet: dateModel.diet || 'Good'
+                    });
                 
                 
-                if(day != undefined && day>0 ){
-                    $(target).append(html);
-                    
-                    if(evtArrLength >0)
-                    {
-                        for(var i=0;i<evtArrLength;i++)
+                    if(day != undefined && day>0 ){
+                        $(html).insertBefore($(target).find(".day"));
+                        if(evtArrLength >0)
                         {
-                            if(evtArr[i].day == evt_day && evtArr[i].month == this.month && evtArr[i].year == this.year)
-                                $("#attrList").append('<li class="energy"><span>'+evtArr[i].name+' - '+evtArr[i].details+'</span></li>');
+                            for(var i=0;i<evtArrLength;i++)
+                            {
+                                if(evtArr[i].day == evt_day && evtArr[i].month == this.month && evtArr[i].year == this.year)
+                                    $("#attrList").append('<li class="energy"><span>'+evtArr[i].name+' - '+evtArr[i].details+'</span></li>');
+                            }
                         }
+                        var xxx = $(target).find('.day').css("height");
+                        var temp = $(target).position().left+parseInt($(target).css("width"))-parseInt($('#popDate').css("width"));
+                        if(temp>10)
+                            $('#popDate').css("left",temp);
+                        else
+                            $('#popDate').css("left",0);
+                        $('#popDate').hide().slideDown(200);
+                        timer = setTimeout(function(){
+                            $(target).find('#popDate').slideUp(200);
+                            }, 8000);
+//                            alert(timer);
                     }
-                    //            alert($('#popDate').css("left"))
-                    var temp = $(target).position().left+parseInt($(target).css("width"))-parseInt($('#popDate').css("width"));
-                    //            alert(temp)
-                    if(temp>10)
-                        $('#popDate').css("left",temp);
-                    $('#popDate').hide().slideDown(200);
-
-
-                    // Close window after 3 seconds
-                    setTimeout(function(){
-                        $(target).find('#popDate').slideUp(200);
-                    }, 8000);
+                }  
+                }else{
+                     $('#popDate').remove();
+                    $(target).find('#popDate').slideUp(200);                
+                    $('#popDate').remove();
                 }
-            },
+        },
 
-            // Open pop-up for editing/adding/removing events
-            // Need more information on what is required here
-            editEvent: function(e){
-                if(evt_day == '')
-                    return;
-                var self = this;
-                var month = this.monthName[self.month];
-                var target = e.currentTarget;
-                var day = $(target).find('.day').html();
-                console.log(e);
-                var dateModel = '';// get Events model Item for the date that is clicked
-                $('#evt_div h1').html("Add Event For "+evt_day+"  "+month+" "+this.year);
-                var evt_div = $('#evt_div');
-                if(evt_div.css("display")=="block") {
-                    evt_div.hide();
-                    $('#cover_div').hide();
-                }
-                else {
-                    $('#cover_div').show();
-                    evt_div.show();
-                    $('#confirmPassword_txt').focus();
-                }
-            //                alert('Need information on what is needed here')
-            },
+        // Open pop-up for editing/adding/removing events
+        // Need more information on what is required here
+        editEvent: function(e){
+             $('#evt_err').html("");
+            $('#popDate').remove();
+            $('#evt_name').val("");
+            $('#evt_details').val("");
+            $('#evt_name').focus();
+            if(evt_day == '')
+                return;
+            var self = this;
+            var month = this.monthName[self.month];
+            var target = e.currentTarget;
+            var day = $(target).find('.day').html();
+            console.log(e);
+            var dateModel = '';// get Events model Item for the date that is clicked
+            $('#evt_div h1').html("Add Event For "+evt_day+"  "+month+" "+this.year);
+            var evt_div = $('#evt_div');
+            if(evt_div.css("display")=="block") {
+                evt_div.hide();
+                $('#cover_div').hide();
+            }
+            else {
+                $('#cover_div').show();
+                evt_div.show();
+                $('#confirmPassword_txt').focus();
+            }
+        //                alert('Need information on what is needed here')
+        },
             
-            setMonth : function(month){
-                this.month = month;//date.getMonth();
-                var date		= new Date();
-                var dateObj = new Date();
-                dateObj.setFullYear(this.year);
-                dateObj.setMonth(this.month);
-                dateObj.setDate(1);
-                var first = dateObj.getDay();
-                this.firstDay = first;
-                var self = this;
-                var days = this.$('.days td');
-                var today = new Date().getDate();
-                var cls = '';
-                for(var i=0; i<= first ; i++){
-                    $(days[i]).html("<div class='day'>  </div>");
-                    $(days[i]).css({
-                        'background-color':'white'
-                    });
+        setMonth : function(month){
+            this.month = month;//date.getMonth();
+            var date		= new Date();
+            var dateObj = new Date();
+            dateObj.setFullYear(this.year);
+            dateObj.setMonth(this.month);
+            dateObj.setDate(1);
+            var first = dateObj.getDay();
+            this.firstDay = first;
+            var self = this;
+            var days = this.$('.days td');
+            var today = new Date().getDate();
+            var cls = '';
+            for(var i=0; i<= first ; i++){
+                $(days[i]).html("<div class='day'>  </div>");
+                $(days[i]).css({
+                    'background-color':'white'
+                });
+            }
+            var monthLength = this.daysInMonth(this.month, self.year);
+            var num = 1;
+            for(var i=first; i<42 + first ; i++){
+                $(days[i]).css({
+                    'background-color':'white'
+                });
+                if(days[i] && days[i].className == 'today'){
+                    $(days[i]).removeClass('today')
+                    $(days[i]).addClass(' ');
                 }
-                var monthLength = this.daysInMonth(this.month, self.year);
-                var num = 1;
-                for(var i=first; i<42 + first ; i++){
+                cls = '';
+                if(num == today && this.month == date.getMonth() && this.year == date.getFullYear()){
                     $(days[i]).css({
-                        'background-color':'white'
+                        'background-color':'#7fb0db'
                     });
-                    if(days[i] && days[i].className == 'today'){
-                        $(days[i]).removeClass('today')
-                        $(days[i]).addClass(' ');
-                    }
-                    cls = '';
-                    if(num == today && this.month == date.getMonth() && this.year == date.getFullYear()){
-                        $(days[i]).css({
-                            'background-color':'#7fb0db'
-                        });
-                        cls = 'today';
-                    }
-                    $(days[i]).html("<div class='day'>  </div>");
-                    if(monthLength >= num){
-                        $(days[i]).html("<div class='day'>" + num + "</div>");
-                        $(days[i]).addClass(cls);
-                    }
-                    if(evtArr.length>=0){
+                    cls = 'today';
+                }
+                $(days[i]).html("<div class='day'>  </div>");
+                if(monthLength >= num){
+                    $(days[i]).html("<div class='day'>" + num + "</div>");
+                    $(days[i]).addClass(cls);
+                }
+                if(evtArr.length>=0){
                         
-                        for( var j=0; j <= evtArr.length; j++){
+                    for( var j=0; j <= evtArr.length; j++){
                            
-                            if(evtArr[j] && num == evtArr[j].day && month == evtArr[j].month && this.year == evtArr[j].year){
-                                if($(days[i]).css('background-color')!= 'rgb(255, 246, 218)'){
-                                    if(num == new Date().getDate() && this.month == new Date().getMonth() && this.year == new Date().getFullYear())
-                                    {  
-                                        $(days[i]).css({
-                                            'background-color':'#7fb0db'
-                                        });
-                                        if($(days[i]).children().length <2)
-                                        {
-                                            $(days[i]).append(evtArr[j].img);
-                                        }
-                                    }
-                                    else
+                        if(evtArr[j] && num == evtArr[j].day && month == evtArr[j].month && this.year == evtArr[j].year){
+                            if($(days[i]).css('background-color')!= 'rgb(255, 246, 218)'){
+                                if(num == new Date().getDate() && this.month == new Date().getMonth() && this.year == new Date().getFullYear())
+                                {  
+                                    $(days[i]).css({
+                                        'background-color':'#7fb0db'
+                                    });
+                                    if($(days[i]).children().length <2)
                                     {
-                                        $(days[i]).css({
-                                            'background-color':'rgb(255, 246, 218)'
-                                        });
                                         $(days[i]).append(evtArr[j].img);
                                     }
+                                }
+                                else
+                                {
+                                    $(days[i]).css({
+                                        'background-color':'rgb(255, 246, 218)'
+                                    });
+                                    $(days[i]).append(evtArr[j].img);
                                 }
                             }
                         }
                     }
-                    num = num +1;
                 }
-            },
+                num = num +1;
+            }
+        },
             
-            saveEvent : function(){
+        saveEvent : function(){
+            $('#evt_err').html("");
+            $('#popDate').remove();
+            if(!$('#evt_details').val() && $('#evt_name').val())
+                $('#evt_err').html("Please enter Details");
+            else if($('#evt_details').val() && !$('#evt_name').val())
+                $('#evt_err').html("Please enter Title");
+            else if(!$('#evt_details').val() && !$('#evt_name').val())
+                $('#evt_err').html("Please enter Title and Details");
+            else{
                 var obj = {
                     name : $('#evt_name').val(),
                     details : $('#evt_details').val(),
@@ -344,7 +368,7 @@ define(['jquery',
                                     $(target).css({
                                         'background-color':'#7fb0db'
                                     });
-                                    if($(target).children().length <=2)
+                                    if($(target).children().length <2)
                                     {
                                         $(target).append(obj.img);
                                     }
@@ -367,11 +391,12 @@ define(['jquery',
                 $('#evt_details').val("");
                 $('#evt_div').hide();
                 $('#cover_div').hide();
-                
-                
-            },
-            monthOptions : function(){
-                Backbone.trigger('notify', 'No Information available');
             }
+        },
+            
+            
+        monthOptions : function(){
+            Backbone.trigger('notify', 'No Information available');
+        }
         });
-    });
+});
