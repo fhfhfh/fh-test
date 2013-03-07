@@ -366,7 +366,7 @@ define(['jquery',
                                     $(target).css({
                                         'background-color':'#7fb0db'
                                     });
-                                    if($(target).children().length <=2)
+                                    if($(target).children().length <2)
                                     {
                                         $(target).append(obj.img);
                                     }
