@@ -118,11 +118,12 @@ define(['jquery',
             }
             else {
                 var box     = $(passwordBox);
-                this.$el.append(box);
+                $('body').append(box);
                 $('#passwordDiv').show();
                 $('#modalMask').show();   
                 $('#confirmPassword_txt').val("").focus();
                 $('#confirmPassword_txt2').val("");
+                this.fixEvents(box);
             }              
         },
 
@@ -149,37 +150,39 @@ define(['jquery',
             target.blur();
 
             $('#modalMask').show();
-            this.$el.append(box);
-            box = this.$('#addressBox');
+            $('body').append(box);
+            box = $('#addressBox');
             box.fadeIn({}, 300 );
             var vals = text.split('\n');
 
-            this.$('#line1').val(vals[0]);
+            $('#line1').val(vals[0]);
 
             if(vals.length == 3){                
-                this.$('#state').val(vals[1]);    
-                this.$('#zip').val(vals[2]);
+                $('#state').val(vals[1]);    
+                $('#zip').val(vals[2]);
             }
             else {
-                this.$('#line2').val(vals[1]);                
-                this.$('#state').val(vals[2]);    
-                this.$('#zip').val(vals[3]);
+                $('#line2').val(vals[1]);                
+                $('#state').val(vals[2]);    
+                $('#zip').val(vals[3]);
             }
+
+            this.fixEvents(box);
         },
 
         closeAddr: function(e){
             var target  = e.currentTarget;
-            var box     = this.$('#addressBox');
+            var box     = $('#addressBox');
             if(target.id == 'AddrCancel'){
                 box.fadeOut({}, 300);
                 $('#modalMask').hide();
                 return;
             }
 
-            var line1	= this.$('#line1').val();
-            var line2	= this.$('#line2').val();
-            var zip		= this.$('#zip').val();
-            var state	= this.$('#state').val();
+            var line1	= $('#line1').val();
+            var line2	= $('#line2').val();
+            var zip		= $('#zip').val();
+            var state	= $('#state').val();
             var text    = '';
 
             if(zip.length != 5 || isNaN(zip)){
@@ -300,7 +303,7 @@ define(['jquery',
             html += '<br/><li id="closeAvatar" class="decline btn">Cancel</li>';
             box.html(html);
 
-            $('#profile').append(box);
+            this.$el.append(box);
         },
     
 
@@ -334,6 +337,21 @@ define(['jquery',
                     Backbone.trigger('notify', 'Please enter a valid phone number (10 digits)');
                 }
             }
+        },
+
+        fixEvents: function(el){
+            var self    = this;
+            var id      = el.attr('id');
+
+            el.find('.btn').click(function(e){
+                if(id === 'addressBox'){
+                    self.closeAddr(e);    
+                }
+                else {
+                    self.password(e);
+                }
+                
+            });
         }
 	});
 });

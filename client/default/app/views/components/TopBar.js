@@ -74,7 +74,6 @@ define([
                 var params = "";
                 Acts.call('logoutAction', params, 
                     function(res){
-                        console.log(res);
                     }, function(err, msg){
                         console.log(err);
                     }
