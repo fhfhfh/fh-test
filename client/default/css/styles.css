@@ -1111,9 +1111,6 @@ li {
   background-repeat: no-repeat;
   float: right;
 }
-#addressBox li {
-  padding: 8px;
-}
 #addressBox li label {
   color: #a8a8a8;
   padding-right: 10px;
@@ -2101,9 +2098,7 @@ section#insights h1 {
   margin-left: 50px;
 }
 #insight_options {
-  margin-right: 40px;
-  height: 20px;
-  width: 20px;
+  margin-right: 10px;
 }
 #insight_div {
   background-color: #ebebeb;

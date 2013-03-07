@@ -15,7 +15,7 @@ define(['jquery',
             id			: 'insights',
             events		: {
                 'click .insight_list '	: 'eventsOn',
-                'click #insight_options' : 'abc'
+                'click #insight_options' : 'insightOptions'
             },
             monthName: [
             'January', 'Febuary', 'March', 'April', 'May', 'June', 'July', 'August', 'September',
@@ -49,7 +49,7 @@ define(['jquery',
                 //                  alert("No Information available");  
                 Backbone.trigger('notify', 'No Information available');
             },
-            abc : function(){
+            insightOptions : function(){
                 Backbone.trigger('notify', 'No Information available');
             },
                 
