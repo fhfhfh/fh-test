@@ -237,6 +237,7 @@ define(['jquery',
         // Open pop-up for editing/adding/removing events
         // Need more information on what is required here
         editEvent: function(e){
+             $('#evt_err').html("");
             $('#popDate').remove();
             $('#evt_name').val("");
             $('#evt_details').val("");
@@ -336,6 +337,7 @@ define(['jquery',
         },
             
         saveEvent : function(){
+            $('#evt_err').html("");
             $('#popDate').remove();
             if(!$('#evt_details').val() && $('#evt_name').val())
                 $('#evt_err').html("Please enter Details");
