@@ -18,7 +18,8 @@ define(['jquery',
 		tagName		: 'section',
 	    id			: 'myMedia',
 	    events		: {
-	    	'click .cabinetFolder' : 'displayFolder'
+	    	'click .cabinetFolder'	: 'displayFolder',
+	    	'click .cabinetItem'	: 'displayFile'
 	    },
 	    template	: _.template(tpl),
 	    folderTpl 	: _.template(folderTpl),
@@ -37,7 +38,6 @@ define(['jquery',
 		},
 
 		render: function(){
-			console.log('render');
 			var folders = this.populateFolders();
 			var items = this.populateItems();
 			this.$el.html(this.template({folders:folders, items: items}));
@@ -116,6 +116,19 @@ define(['jquery',
 				if(folders.indexOf(id) >= 0){
 					$(item).show();
 				}
+			}
+		},
+
+		displayFile: function(e){
+			var target 	= e.currentTarget;
+			var title 	= $(target).text();
+			var id 		= $(target).attr('data-id');
+			var type 	= $(target).attr('type');
+			var model 	= libStore.get(id);
+
+			if(type == 'video'){
+				localStorage.setItem('tempVid', JSON.stringify(model));
+		    	Backbone.history.navigate('video', true, true);
 			}
 		}
 

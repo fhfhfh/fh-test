@@ -18,7 +18,7 @@ define(['backbone',
 		addAsset: function(obj){
 			console.log(obj);
 			obj.shortTitle = obj.title;
-			if(obj.shortTitle.length > 20){
+			if(obj.shortTitle && obj.shortTitle.length > 20){
 				obj.shortTitle = obj.shortTitle.substring(0,15) + '...';
 			}
 
