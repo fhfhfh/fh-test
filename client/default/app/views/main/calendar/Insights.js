@@ -51,23 +51,7 @@ define(['jquery',
             Backbone.trigger('notify', 'No Information available');
         },
         insightOptions : function(){
-            YUI().use('charts', function (Y) 
-{ 
-    var myDataValues = [ 
-        {category:"Monday", values:5,data:3}, 
-        {category:"Tuesday", values:4,data:5}, 
-        {category:"Wednesday", values:2,data:8}, 
-        {category:"Thursday", values:8,data:3},
-        {category:"Friday", values:1,data:5},
-        {category:"Saturday", values:9,data:4},
-        {category:"Sunday", values:2,data:9}
-    ];
-    
-    var mychart = new Y.Chart({dataProvider:myDataValues, render:"#mychart",type: "line"});
-    mychart.get
-});
-
- 
+            Backbone.trigger('notify', 'No Information available');
             },
                 
             renderIns: function(){
