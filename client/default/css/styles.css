@@ -1428,6 +1428,46 @@ li {
   margin-top: 80px;
   margin-right: 0px;
 }
+table#listView {
+  width: 100%;
+  border-radius: 8px;
+  background-color: #fff0f0;
+}
+table#listView tr#header {
+  font: bold 14px "Avenir Next", Helvetica, Arial, sans-serif;
+  color: #ffffff;
+  padding: 5px;
+  margin-top: 10px;
+  background-color: #000000;
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #2b2b2b), color-stop(0.5, #717171), color-stop(0.5, #000000), color-stop(1, #6e6e6e));
+  background-image: -moz-linear-gradient(center top, #2b2b2b 0%, #717171 50%, #000000 50%, #6e6e6e 100%);
+}
+table#listView tr#header #title {
+  border-top-left-radius: 8px;
+}
+table#listView tr#header #type {
+  border-top-right-radius: 8px;
+}
+table#listView tr#folder {
+  color: #ffffff;
+  font: bold 14px "Avenir Next", Helvetica, Arial, sans-serif;
+  background-color: #ababab;
+}
+table#listView tr#item {
+  font: normal 12px "Avenir Next Medium", Helvetica, Arial, sans-serif;
+}
+table#listView td {
+  padding: 5px;
+}
+table#listView #title {
+  width: 30%;
+}
+table#listView #date {
+  width: 15%;
+}
+table#listView #type {
+  width: 20%;
+}
 #news-and-information {
   padding: 15px;
 }

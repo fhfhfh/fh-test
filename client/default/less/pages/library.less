@@ -145,3 +145,40 @@
 
 	}
 }
+
+table#listView {
+	width: 100%;
+	border-radius: 8px;
+	background-color: #fff0f0;
+
+	tr#header {
+		.avenir-bold(14px);
+		color: #ffffff;
+		padding: 5px;
+		margin-top: 10px;
+		background-color: #000000;
+		background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #2b2b2b), color-stop(0.5, #717171), color-stop(0.5, #000000), color-stop(1, #6e6e6e));
+		background-image: -moz-linear-gradient(center top, #2b2b2b 0%, #717171 50%, #000000 50%, #6e6e6e 100%);
+
+		#title {border-top-left-radius: 8px;}
+		#type  {border-top-right-radius: 8px;}
+	}
+
+	tr#folder {
+		color: #ffffff;
+		.avenir-bold(14px);
+		background-color: #ababab;
+	}
+
+	tr#item {
+		.avenir-medium(12px);
+	}
+
+	td {
+		padding: 5px;
+	}
+
+	#title {width:30%;}
+	#date  {width:15%;}
+	#type  {width:20%;}
+}
