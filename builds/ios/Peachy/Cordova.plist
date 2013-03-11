@@ -35,6 +35,10 @@
 		<string>*.youtube.com</string>
 		<string>*.feedhenry.com</string>
 		<string>*.feedhenry.net</string>
+		<string>yui.yahooapis.com</string>
+		<string>*.google.com</string>
+		<string>*.cloudflare.com</string>
+		<string>*.oesmith.co.uk</string>
 	</array>
 	<key>Plugins</key>
 	<dict>
