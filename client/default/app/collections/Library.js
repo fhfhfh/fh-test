@@ -36,7 +36,7 @@ define(['backbone',
 					for(var i = 0; i<lib.length; i++){
 						var item = lib[i];
 						item.imgData = "data:image/png;base64," + item.videoImgBase64;
-						self.addAsset(item);
+						// self.addAsset(item);
 					}
 		        }, function(err, msg){
 		          console.log(err, msg);
