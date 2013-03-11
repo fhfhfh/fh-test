@@ -32,44 +32,12 @@ define(['backbone',
 
             Act.call('fetchNewsAction', {}, 
 		        function(res){
-		        	var arr =[];
-		          var newsArr = res.payload.News;
-		          for(var i = 0; i<newsArr.length; i++){
-					var item = newsArr[i];
-
-					//create short description
-					var short = item.description;
-					if(short.length > 200){
-						short = short.substring(0,200) + '...';
+					var lib = res.payload.News;
+					for(var i = 0; i<lib.length; i++){
+						var item = lib[i];
+						item.imgData = "data:image/png;base64," + item.videoImgBase64;
+						self.addAsset(item);
 					}
-
-					var imgData = "data:image/png;base64," + item.videoImgBase64;
-
-					var time = parseInt(item.videoLength);
-					var min = Math.floor(time/60);
-					var sec = time - min*60;
-
-					if(sec < 10){
-						sec = "0" + sec;
-					}
-					var timeStr = min +":"+sec;
-
-					arr.push(
-						new LibraryItem({  
-							'id' 				: item.newsId,
-							'title'				: item.title, 
-							'description'		: item.description,
-							'shortDescription'	: short,
-							'newsId'			: item.newsId,
-							'url'				: item.url,
-							'imgUrl' 			: imgData,
-							'duration' 			: timeStr
-						})
-					);
-					self.add(arr[i]);
-				  }
-				  return arr;
-
 		        }, function(err, msg){
 		          console.log(err, msg);
 		        }

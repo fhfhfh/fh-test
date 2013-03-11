@@ -42,7 +42,30 @@ define(['jquery',
 			var items = this.populateItems();
 			this.$el.html(this.template({folders:folders, items: items}));
 			this.thumbnailUpdate();
+			
+			this.bodyScroll = new iScroll(this.$('#cabinetBody')[0],{
+				bounceLock	: true,
+				bounce 		: false,
+				vScrollbar 	: false
+			});
+			this.headerScroll = new iScroll(this.$('#cabinetHeader')[0],{
+				hScroll 	: true,
+				vScroll 	: false,
+				hScrollbar 	: false,
+				bounceLock 	: true,
+				bounce 		: false
+			});
+			this.refreshScroll();
+			
 			return this;
+		},
+
+		refreshScroll: function(){
+			var self = this;
+			setTimeout(function(){
+				self.bodyScroll.refresh();	
+				self.headerScroll.refresh();
+			}, 100);
 		},
 
 		populateFolders: function(){
@@ -57,11 +80,17 @@ define(['jquery',
         },
 
         populateItems: function(){
-            var items = this.libStore;
+            // var items = this.libStore;
+            var items = libStore.models;
             var tpl = this.itemTpl;
             var str = '';
             for(var i=0; i<items.length; i++){
                 var item = items[i].attributes;
+
+                if(!item.folders){
+                	item.folders = '23'	;
+                }
+
                 str+=tpl({
                 	id		:item.id, 
                 	shortTitle	:item.shortTitle,
@@ -99,10 +128,10 @@ define(['jquery',
 			$('.cabinetFolder .folderImg').attr('src', 'img/library/AllBoxes@2x.png');
 			$(target).addClass('selected');
 			$(target).find('.folderImg').attr('src', 'img/library/OpenBox@2x.png');
-			// this.iscroll.refresh();
 
 			if(id == 0){
 				$('.cabinetItem').show();
+				this.bodyScroll.refresh();
 				return;
 			}
 
@@ -117,6 +146,7 @@ define(['jquery',
 					$(item).show();
 				}
 			}
+			this.bodyScroll.refresh();
 		},
 
 		displayFile: function(e){

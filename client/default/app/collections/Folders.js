@@ -9,9 +9,11 @@ define(['backbone',
 
 		initialize: function(){
 			//dummy data
-			this.add({id: 1,name: "Eoin's Stuff"});
-			this.add({id: 2,name: "Crosbie"});
-			this.add({id: 3,name: "Interests"});
+			// this.add({id: 1,name: "Eoin's Stuff"});
+			// this.add({id: 2,name: "Crosbie"});
+			// this.add({id: 3,name: "Interests"});
+			// this.add({id: 4,name: "Random"});
+			// this.add({id: 5,name: "Things"});
 		},
 
 

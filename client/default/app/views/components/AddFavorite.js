@@ -110,6 +110,7 @@ define([
         },
 
         save: function(){
+            var self = this;
             var item = this.item;
             var itemModel = this.collection.get(item.id);
             console.log(itemModel);
@@ -127,10 +128,13 @@ define([
                 ids.push(id);
             }
 
-            itemModel.set('folders',ids);
-            console.log(ids);
-            console.log(itemModel);
-            this.cancel();
+            setTimeout(function(){
+                itemModel.set('folders',ids);
+                console.log(ids);
+                console.log(itemModel);
+                self.cancel();    
+            }, 100);
+            
         }
 
     });
