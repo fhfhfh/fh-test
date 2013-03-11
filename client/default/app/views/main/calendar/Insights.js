@@ -50,23 +50,30 @@ define(['jquery',
             //                  alert("No Information available");  
             Backbone.trigger('notify', 'No Information available');
         },
-        insightOptions : function(){
-            YUI().use('charts', function (Y) 
-{ 
-    var myDataValues = [ 
-        {category:"Monday", values:5,data:3}, 
-        {category:"Tuesday", values:4,data:5}, 
-        {category:"Wednesday", values:2,data:8}, 
-        {category:"Thursday", values:8,data:3},
-        {category:"Friday", values:1,data:5},
-        {category:"Saturday", values:9,data:4},
-        {category:"Sunday", values:2,data:9}
-    ];
-    
-    var mychart = new Y.Chart({dataProvider:myDataValues, render:"#mychart",type: "line"});
-    mychart.get
+        insightOptions : function(){/*
+ * Play with this code and it'll update in the panel opposite.
+ *
+ * Why not try some of the options above?
+ */
+Morris.Line({
+  element: 'line-example',
+  data: [
+    { y: '2013-03-11', a: 1, b: 9 },
+    { y: '2013-03-12', a: 7,  b: 6 },
+    { y: '2013-03-13', a: 5,  b: 3 },
+    { y: '2013-03-14', a: 2,  b: 5 },
+    { y: '2013-03-15', a: 3,  b: 4 },
+    { y: '2013-03-16', a: 7,  b: 6 },
+    { y: '2013-03-17', a: 10, b: 9 },
+  ],
+  xkey: 'y',
+  ykeys: ['a', 'b'],
+  lineColors:['orange','lightblue'],
+  lineWidth:'4px',
+  pointSize:'8px',
+  xLabels:'day'
+//  labels: ['Series A', 'Series B']
 });
-
  
             },
                 
