@@ -6,20 +6,21 @@ define(['jquery',
     'underscore',
     'backbone',
     'text!templates/components/Insights.html',
-], function($, _, Backbone, tpl) {
+    ], function($, _, Backbone, tpl) {
 
-    return Backbone.View.extend({
+        return Backbone.View.extend({
 
-        // Backbone specific attributes
-        tagName		: 'section',
-        id			: 'insights',
-        events		: {
-            'click .insight_list '	: 'eventsOn',
-            'click #insight_options' : 'insightOptions'
-        },
-        monthName: [
+            // Backbone specific attributes
+            tagName		: 'section',
+            id			: 'insights',
+            events		: {
+                'click .insight_list '	: 'eventsOn',
+                'click #insight_options' : 'insightOptions'
+            },
+            monthName: [
             'January', 'Febuary', 'March', 'April', 'May', 'June', 'July', 'August', 'September',
             'October', 'November', 'December'
+
         ],
         monthDays:['Sunday','Monday','Tuesday','wednesday','Thursday','Friday','Saturday'],
         template	: _.template(tpl),
@@ -119,6 +120,7 @@ define(['jquery',
             
             
 //            Backbone.trigger('notify', 'No Information available');
+
             },
                 
             renderIns: function(){
