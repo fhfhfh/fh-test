@@ -6,21 +6,20 @@ define(['jquery',
     'underscore',
     'backbone',
     'text!templates/components/Insights.html',
-    ], function($, _, Backbone, tpl) {
+], function($, _, Backbone, tpl) {
 
-        return Backbone.View.extend({
+    return Backbone.View.extend({
 
-            // Backbone specific attributes
-            tagName		: 'section',
-            id			: 'insights',
-            events		: {
-                'click .insight_list '	: 'eventsOn',
-                'click #insight_options' : 'insightOptions'
-            },
-            monthName: [
+        // Backbone specific attributes
+        tagName		: 'section',
+        id			: 'insights',
+        events		: {
+            'click .insight_list '	: 'eventsOn',
+            'click #insight_options' : 'insightOptions'
+        },
+        monthName: [
             'January', 'Febuary', 'March', 'April', 'May', 'June', 'July', 'August', 'September',
             'October', 'November', 'December'
-
         ],
         monthDays:['Sunday','Monday','Tuesday','wednesday','Thursday','Friday','Saturday'],
         template	: _.template(tpl),
@@ -56,10 +55,6 @@ define(['jquery',
             
             
             
-            
-            
-            
-          
                 var r = Raphael("insight_graph"),
                     txtattr = { font: "12px 'Fontin Sans', Fontin-Sans, sans-serif" };
                 
@@ -104,14 +99,7 @@ define(['jquery',
                 // lines.lines[0].animate({"stroke-width": 6}, 1000);
                 // lines.symbols[0].attr({stroke: "#fff"});
                 // lines.symbols[0][1].animate({fill: "#f00"}, 1000);
-          
-            
-            
-            
-            
-            
-            
-            
+      
             
             
             
@@ -120,7 +108,6 @@ define(['jquery',
             
             
 //            Backbone.trigger('notify', 'No Information available');
-
             },
                 
             renderIns: function(){
