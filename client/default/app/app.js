@@ -14,7 +14,9 @@ require.config({
     'fastclick': 'lib/fastclick',
     'iscroll': 'lib/iscroll',
     'fullcalendar': 'fullcalendar/fullcalendar/fullcalendar',
-    'hash' : 'lib/hash'
+    'hash' : 'lib/hash',
+    'jflot' : 'lib/jquery.flot',
+    'canvas':'lib/jquery.flot.canvas'
   },
   shim: {
     'feedhenry': {
@@ -33,6 +35,10 @@ require.config({
     'fullcalendar': {
       deps: ['jquery'],
       exports: '$.fn.fullCalendar'
+    },
+    'jflot': {
+      deps: ['jquery'],
+      exports:'$.plot'
     }
   }
 });
@@ -45,7 +51,9 @@ require([
     'fastclick',
     'NotificationManager',
     'routers/AppRouter',
-    'fullcalendar'
+    'fullcalendar',
+    'jflot',
+    
 ], function($fh, $, Backbone, FastClick, NotificationManager, AppRouter) {
 
   // To enable development (and future deployment) on desktop browsers, we make
