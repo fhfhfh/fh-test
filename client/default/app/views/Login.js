@@ -33,7 +33,10 @@ define([
 
             render: function() {
                 this.$el.html(loginTpl);
-                navigator.splashscreen.hide();
+
+                if(navigator.splashscreen){
+                    navigator.splashscreen.hide();                
+                }
 
                 // TODO: Remove this in production!
                 this.$('#username').val('jsmith101');

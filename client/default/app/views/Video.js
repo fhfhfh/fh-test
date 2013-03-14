@@ -23,13 +23,11 @@ define([
         // },
 
         events: {
-            'click #doneBtn'   : 'close',
-            'click #title'     : 'refreshScroll',
-            'click #saveBtn'    : 'addToFavorites'
-        },
-
-        log:function(){
-            console.log('asdfgasdf');
+            'click #doneBtn'  : 'close',
+            'click #title'    : 'refreshScroll',
+            'click #saveBtn'  : 'addToFavorites',
+            'click #removeBtn': 'removeFromFavs',
+            'click #logo'     : 'logout'
         },
 
         initialize: function() {
@@ -87,8 +85,12 @@ define([
 
         render: function() {
             this.refreshScroll();
-
+            this.checkFav();
             return this;
+        },
+
+        logout: function(){    
+            Backbone.history.navigate('login', true);
         },
 
         close: function(){
@@ -102,6 +104,26 @@ define([
             var view = new FavBox(self.video);
             $('body').append(view.render());
             view.show();
+        },
+
+        removeFromFavs: function(){
+            var self=this;
+            var view = new FavBox(self.video);
+            view.removeItem();
+            this.checkFav();
+        },
+
+        checkFav: function(){
+            var self=this;
+            var view = new FavBox(self.video);
+            // check if video is in favorites already
+            var bool = view.inFavs();
+            if(bool){
+                this.$('#removeBtn').show();
+            }
+            else{
+                this.$('#removeBtn').hide();   
+            }
         }
     });
 });

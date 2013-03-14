@@ -48,6 +48,15 @@ define([
             return this.$el;
         },
 
+        inFavs: function(){
+            var self=this;
+            var itemModel = this.collection.get(self.item.id);
+            if(!itemModel){
+                return false;
+            }
+            return true;
+        },
+
         checkModel: function(){
             var self=this;
             var i;
@@ -119,7 +128,7 @@ define([
 
             for(var i=0; i<picked.length; i++){
                 var folder =$(picked[i]);
-                ids.push(folder.attr('for'));
+                ids.push(parseInt(folder.attr('for')));
             }
 
             if(this.$('#create').val().length >0){
@@ -129,10 +138,18 @@ define([
             }
 
             setTimeout(function(){
+                console.log('ids',ids);
                 itemModel.set('folders',ids);
                 self.cancel();    
             }, 100);
             
+        },
+
+        removeItem: function(){
+            var self = this;
+            var itemModel = this.collection.get(self.item.id);
+            this.collection.remove(itemModel);
+            console.log('remove model');
         }
 
     });

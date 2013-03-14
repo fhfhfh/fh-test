@@ -4,8 +4,9 @@
 
 define(['backbone', 
 		'models/LibraryItem',
-		'models/Acts'
-		], function(Backbone, LibraryItem, Act) {
+		'models/Acts',
+		'models/Store'
+		], function(Backbone, LibraryItem, Act, Store) {
 
 
 	var collection = Backbone.Collection.extend({
@@ -13,6 +14,10 @@ define(['backbone',
 		model : LibraryItem,
 
 		initialize: function(){
+			var self=this;
+			this.on('change', function(){
+				self.store();
+			});
 		},
 
 		addAsset: function(obj){
@@ -24,10 +29,13 @@ define(['backbone',
 
 			var asset = new LibraryItem(obj);
 			this.add(asset);
+			this.store();
 		},
 
 
 		fetch: function(){
+			this.load();
+			return;
 			var self=this;
 
             Act.call('fetchNewsAction', {}, 
@@ -43,6 +51,26 @@ define(['backbone',
 		        }
 		    );
 		},
+
+		store: function(){
+			var models = JSON.stringify(this.models);
+			Store.save('peachy_library', models, function(){
+				console.log('saved library to localStorage');
+			});
+		},
+
+		load: function(){
+			var self = this;
+			Store.load('peachy_library', function(bool,res){
+				if(bool && res){
+					var obj = JSON.parse(res);
+					console.log(obj);
+					for(var i=0;i<obj.length;i++){
+						self.add(obj[i]);
+					}
+				}
+			});
+		}
 
 	});
 

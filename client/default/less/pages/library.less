@@ -1,3 +1,13 @@
+#selector {
+	background-color: #cdcdcd;
+	border-radius: 8px;
+	margin-bottom: 10px;
+
+	#search {
+		border-radius: 5px;
+	}
+}
+
 #cabinet {
 	width: 100%;
 	background: url('../img/cabinetBg.png') left top repeat;
@@ -186,13 +196,38 @@ table#listView {
 
 	tr#item {
 		.avenir-medium(12px);
+
+		td {
+			padding: 10px 10px;
+			line-height: 25px;
+		}
+
+		&:nth-child(even){
+			background-color: #ffffff; 
+		}
+
+		#title {
+			img {
+				float:left;
+				margin-right: 10px;
+			}
+			max-width: 200px;
+			overflow: hidden;
+			white-space: nowrap;
+		}
+
+		#type:after{
+			content: url('../img/icons/smallArrow.png');
+			float: right;
+			margin-right: 10px;
+		}
 	}
 
 	td {
 		padding: 5px;
 	}
 
-	#title {width:30%;}
-	#date  {width:15%;}
-	#type  {width:20%;}
+	#title {width:55%;}
+	#date  {width:20%;}
+	#type  {width:25%;}
 }

@@ -1,6 +1,7 @@
-<h1>My Media</h1>
-
-
+<div id="selector">
+	<li id="changeView" class="action btn">Shelf View</li>
+	<input id="search" type="text" placeholder="Search"/>
+</div>
 
 <div id="cabinet" class="cabinet">
 	<div id="cabinetHeader">
@@ -15,36 +16,19 @@
 
 	<div id="cabinetBody">
 		<div id="bodyScroller">
-			<!-- <div class="cabinetItem video" folder="insomnia">
-				<div class="thumbnail">
-					<div class="frame">
-						<img class="filetype" src="img/video/PlayWhiteSmall.png"/>
-					</div>
-					
-				</div>
-				<p>Orange Chicken</p>
-			</div>
-			<div class="cabinetItem pdf" folder="recipes fluseason">			
-				<div class="thumbnail">
-					<div class="frame">
-						<img class="filetype" src="img/video/ArticleWhiteSmall.png"/>
-					</div>
-					
-				</div>
-				<p>Preparing Salmon</p>
-			</div>
-			<div class="cabinetItem video" folder="insomnia">
-				<div class="thumbnail">
-					<div class="frame">
-						<img class="filetype" src="img/video/PlayWhiteSmall.png"/>
-					</div>
-					
-				</div>
-				<p>Orange Chicken</p>
-			</div> -->
 			<%= items %>
 		</div>
 
 
 	</div>
 </div>
+
+
+<table id="listView" style="display:none;">
+	<tr id="header">
+		<td id="title">Title</td>
+		<td id="date">Date</td>
+		<td id="type">Type</td>
+	</tr>
+	<%= list %>
+</table>

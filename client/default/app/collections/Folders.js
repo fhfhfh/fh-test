@@ -1,11 +1,13 @@
 define(['backbone',
-		'models/Acts'
-		], function(Backbone, Act) {
+		'models/Acts',
+		'models/Store'
+		], function(Backbone, Act, Store) {
 
 
 	var collection = Backbone.Collection.extend({
 		//Backbone specific attributes
 		storageKey: 'peachy_folders',
+		index: 2,
 
 		initialize: function(){
 			//dummy data
@@ -18,7 +20,8 @@ define(['backbone',
 
 
 		fetch: function(){
-			console.log('Fetch Folders...')
+			console.log('Fetch Folders...');
+			this.load();
 		},
 
 		sort: function(array){
@@ -33,14 +36,33 @@ define(['backbone',
 
 		addFolder: function(name){
 			var length = this.models.length;
-			var id = length +1;
+			var id = this.index;
+			this.index = this.index +1;
+
 			this.add({id:id, name: name});
 			this.sort(this.models);
+			this.store();
 			return id;
 		},
 
-		save: function(){
+		store: function(){
+			var models = JSON.stringify(this.models);
+			Store.save('peachy_folders', models, function(){
+				console.log('saved folders to localStorage');
+			});
+		},
 
+		load: function(){
+			var self = this;
+			Store.load('peachy_folders', function(bool,res){
+				if(bool && res){
+					var obj = JSON.parse(res);
+					console.log(obj);
+					for(var i=0;i<obj.length;i++){
+						self.addFolder(obj[i].name);
+					}
+				}
+			});
 		}
 
 	});
