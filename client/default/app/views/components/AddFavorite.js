@@ -130,8 +130,6 @@ define([
 
             setTimeout(function(){
                 itemModel.set('folders',ids);
-                console.log(ids);
-                console.log(itemModel);
                 self.cancel();    
             }, 100);
             
