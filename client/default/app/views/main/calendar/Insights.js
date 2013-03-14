@@ -43,7 +43,11 @@ define(['jquery',
                 this.$el.html(this.template({
                     today: self.date
                 }));
-                this.renderIns();
+                var _this = this;
+//                this.renderIns();
+                setTimeout(function() {
+        _this.renderIns();
+    }, 0);
                 return this;
             },
             eventsOn: function(){
@@ -51,18 +55,26 @@ define(['jquery',
                 Backbone.trigger('notify', 'No Information available');
             },
             insightOptions : function(){
-                // data for days 0=Monday....6=Sunday
+                
+                        Backbone.trigger('notify', 'No Information available');
+            },
+                
+            renderIns: function(){
+                
+                    // data for days 0=Monday....6=Sunday
                 var d2 = [[0, 2], [1, 3], [2, 1], [3, 1], [4, 1], [5, 5], [6, 3]];
                 var d1 = [[0, 5], [1, 4], [2, 6], [3, 4],[4, 4], [5, 7], [6, 5]];
     
                 //Properties 
                 var option = {
                     grid: { 
+                        borderColor:"white",
                         hoverable: true, 
                         mouseActiveRadius: 30   //specifies how far the mouse can activate an item 
 //                        color:"white"
-                    },   
-    
+                    }, 
+//                    border :"none",
+                    
                     points: {
                         symbol: "circle",
                         fillColor: "white"
@@ -104,12 +116,6 @@ define(['jquery',
                 }
     
                 $.plot($("#insight_graph"), [d1,d2],option);
-            //            Backbone.trigger('notify', 'No Information available');
-            },
-                
-            renderIns: function(){
-                
-                    
             }
 
         });
