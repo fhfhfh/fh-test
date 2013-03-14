@@ -16,7 +16,7 @@ require.config({
     'fullcalendar': 'fullcalendar/fullcalendar/fullcalendar',
     'hash' : 'lib/hash',
     'jflot' : 'lib/jquery.flot',
-    'canvas':'lib/jquery.flot.canvas'
+    'flottime':'lib/jquery.flot.time'
   },
   shim: {
     'feedhenry': {
@@ -39,6 +39,10 @@ require.config({
     'jflot': {
       deps: ['jquery'],
       exports:'$.plot'
+    },
+    'flottime' :{
+        deps: ['jflot']
+//        exports:'$.plot'
     }
   }
 });
@@ -53,6 +57,7 @@ require([
     'routers/AppRouter',
     'fullcalendar',
     'jflot',
+    'flottime'
     
 ], function($fh, $, Backbone, FastClick, NotificationManager, AppRouter) {
 
