@@ -35,7 +35,15 @@ $fh = {
       default:
         console.log('No valid act specified to $fh.cache');
     }
-  }
+  },
+
+  db: (function() {
+    try {
+      return require('./db');
+    }
+    catch(e) {
+    }
+  })()
 
 };
 

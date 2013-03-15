@@ -22,7 +22,8 @@ define(['jquery',
 	    	'click .cabinetFolder'	: 'displayFolder',
 	    	'click .cabinetItem'	: 'displayFile',
 	    	'click #changeView' 	: 'changeView',
-	    	'keyup #search'			: 'searchItems'
+	    	'keyup #search'			: 'searchItems',
+	    	'click #item'			: 'displayFile'
 	    },
 	    template	: _.template(tpl),
 	    folderTpl 	: _.template(folderTpl),

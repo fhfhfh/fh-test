@@ -14,6 +14,7 @@ define(['jquery',
 		tagName		: 'section',
 	    id			: 'widgetLibrary',
 	    events		: {
+	    	'click #showPage' : 'showPage'
 	    },
 	    template	: _.template(tpl),
 
@@ -28,6 +29,19 @@ define(['jquery',
 			this.$el.html(this.template());
 
 			return this;
+		},
+
+		showPage: function(){
+			console.log('asd');
+			// $('#modalMask').slideDown();
+
+			// setTimeout(function(){
+			// 	$('#modalMask').click(function(){
+			// 		$('#modalMask').slideUp();
+			// 	});
+			// },500);
+			
+			Backbone.history.navigate('widgetScreen', true);			
 		}
 
 	});

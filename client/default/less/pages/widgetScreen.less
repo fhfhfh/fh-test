@@ -1,0 +1,70 @@
+section#widgetScreen {
+	z-index: 10;
+	position: absolute;
+	bottom: 0px;
+	width: 100%;
+	height: 100%;
+	color: #ffffff;
+    background: url('../img/backgrounds/BackgroundTileGray.png') left top repeat;
+
+    #topBar{
+    	width: 100%;
+    	height: 50px;
+    	.background-gradient(#ababab, #ebebeb);
+    	color: #000000;
+    	vertical-align: middle;
+        .avenir(14px);
+
+        #buttons {
+            padding: 5px;
+            margin-left: 10px;
+            float: left;
+        }
+
+        .itemBox {
+            padding: 5px;
+            background: none;
+            border-radius: 5px;
+
+            img {
+                height: 25px;
+                vertical-align: middle;
+                padding-right: 10px;
+            }
+
+            &.selected {
+                background: #ffffff;
+                box-shadow: 2px 2px 5px #cdcdcd;
+            }
+        }
+
+    	li, img{
+    		display: inline-block;
+    	}
+
+    	.btn {
+    		margin: 10px;
+    		float: right;
+    	}
+    }
+
+    #panelTopBar {
+        background: #0f0f0f;
+        text-align: center;
+        padding: 10px;
+        border-top: 1px solid #000000;
+
+        #settingsBtn{
+            float: right;
+            margin: 0px;
+            margin-top: -4px;
+        }
+
+    }
+
+    #body {
+        margin: 20px;
+        border-radius: 8px;
+        
+    }
+}

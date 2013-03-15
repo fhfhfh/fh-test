@@ -1509,6 +1509,72 @@ table#listView #date {
 table#listView #type {
   width: 25%;
 }
+section#widgetScreen {
+  z-index: 10;
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+  height: 100%;
+  color: #ffffff;
+  background: url('../img/backgrounds/BackgroundTileGray.png') left top repeat;
+}
+section#widgetScreen #topBar {
+  width: 100%;
+  height: 50px;
+  background-image: linear-gradient(bottom, #ababab 0%, #ebebeb 85%);
+  background-image: -webkit-linear-gradient(bottom, #ababab 0%, #ebebeb 85%);
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #ababab), color-stop(0.85, #ebebeb));
+  color: #000000;
+  vertical-align: middle;
+  font: normal 14px "Avenir Next", Helvetica, Arial, sans-serif;
+}
+section#widgetScreen #topBar:active {
+  background-image: linear-gradient(bottom, #ebebeb 0%, #ababab 85%);
+  background-image: -webkit-linear-gradient(bottom, #ebebeb 0%, #ababab 85%);
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #ebebeb), color-stop(0.85, #ababab));
+}
+section#widgetScreen #topBar #buttons {
+  padding: 5px;
+  margin-left: 10px;
+  float: left;
+}
+section#widgetScreen #topBar .itemBox {
+  padding: 5px;
+  background: none;
+  border-radius: 5px;
+}
+section#widgetScreen #topBar .itemBox img {
+  height: 25px;
+  vertical-align: middle;
+  padding-right: 10px;
+}
+section#widgetScreen #topBar .itemBox.selected {
+  background: #ffffff;
+  box-shadow: 2px 2px 5px #cdcdcd;
+}
+section#widgetScreen #topBar li,
+section#widgetScreen #topBar img {
+  display: inline-block;
+}
+section#widgetScreen #topBar .btn {
+  margin: 10px;
+  float: right;
+}
+section#widgetScreen #panelTopBar {
+  background: #0f0f0f;
+  text-align: center;
+  padding: 10px;
+  border-top: 1px solid #000000;
+}
+section#widgetScreen #panelTopBar #settingsBtn {
+  float: right;
+  margin: 0px;
+  margin-top: -4px;
+}
+section#widgetScreen #body {
+  margin: 20px;
+  border-radius: 8px;
+}
 #news-and-information {
   padding: 15px;
 }

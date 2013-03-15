@@ -12,8 +12,9 @@ define([
     'views/PageNotFound',
     'views/Profile',
     'views/cal',
-    'views/Video'
-], function($, _, Backbone, session, LoginView, MainView, PageNotFoundView, ProfileView, CalendarView, VideoView) {
+    'views/Video',
+    'views/WidgetScreen'
+], function($, _, Backbone, session, LoginView, MainView, PageNotFoundView, ProfileView, CalendarView, VideoView, WidgetView) {
 
     return Backbone.Router.extend({
 
@@ -33,6 +34,7 @@ define([
             'library'  : 'library',
             'video'    : 'video',
             'profile': 'profile',
+            'widgetScreen' : 'widgetScreen',
 
             '*invalidUrl': 'pageNotFound'
         },
@@ -131,6 +133,14 @@ define([
        video: function() {
         this.$topBar.hide();
         this.$content.html((new VideoView()).render().el);
+       },
+
+       widgetScreen: function(){
+        this.$topBar.hide();
+        var html= (new WidgetView()).render().el;
+        $(html).hide();
+        this.$content.append(html);
+        $(html).slideDown(300);
        }
 
     });
