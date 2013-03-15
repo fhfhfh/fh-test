@@ -14,8 +14,6 @@ section#widgetScreen {
     	color: #000000;
     	vertical-align: middle;
         .avenir(14px);
-        border-bottom: 1px solid #000000;
-
         #buttons {
             padding: 5px;
             margin-left: 10px;
@@ -26,6 +24,7 @@ section#widgetScreen {
             padding: 5px;
             background: none;
             border-radius: 5px;
+            margin-right: 10px;
 
             img {
                 height: 25px;
@@ -35,7 +34,7 @@ section#widgetScreen {
 
             &.selected {
                 background: #ffffff;
-                box-shadow: 2px 2px 5px #cdcdcd;
+                box-shadow: 2px 2px 5px #9f9f9f;
             }
         }
 
@@ -46,6 +45,8 @@ section#widgetScreen {
     	.btn {
     		margin: 10px;
     		float: right;
+
+            img {height:20px;}
     	}
     }
 
@@ -67,6 +68,20 @@ section#widgetScreen {
     #body {
         margin: 20px;
         border-radius: 8px;
+        padding: 10px;
+        height: 100%;
+        background-color: #000000;
         
+        #content {
+            background-color: #cdcdcd;
+            box-shadow: 7px 0px 0 -4px #ccc, 12px 0px 0 -7px rgb(139, 139, 139);
+
+            #leftContent {
+                width: 200px;
+                height: 99%;
+                background-color: #ffffff;
+                box-shadow: 3px 7px 5px #ababab;
+            }
+        }
     }
 }

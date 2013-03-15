@@ -1550,7 +1550,7 @@ section#widgetScreen #topBar .itemBox img {
 }
 section#widgetScreen #topBar .itemBox.selected {
   background: #ffffff;
-  box-shadow: 2px 2px 5px #cdcdcd;
+  box-shadow: 2px 2px 5px #9f9f9f;
 }
 section#widgetScreen #topBar li,
 section#widgetScreen #topBar img {
@@ -1560,11 +1560,15 @@ section#widgetScreen #topBar .btn {
   margin: 10px;
   float: right;
 }
+section#widgetScreen #topBar .btn img {
+  height: 20px;
+}
 section#widgetScreen #panelTopBar {
   background: #0f0f0f;
   text-align: center;
   padding: 10px;
   border-top: 1px solid #000000;
+  box-shadow: 0 -1px 0 0 rgba(255, 255, 255, 0.15);
 }
 section#widgetScreen #panelTopBar #settingsBtn {
   float: right;
@@ -1574,6 +1578,19 @@ section#widgetScreen #panelTopBar #settingsBtn {
 section#widgetScreen #body {
   margin: 20px;
   border-radius: 8px;
+  padding: 10px;
+  height: 100%;
+  background-color: #000000;
+}
+section#widgetScreen #body #content {
+  background-color: #cdcdcd;
+  box-shadow: 7px 0px 0 -4px #cccccc, 12px 0px 0 -7px #8b8b8b;
+}
+section#widgetScreen #body #content #leftContent {
+  width: 200px;
+  height: 99%;
+  background-color: #ffffff;
+  box-shadow: 3px 7px 5px #ababab;
 }
 #news-and-information {
   padding: 15px;

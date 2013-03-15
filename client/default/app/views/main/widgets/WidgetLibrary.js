@@ -32,15 +32,6 @@ define(['jquery',
 		},
 
 		showPage: function(){
-			console.log('asd');
-			// $('#modalMask').slideDown();
-
-			// setTimeout(function(){
-			// 	$('#modalMask').click(function(){
-			// 		$('#modalMask').slideUp();
-			// 	});
-			// },500);
-			
 			Backbone.history.navigate('widgetScreen', true);			
 		}
 

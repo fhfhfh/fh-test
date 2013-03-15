@@ -136,11 +136,17 @@ define([
        },
 
        widgetScreen: function(){
-        this.$topBar.hide();
-        var html= (new WidgetView()).render().el;
-        $(html).hide();
-        this.$content.append(html);
-        $(html).slideDown(300);
+        var self = this;
+        if(!self.widgetView){
+          self.widgetView = (new WidgetView()).render().el;
+          var html = self.widgetView;
+          $(html).hide();
+          self.$content.append(html);
+        }
+        var html = self.widgetView;
+        $(html).slideDown();
+        
+        
        }
 
     });
