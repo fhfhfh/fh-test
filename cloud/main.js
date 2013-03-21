@@ -36,6 +36,8 @@ var fetchEncountersEndpoint = require("./endpoints/fetchEncounters.js")
 var fetchVitalsignsEndpoint = require("./endpoints/fetchVitalsigns.js")
 var fetchResultsEndpoint = require("./endpoints/fetchResults.js")
 var healthHubEndpoint = require("./endpoints/healthHub.js")
+var folderManagerEndpoint = require("./endpoints/folderManager.js")
+
 
 // mock service if not on $fh
 if (!process.env.FH_DOMAIN){
@@ -78,6 +80,7 @@ exports.fetchEncountersAction = fetchEncountersAction;
 exports.fetchVitalsignsAction = fetchVitalsignsAction;
 exports.fetchResultsAction = fetchResultsAction;
 exports.healthHubAction = healthHubAction;
+exports.folderManagerAction = folderManagerAction;
 
 
 //--------------------------------------login----------------------------------------
@@ -356,6 +359,14 @@ function fetchResultsAction(params, callback) {
 
 function healthHubAction(params, callback) {
   healthHubEndpoint.healthHub(params,function cb(err, respData) {
+    callback(err,respData);
+  });
+}
+
+//---------------------------------------folderManager--------------------------------------------------------------------
+
+function folderManagerAction(params, callback) {
+ folderManagerEndpoint.folderManager(params,function cb(err, respData) {
     callback(err,respData);
   });
 }
