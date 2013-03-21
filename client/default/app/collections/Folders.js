@@ -19,24 +19,26 @@ define(['backbone',
 		},
 
 
+		/*
+		 * Fetch - try to load folders from
+		 * localSotrage, if fails, fetch from cloud DB
+		 */
 		fetch: function(){
 			var self = this;
 			console.log('Fetch Folders...');
 			this.load(function(filesExist){
-				// check if folders exist in localStorage
-				// if not, get from cloud
 				if(filesExist){
 					console.log('Local Folders fetched');
 					return;
 				}
 				else {
-					Act.call('folderManagerAction', {}, function(res){
+					Act.call('folderManagerAction', {method:'viewAll'}, function(res){
 						if(res){
 							var count = res.payload.count;
 							var list = res.payload.list;
 
 							for(var i=0; i<count;i++){
-								var item = list[i];
+								var item = list[i].fields;
 								self.addFolder(item.name);
 							}
 						}
@@ -72,6 +74,33 @@ define(['backbone',
 			var models = JSON.stringify(this.models);
 			Store.save('peachy_folders', models, function(){
 				console.log('saved folders to localStorage');
+			});
+		},
+
+
+		/*
+		 * Save folder items to cloud DB
+		 */
+		save: function(){
+			var params = {method: "add"};
+			var record = [];
+			var models = this.models;
+			var i;
+			for(i=0;i<models.length;i++){
+				var item = models[i].attributes;
+
+				record.push({
+					id: item.id,
+					name: item.name
+				});
+			}
+
+			params.record = record;
+
+			Act.call('folderManagerAction', params, function(res){
+				console.log('Saved Folders');
+			}, function(err, msg){
+				console.log('Savign Folders Failed', err);
 			});
 		},
 
