@@ -1610,6 +1610,7 @@ section#widgetScreen #body #content {
   box-shadow: 7px 0px 0 -4px #cccccc, 12px 0px 0 -7px #8b8b8b;
 }
 section#widgetScreen #body #content #leftContent {
+  float: left;
   width: 300px;
   height: 99%;
   background-color: #ffffff;
@@ -1618,13 +1619,41 @@ section#widgetScreen #body #content #leftContent {
 }
 section#widgetScreen #body #content #leftContent #leftContentMask {
   height: 99%;
-  background-color: #ebebeb;
+  background-color: #ffffff;
   box-shadow: 1px 1px 1px #cdcdcd, -1px 0px 1px #cdcdcd;
   color: #000000;
   padding: 5px;
+  background-image: url('../img/backgrounds/SettingsBackground.png');
+}
+section#widgetScreen #body #content #rightContent {
+  float: right;
+  width: 57%;
+  height: 100%;
+}
+section#widgetScreen #body #content #rightContent #emptyFood {
+  color: #676767;
+  margin-top: 300px;
+  text-align: center;
+  font: bold 18px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
+  text-shadow: 0 1px 1px #ffffff;
+}
+section#widgetScreen #body #content #rightContent #emptyFood #day {
+  color: #676767;
+  font: bold 45px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
+}
+section#widgetScreen #body #content #rightContent #emptyFood #emptyMeals {
+  margin-top: 150px;
+  width: 45%;
+  margin-left: auto;
+  margin-right: auto;
+}
+section#widgetScreen #body #content #rightContent #emptyFood #emptyMeals img {
+  float: left;
+  margin-left: -30px;
 }
 section#widgetScreen #smallCalendar {
   height: 300px;
+  margin-bottom: 30px;
 }
 section#widgetScreen #calories {
   padding-top: 200px;
@@ -1633,6 +1662,7 @@ section#widgetScreen #calories {
   border-radius: 8px;
   background-color: #fff1a0;
   font-size: 16px;
+  margin-bottom: 60px;
 }
 section#widgetScreen #calories span {
   width: 120px;
@@ -1640,16 +1670,29 @@ section#widgetScreen #calories span {
   padding: 5px 0px;
 }
 section#widgetScreen #calories span#remaining {
-  font: bold 16px "Avenir Next", Helvetica, Arial, sans-serif;
+  font: bold 16px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
 }
 section#widgetScreen #calories span#remainingNum {
-  font: bold 16px "Avenir Next", Helvetica, Arial, sans-serif;
+  font: bold 16px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
 }
 section#widgetScreen #calories span#goalNum {
   font: normal 16px "Avenir Next Medium", Helvetica, Arial, sans-serif;
 }
 section#widgetScreen #calories span#currentNum {
   font: normal 16px "Avenir Next Medium", Helvetica, Arial, sans-serif;
+}
+section#widgetScreen #meals {
+  margin-left: 10px;
+}
+section#widgetScreen #meals .meal {
+  display: block;
+  height: 60px;
+  padding: 20px 5px;
+  font: bold 16px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
+}
+section#widgetScreen #meals .meal img {
+  margin-right: 10px;
+  vertical-align: middle;
 }
 #news-and-information {
   padding: 15px;
@@ -2301,6 +2344,7 @@ section#month h2 {
 #mood_section {
   margin: 20px;
   padding-top: 25px;
+  padding-bottom: 25px;
 }
 #mood_desc {
   font-size: 14px;
@@ -2325,7 +2369,6 @@ section#insights h1 {
 }
 #insight_div {
   background-color: #ebebeb;
-  height: 441px;
 }
 #mood_img img {
   padding-right: 8px;

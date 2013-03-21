@@ -42,7 +42,10 @@
 				<div id="calories">
 					<span id="goal">Goal</span>
 					<span id="goalNum"><%= '1,500 Calories' %></span>
-					<span id="current">So Far</span><%= '0' %>
+
+					<span id="current">So Far</span>
+					<span id="currentNum"></span>
+
 					<span id="remaining">Remaining</span>
 					<span id="remainingNum"><%= '1,500 Calories' %></span>
 				</div>
@@ -51,12 +54,27 @@
 					<h3>My Meals</h3>
 					<li class="meal"><img src="img/food/breakfast.png"/>Breakfast</li>
 					<li class="meal"><img src="img/food/lunch.png"/>Lunch</li>
-					<li class="meal"><img src="img/food/lunch.png"/>Lunch</li>
-					<li class="meal"><img src="img/food/lunch.png"/>Lunch</li>
-					<li class="meal"><img src="img/food/lunch.png"/>Lunch</li>
+					<li class="meal"><img src="img/food/lunch.png"/>Dinner</li>
+					<li class="meal"><img src="img/food/lunch.png"/>Snacks</li>
+					<li class="meal"><img src="img/food/lunch.png"/>Beverages</li>
 				</div>
 
 			</div>
 		</div>
+
+		<div id="rightContent">
+			<div id="emptyFood">
+				<img id="emptyImage" src="img/video/SnapBack@2x.png"/>
+				<p>Foodometer is hungry!</p>
+				<p>There is no information entered for<br/>
+					<span id="day">Today</span>
+				</p>			
+
+				<div id="emptyMeals">
+					<img src="img/video/SnapBack@2x.png"/>
+					<p>Tap a meal to the left to get started.</p>
+				</div>
+			</div>
+
 	</div>
 </div>

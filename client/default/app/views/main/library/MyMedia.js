@@ -201,11 +201,6 @@ define(['jquery',
 		},
 
 		changeView: function(e){
-			folderStore.fetch();
-			return;
-
-
-
 			var target = e.currentTarget;
 			var name = $(target).text();
 

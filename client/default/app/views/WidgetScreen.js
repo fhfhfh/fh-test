@@ -1,5 +1,5 @@
 /**
- * @fileOverview The 404 Error view of the Peachy app.
+ * @fileOverview The Widgets Screen Container
  */
 
 define([
@@ -27,13 +27,12 @@ define([
         },
 
         close: function() {
+            // window.history.back();
             this.$el.slideUp(300, function() {
-
-                var events = this.delegateEvents();
-                setTimeout(function() {
-                    window.history.back();
-                    events;
-                }, 100);
+                // var events = this.delegateEvents();
+                // setTimeout(function() {
+                //     window.history.back();
+                // }, 310);
 
             });
         },

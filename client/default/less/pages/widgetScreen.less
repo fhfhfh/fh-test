@@ -89,6 +89,7 @@ section#widgetScreen {
             box-shadow: 7px 0px 0 -4px #ccc, 12px 0px 0 -7px rgb(139, 139, 139);
 
             #leftContent {
+                float: left;
                 width: 300px;
                 height: 99%;
                 background-color: #ffffff;
@@ -97,10 +98,42 @@ section#widgetScreen {
 
                 #leftContentMask {
                     height: 99%;
-                    background-color: #ebebeb;
+                    background-color: #ffffff;
                     box-shadow: 1px 1px 1px #cdcdcd, -1px 0px 1px #cdcdcd;
                     color: #000000;
                     padding: 5px;
+                    background-image: url('../img/backgrounds/SettingsBackground.png');
+                }
+            }
+
+            #rightContent {
+                float: right;
+                width: 57%;
+                height: 100%;
+
+                #emptyFood {
+                    color: #676767;
+                    margin-top: 300px;
+                    text-align: center;
+                    .avenir-demi(18px);
+                    text-shadow: 0 1px 1px #ffffff;
+
+                    #day {
+                        color: #676767;
+                        .avenir-demi(45px);
+                    }
+
+                    #emptyMeals {
+                        margin-top: 150px;
+                        width: 45%;
+                        margin-left: auto;
+                        margin-right: auto;
+
+                        img {
+                            float: left;
+                            margin-left: -30px;
+                        }
+                    }
                 }
             }
         }
@@ -108,6 +141,7 @@ section#widgetScreen {
 
     #smallCalendar {
         height: 300px;
+        margin-bottom: 30px;
     }
 
     #calories {
@@ -117,6 +151,7 @@ section#widgetScreen {
         border-radius: 8px;
         background-color: #fff1a0;
         font-size: 16px;
+        margin-bottom: 60px;
 
         span {
             width: 120px;
@@ -124,16 +159,30 @@ section#widgetScreen {
             padding: 5px 0px;
 
             &#remaining {
-                .avenir-bold(16px);
+                .avenir-demi(16px);
             }
             &#remainingNum {
-                .avenir-bold(16px);
+                .avenir-demi(16px);
             }
             &#goalNum {
                 .avenir-medium(16px);
             }
             &#currentNum {
                 .avenir-medium(16px);
+            }
+        }
+    }
+
+    #meals {
+        margin-left: 10px;
+        .meal{
+            display: block;
+            height: 60px;
+            padding: 20px 5px;
+            .avenir-demi(16px);
+            img {
+                margin-right: 10px;
+                vertical-align: middle;
             }
         }
     }
