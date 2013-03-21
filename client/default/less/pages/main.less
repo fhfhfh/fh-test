@@ -34,7 +34,7 @@
     border-top-right-radius: 8px;
     position: relative;
 
-    .background-gradient(#ccc, #fff);
+    .background-gradient(#878888, #fff);
     .avenir-bold(14px);
 
     &.selected {
@@ -85,6 +85,11 @@
 #wrapper {
     max-height: 540px;
     margin-top: 10px;
+
+    @media only screen and (orientation: landscape) {
+        max-height: 640px;
+        min-height: 620px;
+    }
 }
 
 .overlaid {

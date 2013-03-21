@@ -78,7 +78,6 @@ define([
         },
 
         ensureMain: function() {
-          // TODO: Consider how settings will be navigable.
           if (!this.mainView) {
             this.mainView = new MainView();
           }
@@ -103,7 +102,6 @@ define([
           this.$content.html((new PageNotFoundView()).render().el);
         },
 
-        // TODO: Cleanup below...
        widgets:function(){
           this.ensureMain();
           this.$content.html(this.mainView.render().el);
@@ -125,7 +123,6 @@ define([
     //    },
 
 
-        // TODO: Re-evaluate this function.
        profile: function() {
         this.$content.html((new ProfileView()).render().el);
        },
@@ -137,13 +134,17 @@ define([
 
        widgetScreen: function(){
         var self = this;
+        var html;
         if(!self.widgetView){
           self.widgetView = (new WidgetView()).render().el;
-          var html = self.widgetView;
+          html = self.widgetView;
           $(html).hide();
           self.$content.append(html);
         }
-        var html = self.widgetView;
+        else{
+          html = $('#widgetScreen');
+        }
+        
         $(html).slideDown();
         
         

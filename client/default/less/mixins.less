@@ -56,6 +56,18 @@
     }
 }
 
+.background-gradient-fixed (@bottom, @top) {
+    background-image: linear-gradient(bottom, @bottom 0%, @top 85%);
+    background-image: -webkit-linear-gradient(bottom, @bottom 0%, @top 85%);
+    background-image: -webkit-gradient(
+        linear,
+        left bottom,
+        left top,
+        color-stop(0, @bottom),
+        color-stop(0.85, @top)
+    );
+}
+
 // These are the various font-stacks for the app... Because of the weights used,
 // specifying a base font-name and CSS font-weight is not an option, so we use
 // fully qualified font names.
@@ -68,11 +80,15 @@
 }
 
 .avenir-demi(@size) {
-    font: bold @size "Avenir Next Heavy", Helvetica, Arial, sans-serif;
+    font: bold @size "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
 }
 
 .avenir-bold(@size) {
     font: bold @size "Avenir Next", Helvetica, Arial, sans-serif;
+}
+
+.avenir-heavy(@size) {
+    font: bold @size "Avenir Next Heavy", Helvetica, Arial, sans-serif;
 }
 
 .force3D() {

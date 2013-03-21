@@ -14,7 +14,8 @@ define(['jquery',
 		tagName		: 'section',
 	    id			: 'widgetLibrary',
 	    events		: {
-	    	'click #showPage' : 'showPage'
+	    	'click #showPage'	: 'showPage',
+	    	'click #item'		: 'showPage'
 	    },
 	    template	: _.template(tpl),
 

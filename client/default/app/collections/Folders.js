@@ -20,8 +20,31 @@ define(['backbone',
 
 
 		fetch: function(){
+			var self = this;
 			console.log('Fetch Folders...');
-			this.load();
+			this.load(function(filesExist){
+				// check if folders exist in localStorage
+				// if not, get from cloud
+				if(filesExist){
+					console.log('Local Folders fetched');
+					return;
+				}
+				else {
+					Act.call('folderManagerAction', {}, function(res){
+						if(res){
+							var count = res.payload.count;
+							var list = res.payload.list;
+
+							for(var i=0; i<count;i++){
+								var item = list[i];
+								self.addFolder(item.name);
+							}
+						}
+					}, function(err, msg){
+
+					});
+				}
+			});
 		},
 
 		sort: function(array){
@@ -52,7 +75,7 @@ define(['backbone',
 			});
 		},
 
-		load: function(){
+		load: function(callback){
 			var self = this;
 			Store.load('peachy_folders', function(bool,res){
 				if(bool && res){
@@ -61,6 +84,10 @@ define(['backbone',
 					for(var i=0;i<obj.length;i++){
 						self.addFolder(obj[i].name);
 					}
+					return callback(true);
+				}
+				else {
+					return callback(false);
 				}
 			});
 		}
