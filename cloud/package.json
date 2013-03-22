@@ -4,6 +4,7 @@
   "dependencies" : {
     "async": "*",
     "assert" : "*",
-    "request" : "*"
+    "request" : "*",
+    "fh-nodeapp": "*"
   }
 }

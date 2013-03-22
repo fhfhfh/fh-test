@@ -1,0 +1,204 @@
+#foodometer{
+    #body {
+        margin: 20px;
+        border-radius: 8px;
+        padding: 10px;
+        height: 89%;
+        background-color: #000000;
+
+        #binderBg {
+            width: 50px;
+            height: 89%;
+            float: left;
+            margin-left: -10px;
+            position: absolute;
+            background: url('../img/pencil.png') left top repeat-y;
+            z-index: 10;
+            background-size: 37px;
+            background-position: -9px 40px;
+        }
+        
+        #content {
+            background-color: #cdcdcd;
+            box-shadow: 7px 0px 0 -4px #ccc, 12px 0px 0 -7px rgb(139, 139, 139);
+
+            #leftContent {
+                float: left;
+                width: 300px;
+                height: 99%;
+                background-color: #ffffff;
+                box-shadow: 3px 7px 5px #ababab;
+                padding: 8px;
+
+                #leftContentMask {
+                    height: 99%;
+                    background-color: #ffffff;
+                    box-shadow: 1px 1px 1px #cdcdcd, -1px 0px 1px #cdcdcd;
+                    color: #000000;
+                    padding: 5px;
+                    background-image: url('../img/backgrounds/SettingsBackground.png');
+                }
+            }
+
+            #rightContent {
+                float: right;
+                width: 57%;
+                height: 100%;
+
+                #emptyFood {
+                    color: #676767;
+                    margin-top: 300px;
+                    text-align: center;
+                    .avenir-demi(18px);
+                    text-shadow: 0 1px 1px #ffffff;
+
+                    #day {
+                        color: #676767;
+                        .avenir-demi(45px);
+                    }
+
+                    #emptyMeals {
+                        margin-top: 150px;
+                        width: 45%;
+                        margin-left: auto;
+                        margin-right: auto;
+
+                        img {
+                            float: left;
+                            margin-left: -30px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    #smallCalendar {
+        height: 300px;
+        margin-bottom: 30px;
+
+        #monthPick {
+            float: right;
+            margin-right: 5px;
+            margin-top: 5px;
+            height: 25px;
+        }
+
+        #dayString {
+            .avenir-medium(32px);
+            display: block;
+            padding-left: 10px;
+            padding-top: 15px;
+        }
+        #dateString {
+            color: #676767;
+            .avenir-medium(16px);
+            padding-left: 10px;
+        }
+
+        #calTable {
+            border: none;
+
+            td {
+                height: 40px;
+                border: none;
+            }    
+        }
+        
+    }
+
+    #calories {
+        padding-top: 200px;
+        padding: 10px;
+        width: 270px;
+        border-radius: 8px;
+        background-color: #fff1a0;
+        font-size: 16px;
+        margin-bottom: 60px;
+
+        span {
+            width: 120px;
+            display: inline-block;
+            padding: 5px 0px;
+
+            &#remaining {
+                .avenir-demi(16px);
+            }
+            &#remainingNum {
+                .avenir-demi(16px);
+            }
+            &#goalNum {
+                .avenir-medium(16px);
+            }
+            &#currentNum {
+                .avenir-medium(16px);
+            }
+        }
+    }
+
+    #meals {
+        margin-left: 10px;
+        .meal{
+            display: block;
+            height: 60px;
+            padding: 20px 5px;
+            .avenir-demi(16px);
+            img {
+                margin-right: 10px;
+                vertical-align: middle;
+            }
+        }
+    }
+
+    #filterView {
+        z-index: 10;
+        left: 165px;
+        top: 175px;
+        width: 250px;
+
+        #body{
+            background-color: #ffffff;
+            border-radius: 5px;
+            margin: 0px;
+            min-height: 0px;
+            .avenir-demi(14px);
+
+            #picker {
+                border: 1px solid #cdcdcd;
+                border-radius: 5px;
+                .background-gradient-fixed(#ababab, #ebebeb);
+
+                #back, #forward {
+                    padding: 5px;
+                    text-align: center;
+                    img{ 
+                        height: 20px;
+                        padding: 5px;
+                    }
+                }
+                #back {
+                    // border-right: 2px solid #cdcdcd;
+                }
+                #forward {
+                    // border-left: 2px solid #cdcdcd;
+                }
+                #month {
+                    .background-gradient-fixed(#343434, #cdcdcd);
+                    color: #ffffff;
+                    width: 155px;
+                    height: 32px;
+                    text-align: center;
+                    display: inline-block;
+                    padding-top: 6px;
+                    padding-bottom: 6px;
+                    box-shadow: inset 0 0 7px #000000;
+                    text-shadow: 0 1px 1px #000000;
+                }
+            }
+        }
+
+        &:before{
+            right: 95px;
+        }
+    }
+}

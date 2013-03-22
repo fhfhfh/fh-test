@@ -26,7 +26,6 @@ define([
             initialize: function() {
                 _.bindAll(this);
                 // this.setPeachyPoints();
-                this.setAvatar();
                 this.render();
                 profView = new ProfView();
             },
@@ -34,6 +33,7 @@ define([
             render: function() {
                 this.$el = $('#topBar');
                 this.$el.html(tpl);
+                this.setAvatar();
                 return this.$el;
             },
 
@@ -57,9 +57,7 @@ define([
             cancel: function(){
                 window.history.back();
                 var points = this.setPeachyPoints();
-                var image = this.avatarSrc;
-                this.$('#avatar').attr("src", "data:image/png;base64,"+image);
-                this.$('#account-information').find('img').attr("src", "data:image/png;base64,"+image);
+                this.setAvatar();
                 this.$('#points-button em').html(points);
                 
                 $('#top-bar').removeClass('profileBar');
@@ -96,21 +94,14 @@ define([
             },
             
             setAvatar : function(){
-                controller.loadAvatars(function(url){
-                    for (i=0; i<url.avatars.length; i++)
-                    {
-                       
-                        if(url.avatars[i].avatarId == avatar_id)
-                        { 
-                            var image = url.avatars[i].image64;
-                            avatarSrc = image;
-                            
-                            this.$('#avatar').attr("src", "data:image/png;base64,"+image);
-                            this.$('#account-information').find('img').attr("src", "data:image/png;base64,"+image);
-                        
-                        }
-                    }
-                });
+                var self = this;
+ 
+                var avatar = controller.getUserAvatar();
+                if(avatar){
+                    var image = avatar.image64;
+                    self.$('#avatar').attr("src", "data:image/png;base64,"+image);
+                    $('#account-information').find('img').attr("src", "data:image/png;base64,"+image);
+                }
             }
         
         });

@@ -100,7 +100,7 @@ define(['backbone',
 			Act.call('folderManagerAction', params, function(res){
 				console.log('Saved Folders');
 			}, function(err, msg){
-				console.log('Savign Folders Failed', err);
+				console.log('Saving Folders Failed', err);
 			});
 		},
 
@@ -109,7 +109,6 @@ define(['backbone',
 			Store.load('peachy_folders', function(bool,res){
 				if(bool && res){
 					var obj = JSON.parse(res);
-					console.log(obj);
 					for(var i=0;i<obj.length;i++){
 						self.addFolder(obj[i].name);
 					}

@@ -1,43 +1,37 @@
-<div id="topBar">
-
-	<div id="buttons">
-		<li class="itemBox selected">
-			<img src="img/AdPlaceholder.png"/>Foodometer
-		</li>
-
-		<li class="itemBox">
-			<img src="img/AdPlaceholder.png"/>BusyBody
-		</li>
-
-		<li class="itemBox">
-			<img src="img/AdPlaceholder.png"/>MedBot
-		</li>
-
-		<li class="itemBox">
-			<img src="img/AdPlaceholder.png"/>My Stats
-		</li>
-	</div>
-
-	<li id="closeBtn" class="btn">
-		<img src="img/corner-logo.png"/>
-	</li>
-
-</div>
-
-<div id="panelTopBar">
-	Overview
-	<li id="settingsBtn" class="btn">
-		<img src="img/OptionsGear.png"/>
-	</li>
-</div>
-
 <div id="body">
 	<div id="binderBg"></div>
 	<div id="content">
 		<div id="leftContent">
 			<div id="leftContentMask">
 
-				<div id="smallCalendar"></div>
+				<div id="smallCalendar">
+					<img id="monthPick" src="img/calendar/IconCalendar.png"/>
+					<span id="dayString">Today</span>
+					<span id="dateString"></span>
+
+					<div id='tableContainer'>
+					    <table id="calTable">
+					        <tr id="1" class="days" align="center">
+					            <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+					        </tr>
+					        <tr id="2" class="days" align="center">
+					            <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+					        </tr>
+					        <tr id="3" class="days" align="center">
+					            <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+					        </tr>
+					        <tr id="4" class="days" align="center">
+					            <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+					        </tr>
+					        <tr id="5" class="days" align="center">
+					            <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+					        </tr>
+					        <tr id="6" class="days" align="center">
+					            <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+					        </tr>
+					    </table>
+					</div>
+				</div>
 
 				<div id="calories">
 					<span id="goal">Goal</span>
