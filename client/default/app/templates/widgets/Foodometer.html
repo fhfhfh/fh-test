@@ -46,18 +46,18 @@
 
 				<div id="meals">
 					<h3>My Meals</h3>
-					<li class="meal"><img src="img/food/breakfast.png"/>Breakfast</li>
-					<li class="meal"><img src="img/food/lunch.png"/>Lunch</li>
-					<li class="meal"><img src="img/food/lunch.png"/>Dinner</li>
-					<li class="meal"><img src="img/food/lunch.png"/>Snacks</li>
-					<li class="meal"><img src="img/food/lunch.png"/>Beverages</li>
+					<li class="meal" data-name="breakfast"><img src="img/food/breakfast.png"/>Breakfast</li>
+					<li class="meal" data-name="lunch"><img src="img/food/lunch.png"/>Lunch</li>
+					<li class="meal" data-name="dinner"><img src="img/food/lunch.png"/>Dinner</li>
+					<li class="meal" data-name="snacks"><img src="img/food/lunch.png"/>Snacks</li>
+					<li class="meal" data-name="beverages"><img src="img/food/lunch.png"/>Beverages</li>
 				</div>
 
 			</div>
 		</div>
 
 		<div id="rightContent">
-			<div id="emptyFood">
+			<!-- <div id="emptyFood">
 				<img id="emptyImage" src="img/video/SnapBack@2x.png"/>
 				<p>Foodometer is hungry!</p>
 				<p>There is no information entered for<br/>
@@ -68,7 +68,51 @@
 					<img src="img/video/SnapBack@2x.png"/>
 					<p>Tap a meal to the left to get started.</p>
 				</div>
-			</div>
 
+			</div> -->
+
+			<div id="mealContainer">
+				<h3 id="title">My Lunch - <span id="calCount">410 Calories</span></h3>
+				<li id="add" class="btn"></li>
+				<li id="share" class="btn">Share</li>
+				
+
+				<div class="box">
+					<div class="boxEntry">
+						<span id="name">Ham & Cheese Sandwich</span>
+						<span id="about">Whole Wheat Bread</span>
+					</div>
+					<div class="boxEntry">
+						<span id="name">Ham & Cheese Sandwich</span>
+						<span id="about">Whole Wheat Bread</span>
+					</div>
+					<div class="boxEntry">
+						<span id="name">Ham & Cheese Sandwich</span>
+						<span id="about">Whole Wheat Bread</span>
+					</div>
+				</div>
+
+				<div class="box">
+					<label for="location">Location (where you ate)</label>
+					<input id="location" name="location" value="At Work"/>
+				</div>
+
+				<div class="box">
+					<label for="with">With (who you ate with)</label>
+					<input id="with" name="with" value="Co-Workers"/>
+				</div>
+
+				<div class="box">
+					<label for="time">Meal Time (time of day)</label>
+					<input id="time" name="time" value="12:30 PM"/>
+				</div>
+
+				<div class="box">
+					<label for="notes">Special Notes</label>
+					<textarea id="notes" name="notes">Was very hungry today!</textarea>
+				</div>
+
+			</div>
+		</div>
 	</div>
 </div>

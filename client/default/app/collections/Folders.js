@@ -72,7 +72,7 @@ define(['backbone',
 
 		store: function(){
 			var models = JSON.stringify(this.models);
-			Store.save('peachy_folders', models, function(){
+			Store.save(this.storageKey, models, function(){
 				console.log('saved folders to localStorage');
 			});
 		},
@@ -106,7 +106,7 @@ define(['backbone',
 
 		load: function(callback){
 			var self = this;
-			Store.load('peachy_folders', function(bool,res){
+			Store.load(this.storageKey, function(bool,res){
 				if(bool && res){
 					var obj = JSON.parse(res);
 					for(var i=0;i<obj.length;i++){

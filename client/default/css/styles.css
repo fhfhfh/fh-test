@@ -2529,6 +2529,9 @@ section#insights h1 {
   height: 40px;
   border: none;
 }
+#foodometer #smallCalendar #calTable td.selected {
+  background-color: #fff1a0;
+}
 #foodometer #calories {
   padding-top: 200px;
   padding: 10px;
@@ -2614,4 +2617,23 @@ section#insights h1 {
 }
 #foodometer #filterView:before {
   right: 95px;
+}
+#foodometer #mealContainer {
+  padding: 20px;
+}
+#foodometer #mealContainer h3 {
+  color: #000000;
+  display: inline-block;
+  font: bold 20px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
+}
+#foodometer #mealContainer h3 span {
+  color: #676767;
+}
+#foodometer #mealContainer .btn {
+  float: right;
+  background: #cccccc;
+  border: 2px solid #ffffff;
+  margin: 15px 5px;
+  color: #676767;
+  font: normal 12px "Avenir Next", Helvetica, Arial, sans-serif;
 }

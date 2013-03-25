@@ -102,6 +102,10 @@
             td {
                 height: 40px;
                 border: none;
+
+                &.selected {
+                    background-color: #fff1a0;
+                }
             }    
         }
         
@@ -199,6 +203,29 @@
 
         &:before{
             right: 95px;
+        }
+    }
+
+    #mealContainer {
+        padding: 20px;
+
+        h3 {
+            color: #000000;
+            display: inline-block;
+            .avenir-demi(20px);
+
+            span {
+                color: #676767;
+            }
+        }
+
+        .btn {
+            float: right;
+            background: #cccccc;
+            border: 2px solid #ffffff;
+            margin: 15px 5px;
+            color: #676767;
+            .avenir(12px);
         }
     }
 }

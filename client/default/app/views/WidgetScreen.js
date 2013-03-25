@@ -31,15 +31,7 @@ define([
 
             this.$el.html(template);
             this.$content = this.$('#childContent');
-            this.$nav = this.$('#buttons');    
-
-            // // iScroll ---------------------------
-            // this.iscroll = new iScroll(this.$('#profile-iscroll')[0], {
-            //     hscroll: false,
-            //     fixedScrollbar: true,
-            //     bounce: false,
-            //     vScrollbar: false
-            // });   
+            this.$nav = this.$('#buttons');       
         },
 
         render: function() {
@@ -52,6 +44,15 @@ define([
           }
           this.$('li').removeClass('selected');
           this.$('#buttons #foodometer').addClass('selected');
+
+          // // iScroll ---------------------------
+          this.iscroll = new iScroll(this.$('#childContent')[0], {
+              hscroll: false,
+              fixedScrollbar: true,
+              bounce: true,
+              vScrollbar: false
+          });
+          this.refreshScroll();
 
           return this;
         },
@@ -98,6 +99,7 @@ define([
                 // setTimeout(function() {
                 //     window.history.back();
                 // }, 310);
+              this.remove();
 
             });
         },
