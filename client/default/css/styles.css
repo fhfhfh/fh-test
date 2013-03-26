@@ -2342,6 +2342,8 @@ section#month h2 {
 }
 #popDate #attrList {
     margin-top: 30px;
+    -webkit-margin-left: 0px;
+    margin-left: 20px;
 }
 #popDate .arrow-border {
     border-color: #2b6891 transparent transparent transparent;
@@ -2389,8 +2391,8 @@ section#month h2 {
     display: block;
     color: black;
     display: none;
-    top: 15%;
-    left: 25%;
+/*    top: 15%;*/
+/*    left: 25%;*/
     -moz-border-radius: 20px;border-radius: 20px;
     -webkit-border-radius: 20px;
     box-shadow: 10px 10px 5px #888888;
