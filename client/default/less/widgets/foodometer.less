@@ -207,14 +207,16 @@
     }
 
     #mealContainer {
+        display: none;
         padding: 20px;
+        .avenir(14px);
 
         h3 {
             color: #000000;
             display: inline-block;
             .avenir-demi(20px);
 
-            span {
+            #calCount {
                 color: #676767;
             }
         }
@@ -226,6 +228,63 @@
             margin: 15px 5px;
             color: #676767;
             .avenir(12px);
+        }
+
+        #foodList {padding: 0px;}
+
+        .box {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 1px 2px 5px #676767, inset -1px 1px 1px #ffffff;
+            margin: 20px 5px;
+            color: #000000;
+            padding: 5px;
+
+            .boxHeader {
+                background-color: #e6e6e6;
+                border-radius: 5px 5px 0 0;
+                padding: 5px 10px;
+            }
+            .boxEntry {
+                padding: 15px 10px;
+                border-bottom: 2px solid #e6e6e6;
+
+                #name {
+                    display: inline-block;
+                    width: 170px;
+                    max-width: 170px;
+                    white-space: nowrap;
+                    overflow: hidden;
+                }
+
+                &:last-child{
+                    border-bottom: none;
+                }
+            }
+
+            #about, label {
+                .avenir(12px);
+                color: #676767;
+                margin-left: 10px;
+            }
+
+            label {
+                padding-top: 5px;
+            }
+
+            input {
+                border: none;
+                box-shadow: none;
+                width: 50%;
+                padding: 5px;
+            }
+            textarea {
+                display: block;
+                width: 100%;
+                padding: 10px;
+                border: none;
+                background: none;
+            }
         }
     }
 }

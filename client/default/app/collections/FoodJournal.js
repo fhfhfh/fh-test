@@ -12,13 +12,22 @@ define(['backbone',
 	var collection = Backbone.Collection.extend({
 		//Backbone specific attributes
 		model : model,
-		storageKey: 'peachy_foodJournal'
+		storageKey: 'peachy_foodJournal',
 
 		initialize: function(){
 			var self=this;
 			this.on('change', function(){
 				self.store();
 			});
+
+			// TODO : remove dummy data
+			var asset = new model({
+				breakfast : [
+					{name: "Scone", about: "1 piece", calories: "100"},
+					{name: "Coffee", about: "2 cups", calories: "90"},
+					]
+			});
+			this.add(asset);
 		},
 
 		addEntry: function(obj){

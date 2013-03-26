@@ -9,8 +9,9 @@ define([
     'text!templates/widgets/Foodometer.html',
     'text!templates/popups/MonthPicker.html',
     'text!templates/popups/MonthPicker.html',
-    'models/Calendar'
-], function($, _, Backbone, tpl, monthPicker, mealTpl, calendar) {
+    'models/Calendar',
+    'collections/FoodJournal'
+], function($, _, Backbone, tpl, monthPicker, mealTpl, calendar, collection) {
     return Backbone.View.extend({
         tagName: 'section',
         id: 'foodometer',
@@ -18,7 +19,7 @@ define([
         monthTpl: _.template(monthPicker),
         events: {
             'click #monthPick' : 'showMonthPicker',
-            'click td' : 'showDay',
+            'click td' : 'selectDay',
             'click #back' : 'prevMonth',
             'click #forward' : 'nextMonth',
             'click .meal'   : 'showMealScreen'
@@ -37,6 +38,7 @@ define([
         render: function() {
             this.$el.html(this.template());
             this.renderCal();
+            this.renderDay();
             return this;
         },
 
@@ -91,7 +93,7 @@ define([
             }
         },
 
-        showDay: function(e){
+        selectDay: function(e){
             var target = e.currentTarget;
             var month  = this.month;
             var day    = $(target).text();
@@ -138,13 +140,43 @@ define([
         },
 
         renderDay: function(date){
+            var self = this;
+            var date = date || new Date();
+            console.log(date);
+            var dayModel = collection.find(function(item){
+                return item.get('date').toDateString() == date.toDateString();
+            });
 
+            if(dayModel){ // check if model exists for selected date
+                self.item = dayModel; // make model globally accessible 
+                if(self.item.isEmpty()){ // check if model has any food entries
+                    self.showEmptyScreen();
+                } else {
+                    self.showMealScreen();    
+                }
+            }
+            else {
+                self.showEmptyScreen(); // if no model exists for date, assume empty
+            }
         },
 
         showMealScreen: function(e){
-            var target = e.currentTarget;
-            var meal = $(target).attr('data-name');
-            console.log(meal);
+            var target = (e) ? e.currentTarget : '#meal';
+
+            var meal = this.$(target).attr('data-name') || 'breakfast';
+            var dateString = $('#dateString').text();
+            var mealString = 'My ' + meal.substring(0,1).toUpperCase() + meal.substring(1,meal.length); 
+    
+            $('#mealContainer').show();
+            $('#emptyFood').hide();
+
+            $('#mealString').text(mealString);
+            $('.boxHeader span').text(dateString);
+        },
+
+        showEmptyScreen: function(){
+            $('#mealContainer').hide();
+            $('#emptyFood').show();
         }
 
     });

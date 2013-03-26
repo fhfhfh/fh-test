@@ -2619,14 +2619,16 @@ section#insights h1 {
   right: 95px;
 }
 #foodometer #mealContainer {
+  display: none;
   padding: 20px;
+  font: normal 14px "Avenir Next", Helvetica, Arial, sans-serif;
 }
 #foodometer #mealContainer h3 {
   color: #000000;
   display: inline-block;
   font: bold 20px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
 }
-#foodometer #mealContainer h3 span {
+#foodometer #mealContainer h3 #calCount {
   color: #676767;
 }
 #foodometer #mealContainer .btn {
@@ -2636,4 +2638,56 @@ section#insights h1 {
   margin: 15px 5px;
   color: #676767;
   font: normal 12px "Avenir Next", Helvetica, Arial, sans-serif;
+}
+#foodometer #mealContainer #foodList {
+  padding: 0px;
+}
+#foodometer #mealContainer .box {
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 1px 2px 5px #676767, inset -1px 1px 1px #ffffff;
+  margin: 20px 5px;
+  color: #000000;
+  padding: 5px;
+}
+#foodometer #mealContainer .box .boxHeader {
+  background-color: #e6e6e6;
+  border-radius: 5px 5px 0 0;
+  padding: 5px 10px;
+}
+#foodometer #mealContainer .box .boxEntry {
+  padding: 15px 10px;
+  border-bottom: 2px solid #e6e6e6;
+}
+#foodometer #mealContainer .box .boxEntry #name {
+  display: inline-block;
+  width: 170px;
+  max-width: 170px;
+  white-space: nowrap;
+  overflow: hidden;
+}
+#foodometer #mealContainer .box .boxEntry:last-child {
+  border-bottom: none;
+}
+#foodometer #mealContainer .box #about,
+#foodometer #mealContainer .box label {
+  font: normal 12px "Avenir Next", Helvetica, Arial, sans-serif;
+  color: #676767;
+  margin-left: 10px;
+}
+#foodometer #mealContainer .box label {
+  padding-top: 5px;
+}
+#foodometer #mealContainer .box input {
+  border: none;
+  box-shadow: none;
+  width: 50%;
+  padding: 5px;
+}
+#foodometer #mealContainer .box textarea {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  border: none;
+  background: none;
 }

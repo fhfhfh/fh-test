@@ -57,7 +57,7 @@
 		</div>
 
 		<div id="rightContent">
-			<!-- <div id="emptyFood">
+			<div id="emptyFood">
 				<img id="emptyImage" src="img/video/SnapBack@2x.png"/>
 				<p>Foodometer is hungry!</p>
 				<p>There is no information entered for<br/>
@@ -69,26 +69,34 @@
 					<p>Tap a meal to the left to get started.</p>
 				</div>
 
-			</div> -->
+			</div>
 
 			<div id="mealContainer">
-				<h3 id="title">My Lunch - <span id="calCount">410 Calories</span></h3>
+				<h3 id="title">
+					<span id="mealString">My Lunch</span> - 
+					<span id="calCount">410 Calories</span>
+				</h3>
+
 				<li id="add" class="btn"></li>
 				<li id="share" class="btn">Share</li>
 				
 
-				<div class="box">
-					<div class="boxEntry">
-						<span id="name">Ham & Cheese Sandwich</span>
-						<span id="about">Whole Wheat Bread</span>
+				<div id="foodList" class="box">
+					<div class="boxHeader">
+						<span>Tuesday, March 26, 2013
+						</span>
 					</div>
 					<div class="boxEntry">
 						<span id="name">Ham & Cheese Sandwich</span>
 						<span id="about">Whole Wheat Bread</span>
 					</div>
 					<div class="boxEntry">
-						<span id="name">Ham & Cheese Sandwich</span>
-						<span id="about">Whole Wheat Bread</span>
+						<span id="name">Ham &  Sandwich</span>
+						<span id="about"> Bread</span>
+					</div>
+					<div class="boxEntry">
+						<span id="name">Ham & Cheese</span>
+						<span id="about">Whole  Bread</span>
 					</div>
 				</div>
 
@@ -109,7 +117,7 @@
 
 				<div class="box">
 					<label for="notes">Special Notes</label>
-					<textarea id="notes" name="notes">Was very hungry today!</textarea>
+					<textarea id="notes" name="notes" rows="4">Was very hungry today!</textarea>
 				</div>
 
 			</div>
