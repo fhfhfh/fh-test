@@ -2456,7 +2456,7 @@ section#insights h1 {
   background-position: -9px 40px;
 }
 #foodometer #body #content {
-  background-color: #cdcdcd;
+  background-color: #d8d4d5;
   box-shadow: 7px 0px 0 -4px #cccccc, 12px 0px 0 -7px #8b8b8b;
 }
 #foodometer #body #content #leftContent {
@@ -2469,7 +2469,7 @@ section#insights h1 {
 }
 #foodometer #body #content #leftContent #leftContentMask {
   height: 99%;
-  background-color: #ffffff;
+  background-color: #f6f5f5;
   box-shadow: 1px 1px 1px #cdcdcd, -1px 0px 1px #cdcdcd;
   color: #000000;
   padding: 5px;
@@ -2489,7 +2489,7 @@ section#insights h1 {
 }
 #foodometer #body #content #rightContent #emptyFood #day {
   color: #676767;
-  font: bold 45px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
+  font: bold 48px "Avenir Next", Helvetica, Arial, sans-serif;
 }
 #foodometer #body #content #rightContent #emptyFood #emptyMeals {
   margin-top: 150px;
@@ -2530,14 +2530,14 @@ section#insights h1 {
   border: none;
 }
 #foodometer #smallCalendar #calTable td.selected {
-  background-color: #fff1a0;
+  background-color: #fecd74;
 }
 #foodometer #calories {
   padding-top: 200px;
   padding: 10px;
   width: 270px;
   border-radius: 8px;
-  background-color: #fff1a0;
+  background-color: #fee9c9;
   font-size: 16px;
   margin-bottom: 60px;
 }
