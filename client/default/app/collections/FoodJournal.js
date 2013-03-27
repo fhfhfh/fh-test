@@ -23,6 +23,7 @@ define(['backbone',
 			// TODO : remove dummy data
 			var asset = new model({
 				breakfast : [
+					{calories: "190", location: "Starbucks", with : "Friends", time: "1:00 PM", notes: "Nothing special"},
 					{name: "Scone", about: "1 piece", calories: "100"},
 					{name: "Coffee", about: "2 cups", calories: "90"},
 					]

@@ -129,12 +129,17 @@
                 .avenir-demi(16px);
             }
             &#remainingNum {
+                text-align: right;
                 .avenir-demi(16px);
             }
             &#goalNum {
+                text-align: right;
+                color: #676767;
                 .avenir-medium(16px);
             }
             &#currentNum {
+                text-align: right;
+                color: #676767;
                 .avenir-medium(16px);
             }
         }
@@ -150,6 +155,11 @@
             img {
                 margin-right: 10px;
                 vertical-align: middle;
+            }
+
+            &.selected {
+                .background-gradient-fixed(#fecd74, #fee9c9);
+                box-shadow: 0 0 4px 0px;
             }
         }
     }
@@ -214,7 +224,7 @@
         h3 {
             color: #000000;
             display: inline-block;
-            .avenir-demi(20px);
+            .avenir-demi(18px);
 
             #calCount {
                 color: #676767;
@@ -230,7 +240,10 @@
             .avenir(12px);
         }
 
-        #foodList {padding: 0px;}
+        #foodList {
+            padding: 0px;
+            min-height: 60px;
+        }
 
         .box {
             background-color: #ffffff;

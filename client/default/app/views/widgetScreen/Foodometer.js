@@ -165,38 +165,70 @@ define([
 
         showMealScreen: function(e){
             var target = (e) ? e.currentTarget : '#meal';
-
             var meal = this.$(target).attr('data-name') || 'breakfast';
-            var dateString = $('#dateString').text();
+            // change item class to selected
+            this.$('.meal').removeClass('selected');
+            this.$(target).addClass('selected');
+
+            var dateString = this.$('#dateString').text();
             var mealString = 'My ' + meal.substring(0,1).toUpperCase() + meal.substring(1,meal.length); 
     
             this.$('#mealContainer').show();
             this.$('#emptyFood').hide();
 
-            $('#mealString').text(mealString);
-            $('.boxHeader span').text(dateString);
+            this.$('#mealString').text(mealString);
+            this.$('.boxHeader span').text(dateString);
             this.populateMeal(meal);
         },
 
         showEmptyScreen: function(){
-            $('#mealContainer').hide();
-            $('#emptyFood').show();
+            this.$('#mealContainer').hide();
+            this.$('#emptyFood').show();
         },
 
         populateMeal: function(meal){
-            $('#foodList .boxEntry').remove();
+            this.$('#foodList .boxEntry').remove();
             var item = this.item;
+            var self = this;
             console.log(item);
             if(item){
                 var foods = item.attributes[meal];
-                for(var i=0;i<foods.length;i++){
+                console.log(foods);
+                if(foods.length == 0){
+                    this.$('#calCount').text("");
+                    this.$('#location').val("");
+                    this.$('#with').val("");
+                    this.$('#time').val("");
+                    this.$('#notes').val("");
+                    this.$('#goalNum').text("");
+                    this.$('#currentNum').text("");
+                    this.$('#remainingNum').text("");
+                    return;
+                }
+                // loop starts at 1 as first entry is meal details (calories, notes, etc.)
+                for(var i=1;i<foods.length;i++){
                     var index = foods[i];
                     var html = '<div class="boxEntry">'+
                         '<span id="name">'+ index.name+'</span>'+
                         '<span id="about">'+index.about+'</span>'+
                         '</div>';
-                    $('#foodList').append(html);
+                    this.$('#foodList').append(html);
                 }
+                
+                // populate meal info
+                var foodInfo = foods[0];
+
+                this.$('#calCount').text(foodInfo.calories + ' Calories');
+                this.$('#location').val(foodInfo.location);
+                this.$('#with').val(foodInfo.with);
+                this.$('#time').val(foodInfo.time);
+                this.$('#notes').val(foodInfo.notes);
+
+                // populate calorie counter
+                var att = item.attributes;
+                this.$('#goalNum').text(att.goalCals + ' Calories');
+                this.$('#currentNum').text(att.currentCals + ' Calories');
+                this.$('#remainingNum').text(att.remainingCals + ' Calories');
             }
 
         }

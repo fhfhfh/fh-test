@@ -22,6 +22,23 @@ define(['backbone'], function(Backbone) {
 
 		initialize: function(){
 			console.log('Journal Day created');
+			var att = this.attributes;
+
+			//Calculate Calories
+			if(this.isEmpty()){
+				this.set('currentCals', 0);
+			}
+			else {
+				var bCals = this.getCals(att.breakfast);
+				var lCals = this.getCals(att.lunch);
+				var dCals = this.getCals(att.dinner);
+				var sCals = this.getCals(att.snacks);
+				var bsCals= this.getCals(att.beverages);
+				var sum = bCals+lCals+dCals+sCals+bsCals;
+				console.log(bCals,lCals,dCals,sCals,bsCals);
+				this.set("currentCals", sum);
+				this.set("remainingCals", att.remainingCals - sum);
+			}
 		},
 
 		// Return true is no meals have been added to model
@@ -36,6 +53,14 @@ define(['backbone'], function(Backbone) {
 				return true;
 			} else {
 				return false;
+			}
+		},
+
+		getCals: function(meal){
+			if(meal.length == 0){
+				return 0;
+			} else {
+				return parseInt(meal[0].calories);
 			}
 		}
 

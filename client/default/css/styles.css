@@ -2550,12 +2550,17 @@ section#insights h1 {
   font: bold 16px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
 }
 #foodometer #calories span#remainingNum {
+  text-align: right;
   font: bold 16px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
 }
 #foodometer #calories span#goalNum {
+  text-align: right;
+  color: #676767;
   font: normal 16px "Avenir Next Medium", Helvetica, Arial, sans-serif;
 }
 #foodometer #calories span#currentNum {
+  text-align: right;
+  color: #676767;
   font: normal 16px "Avenir Next Medium", Helvetica, Arial, sans-serif;
 }
 #foodometer #meals {
@@ -2570,6 +2575,12 @@ section#insights h1 {
 #foodometer #meals .meal img {
   margin-right: 10px;
   vertical-align: middle;
+}
+#foodometer #meals .meal.selected {
+  background-image: linear-gradient(bottom, #fecd74 0%, #fee9c9 85%);
+  background-image: -webkit-linear-gradient(bottom, #fecd74 0%, #fee9c9 85%);
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #fecd74), color-stop(0.85, #fee9c9));
+  box-shadow: 0 0 4px 0px;
 }
 #foodometer #filterView {
   z-index: 10;
@@ -2626,7 +2637,7 @@ section#insights h1 {
 #foodometer #mealContainer h3 {
   color: #000000;
   display: inline-block;
-  font: bold 20px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
+  font: bold 18px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
 }
 #foodometer #mealContainer h3 #calCount {
   color: #676767;
@@ -2641,6 +2652,7 @@ section#insights h1 {
 }
 #foodometer #mealContainer #foodList {
   padding: 0px;
+  min-height: 60px;
 }
 #foodometer #mealContainer .box {
   background-color: #ffffff;
