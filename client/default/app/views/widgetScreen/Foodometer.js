@@ -105,7 +105,7 @@ define([
 
             // close month picker if its open
             if($('div #filterView').length > 0){
-                $('div #filterView').toggle();
+                $('div #filterView').hide();
             }
 
             $("#dateString").html( dayStr +', '+monthStr+ " " + day + ", "+this.year);
@@ -142,20 +142,23 @@ define([
         renderDay: function(date){
             var self = this;
             var date = date || new Date();
-            console.log(date);
             var dayModel = collection.find(function(item){
                 return item.get('date').toDateString() == date.toDateString();
             });
 
             if(dayModel){ // check if model exists for selected date
+                console.log('1');
                 self.item = dayModel; // make model globally accessible 
                 if(self.item.isEmpty()){ // check if model has any food entries
                     self.showEmptyScreen();
+                    console.log('2');
                 } else {
+                    console.log('3');
                     self.showMealScreen();    
                 }
             }
             else {
+                self.item = null;
                 self.showEmptyScreen(); // if no model exists for date, assume empty
             }
         },
@@ -167,16 +170,35 @@ define([
             var dateString = $('#dateString').text();
             var mealString = 'My ' + meal.substring(0,1).toUpperCase() + meal.substring(1,meal.length); 
     
-            $('#mealContainer').show();
-            $('#emptyFood').hide();
+            this.$('#mealContainer').show();
+            this.$('#emptyFood').hide();
 
             $('#mealString').text(mealString);
             $('.boxHeader span').text(dateString);
+            this.populateMeal(meal);
         },
 
         showEmptyScreen: function(){
             $('#mealContainer').hide();
             $('#emptyFood').show();
+        },
+
+        populateMeal: function(meal){
+            $('#foodList .boxEntry').remove();
+            var item = this.item;
+            console.log(item);
+            if(item){
+                var foods = item.attributes[meal];
+                for(var i=0;i<foods.length;i++){
+                    var index = foods[i];
+                    var html = '<div class="boxEntry">'+
+                        '<span id="name">'+ index.name+'</span>'+
+                        '<span id="about">'+index.about+'</span>'+
+                        '</div>';
+                    $('#foodList').append(html);
+                }
+            }
+
         }
 
     });
