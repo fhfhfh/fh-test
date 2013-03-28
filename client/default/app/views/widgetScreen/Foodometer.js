@@ -147,13 +147,10 @@ define([
             });
 
             if(dayModel){ // check if model exists for selected date
-                console.log('1');
                 self.item = dayModel; // make model globally accessible 
                 if(self.item.isEmpty()){ // check if model has any food entries
                     self.showEmptyScreen();
-                    console.log('2');
                 } else {
-                    console.log('3');
                     self.showMealScreen();    
                 }
             }
@@ -193,7 +190,6 @@ define([
             console.log(item);
             if(item){
                 var foods = item.attributes[meal];
-                console.log(foods);
                 if(foods.length == 0){
                     this.$('#calCount').text("");
                     this.$('#location').val("");
@@ -229,6 +225,16 @@ define([
                 this.$('#goalNum').text(att.goalCals + ' Calories');
                 this.$('#currentNum').text(att.currentCals + ' Calories');
                 this.$('#remainingNum').text(att.remainingCals + ' Calories');
+            }
+            else {
+                this.$('#calCount').text("");
+                this.$('#location').val("");
+                this.$('#with').val("");
+                this.$('#time').val("");
+                this.$('#notes').val("");
+                this.$('#goalNum').text("");
+                this.$('#currentNum').text("");
+                this.$('#remainingNum').text("");
             }
 
         }
