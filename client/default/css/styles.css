@@ -368,9 +368,9 @@ input {
     outline: none;
 }
 .btn {
-     box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.15);
-/*    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#1f1f1f', endColorstr='#525252');  for IE */
-background-color: #1f1f1f;
+    box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.15);
+    /*    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#1f1f1f', endColorstr='#525252');  for IE */
+    background-color: #1f1f1f;
     border-radius: 5px;
     border: 1px solid black;
     height: 30px;
@@ -381,13 +381,13 @@ background-color: #1f1f1f;
     background-image: linear-gradient(bottom, #1f1f1f 0%, #525252 85%);
     background-image: -webkit-linear-gradient(bottom, #1f1f1f 0%, #525252 85%);
     background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #1f1f1f), color-stop(0.85, #525252));
-    background-image: -moz-linear-gradient(bottom, #1f1f1f 0%, #525252 85%);
-    background-image: -moz-gradient(linear, left bottom, left top, color-stop(0, #1f1f1f), color-stop(0.85, #525252));
+ background-image: -moz-linear-gradient(bottom, #1f1f1f 0%, #525252 85%);
+    background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #1f1f1f), color-stop(0.85, #525252));
 }
 .btn:active {
-/*    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#525252', endColorstr='#1f1f1f');  for IE */
+    /*    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#525252', endColorstr='#1f1f1f');  for IE */
     background-image: linear-gradient(bottom, #525252 0%, #1f1f1f 85%);
-    background-color: #525252;
+    /*    background-color: #525252;*/
     background-image: -webkit-linear-gradient(bottom, #525252 0%, #1f1f1f 85%);
     background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #525252), color-stop(0.85, #1f1f1f));
     background-image: -moz-linear-gradient(bottom, #525252 0%, #1f1f1f 85%);
@@ -411,7 +411,8 @@ background-color: #1f1f1f;
     background-image: -moz-linear-gradient(bottom, #f26622 0%, #feb000 85%);
     background-image: -moz-gradient(linear, left bottom, left top, color-stop(0, #f26622), color-stop(0.85, #feb000));
     border: 1px solid #d38800;
-      filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#feb000', endColorstr='#f26622'); /* for IE */
+    background-color: #feb000;
+/*    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#feb000', endColorstr='#f26622');  for IE */
 }
 .decline:active {
     background-image: linear-gradient(bottom, #feb000 0%, #f26622 85%);
@@ -419,13 +420,14 @@ background-color: #1f1f1f;
     background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #feb000), color-stop(0.85, #f26622));
     background-image: -moz-linear-gradient(bottom, #feb000 0%, #f26622 85%);
     background-image: -moz-gradient(linear, left bottom, left top, color-stop(0, #feb000), color-stop(0.85, #f26622));
+    background-color: #f26622;
 }
 .accept {
     background-color: green;
     background-image: linear-gradient(bottom, #1aa807 0%, #1eff00 85%);
     background-image: -webkit-linear-gradient(bottom, #1aa807 0%, #1eff00 85%);
     background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #1aa807), color-stop(0.85, #1eff00));
-    ackground-image: -moz-linear-gradient(bottom, #1aa807 0%, #1eff00 85%);
+    background-image: -moz-linear-gradient(bottom, #1aa807 0%, #1eff00 85%);
     background-image: -moz-gradient(linear, left bottom, left top, color-stop(0, #1aa807), color-stop(0.85, #1eff00));
     border: 1px solid #1AA807;
 }
@@ -433,20 +435,20 @@ background-color: #1f1f1f;
     background-image: linear-gradient(bottom, #1eff00 0%, #1aa807 85%);
     background-image: -webkit-linear-gradient(bottom, #1eff00 0%, #1aa807 85%);
     background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #1eff00), color-stop(0.85, #1aa807));
-    ackground-image: -moz-linear-gradient(bottom, #1eff00 0%, #1aa807 85%);
+    background-image: -moz-linear-gradient(bottom, #1eff00 0%, #1aa807 85%);
     background-image: -moz-gradient(linear, left bottom, left top, color-stop(0, #1eff00), color-stop(0.85, #1aa807));
 }
 .action {
-    background-color: #7fb0db;
+        background-color: #1f1f1f;
     background-image: linear-gradient(bottom, #1f1f1f 0%, #7fb0db 85%);
     background-image: -webkit-linear-gradient(bottom, #1f1f1f 0%, #7fb0db 85%);
     background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #1f1f1f), color-stop(0.85, #7fb0db));
-    ackground-image: -moz-linear-gradient(bottom, #1f1f1f 0%, #7fb0db 85%);
+    background-image: -moz-linear-gradient(bottom, #1f1f1f 0%, #7fb0db 85%);
     background-image: -moz-gradient(linear, left bottom, left top, color-stop(0, #1f1f1f), color-stop(0.85, #7fb0db));
     border: 1px solid #1f1f1f;
-/*     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#7fb0db', endColorstr='#1f1f1f');  for IE */
-background-color: #7fb0db;
-    
+    /*     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#7fb0db', endColorstr='#1f1f1f');  for IE */
+    /*background-color: #7fb0db;*/
+
 }
 .action:active {
     background-image: linear-gradient(bottom, #7fb0db 0%, #1f1f1f 85%);
@@ -454,7 +456,9 @@ background-color: #7fb0db;
     background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #7fb0db), color-stop(0.85, #1f1f1f));
     background-image: -moz-linear-gradient(bottom, #7fb0db 0%, #1f1f1f 85%);
     background-image: -moz-gradient(linear, left bottom, left top, color-stop(0, #7fb0db), color-stop(0.85, #1f1f1f));
+    background-color: gray;
 }
+
 .fc-content {
     min-height: 300px !important;
 }
@@ -481,6 +485,7 @@ section h1 {
     background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #464646), color-stop(0.65, #1f1f1f), color-stop(0.21, #2e2e2e), color-stop(0.9, #525252), color-stop(1, #6b6b6b));
     background-image: -moz-linear-gradient(bottom, #464646 0%, #1f1f1f 65%, #2e2e2e 21%, #525252 90%, #6b6b6b 100%);
     background-image: -moz-gradient(linear, left bottom, left top, color-stop(0, #464646), color-stop(0.65, #1f1f1f), color-stop(0.21, #2e2e2e), color-stop(0.9, #525252), color-stop(1, #6b6b6b));
+    background-color: #1f1f1f;
     border-radius: 10px;
     padding: 5px;
     box-shadow: 2px 2px 5px #000000;
@@ -534,7 +539,7 @@ section h1 {
     background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #464646), color-stop(0.65, #1f1f1f), color-stop(0.21, #2e2e2e), color-stop(0.9, #525252), color-stop(1, #6b6b6b));
     background-image: -moz-linear-gradient(bottom, #464646 0%, #1f1f1f 65%, #2e2e2e 21%, #525252 90%, #6b6b6b 100%);
     background-image: -moz-gradient(linear, left bottom, left top, color-stop(0, #464646), color-stop(0.65, #1f1f1f), color-stop(0.21, #2e2e2e), color-stop(0.9, #525252), color-stop(1, #6b6b6b));
-/*    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#464646', endColorstr='#6b6b6b');  for IE */
+    /*    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#464646', endColorstr='#6b6b6b');  for IE */
     background-color: #6b6b6b;
     border-radius: 10px;
     padding: 5px;
@@ -898,7 +903,7 @@ section h1 {
     background-image: -moz-linear-gradient(bottom, #cccccc 0%, #ffffff 85%);
     background-image: -moz-gradient(linear, left bottom, left top, color-stop(0, #cccccc), color-stop(0.85, #ffffff));
     background-color: #cccccc;
-/*    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#cccccc');  for IE */
+    /*    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#cccccc');  for IE */
     font: bold 14px "Avenir Next", Helvetica, Arial, sans-serif;
 }
 #content-tab-list li:active {
@@ -907,13 +912,13 @@ section h1 {
     background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #ffffff), color-stop(0.85, #cccccc));
     background-image: -moz-linear-gradient(bottom, #ffffff 0%, #cccccc 85%);
     background-image: -moz-gradient(linear, left bottom, left top, color-stop(0, #ffffff), color-stop(0.85, #cccccc));
-/*    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#cccccc', endColorstr='#ffffff');  for IE */
+    /*    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#cccccc', endColorstr='#ffffff');  for IE */
     background-color: #ffffff;
 }
 #content-tab-list li.selected {
     background-color: #fff;
     background-image: none;
-/*    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#ffffff');  for IE */
+    /*    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#ffffff');  for IE */
     background-color: #ffffff
 }
 #content-tab-list4 li {
@@ -932,8 +937,8 @@ section h1 {
     background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #cccccc), color-stop(0.85, #ffffff));
     background-image: -moz-linear-gradient(bottom, #cccccc 0%, #ffffff 85%);
     background-image: -moz-gradient(linear, left bottom, left top, color-stop(0, #cccccc), color-stop(0.85, #ffffff));
-/*    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#cccccc', endColorstr='#ffffff');  for IE */
-    background-color: #cccccc
+    /*    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#cccccc', endColorstr='#ffffff');  for IE */
+    background-color: #cccccc;
     font: bold 14px "Avenir Next", Helvetica, Arial, sans-serif;
 }
 #content-tab-list4 li:active {
@@ -942,8 +947,8 @@ section h1 {
     background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #ffffff), color-stop(0.85, #cccccc));
     background-image: -moz-linear-gradient(bottom, #ffffff 0%, #cccccc 85%);
     background-image: -moz-gradient(linear, left bottom, left top, color-stop(0, #ffffff), color-stop(0.85, #cccccc));
-     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#cccccc'); /* for IE */
-     background-color: #ffffff;
+    /*     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#cccccc');  for IE */
+    background-color: #ffffff;
 }
 #content-tab-list4 li.selected {
     background-color: #fff;
@@ -1027,7 +1032,7 @@ li {
     right: 15px;
     opacity: 1;
     filter: alpha(opacity=10);
-    
+
     -webkit-transition: all .2s linear;
     -webkit-transform: translate3d(0, 0, 0);
     -moz-transition: all .2s linear;
@@ -1039,7 +1044,7 @@ li {
     padding: 5px;
     margin-top: 10px;
     background-color: #000000;
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4c4c4c', endColorstr='#131313',GradientType=0 );
+    /*    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4c4c4c', endColorstr='#131313',GradientType=0 );*/
     background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #2b2b2b), color-stop(0.5, #717171), color-stop(0.5, #000000), color-stop(1, #6e6e6e));
     background-image: -moz-linear-gradient(center top, #2b2b2b 0%, #717171 50%, #000000 50%, #6e6e6e 100%);
 }
@@ -1414,7 +1419,7 @@ li {
 #cabinet #cabinetHeader {
     border-bottom: 3px solid #000000;
     width: 100%;
-    float: left;
+/*    float: left;*/
     position: relative;
     overflow: auto;
 }
@@ -2113,11 +2118,11 @@ section#widgetScreen #body #content #leftContent {
     padding: 0 10px;
     vertical-align: middle;
     background-color: #464646;
-/*     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#464646', endColorstr='#6b6b6b');  for IE */
+    /*     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#464646', endColorstr='#6b6b6b');  for IE */
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     border-radius: 5px;
-     -goog-ms-border-radius: 15px;
+    -goog-ms-border-radius: 15px;
     border: 1px solid black;
     box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.15);
     color: #fff;
@@ -2129,7 +2134,7 @@ section#widgetScreen #body #content #leftContent {
     background-image: -moz-gradient(linear, left bottom, left top, color-stop(0, #464646), color-stop(0.5, #1f1f1f), color-stop(0.51, #2e2e2e), color-stop(0.73, #525252), color-stop(1, #6b6b6b));
     background-image: linear-gradient(bottom, #464646 0%, #1f1f1f 50%, #2e2e2e 51%, #525252 73%, #6b6b6b 100%);
     background-image: gradient(linear, left bottom, left top, color-stop(0, #464646), color-stop(0.5, #1f1f1f), color-stop(0.51, #2e2e2e), color-stop(0.73, #525252), color-stop(1, #6b6b6b));
- 
+
 }
 #top-bar-buttons li button#save {
     border: 2px solid #fff1a0;
@@ -2157,18 +2162,18 @@ section#widgetScreen #body #content #leftContent {
 }
 #top-bar-buttons li #points-button {
     font: bold 13px "Avenir Next", Helvetica, Arial, sans-serif;
-    
+
     background-image: url('../img/PointsButtonWatermark.png'), linear-gradient(bottom, #464646 0%, #1f1f1f 50%, #2e2e2e 51%, #525252 73%, #6b6b6b 100%);
     background-image: url('../img/PointsButtonWatermark.png'), -webkit-linear-gradient(bottom, #464646 0%, #1f1f1f 50%, #2e2e2e 51%, #525252 73%, #6b6b6b 100%);
     background-image: url('../img/PointsButtonWatermark.png'), -webkit-gradient(linear, left bottom, left top, color-stop(0, #464646), color-stop(0.5, #1f1f1f), color-stop(0.51, #2e2e2e), color-stop(0.73, #525252), color-stop(1, #6b6b6b));
     background-image: url('../img/PointsButtonWatermark.png'), -moz-linear-gradient(bottom, #464646 0%, #1f1f1f 50%, #2e2e2e 51%, #525252 73%, #6b6b6b 100%);
     background-image: url('../img/PointsButtonWatermark.png'), -moz-gradient(linear, left bottom, left top, color-stop(0, #464646), color-stop(0.5, #1f1f1f), color-stop(0.51, #2e2e2e), color-stop(0.73, #525252), color-stop(1, #6b6b6b));
-/*    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#464646', endColorstr='#6b6b6b');  for IE */
+    /*    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#464646', endColorstr='#6b6b6b');  for IE */
     background-color: #464646;
     background-position: left bottom;
     background-repeat: no-repeat;
     background-opacity: 0.2;
-/*    filter: alpha(opacity=20);*/
+    /*    filter: alpha(opacity=20);*/
     color: #fff;
 }
 #top-bar-buttons li #points-button em {
@@ -2285,7 +2290,7 @@ section#month h2 {
     background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #464646), color-stop(0.65, #1f1f1f), color-stop(0.21, #2e2e2e), color-stop(0.9, #525252), color-stop(1, #6b6b6b));
     background-image: -moz-linear-gradient(bottom, #464646 0%, #1f1f1f 65%, #2e2e2e 21%, #525252 90%, #6b6b6b 100%);
     background-image: -moz-gradient(linear, left bottom, left top, color-stop(0, #464646), color-stop(0.65, #1f1f1f), color-stop(0.21, #2e2e2e), color-stop(0.9, #525252), color-stop(1, #6b6b6b));
-/*    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#464646', endColorstr='#1f1f1f');  for IE */
+    /*    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#464646', endColorstr='#1f1f1f');  for IE */
     border-radius: 10px;
     background-color: #464646;
     padding: 5px;
@@ -2402,8 +2407,8 @@ section#month h2 {
     display: block;
     color: black;
     display: none;
-/*    top: 15%;*/
-/*    left: 25%;*/
+    /*    top: 15%;*/
+    /*    left: 25%;*/
     -moz-border-radius: 20px;border-radius: 20px;
     -webkit-border-radius: 20px;
     box-shadow: 10px 10px 5px #888888;
@@ -2530,8 +2535,10 @@ section#insights h1 {
 }
 #filterView {
     position: absolute;
-    top: 40px;
-    left: 415px;
+    top: 75px;
+    z-index: 10;
+    right: 40px;
+    /*    left: 415px;*/
     width: 200px;
     text-align: center;
     background-image: linear-gradient(bottom, #000000 9%, #2b6891 99%);
@@ -2544,6 +2551,7 @@ section#insights h1 {
     border-radius: 10px;
     padding: 5px;
     box-shadow: 2px 2px 5px #ababab;
+    background-color: #2b6891;
 }
 #filterView h2 {
     font: bold 14px "Avenir Next Heavy", Helvetica, Arial, sans-serif;
@@ -2642,25 +2650,42 @@ section#insights h1 {
     margin-right: 10px;
 }
 
-#month{
+/*#month{
    overflow-y: scroll;
 max-height: 540px;
 padding-right: 20px;
-}
+}*/
 
 #insights{
-   overflow-y: scroll;
-max-height: 540px;
-padding-right: 20px;
+    overflow-y: scroll;
+    max-height: 540px;
+    padding-right: 20px;
 }
 
 #news-and-information,#goals, #alerts,#widgetLibrary,#myWidgets,#recommendedWidgets,#data,#history,#conditions{
     overflow-y: scroll;
-max-height: 540px;
-padding-right: 20px;
+    max-height: 540px;
+    padding-right: 20px;
 }
 
 #general-body{
-        overflow-y: scroll;
-max-height: 540px;
+    overflow-y: scroll;
+    max-height: 540px;
+}
+
+#row{
+    position: relative;
+}
+
+
+/* Desktops and laptops ----------- */
+@media only screen and (min-width : 1024px) {
+    #welcome #video {
+        margin-top: 11%;
+    }
+
+    #main-nav li {
+        padding: 19px 20px 15px 0px;
+    }
+    /* Styles */
 }

@@ -43,7 +43,7 @@ define(['jquery',
 				return;
 			}
 			else {
-				$('#history').append(self.filterTpl({body: body}));	
+				$('#history h1').append(self.filterTpl({body: body}));	
 			}
 		},
 

@@ -46,7 +46,7 @@ define(['jquery',
 				return;
 			}
 			else {
-				$('#conditions').append(self.filterTpl({body: body}));	
+				$('#conditions h1').append(self.filterTpl({body: body}));	
 			}
 		},
 
