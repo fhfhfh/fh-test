@@ -809,7 +809,8 @@ section h1 {
   padding-top: 50px;
 }
 #content-tab-list,
-#content-tab-list4 {
+#content-tab-list4,
+#content-tab-list5 {
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -865,6 +866,30 @@ section h1 {
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #ffffff), color-stop(0.85, #cccccc));
 }
 #content-tab-list4 li.selected {
+  background-color: #fff;
+  background-image: none;
+}
+#content-tab-list5 li {
+  display: inline-block;
+  width: 19%;
+  margin: 0 0%;
+  padding: 10px 5px;
+  color: #2f3137;
+  text-shadow: 0 1px 1px #fff;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  position: relative;
+  background-image: linear-gradient(bottom, #cccccc 0%, #ffffff 85%);
+  background-image: -webkit-linear-gradient(bottom, #cccccc 0%, #ffffff 85%);
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #cccccc), color-stop(0.85, #ffffff));
+  font: bold 12px "Avenir Next", Helvetica, Arial, sans-serif;
+}
+#content-tab-list5 li:active {
+  background-image: linear-gradient(bottom, #ffffff 0%, #cccccc 85%);
+  background-image: -webkit-linear-gradient(bottom, #ffffff 0%, #cccccc 85%);
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #ffffff), color-stop(0.85, #cccccc));
+}
+#content-tab-list5 li.selected {
   background-color: #fff;
   background-image: none;
 }
@@ -1322,6 +1347,9 @@ li {
   height: 100%;
   text-align: center;
   margin-top: 100px;
+}
+#library #library-content {
+  padding-bottom: 0px;
 }
 #selector {
   background-color: #cdcdcd;
@@ -2326,7 +2354,7 @@ section#insights h1 {
 #filterView {
   position: absolute;
   top: 40px;
-  left: 425px;
+  left: 415px;
   width: 200px;
   text-align: center;
   background-image: linear-gradient(bottom, #000000 9%, #2b6891 99%);
@@ -2381,6 +2409,9 @@ section#insights h1 {
   content: '';
   position: absolute;
   right: 3px;
+}
+#myWidgets #showPage {
+  padding: 50px 20px;
 }
 #addFavorite {
   top: 250px;
@@ -2444,20 +2475,40 @@ section#insights h1 {
   height: 89%;
   background-color: #000000;
 }
-#foodometer #body #binderBg {
-  width: 50px;
-  height: 89%;
-  float: left;
-  margin-left: -10px;
+#foodometer #body img.positioned {
   position: absolute;
-  background: url('../img/pencil.png') left top repeat-y;
+}
+#foodometer #body img#topleft {
+  top: -2px;
+  left: 12px;
+}
+#foodometer #body img#topright {
+  top: -5px;
+  right: 12px;
+}
+#foodometer #body img#bottomleft {
+  bottom: -8px;
+  left: 14px;
+}
+#foodometer #body img#bottomright {
+  bottom: -9px;
+  right: 14px;
+}
+#foodometer #body #binderBg {
+  width: 40px;
+  height: 95%;
+  float: left;
+  margin-left: -21px;
+  position: absolute;
+  background: url('../img/food/spiral-bind.png') left top repeat-y;
   z-index: 10;
   background-size: 37px;
-  background-position: -9px 40px;
+  background-position: 0px 40px;
 }
 #foodometer #body #content {
   background-color: #d8d4d5;
   box-shadow: 7px 0px 0 -4px #cccccc, 12px 0px 0 -7px #8b8b8b;
+  background-image: url('../img/food/bg-gray-texture.png');
 }
 #foodometer #body #content #leftContent {
   float: left;
@@ -2466,6 +2517,7 @@ section#insights h1 {
   background-color: #ffffff;
   box-shadow: 3px 7px 5px #ababab;
   padding: 8px;
+  margin-bottom: 20px;
 }
 #foodometer #body #content #leftContent #leftContentMask {
   height: 99%;
@@ -2473,7 +2525,8 @@ section#insights h1 {
   box-shadow: 1px 1px 1px #cdcdcd, -1px 0px 1px #cdcdcd;
   color: #000000;
   padding: 5px;
-  background-image: url('../img/backgrounds/SettingsBackground.png');
+  padding-left: 15px;
+  background-image: url('../img/food/bg-light-gray-left-column.png');
 }
 #foodometer #body #content #rightContent {
   float: right;
@@ -2482,7 +2535,7 @@ section#insights h1 {
 }
 #foodometer #body #content #rightContent #emptyFood {
   color: #676767;
-  margin-top: 300px;
+  margin-top: 250px;
   text-align: center;
   font: bold 18px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
   text-shadow: 0 1px 1px #ffffff;
@@ -2535,7 +2588,7 @@ section#insights h1 {
 #foodometer #calories {
   padding-top: 200px;
   padding: 10px;
-  width: 270px;
+  width: 265px;
   border-radius: 8px;
   background-color: #fee9c9;
   font-size: 16px;
@@ -2564,23 +2617,27 @@ section#insights h1 {
   font: normal 16px "Avenir Next Medium", Helvetica, Arial, sans-serif;
 }
 #foodometer #meals {
-  margin-left: 10px;
+  margin-left: 5px;
 }
 #foodometer #meals .meal {
   display: block;
   height: 60px;
-  padding: 20px 5px;
+  width: 280px;
+  padding: 20px 15px;
   font: bold 16px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
 }
 #foodometer #meals .meal img {
   margin-right: 10px;
   vertical-align: middle;
 }
+#foodometer #meals .meal span {
+  position: absolute;
+  left: 100px;
+}
 #foodometer #meals .meal.selected {
-  background-image: linear-gradient(bottom, #fecd74 0%, #fee9c9 85%);
-  background-image: -webkit-linear-gradient(bottom, #fecd74 0%, #fee9c9 85%);
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #fecd74), color-stop(0.85, #fee9c9));
-  box-shadow: 0 0 4px 0px;
+  background: url('../img/food/bu-yellow-arrow-right.png') no-repeat;
+  background-size: 280px;
+  background-position: 0px 5px;
 }
 #foodometer #filterView {
   z-index: 10;
@@ -2646,9 +2703,13 @@ section#insights h1 {
   float: right;
   background: #cccccc;
   border: 2px solid #ffffff;
-  margin: 15px 5px;
+  margin: 15px 5px 15px 0px;
   color: #676767;
   font: normal 12px "Avenir Next", Helvetica, Arial, sans-serif;
+}
+#foodometer #mealContainer .btn img {
+  vertical-align: middle;
+  padding-right: 5px;
 }
 #foodometer #mealContainer #foodList {
   padding: 0px;

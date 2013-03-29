@@ -107,6 +107,8 @@ define([
             if($('div #filterView').length > 0){
                 $('div #filterView').hide();
             }
+            // remove selected class from any meals
+            this.$('.meal').removeClass('selected');
 
             $("#dateString").html( dayStr +', '+monthStr+ " " + day + ", "+this.year);
             $('.days td').removeClass('selected');
@@ -161,7 +163,7 @@ define([
         },
 
         showMealScreen: function(e){
-            var target = (e) ? e.currentTarget : '#meal';
+            var target = (e) ? e.currentTarget : '.meal';
             var meal = this.$(target).attr('data-name') || 'breakfast';
             // change item class to selected
             this.$('.meal').removeClass('selected');

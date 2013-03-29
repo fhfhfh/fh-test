@@ -130,10 +130,7 @@ define(['jquery',
             },
 
             medicine: function() {
-                this.setActiveView('home');
-                this.$nav.find('li').removeClass('selected');
-                this.$('#medicine').addClass('selected');
-                // Backbone.history.navigate('medicine', false);
+                Backbone.trigger('notify', 'Under Construction');
             },
 
             calendar: function() {

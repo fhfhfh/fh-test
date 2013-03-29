@@ -1,4 +1,8 @@
 <div id="body">
+	<img class="positioned" id="topleft" src="img/food/notebook-top-left-curve@2x.png"/>
+	<img class="positioned" id="topright" src="img/food/notebook-top-right-curve@2x.png"/>
+	<img class="positioned" id="bottomleft" src="img/food/notebook-bottom-left-curve@2x.png"/>
+	<img class="positioned" id="bottomright" src="img/food/notebook-bottom-right-curve@2x.png"/>
 	<div id="binderBg"></div>
 	<div id="content">
 		<div id="leftContent">
@@ -46,11 +50,26 @@
 
 				<div id="meals">
 					<h3>My Meals</h3>
-					<li class="meal" data-name="breakfast"><img src="img/food/breakfast.png"/>Breakfast</li>
-					<li class="meal" data-name="lunch"><img src="img/food/lunch.png"/>Lunch</li>
-					<li class="meal" data-name="dinner"><img src="img/food/lunch.png"/>Dinner</li>
-					<li class="meal" data-name="snacks"><img src="img/food/lunch.png"/>Snacks</li>
-					<li class="meal" data-name="beverages"><img src="img/food/lunch.png"/>Beverages</li>
+					<li class="meal" data-name="breakfast">
+						<img src="img/food/breakfast-icon.png"/>
+						<span>Breakfast</span>
+					</li>
+					<li class="meal" data-name="lunch">
+						<img src="img/food/lunch-icon.png"/>
+						<span>Lunch</span>
+					</li>
+					<li class="meal" data-name="dinner">
+						<img src="img/food/dinner-icon.png"/>
+						<span>Dinner</span>
+					</li>
+					<li class="meal" data-name="snacks">
+						<img src="img/food/snack-icon.png"/>
+						<span>Snacks</span>
+					</li>
+					<li class="meal" data-name="beverages">
+						<img src="img/food/beverages-icon.png"/>
+						<span>Beverages</span>
+					</li>
 				</div>
 
 			</div>
@@ -58,7 +77,7 @@
 
 		<div id="rightContent">
 			<div id="emptyFood">
-				<img id="emptyImage" src="img/video/SnapBack@2x.png"/>
+				<img id="emptyImage" src="img/food/foodometer-icon.png"/>
 				<p>Foodometer is hungry!</p>
 				<p>There is no information entered for<br/>
 					<span id="day">Today</span>
@@ -78,7 +97,7 @@
 				</h3>
 
 				<li id="add" class="btn"></li>
-				<li id="share" class="btn">Share</li>
+				<li id="share" class="btn"><img src="img/food/share-icon.png"/>Share</li>
 				
 
 				<div id="foodList" class="box">
