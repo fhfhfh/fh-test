@@ -2657,8 +2657,8 @@ padding-right: 20px;
 }*/
 
 #insights{
-    overflow-y: scroll;
-    max-height: 540px;
+/*    overflow-y: scroll;*/
+/*    max-height: 540px;*/
     padding-right: 20px;
 }
 
@@ -2699,5 +2699,6 @@ padding-right: 20px;
 #calendar-content{
     overflow-y: scroll;
 max-height: 630px;
+    padding-right: 20px;
 }
 
