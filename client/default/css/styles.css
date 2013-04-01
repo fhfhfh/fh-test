@@ -2680,12 +2680,24 @@ padding-right: 20px;
 
 /* Desktops and laptops ----------- */
 @media only screen and (min-width : 1024px) {
+      /* Styles */
+         body{
+    margin: 0% 5% 0 5%!important;
+}
+      
     #welcome #video {
         margin-top: 11%;
     }
 
     #main-nav li {
-        padding: 19px 20px 15px 0px;
+        padding: 15px 20px 15px 0px;
     }
-    /* Styles */
+ 
+  
 }
+
+#calendar-content{
+    overflow-y: scroll;
+max-height: 630px;
+}
+
