@@ -1,0 +1,121 @@
+#viewBtn {
+	float: right;
+	margin-right: 8px;
+}
+
+.dataGrid {
+	width: 100%;
+	background-color: #cfcfcf;
+	margin: 15px 0px 15px 0px;
+	border-radius: 10px;
+	.avenir(14px);
+	box-shadow: 0px 2px 2px #ababab;
+
+	#title {
+		padding: 10px;
+		height: 50px;
+		vertical-align: middle;
+
+		h2 {
+			.avenir-bold(14px);
+			color: #000000;
+		}
+	}
+
+	#body {
+		#row {
+			padding: 15px;
+			height: 40px;
+
+			.value{
+				position: absolute;
+				left: 370px;
+			}
+
+			&:after {
+	            content: url('../img/icons/smallArrow.png');
+	            float: right;
+	            clear: right;
+	        }
+		}
+
+		#row:nth-child(odd){
+			background-color: #e6e6e6;
+		}
+
+		#row:last-child{
+			border-radius: 0 0 10px 10px;
+		}
+	}
+}
+
+#filterView {
+	position: absolute;
+	top: 40px;
+	left: 415px;
+	width: 200px;
+	text-align: center;
+	.background-gradient-slight(#2b6891, #000000);
+	border-radius: 10px;
+	padding: 5px;
+	box-shadow: 2px 2px 5px #ababab;
+
+	@media only screen and (orientation: landscape) {
+        left: 385px;
+    }
+
+	h2 {
+		.avenir-demi(14px);
+		color: #ffffff;
+	}
+
+	#body {
+		.avenir-bold(12px);
+		text-align: left;
+		min-height: 100px;
+		background-color: #ffffff;
+		border-radius: 5px;
+
+		input[type=checkbox] {
+		    display:none;
+		    padding: 0 0 0 0px;
+		}
+
+		label.checked {
+			display: inline-block;
+
+			img{
+				display: inline-block;
+			}
+		}
+
+		label {
+			display: inline-block;
+			width: 100%;
+			padding: 10px;
+			height: 35px;
+			img {
+				float: right;
+				display: none;
+				height: 25px;
+			}
+		}
+	}
+
+}
+
+#filterView:before {
+    border-bottom: 15px solid #2b6891;
+    border-right: 20px solid transparent;
+    border-left: 20px solid transparent;
+    // bottom: 151px;
+    top: -12px;
+    content: '';
+    position: absolute;
+    right: 3px;
+}
+#filterView:before {
+    // border-right: 25px solid hsla(0,0%,0%,.1);
+    // bottom: -28px;
+    // right: 22px;
+}

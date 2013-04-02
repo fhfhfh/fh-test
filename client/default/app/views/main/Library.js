@@ -7,8 +7,9 @@ define([
   'views/main/library/ReadingRoom',
   'views/main/library/Research',
   'views/main/library/Suggested',
+  'views/main/library/Featured',
   'text!templates/pages/Library.html'
-], function($, _, Backbone, ContainerView, MyMediaView, ReadingRoomView, ResearchView, SuggestedView, template) {
+], function($, _, Backbone, ContainerView, MyMediaView, ReadingRoomView, ResearchView, SuggestedView, FeaturedView, template) {
 
   return ContainerView.extend({
     tagName	: 'section',
@@ -18,7 +19,8 @@ define([
       'click #show-myMedia'    : 'showMyMedia',
       'click #show-readingRoom': 'showReadingRoom',
       'click #show-research'   : 'showResearch',
-      'click #show-suggested'  : 'showSuggested'
+      'click #show-suggested'  : 'showSuggested',
+      'click #show-featured'  : 'showFeatured'
     },
 
     subViews: {
@@ -26,6 +28,7 @@ define([
       readingRoom: new ReadingRoomView(),
       research   : new ResearchView(),
       suggested  : new SuggestedView(),
+      featured   : new FeaturedView(),
     },
 
     initialize: function(options) {
@@ -88,6 +91,13 @@ define([
       this.$('li').removeClass('selected');
       this.$('#show-suggested').addClass('selected');
       this.setActiveView('suggested');
+      this.refreshScroll();
+    },
+
+    showFeatured : function(){
+      this.$('li').removeClass('selected');
+      this.$('#show-featured').addClass('selected');
+      this.setActiveView('featured');
       this.refreshScroll();
     }
 

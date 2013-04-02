@@ -873,18 +873,17 @@ section h1 {
     padding-top: 50px;
 }
 #content-tab-list,
-#content-tab-list4 {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    text-align: center;
-    background: url('../img/bg.png') left top repeat;
-    color: white;
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
-    border-radius: 8px 8px 0px 0px;
-    border-color: black;
-    padding-top: 15px;
+#content-tab-list4,
+#content-tab-list5 {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  background: url('../img/bg.png') left top repeat;
+  color: white;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  padding-top: 15px;
 }
 #content-tab-list li {
     display: inline-block;
@@ -953,6 +952,30 @@ section h1 {
 #content-tab-list4 li.selected {
     background-color: #fff;
     background-image: none;
+}
+#content-tab-list5 li {
+  display: inline-block;
+  width: 19%;
+  margin: 0 0%;
+  padding: 10px 5px;
+  color: #2f3137;
+  text-shadow: 0 1px 1px #fff;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  position: relative;
+  background-image: linear-gradient(bottom, #cccccc 0%, #ffffff 85%);
+  background-image: -webkit-linear-gradient(bottom, #cccccc 0%, #ffffff 85%);
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #cccccc), color-stop(0.85, #ffffff));
+  font: bold 12px "Avenir Next", Helvetica, Arial, sans-serif;
+}
+#content-tab-list5 li:active {
+  background-image: linear-gradient(bottom, #ffffff 0%, #cccccc 85%);
+  background-image: -webkit-linear-gradient(bottom, #ffffff 0%, #cccccc 85%);
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #ffffff), color-stop(0.85, #cccccc));
+}
+#content-tab-list5 li.selected {
+  background-color: #fff;
+  background-image: none;
 }
 .badge {
     font: bold 13px "Avenir Next Heavy", Helvetica, Arial, sans-serif;
@@ -1401,6 +1424,9 @@ li {
     text-align: center;
     margin-top: 100px;
 }
+#library #library-content {
+  padding-bottom: 0px;
+}
 #selector {
     background-color: #cdcdcd;
     border-radius: 8px;
@@ -1676,6 +1702,7 @@ section#widgetScreen #panelTopBar #settingsBtn {
     margin: 0px;
     margin-top: -4px;
 }
+
 section#widgetScreen #body {
     margin: 20px;
     border-radius: 8px;
@@ -1693,6 +1720,7 @@ section#widgetScreen #body #content #leftContent {
     background-color: #ffffff;
     box-shadow: 3px 7px 5px #ababab;
 }
+
 #news-and-information {
     padding: 15px;
 }
@@ -2448,8 +2476,9 @@ section#month h2 {
     margin-left: 15px;
 }
 #mood_section {
-    margin: 20px;
-    padding-top: 25px;
+  margin: 20px;
+  padding-top: 25px;
+  padding-bottom: 25px;
 }
 #mood_desc {
     font-size: 14px;
@@ -2473,8 +2502,10 @@ section#insights h1 {
     margin-right: 10px;
 }
 #insight_div {
+
     background-color: #ebebeb;
     height: 441px;
+
 }
 #mood_img img {
     padding-right: 8px;
@@ -2556,6 +2587,11 @@ section#insights h1 {
     box-shadow: 2px 2px 5px #ababab;
     background-color: #2b6891;
 }
+@media only screen and (orientation: landscape) {
+  #filterView {
+    left: 385px;
+  }
+}
 #filterView h2 {
     font: bold 14px "Avenir Next Heavy", Helvetica, Arial, sans-serif;
     color: #ffffff;
@@ -2596,6 +2632,9 @@ section#insights h1 {
     content: '';
     position: absolute;
     right: 3px;
+}
+#myWidgets #showPage {
+  padding: 50px 20px;
 }
 #addFavorite {
     top: 250px;
@@ -2653,6 +2692,7 @@ section#insights h1 {
     margin-right: 10px;
 }
 
+
 /*#month{
    overflow-y: scroll;
 max-height: 540px;
@@ -2703,5 +2743,303 @@ padding-right: 20px;
     overflow-y: auto;
     max-height: 630px;
     padding-right: 20px;
+}
+
+
+#foodometer #body {
+  margin: 20px;
+  border-radius: 8px;
+  padding: 10px;
+  height: 89%;
+  background-color: #000000;
+}
+#foodometer #body img.positioned {
+  position: absolute;
+}
+#foodometer #body img#topleft {
+  top: -2px;
+  left: 12px;
+}
+#foodometer #body img#topright {
+  top: -5px;
+  right: 12px;
+}
+#foodometer #body img#bottomleft {
+  bottom: -8px;
+  left: 14px;
+}
+#foodometer #body img#bottomright {
+  bottom: -9px;
+  right: 14px;
+}
+#foodometer #body #binderBg {
+  width: 40px;
+  height: 95%;
+  float: left;
+  margin-left: -21px;
+  position: absolute;
+  background: url('../img/food/spiral-bind.png') left top repeat-y;
+  z-index: 10;
+  background-size: 37px;
+  background-position: 0px 40px;
+}
+#foodometer #body #content {
+  background-color: #d8d4d5;
+  box-shadow: 7px 0px 0 -4px #cccccc, 12px 0px 0 -7px #8b8b8b;
+  background-image: url('../img/food/bg-gray-texture.png');
+}
+#foodometer #body #content #leftContent {
+  float: left;
+  width: 300px;
+  height: 99%;
+  background-color: #ffffff;
+  box-shadow: 3px 7px 5px #ababab;
+  padding: 8px;
+  margin-bottom: 20px;
+}
+#foodometer #body #content #leftContent #leftContentMask {
+  height: 99%;
+  background-color: #f6f5f5;
+  box-shadow: 1px 1px 1px #cdcdcd, -1px 0px 1px #cdcdcd;
+  color: #000000;
+  padding: 5px;
+  padding-left: 15px;
+  background-image: url('../img/food/bg-light-gray-left-column.png');
+}
+#foodometer #body #content #rightContent {
+  float: right;
+  width: 57%;
+  height: 100%;
+}
+#foodometer #body #content #rightContent #emptyFood {
+  color: #676767;
+  margin-top: 250px;
+  text-align: center;
+  font: bold 18px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
+  text-shadow: 0 1px 1px #ffffff;
+}
+#foodometer #body #content #rightContent #emptyFood #day {
+  color: #676767;
+  font: bold 48px "Avenir Next", Helvetica, Arial, sans-serif;
+}
+#foodometer #body #content #rightContent #emptyFood #emptyMeals {
+  margin-top: 150px;
+  width: 45%;
+  margin-left: auto;
+  margin-right: auto;
+}
+#foodometer #body #content #rightContent #emptyFood #emptyMeals img {
+  float: left;
+  margin-left: -30px;
+}
+#foodometer #smallCalendar {
+  height: 300px;
+  margin-bottom: 30px;
+}
+#foodometer #smallCalendar #monthPick {
+  float: right;
+  margin-right: 5px;
+  margin-top: 5px;
+  height: 25px;
+}
+#foodometer #smallCalendar #dayString {
+  font: normal 32px "Avenir Next Medium", Helvetica, Arial, sans-serif;
+  display: block;
+  padding-left: 10px;
+  padding-top: 15px;
+}
+#foodometer #smallCalendar #dateString {
+  color: #676767;
+  font: normal 16px "Avenir Next Medium", Helvetica, Arial, sans-serif;
+  padding-left: 10px;
+}
+#foodometer #smallCalendar #calTable {
+  border: none;
+}
+#foodometer #smallCalendar #calTable td {
+  height: 40px;
+  border: none;
+}
+#foodometer #smallCalendar #calTable td.selected {
+  background-color: #fecd74;
+}
+#foodometer #calories {
+  padding-top: 200px;
+  padding: 10px;
+  width: 265px;
+  border-radius: 8px;
+  background-color: #fee9c9;
+  font-size: 16px;
+  margin-bottom: 60px;
+}
+#foodometer #calories span {
+  width: 120px;
+  display: inline-block;
+  padding: 5px 0px;
+}
+#foodometer #calories span#remaining {
+  font: bold 16px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
+}
+#foodometer #calories span#remainingNum {
+  text-align: right;
+  font: bold 16px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
+}
+#foodometer #calories span#goalNum {
+  text-align: right;
+  color: #676767;
+  font: normal 16px "Avenir Next Medium", Helvetica, Arial, sans-serif;
+}
+#foodometer #calories span#currentNum {
+  text-align: right;
+  color: #676767;
+  font: normal 16px "Avenir Next Medium", Helvetica, Arial, sans-serif;
+}
+#foodometer #meals {
+  margin-left: 5px;
+}
+#foodometer #meals .meal {
+  display: block;
+  height: 60px;
+  width: 280px;
+  padding: 20px 15px;
+  font: bold 16px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
+}
+#foodometer #meals .meal img {
+  margin-right: 10px;
+  vertical-align: middle;
+}
+#foodometer #meals .meal span {
+  position: absolute;
+  left: 100px;
+}
+#foodometer #meals .meal.selected {
+  background: url('../img/food/bu-yellow-arrow-right.png') no-repeat;
+  background-size: 280px;
+  background-position: 0px 5px;
+}
+#foodometer #filterView {
+  z-index: 10;
+  left: 165px;
+  top: 175px;
+  width: 250px;
+}
+#foodometer #filterView #body {
+  background-color: #ffffff;
+  border-radius: 5px;
+  margin: 0px;
+  min-height: 0px;
+  font: bold 14px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
+}
+#foodometer #filterView #body #picker {
+  border: 1px solid #cdcdcd;
+  border-radius: 5px;
+  background-image: linear-gradient(bottom, #ababab 0%, #ebebeb 85%);
+  background-image: -webkit-linear-gradient(bottom, #ababab 0%, #ebebeb 85%);
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #ababab), color-stop(0.85, #ebebeb));
+}
+#foodometer #filterView #body #picker #back,
+#foodometer #filterView #body #picker #forward {
+  padding: 5px;
+  text-align: center;
+}
+#foodometer #filterView #body #picker #back img,
+#foodometer #filterView #body #picker #forward img {
+  height: 20px;
+  padding: 5px;
+}
+#foodometer #filterView #body #picker #month {
+  background-image: linear-gradient(bottom, #343434 0%, #cdcdcd 85%);
+  background-image: -webkit-linear-gradient(bottom, #343434 0%, #cdcdcd 85%);
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #343434), color-stop(0.85, #cdcdcd));
+  color: #ffffff;
+  width: 155px;
+  height: 32px;
+  text-align: center;
+  display: inline-block;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  box-shadow: inset 0 0 7px #000000;
+  text-shadow: 0 1px 1px #000000;
+}
+#foodometer #filterView:before {
+  right: 95px;
+}
+#foodometer #mealContainer {
+  display: none;
+  padding: 20px;
+  font: normal 14px "Avenir Next", Helvetica, Arial, sans-serif;
+}
+#foodometer #mealContainer h3 {
+  color: #000000;
+  display: inline-block;
+  font: bold 18px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
+}
+#foodometer #mealContainer h3 #calCount {
+  color: #676767;
+}
+#foodometer #mealContainer .btn {
+  float: right;
+  background: #cccccc;
+  border: 2px solid #ffffff;
+  margin: 15px 5px 15px 0px;
+  color: #676767;
+  font: normal 12px "Avenir Next", Helvetica, Arial, sans-serif;
+}
+#foodometer #mealContainer .btn img {
+  vertical-align: middle;
+  padding-right: 5px;
+}
+#foodometer #mealContainer #foodList {
+  padding: 0px;
+  min-height: 60px;
+}
+#foodometer #mealContainer .box {
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 1px 2px 5px #676767, inset -1px 1px 1px #ffffff;
+  margin: 20px 5px;
+  color: #000000;
+  padding: 5px;
+}
+#foodometer #mealContainer .box .boxHeader {
+  background-color: #e6e6e6;
+  border-radius: 5px 5px 0 0;
+  padding: 5px 10px;
+}
+#foodometer #mealContainer .box .boxEntry {
+  padding: 15px 10px;
+  border-bottom: 2px solid #e6e6e6;
+}
+#foodometer #mealContainer .box .boxEntry #name {
+  display: inline-block;
+  width: 170px;
+  max-width: 170px;
+  white-space: nowrap;
+  overflow: hidden;
+}
+#foodometer #mealContainer .box .boxEntry:last-child {
+  border-bottom: none;
+}
+#foodometer #mealContainer .box #about,
+#foodometer #mealContainer .box label {
+  font: normal 12px "Avenir Next", Helvetica, Arial, sans-serif;
+  color: #676767;
+  margin-left: 10px;
+}
+#foodometer #mealContainer .box label {
+  padding-top: 5px;
+}
+#foodometer #mealContainer .box input {
+  border: none;
+  box-shadow: none;
+  width: 50%;
+  padding: 5px;
+}
+#foodometer #mealContainer .box textarea {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  border: none;
+  background: none;
 }
 

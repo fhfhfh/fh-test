@@ -16,7 +16,9 @@ define(['jquery',
 		'saveUserProfileAction'	: '',
 		'fetchNewsAction'		: '', // no payload needed
 		'fetchAlertsAction'		: '',
-                'saveUserProfileAction'                   :''
+        'saveUserProfileAction'	: '',
+        'folderManagerAction'	: ''
+
 	};
 
 	return map;

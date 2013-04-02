@@ -55,8 +55,13 @@ define(['jquery',
                 Backbone.trigger('notify', 'No Information available');
             },
             insightOptions : function(){
-                
-                        Backbone.trigger('notify', 'No Information available');
+                var self = this;
+                $('#insight_graph').animate({
+                    height: 'toggle'
+                }, 500, function() {
+                    // Animation complete.
+                    self.container.refreshScroll();
+                });
             },
                 
             renderIns: function(){

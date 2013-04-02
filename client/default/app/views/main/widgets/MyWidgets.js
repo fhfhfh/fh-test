@@ -6,7 +6,8 @@ define(['jquery',
         'underscore',
         'backbone',
         'text!templates/components/MyWidgets.html',
-], function($, _, Backbone, tpl) {
+        'views/WidgetScreen'
+], function($, _, Backbone, tpl, WidgetView) {
 
 	return Backbone.View.extend({
 
@@ -14,6 +15,7 @@ define(['jquery',
 		tagName		: 'section',
 	    id			: 'myWidgets',
 	    events		: {
+	    	'click #showPage' : 'showPage'
 	    },
 	    template	: _.template(tpl),
 
@@ -28,6 +30,16 @@ define(['jquery',
 			this.$el.html(this.template());
 
 			return this;
+		},
+
+		showPage: function(){
+			// Backbone.history.navigate('widgetScreen', true);
+
+			var html = (new WidgetView()).render().el;
+			$(html).hide();
+			$('#content').append(html);
+
+			$(html).slideDown();		
 		}
 
 	});

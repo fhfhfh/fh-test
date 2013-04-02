@@ -42,14 +42,14 @@ define([
 
     render: function() {
       var self = this;
-      this.setActiveView('library');
+      this.setActiveView('myWidgets');
       this.delegateEvents();
       if (this.activeView) {
         this.activeView.delegateEvents();
         // this.setActiveView(self.activeView);
       }
       this.$('li').removeClass('selected');
-      this.$('#show-library').addClass('selected');
+      this.$('#show-myWidgets').addClass('selected');
       return this;
     },
 

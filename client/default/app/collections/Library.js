@@ -64,7 +64,6 @@ define(['backbone',
 			Store.load('peachy_library', function(bool,res){
 				if(bool && res){
 					var obj = JSON.parse(res);
-					console.log(obj);
 					for(var i=0;i<obj.length;i++){
 						self.add(obj[i]);
 					}

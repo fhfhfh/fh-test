@@ -1,0 +1,145 @@
+<div id="body">
+	<img class="positioned" id="topleft" src="img/food/notebook-top-left-curve@2x.png"/>
+	<img class="positioned" id="topright" src="img/food/notebook-top-right-curve@2x.png"/>
+	<img class="positioned" id="bottomleft" src="img/food/notebook-bottom-left-curve@2x.png"/>
+	<img class="positioned" id="bottomright" src="img/food/notebook-bottom-right-curve@2x.png"/>
+	<div id="binderBg"></div>
+	<div id="content">
+		<div id="leftContent">
+			<div id="leftContentMask">
+
+				<div id="smallCalendar">
+					<img id="monthPick" src="img/calendar/IconCalendar.png"/>
+					<span id="dayString">Today</span>
+					<span id="dateString"></span>
+
+					<div id='tableContainer'>
+					    <table id="calTable">
+					        <tr id="1" class="days" align="center">
+					            <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+					        </tr>
+					        <tr id="2" class="days" align="center">
+					            <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+					        </tr>
+					        <tr id="3" class="days" align="center">
+					            <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+					        </tr>
+					        <tr id="4" class="days" align="center">
+					            <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+					        </tr>
+					        <tr id="5" class="days" align="center">
+					            <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+					        </tr>
+					        <tr id="6" class="days" align="center">
+					            <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+					        </tr>
+					    </table>
+					</div>
+				</div>
+
+				<div id="calories">
+					<span id="goal">Goal</span>
+					<span id="goalNum"><%= '1,500 Calories' %></span>
+
+					<span id="current">So Far</span>
+					<span id="currentNum"></span>
+
+					<span id="remaining">Remaining</span>
+					<span id="remainingNum"><%= '1,500 Calories' %></span>
+				</div>
+
+				<div id="meals">
+					<h3>My Meals</h3>
+					<li class="meal" data-name="breakfast">
+						<img src="img/food/breakfast-icon.png"/>
+						<span>Breakfast</span>
+					</li>
+					<li class="meal" data-name="lunch">
+						<img src="img/food/lunch-icon.png"/>
+						<span>Lunch</span>
+					</li>
+					<li class="meal" data-name="dinner">
+						<img src="img/food/dinner-icon.png"/>
+						<span>Dinner</span>
+					</li>
+					<li class="meal" data-name="snacks">
+						<img src="img/food/snack-icon.png"/>
+						<span>Snacks</span>
+					</li>
+					<li class="meal" data-name="beverages">
+						<img src="img/food/beverages-icon.png"/>
+						<span>Beverages</span>
+					</li>
+				</div>
+
+			</div>
+		</div>
+
+		<div id="rightContent">
+			<div id="emptyFood">
+				<img id="emptyImage" src="img/food/foodometer-icon.png"/>
+				<p>Foodometer is hungry!</p>
+				<p>There is no information entered for<br/>
+					<span id="day">Today</span>
+				</p>			
+
+				<div id="emptyMeals">
+					<img src="img/video/SnapBack@2x.png"/>
+					<p>Tap a meal to the left to get started.</p>
+				</div>
+
+			</div>
+
+			<div id="mealContainer">
+				<h3 id="title">
+					<span id="mealString">My Lunch</span> - 
+					<span id="calCount">410 Calories</span>
+				</h3>
+
+				<li id="add" class="btn"></li>
+				<li id="share" class="btn"><img src="img/food/share-icon.png"/>Share</li>
+				
+
+				<div id="foodList" class="box">
+					<div class="boxHeader">
+						<span>Tuesday, March 26, 2013
+						</span>
+					</div>
+					<div class="boxEntry">
+						<span id="name">Ham & Cheese Sandwich</span>
+						<span id="about">Whole Wheat Bread</span>
+					</div>
+					<div class="boxEntry">
+						<span id="name">Ham &  Sandwich</span>
+						<span id="about"> Bread</span>
+					</div>
+					<div class="boxEntry">
+						<span id="name">Ham & Cheese</span>
+						<span id="about">Whole  Bread</span>
+					</div>
+				</div>
+
+				<div class="box">
+					<label for="location">Location (where you ate)</label>
+					<input id="location" name="location" value="At Work"/>
+				</div>
+
+				<div class="box">
+					<label for="with">With (who you ate with)</label>
+					<input id="with" name="with" value="Co-Workers"/>
+				</div>
+
+				<div class="box">
+					<label for="time">Meal Time (time of day)</label>
+					<input id="time" name="time" value="12:30 PM"/>
+				</div>
+
+				<div class="box">
+					<label for="notes">Special Notes</label>
+					<textarea id="notes" name="notes" rows="4">Was very hungry today!</textarea>
+				</div>
+
+			</div>
+		</div>
+	</div>
+</div>

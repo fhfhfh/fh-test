@@ -11,7 +11,7 @@
 }
 
 
-#content-tab-list, #content-tab-list4 {
+#content-tab-list, #content-tab-list4, #content-tab-list5 {
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -56,6 +56,26 @@
 
     .background-gradient(#ccc, #fff);
     .avenir-bold(14px);
+
+    &.selected {
+        background-color: #fff;
+        background-image: none;
+    }
+}
+
+#content-tab-list5 li {
+    display: inline-block;
+    width: 19%;
+    margin: 0 0%;
+    padding: 10px 5px;
+    color: #2f3137;
+    text-shadow: 0 1px 1px #fff;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    position: relative;
+
+    .background-gradient(#ccc, #fff);
+    .avenir-bold(12px);
 
     &.selected {
         background-color: #fff;

@@ -135,15 +135,11 @@ define([
        widgetScreen: function(){
         var self = this;
         var html;
-        if(!self.widgetView){
-          self.widgetView = (new WidgetView()).render().el;
-          html = self.widgetView;
-          $(html).hide();
-          self.$content.append(html);
-        }
-        else{
-          html = $('#widgetScreen');
-        }
+
+        self.widgetView = (new WidgetView()).render().el;
+        html = self.widgetView;
+        $(html).hide();
+        self.$content.append(html);
         
         $(html).slideDown();
         
