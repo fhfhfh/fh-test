@@ -381,7 +381,7 @@ input {
     background-image: linear-gradient(bottom, #1f1f1f 0%, #525252 85%);
     background-image: -webkit-linear-gradient(bottom, #1f1f1f 0%, #525252 85%);
     background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #1f1f1f), color-stop(0.85, #525252));
- background-image: -moz-linear-gradient(bottom, #1f1f1f 0%, #525252 85%);
+    background-image: -moz-linear-gradient(bottom, #1f1f1f 0%, #525252 85%);
     background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #1f1f1f), color-stop(0.85, #525252));
 }
 .btn:active {
@@ -412,7 +412,7 @@ input {
     background-image: -moz-gradient(linear, left bottom, left top, color-stop(0, #f26622), color-stop(0.85, #feb000));
     border: 1px solid #d38800;
     background-color: #feb000;
-/*    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#feb000', endColorstr='#f26622');  for IE */
+    /*    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#feb000', endColorstr='#f26622');  for IE */
 }
 .decline:active {
     background-image: linear-gradient(bottom, #feb000 0%, #f26622 85%);
@@ -439,7 +439,7 @@ input {
     background-image: -moz-gradient(linear, left bottom, left top, color-stop(0, #1eff00), color-stop(0.85, #1aa807));
 }
 .action {
-        background-color: #1f1f1f;
+    background-color: #1f1f1f;
     background-image: linear-gradient(bottom, #1f1f1f 0%, #7fb0db 85%);
     background-image: -webkit-linear-gradient(bottom, #1f1f1f 0%, #7fb0db 85%);
     background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #1f1f1f), color-stop(0.85, #7fb0db));
@@ -1419,10 +1419,10 @@ li {
 #cabinet #cabinetHeader {
     border-bottom: 3px solid #000000;
     width: 100%;
-/*    float: left;*/
+    /*    float: left;*/
     position: relative;
-    overflow: auto;
-    overflow-x: scroll !important; 
+    overflow: auto!important;
+    /*    overflow-x: scroll ; */
 }
 #cabinet #cabinetHeader #scroller {
     padding-bottom: 30px;
@@ -1463,8 +1463,8 @@ li {
 }
 #cabinet #cabinetBody {
     padding-top: 25px;
-        overflow: scroll!important;
-max-width: 100%;
+    overflow: auto!important;
+    max-width: 100%;
     padding-bottom: 20px;
     width: 100%;
     background: url('../img/library/section.png');
@@ -2660,8 +2660,8 @@ padding-right: 20px;
 }*/
 
 #insights{
-/*    overflow-y: scroll;*/
-/*    max-height: 540px;*/
+    /*    overflow-y: scroll;*/
+    /*    max-height: 540px;*/
     padding-right: 20px;
 }
 
@@ -2683,11 +2683,11 @@ padding-right: 20px;
 
 /* Desktops and laptops ----------- */
 @media only screen and (min-width : 1024px) {
-      /* Styles */
-         body{
-    margin: 0% 5% 0 5%!important;
-}
-      
+    /* Styles */
+    body{
+        margin: 0% 5% 0 5%!important;
+    }
+
     #welcome #video {
         margin-top: 11%;
     }
@@ -2695,13 +2695,13 @@ padding-right: 20px;
     #main-nav li {
         padding: 15px 20px 15px 0px;
     }
- 
-  
+
+
 }
 
 #calendar-content{
-    overflow-y: scroll;
-max-height: 630px;
+    overflow-y: auto;
+    max-height: 630px;
     padding-right: 20px;
 }
 
