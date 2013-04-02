@@ -2715,7 +2715,7 @@ padding-right: 20px;
 }
 
 #news-and-information,#goals, #alerts,#widgetLibrary,#myWidgets,#recommendedWidgets,#data,#history,#conditions{
-    overflow-y: scroll;
+    overflow-y: auto;
     max-height: 540px;
     padding-right: 20px;
 }
@@ -3056,4 +3056,7 @@ padding-right: 20px;
 #data h1,#history h1, #conditions h1
 {
     position: relative;
+}
+#data,#history,#conditions{
+    min-height: 265px;
 }
