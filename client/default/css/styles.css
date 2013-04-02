@@ -963,15 +963,21 @@ section h1 {
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
   position: relative;
+  background-color: #cccccc;
   background-image: linear-gradient(bottom, #cccccc 0%, #ffffff 85%);
   background-image: -webkit-linear-gradient(bottom, #cccccc 0%, #ffffff 85%);
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #cccccc), color-stop(0.85, #ffffff));
+   background-image: -moz-linear-gradient(bottom, #cccccc 0%, #ffffff 85%);
+  background-image: -moz-gradient(linear, left bottom, left top, color-stop(0, #cccccc), color-stop(0.85, #ffffff));
   font: bold 12px "Avenir Next", Helvetica, Arial, sans-serif;
 }
 #content-tab-list5 li:active {
+    background-color: #ffffff;
   background-image: linear-gradient(bottom, #ffffff 0%, #cccccc 85%);
   background-image: -webkit-linear-gradient(bottom, #ffffff 0%, #cccccc 85%);
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #ffffff), color-stop(0.85, #cccccc));
+background-image: -moz-linear-gradient(bottom, #ffffff 0%, #cccccc 85%);
+  background-image: -moz-gradient(linear, left bottom, left top, color-stop(0, #ffffff), color-stop(0.85, #cccccc));
 }
 #content-tab-list5 li.selected {
   background-color: #fff;
@@ -1652,6 +1658,7 @@ section#widgetScreen #topBar {
     color: #000000;
     vertical-align: middle;
     font: normal 14px "Avenir Next", Helvetica, Arial, sans-serif;
+    background-color: #ebebeb;
 }
 section#widgetScreen #topBar:active {
     background-image: linear-gradient(bottom, #ebebeb 0%, #ababab 85%);
@@ -1711,11 +1718,13 @@ section#widgetScreen #body {
     background-color: #000000;
 }
 section#widgetScreen #body #content {
+    max-height: 540px;
+overflow: auto;
     background-color: #cdcdcd;
     box-shadow: 7px 0px 0 -4px #cccccc, 12px 0px 0 -7px #8b8b8b;
 }
 section#widgetScreen #body #content #leftContent {
-    width: 200px;
+    width: 300px;
     height: 99%;
     background-color: #ffffff;
     box-shadow: 3px 7px 5px #ababab;
@@ -2569,9 +2578,9 @@ section#insights h1 {
 }
 #filterView {
     position: absolute;
-    top: 75px;
+    top: 45px;
     z-index: 10;
-    right: 40px;
+    right: 2px;
     /*    left: 415px;*/
     width: 200px;
     text-align: center;
@@ -2589,7 +2598,7 @@ section#insights h1 {
 }
 @media only screen and (orientation: landscape) {
   #filterView {
-    left: 385px;
+/*    left: 385px;*/
   }
 }
 #filterView h2 {
@@ -2735,6 +2744,7 @@ padding-right: 20px;
     #main-nav li {
         padding: 15px 20px 15px 0px;
     }
+    
 
 
 }
@@ -3043,3 +3053,7 @@ padding-right: 20px;
   background: none;
 }
 
+#data h1,#history h1, #conditions h1
+{
+    position: relative;
+}
