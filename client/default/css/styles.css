@@ -1422,6 +1422,7 @@ li {
 /*    float: left;*/
     position: relative;
     overflow: auto;
+    overflow-x: scroll !important; 
 }
 #cabinet #cabinetHeader #scroller {
     padding-bottom: 30px;
@@ -1462,6 +1463,8 @@ li {
 }
 #cabinet #cabinetBody {
     padding-top: 25px;
+        overflow: scroll!important;
+max-width: 100%;
     padding-bottom: 20px;
     width: 100%;
     background: url('../img/library/section.png');
