@@ -2716,7 +2716,7 @@ padding-right: 20px;
 
 #news-and-information,#goals, #alerts,#widgetLibrary,#myWidgets,#recommendedWidgets,#data,#history,#conditions{
     overflow-y: auto;
-    max-height: 540px;
+    max-height: 530px;
     padding-right: 20px;
 }
 
@@ -2751,7 +2751,7 @@ padding-right: 20px;
 
 #calendar-content{
     overflow-y: auto;
-    max-height: 630px;
+    max-height: 500px;
     padding-right: 20px;
 }
 
