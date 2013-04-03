@@ -2716,7 +2716,7 @@ padding-right: 20px;
 
 #news-and-information,#goals, #alerts,#widgetLibrary,#myWidgets,#recommendedWidgets,#data,#history,#conditions{
     overflow-y: auto;
-    max-height: 530px;
+    max-height: 500px;
     padding-right: 20px;
 }
 
@@ -2744,9 +2744,19 @@ padding-right: 20px;
     #main-nav li {
         padding: 15px 20px 15px 0px;
     }
-    
+}
+@media screen and (max-height: 600px) {
+    #news-and-information,#goals, #alerts,#widgetLibrary,#myWidgets,#recommendedWidgets,#data,#history,#conditions{
+    overflow-y: auto;
+    max-height: 320px;
+    padding-right: 20px;
+}
 
-
+#calendar-content{
+    overflow-y: auto;
+    max-height: 360px;
+    padding-right: 20px;
+}
 }
 
 #calendar-content{
