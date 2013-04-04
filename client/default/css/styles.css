@@ -2745,10 +2745,10 @@ padding-right: 20px;
         padding: 15px 20px 15px 0px;
     }
 }
-@media screen and (max-height: 600px) {
+@media screen and (max-height: 700px) {
     #news-and-information,#goals, #alerts,#widgetLibrary,#myWidgets,#recommendedWidgets,#data,#history,#conditions{
     overflow-y: auto;
-    max-height: 320px;
+    max-height: 460px;
     padding-right: 20px;
 }
 
