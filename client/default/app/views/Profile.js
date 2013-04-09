@@ -37,7 +37,9 @@ define([
                 hscroll: false,
                 fixedScrollbar: true,
                 bounce: false,
-                vScrollbar: false
+                vScrollbar: false,
+                useTransform: false, 
+                onBeforeScrollStart: null
             });   
         },
 
