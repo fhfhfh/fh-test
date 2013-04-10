@@ -40,7 +40,7 @@ define([
 
 
             this.$el.html(self.template({
-                url: self.video.url,
+                url: self.video.url + "?modestbranding=1;rel=0;controls=1", // disable related videos
                 title: self.video.title,
                 time: self.video.duration,
                 description: self.video.description

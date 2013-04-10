@@ -1,0 +1,114 @@
+#avatarSelect {
+	position: absolute;
+	top: 100px;
+	left: 15%;
+	width: 70%;
+	background-color: #fff;
+	border: 1px solid #000;
+	border-radius: 10px;
+	box-shadow: 10px 10px 5px #888888;
+	text-align: center;
+	color: #000000;
+	.avenir(12px);
+
+	#titleBar {
+		border-top-left-radius: 10px;
+		border-top-right-radius: 10px; 
+		.background-gradient-fixed(#ababab, #e6e6e6);
+
+		#cancelBtn {float: left;}
+		#saveBtn {float: right;}
+
+		#cancelBtn, #saveBtn {
+			margin: 5px;
+		}
+	}
+
+	#topSection {
+		p {
+			.avenir(12px);
+			margin: 30px;
+		}
+
+		li {
+            .avenir-bold(14px);
+            width: 30%;
+            margin: 5px;
+            margin-bottom: 30px;
+            background-color: #e6e6e6;
+            border-radius: 12px;
+            text-align: center;
+            color: #8c8c8c;
+            padding: 4px 0 4px 0;
+
+            &:hover{
+                background-color: #ccc;
+            }
+
+            &:active{
+                background-color: #3d3d3d;
+                color: #fff;
+            }
+
+            &.selected {
+                color : #fff;
+                background-color: #545454;
+            }
+        }
+	}
+
+	h2 {
+		margin-top: 15px;
+		display: inline-block;
+		.avenir-demi(16px);
+	}
+
+	#middleSection {
+		width: 90%;
+		margin-left: auto;
+		margin-right: auto;
+		overflow: hidden;
+		white-space: nowrap;
+		margin-bottom: 50px;
+
+		img {
+			height: 80px;
+			padding: 5px;
+
+			&.selected{
+				background-color: #fff1a0;
+				border-radius: 5px;
+			}
+		}
+
+		#pictureRoll {
+			float: left;
+			position: relative;
+		}
+	}
+
+	#bottomSection {
+		#uploadBtn {
+			padding: 10px;
+			background-color: #fff1a0;
+			border-radius: 5px;
+			padding-left: 30px;
+
+			&:before {
+				content: ' ';
+				height: 20px;
+				width: 20px;
+				position: absolute;
+				margin-top: 1px;
+				margin-left: -25px;
+				background: url("../img/library/SearchClear.png") no-repeat;
+				-webkit-transform: rotate(45deg);
+				-moz-transform: rotate(45deg);
+				-ms-transform: rotate(45deg);
+				-o-transform: rotate(45deg);
+				transform: rotate(45deg);
+			}
+		}
+	}
+
+}

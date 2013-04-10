@@ -39,7 +39,7 @@ define(['jquery',
 			$(html).hide();
 			$('#content').append(html);
 
-			$(html).slideDown();		
+			$(html).slideDown(1000);		
 		}
 
 	});
