@@ -370,7 +370,7 @@ input {
 .btn {
     box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.15);
     /*    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#1f1f1f', endColorstr='#525252');  for IE */
-    background-color: #1f1f1f;
+    background-color: #1f1f1f!important;
     border-radius: 5px;
     border: 1px solid black;
     height: 30px;
@@ -387,6 +387,7 @@ input {
 .btn:active {
     /*    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#525252', endColorstr='#1f1f1f');  for IE */
     background-image: linear-gradient(bottom, #525252 0%, #1f1f1f 85%);
+    background-color: #525252!important;
     /*    background-color: #525252;*/
     background-image: -webkit-linear-gradient(bottom, #525252 0%, #1f1f1f 85%);
     background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #525252), color-stop(0.85, #1f1f1f));
