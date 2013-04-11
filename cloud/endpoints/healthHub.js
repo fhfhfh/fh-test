@@ -145,6 +145,7 @@ function initQueue(jsonObj, finalCallback)
                     return queueCallBack();
             }
             else{
+              
                 return  queueCallBack(task.EndPointName);
                     
             }
@@ -164,7 +165,7 @@ function initQueue(jsonObj, finalCallback)
         //Pushing object into the Queue
         q.push(jsonObj[i], function (err) {         
             if(err)   
-                log.error("[healthHubEndpoint][initQueue] >> Internal Server Error in  "+err);
+                log.error("[healthHubEndpoint][initQueue] >> NO Data Recieved for '"+err+"' Endpoint");
         });
     }
 }
