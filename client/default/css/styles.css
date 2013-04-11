@@ -915,7 +915,12 @@ section h1 {
 @media only screen and (orientation: landscape) {
   #wrapper {
     max-height: 640px;
-    min-height: 620px;
+    min-height: 590px;
+  }
+}
+@media only screen and (orientation: landscape) {
+  #VideoPlayback #wrapper {
+    min-height: 360px;
   }
 }
 .overlaid #top-bar {
@@ -1179,24 +1184,6 @@ li {
 .popup_avatar {
   height: 30px;
   width: 30px;
-}
-#avatarSelect {
-  position: absolute;
-  top: 300px;
-  left: 200px;
-  width: 50%;
-  background-color: #fff;
-  border: 1px solid #000;
-  border-radius: 10px;
-  box-shadow: 10px 10px 5px #888888;
-  text-align: center;
-}
-#avatarSelect img {
-  height: 80px;
-  padding: 5px;
-}
-#avatarSelect h1 {
-  margin: 10px;
 }
 #welcome #mask {
   position: absolute;
@@ -1938,6 +1925,7 @@ section#widgetScreen #panelTopBar #settingsBtn {
 @media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
   #top-bar #logo {
     background-image: url('../img/logo-top-bar@2x.png');
+    background-size: 121px 30px;
   }
 }
 #top-bar #avatar {
@@ -2467,6 +2455,107 @@ section#insights h1 {
   display: none;
   height: 25px;
   margin-right: 10px;
+}
+#avatarSelect {
+  position: absolute;
+  top: 100px;
+  left: 150px;
+  width: 60%;
+  background-color: #fff;
+  border: 1px solid #000;
+  border-radius: 10px;
+  box-shadow: 10px 10px 5px #888888;
+  text-align: center;
+  color: #000000;
+  font: normal 12px "Avenir Next", Helvetica, Arial, sans-serif;
+}
+#avatarSelect #titleBar {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  background-image: linear-gradient(bottom, #ababab 0%, #e6e6e6 85%);
+  background-image: -webkit-linear-gradient(bottom, #ababab 0%, #e6e6e6 85%);
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #ababab), color-stop(0.85, #e6e6e6));
+}
+#avatarSelect #titleBar #cancelBtn {
+  float: left;
+}
+#avatarSelect #titleBar #saveBtn {
+  float: right;
+}
+#avatarSelect #titleBar #cancelBtn,
+#avatarSelect #titleBar #saveBtn {
+  margin: 5px;
+}
+#avatarSelect #topSection p {
+  font: normal 12px "Avenir Next", Helvetica, Arial, sans-serif;
+  margin: 30px;
+}
+#avatarSelect #topSection li {
+  font: bold 14px "Avenir Next", Helvetica, Arial, sans-serif;
+  width: 30%;
+  margin: 5px;
+  margin-bottom: 30px;
+  background-color: #e6e6e6;
+  border-radius: 12px;
+  text-align: center;
+  color: #8c8c8c;
+  padding: 4px 0 4px 0;
+}
+#avatarSelect #topSection li:hover {
+  background-color: #ccc;
+}
+#avatarSelect #topSection li:active {
+  background-color: #3d3d3d;
+  color: #fff;
+}
+#avatarSelect #topSection li.selected {
+  color: #fff;
+  background-color: #545454;
+}
+#avatarSelect h2 {
+  margin-top: 15px;
+  display: inline-block;
+  font: bold 16px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
+}
+#avatarSelect #middleSection {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: hidden;
+  white-space: nowrap;
+  margin-bottom: 50px;
+}
+#avatarSelect #middleSection img {
+  height: 80px;
+  padding: 5px;
+}
+#avatarSelect #middleSection img.selected {
+  background-color: #fff1a0;
+  border-radius: 5px;
+}
+#avatarSelect #middleSection #pictureRoll {
+  float: left;
+  position: relative;
+}
+#avatarSelect #bottomSection #uploadBtn {
+  padding: 10px;
+  background-color: #fff1a0;
+  border-radius: 5px;
+  padding-left: 30px;
+}
+#avatarSelect #bottomSection #uploadBtn:before {
+  content: ' ';
+  height: 20px;
+  width: 20px;
+  position: absolute;
+  margin-top: 1px;
+  margin-left: -25px;
+  background: url("../img/library/SearchClear.png") no-repeat;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
 }
 #foodometer #body {
   margin: 20px;

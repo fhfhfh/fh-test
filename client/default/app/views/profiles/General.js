@@ -4,15 +4,17 @@
 	View for all user details
 --------------------*/
 define(['jquery',
+    'iscroll',
     'underscore',
     'backbone',
     'models/User',
     'text!templates/pages/ProfileGeneral.html',
     'text!templates/popups/AddressBox.html',
     'text!templates/popups/PasswordBox.html',
+    'text!templates/popups/AvatarSelect.html',
     'controllers/Profile',
     'models/Store'
-    ], function($, _, Backbone, User, template, addressBox, passwordBox, Controller, Store) {
+    ], function($, iscroll, _, Backbone, User, template, addressBox, passwordBox, avatarBox, Controller, Store) {
 
 	return Backbone.View.extend({
 		// Backbone specific attributes
@@ -28,7 +30,8 @@ define(['jquery',
             'click #AddrSave'      : 'closeAddr',
             'click #AddrCancel'    : 'closeAddr',
             'click #profile-avatar': "popup",
-            'click #closeAvatar'   : 'closeAvatar',
+            'click #cancelBtn'     : 'closeAvatar',
+            'click #saveBtn'       : 'closeAvatar',
             'click #password'      : 'password',
             'click #cancelPass'    : 'password',
             'click #okPass'        : 'password',
@@ -287,11 +290,10 @@ define(['jquery',
 
         popup: function(){
             var self = this;
-            var box = $('<div id="avatarSelect"></div>');
-            var html = '<h1>Select an Avatar</h1>';
+            var box = avatarBox;
+            var html;
 
             if(self.avatars.length == 0){
-                console.log('uh oh');
                 self.initialize();
             }
 
@@ -300,25 +302,43 @@ define(['jquery',
                 var imgId = self.avatars[i].avatarId;
                 html += '<img class="avatarPic" imgId="' + imgId +'" src="'+src+'"/>';
             }
-            html += '<br/><li id="closeAvatar" class="decline btn">Cancel</li>';
-            box.html(html);
 
             this.$el.append(box);
+            this.$('#avatarSelect').find('#pictureRoll').html(html);
+
+            this.avatarScroll = new iscroll($('#middleSection')[0], {
+                hScroll     : true,
+                vScroll     : false,
+                hScrollbar  : false
+            });
+            setTimeout(function(){
+                self.avatarScroll.refresh();
+            }, 100);
+            
         },
     
 
-        closeAvatar: function(){
+        closeAvatar: function(e){
+            var e = $(e.currentTarget);
+            var id = e[0].id;
+            
+            if(id === 'cancelBtn'){
+                $('#avatarSelect').remove();
+                return;
+            }
+            var image = $('.avatarPic.selected');
+            var imageId = image.attr('imgid');
+            var imageSrc = image.attr('src');
+  
+            this.$('#profile-avatar').attr('src',imageSrc).attr('imgid', imageId);
+            $('#avatar').attr('src', imageSrc);
             $('#avatarSelect').remove();
         },
 
         pickAvatar: function(e){
+            $('.avatarPic').removeClass('selected');
             var e = $(e.currentTarget);
-            var id = e.attr('imgId');
-            var src = e.attr('src');
-
-            this.$('#profile-avatar').attr('src',src).attr('imgId', id);
-            $('#avatar').attr('src', src);
-            $('#avatarSelect').remove();
+            e.addClass('selected');
         },
 
         validate: function(e){

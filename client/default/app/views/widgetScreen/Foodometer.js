@@ -167,7 +167,7 @@ define([
             var meal = this.$(target).attr('data-name') || 'breakfast';
             // change item class to selected
             this.$('.meal').removeClass('selected');
-            this.$(target).addClass('selected');
+            this.$(target +"[data-name='" + meal +"']").addClass('selected');
 
             var dateString = this.$('#dateString').text();
             var mealString = 'My ' + meal.substring(0,1).toUpperCase() + meal.substring(1,meal.length); 
