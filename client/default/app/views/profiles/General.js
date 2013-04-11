@@ -38,7 +38,8 @@ define(['jquery',
             'change input'         : 'validate',
             'click .avatarPic'     : 'pickAvatar',
             'keyup #phone'         : 'maskInput',
-            'keyup #mobile'        : 'maskInput'
+            'keyup #mobile'        : 'maskInput',
+            'click #uploadBtn'     : 'uploadImage'
         },
 
 		initialize: function(){
@@ -146,6 +147,8 @@ define(['jquery',
 
         showAddr: function(e){
             e.stopPropagation();
+
+            $('#addressBox').remove();
             var self 	= this;
             var target	= this.$('#address').find('div')[0];
             var text	= target.innerText;
@@ -205,8 +208,11 @@ define(['jquery',
             this.$('div#address').val(text);
             this.$('div#address')[0].innerText = text;
 
-            box.fadeOut({}, 300);
-            $('#modalMask').hide();
+            box.fadeOut(function(){
+                $('#addressBox').remove();
+                $('#modalMask').hide();
+            }, 300);
+            
         },
 
         mapValues: function(details){
@@ -372,6 +378,18 @@ define(['jquery',
                 }
                 
             });
+        },
+
+        uploadImage: function(){
+            console.log('Getting image');
+            $('.avatarPic').removeClass('selected');
+
+            var html = $('<img></img>');
+            html.addClass('avatarPic').addClass('selected');
+            html.attr('imgId', 'custom').attr('src', 'img/Maureen(Me)Avatar.png');
+            $('#pictureRoll').prepend(html);
+
+            this.avatarScroll.refresh();
         }
 	});
 });

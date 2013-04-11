@@ -22,7 +22,9 @@ define([
             'click td' : 'selectDay',
             'click #back' : 'prevMonth',
             'click #forward' : 'nextMonth',
-            'click .meal'   : 'showMealScreen'
+            'click .meal'   : 'showMealScreen',
+            'click #share'  : 'shareFunction',
+            'click #add'    : 'addFood'
         },
 
         initialize: function() {
@@ -238,7 +240,14 @@ define([
                 this.$('#currentNum').text("");
                 this.$('#remainingNum').text("");
             }
+        },
 
+        shareFunction: function(){
+            console.log('share function...');
+        },
+
+        addFood: function(){
+            
         }
 
     });
