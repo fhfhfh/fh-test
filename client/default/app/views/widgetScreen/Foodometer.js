@@ -8,10 +8,9 @@ define([
     'backbone',
     'text!templates/widgets/Foodometer.html',
     'text!templates/popups/MonthPicker.html',
-    'text!templates/popups/MonthPicker.html',
     'models/Calendar',
     'collections/FoodJournal'
-], function($, _, Backbone, tpl, monthPicker, mealTpl, calendar, collection) {
+], function($, _, Backbone, tpl, monthPicker, calendar, collection) {
     return Backbone.View.extend({
         tagName: 'section',
         id: 'foodometer',
@@ -256,13 +255,14 @@ define([
 
         addFoodItem: function(){
             //TODO: display calorie king page
+            this.container.setActiveView('foodScreen');
         },
 
         copyFoodItem: function(){
             //TODO:  copy meal/food item from yesterday
         },
 
-        clearFood: function(){
+        clearMeal: function(){
             //TODO: clear todays meal
         }
 
