@@ -18,10 +18,15 @@ define(['jquery',
 	var ctr = {
 
 		fetchAll : function(){
-			Avatars.loadAvatars(function(){});
-			HealthHub.loadHealthHub(function(){});
-			libStore.fetch();
+                    
+                    setTimeout(function(){
+                           Avatars.loadAvatars(function(){});
+                            }, 2000);
+                            HealthHub.loadHealthHub(function(){});
+                            libStore.fetch();
 			folders.fetch();
+                    
+			
 		}
 	}
 

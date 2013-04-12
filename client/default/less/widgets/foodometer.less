@@ -1,4 +1,5 @@
 #foodometer{
+    position: relative;
     #body {
         margin: 20px;
         border-radius: 8px;
@@ -31,7 +32,7 @@
 
             #leftContent {
                 float: left;
-                width: 300px;
+                width: 280px;
                 height: 99%;
                 background-color: #ffffff;
                 box-shadow: 3px 7px 5px #ababab;
@@ -51,7 +52,7 @@
 
             #rightContent {
                 float: right;
-                width: 57%;
+                width: 60%;
                 height: 100%;
 
                 #emptyFood {
@@ -123,14 +124,14 @@
     #calories {
         padding-top: 200px;
         padding: 10px;
-        width: 265px;
+        width: 246px;
         border-radius: 8px;
         background-color: #fee9c9;
         font-size: 16px;
         margin-bottom: 60px;
 
         span {
-            width: 120px;
+            width: 110px;
             display: inline-block;
             padding: 5px 0px;
 
@@ -159,7 +160,7 @@
         .meal{
             display: block;
             height: 60px;
-            width: 280px;
+            width: 270px;
             padding: 20px 15px;
             .avenir-demi(16px);
             img {
@@ -174,7 +175,7 @@
 
             &.selected {
                 background: url('../img/food/bu-yellow-arrow-right.png') no-repeat;
-                background-size: 280px;
+                background-size: 270px;
                 background-position: 0px 5px;
             }
         }
@@ -261,6 +262,13 @@
             }
         }
 
+        #add {
+            img {
+                height: 10px;
+                padding: 0px;
+            }
+        }
+
         #foodList {
             padding: 0px;
             min-height: 60px;
@@ -319,6 +327,33 @@
                 border: none;
                 background: none;
             }
+        }
+    }
+
+    #addFoodPopup {
+        display: none;
+        position: absolute;
+        right: 35px;
+        top: 85px;
+        left: auto;
+
+        .btn {
+            display: block;
+            width: 97%;
+            padding: 10px;
+            height: 40px;
+            margin: 5px 5px;
+        }
+
+        &:before {
+            border-bottom: 15px solid #6b6b6b;
+            border-right: 20px solid transparent;
+            border-left: 20px solid transparent;
+            // bottom: 151px;
+            top: -12px;
+            content: '';
+            position: absolute;
+            right: 17px;
         }
     }
 }

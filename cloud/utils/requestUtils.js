@@ -37,13 +37,27 @@ var RequestsUtil = function() {
             if (res.statusCode == 403)
             {
                 var fail = respUtils.constructStatusResponse(requestJson.EndPointName, constants.RESP_AUTH_FAILED, "Authentication  Fail",{});
-                log.debug("["+requestJson.EndPointName+"] >> [makeRequestCall] - HTTP response Status 403 received");
+                log.error("["+requestJson.EndPointName+"] >> [makeRequestCall] - HTTP response Status 403 received");
+                return  callback(fail,null) 
+            }
+            else if (res.statusCode == 404)
+            {
+//                   console.log("\n\n HERE--- \n\n"+res.statusCode);
+                var fail = respUtils.constructStatusResponse(requestJson.EndPointName, constants.RESP_AUTH_FAILED, "Data Not Found",{});
+                log.error("["+requestJson.EndPointName+"] >> [makeRequestCall] - HTTP response Status 404 received >> Data Not Found");
+                return  callback(fail,null) 
+            }
+             else if (res.statusCode == 401)
+            {
+//                   console.log("\n\n HERE--- \n\n"+res.statusCode);
+                var fail = respUtils.constructStatusResponse(requestJson.EndPointName, constants.RESP_AUTH_FAILED, "Data Not Found",{});
+                log.error("["+requestJson.EndPointName+"] >> [makeRequestCall] - HTTP response Status 401 received >> Unauthorized Access");
                 return  callback(fail,null) 
             }
             else if (res.statusCode == 500)
             {
                 var fail = respUtils.constructStatusResponse(requestJson.EndPointName, constants.RESP_SERVER_ERROR, "Internal server error",{});
-                log.debug("["+requestJson.EndPointName+"] >> [makeRequestCall] - HTTP response Status 500 received");
+                log.error("["+requestJson.EndPointName+"] >> [makeRequestCall] - HTTP response Status 500 received");
                 return  callback(fail,null) 
             }
             else if (res.statusCode == 200)
@@ -67,6 +81,7 @@ var RequestsUtil = function() {
                     }
                     else        //if complete data not found
                     {
+                       
                         var fail = respUtils.constructStatusResponse(requestJson.EndPointName, constants.RESP_SERVER_ERROR, "Internal server error",{});
                         return  callback(fail,null)
                     }
@@ -74,6 +89,7 @@ var RequestsUtil = function() {
             }
             else               //if GET call is not successful
             {
+//                 console.log("\n\n HERE--- \n\n"+res.statusCode);
                 var fail = respUtils.constructStatusResponse(requestJson.EndPointName, constants.RESP_SERVER_ERROR, "Internal server error",{});
                 return  callback(fail,null)
             }
@@ -91,3 +107,6 @@ var RequestsUtil = function() {
 
 // Export Module
 module.exports = new RequestsUtil();
+
+
+

@@ -18,11 +18,16 @@ define([
         template: _.template(tpl),
         monthTpl: _.template(monthPicker),
         events: {
-            'click #monthPick' : 'showMonthPicker',
-            'click td' : 'selectDay',
-            'click #back' : 'prevMonth',
-            'click #forward' : 'nextMonth',
-            'click .meal'   : 'showMealScreen'
+            'click #monthPick': 'showMonthPicker',
+            'click td'        : 'selectDay',
+            'click #back'     : 'prevMonth',
+            'click #forward'  : 'nextMonth',
+            'click .meal'     : 'showMealScreen',
+            'click #share'    : 'shareFunction',
+            'click #add'      : 'showAddPopup',
+            'click #addFood'  : 'addFoodItem',
+            'click #copyFood' : 'copyFoodItem',
+            'click #clearFood': 'clearFood'
         },
 
         initialize: function() {
@@ -163,11 +168,11 @@ define([
         },
 
         showMealScreen: function(e){
-            var target = (e) ? e.currentTarget : '.meal';
+            var target = (e) ? e.currentTarget : '.meal[data-name="breakfast"]';
             var meal = this.$(target).attr('data-name') || 'breakfast';
             // change item class to selected
             this.$('.meal').removeClass('selected');
-            this.$(target).addClass('selected');
+            this.$(target ).addClass('selected');
 
             var dateString = this.$('#dateString').text();
             var mealString = 'My ' + meal.substring(0,1).toUpperCase() + meal.substring(1,meal.length); 
@@ -238,7 +243,27 @@ define([
                 this.$('#currentNum').text("");
                 this.$('#remainingNum').text("");
             }
+        },
 
+        shareFunction: function(){
+            console.log('share function...');
+        },
+
+        showAddPopup: function(){
+            console.log('Add function...');
+            $('#addFoodPopup').toggle();
+        },
+
+        addFoodItem: function(){
+            //TODO: display calorie king page
+        },
+
+        copyFoodItem: function(){
+            //TODO:  copy meal/food item from yesterday
+        },
+
+        clearFood: function(){
+            //TODO: clear todays meal
         }
 
     });

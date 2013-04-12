@@ -4,15 +4,17 @@
 	View for all user details
 --------------------*/
 define(['jquery',
+    'iscroll',
     'underscore',
     'backbone',
     'models/User',
     'text!templates/pages/ProfileGeneral.html',
     'text!templates/popups/AddressBox.html',
     'text!templates/popups/PasswordBox.html',
+    'text!templates/popups/AvatarSelect.html',
     'controllers/Profile',
     'models/Store'
-    ], function($, _, Backbone, User, template, addressBox, passwordBox, Controller, Store) {
+    ], function($, iscroll, _, Backbone, User, template, addressBox, passwordBox, avatarBox, Controller, Store) {
 
         return Backbone.View.extend({
             // Backbone specific attributes
@@ -21,34 +23,58 @@ define(['jquery',
             controller 	: new Controller(),
             user 		: new User(),
 	    
-            template: _.template(template),
-            events : {
-                'change #birthday'     : 'ageCalc',
-                'click #address'       : 'showAddr',
-                'click #AddrSave'      : 'closeAddr',
-                'click #AddrCancel'    : 'closeAddr',
-                'click #profile-avatar': "popup",
-                'click #closeAvatar'   : 'closeAvatar',
-                'click #password'      : 'password',
-                'click #cancelPass'    : 'password',
-                'click #okPass'        : 'password',
-                'change input'         : 'validate',
-                'click .avatarPic'     : 'pickAvatar',
-                'keyup #phone'         : 'maskInput',
-                'keyup #mobile'        : 'maskInput',
-                'click input':'setFocus'
-            },
+		template: _.template(template),
+        events : {
+            'change #birthday'     : 'ageCalc',
+            'click #address'       : 'showAddr',
+            'click #AddrSave'      : 'closeAddr',
+            'click #AddrCancel'    : 'closeAddr',
+            'click #profile-avatar': "popup",
+            'click #cancelBtn'     : 'closeAvatar',
+            'click #saveBtn'       : 'closeAvatar',
+            'click #password'      : 'password',
+            'click #cancelPass'    : 'password',
+            'click #okPass'        : 'password',
+            'change input'         : 'validate',
+            'click .avatarPic'     : 'pickAvatar',
+            'keyup #phone'         : 'maskInput',
+            'keyup #mobile'        : 'maskInput',
+            'click #uploadBtn'     : 'uploadImage'
+        },
 
-            initialize: function(){
-                var self = this;
-                Store.load('peachy_avatars', function(res, data){
-                    if(res && data){
-                        self.avatars = JSON.parse(data).avatars;    
+		initialize: function(){
+			var self = this;
+            Store.load('peachy_avatars', function(res, data){
+                if(res && data){
+                    self.avatars = JSON.parse(data).avatars;    
+                }
+                else {
+                    self.avatars = [];
+                }
+            });
+            this.$el.html(this.template());
+		},
+
+		render: function(){
+			var self = this;
+            this.refreshScroll();
+            this.populate();
+            return this;
+		},
+
+		populate: function(){
+            var details;
+            var self = this;
+            this.user.loadUser(function(res, data){
+                if(res){
+                    if(data){
+                        details = data || {};
+                        self.mapValues(details);
                     }
                     else {
                         self.avatars = [];
                     }
-                });
+                }});
                 this.$el.html(this.template());
             },
 
@@ -162,7 +188,38 @@ define(['jquery',
                 box.fadeIn({}, 300 );
                 var vals = text.split('\n');
 
-                $('#line1').val(vals[0]);
+            if(age > 0){
+                msg.html(age + ' years old');
+            }
+        },
+
+        showAddr: function(e){
+            e.stopPropagation();
+
+            $('#addressBox').remove();
+            var self 	= this;
+            var target	= this.$('#address').find('div')[0];
+            var text	= target.innerText;
+            var box 	= $(addressBox);
+            target.blur();
+
+            $('#modalMask').show();
+            $('body').append(box);
+            box = $('#addressBox');
+            box.fadeIn({}, 300 );
+            var vals = text.split('\n');
+
+            $('#line1').val(vals[0]);
+
+            if(vals.length == 3){                
+                $('#state').val(vals[1]);    
+                $('#zip').val(vals[2]);
+            }
+            else {
+                $('#line2').val(vals[1]);                
+                $('#state').val(vals[2]);    
+                $('#zip').val(vals[3]);
+            }
 
                 if(vals.length == 3){                
                     $('#state').val(vals[1]);    
@@ -206,8 +263,30 @@ define(['jquery',
                     text = line1 + "\n" + line2 + "\n" + state + "\n" + zip;    
                 }
             
-                this.$('div#address').val(text);
-                this.$('div#address')[0].innerText = text;
+            this.$('div#address').val(text);
+            this.$('div#address')[0].innerText = text;
+
+            box.fadeOut(function(){
+                $('#addressBox').remove();
+                $('#modalMask').hide();
+            }, 300);
+            
+        },
+
+        mapValues: function(details){
+            var self = this;
+            var d    = details.userDetails;
+            var d2   = details.providers;
+            var d3   = details.linkedAccounts;
+
+            // Map User Details Fields ---------------------------------
+            // ---------------------------------------------------------
+            if(d.address2 == undefined){
+                var addr = d.address1 +'\n'+ d.state +'\n'+ d.zip;
+            }
+            else {
+                var addr = d.address1 +'\n'+ d.address2 +'\n'+ d.state +'\n'+ d.zip;
+            }
 
                 box.fadeOut({}, 300);
                 $('#modalMask').hide();
@@ -292,41 +371,58 @@ define(['jquery',
                 this.ageCalc();
             },
 
-            popup: function(){
-                var self = this;
-                var box = $('<div id="avatarSelect"></div>');
-                var html = '<h1>Select an Avatar</h1>';
+        popup: function(){
+            var self = this;
+            var box = avatarBox;
+            var html;
 
-                if(self.avatars.length == 0){
-                    console.log('uh oh');
-                    self.initialize();
-                }
+            if(self.avatars.length == 0){
+                self.initialize();
+            }
 
-                for(var i =0; i<self.avatars.length; i++){
-                    var src = "data:image/png;base64,"+self.avatars[i].image64;
-                    var imgId = self.avatars[i].avatarId;
-                    html += '<img class="avatarPic" imgId="' + imgId +'" src="'+src+'"/>';
-                }
-                html += '<br/><li id="closeAvatar" class="decline btn">Cancel</li>';
-                box.html(html);
+            for(var i =0; i<self.avatars.length; i++){
+                var src = "data:image/png;base64,"+self.avatars[i].image64;
+                var imgId = self.avatars[i].avatarId;
+                html += '<img class="avatarPic" imgId="' + imgId +'" src="'+src+'"/>';
+            }
 
-                this.$el.append(box);
-            },
+            this.$el.append(box);
+            this.$('#avatarSelect').find('#pictureRoll').html(html);
+
+            this.avatarScroll = new iscroll($('#middleSection')[0], {
+                hScroll     : true,
+                vScroll     : false,
+                hScrollbar  : false
+            });
+            setTimeout(function(){
+                self.avatarScroll.refresh();
+            }, 100);
+            
+        },
     
 
-            closeAvatar: function(){
+        closeAvatar: function(e){
+            var e = $(e.currentTarget);
+            var id = e[0].id;
+            
+            if(id === 'cancelBtn'){
                 $('#avatarSelect').remove();
-            },
+                return;
+            }
+            var image = $('.avatarPic.selected');
+            var imageId = image.attr('imgid');
+            var imageSrc = image.attr('src');
+  
+            this.$('#profile-avatar').attr('src',imageSrc).attr('imgid', imageId);
+            $('#avatar').attr('src', imageSrc);
+            $('#avatarSelect').remove();
+        },
 
-            pickAvatar: function(e){
-                var e = $(e.currentTarget);
-                var id = e.attr('imgId');
-                var src = e.attr('src');
-
-                this.$('#profile-avatar').attr('src',src).attr('imgId', id);
-                $('#avatar').attr('src', src);
-                $('#avatarSelect').remove();
-            },
+        pickAvatar: function(e){
+            $('.avatarPic').removeClass('selected');
+            var e = $(e.currentTarget);
+            e.addClass('selected');
+        },
 
             validate: function(e){
                 var target  = e.currentTarget;
@@ -358,7 +454,19 @@ define(['jquery',
                         self.password(e);
                     }
                 
-                });
-            }
-        });
-    });
+            });
+        },
+
+        uploadImage: function(){
+            console.log('Getting image');
+            $('.avatarPic').removeClass('selected');
+
+            var html = $('<img></img>');
+            html.addClass('avatarPic').addClass('selected');
+            html.attr('imgId', 'custom').attr('src', 'img/Maureen(Me)Avatar.png');
+            $('#pictureRoll').prepend(html);
+
+            this.avatarScroll.refresh();
+        }
+	});
+});

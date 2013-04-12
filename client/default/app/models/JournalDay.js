@@ -35,7 +35,6 @@ define(['backbone'], function(Backbone) {
 				var sCals = this.getCals(att.snacks);
 				var bsCals= this.getCals(att.beverages);
 				var sum = bCals+lCals+dCals+sCals+bsCals;
-				console.log(bCals,lCals,dCals,sCals,bsCals);
 				this.set("currentCals", sum);
 				this.set("remainingCals", att.remainingCals - sum);
 			}
