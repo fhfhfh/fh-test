@@ -15,11 +15,10 @@ define(['jquery',
 		tagName		: 'section',
 	    id			: 'myWidgets',
 	    events		: {
-	    	'click #showPage' : 'showPage'
+	    	'click .showPage' : 'showPage'
 	    },
 	    template	: _.template(tpl),
-
-
+ 
 		initialize : function(){
 			_.bindAll(this);
 		},
@@ -28,14 +27,15 @@ define(['jquery',
 			var self = this;
 
 			this.$el.html(this.template());
-
+	
 			return this;
 		},
 
-		showPage: function(){
-			// Backbone.history.navigate('widgetScreen', true);
-
-			var html = (new WidgetView()).render().el;
+// edited to be consistent with rest of app
+		showPage: function(e){
+			var target = $(e.currentTarget);
+			var id = target[0].id;
+			var html = (new WidgetView([initial=id])).render().el;
 			$(html).hide();
 			$('#content').append(html);
 

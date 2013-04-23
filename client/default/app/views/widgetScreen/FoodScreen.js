@@ -14,7 +14,8 @@ define([
         template: _.template(tpl),
         events: {
             'click .foodItem' : 'selectFood',
-            'click .boxEntry' : 'showFoodItemScreen'
+            'click .boxEntry' : 'showFoodItemScreen',
+            'click #cancelBtn': 'cancelFoodEntry'
         },
 
         initialize: function() {
@@ -56,6 +57,10 @@ define([
 
         showFoodItemScreen: function(e){
             var target = $(e.currentTarget);
+        },
+
+        cancelFoodEntry: function(e){
+            this.container.setActiveView('foodometerNav');
         }
     });
 });

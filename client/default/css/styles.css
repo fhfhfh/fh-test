@@ -2425,8 +2425,157 @@ section#insights h1 {
   position: absolute;
   right: 3px;
 }
-#myWidgets #showPage {
-  padding: 50px 20px;
+#myWidgets .showPage {
+  padding: 0px;
+}
+#myWidgets .action {
+  background: #fff;
+  border: 0px solid #1f1f1f;
+  width: 12%;
+  min-height: 100px;
+  min-width: 76px;
+  max-width: 100px;
+  text-align: center;
+  margin: 8px 0px 0px 0px;
+  font-size: 12px;
+  color: #777;
+}
+#myWidgets img {
+  width: 74px;
+  pointer-events: none;
+}
+#mywidgets {
+  background: #ffffff url('../img/widgets/bg-widget-divider-bar-fade.png') repeat-x bottom;
+  padding-bottom: 28px;
+}
+#suggestedWidgets .widget_panel,
+#widgetStore .widget_panel {
+  background: #cccccc url('../img/widgets/widgetpngfiles/widgetbg.png') no-repeat 50% top;
+  background-size: 100% 100%;
+  width: 140px;
+  height: 210px;
+  text-align: center;
+  margin: 15px 4px;
+  padding: 12px 6px;
+  color: #777;
+  overflow: hidden;
+  vertical-align: top;
+}
+#suggestedWidgets .widget_panel h1,
+#widgetStore .widget_panel h1 {
+  font: bold 14px "Avenir Next", Helvetica, Arial, sans-serif;
+  color: #000;
+  margin: 0px;
+  padding: 4px 8px;
+  text-align: left;
+}
+#suggestedWidgets .widget_panel p,
+#widgetStore .widget_panel p {
+  font: 14px "Avenir Next", Helvetica, Arial, sans-serif;
+  color: #777;
+  margin: 0px;
+  padding: 0px 8px;
+  text-align: left;
+  overflow: none;
+}
+#suggestedWidgets img,
+#widgetStore img {
+  width: 80px;
+}
+#widgetStore h1 {
+  display: inline;
+}
+#widgetStore #selector {
+  margin: 30px 0 20px 0;
+  background-color: #fff;
+}
+#widgetStore #selector #search_store {
+  border: 3px solid #ccc;
+  border-radius: 15px;
+  float: right;
+  padding: 3px 15px;
+}
+#widgetStore #selector #search_store img {
+  width: 15px;
+  height: 15px;
+}
+#widgetStore #selector #search_store #search {
+  border: 1px solid #fff;
+}
+#widgetdetails {
+  color: #000;
+}
+#widgetdetails .left {
+  width: 28%;
+  float: left;
+}
+#widgetdetails .left #iconw {
+  width: 90%;
+}
+#widgetdetails .left #install {
+  background: #fee9c9;
+  border-radius: 10px;
+  width: 80%;
+  margin: 0px 10px;
+  padding: 3px 8px 13px;
+}
+#widgetdetails .left #install #plus {
+  position: relative;
+  top: 6px;
+  display: inline;
+  width: 20px;
+  height: 20px;
+}
+#widgetdetails .left p {
+  font-size: 12px ;
+  font-weight: bold;
+  color: #555;
+  display: inline;
+  padding-left: 2px;
+}
+#widgetdetails .maindetails {
+  float: right;
+  width: 68%;
+  text-align: left;
+  margin: 15px 4px;
+  padding: 12px 6px;
+  color: #777;
+}
+#widgetdetails .maindetails h1 {
+  font: bold 24px "Avenir Next", Helvetica, Arial, sans-serif;
+  color: #2b6891;
+  text-align: left;
+  display: inline;
+}
+#widgetdetails .maindetails #quitBtn {
+  float: right;
+  width: 20px;
+  height: 20px;
+}
+#widgetdetails .maindetails h2 {
+  font: bold 18px "Avenir Next", Helvetica, Arial, sans-serif;
+  color: #000;
+  text-align: left;
+  margin-top: 40px;
+}
+#widgetdetails .maindetails p {
+  font-size: 14px;
+  color: #777;
+  margin: 10px 0px;
+  text-align: left;
+}
+#widgetdetails .maindetails .screenshot {
+  width: 100%;
+  height: 50%;
+  margin-top: 15px;
+}
+#widgetdetails .maindetails ul {
+  list-style-type: disc;
+  margin-left: 15px;
+}
+#widgetdetails .maindetails li {
+  display: block;
+  list-style-type: disc;
 }
 #addFavorite {
   top: 250px;

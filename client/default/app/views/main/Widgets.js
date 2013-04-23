@@ -3,26 +3,26 @@ define([
   'underscore',
   'backbone',
   'views/ContainerView',
-  'views/main/widgets/WidgetLibrary',
+  'views/main/widgets/WidgetStore',
   'views/main/widgets/MyWidgets',
-  'views/main/widgets/RecommendedWidgets',
+  'views/main/widgets/WidgetsSuggested',
   'text!templates/pages/Widgets.html'
-], function($, _, Backbone, ContainerView, LibraryView, MyWidgetsView, RecommendedView, template) {
+], function($, _, Backbone, ContainerView, StoreView, MyWidgetsView, SuggestedView, template) {
 
   return ContainerView.extend({
-    tagName	: 'section',
-    id		: 'widgets',
+    tagName : 'section',
+    id    : 'widgets',
 
     events : {
-      'click #show-library'		: 'showLibrary',
-      'click #show-myWidgets'	: 'showMyWidgets',
-      'click #show-recommended'	: 'showRecommended'
+      'click #show-store'   : 'showStore',
+      'click #show-myWidgets' : 'showMyWidgets',
+      'click #show-suggested' : 'showSuggested'
     },
 
     subViews: {
-      library		: new LibraryView(),
-      myWidgets		: new MyWidgetsView(),
-      recommended	: new RecommendedView()
+      store             : new StoreView(),
+      myWidgets         : new MyWidgetsView(),
+      suggested          : new SuggestedView()
     },
 
     initialize: function(options) {
@@ -60,10 +60,10 @@ define([
       }
     },
 
-    showLibrary : function(){
+    showStore : function(){
       this.$('li').removeClass('selected');
-      this.$('#show-library').addClass('selected');
-      this.setActiveView('library');
+      this.$('#show-store').addClass('selected');
+      this.setActiveView('store');
       this.refreshScroll();
     },
 
@@ -74,10 +74,10 @@ define([
       this.refreshScroll();
     },
 
-    showRecommended : function(){
+    showSuggested : function(){
       this.$('li').removeClass('selected');
-      this.$('#show-recommended').addClass('selected');
-      this.setActiveView('recommended');
+      this.$('#show-suggested').addClass('selected');
+      this.setActiveView('suggested');
       this.refreshScroll();
     }
 
