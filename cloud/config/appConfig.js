@@ -24,8 +24,10 @@ var appConfig = {
                 "level": "DEBUG"
             },
             "urls": {
-                "baseUrl":"108.87.132.242",
-                "port":"8888",
+                "baseUrl":"168.144.33.7",
+
+
+                "port":"",
                 "auth":"/PeachyWebApi/api/authentication/",
                 "userProfile":"/PeachyWebApi/api/profileaccount/",
                 "alert":"/PeachyWebApi/api/alerts",

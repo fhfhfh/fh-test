@@ -354,7 +354,7 @@ html,
 body,
 #content,
 #content > section {
-    height: 105%;
+    height: 109%;
 /*    overflow: hidden;*/
     position: relative;
 }
