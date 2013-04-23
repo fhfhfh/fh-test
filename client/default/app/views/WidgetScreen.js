@@ -4,9 +4,10 @@ define([
     'backbone',
     'views/ContainerView',
     'views/widgetScreen/Foodometer',
+    'views/widgetScreen/FoodScreen',
     'text!templates/pages/WidgetScreen.html',
     'models/Calendar'
-], function($, _, Backbone, ContainerView, Foodometer, template, Calendar) {
+], function($, _, Backbone, ContainerView, Foodometer, FoodScreen, template, Calendar) {
 
     return ContainerView.extend({
         tagName : 'section',
@@ -22,7 +23,8 @@ define([
         },
 
         subViews: {
-          foodometer  : new Foodometer()
+          foodometer  : new Foodometer(),
+          foodScreen  : new FoodScreen()
         },
 
         initialize: function(options) {
