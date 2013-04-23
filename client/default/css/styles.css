@@ -354,7 +354,8 @@ html,
 body,
 #content,
 #content > section {
-    height: 100%;
+    height: 105%;
+    right: 0;
 /*    overflow: hidden;*/
     position: relative;
 }
@@ -667,11 +668,13 @@ section h1 {
     #login-container .box {
         width: 720px;
         background-color: rgba(26, 26, 26, 0.25);
+        top: -50px;
     }
     #login-container .box .left {
         width: 50%;
         float: left;
         padding: 30px 15px 0 30px;
+        top: -10px;
     }
 }
 #login-container .copyright {
