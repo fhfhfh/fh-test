@@ -355,7 +355,7 @@ body,
 #content,
 #content > section {
     height: 100%;
-    overflow: hidden;
+/*    overflow: hidden;*/
     position: relative;
 }
 body {
@@ -424,29 +424,39 @@ input {
     background-color: #f26622;
 }
 .red {
-  background-color: red;
+  background-color: #ff0000!important;
   background-image: linear-gradient(bottom, #800000 0%, #ff0000 85%);
   background-image: -webkit-linear-gradient(bottom, #800000 0%, #ff0000 85%);
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #800000), color-stop(0.85, #ff0000));
+  background-image: -moz-linear-gradient(bottom, #800000 0%, #ff0000 85%);
+  background-image: -moz-gradient(linear, left bottom, left top, color-stop(0, #800000), color-stop(0.85, #ff0000));
   border: 1px solid #d38800;
 }
 .red:active {
   background-image: linear-gradient(bottom, #ff0000 0%, #800000 85%);
+  background-color:  #800000;
   background-image: -webkit-linear-gradient(bottom, #ff0000 0%, #800000 85%);
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #ff0000), color-stop(0.85, #800000));
+  background-image: -moz-linear-gradient(bottom, #ff0000 0%, #800000 85%);
+  background-image: -moz-gradient(linear, left bottom, left top, color-stop(0, #ff0000), color-stop(0.85, #800000));
 }
 .white {
   color: #000000;
-  background-color: #ffffff;
+  background-color: #c7f0f6!important;
   background-image: linear-gradient(bottom, #c7f0f6 0%, #ffffff 85%);
   background-image: -webkit-linear-gradient(bottom, #c7f0f6 0%, #ffffff 85%);
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #c7f0f6), color-stop(0.85, #ffffff));
+   background-image: -moz-linear-gradient(bottom, #c7f0f6 0%, #ffffff 85%);
+  background-image: -moz-gradient(linear, left bottom, left top, color-stop(0, #c7f0f6), color-stop(0.85, #ffffff));
   border: 1px solid #d38800;
 }
 .white:active {
   background-image: linear-gradient(bottom, #ffffff 0%, #c7f0f6 85%);
+   background-color: #ffffff!important;
   background-image: -webkit-linear-gradient(bottom, #ffffff 0%, #c7f0f6 85%);
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #ffffff), color-stop(0.85, #c7f0f6));
+background-image: -moz-linear-gradient(bottom, #ffffff 0%, #c7f0f6 85%);
+  background-image: -moz-gradient(linear, left bottom, left top, color-stop(0, #ffffff), color-stop(0.85, #c7f0f6));
 }
 .accept {
     background-color: green;
@@ -1761,7 +1771,7 @@ section#widgetScreen #body {
     background-color: #000000;
 }
 section#widgetScreen #body #content {
-    max-height: 540px;
+    max-height: 500px;
     overflow: auto;
     background-color: #cdcdcd;
     box-shadow: 7px 0px 0 -4px #cccccc, 12px 0px 0 -7px #8b8b8b;
@@ -2800,12 +2810,14 @@ padding-right: 20px;
         overflow-y: auto;
         max-height: 482px;
         padding-right: 20px;
+        min-height: 290px;
     }
 
     #calendar-content{
         overflow-y: auto;
         max-height: 360px;
         padding-right: 20px;
+        
     }
 }
 
@@ -2835,6 +2847,8 @@ padding-right: 20px;
   background-image: linear-gradient(bottom, #ababab 0%, #e6e6e6 85%);
   background-image: -webkit-linear-gradient(bottom, #ababab 0%, #e6e6e6 85%);
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #ababab), color-stop(0.85, #e6e6e6));
+   background-image: -moz-linear-gradient(bottom, #ababab 0%, #e6e6e6 85%);
+  background-image: -moz-gradient(linear, left bottom, left top, color-stop(0, #ababab), color-stop(0.85, #e6e6e6));
 }
 #avatarSelect #titleBar #cancelBtn {
   float: left;
@@ -2881,7 +2895,8 @@ padding-right: 20px;
   width: 90%;
   margin-left: auto;
   margin-right: auto;
-  overflow: hidden;
+  overflow: auto!important;
+  max-width: 754px;
   white-space: nowrap;
   margin-bottom: 50px;
 }
@@ -2957,7 +2972,7 @@ padding-right: 20px;
 #foodometer #body #binderBg,
 #foodScreen #body #binderBg {
   width: 40px;
-  height: 88%;
+  height: 85%;
   float: left;
   margin-left: -21px;
   position: absolute;
@@ -3142,9 +3157,9 @@ padding-right: 20px;
 #foodometer #filterView,
 #foodScreen #filterView {
   z-index: 10;
-  left: 165px;
-  top: 175px;
-  width: 250px;
+  left: 11%;
+  top: 11%;
+  width: 262px;
 }
 #foodometer #filterView #body,
 #foodScreen #filterView #body {
@@ -3161,6 +3176,8 @@ padding-right: 20px;
   background-image: linear-gradient(bottom, #ababab 0%, #ebebeb 85%);
   background-image: -webkit-linear-gradient(bottom, #ababab 0%, #ebebeb 85%);
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #ababab), color-stop(0.85, #ebebeb));
+  background-image: -moz-linear-gradient(bottom, #ababab 0%, #ebebeb 85%);
+  background-image: -moz-gradient(linear, left bottom, left top, color-stop(0, #ababab), color-stop(0.85, #ebebeb));
 }
 #foodometer #filterView #body #picker #back,
 #foodScreen #filterView #body #picker #back,
@@ -3181,6 +3198,9 @@ padding-right: 20px;
   background-image: linear-gradient(bottom, #343434 0%, #cdcdcd 85%);
   background-image: -webkit-linear-gradient(bottom, #343434 0%, #cdcdcd 85%);
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #343434), color-stop(0.85, #cdcdcd));
+   background-image: -moz-linear-gradient(bottom, #343434 0%, #cdcdcd 85%);
+  background-image: -moz-gradient(linear, left bottom, left top, color-stop(0, #343434), color-stop(0.85, #cdcdcd));
+  background-color: #cdcdcd;
   color: #ffffff;
   width: 155px;
   height: 32px;
@@ -3311,9 +3331,9 @@ padding-right: 20px;
 #foodScreen #addFoodPopup {
   display: none;
   position: absolute;
-  right: 35px;
-  top: 150px;
-  left: auto;
+/*  right: 35px;*/
+  top: 15%;
+  left: 60%;
   box-shadow: 0px -1px 1px #000000;
 }
 #foodometer #addFoodPopup .btn,
@@ -3347,7 +3367,7 @@ padding-right: 20px;
 #foodScreen #body #content {
   background-color: #ffffff;
   background-image: none;
-  min-height: 850px;
+  min-height: 500px;
   padding-left: 20px;
   text-align: center;
 }
@@ -3384,7 +3404,7 @@ padding-right: 20px;
   margin-right: auto;
   border-radius: 10px;
   white-space: nowrap;
-  overflow: hidden;
+  overflow: auto;
 }
 #foodScreen #body #content #level2Food {
   background: url('../img/food/bg-food-menu-bar-sub.png') repeat-x;
@@ -3424,15 +3444,21 @@ padding-right: 20px;
 }
 #foodScreen #body .foodItem.selected {
   background-image: linear-gradient(bottom, #fff1a0 0%, #fee9c9 85%);
+  background-color: #fff1a0!important;
   background-image: -webkit-linear-gradient(bottom, #fff1a0 0%, #fee9c9 85%);
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #fff1a0), color-stop(0.85, #fee9c9));
+   background-image: -moz-linear-gradient(bottom, #fff1a0 0%, #fee9c9 85%);
+  background-image: -moz-gradient(linear, left bottom, left top, color-stop(0, #fff1a0), color-stop(0.85, #fee9c9));
   border-radius: 5px;
   color: #000000;
 }
 #foodScreen #body .foodItem.selected:active {
   background-image: linear-gradient(bottom, #fee9c9 0%, #fff1a0 85%);
+  background-color: #fee9c9!important;
   background-image: -webkit-linear-gradient(bottom, #fee9c9 0%, #fff1a0 85%);
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #fee9c9), color-stop(0.85, #fff1a0));
+   background-image: -moz-linear-gradient(bottom, #fee9c9 0%, #fff1a0 85%);
+  background-image: -moz-gradient(linear, left bottom, left top, color-stop(0, #fee9c9), color-stop(0.85, #fff1a0));
 }
 #foodScreen #body #foodList {
   padding: 0px;
@@ -3442,6 +3468,8 @@ padding-right: 20px;
   width: 85%;
   margin-left: auto;
   margin-right: auto;
+  overflow: auto;
+  max-height: 345px;
 }
 #foodScreen #body .box {
   background-color: #ffffff;
@@ -3484,4 +3512,8 @@ padding-right: 20px;
 }
 #foodScreen #body .box .boxEntry:last-child {
   border-bottom: none;
+}
+
+#conditions h1,#data h1,#history h1 {
+   position: relative;
 }

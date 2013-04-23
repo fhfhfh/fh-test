@@ -86,7 +86,7 @@ define([
                 return;
             }
             else {
-                $('#foodometer').append(self.monthTpl());
+                $('#smallCalendar').append(self.monthTpl());
                 $("#month").html(this.calendar.monthName[this.month]+", "+this.year); 
                 $('#back').unbind().bind('click', function(){
                     self.prevMonth();

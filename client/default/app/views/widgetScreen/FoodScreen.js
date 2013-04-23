@@ -14,7 +14,8 @@ define([
         template: _.template(tpl),
         events: {
             'click .foodItem' : 'selectFood',
-            'click .boxEntry' : 'showFoodItemScreen'
+            'click .boxEntry' : 'showFoodItemScreen',
+            'click #cancelBtn' : 'cancel'
         },
 
         initialize: function() {
@@ -52,6 +53,10 @@ define([
             if($('.foodItem.lv1').hasClass('selected') && $('.foodItem.lv2:visible').hasClass('selected')){
                 $('#foodList').show();
             }
+        },
+        
+        cancel : function(){
+            this.container.setActiveView('foodometer');
         },
 
         showFoodItemScreen: function(e){
