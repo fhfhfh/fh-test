@@ -25,8 +25,6 @@ var appConfig = {
             },
             "urls": {
                 "baseUrl":"168.144.33.7",
-
-
                 "port":"",
                 "auth":"/PeachyWebApi/api/authentication/",
                 "userProfile":"/PeachyWebApi/api/profileaccount/",

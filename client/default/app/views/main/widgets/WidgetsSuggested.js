@@ -1,18 +1,18 @@
 /*--------------------
-	app/views/main/library/RecommendedWidgets
+	app/views/main/library/SuggestedWidgets
 
 --------------------*/
 define(['jquery',
         'underscore',
         'backbone',
-        'text!templates/components/RecommendedWidgets.html',
+        'text!templates/components/SuggestedWidgets.html',
 ], function($, _, Backbone, tpl) {
 
 	return Backbone.View.extend({
 
 		// Backbone specific attributes
 		tagName		: 'section',
-	    id			: 'recommendedWidgets',
+	    id			: 'suggestedWidgets',
 	    events		: {
 	    },
 	    template	: _.template(tpl),
