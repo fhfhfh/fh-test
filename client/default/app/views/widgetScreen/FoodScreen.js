@@ -24,7 +24,23 @@ define([
 
         render: function() {
             this.$el.html(this.template());
+
+            this.level1Scroll = new iScroll(this.$('#level1Food')[0],{
+                hScroll     : true,
+                vScroll     : false,
+                hScrollbar  : false,
+                bounceLock  : true,
+                bounce      : false
+            });
+            this.refreshScroll();
             return this;
+        },
+
+        refreshScroll: function(){
+            var self = this;
+            setTimeout(function(){
+                self.level1Scroll.refresh();
+            }, 100);
         },
 
         /* 
@@ -53,6 +69,7 @@ define([
             if($('.foodItem.lv1').hasClass('selected') && $('.foodItem.lv2:visible').hasClass('selected')){
                 $('#foodList').show();
             }
+            this.refreshScroll();
         },
 
         showFoodItemScreen: function(e){

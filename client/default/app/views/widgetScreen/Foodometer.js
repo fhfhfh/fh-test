@@ -26,7 +26,8 @@ define([
             'click #add'      : 'showAddPopup',
             'click #addFood'  : 'addFoodItem',
             'click #copyFood' : 'copyFoodItem',
-            'click #clearFood': 'clearMeal'
+            'click #clearFood': 'clearMeal',
+            'click #nutrition': 'showNutrition'
         },
 
         initialize: function() {
@@ -43,6 +44,7 @@ define([
             this.$el.html(this.template());
             this.renderCal();
             this.renderDay();
+            this.$('#nutrients').hide();
             return this;
         },
 
@@ -264,6 +266,20 @@ define([
 
         clearMeal: function(){
             //TODO: clear todays meal
+        },
+
+        showNutrition: function(){
+            if($('#nutrition').height() < 150){
+                this.$('#nutrition').animate({
+                    height: '270px'
+                }, 500);
+            } else {
+                this.$('#nutrition').animate({
+                    height: '70px'
+                }, 500);
+            }
+            
+            this.$('#nutrients').slideToggle(500);
         }
 
     });

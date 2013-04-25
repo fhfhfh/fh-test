@@ -1768,7 +1768,7 @@ section#widgetScreen #panelTopBar #cancelBtn {
 }
 #alerts h1 {
   color: #2b6891;
-  margin: 30px 0 20px 0;
+  margin: 25px 0 15px 0;
   font: bold 20px "Avenir Next", Helvetica, Arial, sans-serif;
 }
 #alerts #add-alert {
@@ -2440,6 +2440,9 @@ section#insights h1 {
   font-size: 12px;
   color: #777;
 }
+#myWidgets .action:active {
+  opacity: 0.5;
+}
 #myWidgets img {
   width: 74px;
   pointer-events: none;
@@ -3109,6 +3112,41 @@ section#insights h1 {
   border: none;
   background: none;
 }
+#foodometer #mealContainer #nutrition,
+#foodScreen #mealContainer #nutrition {
+  height: 70px;
+}
+#foodometer #mealContainer #nutrition h2,
+#foodScreen #mealContainer #nutrition h2 {
+  margin-bottom: 0px;
+}
+#foodometer #mealContainer #nutrition .heading,
+#foodScreen #mealContainer #nutrition .heading {
+  width: 68px;
+  float: right;
+}
+#foodometer #mealContainer #nutrition #values,
+#foodScreen #mealContainer #nutrition #values {
+  margin-top: 20px;
+}
+#foodometer #mealContainer #nutrition #values .name,
+#foodScreen #mealContainer #nutrition #values .name,
+#foodometer #mealContainer #nutrition #values .subName,
+#foodScreen #mealContainer #nutrition #values .subName {
+  width: 66%;
+  display: inline-block;
+}
+#foodometer #mealContainer #nutrition #values .subName,
+#foodScreen #mealContainer #nutrition #values .subName {
+  padding-left: 10px;
+  color: blue;
+  font: normal 10px "Avenir Next", Helvetica, Arial, sans-serif;
+}
+#foodometer #mealContainer #nutrition #values span,
+#foodScreen #mealContainer #nutrition #values span {
+  width: 15%;
+  display: inline-block;
+}
 #foodometer #addFoodPopup,
 #foodScreen #addFoodPopup {
   display: none;
@@ -3187,6 +3225,13 @@ section#insights h1 {
   border-radius: 10px;
   white-space: nowrap;
   overflow: hidden;
+}
+#foodScreen #body #content #level1Food #hScroller {
+  white-space: nowrap;
+  width: auto;
+  float: left;
+  position: relative;
+  padding-right: 200px;
 }
 #foodScreen #body #content #level2Food {
   background: url('../img/food/bg-food-menu-bar-sub.png') repeat-x;
