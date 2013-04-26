@@ -110,7 +110,7 @@ define(['jquery',
 
             home: function() {
                
-                 Acts.call('fetchDBAction',{type : 'PackagedVegetables'}, 
+                 Acts.call('fetchDBAction',{type : 'FrozenVegetables'}, 
                 function(res){
                     alert('fetched successfully'+JSON.stringify(res));
                     
