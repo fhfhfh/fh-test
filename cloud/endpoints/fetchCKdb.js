@@ -50,10 +50,10 @@ var fetchCKEndpoint = function() {
                  //Fetching data from FH database for Calorie King
                 $fh.db({
                     "act": "list",
-                    "type": "CalorieKing1",
-                    "eq" : {
-                        "Name":reqJson.request.payload.type
-                    }
+                    "type": "CalorieKing1"
+//                    "eq" : {
+//                        "Name":reqJson.request.payload.type
+//                    }
                         
                 }, function(err, data) {
                     if (err) {
@@ -70,6 +70,15 @@ var fetchCKEndpoint = function() {
                             return callback(fail,null);
                         }
                         else{
+                            var sss = JSON.stringify(data);
+                                fs.writeFile('./cloud/CalorieKingDB/abc.json', sss, function(err) {
+                                    if (err) {
+                                        log.error("[fetchCKEndpoint]["+"fetchCK"+"][view] >> " + err);
+                                        return callback(err,null);
+                                    }
+                                    console.log('\nNew JSON file saved!');
+                                });
+                                console.log("\n\n"+sss+"\n\n")
                             var resp = data.list[0].fields;
                             var sss = JSON.stringify(resp,null,4);
                             var jsonObj = respUtils.constructStatusResponse("fetchCK", constants.RESP_SUCCESS, "Records Fetched Successfully",resp);
