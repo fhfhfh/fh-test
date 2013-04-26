@@ -25,7 +25,6 @@ var fetchCKEndpoint = function() {
     // Exposed operations
     this.fetchCK = function fetchCK(reqJson, callback){
       
-      console.log("\n\n"+JSON.stringify(reqJson)+"\n\n")
         if (jsonUtils.getPath(reqJson, "request.head.sessionId") == null)         
         {
             log.error("[fetchCKEndpoint][fetchCK] >> SessionId Not Available");
@@ -40,6 +39,7 @@ var fetchCKEndpoint = function() {
         sessionManager.getSession(sessionId, function(err, data ){
             log.info("[fetchCKEndpoint][fetchCK] >> Session Details :"+JSON.stringify(data));
             if(data)
+            //Fetching data from FH database for Calorie King
             {
                 if (jsonUtils.getPath(reqJson, "request.payload.type") == null) 
                 {
@@ -47,17 +47,16 @@ var fetchCKEndpoint = function() {
                     var responseJson = respUtils.constructStatusResponse("fetchCK", constants.RESP_AUTH_FAILED, "Calorie King Category not provided",{});
                     return callback(responseJson,null) 
                 }
-                 //Fetching data from FH database for Calorie King
                 $fh.db({
                     "act": "list",
-                    "type": "CalorieKing1"
-//                    "eq" : {
-//                        "Name":reqJson.request.payload.type
-//                    }
+                    "type": "CalorieKingDB",
+                    "eq" : {
+                        "Name":reqJson.request.payload.type
+                    }
                         
                 }, function(err, data) {
                     if (err) {
-                        var fail = respUtils.constructStatusResponse("fetchCK", constants.RESP_SERVER_ERROR, "Invalid or non-existent type value given, can't proceed.",{});
+                        var fail = respUtils.constructStatusResponse("fetchCK", constants.RESP_SERVER_ERROR, err,{});
                         log.error("[fetchCKEndpoint]["+"fetchCK"+"][READ DATA] >> " + err);
                         return callback(fail,null);
                                         
@@ -70,15 +69,6 @@ var fetchCKEndpoint = function() {
                             return callback(fail,null);
                         }
                         else{
-                            var sss = JSON.stringify(data);
-                                fs.writeFile('./cloud/CalorieKingDB/abc.json', sss, function(err) {
-                                    if (err) {
-                                        log.error("[fetchCKEndpoint]["+"fetchCK"+"][view] >> " + err);
-                                        return callback(err,null);
-                                    }
-                                    console.log('\nNew JSON file saved!');
-                                });
-                                console.log("\n\n"+sss+"\n\n")
                             var resp = data.list[0].fields;
                             var sss = JSON.stringify(resp,null,4);
                             var jsonObj = respUtils.constructStatusResponse("fetchCK", constants.RESP_SUCCESS, "Records Fetched Successfully",resp);

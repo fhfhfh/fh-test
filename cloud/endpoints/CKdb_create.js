@@ -41,41 +41,29 @@ var createCKEndpoint = function() {
                 console.log("Beginning Creating DB");
                 fs.readFile('./cloud/CalorieKingDB/catJSON.txt', function(err, res) {
                     if (err) {
-                        var fail = respUtils.constructStatusResponse("createDB", constants.RESP_SERVER_ERROR, "Error reading json file.  "+err,{});
-                        log.error("[createDBEndpoint]["+"createDB"+"][readFile] >> Error reading json file  "+err);
-                        return callback(fail,null);
-                        
+                        console.log("Error reading json file : ", err);
+                        return;
                     }
                     var data = JSON.parse(res);
                     for (var i=0;i<data.Food.length;i++){
                         var  dataChunk = data.Food[i]   
-           
                         $fh.db({
                             "act": "create",
-                            "type": "CalorieKing1",
+                            "type": "CalorieKingDB",
                             "fields": dataChunk
                         }, function(err, data) {
                             if (err) {
                                 var fail = respUtils.constructStatusResponse("createDB", constants.RESP_SERVER_ERROR, err,{});
-                                log.error("[createDBEndpoint]["+"createDB"+"][add] >> "+dataChunk.Name+"msg:-"+err);
+                                log.error("[createDBEndpoint]["+"createDB"+"][add] >> "+err);
                                 return callback(fail,null);
                     
                             } else {
-                                var sss = JSON.stringify(data);
-                                fs.writeFile('./cloud/CalorieKingDB/abc.json', sss, function(err) {
-                                    if (err) {
-                                        log.error("[fetchCKEndpoint]["+"fetchCK"+"][view] >> " + err);
-                                        return callback(err,null);
-                                    }
-                                    console.log('\nNew JSON file saved!');
-                                });
                                 var jsonObj = respUtils.constructStatusResponse("createDB", constants.RESP_SUCCESS, "Record Added Successfully",data);
-                                log.info("[createDBEndpoint][createDB][add] >> Record Added Successfully   "+dataChunk.Name); 
+                                log.info("[createDBEndpoint][createDB][add] >> Record Added Successfully   "); 
                                 callback(null,jsonObj);
                             }
                         });
                     }
-                        
                 });
                 
             } 
