@@ -61,6 +61,14 @@ var createCKEndpoint = function() {
                                 return callback(fail,null);
                     
                             } else {
+                                var sss = JSON.stringify(data);
+                                fs.writeFile('./cloud/CalorieKingDB/abc.json', sss, function(err) {
+                                    if (err) {
+                                        log.error("[fetchCKEndpoint]["+"fetchCK"+"][view] >> " + err);
+                                        return callback(err,null);
+                                    }
+                                    console.log('\nNew JSON file saved!');
+                                });
                                 var jsonObj = respUtils.constructStatusResponse("createDB", constants.RESP_SUCCESS, "Record Added Successfully",data);
                                 log.info("[createDBEndpoint][createDB][add] >> Record Added Successfully   "+dataChunk.Name); 
                                 callback(null,jsonObj);

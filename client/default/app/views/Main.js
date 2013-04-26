@@ -110,14 +110,14 @@ define(['jquery',
 
             home: function() {
                
-                 Acts.call('fetchDBAction',{type : 'FrozenVegetables'}, 
-                function(res){
-                    alert('fetched successfully'+JSON.stringify(res));
-                    
-                }, function(err, msg){
-                    console.log("@@@@@@@@"+JSON.stringify(msg));
-                }
-                );
+//                 Acts.call('fetchDBAction',{type : 'FrozenVegetables'}, 
+//                function(res){
+//                    alert('fetched successfully'+JSON.stringify(res));
+//                    
+//                }, function(err, msg){
+//                    console.log("@@@@@@@@"+JSON.stringify(msg));
+//                }
+//                );
                     
 //                     Acts.call('fetchDBAction',{type : 'Yogurt'}, 
 //                function(res){
@@ -128,14 +128,14 @@ define(['jquery',
 //                }
 //                );
 
-//                  Acts.call('createDBAction',{}, 
-//                function(res){
-//                    alert('Added successfully');
-//                    
-//                }, function(err, msg){
-//                    console.log("@@@@@@@@"+JSON.stringify(msg));
-//                }
-//                );
+                  Acts.call('createDBAction',{}, 
+                function(res){
+                    alert('Added successfully');
+                    
+                }, function(err, msg){
+                    console.log("@@@@@@@@"+JSON.stringify(msg));
+                }
+                );
                 
                 
                 this.setActiveView('home');
@@ -145,6 +145,14 @@ define(['jquery',
             },
 
             widgets: function() {
+                 Acts.call('fetchDBAction',{type : 'Mixes'}, 
+                function(res){
+                    alert('fetched successfully'+JSON.stringify(res));
+                    
+                }, function(err, msg){
+                    console.log("@@@@@@@@"+JSON.stringify(msg));
+                }
+                );
                 this.setActiveView('widgets');
                 this.$nav.find('li').removeClass('selected');
                 this.$('#widgets').addClass('selected');
