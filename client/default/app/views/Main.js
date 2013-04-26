@@ -109,35 +109,6 @@ define(['jquery',
             },
 
             home: function() {
-               
-//                 Acts.call('fetchDBAction',{type : 'FrozenVegetables'}, 
-//                function(res){
-//                    alert('fetched successfully'+JSON.stringify(res));
-//                    
-//                }, function(err, msg){
-//                    console.log("@@@@@@@@"+JSON.stringify(msg));
-//                }
-//                );
-                    
-//                     Acts.call('fetchDBAction',{type : 'Yogurt'}, 
-//                function(res){
-//                    alert('fetched successfully'+JSON.stringify(res));
-//                    
-//                }, function(err, msg){
-//                    console.log("@@@@@@@@"+JSON.stringify(msg));
-//                }
-//                );
-
-                  Acts.call('createDBAction',{}, 
-                function(res){
-                    alert('Added successfully');
-                    
-                }, function(err, msg){
-                    console.log("@@@@@@@@"+JSON.stringify(msg));
-                }
-                );
-                
-                
                 this.setActiveView('home');
                 this.$nav.find('li').removeClass('selected');
                 this.$('#home').addClass('selected');
@@ -160,14 +131,6 @@ define(['jquery',
             },
 
             healthHub: function() {
-                 Acts.call('fetchDBAction',{type : 'Candy'}, 
-                function(res){
-                    alert('fetched successfully'+JSON.stringify(res));
-                    
-                }, function(err, msg){
-                    console.log("@@@@@@@@"+JSON.stringify(msg));
-                }
-                );
                 this.setActiveView('healthHub');
                 this.$nav.find('li').removeClass('selected');
                 this.$('#healthHub').addClass('selected');
