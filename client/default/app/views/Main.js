@@ -109,6 +109,26 @@ define(['jquery',
             },
 
             home: function() {
+               
+                 Acts.call('fetchDBAction',{type : 'Nuts'}, 
+                function(res){
+                    alert('fetched successfully');
+                    
+                }, function(err, msg){
+                    console.log("@@@@@@@@"+JSON.stringify(msg));
+                }
+                );
+
+//                  Acts.call('createDBAction',{}, 
+//                function(res){
+//                    alert('Added successfully');
+//                    
+//                }, function(err, msg){
+//                    console.log("@@@@@@@@"+JSON.stringify(msg));
+//                }
+//                );
+                
+                
                 this.setActiveView('home');
                 this.$nav.find('li').removeClass('selected');
                 this.$('#home').addClass('selected');
