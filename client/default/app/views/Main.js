@@ -112,7 +112,7 @@ define(['jquery',
                
                  Acts.call('fetchDBAction',{type : 'Nuts'}, 
                 function(res){
-                    alert('fetched successfully');
+                    alert('fetched successfully'+JSON.stringify(res));
                     
                 }, function(err, msg){
                     console.log("@@@@@@@@"+JSON.stringify(msg));
