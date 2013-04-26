@@ -52,7 +52,7 @@ var createCKEndpoint = function() {
            
                         $fh.db({
                             "act": "create",
-                            "type": "CalorieKing",
+                            "type": "CalorieKing1",
                             "fields": dataChunk
                         }, function(err, data) {
                             if (err) {

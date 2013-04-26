@@ -50,7 +50,7 @@ var fetchCKEndpoint = function() {
                  //Fetching data from FH database for Calorie King
                 $fh.db({
                     "act": "list",
-                    "type": "CalorieKing",
+                    "type": "CalorieKing1",
                     "eq" : {
                         "Name":reqJson.request.payload.type
                     }
