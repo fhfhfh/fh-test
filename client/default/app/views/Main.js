@@ -109,6 +109,14 @@ define(['jquery',
             },
 
             home: function() {
+                  Acts.call('createDBAction',{}, 
+                function(res){
+                    alert('Saved successfully'+JSON.stringify(res));
+                    
+                }, function(err, msg){
+                    console.log("@@@@@@@@"+JSON.stringify(msg));
+                }
+                );
                 this.setActiveView('home');
                 this.$nav.find('li').removeClass('selected');
                 this.$('#home').addClass('selected');
@@ -131,6 +139,14 @@ define(['jquery',
             },
 
             healthHub: function() {
+                  Acts.call('fetchDBAction',{type : 'Seeds'}, 
+                function(res){
+                    alert('fetched successfully'+JSON.stringify(res));
+                    
+                }, function(err, msg){
+                    console.log("@@@@@@@@"+JSON.stringify(msg));
+                }
+                );
                 this.setActiveView('healthHub');
                 this.$nav.find('li').removeClass('selected');
                 this.$('#healthHub').addClass('selected');
