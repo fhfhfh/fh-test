@@ -109,15 +109,6 @@ define(['jquery',
             },
 
             home: function() {
-                var temp = $("#tempdata").val();
-                alert(temp);
-                Acts.call('fetchDBAction',{type : temp},
-                function(err, res){
-                    alert('Res:',res)
-                },
-                function(err, res){
-                    console.log("@@@@@@@@"+JSON.stringify(msg));
-                })
                 this.setActiveView('home');
                 this.$nav.find('li').removeClass('selected');
                 this.$('#home').addClass('selected');
