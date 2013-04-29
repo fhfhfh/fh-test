@@ -101,7 +101,7 @@ define(['jquery',
                         setTimeout(function(){
                             Backbone.history.navigate('profile', true, true);
                             $('#top-bar-buttons').html('<li><button id="cancel">Cancel</button></li>' +
-                            '<li><button id="save">Save</button></li>');    
+                                '<li><button id="save">Save</button></li>');    
                         }, 100);
                         
                     }
@@ -109,6 +109,15 @@ define(['jquery',
             },
 
             home: function() {
+                var temp = $("#tempdata").val();
+                alert(temp);
+                Acts.call('fetchDBAction',{type : temp},
+                function(err, res){
+                    alert('Res:',res)
+                },
+                function(err, res){
+                    console.log("@@@@@@@@"+JSON.stringify(msg));
+                })
                 this.setActiveView('home');
                 this.$nav.find('li').removeClass('selected');
                 this.$('#home').addClass('selected');
@@ -119,7 +128,7 @@ define(['jquery',
                 this.setActiveView('widgets');
                 this.$nav.find('li').removeClass('selected');
                 this.$('#widgets').addClass('selected');
-                // Backbone.history.navigate('widgets', false);
+            // Backbone.history.navigate('widgets', false);
             },
 
             healthHub: function() {
@@ -127,7 +136,7 @@ define(['jquery',
                 this.setActiveView('healthHub');
                 this.$nav.find('li').removeClass('selected');
                 this.$('#healthHub').addClass('selected');
-                // Backbone.history.navigate('healthHub', false);
+            // Backbone.history.navigate('healthHub', false);
             },
 
             medicine: function() {
@@ -138,7 +147,7 @@ define(['jquery',
                 this.setActiveView('calendar');
                 this.$nav.find('li').removeClass('selected');
                 this.$('#calendar').addClass('selected');
-                // Backbone.history.navigate('calendar', false);
+            // Backbone.history.navigate('calendar', false);
             },
 
             connect: function() {
