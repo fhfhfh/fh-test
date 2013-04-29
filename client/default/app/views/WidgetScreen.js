@@ -65,7 +65,7 @@ define([
           this.$(initialButton).addClass('selected');
 
           // // iScroll ---------------------------
-          this.iscroll = new iScroll(this.$('#childContent')[0], {
+          this.iscroll = new iScroll(this.$('#scrollWrapper')[0], {
               hscroll: false,
               fixedScrollbar: true,
               bounce: true,
@@ -79,7 +79,10 @@ define([
         refreshScroll: function(){
           var self = this;
           if(this.iscroll){
-          this.iscroll.refresh.call(self.iscroll);        
+            setTimeout(function(){
+              self.iscroll.refresh.call(self.iscroll);    
+            }, 1000);
+          
           }
         },
 

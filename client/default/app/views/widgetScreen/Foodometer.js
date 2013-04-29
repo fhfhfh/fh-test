@@ -9,8 +9,9 @@ define([
     'text!templates/widgets/Foodometer.html',
     'text!templates/popups/MonthPicker.html',
     'models/Calendar',
-    'collections/FoodJournal'
-], function($, _, Backbone, tpl, monthPicker, calendar, collection) {
+    'collections/FoodJournal',
+    'models/Acts'
+], function($, _, Backbone, tpl, monthPicker, calendar, collection, Act) {
     return Backbone.View.extend({
         tagName: 'section',
         id: 'foodometer',
@@ -194,7 +195,6 @@ define([
             this.$('#foodList .boxEntry').remove();
             var item = this.item;
             var self = this;
-            console.log(item);
             if(item){
                 var foods = item.attributes[meal];
                 if(foods.length == 0){
@@ -250,7 +250,13 @@ define([
         },
 
         showAddPopup: function(){
-            console.log('Add function...');
+             // Act.call('createDBAction',{},
+             //    function(res){
+             //        alert('Saved successfully'+JSON.stringify(res));
+             //    }, function(err, msg){
+             //        console.log(JSON.stringify(msg));
+             //    });
+
             $('#addFoodPopup').toggle();
         },
 

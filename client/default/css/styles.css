@@ -1629,6 +1629,9 @@ section#widgetScreen #panelTopBar #cancelBtn {
   margin: 0px;
   margin-top: -4px;
 }
+section#widgetScreen #scrollWrapper {
+  height: 100%;
+}
 #news-and-information {
   padding: 15px;
 }
