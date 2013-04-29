@@ -6,7 +6,7 @@ define(['jquery',
         'underscore',
         'backbone',
         'text!templates/components/WidgetStore.html',
-        'text!templates/widgets/Widget1Details.html',
+        'text!templates/widgets/WidgetDetails.html',
  
 ], function($, _, Backbone, tpl, widgetDetailsTpl) {
 
@@ -43,11 +43,14 @@ define(['jquery',
 	        var page = $(this.el);
 
 	        var details = _.template(widgetDetailsTpl);
-	       // var info = $(target).attr('info');
+	        var title = $(target).find('h1').text() || 'Untitled';
+			// var info = $(target).attr('info');
+			var imgSrc = $(target).find('img').attr('src');
 
 	        this.$el.html(details({
-	           // title: target.innerHTML,
-	           // info: info
+	           title: title,
+	           description: "info",
+	           src: imgSrc
 	        }));
 		}
 

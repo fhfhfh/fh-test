@@ -44,7 +44,6 @@ define([
             this.$el.html(this.template());
             this.renderCal();
             this.renderDay();
-            this.$('#nutrients').hide();
             return this;
         },
 
@@ -182,7 +181,7 @@ define([
             this.$('#emptyFood').hide();
 
             this.$('#mealString').text(mealString);
-            this.$('.boxHeader span').text(dateString);
+            this.$('#foodList .boxHeader span').text(dateString);
             this.populateMeal(meal);
         },
 
@@ -269,17 +268,13 @@ define([
         },
 
         showNutrition: function(){
-            if($('#nutrition').height() < 150){
-                this.$('#nutrition').animate({
-                    height: '270px'
-                }, 500);
+            if($('#nutritionSection').is(':visible')){
+                $("#nutritionSection").hide();
+                $("#mealInputs").show();
             } else {
-                this.$('#nutrition').animate({
-                    height: '70px'
-                }, 500);
+                $("#nutritionSection").show();
+                $("#mealInputs").hide();
             }
-            
-            this.$('#nutrients').slideToggle(500);
         }
 
     });

@@ -125,7 +125,8 @@ Licensed under the MIT license.
 	Canvas.prototype.resize = function(width, height) {
 
 		if (width <= 0 || height <= 0) {
-			throw new Error("Invalid dimensions for plot, width = " + width + ", height = " + height);
+			console.warn("Invalid dimensions for plot, width = " + width + ", height = " + height);
+			// throw new Error("Invalid dimensions for plot, width = " + width + ", height = " + height);
 		}
 
 		var element = this.element,
@@ -664,7 +665,7 @@ Licensed under the MIT license.
             var i, axisOptions, axisCount,
                 fontDefaults = {
                     style: placeholder.css("font-style"),
-                    size: Math.round(0.8 * (+placeholder.css("font-size").replace("px", "") || 13)),
+                    size: Math.round(0.8 * 13),//(+placeholder.css("font-size").replace("px", "") || 13)),
                     variant: placeholder.css("font-variant"),
                     weight: placeholder.css("font-weight"),
                     family: placeholder.css("font-family")

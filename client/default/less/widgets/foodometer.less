@@ -338,38 +338,20 @@
                 background: none;
             }
         }
+    }
 
-        #nutrition {
-            height: 70px;
+    #nutrition, #mealContainer #nutrition {
+        height: 55px;
+        padding: 2px 10px;
 
-            h2 {
-                margin-bottom: 0px;
-            }
+        h2 {
+            margin-bottom: 0px;
+            .avenir-bold(18px);
 
-            .heading {
-                width: 68px;
+            &:after{
+                content: url('../img/icons/smallArrow.png');
                 float: right;
-            }
-
-            #values {
-                margin-top: 20px;
-
-                .name, .subName { 
-                    width: 66%;
-                    display: inline-block;
-                }
-
-                .subName {
-                    padding-left: 10px;
-                    color: blue;
-                    .avenir(10px);
-                }
-
-                span { 
-                    width: 15%;
-                    display: inline-block;
-                }
-
+                clear: right;
             }
         }
     }
@@ -402,4 +384,60 @@
             right: 17px;
         }
     }
+
+    #nutritionSection {
+        display: none;
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    #nutritionSection .box {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 1px 2px 5px #676767, inset -1px 1px 1px #ffffff;
+            margin: 20px 5px;
+            color: #000000;
+
+            .first {
+                display: inline-block;
+                width: 51%;
+            }
+
+            .second, .third, #amount, #rda {
+                display: inline-block;
+                width: 23%;
+                color: #a8a8a8;
+            }
+
+            .boxHeader {
+                background-color: #ebebeb;
+                border-radius: 5px 5px 0 0;
+                padding: 5px 10px;
+
+                .first {
+                    .avenir-bold(18px);
+                }
+                .second, .third {
+                    .avenir-bold(14px);
+                    color: #fa9100;
+                }
+            }
+            .boxEntry {
+                padding: 15px 10px;
+                border-bottom: 2px solid #e6e6e6;
+                .avenir(14px);
+
+                #name {
+                    display: inline-block;
+                    width: 51%;
+                    white-space: nowrap;
+                    overflow: hidden;
+                }
+
+                &:last-child{
+                    border-bottom: none;
+                }
+            }
+        }
 }

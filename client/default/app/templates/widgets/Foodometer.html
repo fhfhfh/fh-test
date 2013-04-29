@@ -106,68 +106,125 @@
 				<li id="add" class="btn"><img src="img/food/plus.png"/></li>
 				<li id="share" class="btn"><img src="img/food/share-icon.png"/>Share</li>
 				
-
-				<div id="foodList" class="box">
-					<div class="boxHeader">
-						<span>Tuesday, March 26, 2013
-						</span>
-					</div>
-					<div class="boxEntry">
-						<span id="name">Ham & Cheese Sandwich</span>
-						<span id="about">Whole Wheat Bread</span>
-					</div>
-					<div class="boxEntry">
-						<span id="name">Ham &  Sandwich</span>
-						<span id="about"> Bread</span>
-					</div>
-					<div class="boxEntry">
-						<span id="name">Ham & Cheese</span>
-						<span id="about">Whole  Bread</span>
-					</div>
-				</div>
-
-				<div class="box">
-					<label for="location">Location (where you ate)</label>
-					<input id="location" name="location" value="At Work"/>
-				</div>
-
-				<div class="box">
-					<label for="with">With (who you ate with)</label>
-					<input id="with" name="with" value="Co-Workers"/>
-				</div>
-
-				<div class="box">
-					<label for="time">Meal Time (time of day)</label>
-					<input id="time" name="time" value="12:30 PM"/>
-				</div>
-
-				<div class="box">
-					<label for="notes">Special Notes</label>
-					<textarea id="notes" name="notes" rows="4">Was very hungry today!</textarea>
-				</div>
-
-				<div class="box" id="nutrition">
-					<h2>Nutritional Facts</h2>
-					<hr/>
-					<div id="nutrients">
-						<div class="heading">% RDA</div><div class="heading">Amount</div>
-
-						<div id="values">
-							<span class="name">Calories:</span><span id="caloriesAmount">300</span><span id="caloriesRDA">10%</span>
-							<span class="subName">Calories from Fat:</span><span id="caloriesFromFatAmount">20g</span><span id="caloriesFromFatRDA">20%</span>
-							<span class="name">Total Fat:</span><span id="totalFatAmount"></span><span id="totalFatRDA"></span>
-							<span class="subName">Saturated Fat:</span><span id="saturatedFatAmount"></span><span id="saturatedFatRDA"></span>
-							<span class="name">Cholesterol:</span><span id="cholesterolAmount"></span><span id="cholesterolRDA"></span>
-							<span class="name">Sodium:</span><span id="sodiumAmount"></span><span id="sodiumRDA"></span>
-							<span class="name">Total Carbohydrates:</span><span id="totalCarbohydrateAmount"></span><span id="totalCarbohydrateRDA"></span>
-							<span class="subName">Dietary Fibre:</span><span id="dietaryFibreAmount"></span><span id="dietaryFibreRDA"></span>
-							<span class="subName">Sugars:</span><span id="sugarsAmount"></span><span id="sugarsRDA"></span>
-							<span class="subName">Protein:</span><span id="proteinAmount"></span><span id="proteinRDA"></span>
+				<div id="mealInputs">
+					<div id="foodList" class="box">
+						<div class="boxHeader">
+							<span>Tuesday, March 26, 2013
+							</span>
 						</div>
+						<div class="boxEntry">
+							<span id="name">Ham & Cheese Sandwich</span>
+							<span id="about">Whole Wheat Bread</span>
+						</div>
+						<div class="boxEntry">
+							<span id="name">Ham &  Sandwich</span>
+							<span id="about"> Bread</span>
+						</div>
+						<div class="boxEntry">
+							<span id="name">Ham & Cheese</span>
+							<span id="about">Whole  Bread</span>
+						</div>
+					</div>
+
+					<div class="box">
+						<label for="location">Location (where you ate)</label>
+						<input id="location" name="location" value="At Work"/>
+					</div>
+
+					<div class="box">
+						<label for="with">With (who you ate with)</label>
+						<input id="with" name="with" value="Co-Workers"/>
+					</div>
+
+					<div class="box">
+						<label for="time">Meal Time (time of day)</label>
+						<input id="time" name="time" value="12:30 PM"/>
+					</div>
+
+					<div class="box">
+						<label for="notes">Special Notes</label>
+						<textarea id="notes" name="notes" rows="4">Was very hungry today!</textarea>
+					</div>
+
+					<div class="box" id="nutrition">
+						<h2>Nutritional Facts</h2>
 					</div>
 				</div>
 
 			</div>
+
+			<div id="nutritionSection">
+				<div class="box">
+					<div class="boxHeader">
+						<span class="first">Nutritional Facts</span>
+						<span class="second">Amount</span>
+						<span class="third">Daily Value</span>
+					</div>
+
+					<div id="values">
+						<div class="boxEntry" id="totalCalories">
+							<span id="name">Calories</span>
+							<span id="amount">300</span>
+							<span id="rda">10%</span>
+						</div>
+
+						<div class="boxEntry" id="fat">
+							<span id="name">Total Fat</span>
+							<span id="amount"></span>
+							<span id="rda"></span>
+						</div>
+						
+						<div class="boxEntry" id="cholesterol"> 
+							<span id="name">Cholesterol</span>
+							<span id="amount"></span>
+							<span id="rda"></span>
+						</div>
+
+						<div class="boxEntry" id="sodium"> 
+							<span id="name">Sodium</span>
+							<span id="amount"></span>
+							<span id="rda"></span>
+						</div>
+
+						<div class="boxEntry" id="carbohydrates"> 
+							<span id="name">Carbohydrates</span>
+							<span id="amount"></span>
+							<span id="rda"></span>
+						</div>
+
+						<div class="boxEntry" id="dietryFibre"> 
+							<span id="name">Dietry Fibre</span>
+							<span id="amount"></span>
+							<span id="rda"></span>
+						</div>
+						
+						<div class="boxEntry" id="sugars"> 
+							<span id="name">Sugars</span>
+							<span id="amount"></span>
+							<span id="rda"></span>
+						</div>
+
+						<div class="boxEntry" id="protein"> 
+							<span id="name">Protein</span>
+							<span id="amount">20g</span>
+							<span id="rda">20%</span>
+						</div>
+
+						<div class="boxEntry" id="peachyPower"> 
+							<span id="name">Peachy&reg; Power&reg;</span>
+							<span id="amount">1</span>
+							<span id="rda">5%</span>
+						</div>
+					</div>
+				</div>
+
+				<div class="box" id="nutrition">
+					<h2>Back to Meal Details</h2>
+				</div>
+
+			</div>
+
+
 		</div>
 	</div>
 </div>
