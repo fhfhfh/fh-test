@@ -17,7 +17,9 @@ define(['jquery',
 		'fetchNewsAction'		: '', // no payload needed
 		'fetchAlertsAction'		: '',
         'saveUserProfileAction'	: '',
-        'folderManagerAction'	: ''
+        'folderManagerAction'	: '',
+        'fetchDBAction'         : '',
+        'createDBAction'        : ''
 
 	};
 

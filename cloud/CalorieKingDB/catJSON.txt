@@ -1,0 +1,4135 @@
+{
+    "Food": [
+     {
+            "Name": "Seeds",
+            "cid": "3",
+            "Seeds": {
+                "Seeds": [
+                    {
+                        "id": "1063383",
+                        "name": "Alfalfa Seeds, sprouted, raw",
+                        "fullname": "Seeds: Alfalfa Seeds, sprouted, raw",
+                        "brand_id": "6446",
+                        "base": "100",
+                        "type": "mass",
+                        "calories": "29",
+                        "protein": "3.99",
+                        "total_fat": "0.69",
+                        "total_carbohydrate": "3.78",
+                        "sugars": "0.18",
+                        "fiber": "2.5",
+                        "calcium": "32",
+                        "sodium": "6",
+                        "saturated_fatty_acids": "0.069",
+                        "cholesterol": "0",
+                        "rank": "2505",
+                        "serving": [
+                            {
+                                "name": "tablespoon (0.1 oz)",
+                                "size": "3"
+                            },
+                            {
+                                "name": "cup (1.2 oz)",
+                                "size": "33"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "1062642",
+                        "name": "Breadfruit, boiled",
+                        "fullname": "Seeds: Breadfruit, boiled",
+                        "brand_id": "6446",
+                        "base": "100",
+                        "type": "mass",
+                        "calories": "168",
+                        "protein": "5.3",
+                        "total_fat": "2.3",
+                        "total_carbohydrate": "32",
+                        "fiber": "4.8",
+                        "calcium": "61",
+                        "sodium": "23",
+                        "saturated_fatty_acids": "0.621",
+                        "cholesterol": "0",
+                        "rank": "34127",
+                        "serving": [
+                            {
+                                "name": "quantity (1 oz)",
+                                "size": "28.4"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "1062641",
+                        "name": "Breadfruit, raw",
+                        "fullname": "Seeds: Breadfruit, raw",
+                        "brand_id": "6446",
+                        "base": "100",
+                        "type": "mass",
+                        "calories": "191",
+                        "protein": "7.4",
+                        "total_fat": "5.59",
+                        "total_carbohydrate": "29.24",
+                        "fiber": "5.2",
+                        "calcium": "36",
+                        "sodium": "25",
+                        "saturated_fatty_acids": "1.509",
+                        "cholesterol": "0",
+                        "rank": "66891",
+                        "serving": [
+                            {
+                                "name": "quantity (1 oz)",
+                                "size": "28.4"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "1062579",
+                        "name": "Breadfruit, roasted",
+                        "fullname": "Seeds: Breadfruit, roasted",
+                        "brand_id": "6446",
+                        "base": "100",
+                        "type": "mass",
+                        "calories": "207",
+                        "protein": "6.2",
+                        "total_fat": "2.7",
+                        "total_carbohydrate": "40.1",
+                        "fiber": "6",
+                        "calcium": "86",
+                        "sodium": "28",
+                        "saturated_fatty_acids": "0.729",
+                        "cholesterol": "0",
+                        "rank": "31452",
+                        "serving": [
+                            {
+                                "name": "quantity (1 oz)",
+                                "size": "28.4"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "1062644",
+                        "name": "Breadnuttree, dried",
+                        "fullname": "Seeds: Breadnuttree, dried",
+                        "brand_id": "6446",
+                        "base": "100",
+                        "type": "mass",
+                        "calories": "367",
+                        "protein": "8.62",
+                        "total_fat": "1.68",
+                        "total_carbohydrate": "79.39",
+                        "fiber": "14.9",
+                        "calcium": "94",
+                        "sodium": "53",
+                        "saturated_fatty_acids": "0.454",
+                        "cholesterol": "0",
+                        "rank": "48696",
+                        "serving": [
+                            {
+                                "name": "quantity (1 oz)",
+                                "size": "28.4"
+                            },
+                            {
+                                "name": "cup (5.6 oz)",
+                                "size": "160"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "1062643",
+                        "name": "Breadnuttree, raw",
+                        "fullname": "Seeds: Breadnuttree, raw",
+                        "brand_id": "6446",
+                        "base": "100",
+                        "type": "mass",
+                        "calories": "217",
+                        "protein": "5.97",
+                        "total_fat": "0.99",
+                        "total_carbohydrate": "46.28",
+                        "calcium": "98",
+                        "sodium": "31",
+                        "saturated_fatty_acids": "0.267",
+                        "cholesterol": "0",
+                        "rank": "48697",
+                        "serving": [
+                            {
+                                "name": "serving, 8-14 seeds (1 oz)",
+                                "size": "28.35"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "1062645",
+                        "name": "Chia, dried",
+                        "fullname": "Seeds: Chia, dried",
+                        "brand_id": "6446",
+                        "base": "100",
+                        "type": "mass",
+                        "calories": "490",
+                        "protein": "15.62",
+                        "total_fat": "30.75",
+                        "total_carbohydrate": "43.85",
+                        "fiber": "37.7",
+                        "calcium": "631",
+                        "sodium": "19",
+                        "saturated_fatty_acids": "3.176",
+                        "cholesterol": "0",
+                        "rank": "967",
+                        "serving": [
+                            {
+                                "name": "serving (1 oz)",
+                                "size": "28.35"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "1062647",
+                        "name": "Cottonseed flour, low-fat",
+                        "fullname": "Seeds: Cottonseed flour, low-fat",
+                        "brand_id": "6446",
+                        "base": "100",
+                        "type": "mass",
+                        "calories": "332",
+                        "protein": "49.83",
+                        "total_fat": "1.41",
+                        "total_carbohydrate": "36.1",
+                        "calcium": "474",
+                        "sodium": "35",
+                        "saturated_fatty_acids": "0.31",
+                        "cholesterol": "0",
+                        "rank": "31449",
+                        "serving": [
+                            {
+                                "name": "serving (2 oz)",
+                                "size": "57"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "1062646",
+                        "name": "Cottonseed flour, partially defatted",
+                        "fullname": "Seeds: Cottonseed flour, partially defatted",
+                        "brand_id": "6446",
+                        "base": "100",
+                        "type": "mass",
+                        "calories": "359",
+                        "protein": "40.96",
+                        "total_fat": "6.2",
+                        "total_carbohydrate": "40.54",
+                        "fiber": "3",
+                        "calcium": "478",
+                        "sodium": "35",
+                        "saturated_fatty_acids": "1.588",
+                        "cholesterol": "0",
+                        "rank": "61369",
+                        "serving": [
+                            {
+                                "name": "tablespoon (0.2 oz)",
+                                "size": "5"
+                            },
+                            {
+                                "name": "cup (3.3 oz)",
+                                "size": "94"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "1062580",
+                        "name": "Cottonseed kernels, roasted",
+                        "fullname": "Seeds: Cottonseed kernels, roasted",
+                        "brand_id": "6446",
+                        "base": "100",
+                        "type": "mass",
+                        "calories": "506",
+                        "protein": "32.59",
+                        "total_fat": "36.29",
+                        "total_carbohydrate": "21.9",
+                        "fiber": "5.5",
+                        "calcium": "100",
+                        "sodium": "25",
+                        "saturated_fatty_acids": "9.699",
+                        "cholesterol": "0",
+                        "rank": "53043",
+                        "serving": [
+                            {
+                                "name": "tablespoon (0.4 oz)",
+                                "size": "10"
+                            },
+                            {
+                                "name": "cup (5.3 oz)",
+                                "size": "149"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "1062648",
+                        "name": "Cottonseed meal, partially defatted",
+                        "fullname": "Seeds: Cottonseed meal, partially defatted",
+                        "brand_id": "6446",
+                        "base": "100",
+                        "type": "mass",
+                        "calories": "367",
+                        "protein": "49.1",
+                        "total_fat": "4.77",
+                        "total_carbohydrate": "38.43",
+                        "calcium": "504",
+                        "sodium": "37",
+                        "saturated_fatty_acids": "1.207",
+                        "cholesterol": "0",
+                        "rank": "48695",
+                        "serving": [
+                            {
+                                "name": "serving (2 oz)",
+                                "size": "57"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "1080561",
+                        "name": "Flaxseeds or Linseeds, meal",
+                        "fullname": "Seeds: Flaxseeds or Linseeds, meal",
+                        "brand_id": "6446",
+                        "base": "16",
+                        "type": "mass",
+                        "calories": "90",
+                        "protein": "4",
+                        "total_fat": "6",
+                        "total_carbohydrate": "6",
+                        "sugars": "0",
+                        "fiber": "4",
+                        "calcium": "40",
+                        "sodium": "6",
+                        "saturated_fatty_acids": "0.5",
+                        "cholesterol": "0",
+                        "rank": "5634",
+                        "serving": [
+                            {
+                                "name": "serving, 2 1/2 tablespoons (0.6 oz)",
+                                "size": "16"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "1113075",
+                        "name": "Flaxseeds or Linseeds, raw",
+                        "fullname": "Seeds: Flaxseeds or Linseeds, raw",
+                        "brand_id": "6446",
+                        "base": "100",
+                        "type": "mass",
+                        "calories": "534",
+                        "protein": "18.29",
+                        "total_fat": "42.16",
+                        "total_carbohydrate": "28.88",
+                        "sugars": "1.55",
+                        "fiber": "27.3",
+                        "calcium": "255",
+                        "sodium": "30",
+                        "saturated_fatty_acids": "3.663",
+                        "cholesterol": "0",
+                        "rank": "3563",
+                        "serving": [
+                            {
+                                "name": "teaspoon, ground (0.1 oz)",
+                                "size": "2.5"
+                            },
+                            {
+                                "name": "teaspoon, whole (0.1 oz)",
+                                "size": "3.4"
+                            },
+                            {
+                                "name": "tablespoon, ground (0.2 oz)",
+                                "size": "7"
+                            },
+                            {
+                                "name": "tablespoon, whole (0.4 oz)",
+                                "size": "10.3"
+                            },
+                            {
+                                "name": "cup, whole (5.9 oz)",
+                                "size": "168"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "1062649",
+                        "name": "Lotus, dried",
+                        "fullname": "Seeds: Lotus, dried",
+                        "brand_id": "6446",
+                        "base": "100",
+                        "type": "mass",
+                        "calories": "332",
+                        "protein": "15.41",
+                        "total_fat": "1.97",
+                        "total_carbohydrate": "64.47",
+                        "calcium": "163",
+                        "sodium": "5",
+                        "saturated_fatty_acids": "0.33",
+                        "cholesterol": "0",
+                        "rank": "53042",
+                        "serving": [
+                            {
+                                "name": "serving, 42 medium seeds (1 oz)",
+                                "size": "28.35"
+                            },
+                            {
+                                "name": "cup (1.1 oz)",
+                                "size": "32"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "1062567",
+                        "name": "Lotus, raw",
+                        "fullname": "Seeds: Lotus, raw",
+                        "brand_id": "6446",
+                        "base": "100",
+                        "type": "mass",
+                        "calories": "332",
+                        "protein": "15.41",
+                        "total_fat": "1.97",
+                        "total_carbohydrate": "64.47",
+                        "calcium": "163",
+                        "sodium": "5",
+                        "saturated_fatty_acids": "0.33",
+                        "cholesterol": "0",
+                        "rank": "44508",
+                        "serving": [
+                            {
+                                "name": "serving, 42 medium seeds (1 oz)",
+                                "size": "28.35"
+                            },
+                            {
+                                "name": "cup (1.1 oz)",
+                                "size": "32"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "1062650",
+                        "name": "Pumpkin & Squash, kernels, dried",
+                        "fullname": "Seeds: Pumpkin & Squash, kernels, dried",
+                        "brand_id": "6446",
+                        "base": "100",
+                        "type": "mass",
+                        "calories": "541",
+                        "protein": "24.54",
+                        "total_fat": "45.85",
+                        "total_carbohydrate": "17.81",
+                        "sugars": "1",
+                        "fiber": "3.9",
+                        "calcium": "43",
+                        "sodium": "18",
+                        "saturated_fatty_acids": "8.674",
+                        "cholesterol": "0",
+                        "rank": "3948",
+                        "serving": [
+                            {
+                                "name": "serving, hulled, 142 seeds (1 oz)",
+                                "size": "28.35"
+                            },
+                            {
+                                "name": "cup (4.9 oz)",
+                                "size": "138"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "1151729",
+                        "name": "Pumpkin & Squash, kernels, roasted w. salt added",
+                        "fullname": "Seeds: Pumpkin & Squash, kernels, roasted w. salt added",
+                        "brand_id": "6446",
+                        "base": "100",
+                        "type": "mass",
+                        "calories": "522",
+                        "protein": "32.97",
+                        "total_fat": "42.13",
+                        "total_carbohydrate": "13.43",
+                        "sugars": "2.3",
+                        "fiber": "3.9",
+                        "calcium": "43",
+                        "sodium": "575",
+                        "saturated_fatty_acids": "7.97",
+                        "cholesterol": "0",
+                        "rank": "9450",
+                        "serving": [
+                            {
+                                "name": "cup (8 oz)",
+                                "size": "227"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "1062651",
+                        "name": "Pumpkin & Squash, kernels, roasted, no salt added",
+                        "fullname": "Seeds: Pumpkin & Squash, kernels, roasted, no salt added",
+                        "brand_id": "6446",
+                        "base": "100",
+                        "type": "mass",
+                        "calories": "522",
+                        "protein": "32.97",
+                        "total_fat": "42.13",
+                        "total_carbohydrate": "13.43",
+                        "sugars": "1",
+                        "fiber": "3.9",
+                        "calcium": "43",
+                        "sodium": "18",
+                        "saturated_fatty_acids": "7.97",
+                        "cholesterol": "0",
+                        "rank": "2160",
+                        "serving": [
+                            {
+                                "name": "quantity (1 oz)",
+                                "size": "28.35"
+                            },
+                            {
+                                "name": "cup (8 oz)",
+                                "size": "227"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "1151731",
+                        "name": "Pumpkin & Squash, whole, roasted w. salt added",
+                        "fullname": "Seeds: Pumpkin & Squash, whole, roasted w. salt added",
+                        "brand_id": "6446",
+                        "base": "100",
+                        "type": "mass",
+                        "calories": "446",
+                        "protein": "18.55",
+                        "total_fat": "19.4",
+                        "total_carbohydrate": "53.75",
+                        "calcium": "55",
+                        "sodium": "575",
+                        "saturated_fatty_acids": "3.67",
+                        "cholesterol": "0",
+                        "rank": "1366",
+                        "serving": [
+                            {
+                                "name": "serving, 85 seeds (1 oz)",
+                                "size": "28.35"
+                            },
+                            {
+                                "name": "cup (2.3 oz)",
+                                "size": "64"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "1151730",
+                        "name": "Pumpkin & Squash, whole, roasted, no salt added",
+                        "fullname": "Seeds: Pumpkin & Squash, whole, roasted, no salt added",
+                        "brand_id": "6446",
+                        "base": "100",
+                        "type": "mass",
+                        "calories": "446",
+                        "protein": "18.55",
+                        "total_fat": "19.4",
+                        "total_carbohydrate": "53.75",
+                        "calcium": "55",
+                        "sodium": "18",
+                        "saturated_fatty_acids": "3.67",
+                        "cholesterol": "0",
+                        "rank": "4561",
+                        "serving": [
+                            {
+                                "name": "serving, 85 seeds (1 oz)",
+                                "size": "28.35"
+                            },
+                            {
+                                "name": "cup (2.3 oz)",
+                                "size": "64"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "1062653",
+                        "name": "Safflower seed meal, partially defatted",
+                        "fullname": "Seeds: Safflower seed meal, partially defatted",
+                        "brand_id": "6446",
+                        "base": "100",
+                        "type": "mass",
+                        "calories": "342",
+                        "protein": "35.62",
+                        "total_fat": "2.39",
+                        "total_carbohydrate": "48.73",
+                        "calcium": "77",
+                        "sodium": "3",
+                        "saturated_fatty_acids": "0.207",
+                        "cholesterol": "0",
+                        "rank": "64544",
+                        "serving": [
+                            {
+                                "name": "serving (2 oz)",
+                                "size": "57"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "1062652",
+                        "name": "Safflower, kernels, dried",
+                        "fullname": "Seeds: Safflower, kernels, dried",
+                        "brand_id": "6446",
+                        "base": "100",
+                        "type": "mass",
+                        "calories": "517",
+                        "protein": "16.18",
+                        "total_fat": "38.45",
+                        "total_carbohydrate": "34.29",
+                        "calcium": "78",
+                        "sodium": "3",
+                        "saturated_fatty_acids": "3.682",
+                        "cholesterol": "0",
+                        "rank": "57355",
+                        "serving": [
+                            {
+                                "name": "quantity (1 oz)",
+                                "size": "28.4"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "1062563",
+                        "name": "Sesame Seeds, kernels, dried",
+                        "fullname": "Seeds: Sesame Seeds, kernels, dried",
+                        "brand_id": "6446",
+                        "base": "100",
+                        "type": "mass",
+                        "calories": "631",
+                        "protein": "20.45",
+                        "total_fat": "61.21",
+                        "total_carbohydrate": "11.73",
+                        "sugars": "0.48",
+                        "fiber": "11",
+                        "calcium": "60",
+                        "sodium": "47",
+                        "saturated_fatty_acids": "9.055",
+                        "cholesterol": "0",
+                        "rank": "15771",
+                        "serving": [
+                            {
+                                "name": "teaspoon (0.1 oz)",
+                                "size": "2.7"
+                            },
+                            {
+                                "name": "tablespoon (0.3 oz)",
+                                "size": "8"
+                            },
+                            {
+                                "name": "cup (5.3 oz)",
+                                "size": "150"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "1123740",
+                        "name": "Sesame Seeds, kernels, toasted w. salt added",
+                        "fullname": "Seeds: Sesame Seeds, kernels, toasted w. salt added",
+                        "brand_id": "6446",
+                        "base": "100",
+                        "type": "mass",
+                        "calories": "567",
+                        "protein": "16.96",
+                        "total_fat": "48",
+                        "total_carbohydrate": "26.04",
+                        "sugars": "0.48",
+                        "fiber": "16.9",
+                        "calcium": "131",
+                        "sodium": "588",
+                        "saturated_fatty_acids": "6.722",
+                        "cholesterol": "0",
+                        "rank": "43380",
+                        "serving": [
+                            {
+                                "name": "quantity (1 oz)",
+                                "size": "28.4"
+                            },
+                            {
+                                "name": "cup (4.5 oz)",
+                                "size": "128"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "1062656",
+                        "name": "Sesame Seeds, kernels, toasted, no salt added",
+                        "fullname": "Seeds: Sesame Seeds, kernels, toasted, no salt added",
+                        "brand_id": "6446",
+                        "base": "100",
+                        "type": "mass",
+                        "calories": "567",
+                        "protein": "16.96",
+                        "total_fat": "48",
+                        "total_carbohydrate": "26.04",
+                        "sugars": "0.48",
+                        "fiber": "16.9",
+                        "calcium": "131",
+                        "sodium": "39",
+                        "saturated_fatty_acids": "6.722",
+                        "cholesterol": "0",
+                        "rank": "44505",
+                        "serving": [
+                            {
+                                "name": "quantity (1 oz)",
+                                "size": "28.4"
+                            },
+                            {
+                                "name": "cup (4.5 oz)",
+                                "size": "128"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "1062654",
+                        "name": "Sesame Seeds, whole, dried",
+                        "fullname": "Seeds: Sesame Seeds, whole, dried",
+                        "brand_id": "6446",
+                        "base": "100",
+                        "type": "mass",
+                        "calories": "573",
+                        "protein": "17.73",
+                        "total_fat": "49.67",
+                        "total_carbohydrate": "23.45",
+                        "sugars": "0.3",
+                        "fiber": "11.8",
+                        "calcium": "975",
+                        "sodium": "11",
+                        "saturated_fatty_acids": "6.957",
+                        "cholesterol": "0",
+                        "rank": "1284",
+                        "serving": [
+                            {
+                                "name": "tablespoon (0.3 oz)",
+                                "size": "9"
+                            },
+                            {
+                                "name": "cup (5.1 oz)",
+                                "size": "144"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "1062655",
+                        "name": "Sesame Seeds, whole, roasted & toasted",
+                        "fullname": "Seeds: Sesame Seeds, whole, roasted & toasted",
+                        "brand_id": "6446",
+                        "base": "100",
+                        "type": "mass",
+                        "calories": "565",
+                        "protein": "16.96",
+                        "total_fat": "48",
+                        "total_carbohydrate": "25.74",
+                        "fiber": "14",
+                        "calcium": "989",
+                        "sodium": "11",
+                        "saturated_fatty_acids": "6.722",
+                        "cholesterol": "0",
+                        "rank": "5561",
+                        "serving": [
+                            {
+                                "name": "quantity (1 oz)",
+                                "size": "28.4"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "1062585",
+                        "name": "Sesame flour, High-Fat",
+                        "fullname": "Seeds: Sesame flour, High-Fat",
+                        "brand_id": "6446",
+                        "base": "100",
+                        "type": "mass",
+                        "calories": "526",
+                        "protein": "30.78",
+                        "total_fat": "37.1",
+                        "total_carbohydrate": "26.62",
+                        "calcium": "159",
+                        "sodium": "41",
+                        "saturated_fatty_acids": "5.196",
+                        "cholesterol": "0",
+                        "rank": "66892",
+                        "serving": [
+                            {
+                                "name": "serving (2 oz)",
+                                "size": "57"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "1062623",
+                        "name": "Sesame flour, Low-Fat",
+                        "fullname": "Seeds: Sesame flour, Low-Fat",
+                        "brand_id": "6446",
+                        "base": "100",
+                        "type": "mass",
+                        "calories": "333",
+                        "protein": "50.14",
+                        "total_fat": "1.75",
+                        "total_carbohydrate": "35.51",
+                        "calcium": "149",
+                        "sodium": "39",
+                        "saturated_fatty_acids": "0.201",
+                        "cholesterol": "0",
+                        "rank": "48698",
+                        "serving": [
+                            {
+                                "name": "serving (2 oz)",
+                                "size": "57"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "1062624",
+                        "name": "Sesame meal, partially defatted",
+                        "fullname": "Seeds: Sesame meal, partially defatted",
+                        "brand_id": "6446",
+                        "base": "100",
+                        "type": "mass",
+                        "calories": "382",
+                        "protein": "40.32",
+                        "total_fat": "11.89",
+                        "total_carbohydrate": "35.14",
+                        "calcium": "150",
+                        "sodium": "41",
+                        "saturated_fatty_acids": "1.634",
+                        "cholesterol": "0",
+                        "rank": "57356",
+                        "serving": [
+                            {
+                                "name": "serving (2 oz)",
+                                "size": "57"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "1062625",
+                        "name": "Sunflower Seeds, kernels, dried",
+                        "fullname": "Seeds: Sunflower Seeds, kernels, dried",
+                        "brand_id": "6446",
+                        "base": "100",
+                        "type": "mass",
+                        "calories": "570",
+                        "protein": "22.78",
+                        "total_fat": "49.57",
+                        "total_carbohydrate": "18.76",
+                        "sugars": "2.62",
+                        "fiber": "10.5",
+                        "calcium": "116",
+                        "sodium": "3",
+                        "saturated_fatty_acids": "5.195",
+                        "cholesterol": "0",
+                        "rank": "2550",
+                        "serving": [
+                            {
+                                "name": "serving, yield from 1 cup with hulls (1.6 oz)",
+                                "size": "46"
+                            },
+                            {
+                                "name": "cup (5.1 oz)",
+                                "size": "144"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "1123754",
+                        "name": "Sunflower Seeds, kernels, dry roasted w. salt added",
+                        "fullname": "Seeds: Sunflower Seeds, kernels, dry roasted w. salt added",
+                        "brand_id": "6446",
+                        "base": "100",
+                        "type": "mass",
+                        "calories": "582",
+                        "protein": "19.33",
+                        "total_fat": "49.8",
+                        "total_carbohydrate": "24.07",
+                        "sugars": "2.73",
+                        "fiber": "9",
+                        "calcium": "70",
+                        "sodium": "410",
+                        "saturated_fatty_acids": "5.219",
+                        "cholesterol": "0",
+                        "rank": "783",
+                        "serving": [
+                            {
+                                "name": "tablespoon (0.3 oz)",
+                                "size": "8"
+                            },
+                            {
+                                "name": "serving, 1/4 cup (1 oz)",
+                                "size": "28.4"
+                            },
+                            {
+                                "name": "cup (4.5 oz)",
+                                "size": "128"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "1062626",
+                        "name": "Sunflower Seeds, kernels, dry roasted, no salt added",
+                        "fullname": "Seeds: Sunflower Seeds, kernels, dry roasted, no salt added",
+                        "brand_id": "6446",
+                        "base": "100",
+                        "type": "mass",
+                        "calories": "582",
+                        "protein": "19.33",
+                        "total_fat": "49.8",
+                        "total_carbohydrate": "24.07",
+                        "sugars": "2.73",
+                        "fiber": "11.1",
+                        "calcium": "70",
+                        "sodium": "3",
+                        "saturated_fatty_acids": "5.219",
+                        "cholesterol": "0",
+                        "rank": "238",
+                        "serving": [
+                            {
+                                "name": "tablespoon (0.3 oz)",
+                                "size": "8"
+                            },
+                            {
+                                "name": "serving, 1/4 cup (1 oz)",
+                                "size": "28.4"
+                            },
+                            {
+                                "name": "cup, hulled (4.5 oz)",
+                                "size": "128"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "1062627",
+                        "name": "Sunflower Seeds, kernels, oil roasted, no salt added",
+                        "fullname": "Seeds: Sunflower Seeds, kernels, oil roasted, no salt added",
+                        "brand_id": "6446",
+                        "base": "100",
+                        "type": "mass",
+                        "calories": "592",
+                        "protein": "20.06",
+                        "total_fat": "51.3",
+                        "total_carbohydrate": "22.89",
+                        "sugars": "3.11",
+                        "fiber": "10.6",
+                        "calcium": "87",
+                        "sodium": "3",
+                        "saturated_fatty_acids": "7.068",
+                        "cholesterol": "0",
+                        "rank": "23779",
+                        "serving": [
+                            {
+                                "name": "serving, 1/5 cup (1 oz)",
+                                "size": "28.4"
+                            },
+                            {
+                                "name": "cup (4.8 oz)",
+                                "size": "135"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "1123753",
+                        "name": "Sunflower Seeds, kernels, oil toasted w. salt added",
+                        "fullname": "Seeds: Sunflower Seeds, kernels, oil toasted w. salt added",
+                        "brand_id": "6446",
+                        "base": "100",
+                        "type": "mass",
+                        "calories": "592",
+                        "protein": "20.06",
+                        "total_fat": "51.3",
+                        "total_carbohydrate": "22.89",
+                        "sugars": "3.11",
+                        "fiber": "10.6",
+                        "calcium": "87",
+                        "sodium": "410",
+                        "saturated_fatty_acids": "7.068",
+                        "cholesterol": "0",
+                        "rank": "8179",
+                        "serving": [
+                            {
+                                "name": "serving, 1/5 cup (1 oz)",
+                                "size": "28.4"
+                            },
+                            {
+                                "name": "cup (4.8 oz)",
+                                "size": "135"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "1123752",
+                        "name": "Sunflower Seeds, kernels, toasted w. salt added",
+                        "fullname": "Seeds: Sunflower Seeds, kernels, toasted w. salt added",
+                        "brand_id": "6446",
+                        "base": "100",
+                        "type": "mass",
+                        "calories": "619",
+                        "protein": "17.21",
+                        "total_fat": "56.8",
+                        "total_carbohydrate": "20.59",
+                        "fiber": "11.5",
+                        "calcium": "57",
+                        "sodium": "613",
+                        "saturated_fatty_acids": "5.953",
+                        "cholesterol": "0",
+                        "rank": "7347",
+                        "serving": [
+                            {
+                                "name": "quantity (1 oz)",
+                                "size": "28.4"
+                            },
+                            {
+                                "name": "cup (4.7 oz)",
+                                "size": "134"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "1062628",
+                        "name": "Sunflower Seeds, kernels, toasted, without salt",
+                        "fullname": "Seeds: Sunflower Seeds, kernels, toasted, without salt",
+                        "brand_id": "6446",
+                        "base": "100",
+                        "type": "mass",
+                        "calories": "619",
+                        "protein": "17.21",
+                        "total_fat": "56.8",
+                        "total_carbohydrate": "20.59",
+                        "fiber": "11.5",
+                        "calcium": "57",
+                        "sodium": "3",
+                        "saturated_fatty_acids": "5.953",
+                        "cholesterol": "0",
+                        "rank": "17217",
+                        "serving": [
+                            {
+                                "name": "oz (1 oz)",
+                                "size": "28.35"
+                            },
+                            {
+                                "name": "cup (4.7 oz)",
+                                "size": "134"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "1062630",
+                        "name": "Sunflower seed flour, partially defatted",
+                        "fullname": "Seeds: Sunflower seed flour, partially defatted",
+                        "brand_id": "6446",
+                        "base": "100",
+                        "type": "mass",
+                        "calories": "326",
+                        "protein": "48.06",
+                        "total_fat": "1.61",
+                        "total_carbohydrate": "35.83",
+                        "fiber": "5.2",
+                        "calcium": "114",
+                        "sodium": "3",
+                        "saturated_fatty_acids": "0.138",
+                        "cholesterol": "0",
+                        "rank": "40608",
+                        "serving": [
+                            {
+                                "name": "tablespoon (0.1 oz)",
+                                "size": "4"
+                            },
+                            {
+                                "name": "cup (2.3 oz)",
+                                "size": "64"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "1062553",
+                        "name": "Watermelon seed kernels, dried",
+                        "fullname": "Seeds: Watermelon seed kernels, dried",
+                        "brand_id": "6446",
+                        "base": "100",
+                        "type": "mass",
+                        "calories": "557",
+                        "protein": "28.33",
+                        "total_fat": "47.37",
+                        "total_carbohydrate": "15.31",
+                        "calcium": "54",
+                        "sodium": "99",
+                        "saturated_fatty_acids": "9.779",
+                        "cholesterol": "0",
+                        "rank": "3212",
+                        "serving": [
+                            {
+                                "name": "serving, 1/4 cup (1 oz)",
+                                "size": "28.4"
+                            },
+                            {
+                                "name": "cup (3.8 oz)",
+                                "size": "108"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "1116483",
+                        "name": "Flax",
+                        "fullname": "Arrowhead Mills: Seeds: Flax",
+                        "brand_id": "6457",
+                        "base": "27",
+                        "type": "mass",
+                        "calories": "140",
+                        "protein": "6",
+                        "total_fat": "9",
+                        "total_carbohydrate": "9",
+                        "sugars": "0",
+                        "fiber": "7",
+                        "calcium": "80",
+                        "sodium": "0",
+                        "saturated_fatty_acids": "1",
+                        "cholesterol": "0",
+                        "rank": "3629",
+                        "serving": [
+                            {
+                                "name": "serving, 3 tablespoons (1 oz)",
+                                "size": "27"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "1116482",
+                        "name": "Flax, Golden, Organic",
+                        "fullname": "Arrowhead Mills: Seeds: Flax, Golden, Organic",
+                        "brand_id": "6457",
+                        "base": "30",
+                        "type": "mass",
+                        "calories": "160",
+                        "protein": "8",
+                        "total_fat": "10",
+                        "total_carbohydrate": "10",
+                        "sugars": "0",
+                        "fiber": "9",
+                        "calcium": "60",
+                        "sodium": "10",
+                        "saturated_fatty_acids": "1",
+                        "cholesterol": "0",
+                        "rank": "7214",
+                        "serving": [
+                            {
+                                "name": "serving, 3 tablespoons (1.1 oz)",
+                                "size": "30"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "1052864",
+                        "name": "Popcorn, Organic",
+                        "fullname": "Arrowhead Mills: Seeds: Popcorn, Organic",
+                        "brand_id": "6457",
+                        "base": "46",
+                        "type": "mass",
+                        "calories": "170",
+                        "protein": "5",
+                        "total_fat": "2",
+                        "total_carbohydrate": "33",
+                        "sugars": "1",
+                        "fiber": "7",
+                        "calcium": "0",
+                        "sodium": "0",
+                        "saturated_fatty_acids": "0",
+                        "cholesterol": "0",
+                        "rank": "57434",
+                        "serving": [
+                            {
+                                "name": "serving, 1/4 cup (1.6 oz)",
+                                "size": "46"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "1052896",
+                        "name": "Sesame, Mechanically Hulled",
+                        "fullname": "Arrowhead Mills: Seeds: Sesame, Mechanically Hulled",
+                        "brand_id": "6457",
+                        "base": "35",
+                        "type": "mass",
+                        "calories": "210",
+                        "protein": "9",
+                        "total_fat": "19",
+                        "total_carbohydrate": "3",
+                        "sugars": "0",
+                        "fiber": "1",
+                        "calcium": "40",
+                        "sodium": "15",
+                        "saturated_fatty_acids": "2.5",
+                        "cholesterol": "0",
+                        "rank": "61417",
+                        "serving": [
+                            {
+                                "name": "serving, 1/4 cup (1.2 oz)",
+                                "size": "35"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "1052897",
+                        "name": "Sesame, Unhulled, Organic",
+                        "fullname": "Arrowhead Mills: Seeds: Sesame, Unhulled, Organic",
+                        "brand_id": "6457",
+                        "base": "34",
+                        "type": "mass",
+                        "calories": "190",
+                        "protein": "6",
+                        "total_fat": "17",
+                        "total_carbohydrate": "8",
+                        "sugars": "0",
+                        "fiber": "4",
+                        "calcium": "350",
+                        "sodium": "0",
+                        "saturated_fatty_acids": "2.5",
+                        "cholesterol": "0",
+                        "rank": "57433",
+                        "serving": [
+                            {
+                                "name": "serving, 1/4 cup (1.2 oz)",
+                                "size": "34"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "1052898",
+                        "name": "Sunflower",
+                        "fullname": "Arrowhead Mills: Seeds: Sunflower",
+                        "brand_id": "6457",
+                        "base": "30",
+                        "type": "mass",
+                        "calories": "170",
+                        "protein": "7",
+                        "total_fat": "15",
+                        "total_carbohydrate": "6",
+                        "sugars": "1",
+                        "fiber": "3",
+                        "calcium": "40",
+                        "sodium": "0",
+                        "saturated_fatty_acids": "1.5",
+                        "cholesterol": "0",
+                        "rank": "61416",
+                        "serving": [
+                            {
+                                "name": "serving, 1/4 cup (1.1 oz)",
+                                "size": "30"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "1172065",
+                        "name": "Barley, Pearl",
+                        "fullname": "Bob's Red Mill: Seeds: Barley, Pearl",
+                        "brand_id": "6468",
+                        "base": "50",
+                        "type": "mass",
+                        "calories": "180",
+                        "protein": "5",
+                        "total_fat": "1",
+                        "total_carbohydrate": "39",
+                        "sugars": "0",
+                        "fiber": "8",
+                        "calcium": "10",
+                        "sodium": "4",
+                        "saturated_fatty_acids": "0",
+                        "cholesterol": "0",
+                        "rank": "45751",
+                        "serving": [
+                            {
+                                "name": "serving, 1/4 cup (1.8 oz)",
+                                "size": "50"
+                            },
+                            {
+                                "name": "package (1 lb 14 oz)",
+                                "size": "850"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "1172066",
+                        "name": "Barley, Whole Hull-Less",
+                        "fullname": "Bob's Red Mill: Seeds: Barley, Whole Hull-Less",
+                        "brand_id": "6468",
+                        "base": "46",
+                        "type": "mass",
+                        "calories": "170",
+                        "protein": "6",
+                        "total_fat": "1",
+                        "total_carbohydrate": "34",
+                        "sugars": "0",
+                        "fiber": "8",
+                        "calcium": "20",
+                        "sodium": "5",
+                        "saturated_fatty_acids": "0",
+                        "cholesterol": "0",
+                        "rank": "32235",
+                        "serving": [
+                            {
+                                "name": "serving, 1/4 cup (1.6 oz)",
+                                "size": "46"
+                            },
+                            {
+                                "name": "package (1 lb 10 oz)",
+                                "size": "737"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "1172112",
+                        "name": "Beans, Adzuki",
+                        "fullname": "Bob's Red Mill: Seeds: Beans, Adzuki",
+                        "brand_id": "6468",
+                        "base": "98",
+                        "type": "mass",
+                        "calories": "323",
+                        "protein": "19",
+                        "total_fat": "0.5",
+                        "total_carbohydrate": "61",
+                        "sugars": "0",
+                        "fiber": "5",
+                        "calcium": "40",
+                        "sodium": "3",
+                        "saturated_fatty_acids": "0",
+                        "cholesterol": "0",
+                        "rank": "58554",
+                        "serving": [
+                            {
+                                "name": "serving, 1/2 cup (3.5 oz)",
+                                "size": "98"
+                            },
+                            {
+                                "name": "package (1 lb 12 oz)",
+                                "size": "793"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "1172113",
+                        "name": "Beans, Anasazi",
+                        "fullname": "Bob's Red Mill: Seeds: Beans, Anasazi",
+                        "brand_id": "6468",
+                        "base": "44",
+                        "type": "mass",
+                        "calories": "150",
+                        "protein": "10",
+                        "total_fat": "0.5",
+                        "total_carbohydrate": "27",
+                        "sugars": "0",
+                        "fiber": "9",
+                        "calcium": "60",
+                        "sodium": "0",
+                        "saturated_fatty_acids": "0",
+                        "cholesterol": "0",
+                        "rank": "62388",
+                        "serving": [
+                            {
+                                "name": "serving, 1/4 cup (1.6 oz)",
+                                "size": "44"
+                            },
+                            {
+                                "name": "package (1 lb 11 oz)",
+                                "size": "765"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "1172125",
+                        "name": "Beans, Baby Lima",
+                        "fullname": "Bob's Red Mill: Seeds: Beans, Baby Lima",
+                        "brand_id": "6468",
+                        "base": "44",
+                        "type": "mass",
+                        "calories": "150",
+                        "protein": "9",
+                        "total_fat": "0",
+                        "total_carbohydrate": "28",
+                        "sugars": "4",
+                        "fiber": "9",
+                        "calcium": "40",
+                        "sodium": "5",
+                        "saturated_fatty_acids": "0",
+                        "cholesterol": "0",
+                        "rank": "62387",
+                        "serving": [
+                            {
+                                "name": "serving, 1/4 cup (1.6 oz)",
+                                "size": "44"
+                            },
+                            {
+                                "name": "package (1 lb 12 oz)",
+                                "size": "793"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "1172114",
+                        "name": "Beans, Black Turtle",
+                        "fullname": "Bob's Red Mill: Seeds: Beans, Black Turtle",
+                        "brand_id": "6468",
+                        "base": "45",
+                        "type": "mass",
+                        "calories": "150",
+                        "protein": "10",
+                        "total_fat": "0",
+                        "total_carbohydrate": "28",
+                        "sugars": "1",
+                        "fiber": "11",
+                        "calcium": "80",
+                        "sodium": "0",
+                        "saturated_fatty_acids": "0",
+                        "cholesterol": "0",
+                        "rank": "54319",
+                        "serving": [
+                            {
+                                "name": "serving, 1/4 cup (1.6 oz)",
+                                "size": "45"
+                            },
+                            {
+                                "name": "package (1 lb 10 oz)",
+                                "size": "737"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "1172064",
+                        "name": "Beans, Cannellini",
+                        "fullname": "Bob's Red Mill: Seeds: Beans, Cannellini",
+                        "brand_id": "6468",
+                        "base": "45",
+                        "type": "mass",
+                        "calories": "150",
+                        "protein": "11",
+                        "total_fat": "0",
+                        "total_carbohydrate": "26",
+                        "sugars": "1",
+                        "fiber": "7",
+                        "calcium": "100",
+                        "sodium": "10",
+                        "saturated_fatty_acids": "0",
+                        "cholesterol": "0",
+                        "rank": "29889",
+                        "serving": [
+                            {
+                                "name": "serving, 1/4 cup (1.6 oz)",
+                                "size": "45"
+                            },
+                            {
+                                "name": "package (1 lb 8 oz)",
+                                "size": "680"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "1172115",
+                        "name": "Beans, Chana Dal",
+                        "fullname": "Bob's Red Mill: Seeds: Beans, Chana Dal",
+                        "brand_id": "6468",
+                        "base": "48",
+                        "type": "mass",
+                        "calories": "170",
+                        "protein": "9",
+                        "total_fat": "3",
+                        "total_carbohydrate": "29",
+                        "sugars": "5",
+                        "fiber": "8",
+                        "calcium": "80",
+                        "sodium": "10",
+                        "saturated_fatty_acids": "0",
+                        "cholesterol": "0",
+                        "rank": "11829",
+                        "serving": [
+                            {
+                                "name": "serving, 1/4 cup (1.7 oz)",
+                                "size": "48"
+                            },
+                            {
+                                "name": "package (1 lb 8 oz)",
+                                "size": "680"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "1172116",
+                        "name": "Beans, Cranberry",
+                        "fullname": "Bob's Red Mill: Seeds: Beans, Cranberry",
+                        "brand_id": "6468",
+                        "base": "42",
+                        "type": "mass",
+                        "calories": "140",
+                        "protein": "10",
+                        "total_fat": "0.5",
+                        "total_carbohydrate": "25",
+                        "sugars": "0",
+                        "fiber": "10",
+                        "calcium": "60",
+                        "sodium": "0",
+                        "saturated_fatty_acids": "0",
+                        "cholesterol": "0",
+                        "rank": "68722",
+                        "serving": [
+                            {
+                                "name": "serving, 1/4 cup (1.5 oz)",
+                                "size": "42"
+                            },
+                            {
+                                "name": "package (1 lb 11 oz)",
+                                "size": "765"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "1172117",
+                        "name": "Beans, Fava",
+                        "fullname": "Bob's Red Mill: Seeds: Beans, Fava",
+                        "brand_id": "6468",
+                        "base": "40",
+                        "type": "mass",
+                        "calories": "140",
+                        "protein": "10",
+                        "total_fat": "0.5",
+                        "total_carbohydrate": "23",
+                        "sugars": "1",
+                        "fiber": "10",
+                        "calcium": "40",
+                        "sodium": "5",
+                        "saturated_fatty_acids": "0",
+                        "cholesterol": "0",
+                        "rank": "45747",
+                        "serving": [
+                            {
+                                "name": "serving, 1/4 cup (1.4 oz)",
+                                "size": "40"
+                            },
+                            {
+                                "name": "package (1 lb 4 oz)",
+                                "size": "567"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "1172118",
+                        "name": "Beans, Flageolet",
+                        "fullname": "Bob's Red Mill: Seeds: Beans, Flageolet",
+                        "brand_id": "6468",
+                        "base": "45",
+                        "type": "mass",
+                        "calories": "150",
+                        "protein": "10",
+                        "total_fat": "0.5",
+                        "total_carbohydrate": "27",
+                        "sugars": "1",
+                        "fiber": "11",
+                        "calcium": "60",
+                        "sodium": "5",
+                        "saturated_fatty_acids": "0",
+                        "cholesterol": "0",
+                        "rank": "54318",
+                        "serving": [
+                            {
+                                "name": "serving, 1/4 cup (1.6 oz)",
+                                "size": "45"
+                            },
+                            {
+                                "name": "package (1 lb 8 oz)",
+                                "size": "680"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "1172119",
+                        "name": "Beans, Garbanzo",
+                        "fullname": "Bob's Red Mill: Seeds: Beans, Garbanzo",
+                        "brand_id": "6468",
+                        "base": "42",
+                        "type": "mass",
+                        "calories": "150",
+                        "protein": "8",
+                        "total_fat": "2.5",
+                        "total_carbohydrate": "25",
+                        "sugars": "4",
+                        "fiber": "7",
+                        "calcium": "40",
+                        "sodium": "10",
+                        "saturated_fatty_acids": "0",
+                        "cholesterol": "0",
+                        "rank": "65383",
+                        "serving": [
+                            {
+                                "name": "serving, 1/4 cup (1.5 oz)",
+                                "size": "42"
+                            },
+                            {
+                                "name": "package (1 lb 9 oz)",
+                                "size": "708"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "1172120",
+                        "name": "Beans, Great Northern",
+                        "fullname": "Bob's Red Mill: Seeds: Beans, Great Northern",
+                        "brand_id": "6468",
+                        "base": "42",
+                        "type": "mass",
+                        "calories": "140",
+                        "protein": "9",
+                        "total_fat": "0",
+                        "total_carbohydrate": "26",
+                        "sugars": "1",
+                        "fiber": "8",
+                        "calcium": "80",
+                        "sodium": "5",
+                        "saturated_fatty_acids": "0",
+                        "cholesterol": "0",
+                        "rank": "38140",
+                        "serving": [
+                            {
+                                "name": "serving, 1/4 cup (1.5 oz)",
+                                "size": "42"
+                            },
+                            {
+                                "name": "package (1 lb 11 oz)",
+                                "size": "765"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "1172126",
+                        "name": "Beans, Large Lima",
+                        "fullname": "Bob's Red Mill: Seeds: Beans, Large Lima",
+                        "brand_id": "6468",
+                        "base": "44",
+                        "type": "mass",
+                        "calories": "150",
+                        "protein": "9",
+                        "total_fat": "0",
+                        "total_carbohydrate": "28",
+                        "sugars": "4",
+                        "fiber": "8",
+                        "calcium": "0",
+                        "sodium": "10",
+                        "saturated_fatty_acids": "0",
+                        "cholesterol": "0",
+                        "rank": "58553",
+                        "serving": [
+                            {
+                                "name": "serving, 1/4 cup (1.6 oz)",
+                                "size": "44"
+                            },
+                            {
+                                "name": "package (1 lb 12 oz)",
+                                "size": "793"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "1172127",
+                        "name": "Beans, Mung",
+                        "fullname": "Bob's Red Mill: Seeds: Beans, Mung",
+                        "brand_id": "6468",
+                        "base": "51",
+                        "type": "mass",
+                        "calories": "180",
+                        "protein": "12",
+                        "total_fat": "0.5",
+                        "total_carbohydrate": "32",
+                        "sugars": "3",
+                        "fiber": "8",
+                        "calcium": "60",
+                        "sodium": "10",
+                        "saturated_fatty_acids": "0",
+                        "cholesterol": "0",
+                        "rank": "17497",
+                        "serving": [
+                            {
+                                "name": "serving, 1/4 cup (1.8 oz)",
+                                "size": "51"
+                            },
+                            {
+                                "name": "package (1 lb 11 oz)",
+                                "size": "765"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "1172130",
+                        "name": "Beans, Pinto",
+                        "fullname": "Bob's Red Mill: Seeds: Beans, Pinto",
+                        "brand_id": "6468",
+                        "base": "44",
+                        "type": "mass",
+                        "calories": "150",
+                        "protein": "9",
+                        "total_fat": "0.5",
+                        "total_carbohydrate": "27",
+                        "sugars": "1",
+                        "fiber": "7",
+                        "calcium": "40",
+                        "sodium": "5",
+                        "saturated_fatty_acids": "0",
+                        "cholesterol": "0",
+                        "rank": "62386",
+                        "serving": [
+                            {
+                                "name": "serving, 1/4 cup (1.6 oz)",
+                                "size": "44"
+                            },
+                            {
+                                "name": "package (1 lb 11 oz)",
+                                "size": "765"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "1172121",
+                        "name": "Beans, Red Kidney",
+                        "fullname": "Bob's Red Mill: Seeds: Beans, Red Kidney",
+                        "brand_id": "6468",
+                        "base": "42",
+                        "type": "mass",
+                        "calories": "140",
+                        "protein": "9",
+                        "total_fat": "0",
+                        "total_carbohydrate": "25",
+                        "sugars": "1",
+                        "fiber": "6",
+                        "calcium": "60",
+                        "sodium": "5",
+                        "saturated_fatty_acids": "0",
+                        "cholesterol": "0",
+                        "rank": "8723",
+                        "serving": [
+                            {
+                                "name": "serving, 1/4 cup (1.5 oz)",
+                                "size": "42"
+                            },
+                            {
+                                "name": "package (1 lb 11 oz)",
+                                "size": "765"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "1172132",
+                        "name": "Beans, Small Red",
+                        "fullname": "Bob's Red Mill: Seeds: Beans, Small Red",
+                        "brand_id": "6468",
+                        "base": "46",
+                        "type": "mass",
+                        "calories": "160",
+                        "protein": "10",
+                        "total_fat": "0",
+                        "total_carbohydrate": "28",
+                        "sugars": "1",
+                        "fiber": "7",
+                        "calcium": "40",
+                        "sodium": "5",
+                        "saturated_fatty_acids": "0",
+                        "cholesterol": "0",
+                        "rank": "29887",
+                        "serving": [
+                            {
+                                "name": "serving, 1/4 cup (1.6 oz)",
+                                "size": "46"
+                            },
+                            {
+                                "name": "package (1 lb 11 oz)",
+                                "size": "765"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "1172108",
+                        "name": "Berries, Hard Red Wheat",
+                        "fullname": "Bob's Red Mill: Seeds: Berries, Hard Red Wheat",
+                        "brand_id": "6468",
+                        "base": "45",
+                        "type": "mass",
+                        "calories": "150",
+                        "protein": "6",
+                        "total_fat": "0.5",
+                        "total_carbohydrate": "32",
+                        "sugars": "1",
+                        "fiber": "6",
+                        "calcium": "20",
+                        "sodium": "0",
+                        "saturated_fatty_acids": "0",
+                        "cholesterol": "0",
+                        "rank": "8098",
+                        "serving": [
+                            {
+                                "name": "serving, 1/4 cup (1.6 oz)",
+                                "size": "45"
+                            },
+                            {
+                                "name": "package (2 lbs)",
+                                "size": "907"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "1172111",
+                        "name": "Berries, Soft White Wheat",
+                        "fullname": "Bob's Red Mill: Seeds: Berries, Soft White Wheat",
+                        "brand_id": "6468",
+                        "base": "48",
+                        "type": "mass",
+                        "calories": "160",
+                        "protein": "7",
+                        "total_fat": "1",
+                        "total_carbohydrate": "33",
+                        "sugars": "0",
+                        "fiber": "6",
+                        "calcium": "20",
+                        "sodium": "0",
+                        "saturated_fatty_acids": "0",
+                        "cholesterol": "0",
+                        "rank": "14129",
+                        "serving": [
+                            {
+                                "name": "serving, 1/4 cup (1.7 oz)",
+                                "size": "48"
+                            },
+                            {
+                                "name": "package (2 lbs)",
+                                "size": "907"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "1172107",
+                        "name": "Berries, Triticale",
+                        "fullname": "Bob's Red Mill: Seeds: Berries, Triticale",
+                        "brand_id": "6468",
+                        "base": "45",
+                        "type": "mass",
+                        "calories": "150",
+                        "protein": "6",
+                        "total_fat": "1",
+                        "total_carbohydrate": "32",
+                        "sugars": "0",
+                        "fiber": "7",
+                        "calcium": "20",
+                        "sodium": "2",
+                        "saturated_fatty_acids": "0",
+                        "cholesterol": "0",
+                        "rank": "67514",
+                        "serving": [
+                            {
+                                "name": "serving, 1/4 cup (1.6 oz)",
+                                "size": "45"
+                            },
+                            {
+                                "name": "package (1 lb 12 oz)",
+                                "size": "793"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "1138701",
+                        "name": "Flaxseed Meal",
+                        "fullname": "Bob's Red Mill: Seeds: Flaxseed Meal",
+                        "brand_id": "6468",
+                        "base": "13",
+                        "type": "mass",
+                        "calories": "60",
+                        "protein": "3",
+                        "total_fat": "4.5",
+                        "total_carbohydrate": "4",
+                        "sugars": "0",
+                        "fiber": "4",
+                        "calcium": "20",
+                        "sodium": "0",
+                        "saturated_fatty_acids": "0",
+                        "cholesterol": "0",
+                        "rank": "6042",
+                        "serving": [
+                            {
+                                "name": "serving, 2 tablespoons (0.5 oz)",
+                                "size": "13"
+                            },
+                            {
+                                "name": "package (1 lb)",
+                                "size": "453.6"
+                            },
+                            {
+                                "name": "package (2 lbs)",
+                                "size": "907.2"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "1172070",
+                        "name": "Flexseeds, Brown",
+                        "fullname": "Bob's Red Mill: Seeds: Flexseeds, Brown",
+                        "brand_id": "6468",
+                        "base": "20",
+                        "type": "mass",
+                        "calories": "90",
+                        "protein": "4",
+                        "total_fat": "8",
+                        "total_carbohydrate": "7",
+                        "sugars": "0",
+                        "fiber": "6",
+                        "calcium": "60",
+                        "sodium": "5",
+                        "saturated_fatty_acids": "0.5",
+                        "cholesterol": "0",
+                        "rank": "35103",
+                        "serving": [
+                            {
+                                "name": "serving, 3 tablespoons (0.7 oz)",
+                                "size": "20"
+                            },
+                            {
+                                "name": "package (1 lb 8 oz)",
+                                "size": "680"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "1171886",
+                        "name": "Golden Couscous",
+                        "fullname": "Bob's Red Mill: Seeds: Golden Couscous",
+                        "brand_id": "6468",
+                        "base": "62",
+                        "type": "mass",
+                        "calories": "230",
+                        "protein": "8",
+                        "total_fat": "0",
+                        "total_carbohydrate": "48",
+                        "sugars": "1",
+                        "fiber": "3",
+                        "calcium": "0",
+                        "sodium": "5",
+                        "saturated_fatty_acids": "0",
+                        "cholesterol": "0",
+                        "rank": "27746",
+                        "serving": [
+                            {
+                                "name": "serving, 1/3 cup (2.2 oz)",
+                                "size": "62"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "1138702",
+                        "name": "Golden Flaxseed Meal",
+                        "fullname": "Bob's Red Mill: Seeds: Golden Flaxseed Meal",
+                        "brand_id": "6468",
+                        "base": "13",
+                        "type": "mass",
+                        "calories": "60",
+                        "protein": "3",
+                        "total_fat": "4.5",
+                        "total_carbohydrate": "4",
+                        "sugars": "0",
+                        "fiber": "4",
+                        "calcium": "20",
+                        "sodium": "0",
+                        "saturated_fatty_acids": "0",
+                        "cholesterol": "0",
+                        "rank": "19575",
+                        "serving": [
+                            {
+                                "name": "serving, 2 tablespoons (0.5 oz)",
+                                "size": "13"
+                            },
+                            {
+                                "name": "package (1 lb)",
+                                "size": "453.6"
+                            },
+                            {
+                                "name": "package (2 lbs)",
+                                "size": "907.2"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "1172073",
+                        "name": "Groats, Organic Whole Oat",
+                        "fullname": "Bob's Red Mill: Seeds: Groats, Organic Whole Oat",
+                        "brand_id": "6468",
+                        "base": "46",
+                        "type": "mass",
+                        "calories": "180",
+                        "protein": "7",
+                        "total_fat": "3",
+                        "total_carbohydrate": "30",
+                        "sugars": "1",
+                        "fiber": "5",
+                        "calcium": "0",
+                        "sodium": "0",
+                        "saturated_fatty_acids": "0.5",
+                        "cholesterol": "0",
+                        "rank": "16684",
+                        "serving": [
+                            {
+                                "name": "serving, 1/4 cup (1.6 oz)",
+                                "size": "46"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "1172074",
+                        "name": "Groats, Whole Oat",
+                        "fullname": "Bob's Red Mill: Seeds: Groats, Whole Oat",
+                        "brand_id": "6468",
+                        "base": "40",
+                        "type": "mass",
+                        "calories": "110",
+                        "protein": "7",
+                        "total_fat": "2.5",
+                        "total_carbohydrate": "27",
+                        "sugars": "1",
+                        "fiber": "4",
+                        "calcium": "20",
+                        "sodium": "0",
+                        "saturated_fatty_acids": "0",
+                        "cholesterol": "0",
+                        "rank": "9651",
+                        "serving": [
+                            {
+                                "name": "serving, 1/4 cup (1.4 oz)",
+                                "size": "40"
+                            },
+                            {
+                                "name": "package (1 lb 13 oz)",
+                                "size": "822"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "1172071",
+                        "name": "Hulled Hemp",
+                        "fullname": "Bob's Red Mill: Seeds: Hulled Hemp",
+                        "brand_id": "6468",
+                        "base": "15",
+                        "type": "mass",
+                        "calories": "90",
+                        "protein": "5",
+                        "total_fat": "6",
+                        "total_carbohydrate": "3",
+                        "sugars": "0",
+                        "fiber": "2",
+                        "calcium": "0",
+                        "sodium": "0",
+                        "saturated_fatty_acids": "1",
+                        "cholesterol": "0",
+                        "rank": "14132",
+                        "serving": [
+                            {
+                                "name": "serving, 2 tablespoons (0.5 oz)",
+                                "size": "15"
+                            },
+                            {
+                                "name": "package (12 oz)",
+                                "size": "340"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "1172122",
+                        "name": "Lentils",
+                        "fullname": "Bob's Red Mill: Seeds: Lentils",
+                        "brand_id": "6468",
+                        "base": "45",
+                        "type": "mass",
+                        "calories": "150",
+                        "protein": "11",
+                        "total_fat": "0",
+                        "total_carbohydrate": "27",
+                        "sugars": "2",
+                        "fiber": "7",
+                        "calcium": "40",
+                        "sodium": "15",
+                        "saturated_fatty_acids": "0",
+                        "cholesterol": "0",
+                        "rank": "9650",
+                        "serving": [
+                            {
+                                "name": "serving, 1/4 cup (1.6 oz)",
+                                "size": "45"
+                            },
+                            {
+                                "name": "package (1 lb 11 oz)",
+                                "size": "765"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "1172123",
+                        "name": "Lentils, Petite French Green",
+                        "fullname": "Bob's Red Mill: Seeds: Lentils, Petite French Green",
+                        "brand_id": "6468",
+                        "base": "48",
+                        "type": "mass",
+                        "calories": "160",
+                        "protein": "12",
+                        "total_fat": "0",
+                        "total_carbohydrate": "29",
+                        "sugars": "2",
+                        "fiber": "7",
+                        "calcium": "40",
+                        "sodium": "15",
+                        "saturated_fatty_acids": "0",
+                        "cholesterol": "0",
+                        "rank": "7592",
+                        "serving": [
+                            {
+                                "name": "serving, 1/4 cup (1.7 oz)",
+                                "size": "48"
+                            },
+                            {
+                                "name": "package (1 lb 8 oz)",
+                                "size": "680"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "1172124",
+                        "name": "Lentils, Red",
+                        "fullname": "Bob's Red Mill: Seeds: Lentils, Red",
+                        "brand_id": "6468",
+                        "base": "45",
+                        "type": "mass",
+                        "calories": "150",
+                        "protein": "11",
+                        "total_fat": "0",
+                        "total_carbohydrate": "27",
+                        "sugars": "2",
+                        "fiber": "7",
+                        "calcium": "40",
+                        "sodium": "15",
+                        "saturated_fatty_acids": "0",
+                        "cholesterol": "0",
+                        "rank": "3127",
+                        "serving": [
+                            {
+                                "name": "serving, 1/4 cup (1.6 oz)",
+                                "size": "45"
+                            },
+                            {
+                                "name": "package (1 lb 11 oz)",
+                                "size": "765"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "1172109",
+                        "name": "Organic Hard Red Spring Wheat",
+                        "fullname": "Bob's Red Mill: Seeds: Organic Hard Red Spring Wheat",
+                        "brand_id": "6468",
+                        "base": "48",
+                        "type": "mass",
+                        "calories": "170",
+                        "protein": "7",
+                        "total_fat": "1",
+                        "total_carbohydrate": "33",
+                        "sugars": "1",
+                        "fiber": "5",
+                        "calcium": "0",
+                        "sodium": "1",
+                        "saturated_fatty_acids": "0",
+                        "cholesterol": "0",
+                        "rank": "65384",
+                        "serving": [
+                            {
+                                "name": "serving, 1/4 cup (1.7 oz)",
+                                "size": "48"
+                            },
+                            {
+                                "name": "package (1 lb 12 oz)",
+                                "size": "793"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "1172110",
+                        "name": "Organic Hard Red Wheat",
+                        "fullname": "Bob's Red Mill: Seeds: Organic Hard Red Wheat",
+                        "brand_id": "6468",
+                        "base": "48",
+                        "type": "mass",
+                        "calories": "160",
+                        "protein": "6",
+                        "total_fat": "0.5",
+                        "total_carbohydrate": "34",
+                        "sugars": "0",
+                        "fiber": "6",
+                        "calcium": "20",
+                        "sodium": "0",
+                        "saturated_fatty_acids": "0",
+                        "cholesterol": "0",
+                        "rank": "54320",
+                        "serving": [
+                            {
+                                "name": "serving, 1/4 cup (1.7 oz)",
+                                "size": "48"
+                            },
+                            {
+                                "name": "package (1 lb 12 oz)",
+                                "size": "793"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "1138725",
+                        "name": "Organic, Golden Flaxseeds",
+                        "fullname": "Bob's Red Mill: Seeds: Organic, Golden Flaxseeds",
+                        "brand_id": "6468",
+                        "base": "13",
+                        "type": "mass",
+                        "calories": "60",
+                        "protein": "3",
+                        "total_fat": "4.5",
+                        "total_carbohydrate": "4",
+                        "sugars": "0",
+                        "fiber": "4",
+                        "calcium": "20",
+                        "sodium": "0",
+                        "saturated_fatty_acids": "0.5",
+                        "cholesterol": "0",
+                        "rank": "30557",
+                        "serving": [
+                            {
+                                "name": "serving, 3 tablespoons (1.1 oz)",
+                                "size": "32"
+                            },
+                            {
+                                "name": "package (1 lb 8 oz)",
+                                "size": "680.4"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "1172072",
+                        "name": "Organic, Kamut Berries",
+                        "fullname": "Bob's Red Mill: Seeds: Organic, Kamut Berries",
+                        "brand_id": "6468",
+                        "base": "46",
+                        "type": "mass",
+                        "calories": "160",
+                        "protein": "7",
+                        "total_fat": "1",
+                        "total_carbohydrate": "32",
+                        "sugars": "4",
+                        "fiber": "4",
+                        "calcium": "20",
+                        "sodium": "0",
+                        "saturated_fatty_acids": "0",
+                        "cholesterol": "0",
+                        "rank": "15311",
+                        "serving": [
+                            {
+                                "name": "serving, 1/4 cup (1.6 oz)",
+                                "size": "46"
+                            },
+                            {
+                                "name": "package (1 lb 8 oz)",
+                                "size": "680"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "1172093",
+                        "name": "Organic, Spelt Berries",
+                        "fullname": "Bob's Red Mill: Seeds: Organic, Spelt Berries",
+                        "brand_id": "6468",
+                        "base": "45",
+                        "type": "mass",
+                        "calories": "130",
+                        "protein": "5",
+                        "total_fat": "1",
+                        "total_carbohydrate": "33",
+                        "sugars": "0",
+                        "fiber": "6",
+                        "calcium": "0",
+                        "sodium": "0",
+                        "saturated_fatty_acids": "0",
+                        "cholesterol": "0",
+                        "rank": "29888",
+                        "serving": [
+                            {
+                                "name": "serving, 1/4 cup (1.6 oz)",
+                                "size": "45"
+                            },
+                            {
+                                "name": "package (1 lb 8 oz)",
+                                "size": "680"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "1172128",
+                        "name": "Peas, Green Split",
+                        "fullname": "Bob's Red Mill: Seeds: Peas, Green Split",
+                        "brand_id": "6468",
+                        "base": "51",
+                        "type": "mass",
+                        "calories": "170",
+                        "protein": "13",
+                        "total_fat": "0.5",
+                        "total_carbohydrate": "31",
+                        "sugars": "4",
+                        "fiber": "13",
+                        "calcium": "20",
+                        "sodium": "10",
+                        "saturated_fatty_acids": "0",
+                        "cholesterol": "0",
+                        "rank": "38139",
+                        "serving": [
+                            {
+                                "name": "serving, 1/4 cup (1.8 oz)",
+                                "size": "51"
+                            },
+                            {
+                                "name": "package (1 lb 13 oz)",
+                                "size": "822"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "1172129",
+                        "name": "Peas, Yellow Split",
+                        "fullname": "Bob's Red Mill: Seeds: Peas, Yellow Split",
+                        "brand_id": "6468",
+                        "base": "51",
+                        "type": "mass",
+                        "calories": "170",
+                        "protein": "13",
+                        "total_fat": "0.5",
+                        "total_carbohydrate": "31",
+                        "sugars": "4",
+                        "fiber": "13",
+                        "calcium": "20",
+                        "sodium": "10",
+                        "saturated_fatty_acids": "0",
+                        "cholesterol": "0",
+                        "rank": "19290",
+                        "serving": [
+                            {
+                                "name": "serving, 1/4 cup (1.8 oz)",
+                                "size": "51"
+                            },
+                            {
+                                "name": "package (1 lb 13 oz)",
+                                "size": "822"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "1172068",
+                        "name": "Popcorn, White",
+                        "fullname": "Bob's Red Mill: Seeds: Popcorn, White",
+                        "brand_id": "6468",
+                        "type": "serving",
+                        "calories": "90",
+                        "protein": "3",
+                        "total_fat": "1",
+                        "total_carbohydrate": "18",
+                        "sugars": "0",
+                        "fiber": "3",
+                        "calcium": "0",
+                        "sodium": "0",
+                        "saturated_fatty_acids": "0",
+                        "cholesterol": "0",
+                        "rank": "45750",
+                        "serving": [
+                            {
+                                "name": "serving, 1/8 cup, unpopped"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "1172069",
+                        "name": "Popcorn, Yellow",
+                        "fullname": "Bob's Red Mill: Seeds: Popcorn, Yellow",
+                        "brand_id": "6468",
+                        "type": "serving",
+                        "calories": "90",
+                        "protein": "3",
+                        "total_fat": "1",
+                        "total_carbohydrate": "18",
+                        "sugars": "0",
+                        "fiber": "3",
+                        "calcium": "0",
+                        "sodium": "0",
+                        "saturated_fatty_acids": "0",
+                        "cholesterol": "0",
+                        "rank": "32234",
+                        "serving": [
+                            {
+                                "name": "serving, 1/8 cup, unpopped"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "1172088",
+                        "name": "Poppy",
+                        "fullname": "Bob's Red Mill: Seeds: Poppy",
+                        "brand_id": "6468",
+                        "base": "29",
+                        "type": "mass",
+                        "calories": "160",
+                        "protein": "5",
+                        "total_fat": "13",
+                        "total_carbohydrate": "7",
+                        "sugars": "4",
+                        "fiber": "3",
+                        "calcium": "400",
+                        "sodium": "5",
+                        "saturated_fatty_acids": "1.5",
+                        "cholesterol": "0",
+                        "rank": "45748",
+                        "serving": [
+                            {
+                                "name": "serving, 3 tablespoons (1 oz)",
+                                "size": "29"
+                            },
+                            {
+                                "name": "package (1 lb 5.9 oz)",
+                                "size": "622"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "1172089",
+                        "name": "Raw Pumpkin",
+                        "fullname": "Bob's Red Mill: Seeds: Raw Pumpkin",
+                        "brand_id": "6468",
+                        "base": "23",
+                        "type": "mass",
+                        "calories": "120",
+                        "protein": "6",
+                        "total_fat": "11",
+                        "total_carbohydrate": "4",
+                        "sugars": "0",
+                        "fiber": "1",
+                        "calcium": "0",
+                        "sodium": "0",
+                        "saturated_fatty_acids": "2",
+                        "cholesterol": "0",
+                        "rank": "2957",
+                        "serving": [
+                            {
+                                "name": "serving, 3 tablespoons (0.8 oz)",
+                                "size": "23"
+                            },
+                            {
+                                "name": "package (1 lb 8 oz)",
+                                "size": "680"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "1172075",
+                        "name": "Rice, Arborio",
+                        "fullname": "Bob's Red Mill: Seeds: Rice, Arborio",
+                        "brand_id": "6468",
+                        "base": "48",
+                        "type": "mass",
+                        "calories": "170",
+                        "protein": "4",
+                        "total_fat": "0.5",
+                        "total_carbohydrate": "38",
+                        "sugars": "0",
+                        "fiber": "2",
+                        "calcium": "0",
+                        "sodium": "0",
+                        "saturated_fatty_acids": "0",
+                        "cholesterol": "0",
+                        "rank": "32233",
+                        "serving": [
+                            {
+                                "name": "serving, 1/4 cup (1.7 oz)",
+                                "size": "48"
+                            },
+                            {
+                                "name": "package (1 lb 11 oz)",
+                                "size": "765"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "1172076",
+                        "name": "Rice, Basmati Brown",
+                        "fullname": "Bob's Red Mill: Seeds: Rice, Basmati Brown",
+                        "brand_id": "6468",
+                        "base": "45",
+                        "type": "mass",
+                        "calories": "150",
+                        "protein": "4",
+                        "total_fat": "1.5",
+                        "total_carbohydrate": "34",
+                        "sugars": "1",
+                        "fiber": "2",
+                        "calcium": "0",
+                        "sodium": "0",
+                        "saturated_fatty_acids": "0",
+                        "cholesterol": "0",
+                        "rank": "5168",
+                        "serving": [
+                            {
+                                "name": "serving, 1/4 cup (1.6 oz)",
+                                "size": "45"
+                            },
+                            {
+                                "name": "package (1 lb 11 oz)",
+                                "size": "765"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "1172077",
+                        "name": "Rice, Basmati White",
+                        "fullname": "Bob's Red Mill: Seeds: Rice, Basmati White",
+                        "brand_id": "6468",
+                        "base": "51",
+                        "type": "mass",
+                        "calories": "170",
+                        "protein": "4",
+                        "total_fat": "0.5",
+                        "total_carbohydrate": "38",
+                        "sugars": "0",
+                        "fiber": "0",
+                        "calcium": "0",
+                        "sodium": "0",
+                        "saturated_fatty_acids": "0",
+                        "cholesterol": "0",
+                        "rank": "856",
+                        "serving": [
+                            {
+                                "name": "serving, 1/4 cup (1.8 oz)",
+                                "size": "51"
+                            },
+                            {
+                                "name": "package (1 lb 11 oz)",
+                                "size": "765"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "1172084",
+                        "name": "Rice, Country Blend",
+                        "fullname": "Bob's Red Mill: Seeds: Rice, Country Blend",
+                        "brand_id": "6468",
+                        "base": "46",
+                        "type": "mass",
+                        "calories": "160",
+                        "protein": "3",
+                        "total_fat": "1.5",
+                        "total_carbohydrate": "35",
+                        "sugars": "0",
+                        "fiber": "3",
+                        "calcium": "0",
+                        "sodium": "0",
+                        "saturated_fatty_acids": "0",
+                        "cholesterol": "0",
+                        "rank": "62391",
+                        "serving": [
+                            {
+                                "name": "serving, 1/4 cup (1.6 oz)",
+                                "size": "46"
+                            },
+                            {
+                                "name": "package (1 lb 11 oz)",
+                                "size": "765"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "1172078",
+                        "name": "Rice, Long Grain Brown",
+                        "fullname": "Bob's Red Mill: Seeds: Rice, Long Grain Brown",
+                        "brand_id": "6468",
+                        "base": "48",
+                        "type": "mass",
+                        "calories": "180",
+                        "protein": "4",
+                        "total_fat": "1.5",
+                        "total_carbohydrate": "37",
+                        "sugars": "0",
+                        "fiber": "3",
+                        "calcium": "0",
+                        "sodium": "5",
+                        "saturated_fatty_acids": "0.5",
+                        "cholesterol": "0",
+                        "rank": "27741",
+                        "serving": [
+                            {
+                                "name": "serving, 1/4 cup (1.7 oz)",
+                                "size": "48"
+                            },
+                            {
+                                "name": "package (1 lb 11 oz)",
+                                "size": "765"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "1172079",
+                        "name": "Rice, Long Grain White",
+                        "fullname": "Bob's Red Mill: Seeds: Rice, Long Grain White",
+                        "brand_id": "6468",
+                        "base": "46",
+                        "type": "mass",
+                        "calories": "170",
+                        "protein": "3",
+                        "total_fat": "0.5",
+                        "total_carbohydrate": "37",
+                        "sugars": "0",
+                        "fiber": "0",
+                        "calcium": "0",
+                        "sodium": "5",
+                        "saturated_fatty_acids": "0",
+                        "cholesterol": "0",
+                        "rank": "62392",
+                        "serving": [
+                            {
+                                "name": "serving, 1/4 cup (1.6 oz)",
+                                "size": "46"
+                            },
+                            {
+                                "name": "package (1 lb 11 oz)",
+                                "size": "765"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "1172080",
+                        "name": "Rice, Short Grain Brown",
+                        "fullname": "Bob's Red Mill: Seeds: Rice, Short Grain Brown",
+                        "brand_id": "6468",
+                        "base": "49",
+                        "type": "mass",
+                        "calories": "170",
+                        "protein": "3",
+                        "total_fat": "1.5",
+                        "total_carbohydrate": "38",
+                        "sugars": "1",
+                        "fiber": "3",
+                        "calcium": "0",
+                        "sodium": "0",
+                        "saturated_fatty_acids": "0",
+                        "cholesterol": "0",
+                        "rank": "13144",
+                        "serving": [
+                            {
+                                "name": "serving, 1/4 cup (1.7 oz)",
+                                "size": "49"
+                            },
+                            {
+                                "name": "package (1 lb 11 oz)",
+                                "size": "765"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "1172081",
+                        "name": "Rice, Short Grain White",
+                        "fullname": "Bob's Red Mill: Seeds: Rice, Short Grain White",
+                        "brand_id": "6468",
+                        "base": "49",
+                        "type": "mass",
+                        "calories": "175",
+                        "protein": "3",
+                        "total_fat": "0.5",
+                        "total_carbohydrate": "39",
+                        "sugars": "0",
+                        "fiber": "0",
+                        "calcium": "0",
+                        "sodium": "0",
+                        "saturated_fatty_acids": "0",
+                        "cholesterol": "0",
+                        "rank": "58556",
+                        "serving": [
+                            {
+                                "name": "serving, 1/4 cup (1.7 oz)",
+                                "size": "49"
+                            },
+                            {
+                                "name": "package (1 lb 11 oz)",
+                                "size": "765"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "1172082",
+                        "name": "Rice, Sweet Brown",
+                        "fullname": "Bob's Red Mill: Seeds: Rice, Sweet Brown",
+                        "brand_id": "6468",
+                        "base": "51",
+                        "type": "mass",
+                        "calories": "180",
+                        "protein": "3",
+                        "total_fat": "0",
+                        "total_carbohydrate": "40",
+                        "sugars": "1",
+                        "fiber": "1",
+                        "calcium": "0",
+                        "sodium": "0",
+                        "saturated_fatty_acids": "0",
+                        "cholesterol": "0",
+                        "rank": "45749",
+                        "serving": [
+                            {
+                                "name": "serving, 1/4 cup (1.8 oz)",
+                                "size": "51"
+                            },
+                            {
+                                "name": "package (1 lb 11 oz)",
+                                "size": "765"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "1172083",
+                        "name": "Rice, Sweet White",
+                        "fullname": "Bob's Red Mill: Seeds: Rice, Sweet White",
+                        "brand_id": "6468",
+                        "base": "45",
+                        "type": "mass",
+                        "calories": "160",
+                        "protein": "3",
+                        "total_fat": "0",
+                        "total_carbohydrate": "36",
+                        "sugars": "1",
+                        "fiber": "1",
+                        "calcium": "0",
+                        "sodium": "0",
+                        "saturated_fatty_acids": "0",
+                        "cholesterol": "0",
+                        "rank": "58555",
+                        "serving": [
+                            {
+                                "name": "serving, 1/4 cup (1.6 oz)",
+                                "size": "45"
+                            },
+                            {
+                                "name": "package (1 lb 11 oz)",
+                                "size": "765"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "1172085",
+                        "name": "Rice, Wild",
+                        "fullname": "Bob's Red Mill: Seeds: Rice, Wild",
+                        "brand_id": "6468",
+                        "base": "28",
+                        "type": "mass",
+                        "calories": "100",
+                        "protein": "4",
+                        "total_fat": "0",
+                        "total_carbohydrate": "21",
+                        "sugars": "1",
+                        "fiber": "2",
+                        "calcium": "0",
+                        "sodium": "2",
+                        "saturated_fatty_acids": "0",
+                        "cholesterol": "0",
+                        "rank": "62390",
+                        "serving": [
+                            {
+                                "name": "serving, 3 tablespoons (1 oz)",
+                                "size": "28"
+                            },
+                            {
+                                "name": "package (8 oz)",
+                                "size": "226"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "1172087",
+                        "name": "Rice, Wild & Brown, mix",
+                        "fullname": "Bob's Red Mill: Seeds: Rice, Wild & Brown, mix",
+                        "brand_id": "6468",
+                        "base": "50",
+                        "type": "mass",
+                        "calories": "190",
+                        "protein": "4",
+                        "total_fat": "1.5",
+                        "total_carbohydrate": "39",
+                        "sugars": "0",
+                        "fiber": "3",
+                        "calcium": "0",
+                        "sodium": "5",
+                        "saturated_fatty_acids": "0.5",
+                        "cholesterol": "0",
+                        "rank": "14131",
+                        "serving": [
+                            {
+                                "name": "serving, 1/4 cup (1.8 oz)",
+                                "size": "50"
+                            },
+                            {
+                                "name": "package (1 lb 11 oz)",
+                                "size": "765"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "1172086",
+                        "name": "Rice, Wild, Quick Cooking",
+                        "fullname": "Bob's Red Mill: Seeds: Rice, Wild, Quick Cooking",
+                        "brand_id": "6468",
+                        "base": "28",
+                        "type": "mass",
+                        "calories": "110",
+                        "protein": "4",
+                        "total_fat": "0",
+                        "total_carbohydrate": "21",
+                        "sugars": "0",
+                        "fiber": "2",
+                        "calcium": "0",
+                        "sodium": "0",
+                        "saturated_fatty_acids": "0",
+                        "cholesterol": "0",
+                        "rank": "54323",
+                        "serving": [
+                            {
+                                "name": "serving, 3 tablespoons (1 oz)",
+                                "size": "28"
+                            },
+                            {
+                                "name": "package (8 oz)",
+                                "size": "226"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "1172090",
+                        "name": "Sesame, Natural Brown",
+                        "fullname": "Bob's Red Mill: Seeds: Sesame, Natural Brown",
+                        "brand_id": "6468",
+                        "base": "16",
+                        "type": "mass",
+                        "calories": "80",
+                        "protein": "3",
+                        "total_fat": "1",
+                        "total_carbohydrate": "4",
+                        "sugars": "0",
+                        "fiber": "2",
+                        "calcium": "200",
+                        "sodium": "10",
+                        "saturated_fatty_acids": "0",
+                        "cholesterol": "0",
+                        "rank": "49982",
+                        "serving": [
+                            {
+                                "name": "serving, 3 tablespoons (0.6 oz)",
+                                "size": "16"
+                            },
+                            {
+                                "name": "package (1 lb 6 oz)",
+                                "size": "623"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "1172091",
+                        "name": "Sesame, White Hulled",
+                        "fullname": "Bob's Red Mill: Seeds: Sesame, White Hulled",
+                        "brand_id": "6468",
+                        "base": "16",
+                        "type": "mass",
+                        "calories": "90",
+                        "protein": "3",
+                        "total_fat": "9",
+                        "total_carbohydrate": "4",
+                        "sugars": "0",
+                        "fiber": "2",
+                        "calcium": "200",
+                        "sodium": "10",
+                        "saturated_fatty_acids": "1",
+                        "cholesterol": "0",
+                        "rank": "54322",
+                        "serving": [
+                            {
+                                "name": "erving, 2 tablespoons (0.6 oz)",
+                                "size": "16"
+                            },
+                            {
+                                "name": "package (1 lb 6 oz)",
+                                "size": "623"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "1172092",
+                        "name": "Spelt Barries",
+                        "fullname": "Bob's Red Mill: Seeds: Spelt Barries",
+                        "brand_id": "6468",
+                        "base": "45",
+                        "type": "mass",
+                        "calories": "130",
+                        "protein": "5",
+                        "total_fat": "1",
+                        "total_carbohydrate": "33",
+                        "sugars": "0",
+                        "fiber": "6",
+                        "calcium": "0",
+                        "sodium": "0",
+                        "saturated_fatty_acids": "0",
+                        "cholesterol": "0",
+                        "rank": "62389",
+                        "serving": [
+                            {
+                                "name": "serving, 1/4 cup (1.6 oz)",
+                                "size": "45"
+                            },
+                            {
+                                "name": "package (1 lb 12 oz)",
+                                "size": "793"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "1172106",
+                        "name": "Sunflower, Raw Shelled",
+                        "fullname": "Bob's Red Mill: Seeds: Sunflower, Raw Shelled",
+                        "brand_id": "6468",
+                        "base": "31",
+                        "type": "mass",
+                        "calories": "150",
+                        "protein": "6",
+                        "total_fat": "11",
+                        "total_carbohydrate": "7",
+                        "sugars": "0",
+                        "fiber": "3",
+                        "calcium": "40",
+                        "sodium": "0",
+                        "saturated_fatty_acids": "2",
+                        "cholesterol": "0",
+                        "rank": "7921",
+                        "serving": [
+                            {
+                                "name": "serving, 1/4 cup (1.1 oz)",
+                                "size": "31"
+                            },
+                            {
+                                "name": "package (1 lb 4 oz)",
+                                "size": "567"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "1172067",
+                        "name": "Whole Caraway",
+                        "fullname": "Bob's Red Mill: Seeds: Whole Caraway",
+                        "brand_id": "6468",
+                        "base": "2.2",
+                        "type": "mass",
+                        "calories": "5",
+                        "protein": "0",
+                        "total_fat": "0",
+                        "total_carbohydrate": "1",
+                        "sugars": "0",
+                        "fiber": "0",
+                        "calcium": "0",
+                        "sodium": "0",
+                        "saturated_fatty_acids": "0",
+                        "cholesterol": "0",
+                        "rank": "49983",
+                        "serving": [
+                            {
+                                "name": "tablespoon (0.1 oz)",
+                                "size": "2.2"
+                            },
+                            {
+                                "name": "package (8 oz)",
+                                "size": "226"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "1097999",
+                        "name": "Poppy",
+                        "fullname": "Castella: Seeds: Poppy",
+                        "brand_id": "6477",
+                        "base": "1.1",
+                        "type": "mass",
+                        "calories": "0",
+                        "protein": "0",
+                        "total_fat": "0",
+                        "total_carbohydrate": "0",
+                        "sugars": "0",
+                        "fiber": "0",
+                        "sodium": "0",
+                        "saturated_fatty_acids": "0",
+                        "cholesterol": "0",
+                        "rank": "52533",
+                        "serving": [
+                            {
+                                "name": "teaspoon",
+                                "size": "1.1"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "1097998",
+                        "name": "Sesame, Black",
+                        "fullname": "Castella: Seeds: Sesame, Black",
+                        "brand_id": "6477",
+                        "base": "1.1",
+                        "type": "mass",
+                        "calories": "0",
+                        "protein": "0",
+                        "total_fat": "0",
+                        "total_carbohydrate": "0",
+                        "sugars": "0",
+                        "fiber": "0",
+                        "sodium": "0",
+                        "saturated_fatty_acids": "0",
+                        "cholesterol": "0",
+                        "rank": "44003",
+                        "serving": [
+                            {
+                                "name": "teaspoon",
+                                "size": "1.1"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "1134022",
+                        "name": "Sesame, Hulled",
+                        "fullname": "Castella: Seeds: Sesame, Hulled",
+                        "brand_id": "6477",
+                        "base": "1.1",
+                        "type": "mass",
+                        "calories": "0",
+                        "protein": "0",
+                        "total_fat": "0",
+                        "total_carbohydrate": "0",
+                        "sugars": "0",
+                        "fiber": "0",
+                        "sodium": "0",
+                        "saturated_fatty_acids": "0",
+                        "cholesterol": "0",
+                        "rank": "43072",
+                        "serving": [
+                            {
+                                "name": "teaspoon",
+                                "size": "1.1"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "1098053",
+                        "name": "Sesame, Natural",
+                        "fullname": "Castella: Seeds: Sesame, Natural",
+                        "brand_id": "6477",
+                        "base": "1.1",
+                        "type": "mass",
+                        "calories": "0",
+                        "protein": "0",
+                        "total_fat": "0",
+                        "total_carbohydrate": "0",
+                        "sugars": "0",
+                        "fiber": "0",
+                        "sodium": "0",
+                        "saturated_fatty_acids": "0",
+                        "cholesterol": "0",
+                        "rank": "66673",
+                        "serving": [
+                            {
+                                "name": "teaspoon",
+                                "size": "1.1"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "1181010",
+                        "name": "Pumpkin, All Natural Roasted & Salted",
+                        "fullname": "David: Seeds: Pumpkin, All Natural Roasted & Salted",
+                        "brand_id": "6482",
+                        "base": "45",
+                        "type": "mass",
+                        "calories": "280",
+                        "protein": "15",
+                        "total_fat": "22",
+                        "total_carbohydrate": "6",
+                        "sugars": "0.5",
+                        "fiber": "2",
+                        "calcium": "0",
+                        "sodium": "20",
+                        "saturated_fatty_acids": "4",
+                        "cholesterol": "0",
+                        "rank": "11401",
+                        "serving": [
+                            {
+                                "name": "package (0.75 oz in shell) (0.5 oz)",
+                                "size": "15"
+                            },
+                            {
+                                "name": "serving, 1/4 cup (1.3 oz or 1/3 cup in shell) (1.1 oz)",
+                                "size": "30"
+                            },
+                            {
+                                "name": "package (2.25 oz in shell) (1.6 oz)",
+                                "size": "45"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "1181019",
+                        "name": "Sunflower Kernels, Original Roasted & Salted",
+                        "fullname": "David: Seeds: Sunflower Kernels, Original Roasted & Salted",
+                        "brand_id": "6482",
+                        "base": "49.6",
+                        "type": "mass",
+                        "calories": "310",
+                        "protein": "14",
+                        "total_fat": "25",
+                        "total_carbohydrate": "7",
+                        "sugars": "1",
+                        "fiber": "5",
+                        "calcium": "40",
+                        "sodium": "360",
+                        "saturated_fatty_acids": "3",
+                        "cholesterol": "0",
+                        "rank": "29600",
+                        "serving": [
+                            {
+                                "name": "serving, 1/4 cup (1.1 oz)",
+                                "size": "30"
+                            },
+                            {
+                                "name": "package (1.7 oz)",
+                                "size": "49.6"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "1181011",
+                        "name": "Sunflower, Bar B-Q Roasted & Salted",
+                        "fullname": "David: Seeds: Sunflower, Bar B-Q Roasted & Salted",
+                        "brand_id": "6482",
+                        "base": "30",
+                        "type": "mass",
+                        "calories": "190",
+                        "protein": "8",
+                        "total_fat": "15",
+                        "total_carbohydrate": "6",
+                        "sugars": "0.5",
+                        "fiber": "2",
+                        "calcium": "20",
+                        "sodium": "115",
+                        "saturated_fatty_acids": "1.5",
+                        "cholesterol": "0",
+                        "rank": "62118",
+                        "serving": [
+                            {
+                                "name": "package (1.75 oz in shell) (0.9 oz)",
+                                "size": "25"
+                            },
+                            {
+                                "name": "serving, 1/4 cup (2.1 oz or 3/4 cup in shell) (1.1 oz)",
+                                "size": "30"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "1181012",
+                        "name": "Sunflower, Chili Lime Roasted & Salted",
+                        "fullname": "David: Seeds: Sunflower, Chili Lime Roasted & Salted",
+                        "brand_id": "6482",
+                        "base": "30",
+                        "type": "mass",
+                        "calories": "190",
+                        "protein": "9",
+                        "total_fat": "16",
+                        "total_carbohydrate": "4",
+                        "sugars": "0.5",
+                        "fiber": "3",
+                        "calcium": "20",
+                        "sodium": "35",
+                        "saturated_fatty_acids": "2",
+                        "cholesterol": "0",
+                        "rank": "29601",
+                        "serving": [
+                            {
+                                "name": "serving, 1/4 cup (2.1 oz or 3/4 cup in shell) (1.1 oz)",
+                                "size": "30"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "1181013",
+                        "name": "Sunflower, Dill Pickle Roasted & Salted",
+                        "fullname": "David: Seeds: Sunflower, Dill Pickle Roasted & Salted",
+                        "brand_id": "6482",
+                        "base": "30",
+                        "type": "mass",
+                        "calories": "190",
+                        "protein": "9",
+                        "total_fat": "14",
+                        "total_carbohydrate": "5",
+                        "sugars": "0.5",
+                        "fiber": "4",
+                        "calcium": "20",
+                        "sodium": "110",
+                        "saturated_fatty_acids": "1.5",
+                        "cholesterol": "0",
+                        "rank": "45282",
+                        "serving": [
+                            {
+                                "name": "serving, 1/4 cup (2.1 oz or 3/4 cup in shell) (1.1 oz)",
+                                "size": "30"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "1181014",
+                        "name": "Sunflower, Jalapeno Roasted & Salted",
+                        "fullname": "David: Seeds: Sunflower, Jalapeno Roasted & Salted",
+                        "brand_id": "6482",
+                        "base": "30",
+                        "type": "mass",
+                        "calories": "180",
+                        "protein": "8",
+                        "total_fat": "14",
+                        "total_carbohydrate": "6",
+                        "sugars": "0.5",
+                        "fiber": "2",
+                        "calcium": "20",
+                        "sodium": "105",
+                        "saturated_fatty_acids": "1.5",
+                        "cholesterol": "0",
+                        "rank": "34702",
+                        "serving": [
+                            {
+                                "name": "package (1.75 oz in shell) (0.9 oz)",
+                                "size": "25"
+                            },
+                            {
+                                "name": "serving, 1/4 cup (2.1 oz or 3/4 cup in shell) (1.1 oz)",
+                                "size": "30"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "1181015",
+                        "name": "Sunflower, Jumbo Roasted & Salted",
+                        "fullname": "David: Seeds: Sunflower, Jumbo Roasted & Salted",
+                        "brand_id": "6482",
+                        "base": "30",
+                        "type": "mass",
+                        "calories": "190",
+                        "protein": "7",
+                        "total_fat": "15",
+                        "total_carbohydrate": "5",
+                        "sugars": "0.5",
+                        "fiber": "2",
+                        "calcium": "20",
+                        "sodium": "130",
+                        "saturated_fatty_acids": "1.5",
+                        "cholesterol": "0",
+                        "rank": "16578",
+                        "serving": [
+                            {
+                                "name": "serving, 1/4 cup (2.3 oz or 1 1/4 cup in shell) (1.1 oz)",
+                                "size": "30"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "1181016",
+                        "name": "Sunflower, Nacho Cheese Roasted & Salted",
+                        "fullname": "David: Seeds: Sunflower, Nacho Cheese Roasted & Salted",
+                        "brand_id": "6482",
+                        "base": "30",
+                        "type": "mass",
+                        "calories": "170",
+                        "protein": "7",
+                        "total_fat": "14",
+                        "total_carbohydrate": "5",
+                        "sugars": "0.5",
+                        "fiber": "2",
+                        "calcium": "20",
+                        "sodium": "90",
+                        "saturated_fatty_acids": "1.5",
+                        "cholesterol": "0",
+                        "rank": "62117",
+                        "serving": [
+                            {
+                                "name": "package (0.8 oz in shell) (0.4 oz)",
+                                "size": "11"
+                            },
+                            {
+                                "name": "package (1.75 oz in shell) (0.9 oz)",
+                                "size": "25"
+                            },
+                            {
+                                "name": "serving, 1/4 cup (2.1 oz or 3/4 cup in shell) (1.1 oz)",
+                                "size": "30"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "1079553",
+                        "name": "Sunflower, Original Roasted & Salted",
+                        "fullname": "David: Seeds: Sunflower, Original Roasted & Salted",
+                        "brand_id": "6482",
+                        "base": "42",
+                        "type": "mass",
+                        "calories": "260",
+                        "protein": "12",
+                        "total_fat": "21",
+                        "total_carbohydrate": "7",
+                        "sugars": "1",
+                        "fiber": "6",
+                        "calcium": "40",
+                        "sodium": "190",
+                        "saturated_fatty_acids": "2.5",
+                        "cholesterol": "0",
+                        "rank": "5723",
+                        "serving": [
+                            {
+                                "name": "package (0.9 oz in shell) (0.5 oz)",
+                                "size": "13"
+                            },
+                            {
+                                "name": "package (1.75 oz in shell) (0.9 oz)",
+                                "size": "25"
+                            },
+                            {
+                                "name": "serving, 1/4 cup (2.1 oz or 3/4 cup in shell) (1.1 oz)",
+                                "size": "30"
+                            },
+                            {
+                                "name": "package (3 oz in shell) (1.5 oz)",
+                                "size": "42"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "1181017",
+                        "name": "Sunflower, Ranch Roasted & Salted",
+                        "fullname": "David: Seeds: Sunflower, Ranch Roasted & Salted",
+                        "brand_id": "6482",
+                        "base": "30",
+                        "type": "mass",
+                        "calories": "180",
+                        "protein": "8",
+                        "total_fat": "13",
+                        "total_carbohydrate": "6",
+                        "sugars": "0.5",
+                        "fiber": "2",
+                        "calcium": "20",
+                        "sodium": "90",
+                        "saturated_fatty_acids": "1.5",
+                        "cholesterol": "0",
+                        "rank": "22646",
+                        "serving": [
+                            {
+                                "name": "package (1.75 oz in shell) (0.9 oz)",
+                                "size": "25"
+                            },
+                            {
+                                "name": "serving, 1/4 cup (2.1 oz or 3/4 cup in shell) (1.1 oz)",
+                                "size": "30"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "1181018",
+                        "name": "Sunflower, Reduced Sodium Roasted & Salted",
+                        "fullname": "David: Seeds: Sunflower, Reduced Sodium Roasted & Salted",
+                        "brand_id": "6482",
+                        "base": "30",
+                        "type": "mass",
+                        "calories": "190",
+                        "protein": "9",
+                        "total_fat": "14",
+                        "total_carbohydrate": "7",
+                        "sugars": "0.5",
+                        "fiber": "3",
+                        "calcium": "40",
+                        "sodium": "75",
+                        "saturated_fatty_acids": "1.5",
+                        "cholesterol": "0",
+                        "rank": "45281",
+                        "serving": [
+                            {
+                                "name": "serving, 1/4 cup (2.1 oz or 3/4 cup in shell) (1.1 oz)",
+                                "size": "30"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "1132628",
+                        "name": "Dakota, Golden Flax",
+                        "fullname": "Dixie Diners' Club: Seeds: Dakota, Golden Flax",
+                        "brand_id": "6484",
+                        "base": "20",
+                        "type": "mass",
+                        "calories": "123",
+                        "protein": "5.3",
+                        "total_fat": "8.5",
+                        "total_carbohydrate": "6",
+                        "sugars": "0",
+                        "fiber": "6",
+                        "calcium": "50",
+                        "sodium": "0",
+                        "saturated_fatty_acids": "0.9",
+                        "cholesterol": "0",
+                        "rank": "36096",
+                        "serving": [
+                            {
+                                "name": "serving, 2 tablespoons (0.7 oz)",
+                                "size": "20"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "1127621",
+                        "name": "Sunflower, Kernels",
+                        "fullname": "Frito-Lay: Seeds: Sunflower, Kernels",
+                        "brand_id": "6494",
+                        "base": "28.4",
+                        "type": "mass",
+                        "calories": "190",
+                        "protein": "6",
+                        "total_fat": "16",
+                        "total_carbohydrate": "5",
+                        "sugars": "0.5",
+                        "fiber": "3",
+                        "calcium": "20",
+                        "sodium": "90",
+                        "saturated_fatty_acids": "2",
+                        "cholesterol": "0",
+                        "rank": "36203",
+                        "serving": [
+                            {
+                                "name": "serving (1 oz)",
+                                "size": "28.4"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "1141925",
+                        "name": "Sunflower, Ranch",
+                        "fullname": "Frito-Lay: Seeds: Sunflower, Ranch",
+                        "brand_id": "6494",
+                        "type": "serving",
+                        "calories": "200",
+                        "protein": "5",
+                        "total_fat": "17",
+                        "total_carbohydrate": "7",
+                        "sugars": "3",
+                        "fiber": "3",
+                        "calcium": "40",
+                        "sodium": "1400",
+                        "saturated_fatty_acids": "2",
+                        "cholesterol": "0",
+                        "rank": "51118",
+                        "serving": [
+                            {
+                                "name": "package"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "1182915",
+                        "name": "Flax Seed, Brown Milled",
+                        "fullname": "Hodgson Mill: Seeds: Flax Seed, Brown Milled",
+                        "brand_id": "6505",
+                        "base": "13",
+                        "type": "mass",
+                        "calories": "60",
+                        "protein": "3",
+                        "total_fat": "5",
+                        "total_carbohydrate": "4",
+                        "sugars": "0",
+                        "fiber": "4",
+                        "calcium": "20",
+                        "sodium": "0",
+                        "saturated_fatty_acids": "0",
+                        "cholesterol": "0",
+                        "rank": "6106",
+                        "serving": [
+                            {
+                                "name": "tablespoon (0.2 oz)",
+                                "size": "6.5"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "1146609",
+                        "name": "Flax Seed, Organic Golden Milled",
+                        "fullname": "Hodgson Mill: Seeds: Flax Seed, Organic Golden Milled",
+                        "brand_id": "6505",
+                        "base": "13",
+                        "type": "mass",
+                        "calories": "65",
+                        "protein": "3",
+                        "total_fat": "4",
+                        "total_carbohydrate": "4",
+                        "sugars": "0",
+                        "fiber": "4",
+                        "calcium": "20",
+                        "sodium": "0",
+                        "saturated_fatty_acids": "0",
+                        "cholesterol": "0",
+                        "rank": "10850",
+                        "serving": [
+                            {
+                                "name": "tablespoon (0.2 oz)",
+                                "size": "6.5"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "1182912",
+                        "name": "Flax Seed, Travel Flax All Natural Milled",
+                        "fullname": "Hodgson Mill: Seeds: Flax Seed, Travel Flax All Natural Milled",
+                        "brand_id": "6505",
+                        "base": "6.5",
+                        "type": "mass",
+                        "calories": "30",
+                        "protein": "1",
+                        "total_fat": "2",
+                        "total_carbohydrate": "2",
+                        "sugars": "0",
+                        "fiber": "2",
+                        "calcium": "0",
+                        "sodium": "0",
+                        "saturated_fatty_acids": "0",
+                        "cholesterol": "0",
+                        "rank": "31869",
+                        "serving": [
+                            {
+                                "name": "packet (0.2 oz)",
+                                "size": "6.5"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "1182913",
+                        "name": "Flax Seed, Travel Flax Organic Golden Milled",
+                        "fullname": "Hodgson Mill: Seeds: Flax Seed, Travel Flax Organic Golden Milled",
+                        "brand_id": "6505",
+                        "base": "6.5",
+                        "type": "mass",
+                        "calories": "30",
+                        "protein": "1",
+                        "total_fat": "2",
+                        "total_carbohydrate": "2",
+                        "sugars": "0",
+                        "fiber": "2",
+                        "calcium": "0",
+                        "sodium": "0",
+                        "saturated_fatty_acids": "0",
+                        "cholesterol": "0",
+                        "rank": "49410",
+                        "serving": [
+                            {
+                                "name": "packet (0.2 oz)",
+                                "size": "6.5"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "1182914",
+                        "name": "Flax Seed, Whole Grain Brown",
+                        "fullname": "Hodgson Mill: Seeds: Flax Seed, Whole Grain Brown",
+                        "brand_id": "6505",
+                        "base": "32",
+                        "type": "mass",
+                        "calories": "160",
+                        "protein": "6",
+                        "total_fat": "11",
+                        "total_carbohydrate": "9",
+                        "sugars": "0",
+                        "fiber": "9",
+                        "calcium": "80",
+                        "sodium": "9",
+                        "saturated_fatty_acids": "1",
+                        "cholesterol": "0",
+                        "rank": "13065",
+                        "serving": [
+                            {
+                                "name": "tablespoon (0.4 oz)",
+                                "size": "10.7"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "1086408",
+                        "name": "Sunflower",
+                        "fullname": "Lance: Seeds: Sunflower",
+                        "brand_id": "6509",
+                        "base": "28",
+                        "type": "mass",
+                        "calories": "100",
+                        "protein": "4",
+                        "total_fat": "7",
+                        "total_carbohydrate": "3",
+                        "sugars": "0",
+                        "fiber": "1",
+                        "sodium": "40",
+                        "saturated_fatty_acids": "2",
+                        "cholesterol": "0",
+                        "rank": "31278",
+                        "serving": [
+                            {
+                                "name": "serving, 1/2 cup (1 oz)",
+                                "size": "28"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "1086407",
+                        "name": "Sunflower, Kernels",
+                        "fullname": "Lance: Seeds: Sunflower, Kernels",
+                        "brand_id": "6509",
+                        "base": "42.5",
+                        "type": "mass",
+                        "calories": "250",
+                        "protein": "9",
+                        "total_fat": "18",
+                        "total_carbohydrate": "14",
+                        "sugars": "1",
+                        "fiber": "5",
+                        "sodium": "75",
+                        "saturated_fatty_acids": "2",
+                        "cholesterol": "0",
+                        "rank": "36931",
+                        "serving": [
+                            {
+                                "name": "package (1.5 oz)",
+                                "size": "42.5"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "1152355",
+                        "name": "Hemp Hearts, Raw Shelled Hemp, Natural or Organic",
+                        "fullname": "Manitoba Harvest: Seeds: Hemp Hearts, Raw Shelled Hemp, Natural or Organic",
+                        "brand_id": "6514",
+                        "base": "30",
+                        "type": "mass",
+                        "calories": "170",
+                        "protein": "10",
+                        "total_fat": "13",
+                        "total_carbohydrate": "3",
+                        "sugars": "0.5",
+                        "fiber": "3",
+                        "calcium": "20",
+                        "sodium": "0",
+                        "saturated_fatty_acids": "1.5",
+                        "cholesterol": "0",
+                        "rank": "4086",
+                        "serving": [
+                            {
+                                "name": "tablespoon (0.4 oz)",
+                                "size": "10"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "1116886",
+                        "name": "Organic, Flax Plus, Flaxseed Meal",
+                        "fullname": "Nature's Path: Seeds: Organic, Flax Plus, Flaxseed Meal",
+                        "brand_id": "6526",
+                        "base": "15",
+                        "type": "mass",
+                        "calories": "80",
+                        "protein": "3",
+                        "total_fat": "6",
+                        "total_carbohydrate": "4",
+                        "sugars": "0",
+                        "fiber": "4",
+                        "calcium": "40",
+                        "sodium": "0",
+                        "saturated_fatty_acids": "0.5",
+                        "cholesterol": "0",
+                        "rank": "772",
+                        "serving": [
+                            {
+                                "name": "serving, 2 tablespoons (0.5 oz)",
+                                "size": "15"
+                            },
+                            {
+                                "name": "packet (15 oz)",
+                                "size": "425"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "1116887",
+                        "name": "Organic, Flax Plus, Flaxseeds",
+                        "fullname": "Nature's Path: Seeds: Organic, Flax Plus, Flaxseeds",
+                        "brand_id": "6526",
+                        "base": "20",
+                        "type": "mass",
+                        "calories": "110",
+                        "protein": "4",
+                        "total_fat": "8",
+                        "total_carbohydrate": "6",
+                        "sugars": "0",
+                        "fiber": "5",
+                        "calcium": "60",
+                        "sodium": "5",
+                        "saturated_fatty_acids": "0.5",
+                        "cholesterol": "0",
+                        "rank": "1359",
+                        "serving": [
+                            {
+                                "name": "serving, 2 tablespoons (0.7 oz)",
+                                "size": "20"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "1126799",
+                        "name": "Spicy Pumpkin",
+                        "fullname": "New England Natural Bakers: Seeds: Spicy Pumpkin",
+                        "brand_id": "6528",
+                        "base": "33",
+                        "type": "mass",
+                        "calories": "140",
+                        "protein": "6",
+                        "total_fat": "6",
+                        "total_carbohydrate": "17",
+                        "sugars": "0",
+                        "fiber": "11",
+                        "calcium": "20",
+                        "sodium": "115",
+                        "saturated_fatty_acids": "1",
+                        "cholesterol": "0",
+                        "rank": "56067",
+                        "serving": [
+                            {
+                                "name": "serving, 1/4 cup (1.2 oz)",
+                                "size": "33"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "1103589",
+                        "name": "Tamari Sunflower",
+                        "fullname": "New England Natural Bakers: Seeds: Tamari Sunflower",
+                        "brand_id": "6528",
+                        "base": "34",
+                        "type": "mass",
+                        "calories": "195",
+                        "protein": "8",
+                        "total_fat": "15",
+                        "total_carbohydrate": "7",
+                        "sugars": "0",
+                        "fiber": "5",
+                        "sodium": "115",
+                        "saturated_fatty_acids": "1.5",
+                        "cholesterol": "0",
+                        "rank": "56707",
+                        "serving": [
+                            {
+                                "name": "serving 1/4 cup (1.2 oz)",
+                                "size": "34"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "1192433",
+                        "name": "Sunflower Kernels",
+                        "fullname": "Planters: Seeds: Sunflower Kernels",
+                        "brand_id": "6537",
+                        "base": "49",
+                        "type": "mass",
+                        "calories": "290",
+                        "protein": "11",
+                        "total_fat": "25",
+                        "total_carbohydrate": "9",
+                        "sugars": "1",
+                        "fiber": "5",
+                        "calcium": "60",
+                        "sodium": "260",
+                        "saturated_fatty_acids": "2.5",
+                        "cholesterol": "0",
+                        "rank": "53161",
+                        "serving": [
+                            {
+                                "name": "package (1.7 oz)",
+                                "size": "49"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "1154452",
+                        "name": "Sunflower Kernels, Dry Roasted",
+                        "fullname": "Planters: Seeds: Sunflower Kernels, Dry Roasted",
+                        "brand_id": "6537",
+                        "base": "31",
+                        "type": "mass",
+                        "calories": "180",
+                        "protein": "7",
+                        "total_fat": "15",
+                        "total_carbohydrate": "6",
+                        "sugars": "1",
+                        "fiber": "3",
+                        "calcium": "40",
+                        "sodium": "260",
+                        "saturated_fatty_acids": "1.5",
+                        "cholesterol": "0",
+                        "rank": "30261",
+                        "serving": [
+                            {
+                                "name": "serving (1.1 oz)",
+                                "size": "31"
+                            },
+                            {
+                                "name": "container (7.3 oz)",
+                                "size": "206"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "1110969",
+                        "name": "Sunflower Seeds, Roasted & Salted",
+                        "fullname": "Planters: Seeds: Sunflower Seeds, Roasted & Salted",
+                        "brand_id": "6537",
+                        "base": "85",
+                        "type": "mass",
+                        "calories": "280",
+                        "protein": "10",
+                        "total_fat": "23",
+                        "total_carbohydrate": "8",
+                        "sugars": "0",
+                        "fiber": "4",
+                        "calcium": "40",
+                        "sodium": "180",
+                        "saturated_fatty_acids": "2.5",
+                        "cholesterol": "0",
+                        "rank": "14965",
+                        "serving": [
+                            {
+                                "name": "package (3 oz)",
+                                "size": "85"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "1102758",
+                        "name": "Pumpkin Caramel",
+                        "fullname": "Pumpkorn: Seeds: Pumpkin Caramel",
+                        "brand_id": "6544",
+                        "base": "28",
+                        "type": "mass",
+                        "calories": "151",
+                        "protein": "9",
+                        "total_fat": "11",
+                        "total_carbohydrate": "4",
+                        "sugars": "2",
+                        "fiber": "2",
+                        "sodium": "100",
+                        "saturated_fatty_acids": "2",
+                        "cholesterol": "0",
+                        "rank": "64175",
+                        "serving": [
+                            {
+                                "name": "serving (1 oz)",
+                                "size": "28"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "1102756",
+                        "name": "Pumpkin Chili",
+                        "fullname": "Pumpkorn: Seeds: Pumpkin Chili",
+                        "brand_id": "6544",
+                        "base": "28",
+                        "type": "mass",
+                        "calories": "151",
+                        "protein": "9",
+                        "total_fat": "11",
+                        "total_carbohydrate": "4",
+                        "fiber": "2",
+                        "sodium": "100",
+                        "saturated_fatty_acids": "2",
+                        "cholesterol": "0",
+                        "rank": "56747",
+                        "serving": [
+                            {
+                                "name": "serving (1 oz)",
+                                "size": "28"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "1102757",
+                        "name": "Pumpkin Curry",
+                        "fullname": "Pumpkorn: Seeds: Pumpkin Curry",
+                        "brand_id": "6544",
+                        "base": "28",
+                        "type": "mass",
+                        "calories": "151",
+                        "protein": "9",
+                        "total_fat": "11",
+                        "total_carbohydrate": "4",
+                        "sugars": "0",
+                        "fiber": "2",
+                        "sodium": "100",
+                        "saturated_fatty_acids": "2",
+                        "cholesterol": "0",
+                        "rank": "18846",
+                        "serving": [
+                            {
+                                "name": "serving (1 oz)",
+                                "size": "28"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "1102759",
+                        "name": "Pumpkin Maple Vanilla",
+                        "fullname": "Pumpkorn: Seeds: Pumpkin Maple Vanilla",
+                        "brand_id": "6544",
+                        "base": "28",
+                        "type": "mass",
+                        "calories": "151",
+                        "protein": "9",
+                        "total_fat": "11",
+                        "total_carbohydrate": "4",
+                        "sugars": "3",
+                        "fiber": "2",
+                        "sodium": "100",
+                        "saturated_fatty_acids": "2",
+                        "cholesterol": "0",
+                        "rank": "52422",
+                        "serving": [
+                            {
+                                "name": "serving (1 oz)",
+                                "size": "28"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "1102755",
+                        "name": "Pumpkin Mesquite",
+                        "fullname": "Pumpkorn: Seeds: Pumpkin Mesquite",
+                        "brand_id": "6544",
+                        "base": "28",
+                        "type": "mass",
+                        "calories": "151",
+                        "protein": "9",
+                        "total_fat": "11",
+                        "total_carbohydrate": "4",
+                        "sugars": "0",
+                        "fiber": "2",
+                        "sodium": "100",
+                        "saturated_fatty_acids": "2",
+                        "cholesterol": "0",
+                        "rank": "60844",
+                        "serving": [
+                            {
+                                "name": "serving (1 oz)",
+                                "size": "28"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "1102760",
+                        "name": "Pumpkin Mildly Original",
+                        "fullname": "Pumpkorn: Seeds: Pumpkin Mildly Original",
+                        "brand_id": "6544",
+                        "base": "28",
+                        "type": "mass",
+                        "calories": "151",
+                        "protein": "9",
+                        "total_fat": "11",
+                        "total_carbohydrate": "4",
+                        "fiber": "2",
+                        "sodium": "100",
+                        "saturated_fatty_acids": "2",
+                        "cholesterol": "0",
+                        "rank": "68211",
+                        "serving": [
+                            {
+                                "name": "serving (1 oz)",
+                                "size": "28"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "1102754",
+                        "name": "Pumpkin Original",
+                        "fullname": "Pumpkorn: Seeds: Pumpkin Original",
+                        "brand_id": "6544",
+                        "base": "28",
+                        "type": "mass",
+                        "calories": "151",
+                        "protein": "9",
+                        "total_fat": "11",
+                        "total_carbohydrate": "4",
+                        "fiber": "2",
+                        "sodium": "100",
+                        "saturated_fatty_acids": "2",
+                        "cholesterol": "0",
+                        "rank": "43899",
+                        "serving": [
+                            {
+                                "name": "serving (1 oz)",
+                                "size": "28"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "1182269",
+                        "name": "Chia, Raw Goodness, Gluten Free",
+                        "fullname": "Ruth's: Seeds: Chia, Raw Goodness, Gluten Free",
+                        "brand_id": "6548",
+                        "base": "15",
+                        "type": "mass",
+                        "calories": "85",
+                        "protein": "3",
+                        "total_fat": "5",
+                        "total_carbohydrate": "6",
+                        "sugars": "0",
+                        "fiber": "6",
+                        "calcium": "110",
+                        "sodium": "3",
+                        "saturated_fatty_acids": "0.5",
+                        "cholesterol": "0",
+                        "rank": "2183",
+                        "serving": [
+                            {
+                                "name": "tablespoon (0.5 oz)",
+                                "size": "15"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "1182264",
+                        "name": "SoftHemp Shelled Hemp",
+                        "fullname": "Ruth's: Seeds: SoftHemp Shelled Hemp",
+                        "brand_id": "6548",
+                        "base": "14",
+                        "type": "mass",
+                        "calories": "84",
+                        "protein": "5",
+                        "total_fat": "7",
+                        "total_carbohydrate": "1",
+                        "saturated_fatty_acids": "0.9",
+                        "cholesterol": "0",
+                        "rank": "49459",
+                        "serving": [
+                            {
+                                "name": "tablespoon (0.5 oz)",
+                                "size": "14"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "1182011",
+                        "name": "Seasoned Pumpkin",
+                        "fullname": "Spitz: Seeds: Seasoned Pumpkin",
+                        "brand_id": "6552",
+                        "base": "28.4",
+                        "type": "mass",
+                        "calories": "180",
+                        "protein": "8",
+                        "total_fat": "15",
+                        "total_carbohydrate": "4",
+                        "sugars": "0",
+                        "fiber": "4",
+                        "calcium": "0",
+                        "sodium": "920",
+                        "saturated_fatty_acids": "3",
+                        "cholesterol": "0",
+                        "rank": "49470",
+                        "serving": [
+                            {
+                                "name": "cup, hulled seeds (4 oz)",
+                                "size": "114"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "1182010",
+                        "name": "Sunflower, Average All Flavors",
+                        "fullname": "Spitz: Seeds: Sunflower, Average All Flavors",
+                        "brand_id": "6552",
+                        "base": "28.4",
+                        "type": "mass",
+                        "calories": "180",
+                        "protein": "7",
+                        "total_fat": "15",
+                        "total_carbohydrate": "5",
+                        "sugars": "0.5",
+                        "fiber": "3",
+                        "calcium": "20",
+                        "sodium": "492.86",
+                        "saturated_fatty_acids": "2",
+                        "cholesterol": "0",
+                        "rank": "31901",
+                        "serving": [
+                            {
+                                "name": "cup, hulled seeds (4 oz)",
+                                "size": "114"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "1142160",
+                        "name": "Natural, Flax Seeds",
+                        "fullname": "Tree of Life: Seeds: Natural, Flax Seeds",
+                        "brand_id": "6558",
+                        "base": "28",
+                        "type": "mass",
+                        "calories": "140",
+                        "protein": "5",
+                        "total_fat": "10",
+                        "total_carbohydrate": "11",
+                        "sugars": "0",
+                        "fiber": "6",
+                        "calcium": "80",
+                        "sodium": "0",
+                        "saturated_fatty_acids": "1",
+                        "cholesterol": "0",
+                        "rank": "30489",
+                        "serving": [
+                            {
+                                "name": "serving, 3 tablespoons (1 oz)",
+                                "size": "28"
+                            },
+                            {
+                                "name": "bag (1 lb)",
+                                "size": "453.6"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "1142158",
+                        "name": "Natural, Sunflower Seed Kernels, raw",
+                        "fullname": "Tree of Life: Seeds: Natural, Sunflower Seed Kernels, raw",
+                        "brand_id": "6558",
+                        "base": "36",
+                        "type": "mass",
+                        "calories": "210",
+                        "protein": "8",
+                        "total_fat": "18",
+                        "total_carbohydrate": "7",
+                        "sugars": "1",
+                        "fiber": "2",
+                        "calcium": "40",
+                        "sodium": "115",
+                        "saturated_fatty_acids": "2",
+                        "cholesterol": "0",
+                        "rank": "2886",
+                        "serving": [
+                            {
+                                "name": "serving, 1/4 cup (1.3 oz)",
+                                "size": "36"
+                            },
+                            {
+                                "name": "bag (12 oz)",
+                                "size": "340.2"
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    ]
+}

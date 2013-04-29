@@ -123,6 +123,7 @@ define(['jquery',
             },
 
             healthHub: function() {
+                 
                 this.setActiveView('healthHub');
                 this.$nav.find('li').removeClass('selected');
                 this.$('#healthHub').addClass('selected');
