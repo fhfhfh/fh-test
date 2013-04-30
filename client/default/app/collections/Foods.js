@@ -14,21 +14,27 @@ define(['backbone',
 		//Backbone specific attributes
 		model : model,
 		storageKey: 'peachy_foods',
+		foods : [],
 
 		initialize: function(){
 		},
 
-		addEntry: function(obj){
-		},
 
 		// Get list of foods of a specific type
 		getFoods: function(type, cb){
 			var self = this;
 
+			if(self.foods[type]){
+				get
+			}
+
 			Act.call("fetchDBAction", {"type":type},
 				function(res){
 					console.log(res);
-					self.populateCollection(res);
+					var name = res.payload.Name;
+					var list = res.payload[name];
+					self.populateCollection(list[name], type);
+					self.foods[type] = true;
 					return cb(res);
 				}, function(err, msg){
 					console.warn(err, msg);
@@ -36,34 +42,21 @@ define(['backbone',
 			);
 		},
 
-		populateCollection: function(list){
+		populateCollection: function(list, type){
 			var self = this;
-
+			console.log(list);
 			for(var i=0;i<list.length;i++){
-				var asset = self.model(list[i]);
+				var item =list[i];
+				item.type = type
+				var asset = new self.model(item);
 				self.add(asset);
 			}
+			console.log(this);
 		},
 
-
-		fetch: function(){
-			this.load();
-			return;
-			var self=this;
-
-            Act.call('fetchNewsAction', {}, 
-		        function(res){
-					var lib = res.payload.News;
-					for(var i = 0; i<lib.length; i++){
-						var item = lib[i];
-						item.imgData = "data:image/png;base64," + item.videoImgBase64;
-						// self.addAsset(item);
-					}
-		        }, function(err, msg){
-		          console.log(err, msg);
-		        }
-		    );
-		},
+		// var dayModel = collection.find(function(item){
+  //               return item.get('date').toDateString() == date.toDateString();
+  //           });
 
 		store: function(){
 			var models = JSON.stringify(this.models);
