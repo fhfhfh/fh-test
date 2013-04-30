@@ -17,6 +17,26 @@ define(['backbone',
 		foods : [],
 
 		initialize: function(){
+			var a = {name:"Eoin",lName:"Crosbie"};
+			var b = {name:"Brandon",lName:"Crosbie"};
+			var c = {name:"Eoin",lName:"Murphy"};
+			this.add(a);
+			this.add(b);
+			this.add(c);
+
+		},
+
+		search: function(type){
+			var arr = [];
+			this.each(function(model){
+				var item = model;
+
+				if(item.attributes.name === type){
+					console.log('pushed');
+					arr.push(item);
+				}
+			});
+			return arr;
 		},
 
 
@@ -25,7 +45,7 @@ define(['backbone',
 			var self = this;
 
 			if(self.foods[type]){
-				get
+				
 			}
 
 			Act.call("fetchDBAction", {"type":type},
@@ -78,6 +98,6 @@ define(['backbone',
 		}
 
 	});
-
+	window.collection = new collection();
 	return new collection();
 });
