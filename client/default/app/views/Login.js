@@ -39,7 +39,7 @@ define([
                 }
 
                 // TODO: Remove this in production!
-                this.$('#username').val('jsmith101');
+                this.$('#username').val('bmurray');
                 this.$('#password').val('12345');
                 this.controller.quotes();
                 this.toggleSigninButton();
