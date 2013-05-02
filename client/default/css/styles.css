@@ -354,7 +354,7 @@ html,
 body,
 #content,
 #content > section {
-    height: 101%;
+    height: 100%;
     right: 0;
 /*    overflow: hidden;*/
     position: relative;
@@ -1443,7 +1443,7 @@ li {
     background-color: #fff;
     color: #000;
     overflow-y: auto;
-    max-height: 165px;
+    max-height: 180px;
 }
 #VideoPlayback #videoDescription h2 {
     font: bold 16px "Avenir Next", Helvetica, Arial, sans-serif;
@@ -1774,7 +1774,7 @@ section#widgetScreen #body {
     background-color: #000000;
 }
 section#widgetScreen #body #content {
-    max-height: 500px;
+    max-height: 570px;
     overflow: auto;
     background-color: #cdcdcd;
     box-shadow: 7px 0px 0 -4px #cccccc, 12px 0px 0 -7px #8b8b8b;
