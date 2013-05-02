@@ -1774,7 +1774,7 @@ section#widgetScreen #body {
     background-color: #000000;
 }
 section#widgetScreen #body #content {
-    max-height: 570px;
+    max-height: 520px;
     overflow: auto;
     background-color: #cdcdcd;
     box-shadow: 7px 0px 0 -4px #cccccc, 12px 0px 0 -7px #8b8b8b;
