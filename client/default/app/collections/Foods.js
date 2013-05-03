@@ -50,6 +50,7 @@ define(['backbone',
 
 			Act.call("fetchDBAction", {"type":type},
 				function(res){
+                                    alert(res);
 					console.log(res);
 					var name = res.payload.Name;
 					var list = res.payload[name];

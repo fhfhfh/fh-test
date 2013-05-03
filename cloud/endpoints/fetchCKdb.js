@@ -72,7 +72,7 @@ var fetchCKEndpoint = function() {
                             var resp = data.list[0].fields;
                             var sss = JSON.stringify(resp,null,4);
                             var jsonObj = respUtils.constructStatusResponse("fetchCK", constants.RESP_SUCCESS, "Records Fetched Successfully",resp);
-                            log.debug("[fetchCKEndpoint][fetchCK][view] Records Fetched Successfully :");
+                            log.debug("[fetchCKEndpoint][fetchCK][view] Records Fetched Successfully");
                             return callback(null,jsonObj);//callback returning the response JSON back to client 
                         }
                     }

@@ -91,6 +91,7 @@ define([
 
             // pull foods into collection before populating screen
             this.collection.getFoods(name, function(res){
+//                alert(res);
             });
         }
 
