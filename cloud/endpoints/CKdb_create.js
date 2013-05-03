@@ -38,20 +38,7 @@ var createCKEndpoint = function() {
             log.info("[createCKEndpoint][createDB] >> Session Details :"+JSON.stringify(data));
             if(data)
             {
-                console.log("Beginning Deleting old DB");
-                $fh.db({
-                    "act": "deleteall",
-                    "type": "CalorieKingDB"
-                }, function(err, data) {
-                        if(err){
-                             var fail = respUtils.constructStatusResponse("createDB", constants.RESP_SERVER_ERROR, err,{});
-                                log.error("[createDBEndpoint]["+"deleteDB"+"][delete] >> "+err);
-                                return callback(fail,null);
-                        }
-                        else{
-                                log.info("[createDBEndpoint][deleteDB][delete] >> Record Deleted Successfully   "); 
-                        }
-                    });
+                
                 console.log("Beginning Creating DB");
                 fs.readFile('./cloud/CalorieKingDB/catJSON.txt', function(err, res) {
                     if (err) {
@@ -63,7 +50,7 @@ var createCKEndpoint = function() {
                         var  dataChunk = data.Food[i]   
                         $fh.db({
                             "act": "create",
-                            "type": "CalorieKingDB",
+                            "type": "CalorieKing_DB",
                             "fields": dataChunk
                         }, function(err, data) {
                             if (err) {
