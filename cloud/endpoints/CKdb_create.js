@@ -50,7 +50,7 @@ var createCKEndpoint = function() {
                         var  dataChunk = data.Food[i]   
                         $fh.db({
                             "act": "create",
-                            "type": "CalorieKing_DB",
+                            "type": "CalorieKingDB",
                             "fields": dataChunk
                         }, function(err, data) {
                             if (err) {

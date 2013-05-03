@@ -49,7 +49,7 @@ var fetchCKEndpoint = function() {
                 }
                 $fh.db({
                     "act": "list",
-                    "type": "CalorieKing_DB",
+                    "type": "CalorieKingDB",
                     "eq" : {
                         "Name":reqJson.request.payload.type
                     }
