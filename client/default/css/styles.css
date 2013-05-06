@@ -1786,6 +1786,10 @@ section#widgetScreen #body #content #leftContent {
     box-shadow: 3px 7px 5px #ababab;
 }
 
+section#widgetScreen #scrollWrapper {
+  height: 100%;
+}
+
 #news-and-information {
     padding: 15px;
 }
@@ -1925,9 +1929,10 @@ section#widgetScreen #body #content #leftContent {
     padding: 15px;
 }
 #alerts h1 {
-    color: #2b6891;
-    margin: 30px 0 20px 0;
-    font: bold 20px "Avenir Next", Helvetica, Arial, sans-serif;
+
+  color: #2b6891;
+  margin: 25px 0 15px 0;
+  font: bold 20px "Avenir Next", Helvetica, Arial, sans-serif;
 }
 #alerts #add-alert {
     -webkit-border-radius: 8px;
@@ -2715,6 +2720,9 @@ section#insights h1 {
   font-size: 12px;
   color: #777;
 }
+#myWidgets .action:active {
+  opacity: 0.5;
+}
 #myWidgets img {
   width: 74px;
   pointer-events: none;
@@ -3486,6 +3494,28 @@ padding-right: 20px;
   background: none;
 
 }
+#foodometer #nutrition,
+#foodScreen #nutrition,
+#foodometer #mealContainer #nutrition,
+#foodScreen #mealContainer #nutrition {
+  height: 55px;
+  padding: 2px 10px;
+}
+#foodometer #nutrition h2,
+#foodScreen #nutrition h2,
+#foodometer #mealContainer #nutrition h2,
+#foodScreen #mealContainer #nutrition h2 {
+  margin-bottom: 0px;
+  font: bold 18px "Avenir Next", Helvetica, Arial, sans-serif;
+}
+#foodometer #nutrition h2:after,
+#foodScreen #nutrition h2:after,
+#foodometer #mealContainer #nutrition h2:after,
+#foodScreen #mealContainer #nutrition h2:after {
+  content: url('../img/icons/smallArrow.png');
+  float: right;
+  clear: right;
+}
 #foodometer #addFoodPopup,
 #foodScreen #addFoodPopup {
   display: none;
@@ -3513,6 +3543,72 @@ padding-right: 20px;
   content: '';
   position: absolute;
   right: 17px;
+}
+#foodometer #nutritionSection,
+#foodScreen #nutritionSection {
+  display: none;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+#foodometer #nutritionSection .box,
+#foodScreen #nutritionSection .box {
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 1px 2px 5px #676767, inset -1px 1px 1px #ffffff;
+  margin: 20px 5px;
+  color: #000000;
+}
+#foodometer #nutritionSection .box .first,
+#foodScreen #nutritionSection .box .first {
+  display: inline-block;
+  width: 51%;
+}
+#foodometer #nutritionSection .box .second,
+#foodScreen #nutritionSection .box .second,
+#foodometer #nutritionSection .box .third,
+#foodScreen #nutritionSection .box .third,
+#foodometer #nutritionSection .box #amount,
+#foodScreen #nutritionSection .box #amount,
+#foodometer #nutritionSection .box #rda,
+#foodScreen #nutritionSection .box #rda {
+  display: inline-block;
+  width: 23%;
+  color: #a8a8a8;
+}
+#foodometer #nutritionSection .box .boxHeader,
+#foodScreen #nutritionSection .box .boxHeader {
+  background-color: #ebebeb;
+  border-radius: 5px 5px 0 0;
+  padding: 5px 10px;
+}
+#foodometer #nutritionSection .box .boxHeader .first,
+#foodScreen #nutritionSection .box .boxHeader .first {
+  font: bold 18px "Avenir Next", Helvetica, Arial, sans-serif;
+}
+#foodometer #nutritionSection .box .boxHeader .second,
+#foodScreen #nutritionSection .box .boxHeader .second,
+#foodometer #nutritionSection .box .boxHeader .third,
+#foodScreen #nutritionSection .box .boxHeader .third {
+  font: bold 14px "Avenir Next", Helvetica, Arial, sans-serif;
+  color: #fa9100;
+}
+#foodometer #nutritionSection .box .boxEntry,
+#foodScreen #nutritionSection .box .boxEntry {
+  padding: 15px 10px;
+  border-bottom: 2px solid #e6e6e6;
+  font: normal 14px "Avenir Next", Helvetica, Arial, sans-serif;
+}
+#foodometer #nutritionSection .box .boxEntry #name,
+#foodScreen #nutritionSection .box .boxEntry #name {
+  display: inline-block;
+  width: 51%;
+  white-space: nowrap;
+  overflow: hidden;
+}
+#foodometer #nutritionSection .box .boxEntry:last-child,
+#foodScreen #nutritionSection .box .boxEntry:last-child {
+  border-bottom: none;
 }
 #foodScreen #panelTopBar #meal {
   font: bold 18px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
@@ -3565,6 +3661,13 @@ padding-right: 20px;
   white-space: nowrap;
   overflow: auto;
 }
+#foodScreen #body #content #level1Food #hScroller {
+  white-space: nowrap;
+  width: auto;
+  float: left;
+  position: relative;
+  padding-right: 350px;
+}
 #foodScreen #body #content #level2Food {
   background: url('../img/food/bg-food-menu-bar-sub.png') repeat-x;
   max-height: 60px;
@@ -3579,8 +3682,7 @@ padding-right: 20px;
   overflow: hidden;
 }
 #foodScreen #body #content #level2Food .foodItem {
-  margin: 4px 2%;
-  width: 12%;
+  width: 15%;
 }
 #foodScreen #body #content #level2Food .foodItem img {
   height: 30px;
@@ -3589,7 +3691,7 @@ padding-right: 20px;
   display: none;
 }
 #foodScreen #body .foodItem {
-  width: 11%;
+  width: 15%;
   text-align: center;
   font-size: 12px;
   margin: 4px 4px;

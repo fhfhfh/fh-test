@@ -37,7 +37,8 @@ var fetchVitalsignsEndpoint = require("./endpoints/fetchVitalsigns.js")
 var fetchResultsEndpoint = require("./endpoints/fetchResults.js")
 var healthHubEndpoint = require("./endpoints/healthHub.js")
 var folderManagerEndpoint = require("./endpoints/folderManager.js")
-
+var createCKEndpoint = require("./endpoints/CKdb_create.js")
+var fetchCKEndpoint = require("./endpoints/fetchCKdb.js")
 var dbParser = require("./dbparser.js");
 
 
@@ -84,6 +85,8 @@ exports.fetchResultsAction = fetchResultsAction;
 exports.healthHubAction = healthHubAction;
 exports.folderManagerAction = folderManagerAction;
 exports.dbParse = dbParse;
+exports.createDBAction = createDBAction;
+exports.fetchDBAction = fetchDBAction;
 
 
 //--------------------------------------login----------------------------------------
@@ -381,7 +384,24 @@ function dbParse(params, callback){
     callback(null, {status: "OK"});
   });
 }
+ //---------------------------------------createDB--------------------------------------------------------------------
 
+function createDBAction(params, callback) {
+  //console.log(JSON.stringify(params));
+  createCKEndpoint.createDB(params,function cb(err, respData) {
+    callback(err,respData);
+  });
+}
+
+
+ //---------------------------------------fetchDB--------------------------------------------------------------------
+
+function fetchDBAction(params, callback) {
+  //console.log(JSON.stringify(params));
+  fetchCKEndpoint.fetchCK(params,function cb(err, respData) {
+    callback(err,respData);
+  });
+}
 
 
 

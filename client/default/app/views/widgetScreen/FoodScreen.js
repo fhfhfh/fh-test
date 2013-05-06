@@ -7,10 +7,12 @@ define([
     'underscore',
     'backbone',
     'text!templates/widgets/FoodScreen.html',
-], function($, _, Backbone, tpl) {
+    'collections/Foods'
+], function($, _, Backbone, tpl, collection) {
     return Backbone.View.extend({
         tagName: 'section',
         id: 'foodScreen',
+        collection: collection,
         template: _.template(tpl),
         events: {
             'click .foodItem' : 'selectFood',
@@ -24,7 +26,23 @@ define([
 
         render: function() {
             this.$el.html(this.template());
+
+            this.level1Scroll = new iScroll(this.$('#level1Food')[0],{
+                hScroll     : true,
+                vScroll     : false,
+                hScrollbar  : false,
+                bounceLock  : true,
+                bounce      : false
+            });
+            this.refreshScroll();
             return this;
+        },
+
+        refreshScroll: function(){
+            var self = this;
+            setTimeout(function(){
+                self.level1Scroll.refresh();
+            }, 100);
         },
 
         /* 
@@ -32,6 +50,7 @@ define([
          * Check whether it is level1 or level2 category
          */
         selectFood: function(e){
+            var self = this;
             var target = $(e.currentTarget);
 
             if(target.hasClass('lv1')){
@@ -52,7 +71,9 @@ define([
             // if both level categories are selected, show foodList
             if($('.foodItem.lv1').hasClass('selected') && $('.foodItem.lv2:visible').hasClass('selected')){
                 $('#foodList').show();
+                self.populateFoodList(target);
             }
+            this.refreshScroll();
         },
         
         cancel : function(){
@@ -65,6 +86,21 @@ define([
 
         cancelFoodEntry: function(e){
             this.container.setActiveView('foodometerNav');
+        },
+
+        populateFoodList: function(el){
+            var target = $(el);
+            var name = target.attr('data-name');
+            console.log(name);
+
+            // pull foods into collection before populating screen
+            this.collection.getFoods(name, function(res){
+//                alert(res);
+            });
         }
+
     });
 });
+
+
+

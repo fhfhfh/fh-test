@@ -9,8 +9,9 @@ define([
     'text!templates/widgets/Foodometer.html',
     'text!templates/popups/MonthPicker.html',
     'models/Calendar',
-    'collections/FoodJournal'
-], function($, _, Backbone, tpl, monthPicker, calendar, collection) {
+    'collections/FoodJournal',
+    'models/Acts'
+], function($, _, Backbone, tpl, monthPicker, calendar, collection, Act) {
     return Backbone.View.extend({
         tagName: 'section',
         id: 'foodometer',
@@ -26,7 +27,8 @@ define([
             'click #add'      : 'showAddPopup',
             'click #addFood'  : 'addFoodItem',
             'click #copyFood' : 'copyFoodItem',
-            'click #clearFood': 'clearMeal'
+            'click #clearFood': 'clearMeal',
+            'click #nutrition': 'showNutrition'
         },
 
         initialize: function() {
@@ -180,7 +182,7 @@ define([
             this.$('#emptyFood').hide();
 
             this.$('#mealString').text(mealString);
-            this.$('.boxHeader span').text(dateString);
+            this.$('#foodList .boxHeader span').text(dateString);
             this.populateMeal(meal);
         },
 
@@ -193,7 +195,6 @@ define([
             this.$('#foodList .boxEntry').remove();
             var item = this.item;
             var self = this;
-            console.log(item);
             if(item){
                 var foods = item.attributes[meal];
                 if(foods.length == 0){
@@ -249,7 +250,13 @@ define([
         },
 
         showAddPopup: function(){
-            console.log('Add function...');
+             Act.call('createDBAction',{},
+                function(res){
+                    alert('Saved successfully'+JSON.stringify(res));
+                }, function(err, msg){
+                    console.log(JSON.stringify(msg));
+                });
+
             $('#addFoodPopup').toggle();
         },
 
@@ -264,6 +271,16 @@ define([
 
         clearMeal: function(){
             //TODO: clear todays meal
+        },
+
+        showNutrition: function(){
+            if($('#nutritionSection').is(':visible')){
+                $("#nutritionSection").hide();
+                $("#mealInputs").show();
+            } else {
+                $("#nutritionSection").show();
+                $("#mealInputs").hide();
+            }
         }
 
     });
