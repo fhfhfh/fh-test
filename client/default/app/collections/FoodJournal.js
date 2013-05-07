@@ -24,9 +24,9 @@ define(['backbone',
 			var asset = new model({
 				breakfast : [
 					{calories: "190", location: "Starbucks", with : "Friends", time: "1:00 PM", notes: "Nothing special"},
-					{name: "Scone", about: "1 piece", calories: "100"},
-					{name: "Coffee", about: "2 cups", calories: "90"},
-					]
+					{name: "Scone", serving: "1 piece", calories: "100"},
+					{name: "Coffee", serving: "2 cups", calories: "90"},
+				]
 			});
 			this.add(asset);
 		},
@@ -37,6 +37,12 @@ define(['backbone',
 			var asset = new model(obj);
 			this.add(asset);
 			this.store();
+		},
+
+		createDay: function(date){
+			var asset =new model({date: date});
+			this.add(asset);
+			return asset;
 		},
 
 

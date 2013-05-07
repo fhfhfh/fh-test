@@ -3525,3 +3525,6 @@ section#insights h1 {
   border-color: #ffffff;
   width: 40%;
 }
+#foodScreen #foodItemScreen #saveToMeal:active {
+  background-color: #fee999;
+}

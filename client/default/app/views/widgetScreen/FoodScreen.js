@@ -21,7 +21,11 @@ define([
             'click #foodList .boxEntry' : 'showFoodItemScreen',
             'click #cancelBtn': 'cancelFoodEntry',
             'click #backToTop': 'backToTop',
-            'click .item'     : 'selectItem'
+            'click .item'     : 'selectItem',
+            'click #cancelFood': 'cancelFood',
+            'click #foodFavBtn': 'addFoodToFav',
+            'click #saveToMeal': 'saveFoodToMeal',
+            'click #saveBtn'   : 'saveAllItems'
         },
 
         initialize: function() {
@@ -72,10 +76,10 @@ define([
                 $('.foods2').hide();
                 $('.foods2.'+name).show();
                 $('#foodList').hide();
+                $('#backToTop').hide();
             }
             else if(target.hasClass('lv2')){
                 $('.foodItem.lv2').removeClass('selected');
-                $('#foodList').show();
             }
             
             target.addClass('selected');
@@ -89,17 +93,16 @@ define([
         },
 
         showFoodItemScreen: function(e){
-            console.log('11');
             var self = this;
             var target = $(e.currentTarget);
             var imgSrc = $(".lv2.selected img").attr("src");
             var id = target.attr('data-id');
             if(id){
                 var model = this.collection.get(id);
+                self.selectedFood = model;
                 self.oldHtml = this.$("#content").html();
                 this.$("#content").html(self.itemTpl({item:model.attributes, imgSrc:imgSrc}));
             } else {
-                console.log('out');
                 this.$("#content").html(self.oldHtml);
             }
             self.refreshScroll();
@@ -126,6 +129,7 @@ define([
                                 "<span id='about'>" + "</span></div>";
                     $('#foodList').append(html);
                 }
+                $('#backToTop').show();
                 self.refreshScroll();
             });
         },
@@ -137,6 +141,40 @@ define([
         selectItem: function(e){
             var target = $(e.currentTarget);
             target.toggleClass('selected');
+        },
+
+        cancelFood: function(){
+            this.selectedFood = null; 
+            this.$("#content").html(this.oldHtml);
+            this.refreshScroll();
+            
+        },
+
+        addFoodToFav: function(){
+            var food = this.selectedFood;
+            if(!food){
+                console.warn('No Food Selected');
+                return;
+            } else {
+                food.set("favorite", true);
+            }
+        },
+
+        saveFoodToMeal: function(){
+            var food = this.selectedFood;
+            if(!food){
+                console.warn('No Food Selected');
+                return;
+            } else {
+                food.attributes.serving = $("#serving").val() + " x " + $('#size').val();
+                this.container.foodItems.push(food);
+                console.log(this.container.foodItems);
+            }
+        },
+
+        saveAllItems: function(){
+            this.container.setActiveView('foodometerNav');
+            this.container.subViews.foodometerNav.saveFoodsToJournal();
         }
 
     });

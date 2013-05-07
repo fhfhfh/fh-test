@@ -13,11 +13,11 @@ define(['backbone'], function(Backbone) {
 			goalCals 		: 1500,
 			remainingCals 	: 1500,
 			currentCals 	: 0,
-			breakfast 		: [],
-			lunch 			: [],
-			dinner 			: [],
-			snacks 			: [],
-			beverages 		: []
+			breakfast 		: [{calories: "0", location: "", with : "", time: "", notes: ""}],
+			lunch 			: [{calories: "0", location: "", with : "", time: "", notes: ""}],
+			dinner 			: [{calories: "0", location: "", with : "", time: "", notes: ""}],
+			snacks 			: [{calories: "0", location: "", with : "", time: "", notes: ""}],
+			beverages 		: [{calories: "0", location: "", with : "", time: "", notes: ""}]
 		},
 
 		initialize: function(){
@@ -38,6 +38,50 @@ define(['backbone'], function(Backbone) {
 				this.set("currentCals", sum);
 				this.set("remainingCals", att.remainingCals - sum);
 			}
+
+			this.on("change", this.recalculateNutrients);
+		},
+
+		recalculateNutrients: function(){
+			var att = this.attributes;
+			var b 	= att.breakfast;
+			var l = att.lunch;
+			var d = att.dinner;
+			var s = att.snacks;
+			var bs= att.beverages;
+			var arr = [b,l,d,s,bs];
+			var i,j;
+			for(i=0;i<arr.length;i++){
+				var meal = arr[i];
+				var totals = meal[0];
+				totals.calories = 0;
+				totals.fat = 0;
+				totals.cholesterol = 0;
+				totals.sodium =0;
+				totals.carbohydrates =0;
+				totals.fibre = 0;
+				totals.protein = 0;
+				
+				for(j=1;j<meal.length;j++){
+					var item=meal[i];
+					totals.calories += item.calories;
+					totals.fat += item.total_fat;
+					totals.cholesterol += item.cholesterol;
+					totals.sodium += item.sodium;
+					totals.carbohydrates += item.carbohydrates;
+					totals.fibre += item.fibre;
+					totals.protein += item.protein;
+				}
+			}
+			var bCals = this.getCals(b);
+			var lCals = this.getCals(l);
+			var dCals = this.getCals(d);
+			var sCals = this.getCals(s);
+			var bsCals= this.getCals(bs);
+			var sum = bCals+lCals+dCals+sCals+bsCals;
+			this.set("currentCals", sum);
+			this.set("remainingCals", att.remainingCals - sum);
+			console.log(this);
 		},
 
 		// Return true is no meals have been added to model

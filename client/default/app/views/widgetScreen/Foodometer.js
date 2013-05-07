@@ -163,7 +163,7 @@ define([
                 }
             }
             else {
-                self.item = null;
+                self.item = collection.createDay(date);
                 self.showEmptyScreen(); // if no model exists for date, assume empty
             }
         },
@@ -173,7 +173,7 @@ define([
             var meal = this.$(target).attr('data-name') || 'breakfast';
             // change item class to selected
             this.$('.meal').removeClass('selected');
-            this.$(target ).addClass('selected');
+            this.$(target).addClass('selected');
 
             var dateString = this.$('#dateString').text();
             var mealString = 'My ' + meal.substring(0,1).toUpperCase() + meal.substring(1,meal.length); 
@@ -189,6 +189,23 @@ define([
         showEmptyScreen: function(){
             this.$('#mealContainer').hide();
             this.$('#emptyFood').show();
+        },
+
+        saveFoodsToJournal: function(){
+            var self = this;
+            var foodArr = this.container.foodItems;
+            if(foodArr.length > 0){
+                var meal = self.meal;
+                for(var i=0;i<foodArr.length;i++){
+                    var arr = self.item.attributes[meal];
+                    console.log(arr, meal);
+                    arr.push(foodArr[i].attributes);
+                    self.item.set(meal, arr);
+                    self.item.trigger("change");   
+                }
+                
+            }
+            this.populateMeal(meal);
         },
 
         populateMeal: function(meal){
@@ -213,7 +230,7 @@ define([
                     var index = foods[i];
                     var html = '<div class="boxEntry">'+
                         '<span id="name">'+ index.name+'</span>'+
-                        '<span id="about">'+index.about+'</span>'+
+                        '<span id="about">'+index.serving+'</span>'+
                         '</div>';
                     this.$('#foodList').append(html);
                 }
@@ -250,18 +267,20 @@ define([
         },
 
         showAddPopup: function(){
-              Act.call('createDBAction',{},
-                 function(res){
-                     alert('Saved successfully'+JSON.stringify(res));
-                 }, function(err, msg){
-                     console.log(JSON.stringify(msg));
-                 });
+              // Act.call('createDBAction',{},
+              //    function(res){
+              //        alert('Saved successfully'+JSON.stringify(res));
+              //    }, function(err, msg){
+              //        console.log(JSON.stringify(msg));
+              //    });
 
             $('#add').toggleClass('selected');
             $('#addFoodPopup').toggle();
         },
 
         addFoodItem: function(){
+            this.meal = $(".meal.selected").attr('data-name') || "breakfast";
+            console.log(this.meal);
             this.container.setActiveView('foodScreen');
         },
 

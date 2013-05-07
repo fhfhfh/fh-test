@@ -17,13 +17,6 @@ define(['backbone',
 		foods : [],
 
 		initialize: function(){
-			var a = {name:"Eoin",lName:"Crosbie"};
-			var b = {name:"Brandon",lName:"Crosbie"};
-			var c = {name:"Eoin",lName:"Murphy"};
-			this.add(a);
-			this.add(b);
-			this.add(c);
-
 		},
 
 		search: function(type){
@@ -49,8 +42,6 @@ define(['backbone',
 
 			Act.call("fetchDBAction", {"type":type},
 				function(res){
-                                    alert(JSON.stringify(res));
-					console.log(res);
 					var name = res.payload.Name;
 					var list = res.payload[name];
 
