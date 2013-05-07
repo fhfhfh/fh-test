@@ -18,7 +18,8 @@ define(['backbone'], function(Backbone) {
 			total_carbohydrate: 0.0,
 			sodium	 		: 0.0,
 			cholesterol 	: 0.0,
-			serving 		: [ {name: "quantity (1 oz)", size: "20.5"}]
+			serving 		: [ {name: "quantity (1 oz)", size: "20.5"}],
+			favorite 		: false
 		},
 
 		initialize: function(){
