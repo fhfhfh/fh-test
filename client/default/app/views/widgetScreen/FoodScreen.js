@@ -7,17 +7,21 @@ define([
     'underscore',
     'backbone',
     'text!templates/widgets/FoodScreen.html',
+    'text!templates/widgets/FoodItem.html',
     'collections/Foods'
-], function($, _, Backbone, tpl, collection) {
+], function($, _, Backbone, tpl, foodItem, collection) {
     return Backbone.View.extend({
         tagName: 'section',
         id: 'foodScreen',
         collection: collection,
         template: _.template(tpl),
+        itemTpl: _.template(foodItem),
         events: {
             'click .foodItem' : 'selectFood',
             'click .boxEntry' : 'showFoodItemScreen',
-            'click #cancelBtn': 'cancelFoodEntry'
+            'click #cancelBtn': 'cancelFoodEntry',
+            'click #backToTop': 'backToTop',
+            'click #yo'         : 'showFoodItemScreen'
         },
 
         initialize: function() {
@@ -34,6 +38,8 @@ define([
                 bounceLock  : true,
                 bounce      : false
             });
+
+            this.pageScroll = new iScroll(this.$('#content')[0]);
             this.refreshScroll();
             return this;
         },
@@ -42,6 +48,7 @@ define([
             var self = this;
             setTimeout(function(){
                 self.level1Scroll.refresh();
+                self.pageScroll.refresh();
             }, 100);
         },
 
@@ -54,7 +61,12 @@ define([
             var target = $(e.currentTarget);
 
             if(target.hasClass('lv1')){
-                $('.foodItem.lv1').removeClass('selected');
+                if($(".foodItem.lv1.selected").length > 0){
+                    $('.foodItem.lv1.selected img').attr('src', $('.foodItem.lv1.selected img').attr('src').replace("icon-over", "icon"));
+                    $('.foodItem.lv1').removeClass('selected');
+                }
+                
+                target.find('img').attr('src', target.find('img').attr('src').replace("icon.", "icon-over."));
                 var name = target.attr('data-id');
 
                 $('.foods2').hide();
@@ -77,7 +89,17 @@ define([
         },
 
         showFoodItemScreen: function(e){
+            var self = this;
             var target = $(e.currentTarget);
+            var id = target.attr('data-id');
+            if(id){
+                var model = this.collection.get(id);
+                self.oldHtml = this.$("#content").html();
+                this.$("#content").html(self.itemTpl({item:model.attributes}));
+            } else {
+                this.$("#content").html(self.oldHtml);
+            }
+            
         },
 
         cancelFoodEntry: function(e){
@@ -85,14 +107,28 @@ define([
         },
 
         populateFoodList: function(el){
+            var self = this;
             var target = $(el);
             var name = target.attr('data-name');
             console.log(name);
+            $('#foodList').html('');
 
             // pull foods into collection before populating screen
             this.collection.getFoods(name, function(res){
-//                alert(res);
+                console.log(res[0]);
+                for(var i=0;i<res.length;i++){
+                    var item = res[i];
+                    var name = item.name || item.attributes.name;
+                    var html = "<div class='boxEntry' data-id='"+item.id+"''><span id='name'>" +name +"</span>"+
+                                "<span id='about'>" + "</span></div>";
+                    $('#foodList').append(html);
+                }
+                self.refreshScroll();
             });
+        },
+
+        backToTop: function(){
+            this.pageScroll.scrollTo(0,0,200);
         }
 
     });

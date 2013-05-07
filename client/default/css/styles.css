@@ -3244,8 +3244,12 @@ section#insights h1 {
   background-color: #ffffff;
   background-image: none;
   min-height: 850px;
+  max-height: 885px;
   padding-left: 20px;
   text-align: center;
+}
+#foodScreen #body #content #pageScroll {
+  padding-bottom: 40px;
 }
 #foodScreen #body #content #filterButtons {
   margin-top: 30px;
@@ -3287,7 +3291,7 @@ section#insights h1 {
   width: auto;
   float: left;
   position: relative;
-  padding-right: 350px;
+  padding-right: 450px;
 }
 #foodScreen #body #content #level2Food {
   background: url('../img/food/bg-food-menu-bar-sub.png') repeat-x;
@@ -3306,7 +3310,7 @@ section#insights h1 {
   width: 15%;
 }
 #foodScreen #body #content #level2Food .foodItem img {
-  height: 30px;
+  height: 35px;
 }
 #foodScreen #body #content #level2Food .foods2 {
   display: none;
@@ -3386,4 +3390,35 @@ section#insights h1 {
 }
 #foodScreen #body .box .boxEntry:last-child {
   border-bottom: none;
+}
+#foodScreen #foodItem {
+  text-align: center;
+  background: #E6E6E6;
+  margin: 10px;
+  border-radius: 8px;
+}
+#foodScreen #foodItem #top {
+  text-align: center;
+  padding-bottom: 30px;
+}
+#foodScreen #foodItem #cancelFood {
+  float: left;
+  background-image: url('../img/food/bu-with-arrow-left.png');
+  display: inline-block;
+  padding: 3px 10px 3px 12px;
+  margin: 20px;
+}
+#foodScreen #foodItem #foodFavBtn {
+  float: right;
+  background: #676767;
+  display: inline-block;
+  padding: 3px 10px;
+  margin: 20px;
+  border-radius: 5px;
+}
+#foodScreen #foodItem #foodName {
+  color: #000000;
+  display: inline-block;
+  font: bold 16px "Avenir Next", Helvetica, Arial, sans-serif;
+  margin-top: 20px;
 }

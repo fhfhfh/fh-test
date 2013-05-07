@@ -30,9 +30,7 @@ define(['backbone',
 			var arr = [];
 			this.each(function(model){
 				var item = model;
-
-				if(item.attributes.name === type){
-					console.log('pushed');
+				if(item.attributes.type === type){
 					arr.push(item);
 				}
 			});
@@ -45,18 +43,20 @@ define(['backbone',
 			var self = this;
 
 			if(self.foods[type]){
-				
+				var list = self.search(type);
+				return cb(list);
 			}
 
 			Act.call("fetchDBAction", {"type":type},
 				function(res){
-                                    alert(res);
 					console.log(res);
 					var name = res.payload.Name;
 					var list = res.payload[name];
-					self.populateCollection(list[name], type);
+
+					var models = self.populateCollection(list[name], type);
 					self.foods[type] = true;
-					return cb(res);
+
+					return cb(models);
 				}, function(err, msg){
 					console.warn(err, msg);
 				}
@@ -65,19 +65,15 @@ define(['backbone',
 
 		populateCollection: function(list, type){
 			var self = this;
-			console.log(list);
+			
 			for(var i=0;i<list.length;i++){
 				var item =list[i];
 				item.type = type
 				var asset = new self.model(item);
 				self.add(asset);
 			}
-			console.log(this);
+			return this.search(type);
 		},
-
-		// var dayModel = collection.find(function(item){
-  //               return item.get('date').toDateString() == date.toDateString();
-  //           });
 
 		store: function(){
 			var models = JSON.stringify(this.models);
@@ -99,6 +95,5 @@ define(['backbone',
 		}
 
 	});
-	window.collection = new collection();
 	return new collection();
 });
