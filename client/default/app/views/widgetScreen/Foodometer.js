@@ -257,11 +257,11 @@ define([
              //        console.log(JSON.stringify(msg));
              //    });
 
+            $('#add').toggleClass('selected');
             $('#addFoodPopup').toggle();
         },
 
         addFoodItem: function(){
-            //TODO: display calorie king page
             this.container.setActiveView('foodScreen');
         },
 
@@ -274,14 +274,29 @@ define([
         },
 
         showNutrition: function(){
+            var self=this;
             if($('#nutritionSection').is(':visible')){
                 $("#nutritionSection").hide();
                 $("#mealInputs").show();
             } else {
                 $("#nutritionSection").show();
                 $("#mealInputs").hide();
+                self.updateNutrition();
             }
+        },
+
+        updateNutrition: function(){
+            var el = $("#nutritionSection .boxEntry");
+            
+            for(var i=0; i<el.length; i++){
+                var thisEl = $(el[i]);
+                var percent = thisEl.find("#rda").text() || "0%";
+                thisEl.find("#name").css("background-size", percent +" 100%");
+            }
+            
         }
 
     });
 });
+
+

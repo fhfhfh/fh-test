@@ -9,9 +9,12 @@
 
         img.positioned  { position:absolute;}
         img#topleft     { top:59px;    left:12px; }
+        img#top         { top:60px; height:15px; width:93%;}
         img#topright    { top:58px;    right:12px; }
         img#bottomleft  { bottom:-8px; left:14px; }
+        img#bottom         { bottom:-4px; height:15px; width:93%;}
         img#bottomright { bottom:-9px; right:14px; }
+
 
         #binderBg {
             width: 40px;
@@ -248,29 +251,37 @@
 
             #calCount {
                 color: #676767;
+                display: block;
             }
         }
 
         .btn {
             float: right;
-            background: #cccccc;
-            border: 2px solid #ffffff;
-            margin: 15px 5px 15px 0px;
+            background: url("../img/food/bu-share-gradient.png");
+            border: none;
+            margin: 15px 10px 15px 0px;
+            box-shadow: -1px 1px 3px 0px;
             color: #676767;
-            .avenir(12px);
+            .avenir-demi(13px);
+            height: 40px;
+            width: 115px;
 
             img {
                 vertical-align: middle;
                 padding-right: 5px;
             }
+
+            &:active, &.selected {
+                background: url("../img/food/bu-yellow-gradient.png");
+            }
+        }
+
+        #share {
+            padding: 9px;
         }
 
         #add {
             padding: 5px;
-            img {
-                height: 16px;
-                padding: 0px;
-            }
         }
 
         #foodList {
@@ -359,8 +370,9 @@
     #addFoodPopup {
         display: none;
         position: absolute;
-        right: 35px;
-        top: 150px;
+        right: 60px;
+        top: 155px;
+        width: 300px;
         left: auto;
         box-shadow: 0px -1px 1px #000000;
 
@@ -433,6 +445,8 @@
                     width: 51%;
                     white-space: nowrap;
                     overflow: hidden;
+                    background: url("../img/cornerTabs/greenbg.png") no-repeat;
+                    background-size: 0px 100%;
                 }
 
                 &:last-child{

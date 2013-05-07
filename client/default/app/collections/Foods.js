@@ -53,7 +53,7 @@ define(['backbone',
 					var name = res.payload.Name;
 					var list = res.payload[name];
 
-					var models = self.populateCollection(list[name], type);
+					var models = self.populateCollection(list, type);
 					self.foods[type] = true;
 
 					return cb(models);

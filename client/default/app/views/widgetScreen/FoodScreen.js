@@ -18,10 +18,10 @@ define([
         itemTpl: _.template(foodItem),
         events: {
             'click .foodItem' : 'selectFood',
-            'click .boxEntry' : 'showFoodItemScreen',
+            'click #foodList .boxEntry' : 'showFoodItemScreen',
             'click #cancelBtn': 'cancelFoodEntry',
             'click #backToTop': 'backToTop',
-            'click #yo'         : 'showFoodItemScreen'
+            'click .item'     : 'selectItem'
         },
 
         initialize: function() {
@@ -89,17 +89,20 @@ define([
         },
 
         showFoodItemScreen: function(e){
+            console.log('11');
             var self = this;
             var target = $(e.currentTarget);
+            var imgSrc = $(".lv2.selected img").attr("src");
             var id = target.attr('data-id');
             if(id){
                 var model = this.collection.get(id);
                 self.oldHtml = this.$("#content").html();
-                this.$("#content").html(self.itemTpl({item:model.attributes}));
+                this.$("#content").html(self.itemTpl({item:model.attributes, imgSrc:imgSrc}));
             } else {
+                console.log('out');
                 this.$("#content").html(self.oldHtml);
             }
-            
+            self.refreshScroll();
         },
 
         cancelFoodEntry: function(e){
@@ -129,6 +132,11 @@ define([
 
         backToTop: function(){
             this.pageScroll.scrollTo(0,0,200);
+        },
+
+        selectItem: function(e){
+            var target = $(e.currentTarget);
+            target.toggleClass('selected');
         }
 
     });

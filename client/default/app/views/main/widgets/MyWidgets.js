@@ -35,6 +35,10 @@ define(['jquery',
 		showPage: function(e){
 			var target = $(e.currentTarget);
 			var id = target[0].id;
+			if(id==='blankNav'){
+				Backbone.trigger('notify', 'Item Not Available, used as Placeholder only', 'Placeholder Item');
+				return;
+			}
 			var html = (new WidgetView([initial=id])).render().el;
 			$(html).hide();
 			$('#content').append(html);

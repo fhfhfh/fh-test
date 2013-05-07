@@ -1,10 +1,32 @@
-<div id="foodItem" class='boxEntry'>
+<div id="foodItemScreen" class='boxEntry'>
 	<div id="top">
 		<li id="cancelFood">Cancel</li>
-		<h2 id="foodName"><%= item.fullname %></h2>
+		<img src="<%=imgSrc%>"/><h2 id="foodName"><%= item.fullname %></h2>
 		<li id="foodFavBtn">Favorite</li>
 	</div>
 
-	
+	<div class="box">
+		<div class="item">
+			<img src="img/healthHub/CheckmarkOrange.png"/><span><%= item.name%></span>
+		</div>
+	</div>
+
+	<div id="details">
+		<div class="box inputs servings">
+			<label for="serving">Number of Servings</label>
+			<input type="number" min="1" name="serving" id="serving"/>
+		</div>
+
+		<div class="box inputs size">
+			<label for="size">Serving Size</label>
+			<input type="text" name="size" id="size" value="<%=item.serving[0].name%>"/>
+		</div>
+
+		<div class="box inputs notes">
+			<label for="notes">Notes</label>
+			<textarea id="notes" name="notes"></textarea>
+		</div>
+
+		<li class="btn" id="saveToMeal">Save this to Meal</li>
 
 </div>
