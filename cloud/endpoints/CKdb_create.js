@@ -91,10 +91,8 @@ var createCKEndpoint = function() {
                         return;
                     }
                     var data = JSON.parse(res);
-                    console.log("LENGTH------------ "+data.Food.length);
                     for (var i=0;i<data.Food.length;i++){
                         var  dataChunk = data.Food[i]   
-                         console.log("Value of i ------------ "+i);
                         $fh.db({
                             "act": "create",
                             "type": "CalorieKing_DB",
@@ -112,37 +110,6 @@ var createCKEndpoint = function() {
                             }
                         });
                     }
-                        
-                //        $fh.db({
-                //            "act": "list",
-                //            "type": "CalorieKing",
-                //            "eq" : {
-                //                "Name":reqJson.request.payload.type
-                //            }
-                //                        
-                //        }, function(err, pqr) {
-                //            if (err) {
-                //                var fail = respUtils.constructStatusResponse("createDB", constants.RESP_SERVER_ERROR, err,{});
-                //                log.error("[createDBEndpoint]["+"createDB"+"][READ DATA] >> " + err);
-                //                return callback(fail,null);
-                //                                        
-                //            }
-                //            else{
-                //                    var resp = pqr.list[0].fields;
-                //                    var sss = JSON.stringify(resp,null,4);
-                //                fs.writeFile('./cloud/CalorieKingDB/abc.json', sss, function(err) {
-                //                    if (err) {
-                //                        console.log('Error writing JSON file: ', err);
-                //                        throw err;
-                //                    }
-                //                    console.log('\nNew JSON file saved!');
-                //                    callback(null,resp);
-                //                });
-                //            }
-                //        });
-                            
-                            
-                            
        
 
                 });

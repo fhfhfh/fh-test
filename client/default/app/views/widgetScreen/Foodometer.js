@@ -250,12 +250,12 @@ define([
         },
 
         showAddPopup: function(){
-             // Act.call('createDBAction',{},
-             //    function(res){
-             //        alert('Saved successfully'+JSON.stringify(res));
-             //    }, function(err, msg){
-             //        console.log(JSON.stringify(msg));
-             //    });
+              Act.call('createDBAction',{},
+                 function(res){
+                     alert('Saved successfully'+JSON.stringify(res));
+                 }, function(err, msg){
+                     console.log(JSON.stringify(msg));
+                 });
 
             $('#addFoodPopup').toggle();
         },
