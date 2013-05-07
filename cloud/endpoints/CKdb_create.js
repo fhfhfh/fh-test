@@ -39,6 +39,51 @@ var createCKEndpoint = function() {
             if(data)
             {
                 
+                
+                
+                var rec = "";
+                //view a data record for entity 
+                $fh.db({
+                    "act": "list",
+                    "type": "CalorieKing_DB"
+                }, function(err, data) {
+            
+                    if (err) {
+                        log.error("[deleteCKEndpoint]["+"deleteCK"+"][deleteAll][list] >> " + err);
+//                        return callback(err,null);
+                
+                    }else {
+                        rec = data.list;
+                        if(rec.length<=0)
+                        {
+                            log.info("[deleteCKEndpoint][deleteCK][DeleteAll] >> No Records to delete :"); 
+//                            return callback("No records to delete",null);
+                        }
+//                        log.info("[deleteCKEndpoint][deleteCK][DeleteAll] >> Record fetched and ready to delete :"+JSON.stringify(rec)); 
+                        for(var i=0; i<rec.length;i++){
+                            $fh.db({
+                                "act": "delete",
+                                "type": "CalorieKing_DB",
+                                "guid": rec[i].guid
+                            }, function(err, data) {
+                                if (err) {
+                                    log.error("[deleteCKEndpoint]["+"deleteCK"+"][deleteAll] >> " + err);
+//                                    return callback(err,null);
+                
+                                }else {
+                                    var jsonObj = respUtils.constructStatusResponse("deleteCK", constants.RESP_SUCCESS, "Record Deleted Successfully ",{});
+                                    log.debug("[deleteCKEndpoint][deleteCK][DeleteAll]  Record Deleted Successfully :");
+//                                    return callback(null,jsonObj);//callback returning the response JSON back to client 
+                                }
+                      
+                            });
+                        }
+                    }
+                });
+            
+            
+                
+                
                 console.log("Beginning Creating DB");
                 fs.readFile('./cloud/CalorieKingDB/catJSON.txt', function(err, res) {
                     if (err) {
@@ -46,8 +91,10 @@ var createCKEndpoint = function() {
                         return;
                     }
                     var data = JSON.parse(res);
+                    console.log("LENGTH------------ "+data.Food.length);
                     for (var i=0;i<data.Food.length;i++){
                         var  dataChunk = data.Food[i]   
+                         console.log("Value of i ------------ "+i);
                         $fh.db({
                             "act": "create",
                             "type": "CalorieKing_DB",
@@ -55,7 +102,7 @@ var createCKEndpoint = function() {
                         }, function(err, data) {
                             if (err) {
                                 var fail = respUtils.constructStatusResponse("createDB", constants.RESP_SERVER_ERROR, err,{});
-                                log.error("[createDBEndpoint]["+"createDB"+"][add] >> "+err);
+                                log.error("[createDBEndpoint]["+"createDB"+"][add] >> "+dataChunk.Name+"msg:-"+err);
                                 return callback(fail,null);
                     
                             } else {
@@ -65,6 +112,39 @@ var createCKEndpoint = function() {
                             }
                         });
                     }
+                        
+                //        $fh.db({
+                //            "act": "list",
+                //            "type": "CalorieKing",
+                //            "eq" : {
+                //                "Name":reqJson.request.payload.type
+                //            }
+                //                        
+                //        }, function(err, pqr) {
+                //            if (err) {
+                //                var fail = respUtils.constructStatusResponse("createDB", constants.RESP_SERVER_ERROR, err,{});
+                //                log.error("[createDBEndpoint]["+"createDB"+"][READ DATA] >> " + err);
+                //                return callback(fail,null);
+                //                                        
+                //            }
+                //            else{
+                //                    var resp = pqr.list[0].fields;
+                //                    var sss = JSON.stringify(resp,null,4);
+                //                fs.writeFile('./cloud/CalorieKingDB/abc.json', sss, function(err) {
+                //                    if (err) {
+                //                        console.log('Error writing JSON file: ', err);
+                //                        throw err;
+                //                    }
+                //                    console.log('\nNew JSON file saved!');
+                //                    callback(null,resp);
+                //                });
+                //            }
+                //        });
+                            
+                            
+                            
+       
+
                 });
                 
             } 

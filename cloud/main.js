@@ -39,6 +39,8 @@ var healthHubEndpoint = require("./endpoints/healthHub.js")
 var folderManagerEndpoint = require("./endpoints/folderManager.js")
 var createCKEndpoint = require("./endpoints/CKdb_create.js")
 var fetchCKEndpoint = require("./endpoints/fetchCKdb.js")
+var deleteCKEndpoint = require("./endpoints/deleteCKdb.js")
+
 var dbParser = require("./dbparser.js");
 
 
@@ -87,7 +89,7 @@ exports.folderManagerAction = folderManagerAction;
 exports.dbParse = dbParse;
 exports.createDBAction = createDBAction;
 exports.fetchDBAction = fetchDBAction;
-
+exports.deleteCKAction = deleteCKAction;
 
 //--------------------------------------login----------------------------------------
 function loginAction(params, callback) {
@@ -403,7 +405,14 @@ function fetchDBAction(params, callback) {
   });
 }
 
+ //---------------------------------------deleteDB--------------------------------------------------------------------
 
+function deleteCKAction(params, callback) {
+  //console.log(JSON.stringify(params));
+  deleteCKEndpoint.deleteCK(params,function cb(err, respData) {
+    callback(err,respData);
+  });
+}
 
 
 
