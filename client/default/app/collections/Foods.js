@@ -49,6 +49,7 @@ define(['backbone',
 
 			Act.call("fetchDBAction", {"type":type},
 				function(res){
+                                    alert(JSON.stringify(res));
 					console.log(res);
 					var name = res.payload.Name;
 					var list = res.payload[name];
