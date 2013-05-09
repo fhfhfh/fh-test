@@ -50,16 +50,12 @@ var createCKEndpoint = function() {
             
                     if (err) {
                         log.error("[deleteCKEndpoint]["+"deleteCK"+"][deleteAll][list] >> " + err);
-//                        return callback(err,null);
-                
                     }else {
                         rec = data.list;
                         if(rec.length<=0)
                         {
                             log.info("[deleteCKEndpoint][deleteCK][DeleteAll] >> No Records to delete :"); 
-//                            return callback("No records to delete",null);
                         }
-//                        log.info("[deleteCKEndpoint][deleteCK][DeleteAll] >> Record fetched and ready to delete :"+JSON.stringify(rec)); 
                         for(var i=0; i<rec.length;i++){
                             $fh.db({
                                 "act": "delete",
@@ -68,22 +64,16 @@ var createCKEndpoint = function() {
                             }, function(err, data) {
                                 if (err) {
                                     log.error("[deleteCKEndpoint]["+"deleteCK"+"][deleteAll] >> " + err);
-//                                    return callback(err,null);
                 
                                 }else {
                                     var jsonObj = respUtils.constructStatusResponse("deleteCK", constants.RESP_SUCCESS, "Record Deleted Successfully ",{});
                                     log.debug("[deleteCKEndpoint][deleteCK][DeleteAll]  Record Deleted Successfully :");
-//                                    return callback(null,jsonObj);//callback returning the response JSON back to client 
                                 }
                       
                             });
                         }
                     }
                 });
-            
-            
-                
-                
                 console.log("Beginning Creating DB");
                 fs.readFile('./cloud/CalorieKingDB/catJSON.txt', function(err, res) {
                     if (err) {
@@ -91,6 +81,7 @@ var createCKEndpoint = function() {
                         return;
                     }
                     var data = JSON.parse(res);
+                     var flag;
                     for (var i=0;i<data.Food.length;i++){
                         var  dataChunk = data.Food[i]   
                         $fh.db({
@@ -99,21 +90,16 @@ var createCKEndpoint = function() {
                             "fields": dataChunk
                         }, function(err, data) {
                             if (err) {
-                                var fail = respUtils.constructStatusResponse("createDB", constants.RESP_SERVER_ERROR, err,{});
-                                log.error("[createDBEndpoint]["+"createDB"+"][add] >> "+dataChunk.Name+"msg:-"+err);
-                                return callback(fail,null);
-                    
+                               log.error("[createDBEndpoint][createDB][add] >> Failed to Add Record: " + err); 
                             } else {
                                 var jsonObj = respUtils.constructStatusResponse("createDB", constants.RESP_SUCCESS, "Record Added Successfully",data);
                                 log.info("[createDBEndpoint][createDB][add] >> Record Added Successfully   "); 
                             }
-                        });
+                        });                        
                     }
                     var res =respUtils.constructStatusResponse("createDB", constants.RESP_SUCCESS, "Records Added Successfully",{});
                     callback(null,res);
-
                 });
-                
             } 
             else        //If session not found
             {
