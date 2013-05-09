@@ -212,6 +212,7 @@ define(['jquery',
             else {
                 $(target).text('Shelf View');
                 $('#cabinet').show();
+                this.bodyScroll.refresh();
                 $('#listView').hide();
             }
         },
