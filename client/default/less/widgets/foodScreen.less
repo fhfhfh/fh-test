@@ -137,8 +137,8 @@
                 border-radius: 5px 5px 0 0;
                 padding: 5px 10px;
                 span {
-                	margin-left: 50px;
-                	.avenir-demi(16px);
+                	// margin-left: 50px;
+                	// .avenir-demi(16px);
                 }
             }
             .boxEntry {
@@ -213,23 +213,6 @@
 			margin-top: 20px;
 		}
 
-		.item {
-			text-align: left;
-			padding: 10px;
-
-			img {display:none; margin-top: 0px;}
-
-			span {margin-left: 50px;}
-
-			&.selected {
-				background-color: #fee5b8;
-
-				img {
-					display: inline-block;
-				}
-			}
-		}
-
 		.box.inputs {
 			display: inline-block;
 			label {float: left;}
@@ -276,4 +259,63 @@
 		}
 
 	}
+
+	#nutritionInfo.box {
+        background-color: #ffffff;
+        border-radius: 8px;
+        box-shadow: 1px 2px 5px #676767, inset -1px 1px 1px #ffffff;
+        margin: 20px 5px;
+        color: #000000;
+        width: 90%;
+		margin-left: auto;
+		margin-right: auto;
+		padding: 0px;
+
+        .first {
+            display: inline-block;
+            width: 51%;
+        }
+
+        .second, .third, #amount, #rda {
+            display: inline-block;
+            width: 23%;
+            color: #a8a8a8;
+        }
+
+        .boxHeader {
+            background-color: #ebebeb;
+            border-radius: 5px 5px 0 0;
+            padding: 5px 10px;
+
+            .first {
+                .avenir-bold(18px);
+            }
+            .second, .third {
+                .avenir-bold(14px);
+                color: #fa9100;
+            }
+        }
+        .boxEntry {
+            padding: 15px 10px;
+            border-bottom: 2px solid #e6e6e6;
+            .avenir(14px);
+
+            #name {
+                display: inline-block;
+                width: 51%;
+                white-space: nowrap;
+                overflow: hidden;
+                background: url("../img/cornerTabs/greenbg.png") no-repeat;
+                background-size: 0px 100%;
+            }
+
+            &:after {
+            	content: "";
+            }
+
+            &:last-child{
+                border-bottom: none;
+            }
+        }
+    }
 }

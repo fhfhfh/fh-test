@@ -153,6 +153,7 @@ define([
             var dayModel = collection.find(function(item){
                 return item.get('date').toDateString() == date.toDateString();
             });
+            self.item = null;
 
             if(dayModel){ // check if model exists for selected date
                 self.item = dayModel; // make model globally accessible 
@@ -171,6 +172,7 @@ define([
         showMealScreen: function(e){
             var target = (e) ? e.currentTarget : '.meal[data-name="breakfast"]';
             var meal = this.$(target).attr('data-name') || 'breakfast';
+            this.meal = meal;
             // change item class to selected
             this.$('.meal').removeClass('selected');
             this.$(target).addClass('selected');
@@ -201,10 +203,11 @@ define([
                     console.log(arr, meal);
                     arr.push(foodArr[i].attributes);
                     self.item.set(meal, arr);
-                    self.item.trigger("change");   
+                    self.item.recalculateNutrients();   
                 }
                 
             }
+            this.container.foodItems = [];
             this.populateMeal(meal);
         },
 
@@ -260,6 +263,7 @@ define([
                 this.$('#currentNum').text("");
                 this.$('#remainingNum').text("");
             }
+            this.container.refreshScroll();
         },
 
         shareFunction: function(){
@@ -300,7 +304,7 @@ define([
             } else {
                 $("#nutritionSection").show();
                 $("#mealInputs").hide();
-                self.updateNutrition();
+                self.populateNutrition(self.item, self.meal);
             }
         },
 
@@ -313,7 +317,21 @@ define([
                 thisEl.find("#name").css("background-size", percent +" 100%");
             }
             
+        },
+
+        populateNutrition: function(model, meal){
+            model = model.attributes;
+            meal = model[meal][0];
+            var el = $("#nutritionSection");
+            el.find("#totalCalories #amount").text(meal.calories);
+            el.find("#fat #amount").text(meal.fat);
+            el.find("#cholesterol #amount").text(meal.cholesterol);
+            el.find("#sodium #amount").text(meal.sodium);
+            el.find("#carbohydrates #amount").text(meal.carbohydrates);
+            el.find("#dietryFibre #amount").text(meal.fibre);
+            el.find("#protein #amount").text(meal.protein);
         }
+
 
     });
 });

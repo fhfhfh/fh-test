@@ -18,7 +18,7 @@ define(['jquery',
             'October', 'November', 'December'
         ],
 
-        dayName: ['Mon', 'Tue', 'Wed', 'Thur', 'Fri', 'Sat', 'Sun'],
+        dayName: ['Sun', 'Mon', 'Tue', 'Wed', 'Thur', 'Fri', 'Sat'],
 
 		initialize: function(){
 			var date = new Date();

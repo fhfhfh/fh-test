@@ -17,15 +17,16 @@ define([
         template: _.template(tpl),
         itemTpl: _.template(foodItem),
         events: {
-            'click .foodItem' : 'selectFood',
-            'click #foodList .boxEntry' : 'showFoodItemScreen',
-            'click #cancelBtn': 'cancelFoodEntry',
-            'click #backToTop': 'backToTop',
-            'click .item'     : 'selectItem',
-            'click #cancelFood': 'cancelFood',
-            'click #foodFavBtn': 'addFoodToFav',
-            'click #saveToMeal': 'saveFoodToMeal',
-            'click #saveBtn'   : 'saveAllItems'
+            'click .foodItem'          : 'selectFood',
+            'click #foodList .boxEntry': 'showFoodItemScreen',
+            'click #cancelBtn'         : 'cancelFoodEntry',
+            'click #backToTop'         : 'backToTop',
+            'click .item'              : 'selectItem',
+            'click #cancelFood'        : 'cancelFood',
+            'click #foodFavBtn'        : 'addFoodToFav',
+            'click #saveToMeal'        : 'saveFoodToMeal',
+            'click #saveBtn'           : 'saveAllItems',
+            'change #serving'          : 'calculateNutrients'
         },
 
         initialize: function() {
@@ -97,18 +98,18 @@ define([
             var target = $(e.currentTarget);
             var imgSrc = $(".lv2.selected img").attr("src");
             var id = target.attr('data-id');
-            if(id){
-                var model = this.collection.get(id);
-                self.selectedFood = model;
-                self.oldHtml = this.$("#content").html();
-                this.$("#content").html(self.itemTpl({item:model.attributes, imgSrc:imgSrc}));
-            } else {
-                this.$("#content").html(self.oldHtml);
-            }
+            var model = this.collection.get(id);
+            this.model = model;
+            this.pageScroll = null;
+            self.selectedFood = model;
+            self.oldHtml = this.$("#content").html();
+            this.$("#content").html(self.itemTpl({item:model.attributes, imgSrc:imgSrc}));
+            this.calculateNutrients();
             self.refreshScroll();
         },
 
         cancelFoodEntry: function(e){
+            this.model = null;
             this.container.setActiveView('foodometerNav');
         },
 
@@ -144,8 +145,10 @@ define([
         },
 
         cancelFood: function(){
+            this.model = null;
             this.selectedFood = null; 
             this.$("#content").html(this.oldHtml);
+            this.pageScroll = new iScroll(this.$('#content')[0]);
             this.refreshScroll();
             
         },
@@ -167,6 +170,7 @@ define([
                 return;
             } else {
                 food.attributes.serving = $("#serving").val() + " x " + $('#size').val();
+                food = this.multiplyServing($("#serving").val(), food);
                 this.container.foodItems.push(food);
                 console.log(this.container.foodItems);
             }
@@ -175,6 +179,50 @@ define([
         saveAllItems: function(){
             this.container.setActiveView('foodometerNav');
             this.container.subViews.foodometerNav.saveFoodsToJournal();
+        },
+
+        // When serving number changes, recalculate nutrient values
+        calculateNutrients: function(){
+            var servings = $('#serving').val();
+            var att = this.model.attributes;
+            var calories      = parseFloat(att.calories) || 0;
+            var fat           = parseFloat(att.total_fat) || 0;
+            var cholesterol   = parseFloat(att.cholesterol) || 0;
+            var sodium        = parseFloat(att.sodium) || 0;
+            var carbohydrates = parseFloat(att.total_carbohydrates) || 0;
+            var fibre         = parseFloat(att.fiber) || 0;
+            var protein       = parseFloat(att.protein) || 0;
+
+            var el = $("#nutritionInfo");
+            el.find("#totalCalories #amount").text(calories*servings);
+            el.find("#fat #amount").text(fat*servings);
+            el.find("#cholesterol #amount").text(cholesterol*servings);
+            el.find("#sodium #amount").text(sodium*servings);
+            el.find("#carbohydrates #amount").text(carbohydrates*servings);
+            el.find("#dietryFibre #amount").text(fibre*servings);
+            el.find("#protein #amount").text(protein*servings);
+        },
+
+        multiplyServing: function(serving, model){
+            var att = model.attributes;
+            var calories      = parseFloat(att.calories) || 0;
+            var fat           = parseFloat(att.total_fat) || 0;
+            var cholesterol   = parseFloat(att.cholesterol) || 0;
+            var sodium        = parseFloat(att.sodium) || 0;
+            var carbohydrates = parseFloat(att.total_carbohydrates) || 0;
+            var fibre         = parseFloat(att.fiber) || 0;
+            var protein       = parseFloat(att.protein) || 0;
+
+            att.calories      = calories*serving;
+            att.fat           = fat*serving;
+            att.cholesterol   = cholesterol*serving;
+            att.sodium        = sodium*serving;
+            att.carbohydrates = carbohydrates*serving;
+            att.fibre         = fibre*serving;
+            att.protein       = protein*serving;
+
+            model.attributes = att;
+            return model;
         }
 
     });

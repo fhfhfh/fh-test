@@ -106,11 +106,11 @@ var createCKEndpoint = function() {
                             } else {
                                 var jsonObj = respUtils.constructStatusResponse("createDB", constants.RESP_SUCCESS, "Record Added Successfully",data);
                                 log.info("[createDBEndpoint][createDB][add] >> Record Added Successfully   "); 
-                                callback(null,jsonObj);
                             }
                         });
                     }
-       
+                    var res =respUtils.constructStatusResponse("createDB", constants.RESP_SUCCESS, "Records Added Successfully",{});
+                    callback(null,res);
 
                 });
                 

@@ -1,13 +1,65 @@
 <div id="foodItemScreen" class='boxEntry'>
 	<div id="top">
 		<li id="cancelFood">Cancel</li>
-		<img src="<%=imgSrc%>"/><h2 id="foodName"><%= item.fullname %></h2>
+		<img src="<%=imgSrc%>"/><h2 id="foodName"><%= item.fullname.substring(0,40) + "..."%></h2>
 		<li id="foodFavBtn">Favorite</li>
 	</div>
 
-	<div class="box">
-		<div class="item">
-			<img src="img/healthHub/CheckmarkOrange.png"/><span><%= item.name%></span>
+	<div id="nutritionInfo" class="box">
+		<div class="boxHeader">
+			<span class="first">Nutritional Facts</span>
+			<span class="second">Amount</span>
+			<span class="third">Daily Value</span>
+		</div>
+
+		<div id="values">
+			<div class="boxEntry" id="totalCalories">
+				<span id="name">Calories</span>
+				<span id="amount">300</span>
+				<span id="rda">10%</span>
+			</div>
+
+			<div class="boxEntry" id="fat">
+				<span id="name">Total Fat</span>
+				<span id="amount"></span>
+				<span id="rda"></span>
+			</div>
+			
+			<div class="boxEntry" id="cholesterol"> 
+				<span id="name">Cholesterol</span>
+				<span id="amount"></span>
+				<span id="rda"></span>
+			</div>
+
+			<div class="boxEntry" id="sodium"> 
+				<span id="name">Sodium</span>
+				<span id="amount"></span>
+				<span id="rda"></span>
+			</div>
+
+			<div class="boxEntry" id="carbohydrates"> 
+				<span id="name">Carbohydrates</span>
+				<span id="amount"></span>
+				<span id="rda"></span>
+			</div>
+
+			<div class="boxEntry" id="dietryFibre"> 
+				<span id="name">Dietry Fibre</span>
+				<span id="amount"></span>
+				<span id="rda"></span>
+			</div>
+
+			<div class="boxEntry" id="protein"> 
+				<span id="name">Protein</span>
+				<span id="amount">20g</span>
+				<span id="rda">20%</span>
+			</div>
+
+			<div class="boxEntry" id="peachyPower"> 
+				<span id="name">Peachy&reg; Power&reg;</span>
+				<span id="amount">1</span>
+				<span id="rda">5%</span>
+			</div>
 		</div>
 	</div>
 
