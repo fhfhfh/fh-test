@@ -13,15 +13,23 @@ define(['backbone'], function(Backbone) {
 			goalCals 		: 1500,
 			remainingCals 	: 1500,
 			currentCals 	: 0,
-			breakfast 		: [{calories: "0", location: "", with : "", time: "", notes: ""}],
-			lunch 			: [{calories: "0", location: "", with : "", time: "", notes: ""}],
-			dinner 			: [{calories: "0", location: "", with : "", time: "", notes: ""}],
-			snacks 			: [{calories: "0", location: "", with : "", time: "", notes: ""}],
-			beverages 		: [{calories: "0", location: "", with : "", time: "", notes: ""}]
+			// breakfast 		: [{calories: "0", location: "", "with" : "", time: "", notes: ""}],
+			// lunch 			: [{calories: "0", location: "", "with" : "", time: "", notes: ""}],
+			// dinner 			: [{calories: "0", location: "", "with" : "", time: "", notes: ""}],
+			// snacks 			: [{calories: "0", location: "", "with" : "", time: "", notes: ""}],
+			// beverages 		: [{calories: "0", location: "", "with" : "", time: "", notes: ""}]
 		},
 
 		initialize: function(){
 			console.log('Journal Day created');
+			
+			// initialize values
+			this.set("breakfast",[{calories: "0", location: "", "with" : "", time: "", notes: ""}]);
+			this.set("lunch",[{calories: "0", location: "", "with" : "", time: "", notes: ""}]);
+			this.set("dinner",[{calories: "0", location: "", "with" : "", time: "", notes: ""}]);
+			this.set("snacks",[{calories: "0", location: "", "with" : "", time: "", notes: ""}]);
+			this.set("beverages",[{calories: "0", location: "", "with" : "", time: "", notes: ""}]);
+
 			var att = this.attributes;
 
 			//Calculate Calories
@@ -155,6 +163,6 @@ define(['backbone'], function(Backbone) {
 
 	});
 
-
+window.j = journalDay;
 	return journalDay;
 });

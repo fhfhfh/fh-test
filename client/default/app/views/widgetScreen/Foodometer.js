@@ -8,15 +8,17 @@ define([
     'backbone',
     'text!templates/widgets/Foodometer.html',
     'text!templates/popups/MonthPicker.html',
+    'text!templates/widgets/FoodItem.html',
     'models/Calendar',
     'collections/FoodJournal',
     'models/Acts'
-], function($, _, Backbone, tpl, monthPicker, calendar, collection, Act) {
+], function($, _, Backbone, tpl, monthPicker, foodItem, calendar, collection, Act) {
     return Backbone.View.extend({
         tagName: 'section',
         id: 'foodometer',
         template: _.template(tpl),
         monthTpl: _.template(monthPicker),
+        foodItemTpl: _.template(foodItem),
         events: {
             'click #monthPick': 'showMonthPicker',
             'click td'        : 'selectDay',
@@ -28,7 +30,9 @@ define([
             'click #addFood'  : 'addFoodItem',
             'click #copyFood' : 'copyFoodItem',
             'click #clearFood': 'clearMeal',
-            'click #nutrition': 'showNutrition'
+            'click #nutrition': 'showNutrition',
+            'click #foodList .boxEntry' : 'showFoodItem',
+            'click #cancelFood' : 'closeFoodItem'
         },
 
         initialize: function() {
@@ -115,6 +119,7 @@ define([
             }
             // remove selected class from any meals
             this.$('.meal').removeClass('selected');
+            $("#nutritionSection").hide();
 
             $("#dateString").html( dayStr +', '+monthStr+ " " + day + ", "+this.year);
             $('.days td').removeClass('selected');
@@ -231,7 +236,7 @@ define([
                 // loop starts at 1 as first entry is meal details (calories, notes, etc.)
                 for(var i=1;i<foods.length;i++){
                     var index = foods[i];
-                    var html = '<div class="boxEntry">'+
+                    var html = '<div class="boxEntry" data-id="'+index.id+'">'+
                         '<span id="name">'+ index.name+'</span>'+
                         '<span id="about">'+index.serving+'</span>'+
                         '</div>';
@@ -271,13 +276,13 @@ define([
         },
 
         showAddPopup: function(){
-//               Act.call('createDBAction',{},
-//                  function(res){
-//                    alert('Saved successfully'+JSON.stringify(res));
-//                  }, function(err, msg){
-//                    console.log(JSON.stringify(msg));
-//                 });
-
+              // Act.call('createDBAction',{},
+              //    function(res){
+              //      alert('Saved successfully'+JSON.stringify(res));
+              //    }, function(err, msg){
+              //      console.log(JSON.stringify(msg));
+              //   });
+                
             $('#add').toggleClass('selected');
             $('#addFoodPopup').toggle();
         },
@@ -330,6 +335,34 @@ define([
             el.find("#carbohydrates #amount").text(meal.carbohydrates);
             el.find("#dietryFibre #amount").text(meal.fibre);
             el.find("#protein #amount").text(meal.protein);
+        },
+
+        showFoodItem: function(e){
+            var target = $(e.currentTarget);
+            var id = target.attr("data-id");
+            var item = this.item;
+            var meal = $(".meal.selected").attr('data-name') || "breakfast";
+            var self = this;
+            if(item){
+                var foods = item.attributes[meal];
+
+                // loop starts at 1 as first entry is meal details (calories, notes, etc.)
+                for(var i=1;i<foods.length;i++){
+                    var index = foods[i];
+                    if(index.id === id){
+                        console.log(index);
+                        this.$('#mealContainer').hide();
+                        this.$('#nutritionSection').hide();
+                        this.$("#rightContent").append(self.foodItemTpl({item:index, imgSrc:""}));
+                        $("#size").val(index.serving).attr('disabled','disabled');
+                    }
+                }
+            }
+        },
+
+        closeFoodItem: function(){
+            this.$('#mealContainer').show();
+            this.$('#foodItemScreen').remove();
         }
 
 

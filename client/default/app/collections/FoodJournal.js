@@ -20,15 +20,6 @@ define(['backbone',
 			// 	self.store();
 			// });
 
-			// TODO : remove dummy data
-			// var asset = new model({
-			// 	breakfast : [
-			// 		{calories: "190", location: "Starbucks", with : "Friends", time: "1:00 PM", notes: "Nothing special"},
-			// 		{name: "Scone", serving: "1 piece", calories: "100"},
-			// 		{name: "Coffee", serving: "2 cups", calories: "90"},
-			// 	]
-			// });
-			// this.add(asset);
 		},
 
 		addEntry: function(obj){

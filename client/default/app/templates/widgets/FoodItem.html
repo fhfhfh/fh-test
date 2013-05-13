@@ -1,7 +1,18 @@
+<%
+
+if(item.fullname.length >40){
+	var r = "-webkit-marquee";
+} else {
+	var r = "hidden";
+}
+
+%>
+
+
 <div id="foodItemScreen" class='boxEntry'>
 	<div id="top">
 		<li id="cancelFood">Cancel</li>
-		<img src="<%=imgSrc%>"/><h2 id="foodName"><%= item.fullname.substring(0,40) + "..."%></h2>
+		<img src="<%=imgSrc%>"/><h2 id="foodName" style="overflow-x:<%=r%>"><%= item.fullname%></h2>
 		<li id="foodFavBtn">Favorite</li>
 	</div>
 
@@ -80,5 +91,7 @@
 		</div>
 
 		<li class="btn" id="saveToMeal">Save this to Meal</li>
+		<li class="btn" id="editItem">Save</li>
+		<li class="btn" id="deleteItem">Delete this Food</li>
 
 </div>

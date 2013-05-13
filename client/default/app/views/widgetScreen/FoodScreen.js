@@ -44,7 +44,8 @@ define([
                 bounce      : false
             });
 
-            this.pageScroll = new iScroll(this.$('#content')[0]);
+            this.pageScroll = new iScroll(this.$('#pageScroll')[0]);
+            this.$("span#meal").text("Lunch - ("+this.container.foodItems.length+")")
             this.refreshScroll();
             return this;
         },
@@ -87,7 +88,7 @@ define([
 
             // if both level categories are selected, show foodList
             if($('.foodItem.lv1').hasClass('selected') && $('.foodItem.lv2:visible').hasClass('selected')){
-                $('#foodList').show();
+                // $('#foodList').show();
                 self.populateFoodList(target);
             }
             this.refreshScroll();
@@ -119,10 +120,13 @@ define([
             var name = target.attr('data-name');
             console.log(name);
             $('#foodList').html('');
+            $('#modalMask').show().append("<img src='../img/spinner.gif'/>");
+
 
             // pull foods into collection before populating screen
             this.collection.getFoods(name, function(res){
                 console.log(res[0]);
+                $('#foodList').show();
                 for(var i=0;i<res.length;i++){
                     var item = res[i];
                     var name = item.name || item.attributes.name;
@@ -130,6 +134,8 @@ define([
                                 "<span id='about'>" + "</span></div>";
                     $('#foodList').append(html);
                 }
+                self.container.iscroll.disable();
+                $('#modalMask').hide().html("");
                 $('#backToTop').show();
                 self.refreshScroll();
             });
@@ -148,7 +154,15 @@ define([
             this.model = null;
             this.selectedFood = null; 
             this.$("#content").html(this.oldHtml);
-            this.pageScroll = new iScroll(this.$('#content')[0]);
+            this.level1Scroll.destroy();
+            this.pageScroll = new iScroll(this.$('#pageScroll')[0]);
+            this.level1Scroll = new iScroll(this.$('#level1Food')[0],{
+                hScroll     : true,
+                vScroll     : false,
+                hScrollbar  : false,
+                bounceLock  : true,
+                bounce      : false
+            });
             this.refreshScroll();
             
         },
@@ -174,6 +188,7 @@ define([
                 this.container.foodItems.push(food);
                 console.log(this.container.foodItems);
             }
+            this.$("span#meal").text("Lunch - ("+this.container.foodItems.length+")")
         },
 
         saveAllItems: function(){

@@ -414,5 +414,3 @@ function deleteCKAction(params, callback) {
   });
 }
 
-
-

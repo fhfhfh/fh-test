@@ -27,7 +27,7 @@ define(['jquery',
 		var payloadName = map[func]; // use mapping file to get payload name for function
 		var sessId = session.get('id');
 
-		if(payloadName === ''){
+		if(payloadName === '' || payloadName === undefined){
 			payload = params;
 		}else {
 			payload[payloadName] = params;	
