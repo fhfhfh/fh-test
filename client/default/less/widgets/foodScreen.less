@@ -18,6 +18,7 @@
 
 			#pageScroll {
 				padding-bottom: 40px;
+				max-height: 600px;
 			}
 
 			#filterButtons {
@@ -211,6 +212,8 @@
 			display: inline-block;
 			.avenir-bold(16px);
 			margin-top: 20px;
+			max-width: 345px;
+			white-space: nowrap;
 		}
 
 		.box.inputs {
@@ -246,7 +249,16 @@
             }
 		}
 
+		#details {
+			padding-bottom: 60px;
+		}
+
+		#editItem, #deleteItem {
+            display: none;
+        }
+
 		#saveToMeal {
+			display: inline-block;
 			background: none;
 			background-color: #fee5b8;
 			color: #676767;
