@@ -40,6 +40,7 @@ var folderManagerEndpoint = require("./endpoints/folderManager.js")
 var createCKEndpoint = require("./endpoints/CKdb_create.js")
 var fetchCKEndpoint = require("./endpoints/fetchCKdb.js")
 var deleteCKEndpoint = require("./endpoints/deleteCKdb.js")
+var searchCKEndpoint = require("./endpoints/searchCKdb.js")
 
 var dbParser = require("./dbparser.js");
 
@@ -90,6 +91,7 @@ exports.dbParse = dbParse;
 exports.createDBAction = createDBAction;
 exports.fetchDBAction = fetchDBAction;
 exports.deleteCKAction = deleteCKAction;
+exports.searchDBAction = searchDBAction;
 
 //--------------------------------------login----------------------------------------
 function loginAction(params, callback) {
@@ -414,5 +416,12 @@ function deleteCKAction(params, callback) {
   });
 }
 
+//---------------------------------------searchDB--------------------------------------------------------------------
 
+function searchDBAction(params, callback) {
+  
+  searchCKEndpoint.searchCK(params,function cb(err, respData) {
+    callback(err,respData);
+  });
+}
 
