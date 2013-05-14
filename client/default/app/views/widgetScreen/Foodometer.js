@@ -32,7 +32,9 @@ define([
             'click #clearFood': 'clearMeal',
             'click #nutrition': 'showNutrition',
             'click #foodList .boxEntry' : 'showFoodItem',
-            'click #cancelFood' : 'closeFoodItem'
+            'click #cancelFood' : 'closeFoodItem',
+            'click #editItem' : 'editFoodItem',
+            'click #deleteItem': 'deleteFoodItem'
         },
 
         initialize: function() {
@@ -350,7 +352,7 @@ define([
                 for(var i=1;i<foods.length;i++){
                     var index = foods[i];
                     if(index.id === id){
-                        console.log(index);
+                        this.foodItem = foods[i];
                         this.$('#mealContainer').hide();
                         this.$('#nutritionSection').hide();
                         this.$("#rightContent").append(self.foodItemTpl({item:index, imgSrc:""}));
@@ -363,6 +365,27 @@ define([
         closeFoodItem: function(){
             this.$('#mealContainer').show();
             this.$('#foodItemScreen').remove();
+        },
+
+        editFoodItem: function(){
+
+        },
+
+        deleteFoodItem: function(){
+            console.log(this.foodItem);
+            var self = this;
+            var meal = $(".meal.selected").attr('data-name') || "breakfast";
+            var mealArr = this.item.attributes[meal];
+
+            for(var i=1;i<mealArr.length;i++){
+                if(mealArr[i].id == self.foodItem.id){
+                    mealArr.splice(i,1);
+                    self.item.set(meal, mealArr);
+                    self.$('#mealContainer').show();
+                    self.$('#foodItemScreen').remove();
+                    self.populateMeal(meal);
+                }
+            }
         }
 
 
