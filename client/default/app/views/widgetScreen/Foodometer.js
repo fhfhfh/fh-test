@@ -70,11 +70,23 @@ define([
             $(days).removeClass('today');
 
             for(var i=first; i<monthLength + first ; i++){
+                var model = null;
+                var dateNumber = new Date(date.setDate(num));
                 if(num == today && this.month == todaysDate.getMonth() && this.year == todaysDate.getFullYear()){
                     cls = 'today';
                 }
                 else {
                     cls = '';
+                }
+                 model = collection.find(function(item){
+                    return item.get('date').toDateString() == dateNumber.toDateString();
+                });
+                 
+                if(model != null && !model.isEmpty()){
+                    console.log(model.isEmpty());
+                    $(days[i]).css("background-image", "url('../img/calendar/FaceHappy.png')");
+                    $(days[i]).css("background-position", "10px 10px");
+                    $(days[i]).css("background-repeat", "no-repeat no-repeat");
                 }
                 $(days[i]).html("<div class='day'>" + num + "</div>");
                 $(days[i]).addClass(cls);
@@ -122,6 +134,7 @@ define([
             // remove selected class from any meals
             this.$('.meal').removeClass('selected');
             $("#nutritionSection").hide();
+            $('#foodItemScreen').remove();
 
             $("#dateString").html( dayStr +', '+monthStr+ " " + day + ", "+this.year);
             $('.days td').removeClass('selected');
@@ -189,6 +202,7 @@ define([
     
             this.$('#mealContainer').show();
             this.$('#emptyFood').hide();
+            this.$('#foodItemScreen').remove();
 
             this.$('#mealString').text(mealString);
             this.$('#foodList .boxHeader span').text(dateString);
@@ -311,7 +325,7 @@ define([
             } else {
                 $("#nutritionSection").show();
                 $("#mealInputs").hide();
-                self.populateNutrition(self.item, self.meal);
+                self.populateNutrition(self.item, self.meal, $("#nutritionSection"), 0);
             }
         },
 
@@ -326,10 +340,12 @@ define([
             
         },
 
-        populateNutrition: function(model, meal){
+        populateNutrition: function(model, meal, el, index){
             model = model.attributes;
-            meal = model[meal][0];
-            var el = $("#nutritionSection");
+            el =  el || $("#nutritionSection");
+            index = index || 0;
+            meal = model[meal][index];
+
             el.find("#totalCalories #amount").text(meal.calories);
             el.find("#fat #amount").text(meal.fat);
             el.find("#cholesterol #amount").text(meal.cholesterol);
@@ -352,11 +368,17 @@ define([
                 for(var i=1;i<foods.length;i++){
                     var index = foods[i];
                     if(index.id === id){
+                        var servings = index.serving.split(" x ")[0];
+                        var size = index.serving.split(" x ")[1];
+                        
                         this.foodItem = foods[i];
                         this.$('#mealContainer').hide();
                         this.$('#nutritionSection').hide();
                         this.$("#rightContent").append(self.foodItemTpl({item:index, imgSrc:""}));
-                        $("#size").val(index.serving).attr('disabled','disabled');
+                        $("#size").val(size).attr('disabled','disabled');
+                        $("#serving").val(parseInt(servings));
+                        self.populateNutrition(item, meal, $('#nutritionInfo'), i);
+                        $("#foodItemScreen").attr("data-id", id);
                     }
                 }
             }
@@ -368,7 +390,46 @@ define([
         },
 
         editFoodItem: function(){
+            var self = this;
+            var meal = $(".meal.selected").attr('data-name') || "breakfast";
+            var mealArr = this.item.attributes[meal];
+            var newServing = parseInt($("#serving").val());
+            var oldServing = parseInt(self.foodItem.serving.split(" x ")[0]);
+            var size       = self.foodItem.serving.split(" x ")[1];
 
+            for(var i=1;i<mealArr.length;i++){
+                if(mealArr[i].id == self.foodItem.id){
+                    var item = mealArr[i];
+                    item.serving = newServing + " x " + size;
+                    item = self.multiplyNutrition(newServing, item, oldServing);
+                    self.item.set(meal, mealArr);
+                    self.$('#mealContainer').show();
+                    self.$('#foodItemScreen').remove();
+                    self.populateMeal(meal);
+                }
+            }
+        },
+
+        multiplyNutrition: function(serving, model, oldServing){
+            var att = model;
+            var calories      = parseFloat(att.calories) || 0;
+            var fat           = parseFloat(att.total_fat) || 0;
+            var cholesterol   = parseFloat(att.cholesterol) || 0;
+            var sodium        = parseFloat(att.sodium) || 0;
+            var carbohydrates = parseFloat(att.total_carbohydrates) || 0;
+            var fibre         = parseFloat(att.fiber) || 0;
+            var protein       = parseFloat(att.protein) || 0;
+
+            att.calories      = (calories/oldServing)*serving;
+            att.fat           = (fat/oldServing)*serving;
+            att.cholesterol   = (cholesterol/oldServing)*serving;
+            att.sodium        = (sodium/oldServing)*serving;
+            att.carbohydrates = (carbohydrates/oldServing)*serving;
+            att.fibre         = (fibre/oldServing)*serving;
+            att.protein       = (protein/oldServing)*serving;
+
+            model.attributes = att;
+            return model;
         },
 
         deleteFoodItem: function(){

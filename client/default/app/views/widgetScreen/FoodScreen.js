@@ -192,8 +192,9 @@ define([
         },
 
         saveAllItems: function(){
-            this.container.setActiveView('foodometerNav');
             this.container.subViews.foodometerNav.saveFoodsToJournal();
+            this.container.setActiveView('foodometerNav');
+            
         },
 
         // When serving number changes, recalculate nutrient values

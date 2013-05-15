@@ -108,7 +108,7 @@ define(['backbone'], function(Backbone) {
 			var d = att.dinner.length;
 			var s = att.snacks.length;
 			var bs= att.beverages.length;
-			if((b + l + d + s + bs)==0){
+			if((b + l + d + s + bs)<=5){
 				return true;
 			} else {
 				return false;
