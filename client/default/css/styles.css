@@ -3858,7 +3858,7 @@ overflow: hidden;
 height: 77px;
 position: relative;
 overflow: hidden;
-font: bold 25px "Avenir Next Demi", Helvetica, Arial, sans-serif;
+/*font: bold 25px "Avenir Next Demi", Helvetica, Arial, sans-serif;*/
 padding-left: 20px;
 }
     
@@ -3892,7 +3892,7 @@ overflow: hidden;
 height: 77px;
 position: relative;
 overflow: hidden;
-font: bold 25px "Avenir Next Demi", Helvetica, Arial, sans-serif;
+/*font: bold 25px "Avenir Next Demi", Helvetica, Arial, sans-serif;*/
 padding-left: 20px;
 
 }
@@ -3947,4 +3947,119 @@ margin-bottom: 0px;
 position: absolute;
 top: -5px;
 text-shadow: -1pt -1pt white;
+}
+
+
+#omnibtn{
+    background: url(../img/research/bu-welless-omnipedia.png);
+width: 285px;
+height: 80px;
+position: relative;
+margin-top: 20px;
+margin-left: 10px;
+    
+}
+
+#outerBox{
+position: absolute;
+width: 45%;
+height: 10%;
+border: 2px solid;
+position: absolute;
+top: 8px;
+right: 0;
+margin: 10px;
+background-color: white;
+font: bold 13px "Avenir Next", Helvetica, Arial, sans-serif;
+}
+
+#innerBox{
+    margin: 1px;
+border: 2px solid;
+height: 98%;
+padding: 5px;
+}
+
+.btnTitle1{
+font-size: 19pt;
+font-family: "Avenir Next Medium";
+padding-left: 15px;
+padding-bottom: 0px;
+text-shadow: -1pt -1pt white;
+padding-top: 12px;
+position: absolute;
+}
+
+.btnTitle2{
+height: 0px;
+font-size: 26pt;
+font-family: "Avenir Next Bold";
+padding-left: 35px;
+margin-bottom: 0px;
+top: 33px;
+text-shadow: -1pt 1pt white;
+padding-bottom: 0px;
+position: absolute;
+}
+
+#omniList{
+background-color: white;
+width: 96%;
+height: 100%;
+margin: 12px;
+border-radius: 5px;
+position: relative;
+}
+
+#search_omniPedia{
+right: 0;
+position: absolute;
+border: 1px solid;
+border-radius: 20px;
+margin-top: 25px;
+width: 211px;
+margin-right: 15px;
+height: 30px;
+}
+
+#onmi_search{
+    border: none;
+}
+#magnify{
+    padding-top: 5px;
+    padding-left: 5px;
+}
+
+#omniListHead{
+    margin-top: 76px;
+background: url(../img/research/gradient-bar-search-area.png);
+width: 100%;
+padding-left: 30px;
+color: white;
+background-repeat: no-repeat;
+background-size: 100%;
+height: 30px;
+padding-top: 3px;
+}
+
+#search_omniPediaDetails{
+    right: 0;
+position: absolute;
+border: 1px solid;
+border-radius: 20px;
+margin-top: 50px;
+width: 211px;
+margin-right: 15px;
+height: 30px;
+top: 0;
+background-color: white;
+}
+#omniDetailsHead{
+    background-color: gray;
+    height: 75px;
+    text-align: center;
+padding-top: 25px;
+font: bold 18pt white "Avenir Next Demi", Helvetica, Arial, sans-serif;
+color: white;
+text-shadow: -1pt 1pt #756d6f;
 }
