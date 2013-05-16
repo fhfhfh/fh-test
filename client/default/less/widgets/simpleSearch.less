@@ -1,0 +1,67 @@
+#simpleSearchScreen {
+
+	#searchBar {
+		background-image: url('../img/food/bg-food-menu-bar.png');
+		background-position: 4px;
+		width: 95%;
+		margin-left: auto;
+		margin-right: auto;
+		border-radius: 10px;
+		text-align: left;
+
+		#searchInput {
+			display: inline-block;
+			text-align: left;
+			background-color: #ffffff;
+			border-radius: 20px;
+			margin: 10px;
+			padding: 0px 5px;
+
+			#searchImg {margin: 7px 5px -2px 5px;}
+			#xImg {}
+
+			input {
+				border: none;
+				width: 200px;
+			}
+		}
+
+		#filter {
+			width: 300px;
+			background-color: #ffffff;
+			border-radius: 8px;
+			display: inline-block;
+			text-align: center;
+			color: #000000;
+			float: right;
+			margin: 10px;
+			padding: 5px;
+
+
+			#filterOptions li{
+				display: none;
+				width: 100%;
+
+				&.selected, &.open {
+					display: inline-block;
+				}
+
+				&.selected.open {
+					background-color: #fee5b8;
+				}
+			}
+		}
+	}
+
+	#scrollContainer {
+		margin-top: 20px;
+		max-height: 600px;
+	}
+
+	#foodList {
+		h1 {
+			margin-top: 20px;
+			text-align: center;
+		}
+	}
+}

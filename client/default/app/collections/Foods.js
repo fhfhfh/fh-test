@@ -19,6 +19,25 @@ define(['backbone',
 		initialize: function(){
 		},
 
+		singleSearch: function(term, type, cb){
+			var self = this;
+			
+			Act.call("searchDBAction", {"type":term},
+				function(res){
+					console.log(res);
+					var data = res.payload;
+					for(var i=0;i<data.length;i++){
+						var asset = new self.model(data[i]);
+						self.add(asset);
+					}
+
+					return cb(data);
+				}, function(err, msg){
+					console.warn(err, msg);
+				}
+			);
+		},
+
 		search: function(type){
 			var arr = [];
 			this.each(function(model){
