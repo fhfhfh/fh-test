@@ -6,107 +6,49 @@ define([
     'jquery',
     'underscore',
     'backbone',
+    'views/ContainerView',
+    'views/widgetScreen/FoodScreen/Foodometer',
+    'views/widgetScreen/FoodScreen/SimpleSearch',
+    'views/widgetScreen/FoodScreen/Scan',
+    'views/widgetScreen/FoodScreen/RecentFavs',
     'text!templates/widgets/FoodScreen.html',
-    'text!templates/widgets/FoodItem.html',
-    'collections/Foods'
-], function($, _, Backbone, tpl, foodItem, collection) {
-    return Backbone.View.extend({
+], function($, _, Backbone, ContainerView, Foodometer, SimpleSearch, Scan, RecentFavs, tpl ) {
+    return ContainerView.extend({
         tagName: 'section',
         id: 'foodScreen',
-        collection: collection,
         template: _.template(tpl),
-        itemTpl: _.template(foodItem),
         events: {
-            'click .foodItem'          : 'selectFood',
-            'click #foodList .boxEntry': 'showFoodItemScreen',
-            'click #cancelBtn'         : 'cancelFoodEntry',
-            'click #backToTop'         : 'backToTop',
-            'click .item'              : 'selectItem',
-            'click #cancelFood'        : 'cancelFood',
-            'click #foodFavBtn'        : 'addFoodToFav',
-            'click #saveToMeal'        : 'saveFoodToMeal',
-            'click #saveBtn'           : 'saveAllItems',
-            'change #serving'          : 'calculateNutrients'
+            'click #foodometerList'  : 'foodometer',
+            'click #simpleSearch': 'simpleSearch',
+            'click #scan'        : 'scan',
+            'click #favorites'   : 'favorites',
+            'click #cancelBtn' : 'cancelFoodEntry',
+            'click #saveBtn' : 'saveAllFoods'
+        },
+
+        subViews: {
+            foodometer  : new Foodometer(),
+            simpleSearch: new SimpleSearch(),
+            scan        : new Scan(),
+            recentFavs  : new RecentFavs()
         },
 
         initialize: function() {
             _.bindAll(this);
+            this.$el.html(this.template);
+            this.$content = this.$('#subView');
+            this.$buttons = this.$('#filterButtons');
         },
 
         render: function() {
-            this.$el.html(this.template());
+            this.setActiveView('foodometer');
+            this.delegateEvents();
+            if (this.activeView) {
+                this.activeView.delegateEvents();
+            }
 
-            this.level1Scroll = new iScroll(this.$('#level1Food')[0],{
-                hScroll     : true,
-                vScroll     : false,
-                hScrollbar  : false,
-                bounceLock  : true,
-                bounce      : false
-            });
-
-            this.pageScroll = new iScroll(this.$('#pageScroll')[0]);
-            this.$("span#meal").text("Lunch - ("+this.container.foodItems.length+")")
-            this.refreshScroll();
+            $("span#meal").text("Lunch - ("+this.container.foodItems.length+")");
             return this;
-        },
-
-        refreshScroll: function(){
-            var self = this;
-            setTimeout(function(){
-                self.level1Scroll.refresh();
-                self.pageScroll.refresh();
-            }, 100);
-        },
-
-        /* 
-         * Event when a food category is selected
-         * Check whether it is level1 or level2 category
-         */
-        selectFood: function(e){
-            var self = this;
-            var target = $(e.currentTarget);
-
-            if(target.hasClass('lv1')){
-                if($(".foodItem.lv1.selected").length > 0){
-                    $('.foodItem.lv1.selected img').attr('src', $('.foodItem.lv1.selected img').attr('src').replace("icon-over", "icon"));
-                    $('.foodItem.lv1').removeClass('selected');
-                }
-                
-                target.find('img').attr('src', target.find('img').attr('src').replace("icon.", "icon-over."));
-                var name = target.attr('data-id');
-
-                $('.foods2').hide();
-                $('.foods2.'+name).show();
-                $('#foodList').hide();
-                $('#backToTop').hide();
-            }
-            else if(target.hasClass('lv2')){
-                $('.foodItem.lv2').removeClass('selected');
-            }
-            
-            target.addClass('selected');
-
-            // if both level categories are selected, show foodList
-            if($('.foodItem.lv1').hasClass('selected') && $('.foodItem.lv2:visible').hasClass('selected')){
-                // $('#foodList').show();
-                self.populateFoodList(target);
-            }
-            this.refreshScroll();
-        },
-
-        showFoodItemScreen: function(e){
-            var self = this;
-            var target = $(e.currentTarget);
-            var imgSrc = $(".lv2.selected img").attr("src");
-            var id = target.attr('data-id');
-            var model = this.collection.get(id);
-            this.model = model;
-            this.pageScroll = null;
-            self.selectedFood = model;
-            self.oldHtml = this.$("#content").html();
-            this.$("#content").html(self.itemTpl({item:model.attributes, imgSrc:imgSrc}));
-            this.calculateNutrients();
-            self.refreshScroll();
         },
 
         cancelFoodEntry: function(e){
@@ -114,132 +56,35 @@ define([
             this.container.setActiveView('foodometerNav');
         },
 
-        populateFoodList: function(el){
-            var self = this;
-            var target = $(el);
-            var name = target.attr('data-name');
-            console.log(name);
-            $('#foodList').html('');
-            $('#modalMask').show().append("<img src='../img/spinner.gif'/>");
-
-
-            // pull foods into collection before populating screen
-            this.collection.getFoods(name, function(res){
-                console.log(res[0]);
-                $('#foodList').show();
-                for(var i=0;i<res.length;i++){
-                    var item = res[i];
-                    var name = item.name || item.attributes.name;
-                    var html = "<div class='boxEntry' data-id='"+item.id+"''><span id='name'>" +name +"</span>"+
-                                "<span id='about'>" + "</span></div>";
-                    $('#foodList').append(html);
-                }
-                self.container.iscroll.disable();
-                $('#modalMask').hide().html("");
-                $('#backToTop').show();
-                self.refreshScroll();
-            });
-        },
-
-        backToTop: function(){
-            this.pageScroll.scrollTo(0,0,200);
-        },
-
-        selectItem: function(e){
-            var target = $(e.currentTarget);
-            target.toggleClass('selected');
-        },
-
-        cancelFood: function(){
-            this.model = null;
-            this.selectedFood = null; 
-            this.$("#content").html(this.oldHtml);
-            this.level1Scroll.destroy();
-            this.pageScroll = new iScroll(this.$('#pageScroll')[0]);
-            this.level1Scroll = new iScroll(this.$('#level1Food')[0],{
-                hScroll     : true,
-                vScroll     : false,
-                hScrollbar  : false,
-                bounceLock  : true,
-                bounce      : false
-            });
-            this.refreshScroll();
-            
-        },
-
-        addFoodToFav: function(){
-            var food = this.selectedFood;
-            if(!food){
-                console.warn('No Food Selected');
-                return;
-            } else {
-                food.set("favorite", true);
-            }
-        },
-
-        saveFoodToMeal: function(){
-            var food = this.selectedFood;
-            if(!food){
-                console.warn('No Food Selected');
-                return;
-            } else {
-                food.attributes.serving = $("#serving").val() + " x " + $('#size').val();
-                food = this.multiplyServing($("#serving").val(), food);
-                this.container.foodItems.push(food);
-                console.log(this.container.foodItems);
-            }
-            this.$("span#meal").text("Lunch - ("+this.container.foodItems.length+")")
-        },
-
-        saveAllItems: function(){
+        saveAllFoods: function(){
             this.container.subViews.foodometerNav.saveFoodsToJournal();
             this.container.setActiveView('foodometerNav');
             
         },
 
-        // When serving number changes, recalculate nutrient values
-        calculateNutrients: function(){
-            var servings = $('#serving').val();
-            var att = this.model.attributes;
-            var calories      = parseFloat(att.calories) || 0;
-            var fat           = parseFloat(att.total_fat) || 0;
-            var cholesterol   = parseFloat(att.cholesterol) || 0;
-            var sodium        = parseFloat(att.sodium) || 0;
-            var carbohydrates = parseFloat(att.total_carbohydrates) || 0;
-            var fibre         = parseFloat(att.fiber) || 0;
-            var protein       = parseFloat(att.protein) || 0;
-
-            var el = $("#nutritionInfo");
-            el.find("#totalCalories #amount").text(calories*servings);
-            el.find("#fat #amount").text(fat*servings);
-            el.find("#cholesterol #amount").text(cholesterol*servings);
-            el.find("#sodium #amount").text(sodium*servings);
-            el.find("#carbohydrates #amount").text(carbohydrates*servings);
-            el.find("#dietryFibre #amount").text(fibre*servings);
-            el.find("#protein #amount").text(protein*servings);
+        foodometer : function(){
+          this.$buttons.find('li').removeClass('selected');
+          this.$buttons.find('#foodometerList').addClass('selected');
+          this.setActiveView('foodometer');
         },
 
-        multiplyServing: function(serving, model){
-            var att = model.attributes;
-            var calories      = parseFloat(att.calories) || 0;
-            var fat           = parseFloat(att.total_fat) || 0;
-            var cholesterol   = parseFloat(att.cholesterol) || 0;
-            var sodium        = parseFloat(att.sodium) || 0;
-            var carbohydrates = parseFloat(att.total_carbohydrates) || 0;
-            var fibre         = parseFloat(att.fiber) || 0;
-            var protein       = parseFloat(att.protein) || 0;
+        simpleSearch : function(){
+          this.$buttons.find('li').removeClass('selected');
+          this.$buttons.find('#simpleSearch').addClass('selected');
+          this.setActiveView('simpleSearch');
+        },
 
-            att.calories      = calories*serving;
-            att.fat           = fat*serving;
-            att.cholesterol   = cholesterol*serving;
-            att.sodium        = sodium*serving;
-            att.carbohydrates = carbohydrates*serving;
-            att.fibre         = fibre*serving;
-            att.protein       = protein*serving;
+        scan : function(){
+          this.$buttons.find('li').removeClass('selected');
+          this.$buttons.find('#scan').addClass('selected');
+          this.setActiveView('scan');
+        },
 
-            model.attributes = att;
-            return model;
-        }
+        favorites : function(){
+          this.$buttons.find('li').removeClass('selected');
+          this.$buttons.find('#favorites').addClass('selected');
+          this.setActiveView('recentFavs');
+        },
 
     });
 });
