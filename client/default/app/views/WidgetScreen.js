@@ -21,6 +21,7 @@ define([
         tagName : 'section',
         id      : 'widgetScreen',
         calendar  : Calendar,
+        foodItems : [],
 
         events : {
           'click #foodometer': 'showFood',

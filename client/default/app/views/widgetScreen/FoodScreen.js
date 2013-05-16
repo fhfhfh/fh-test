@@ -6,98 +6,89 @@ define([
     'jquery',
     'underscore',
     'backbone',
+    'views/ContainerView',
+    'views/widgetScreen/FoodScreen/Foodometer',
+    'views/widgetScreen/FoodScreen/SimpleSearch',
+    'views/widgetScreen/FoodScreen/Scan',
+    'views/widgetScreen/FoodScreen/RecentFavs',
     'text!templates/widgets/FoodScreen.html',
-    'collections/Foods'
-], function($, _, Backbone, tpl, collection) {
-    return Backbone.View.extend({
+], function($, _, Backbone, ContainerView, Foodometer, SimpleSearch, Scan, RecentFavs, tpl ) {
+    return ContainerView.extend({
         tagName: 'section',
         id: 'foodScreen',
-        collection: collection,
         template: _.template(tpl),
         events: {
-            'click .foodItem' : 'selectFood',
-            'click .boxEntry' : 'showFoodItemScreen',
-            'click #cancelBtn': 'cancelFoodEntry'
+            'click #foodometerList'  : 'foodometer',
+            'click #simpleSearch': 'simpleSearch',
+            'click #scan'        : 'scan',
+            'click #favorites'   : 'favorites',
+            'click #cancelBtn' : 'cancelFoodEntry',
+            'click #saveBtn' : 'saveAllFoods'
+        },
+
+        subViews: {
+            foodometer  : new Foodometer(),
+            simpleSearch: new SimpleSearch(),
+            scan        : new Scan(),
+            recentFavs  : new RecentFavs()
         },
 
         initialize: function() {
             _.bindAll(this);
+            this.$el.html(this.template);
+            this.$content = this.$('#subView');
+            this.$buttons = this.$('#filterButtons');
         },
 
         render: function() {
-            this.$el.html(this.template());
+            this.setActiveView('foodometer');
+            this.delegateEvents();
+            if (this.activeView) {
+                this.activeView.delegateEvents();
+            }
 
-            this.level1Scroll = new iScroll(this.$('#level1Food')[0],{
-                hScroll     : true,
-                vScroll     : false,
-                hScrollbar  : false,
-                bounceLock  : true,
-                bounce      : false
-            });
-            this.refreshScroll();
+            $("span#meal").text("Lunch - ("+this.container.foodItems.length+")");
             return this;
         },
 
-        refreshScroll: function(){
-            var self = this;
-            setTimeout(function(){
-                self.level1Scroll.refresh();
-            }, 100);
+        cancelFoodEntry: function(e){
+            this.model = null;
+            this.container.setActiveView('foodometerNav');
         },
 
-        /* 
-         * Event when a food category is selected
-         * Check whether it is level1 or level2 category
-         */
-        selectFood: function(e){
-            var self = this;
-            var target = $(e.currentTarget);
-
-            if(target.hasClass('lv1')){
-                $('.foodItem.lv1').removeClass('selected');
-                var name = target.attr('data-id');
-
-                $('.foods2').hide();
-                $('.foods2.'+name).show();
-                $('#foodList').hide();
-            }
-            else if(target.hasClass('lv2')){
-                $('.foodItem.lv2').removeClass('selected');
-                $('#foodList').show();
-            }
+        saveAllFoods: function(){
+            this.container.subViews.foodometerNav.saveFoodsToJournal();
+            this.container.setActiveView('foodometerNav');
             
-            target.addClass('selected');
-
-            // if both level categories are selected, show foodList
-            if($('.foodItem.lv1').hasClass('selected') && $('.foodItem.lv2:visible').hasClass('selected')){
-                $('#foodList').show();
-                self.populateFoodList(target);
-            }
-            this.refreshScroll();
         },
         
         cancel : function(){
             this.container.setActiveView('foodometer');
         },
 
-        showFoodItemScreen: function(e){
-            var target = $(e.currentTarget);
+        foodometer : function(){
+          this.$buttons.find('li').removeClass('selected');
+          this.$buttons.find('#foodometerList').addClass('selected');
+          this.setActiveView('foodometer');
         },
 
-        cancelFoodEntry: function(e){
-            this.container.setActiveView('foodometerNav');
+        simpleSearch : function(){
+          this.$buttons.find('li').removeClass('selected');
+          this.$buttons.find('#simpleSearch').addClass('selected');
+          this.setActiveView('simpleSearch');
         },
 
-        populateFoodList: function(el){
-            var target = $(el);
-            var name = target.attr('data-name');
-            console.log(name);
+        scan : function(){
+          this.$buttons.find('li').removeClass('selected');
+          this.$buttons.find('#scan').addClass('selected');
+          this.setActiveView('scan');
+        },
 
-            // pull foods into collection before populating screen
-            this.collection.getFoods(name, function(res){
-//                alert(res);
-            });
-        }
+        favorites : function(){
+          this.$buttons.find('li').removeClass('selected');
+          this.$buttons.find('#favorites').addClass('selected');
+          this.setActiveView('recentFavs');
+        },
 
     });
 });

@@ -8,15 +8,17 @@ define([
     'backbone',
     'text!templates/widgets/Foodometer.html',
     'text!templates/popups/MonthPicker.html',
+    'text!templates/widgets/FoodItem.html',
     'models/Calendar',
     'collections/FoodJournal',
     'models/Acts'
-], function($, _, Backbone, tpl, monthPicker, calendar, collection, Act) {
+], function($, _, Backbone, tpl, monthPicker, foodItem, calendar, collection, Act) {
     return Backbone.View.extend({
         tagName: 'section',
         id: 'foodometer',
         template: _.template(tpl),
         monthTpl: _.template(monthPicker),
+        foodItemTpl: _.template(foodItem),
         events: {
             'click #monthPick': 'showMonthPicker',
             'click td'        : 'selectDay',
@@ -28,7 +30,11 @@ define([
             'click #addFood'  : 'addFoodItem',
             'click #copyFood' : 'copyFoodItem',
             'click #clearFood': 'clearMeal',
-            'click #nutrition': 'showNutrition'
+            'click #nutrition': 'showNutrition',
+            'click #foodList .boxEntry' : 'showFoodItem',
+            'click #cancelFood' : 'closeFoodItem',
+            'click #editItem' : 'editFoodItem',
+            'click #deleteItem': 'deleteFoodItem'
         },
 
         initialize: function() {
@@ -64,11 +70,23 @@ define([
             $(days).removeClass('today');
 
             for(var i=first; i<monthLength + first ; i++){
+                var model = null;
+                var dateNumber = new Date(date.setDate(num));
                 if(num == today && this.month == todaysDate.getMonth() && this.year == todaysDate.getFullYear()){
                     cls = 'today';
                 }
                 else {
                     cls = '';
+                }
+                 model = collection.find(function(item){
+                    return item.get('date').toDateString() == dateNumber.toDateString();
+                });
+                 
+                if(model != null && !model.isEmpty()){
+                    console.log(model.isEmpty());
+                    $(days[i]).css("background-image", "url('../img/calendar/FaceHappy.png')");
+                    $(days[i]).css("background-position", "10px 10px");
+                    $(days[i]).css("background-repeat", "no-repeat no-repeat");
                 }
                 $(days[i]).html("<div class='day'>" + num + "</div>");
                 $(days[i]).addClass(cls);
@@ -115,6 +133,8 @@ define([
             }
             // remove selected class from any meals
             this.$('.meal').removeClass('selected');
+            $("#nutritionSection").hide();
+            $('#foodItemScreen').remove();
 
             $("#dateString").html( dayStr +', '+monthStr+ " " + day + ", "+this.year);
             $('.days td').removeClass('selected');
@@ -153,6 +173,7 @@ define([
             var dayModel = collection.find(function(item){
                 return item.get('date').toDateString() == date.toDateString();
             });
+            self.item = null;
 
             if(dayModel){ // check if model exists for selected date
                 self.item = dayModel; // make model globally accessible 
@@ -163,7 +184,7 @@ define([
                 }
             }
             else {
-                self.item = null;
+                self.item = collection.createDay(date);
                 self.showEmptyScreen(); // if no model exists for date, assume empty
             }
         },
@@ -171,15 +192,17 @@ define([
         showMealScreen: function(e){
             var target = (e) ? e.currentTarget : '.meal[data-name="breakfast"]';
             var meal = this.$(target).attr('data-name') || 'breakfast';
+            this.meal = meal;
             // change item class to selected
             this.$('.meal').removeClass('selected');
-            this.$(target ).addClass('selected');
+            this.$(target).addClass('selected');
 
             var dateString = this.$('#dateString').text();
             var mealString = 'My ' + meal.substring(0,1).toUpperCase() + meal.substring(1,meal.length); 
     
             this.$('#mealContainer').show();
             this.$('#emptyFood').hide();
+            this.$('#foodItemScreen').remove();
 
             this.$('#mealString').text(mealString);
             this.$('#foodList .boxHeader span').text(dateString);
@@ -189,6 +212,24 @@ define([
         showEmptyScreen: function(){
             this.$('#mealContainer').hide();
             this.$('#emptyFood').show();
+        },
+
+        saveFoodsToJournal: function(){
+            var self = this;
+            var foodArr = this.container.foodItems;
+            if(foodArr.length > 0){
+                var meal = self.meal;
+                for(var i=0;i<foodArr.length;i++){
+                    var arr = self.item.attributes[meal];
+                    console.log(arr, meal);
+                    arr.push(foodArr[i].attributes);
+                    self.item.set(meal, arr);
+                    self.item.recalculateNutrients();   
+                }
+                
+            }
+            this.container.foodItems = [];
+            this.populateMeal(meal);
         },
 
         populateMeal: function(meal){
@@ -211,9 +252,9 @@ define([
                 // loop starts at 1 as first entry is meal details (calories, notes, etc.)
                 for(var i=1;i<foods.length;i++){
                     var index = foods[i];
-                    var html = '<div class="boxEntry">'+
+                    var html = '<div class="boxEntry" data-id="'+index.id+'">'+
                         '<span id="name">'+ index.name+'</span>'+
-                        '<span id="about">'+index.about+'</span>'+
+                        '<span id="about">'+index.serving+'</span>'+
                         '</div>';
                     this.$('#foodList').append(html);
                 }
@@ -243,6 +284,7 @@ define([
                 this.$('#currentNum').text("");
                 this.$('#remainingNum').text("");
             }
+            this.container.refreshScroll();
         },
 
         shareFunction: function(){
@@ -250,18 +292,20 @@ define([
         },
 
         showAddPopup: function(){
-             Act.call('createDBAction',{},
-                function(res){
-                    alert('Saved successfully'+JSON.stringify(res));
-                }, function(err, msg){
-                    console.log(JSON.stringify(msg));
-                });
-
+              // Act.call('createDBAction',{},
+              //    function(res){
+              //      alert('Saved successfully'+JSON.stringify(res));
+              //    }, function(err, msg){
+              //      console.log(JSON.stringify(msg));
+              //   });
+                
+            $('#add').toggleClass('selected');
             $('#addFoodPopup').toggle();
         },
 
         addFoodItem: function(){
-            //TODO: display calorie king page
+            this.meal = $(".meal.selected").attr('data-name') || "breakfast";
+            console.log(this.meal);
             this.container.setActiveView('foodScreen');
         },
 
@@ -274,14 +318,139 @@ define([
         },
 
         showNutrition: function(){
+            var self=this;
             if($('#nutritionSection').is(':visible')){
                 $("#nutritionSection").hide();
                 $("#mealInputs").show();
             } else {
                 $("#nutritionSection").show();
                 $("#mealInputs").hide();
+                self.populateNutrition(self.item, self.meal, $("#nutritionSection"), 0);
+            }
+        },
+
+        updateNutrition: function(){
+            var el = $("#nutritionSection .boxEntry");
+            
+            for(var i=0; i<el.length; i++){
+                var thisEl = $(el[i]);
+                var percent = thisEl.find("#rda").text() || "0%";
+                thisEl.find("#name").css("background-size", percent +" 100%");
+            }
+            
+        },
+
+        populateNutrition: function(model, meal, el, index){
+            model = model.attributes;
+            el =  el || $("#nutritionSection");
+            index = index || 0;
+            meal = model[meal][index];
+
+            el.find("#totalCalories #amount").text(meal.calories);
+            el.find("#fat #amount").text(meal.fat);
+            el.find("#cholesterol #amount").text(meal.cholesterol);
+            el.find("#sodium #amount").text(meal.sodium);
+            el.find("#carbohydrates #amount").text(meal.carbohydrates);
+            el.find("#dietryFibre #amount").text(meal.fibre);
+            el.find("#protein #amount").text(meal.protein);
+        },
+
+        showFoodItem: function(e){
+            var target = $(e.currentTarget);
+            var id = target.attr("data-id");
+            var item = this.item;
+            var meal = $(".meal.selected").attr('data-name') || "breakfast";
+            var self = this;
+            if(item){
+                var foods = item.attributes[meal];
+
+                // loop starts at 1 as first entry is meal details (calories, notes, etc.)
+                for(var i=1;i<foods.length;i++){
+                    var index = foods[i];
+                    if(index.id === id){
+                        var servings = index.serving.split(" x ")[0];
+                        var size = index.serving.split(" x ")[1];
+                        
+                        this.foodItem = foods[i];
+                        this.$('#mealContainer').hide();
+                        this.$('#nutritionSection').hide();
+                        this.$("#rightContent").append(self.foodItemTpl({item:index, imgSrc:""}));
+                        $("#size").val(size).attr('disabled','disabled');
+                        $("#serving").val(parseInt(servings));
+                        self.populateNutrition(item, meal, $('#nutritionInfo'), i);
+                        $("#foodItemScreen").attr("data-id", id);
+                    }
+                }
+            }
+        },
+
+        closeFoodItem: function(){
+            this.$('#mealContainer').show();
+            this.$('#foodItemScreen').remove();
+        },
+
+        editFoodItem: function(){
+            var self = this;
+            var meal = $(".meal.selected").attr('data-name') || "breakfast";
+            var mealArr = this.item.attributes[meal];
+            var newServing = parseInt($("#serving").val());
+            var oldServing = parseInt(self.foodItem.serving.split(" x ")[0]);
+            var size       = self.foodItem.serving.split(" x ")[1];
+
+            for(var i=1;i<mealArr.length;i++){
+                if(mealArr[i].id == self.foodItem.id){
+                    var item = mealArr[i];
+                    item.serving = newServing + " x " + size;
+                    item = self.multiplyNutrition(newServing, item, oldServing);
+                    self.item.set(meal, mealArr);
+                    self.$('#mealContainer').show();
+                    self.$('#foodItemScreen').remove();
+                    self.populateMeal(meal);
+                }
+            }
+        },
+
+        multiplyNutrition: function(serving, model, oldServing){
+            var att = model;
+            var calories      = parseFloat(att.calories) || 0;
+            var fat           = parseFloat(att.total_fat) || 0;
+            var cholesterol   = parseFloat(att.cholesterol) || 0;
+            var sodium        = parseFloat(att.sodium) || 0;
+            var carbohydrates = parseFloat(att.total_carbohydrates) || 0;
+            var fibre         = parseFloat(att.fiber) || 0;
+            var protein       = parseFloat(att.protein) || 0;
+
+            att.calories      = (calories/oldServing)*serving;
+            att.fat           = (fat/oldServing)*serving;
+            att.cholesterol   = (cholesterol/oldServing)*serving;
+            att.sodium        = (sodium/oldServing)*serving;
+            att.carbohydrates = (carbohydrates/oldServing)*serving;
+            att.fibre         = (fibre/oldServing)*serving;
+            att.protein       = (protein/oldServing)*serving;
+
+            model.attributes = att;
+            return model;
+        },
+
+        deleteFoodItem: function(){
+            console.log(this.foodItem);
+            var self = this;
+            var meal = $(".meal.selected").attr('data-name') || "breakfast";
+            var mealArr = this.item.attributes[meal];
+
+            for(var i=1;i<mealArr.length;i++){
+                if(mealArr[i].id == self.foodItem.id){
+                    mealArr.splice(i,1);
+                    self.item.set(meal, mealArr);
+                    self.$('#mealContainer').show();
+                    self.$('#foodItemScreen').remove();
+                    self.populateMeal(meal);
+                }
             }
         }
 
+
     });
 });
+
+

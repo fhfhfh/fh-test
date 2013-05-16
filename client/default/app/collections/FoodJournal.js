@@ -16,19 +16,10 @@ define(['backbone',
 
 		initialize: function(){
 			var self=this;
-			this.on('change', function(){
-				self.store();
-			});
+			// this.on('change', function(){
+			// 	self.store();
+			// });
 
-			// TODO : remove dummy data
-			var asset = new model({
-				breakfast : [
-					{calories: "190", location: "Starbucks", with : "Friends", time: "1:00 PM", notes: "Nothing special"},
-					{name: "Scone", about: "1 piece", calories: "100"},
-					{name: "Coffee", about: "2 cups", calories: "90"},
-					]
-			});
-			this.add(asset);
 		},
 
 		addEntry: function(obj){
@@ -37,6 +28,16 @@ define(['backbone',
 			var asset = new model(obj);
 			this.add(asset);
 			this.store();
+		},
+
+		createDay: function(date){
+			console.log(date);
+			var asset =new model({date: date});
+			this.add(asset);
+			console.log(asset);
+			console.log(this);
+			return asset;
+			
 		},
 
 
@@ -62,7 +63,7 @@ define(['backbone',
 		store: function(){
 			var models = JSON.stringify(this.models);
 			Store.save(this.storageKey, models, function(){
-				console.log('saved library to localStorage');
+				console.log('saved foodJournal to localStorage');
 			});
 		},
 

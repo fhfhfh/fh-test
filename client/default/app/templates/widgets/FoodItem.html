@@ -1,0 +1,97 @@
+<%
+
+if(item.fullname.length >40){
+	var r = "-webkit-marquee";
+} else {
+	var r = "hidden";
+}
+
+%>
+
+
+<div id="foodItemScreen" class='boxEntry'>
+	<div id="top">
+		<li id="cancelFood">Cancel</li>
+		<img src="<%=imgSrc%>"/><h2 id="foodName" style="overflow-x:<%=r%>"><%= item.fullname%></h2>
+		<li id="foodFavBtn">Favorite</li>
+	</div>
+
+	<div id="nutritionInfo" class="box">
+		<div class="boxHeader">
+			<span class="first">Nutritional Facts</span>
+			<span class="second">Amount</span>
+			<span class="third">Daily Value</span>
+		</div>
+
+		<div id="values">
+			<div class="boxEntry" id="totalCalories">
+				<span id="name">Calories</span>
+				<span id="amount">300</span>
+				<span id="rda">10%</span>
+			</div>
+
+			<div class="boxEntry" id="fat">
+				<span id="name">Total Fat</span>
+				<span id="amount"></span>
+				<span id="rda"></span>
+			</div>
+			
+			<div class="boxEntry" id="cholesterol"> 
+				<span id="name">Cholesterol</span>
+				<span id="amount"></span>
+				<span id="rda"></span>
+			</div>
+
+			<div class="boxEntry" id="sodium"> 
+				<span id="name">Sodium</span>
+				<span id="amount"></span>
+				<span id="rda"></span>
+			</div>
+
+			<div class="boxEntry" id="carbohydrates"> 
+				<span id="name">Carbohydrates</span>
+				<span id="amount"></span>
+				<span id="rda"></span>
+			</div>
+
+			<div class="boxEntry" id="dietryFibre"> 
+				<span id="name">Dietry Fibre</span>
+				<span id="amount"></span>
+				<span id="rda"></span>
+			</div>
+
+			<div class="boxEntry" id="protein"> 
+				<span id="name">Protein</span>
+				<span id="amount">20g</span>
+				<span id="rda">20%</span>
+			</div>
+
+			<div class="boxEntry" id="peachyPower"> 
+				<span id="name">Peachy&reg; Power&reg;</span>
+				<span id="amount">1</span>
+				<span id="rda">5%</span>
+			</div>
+		</div>
+	</div>
+
+	<div id="details">
+		<div class="box inputs servings">
+			<label for="serving">Number of Servings</label>
+			<input type="number" min="1" name="serving" id="serving" value="1"/>
+		</div>
+
+		<div class="box inputs size">
+			<label for="size">Serving Size</label>
+			<input type="text" name="size" id="size" value="<%=item.serving[0].name%>"/>
+		</div>
+
+		<div class="box inputs notes">
+			<label for="notes">Notes</label>
+			<textarea id="notes" name="notes"></textarea>
+		</div>
+
+		<li class="btn" id="saveToMeal">Save this to Meal</li>
+		<li class="btn" id="editItem">Save</li>
+		<li class="btn" id="deleteItem">Delete this Food</li>
+
+</div>
