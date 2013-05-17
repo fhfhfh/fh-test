@@ -72,7 +72,7 @@ define([
                 $('#foodList').show();
                 for(var i=0;i<data.length;i++){
                     var item = data[i];
-                    var name = item.name || item.attributes.name;
+                    var name = item.fullname || item.attributes.fullname;
                     var html = "<div class='boxEntry' data-id='"+item.id+"''><span id='name'>" +name +"</span>"+
                                 "<span id='about'>" + "</span></div>";
                     $('#foodList').append(html);

@@ -3665,6 +3665,11 @@ section#insights h1 {
   padding-bottom: 40px;
   max-height: 600px;
 }
+@media only screen and (orientation: landscape) {
+  #foodScreen #body #content #pageScroll {
+    max-height: 450px;
+  }
+}
 #foodScreen #body #content #filterButtons {
   margin-top: 30px;
 }
@@ -3998,6 +4003,11 @@ section#insights h1 {
 #simpleSearchScreen #scrollContainer {
   margin-top: 20px;
   max-height: 600px;
+}
+@media only screen and (orientation: landscape) {
+  #simpleSearchScreen #scrollContainer {
+    max-height: 450px;
+  }
 }
 #simpleSearchScreen #foodList h1 {
   margin-top: 20px;
