@@ -44,6 +44,7 @@ define([
                 bounce      : false
             });
 
+            $('#filterButtons').show();
             this.pageScroll = new iScroll(this.$('#pageScroll')[0]);
             $("span#meal").text("Lunch - ("+this.container.container.foodItems.length+")");
             this.refreshScroll();
@@ -117,11 +118,16 @@ define([
             var name = target.attr('data-name');
             console.log(name);
             $('#foodList').html('');
-            $('#modalMask').show().append("<img src='../img/spinner.gif'/>");
+            $('#modalMask').show().append("<img src='img/spinner.gif'/>");
 
 
             // pull foods into collection before populating screen
-            this.collection.getFoods(name, function(res){
+            this.collection.getFoods(name, function(err,res){
+                if(err){
+                    Backbone.trigger('notify', err, 'Error getting Food List');
+                    $('#modalMask').hide().html("");
+                    return;
+                }
                 console.log(res[0]);
                 $('#foodList').show();
                 for(var i=0;i<res.length;i++){
@@ -186,7 +192,8 @@ define([
                 this.container.container.foodItems.push(food);
                 console.log(this.container.container.foodItems);
             }
-            $("span#meal").text("Lunch - ("+this.container.container.foodItems.length+")")
+            $("span#meal").text("Lunch - ("+this.container.container.foodItems.length+")");
+            this.cancelFood();
         },
 
         saveAllItems: function(){

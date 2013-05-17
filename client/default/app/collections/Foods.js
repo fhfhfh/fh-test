@@ -31,9 +31,10 @@ define(['backbone',
 						self.add(asset);
 					}
 
-					return cb(data);
+					return cb(null,data);
 				}, function(err, msg){
 					console.warn(err, msg);
+					return cb(err,null);
 				}
 			);
 		},
@@ -56,7 +57,7 @@ define(['backbone',
 
 			if(self.foods[type]){
 				var list = self.search(type);
-				return cb(list);
+				return cb(null,list);
 			}
 
 			Act.call("fetchDBAction", {"type":type},
@@ -67,9 +68,10 @@ define(['backbone',
 					var models = self.populateCollection(list, type);
 					self.foods[type] = true;
 
-					return cb(models);
+					return cb(null, models);
 				}, function(err, msg){
 					console.warn(err, msg);
+					return cb(err, null);;
 				}
 			);
 		},
@@ -103,7 +105,7 @@ define(['backbone',
 					}
 				}
 			});
-		}
+		},
 
 	});
 	return new collection();

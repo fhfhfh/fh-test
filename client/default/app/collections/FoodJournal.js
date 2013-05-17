@@ -77,6 +77,16 @@ define(['backbone',
 					}
 				}
 			});
+		},
+
+		saveToCloud: function(item){
+			Act.call("saveJournalAction", {"item":item},
+				function(res){
+					console.log(res);
+				}, function(err, msg){
+					console.warn(err, msg);
+				}
+			);
 		}
 
 	});

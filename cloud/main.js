@@ -92,6 +92,7 @@ exports.createDBAction = createDBAction;
 exports.fetchDBAction = fetchDBAction;
 exports.deleteCKAction = deleteCKAction;
 exports.searchDBAction = searchDBAction;
+exports.saveJournalAction = saveJournalAction;
 
 //--------------------------------------login----------------------------------------
 function loginAction(params, callback) {
@@ -423,6 +424,11 @@ function searchDBAction(params, callback) {
   searchCKEndpoint.searchCK(params,function cb(err, respData) {
     callback(err,respData);
   });
+}
+
+function saveJournalAction(params, callback){
+  // for ashish to implement
+  return callback(null, {response: {payload: {status: "OK"}}});
 }
 
 

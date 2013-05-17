@@ -32,6 +32,7 @@ define([
 
         render: function() {
             this.$el.html(this.template());
+            $('#filterButtons').show();
             this.listScroll = new iScroll(this.$('#scrollContainer')[0]);
             $("span#meal").text("Lunch - ("+this.container.container.foodItems.length+")");
             return this;
@@ -55,9 +56,14 @@ define([
             }
 
             $('#foodList').html('');
-            $('#modalMask').show().append("<img src='../img/spinner.gif'/>");
+            $('#modalMask').show().append("<img src='img/spinner.gif'/>");
 
-            foods.singleSearch(searchTerm, type, function(data){
+            foods.singleSearch(searchTerm, type, function(err,data){
+                if(err){
+                    Backbone.trigger('notify', err, 'Error getting Food List');
+                    $('#modalMask').hide().html("");
+                    return;
+                }
                 if(data.length === 0){
                     $('#foodList').append("<h1>No Food Found</h1>");
                 }
@@ -98,7 +104,7 @@ define([
             $('#filterButtons').hide();
             this.$el.html(self.itemTpl({item:model.attributes, imgSrc:""}));
 
-            // this.calculateNutrients();
+            this.calculateNutrients();
             this.refreshScroll();
             this.listScroll = null;
         },
@@ -136,6 +142,7 @@ define([
                 console.log(this.container.container.foodItems);
             }
             $("span#meal").text("Lunch - ("+this.container.container.foodItems.length+")");
+            this.cancelFood();
         },
 
         calculateNutrients: function(){
