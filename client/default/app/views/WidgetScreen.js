@@ -69,8 +69,8 @@ define([
           this.iscroll = new iScroll(this.$('#scrollWrapper')[0], {
               hscroll: false,
               fixedScrollbar: true,
-              bounce: true,
-              vScrollbar: true
+              bounce: false,
+              vScrollbar: false
           });
           this.refreshScroll();
 
