@@ -32,12 +32,6 @@ define(['jquery',
                 var self = this;
 
                 this.$el.html(this.template());
-                this.bodyScroll = new iScroll(this.$('#research-desk')[0],{
-                    bounceLock	: true,
-                    bounce 		: false,
-                    vScrollbar 	: false
-                });
-                this.refreshScroll();
                 return this;
             },
             

@@ -35,12 +35,12 @@ define([
       this.$el.html(template);
       this.$content = this.$('#library-content');
 
-      this.iscroll = new iScroll(this.$('#wrapper')[0], {
-          hscroll: false,
-          fixedScrollbar: true,
-          bounce: false,
-          vScrollbar: false
-      });
+//      this.iscroll = new iScroll(this.$('#wrapper')[0], {
+//          hscroll: false,
+//          fixedScrollbar: true,
+//          bounce: false,
+//          vScrollbar: false
+//      });
     },
 
     render: function() {
@@ -57,38 +57,38 @@ define([
     },
 
     refreshScroll: function(){
-      var self = this;
-      if(this.iscroll){
-        this.iscroll.refresh.call(self.iscroll);        
-      }
+//      var self = this;
+//      if(this.iscroll){
+//        this.iscroll.refresh.call(self.iscroll);        
+//      }
     },
 
     showMyMedia : function(){
       this.$('li').removeClass('selected');
       this.$('#show-myMedia').addClass('selected');
       this.setActiveView('myMedia');
-      this.refreshScroll();
+//      this.refreshScroll();
     },
 
     showReadingRoom : function(){
       this.$('li').removeClass('selected');
       this.$('#show-readingRoom').addClass('selected');
       this.setActiveView('readingRoom');
-      this.refreshScroll();
+//      this.refreshScroll();
     },
 
     showResearch : function(){
       this.$('li').removeClass('selected');
       this.$('#show-research').addClass('selected');
       this.setActiveView('research');
-      this.refreshScroll();
+//      this.refreshScroll();
     },
 
     showSuggested : function(){
       this.$('li').removeClass('selected');
       this.$('#show-suggested').addClass('selected');
       this.setActiveView('suggested');
-      this.refreshScroll();
+//      this.refreshScroll();
     }
 
   });

@@ -72,26 +72,26 @@ define([
               bounce: false,
               vScrollbar: false
           });
-          this.refreshScroll();
+         
 
           return this;
         },
 
         refreshScroll: function(){
-          var self = this;
-          if(this.iscroll){
-            setTimeout(function(){
-              self.iscroll.refresh.call(self.iscroll);    
-            }, 1000);
-          
-          }
+//          var self = this;
+//          if(this.iscroll){
+//            setTimeout(function(){
+//              self.iscroll.refresh.call(self.iscroll);    
+//            }, 1000);
+//          
+//          }
         },
 
         showFood : function(){
           this.$('#buttons li').removeClass('selected');
           this.$('#buttons #foodometer').addClass('selected');
           this.setActiveView('foodometerNav');
-          this.refreshScroll();
+//          this.refreshScroll();
         },
 
         showBusyBody : function(){

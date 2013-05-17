@@ -2249,6 +2249,12 @@ section#widgetScreen #scrollWrapper {
     background-position: center;
     /*    content: url('../img/nav/WidgetsDark.png');*/
 }
+
+#suggestedWidgets{
+    overflow: auto!important;
+max-height: 500px;
+}
+
 #main-nav #healthHub div {
     height: 30px;
     background: url(../img/nav/HubWhite.png);
@@ -4418,3 +4424,12 @@ padding-right: 20px;
     top: 17%!important;
         
 }
+
+#foodScreen #body #content #subView{
+    height: 453px;
+overflow: auto;
+}
+
+#library #wrapper{
+    overflow: auto;   
+}    
