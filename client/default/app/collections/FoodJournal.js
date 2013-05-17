@@ -13,6 +13,16 @@ define(['backbone',
 		//Backbone specific attributes
 		model : model,
 		storageKey: 'peachy_foodJournal',
+		
+		dailyValues: {
+			calories: 1500,
+			fat: 20,
+			sodium : 2300,
+			carbohydrates: 200,
+			cholesterol: 300,
+			fibre: 25,
+			protein: 45
+		},
 
 		initialize: function(){
 			var self=this;
@@ -30,9 +40,9 @@ define(['backbone',
 			this.store();
 		},
 
-		createDay: function(date){
+		createDay: function(date, existingModel){
 			console.log(date);
-			var asset =new model({date: date});
+			var asset = existingModel || new model({date: date});
 			this.add(asset);
 			console.log(asset);
 			console.log(this);

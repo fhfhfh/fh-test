@@ -83,7 +83,6 @@ define([
                 });
                  
                 if(model != null && !model.isEmpty()){
-                    console.log(model.isEmpty());
                     $(days[i]).css("background-image", "url('../img/calendar/FaceHappy.png')");
                     $(days[i]).css("background-position", "10px 10px");
                     $(days[i]).css("background-repeat", "no-repeat no-repeat");
@@ -221,7 +220,6 @@ define([
                 var meal = self.meal;
                 for(var i=0;i<foodArr.length;i++){
                     var arr = self.item.attributes[meal];
-                    console.log(arr, meal);
                     arr.push(foodArr[i].attributes);
                     self.item.set(meal, arr);
                     self.item.recalculateNutrients();   
@@ -313,11 +311,38 @@ define([
         },
 
         copyFoodItem: function(){
-            //TODO:  copy meal/food item from yesterday
+            var date = new Date();
+            var d2 = new Date();
+            var meal = $(".meal.selected").attr('data-name') || "breakfast";
+
+            date.setDate(date.getDate() - 1);
+
+            var yesterdayModel = collection.find(function(item){
+                return item.get('date').toDateString() == date.toDateString();
+            });
+            var todayModel = collection.find(function(item){
+                return item.get('date').toDateString() == d2.toDateString();
+            });
+
+            if(!todayModel){
+                yesterdayModel.attributes.date = new Date();
+                collection.createDay(date, yesterdayModel);    
+            } else {
+                todayModel.set(meal, yesterdayModel.attributes[meal]);
+            }
+            
+            this.populateMeal(meal);
+            $('#add').toggleClass('selected');
+            $('#addFoodPopup').toggle();
         },
 
         clearMeal: function(){
             //TODO: clear todays meal
+            var meal = $(".meal.selected").attr('data-name') || "breakfast";
+            this.item.clearMeal(meal);
+            $('#add').toggleClass('selected');
+            $('#addFoodPopup').toggle();
+            this.populateMeal(meal);
         },
 
         showNutrition: function(){
@@ -332,8 +357,8 @@ define([
             }
         },
 
-        updateNutrition: function(){
-            var el = $("#nutritionSection .boxEntry");
+        updateNutrition: function(el){
+            var el = el || $("#nutritionSection .boxEntry");
             
             for(var i=0; i<el.length; i++){
                 var thisEl = $(el[i]);
@@ -349,13 +374,23 @@ define([
             index = index || 0;
             meal = model[meal][index];
 
-            el.find("#totalCalories #amount").text(meal.calories);
-            el.find("#fat #amount").text(meal.fat);
-            el.find("#cholesterol #amount").text(meal.cholesterol);
-            el.find("#sodium #amount").text(meal.sodium);
-            el.find("#carbohydrates #amount").text(meal.carbohydrates);
-            el.find("#dietryFibre #amount").text(meal.fibre);
-            el.find("#protein #amount").text(meal.protein);
+            el.find("#totalCalories #amount").text(Math.round(meal.calories));
+            el.find("#fat #amount").text(Math.round(meal.fat));
+            el.find("#cholesterol #amount").text(Math.round(meal.cholesterol));
+            el.find("#sodium #amount").text(Math.round(meal.sodium));
+            el.find("#carbohydrates #amount").text(Math.round(meal.carbohydrates));
+            el.find("#dietryFibre #amount").text(Math.round(meal.fibre));
+            el.find("#protein #amount").text(Math.round(meal.protein));
+
+            //rda's
+            el.find("#totalCalories #rda").text(Math.round((meal.calories/collection.dailyValues.calories)*100) + "%");
+            el.find("#fat #rda").text(Math.round((meal.fat/collection.dailyValues.fat)*100) + "%");
+            el.find("#cholesterol #rda").text(Math.round((meal.cholesterol/collection.dailyValues.cholesterol)*100) + "%");
+            el.find("#sodium #rda").text(Math.round((meal.sodium/collection.dailyValues.sodium)*100) + "%");
+            el.find("#carbohydrates #rda").text(Math.round((meal.carbohydrates/collection.dailyValues.carbohydrates)*100) + "%");
+            el.find("#dietryFibre #rda").text(Math.round((meal.fibre/collection.dailyValues.fibre)*100) + "%");
+            el.find("#protein #rda").text(Math.round((meal.protein/collection.dailyValues.protein)*100) + "%");
+            this.updateNutrition();
         },
 
         showFoodItem: function(e){
@@ -385,6 +420,7 @@ define([
                     }
                 }
             }
+            this.updateNutrition($('#nutritionInfo .boxEntry'));
         },
 
         closeFoodItem: function(){

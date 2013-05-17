@@ -24,7 +24,6 @@ define(['backbone',
 			
 			Act.call("searchDBAction", {"type":term},
 				function(res){
-					console.log(res);
 					var data = res.payload;
 					for(var i=0;i<data.length;i++){
 						var asset = new self.model(data[i]);

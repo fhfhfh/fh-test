@@ -517,49 +517,6 @@ section h1 {
   border: 1px solid #000000;
   padding: 4px;
 }
-#notifications {
-  position: absolute;
-  top: 250px;
-  right: 30%;
-  width: 40%;
-  z-index: 999;
-}
-#notification {
-  text-align: center;
-  background-image: linear-gradient(bottom, #464646 0%, #1f1f1f 65%, #2e2e2e 21%, #525252 90%, #6b6b6b 100%);
-  background-image: -webkit-linear-gradient(bottom, #464646 0%, #1f1f1f 65%, #2e2e2e 21%, #525252 90%, #6b6b6b 100%);
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #464646), color-stop(0.65, #1f1f1f), color-stop(0.21, #2e2e2e), color-stop(0.9, #525252), color-stop(1, #6b6b6b));
-  border-radius: 10px;
-  padding: 5px;
-  box-shadow: 2px 2px 5px #000000;
-}
-#notification h2 {
-  font: bold 16px "Avenir Next", Helvetica, Arial, sans-serif;
-  color: #ffffff;
-}
-#notification p {
-  font: normal 14px "Avenir Next", Helvetica, Arial, sans-serif;
-  padding-top: 25px;
-  text-align: center;
-}
-#notification li {
-  width: 100px;
-}
-#modalMask {
-  display: none;
-  position: absolute;
-  background-color: #000000;
-  top: 0;
-  height: 100%;
-  width: 100%;
-  z-index: 10;
-  opacity: 0.3;
-  text-align: center;
-}
-#modalMask img {
-  margin-top: 250px;
-  height: 80px;
-}
 #login {
   background: url('../img/login/PeachyLogoWhite.png') 15px 15px no-repeat;
   background-size: 99px 24px;
@@ -1801,6 +1758,49 @@ section#widgetScreen #scrollWrapper {
   position: absolute;
   top: -5px;
   text-shadow: -1pt -1pt #ffffff;
+}
+#notifications {
+  position: absolute;
+  top: 250px;
+  right: 30%;
+  width: 40%;
+  z-index: 999;
+}
+#notification {
+  text-align: center;
+  background-image: linear-gradient(bottom, #464646 0%, #1f1f1f 65%, #2e2e2e 21%, #525252 90%, #6b6b6b 100%);
+  background-image: -webkit-linear-gradient(bottom, #464646 0%, #1f1f1f 65%, #2e2e2e 21%, #525252 90%, #6b6b6b 100%);
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #464646), color-stop(0.65, #1f1f1f), color-stop(0.21, #2e2e2e), color-stop(0.9, #525252), color-stop(1, #6b6b6b));
+  border-radius: 10px;
+  padding: 5px;
+  box-shadow: 2px 2px 5px #000000;
+}
+#notification h2 {
+  font: bold 16px "Avenir Next", Helvetica, Arial, sans-serif;
+  color: #ffffff;
+}
+#notification p {
+  font: normal 14px "Avenir Next", Helvetica, Arial, sans-serif;
+  padding-top: 25px;
+  text-align: center;
+}
+#notification li {
+  width: 100px;
+}
+#modalMask {
+  display: none;
+  position: absolute;
+  background-color: #000000;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 10;
+  opacity: 0.3;
+  text-align: center;
+}
+#modalMask img {
+  margin-top: 250px;
+  height: 80px;
 }
 #news-and-information {
   padding: 15px;
@@ -3812,7 +3812,6 @@ section#insights h1 {
 }
 #foodScreen #foodItemScreen #top {
   text-align: center;
-  padding-bottom: 30px;
 }
 #foodScreen #foodItemScreen #cancelFood {
   float: left;
