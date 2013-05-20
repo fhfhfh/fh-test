@@ -23,7 +23,8 @@ define(['jquery',
             'click .cabinetItem'	: 'displayFile',
             'click #changeView' 	: 'changeView',
             'keyup #search'			: 'searchItems',
-            'click #item'			: 'displayFile'
+            'click #item'			: 'displayFile',
+            'click #clearBtn'       : 'clearText'
         },
         template	: _.template(tpl),
         folderTpl 	: _.template(folderTpl),
@@ -248,6 +249,10 @@ define(['jquery',
                     item.hide();
                 }
             }
+        },
+
+        clearText: function(e){
+            $('#search').val('');
         }
 
     });

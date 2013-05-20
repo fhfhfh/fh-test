@@ -1331,8 +1331,18 @@ li {
   border-radius: 8px;
   margin-bottom: 10px;
 }
-#selector #search {
+#selector #searchField {
+  position: relative;
+}
+#selector #searchField #search {
+  padding-right: 20px;
   border-radius: 5px;
+  background-color: #ffffff;
+}
+#selector #searchField #clearBtn {
+  position: absolute;
+  right: 5px;
+  top: 3px;
 }
 #cabinet {
   width: 100%;
