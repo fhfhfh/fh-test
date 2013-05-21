@@ -16,7 +16,10 @@ define(['jquery',
 		tagName		: 'section',
 	    id			: 'readingRoom',
 	    events		: {
-	    	"click #item" : "displayFile"
+	    	'click #changeView' : 'changeView',
+	    	"click #item"		: "displayFile",
+	    	'click #clearBtn'	: 'clearText'
+
 	    },
 	    template	: _.template(tpl),
 	    rowTpl 		: _.template(tpl2),
@@ -61,6 +64,23 @@ define(['jquery',
             return str;
 		},
 
+		changeView: function(e){
+            var target = e.currentTarget;
+            var name = $(target).text();
+
+            if(name == 'Shelf View'){
+                $(target).text('List View');
+                $('#cabinet').hide();
+                $('#listView').show();
+            }
+            else {
+                $(target).text('Shelf View');
+                $('#cabinet').show();
+                //this.bodyScroll.refresh();
+                $('#listView').hide();
+            }
+        },
+
 		displayFile: function(e){
 			console.log(e);
 			var target 	= e.currentTarget;
@@ -73,7 +93,44 @@ define(['jquery',
 				localStorage.setItem('tempVid', JSON.stringify(model));
 		    	Backbone.history.navigate('video', true, true);
 			}
-		}
+		},
+
+		searchItems: function(e){
+            var target = e.currentTarget;
+            var text = $(target).val().toLowerCase();
+            var i,j;
+            if(e.which == 13){
+                $(target).blur();
+            }
+
+
+            // // search cabinet
+            // var items = $('.cabinetItem');
+            // items.show();
+            // for(i=0; i<items.length;i++){
+            //     var item = $(items[i]);
+            //     var title = item.find('p').attr('title').toLowerCase();
+            //     if(title.indexOf(text) == -1){
+            //         console.log(text, title);
+            //         item.hide();
+            //     }
+            // }
+
+            // search list
+            var items2 = $('tr#item');
+            items2.show();
+            for(i=0; i<items2.length;i++){
+                var item = $(items2[i]);
+                var title = item.find('#title').text().toLowerCase();
+                if(title.indexOf(text) == -1){
+                    item.hide();
+                }
+            }
+        },
+
+		clearText: function(e){
+            $('#search').val('');
+        }
 
 	});
 });
