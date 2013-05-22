@@ -60,6 +60,7 @@ define([
         showMyFavourites: function(){
             this.$('li').removeClass('selected');
             this.$('#show-myFavourites').addClass('selected');
+            this.setActiveView('myFavourites');
             this.refreshScroll();
         }
 
