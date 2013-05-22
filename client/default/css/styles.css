@@ -1970,7 +1970,7 @@ background-color: white;
     width: 220px;
     margin-right: 5px;
     border-color: gray;
-    height: 28px;
+    height: 30px;
 }
 
 #onmi_search{
@@ -2097,6 +2097,7 @@ background-color: white;
     position: absolute;
     top: 5px;
     left: 35px;
+    width: 70%
 }
 
 
