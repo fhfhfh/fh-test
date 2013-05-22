@@ -1625,12 +1625,7 @@ section#widgetScreen #scrollWrapper {
 }
 #reserchInnerDiv {
     background-image: -webkit-linear-gradient(bottom, #dadada 85%, #878888 100%);
-    /*    position:absolute;*/
-
-    height: 850px;
-    /*    padding-left: 10px;
-      padding-right: 10px;*/
-
+    height:800px;
     width: 100%;
     position: absolute;
     top: 30px;
@@ -1673,8 +1668,8 @@ section#widgetScreen #scrollWrapper {
         height: 77px;
         position: relative;
         overflow: hidden;
-/*        font: bold 25px "Avenir Next Demi", Helvetica, Arial, sans-serif;
-        padding-left: 20px;*/
+        /*        font: bold 25px "Avenir Next Demi", Helvetica, Arial, sans-serif;
+                padding-left: 20px;*/
     }
 }
 #welcomeDiv {
@@ -1687,17 +1682,17 @@ section#widgetScreen #scrollWrapper {
     color: white;
 }
 #researchDesc {
-   margin-top: 45px;
-padding: 0 15px 0 15px;
-font: 11px "Avenir Next Demi", Helvetica, Arial, sans-serif;
-position: absolute;
-right: 15px;
-width: 240px;
-text-align: center;
+    margin-top: 45px;
+    padding: 0 15px 0 15px;
+    font: 11px "Avenir Next Demi", Helvetica, Arial, sans-serif;
+    position: absolute;
+    right: 15px;
+    width: 240px;
+    text-align: center;
 }
 #researchMenu {
-    height: 66%;
-    width: 255px;
+    height: 539px;
+    width: 270px;
     border: 2px solid;
     border-radius: 10px;
     border-color: gray;
@@ -1715,10 +1710,11 @@ text-align: center;
     height: 67px;
     position: relative;
     overflow: hidden;
-/*    font: bold 25px "Avenir Next Demi", Helvetica, Arial, sans-serif;
-    padding-left: 20px;*/
+    /*    font: bold 25px "Avenir Next Demi", Helvetica, Arial, sans-serif;
+        padding-left: 20px;*/
 }
-#menu2 {
+#menu2,
+#omnibtn2{
     background-color: #deeeff;
 }
 #menu1 {
@@ -1726,22 +1722,29 @@ text-align: center;
     border-top-right-radius: 5px;
     background-color: #eafef8;
 }
-#menu3 {
+#menu3,
+#omnibtn3{
     background-color: #dcdded;
 }
-#menu4 {
+
+#menu4,
+#omnibtn4{
     background-color: #eedbdc;
 }
-#menu5 {
+#menu5,
+#omnibtn5{
     background-color: #fee4ff;
 }
-#menu6 {
+#menu6,
+#omnibtn6{
     background-color: #fff6e0;
 }
-#menu7 {
+#menu7,
+#omnibtn7{
     background-color: #d9fee4;
 }
-#menu8 {
+#menu8,
+#omnibtn8{
     background-color: #ddb9c8;
 }
 .menuName1 {
@@ -1766,113 +1769,215 @@ text-align: center;
 }
 
 #researchPeachyLogo{
-height: 155px;
-position: absolute;
-top: 154px;
-right: 21px;
+    height: 155px;
+    position: absolute;
+    top: 154px;
+    right: 21px;
 }
 
 #researchCat{
-   position: absolute;
-right: 30px;
-top: 325px;
-width: 168px;
-text-align: center;
-color: gray;
-font-weight: bold;
-font-size: 14px; 
+    position: absolute;
+    right: 30px;
+    top: 325px;
+    width: 168px;
+    text-align: center;
+    color: gray;
+    font-weight: bold;
+    font-size: 14px; 
 }
 
 
 #omnibtn{
     background: url(../img/research/bu-welless-omnipedia.png);
-width: 285px;
-height: 80px;
-position: relative;
-margin-top: 20px;
-margin-left: 10px;
+    width: 285px;
+    height: 80px;
+    position: relative;
+    margin-top: 20px;
+    margin-left: 10px;
 
 }
 
+#infoBtn{
+    background: url(../img/research/bu-drug-interactions.png);
+    width: 285px;
+    height: 80px;
+    position: relative;
+    margin-top: 20px;
+    margin-left: 10px;
+
+}
+
+#omnibtn8{
+    border-radius: 0px 0px 10px 10px;
+}
+
+#research-arrow{
+    position: absolute;
+    right: 20px;
+    top: 35px;
+}
+
+#omnibtn1,
+#omnibtn2,
+#omnibtn3,
+#omnibtn4,
+#omnibtn5,
+#omnibtn6,
+#omnibtn7,
+#omnibtn8{
+    width: 285px;
+    height: 80px;
+    position: relative;
+}
+
+#omnibtn1 {
+    background-color: #eafef8;
+    border-radius: 10px 10px 0px 0px;
+}
+
+
 #outerBox{
-position: absolute;
-width: 45%;
-height: 10%;
-border: 2px solid;
-position: absolute;
-top: 8px;
-right: 0;
-margin: 10px;
-background-color: white;
-font: bold 13px "Avenir Next", Helvetica, Arial, sans-serif;
+    position: absolute;
+    width: 45%;
+    height: 9%;
+    border: 2px solid;
+    position: absolute;
+    top: 12px;
+    right: 0;
+    margin: 10px;
+    background-color: white;
+    font: bold 13px "Avenir Next", Helvetica, Arial, sans-serif;
+    box-shadow: 2px 2px 1px 0px gray;
+}
+
+#research-menu{
+    position: absolute;
+    top: 50px;
+    z-index: 0;
+    border: 2px solid;
+    margin-left: 9px;
+    border-radius: 10px;
+    visibility: hidden;
 }
 
 #innerBox{
     margin: 1px;
-border: 2px solid;
-height: 98%;
-padding: 5px;
+    height: 98%;
+    padding: 5px;
 }
 
 .btnTitle1{
-font-size: 19pt;
-font-family: "Avenir Next Medium";
-padding-left: 15px;
-padding-bottom: 0px;
-text-shadow: -1pt 1pt white;
-padding-top: 12px;
-position: absolute;
+    font-size: 19pt;
+    font-family: "Avenir Next Medium";
+    padding-left: 15px;
+    padding-bottom: 0px;
+    text-shadow: -1pt 1pt white;
+    padding-top: 12px;
+    position: absolute;
 }
 
 .btnTitle2{
-height: 0px;
-font-size: 26pt;
-font-family: "Avenir Next Bold";
-padding-left: 35px;
-margin-bottom: 0px;
-top: 33px;
-text-shadow: -1pt 1pt white;
-padding-bottom: 0px;
-position: absolute;
+    height: 0px;
+    font-size: 26pt;
+    font-family: "Avenir Next Bold";
+    padding-left: 35px;
+    margin-bottom: 0px;
+    top: 33px;
+    text-shadow: -1pt 1pt white;
+    padding-bottom: 0px;
+    position: absolute;
 }
 
 #omniData p,
 #omniData ul{
-    width: 100%;
+    width: 95%;
+    font-size: 11px;
+    padding-left:30px;
 }
 
-#omniData{
+#omni-ad{
+    background-color: #ebebeb;
+    height: 147px;
+    border-radius: 10px;
+    margin-top: 50px;
+    position: relative;
+    padding: 10px;
+}
+
+#ad-container{
+    background-color: white;
+height: 125px;
+margin: 0px;
+position: relative;/*
+top: 10px;
+left: 15px;*/
+}
+
+#ad1{
+    height: 100%;
+width: 140px;
+position: absolute;
+}
+#ad2{
+height: 100%;
+width: 140px;
+position: absolute;
+left: 185px;
+}
+#ad3{
+height: 100%;
+width: 140px;
+position: absolute;
+right: 0px;
+}
+
+.omni-ad{
+    border: 2px solid;
+box-shadow: 2px 2px;
+background-color: white;
+}
+
+#omniData p,
+#omniData li{
+
+    padding-left: 10px;
+
+}
+
+#omniData,#infoData{
     padding: 5% 23px 0px 5%;
 }
 
-#omniList{
-background-color: white;
-width: 96%;
-height: 100%;
-margin: 12px;
-border-radius: 5px;
-font: 12px "Avenir Next Demi", Helvetica, Arial, sans-serif;
-position: relative;
-padding-top: 20px;
+
+#omniList,#infoList{
+    background-color: white;
+    width: 96%;
+    margin: 12px;
+    padding: 2px 2px 1px 1px;
+    border-radius: 10px 10px 10px 10px;
+    font: 12px "Avenir Next Demi", Helvetica, Arial, sans-serif;
+    position: relative;
+    padding-bottom: 2px;
 }
 
-#search_omniPedia{
-right: 0;
-position: absolute;
-border: 2px solid;
-border-radius: 20px;
-margin-top: 0px;
-width: 220px;
-margin-right: 5px;
-border-color: gray;
-height: 28px;
+#search_omniPedia,#search_information{
+    top: 20px;
+    right: 0;
+    position: absolute;
+    border: 2px solid;
+    border-radius: 20px;
+    margin-top: 0px;
+    width: 220px;
+    margin-right: 5px;
+    border-color: gray;
+    height: 28px;
 }
 
 #onmi_search{
     border: none;
 }
 
-#omniListArea
+#omniListArea,#infoListArea
 {
     margin-top: 45px;
 }
@@ -1881,64 +1986,119 @@ height: 28px;
     padding-left: 5px;
 }
 #clrBtn{
-height: 20px;
-margin-top: 0px;
-top: 3px;
-position: absolute;
-right: 2px;
+    height: 20px;
+    margin-top: 0px;
+    top: 3px;
+    position: absolute;
+    right: 2px;
 }
 
-#omniListHead{
-/*    margin-top: 76px;*/
-background: url(../img/research/gradient-bar-search-area.png);
-width: 100%;
-padding-left: 30px;
-color: white;
-background-repeat: no-repeat;
-background-size: 100%;
-height: 25px;
-padding-top: 3px;
+#omniListHead,#infoListHead{
+    /*    margin-top: 76px;*/
+    background: url(../img/research/gradient-bar-search-area.png);
+    width: 100%;
+    padding-left: 30px;
+    color: white;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    height: 25px;
+    padding-top: 3px;
 }
 
 #search_omniPediaDetails{
     right: 0;
-position: absolute;
-border: 1px solid;
-border-radius: 20px;
-margin-top: 50px;
-width: 211px;
-margin-right: 15px;
-height: 30px;
-top: 0;
-background-color: white;
-}
-#omniDetailsHead{
-    background-color: gray;
-    height: 75px;
-    text-align: center;
-padding-top: 25px;
-font: bold 18pt white "Avenir Next Demi", Helvetica, Arial, sans-serif;
-color: white;
-text-shadow: -1pt 1pt #756d6f;
+    position: absolute;
+    border: 1px solid;
+    border-radius: 20px;
+    margin-top: 50px;
+    width: 211px;
+    margin-right: 15px;
+    height: 30px;
+    top: 0;
+    background-color: white;
 }
 
-#omniListArea  #omniDetails .boxEntry{
-   padding: 20px 25px 30px 40px;
-   font-weight: bold;
+#pills{
+    position: absolute;
+    right: 15px;
+    z-index: 0;
+    height: 200px;
 }
-#omniListArea  #omniDetails .boxEntry:after {
+
+#MedUse{
+    margin-bottom: 75px;
+}
+
+.researchMenuHeading{
+    color: #5a4d38;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.researchMenuSubHeading{
+    color: #8d8687;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+#omniDetailsHead,#infoDetailsHead{
+    background-color: gray;
+    height: 60px;
+    text-align: center;
+    padding-top: 25px;
+    font: bold 18pt white "Avenir Next Demi", Helvetica, Arial, sans-serif;
+    color: white;
+    text-shadow: -1pt 1pt #756d6f;
+    border-radius: 10px 10px 0px 0px;
+}
+
+#omniListArea  #omniDetails .boxEntry,
+#infoListArea  #infoDetails .boxEntry{
+    padding: 15px 25px 30px 40px;
+    font-weight: bold;
+}
+#omniListArea  #omniDetails .boxEntry:after,
+#infoListArea  #infoDetails .boxEntry:after{
     content: url('../img/icons/smallArrow.png');
     float: right;
     clear: right;
 }
 
-
-#omniresult{
-    position: absolute;
-left: 20px;
-top: 28px;
-font: bold 13px "Avenir Next", Helvetica, Arial, sans-serif;
+#omniDetails,#infoDetails{
+    padding-top: 20px;
 }
+
+
+#omniresult,#infoResult{
+    position: absolute;
+    left: 20px;
+    top: 28px;
+    font: bold 13px "Avenir Next", Helvetica, Arial, sans-serif;
+}
+
+
+
+#search_omniPediaDetails #magnify{
+    position: absolute;
+    top: 2px;
+    height: 20px;
+    left: 3px;
+}
+
+#search_omniPediaDetails #clrBtn{
+    height: 20px;
+    margin-top: 0px;
+    top: 4px;
+    position: absolute;
+    right: 5px;
+}
+
+#onmi_search{
+    position: absolute;
+    top: 5px;
+    left: 35px;
+}
+
 
 #notifications {
     position: absolute;
