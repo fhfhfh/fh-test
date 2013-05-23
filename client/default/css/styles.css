@@ -1907,7 +1907,7 @@ left: 15px;*/
   height: 100%;
   width: 140px;
   position: absolute;
-  left: 185px;
+  left: 200px;
 }
 #ad3 {
   height: 100%;
@@ -2064,6 +2064,7 @@ left: 15px;*/
   position: absolute;
   top: 5px;
   left: 35px;
+  width: 145px;
 }
 #notifications {
   position: absolute;
