@@ -10,7 +10,8 @@ define(['jquery',
     'text!templates/components/OmnipediaDetails.html',
     'text!templates/components/Information.html',
     'text!templates/components/InformationDetails.html',
-    ], function($, _, Backbone, omnipidiaTpl,tpl,omniDetailsTpl,informationTpl,infoDetailsTpl) {
+    'text!templates/components/Interactions.html',
+    ], function($, _, Backbone, omnipidiaTpl,tpl,omniDetailsTpl,informationTpl,infoDetailsTpl,interactionsTpl) {
 
         return Backbone.View.extend({
 
@@ -18,11 +19,13 @@ define(['jquery',
             tagName		: 'section',
             id			: 'research',
             events		: {
-                'click #menu1' : 'showOmnipidia',
-                'click #menu2' : 'showInformation',
+                'click #menu1, #omnibtn1' : 'showOmnipidia',
+                'click #menu2, #omnibtn2' : 'showInformation',
+                 'click #menu3, #omnibtn3' : 'showInteractions',
                 'click #quitBtn' : 'render',
                 'click #omniListArea #omniDetails .boxEntry' : 'showOmnipidiaDetails',
-                'click #infoListArea #infoDetails .boxEntry' : 'showInformationDetails'
+                'click #infoListArea #infoDetails .boxEntry' : 'showInformationDetails',
+                'click #infoBtn, #omnibtn':'showMenu'
  
             },
             template	: _.template(tpl),
@@ -39,7 +42,7 @@ define(['jquery',
                 this.bodyScroll = new iScroll(this.$('#research-desk')[0],{
                     bounceLock	: true,
                     bounce 		: false,
-                    vScrollbar 	: false
+                    vScrollbar 	: true
                 });
                 this.refreshScroll();
                 //                this.loadList();
@@ -68,6 +71,23 @@ define(['jquery',
                 var page = $(this.el);
 
                 var details = _.template(informationTpl);
+                var title = $(target).find('h1').text() || 'Untitled';
+                // var info = $(target).attr('info');
+                var imgSrc = $(target).find('img').attr('src');
+
+                this.$el.html(details({
+                    title: title,
+                    description: "info",
+                    src: imgSrc
+                }));
+                this.loadListInfo();
+            },
+            
+            showInteractions: function(e){
+                var target = e.currentTarget;
+                var page = $(this.el);
+
+                var details = _.template(interactionsTpl);
                 var title = $(target).find('h1').text() || 'Untitled';
                 // var info = $(target).attr('info');
                 var imgSrc = $(target).find('img').attr('src');
@@ -180,6 +200,10 @@ define(['jquery',
                     }
                         
                 }
+            },
+            
+            showMenu : function(){
+                $("#research-menu").attr("style","visibility:visible")
             }
 
         });
