@@ -1609,100 +1609,104 @@ section#widgetScreen #panelTopBar #cancelBtn {
 section#widgetScreen #scrollWrapper {
   height: 100%;
 }
+
+
 #pencil-desk {
-  width: 100%;
+    width: 100%;
 }
 #backDiv {
-  /*background-image:  webkit-gradient(linear, left bottom, left top, color-stop(0, #878888), color-stop(0.85, #ffffff));*/
+    /*background-image:  webkit-gradient(linear, left bottom, left top, color-stop(0, #878888), color-stop(0.85, #ffffff));*/
 
-  width: 98%;
-  position: absolute;
-  border: 2px solid;
-  height: 96%;
-  margin: 2% 1% 2% 1%;
-  border-radius: 5px;
-  border-color: #cecece;
-  background: #ffffff;
+    width: 98%;
+    position: absolute;
+    border: 2px solid;
+    height: 96%;
+    margin: 2% 1% 2% 1%;
+    border-radius: 5px;
+    border-color: #cecece;
+    background: #ffffff;
 }
 #research-desk {
-  height: 100%;
-  width: 100%;
+    height: 100%;
+    width: 100%;
 }
 #reserchInnerDiv {
-  background-image: -webkit-linear-gradient(bottom, #dadada 85%, #878888 100%);
-  height: 800px;
-  width: 100%;
-  position: absolute;
-  top: 30px;
-  border-bottom-right-radius: 5px;
-  border-bottom-left-radius: 5px;
-  /*    left: 1%;*/
+    background-image: -webkit-linear-gradient(bottom, #dadada 85%, #878888 100%);
+    height:93%;
+    width: 100%;
+    position: absolute;
+    top: 30px;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    /*    left: 1%;*/
 
-  /*    top: 3%;*/
+    /*    top: 3%;*/
 
 }
 #researchWrapper {
-  /*     background-image:-webkit-linear-gradient(bottom, rgb(218, 218, 218) 85%, #878888 100%);*/
+    /*     background-image:-webkit-linear-gradient(bottom, rgb(218, 218, 218) 85%, #878888 100%);*/
 
-  min-height: 900px;
+    min-height: 1000px;
 }
 @media only screen and (orientation: landscape) {
-  #reserchInnerDiv {
-    background-image: -webkit-linear-gradient(bottom, #dadada 85%, #878888 100%);
-    width: 100%;
+    #reserchInnerDiv {
+        background-image: -webkit-linear-gradient(bottom, #dadada 85%, #878888 100%);
+        width: 100%;
+        position: absolute;
+        top: 32px;
+        height: 92%;
+    }
+    #researchMenu {
+        height: 87%;
+        border: 2px solid;
+        border-radius: 5px;
+        border-color: gray;
+        margin: 20px;
+        overflow: hidden;
+    }
+    #menu1,
+    #menu2,
+    #menu3,
+    #menu4,
+    #menu5,
+    #menu6,
+    #menu7,
+    #menu8 {
+        height: 77px;
+        position: relative;
+        overflow: hidden;
+        /*        font: bold 25px "Avenir Next Demi", Helvetica, Arial, sans-serif;
+                      padding-left: 20px;*/
+
+    }
+}
+#welcomeDiv {
+    text-align: center;
+    padding: 10px;
+    background-color: gray;
+    font: bold 25px "Avenir Next Demi", Helvetica, Arial, sans-serif;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    color: white;
+}
+#researchDesc {
+    margin-top: 45px;
+    padding: 0 15px 0 15px;
+    font: 11px "Avenir Next Demi", Helvetica, Arial, sans-serif;
     position: absolute;
-    top: 32px;
-  }
-  #researchMenu {
-    height: 87%;
+    right: 15px;
+    width: 240px;
+    text-align: center;
+}
+#researchMenu {
+    padding: 2px;
+    height: 687px;
+    width: 270px;
     border: 2px solid;
-    border-radius: 5px;
+    border-radius: 10px;
     border-color: gray;
     margin: 20px;
     overflow: hidden;
-  }
-  #menu1,
-  #menu2,
-  #menu3,
-  #menu4,
-  #menu5,
-  #menu6,
-  #menu7,
-  #menu8 {
-    height: 77px;
-    position: relative;
-    overflow: hidden;
-    /*        font: bold 25px "Avenir Next Demi", Helvetica, Arial, sans-serif;
-                  padding-left: 20px;*/
-  
-  }
-}
-#welcomeDiv {
-  text-align: center;
-  padding: 10px;
-  background-color: gray;
-  font: bold 25px "Avenir Next Demi", Helvetica, Arial, sans-serif;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
-  color: white;
-}
-#researchDesc {
-  margin-top: 45px;
-  padding: 0 15px 0 15px;
-  font: 11px "Avenir Next Demi", Helvetica, Arial, sans-serif;
-  position: absolute;
-  right: 15px;
-  width: 240px;
-  text-align: center;
-}
-#researchMenu {
-  height: 539px;
-  width: 270px;
-  border: 2px solid;
-  border-radius: 10px;
-  border-color: gray;
-  margin: 20px;
-  overflow: hidden;
 }
 #menu1,
 #menu2,
@@ -1712,105 +1716,103 @@ section#widgetScreen #scrollWrapper {
 #menu6,
 #menu7,
 #menu8 {
-  height: 67px;
-  position: relative;
-  overflow: hidden;
-  /*    font: bold 25px "Avenir Next Demi", Helvetica, Arial, sans-serif;
-        padding-left: 20px;*/
+    height: 85px;
+    position: relative;
+    overflow: hidden;
+    /*    font: bold 25px "Avenir Next Demi", Helvetica, Arial, sans-serif;
+          padding-left: 20px;*/
 
 }
 #menu2,
 #omnibtn2 {
-  background-color: #deeeff;
+    background-color: #deeeff;
 }
 #menu1 {
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
-  background-color: #eafef8;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    background-color: #eafef8;
 }
 #menu3,
 #omnibtn3 {
-  background-color: #dcdded;
+    background-color: #dcdded;
 }
 #menu4,
 #omnibtn4 {
-  background-color: #eedbdc;
+    background-color: #eedbdc;
 }
 #menu5,
 #omnibtn5 {
-  background-color: #fee4ff;
+    background-color: #fee4ff;
 }
 #menu6,
 #omnibtn6 {
-  background-color: #fff6e0;
+    background-color: #fff6e0;
 }
 #menu7,
 #omnibtn7 {
-  background-color: #d9fee4;
+    background-color: #d9fee4;
 }
 #menu8,
 #omnibtn8 {
-  background-color: #ddb9c8;
+    background-color: #ddb9c8;
 }
 .menuName1 {
-  height: 0px;
-  font-size: 15pt;
-  font-family: "Avenir Next Medium";
-  padding-left: 15px;
-  padding-bottom: 0px;
-  top: -13px;
-  position: absolute;
-  text-shadow: -1pt -1pt #ffffff;
+    height: 0px;
+    font: normal 19pt "Avenir Next Medium", Helvetica, Arial, sans-serif;
+    padding-left: 15px;
+    padding-bottom: 0px;
+    top: -13px;
+    position: absolute;
+    text-shadow: -1pt -1pt #ffffff;
 }
 .menuName2 {
-  height: 0px;
-  font-size: 22pt;
-  font-family: "Avenir Next Bold";
-  padding-left: 35px;
-  margin-bottom: 0px;
-  position: absolute;
-  top: -5px;
-  text-shadow: -1pt -1pt #ffffff;
+    height: 0px;
+    font: bold 26pt "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
+    padding-left: 35px;
+    margin-bottom: 0px;
+    position: absolute;
+    top: 0px;
+    text-shadow: -1pt -1pt #ffffff;
 }
 #researchPeachyLogo {
-  height: 155px;
-  position: absolute;
-  top: 154px;
-  right: 21px;
+    height: 155px;
+    position: absolute;
+    top: 154px;
+    right: 21px;
 }
 #researchCat {
-  position: absolute;
-  right: 30px;
-  top: 325px;
-  width: 168px;
-  text-align: center;
-  color: gray;
-  font-weight: bold;
-  font-size: 14px;
+    position: absolute;
+    right: 30px;
+    top: 325px;
+    width: 168px;
+    text-align: center;
+    color: gray;
+    font-weight: bold;
+    font-size: 14px;
 }
 #omnibtn {
-  background: url(../img/research/bu-welless-omnipedia.png);
-  width: 285px;
-  height: 80px;
-  position: relative;
-  margin-top: 20px;
-  margin-left: 10px;
+    background: url(../img/research/bu-welless-omnipedia.png);
+    width: 285px;
+    height: 80px;
+    position: relative;
+    margin-top: 20px;
+    margin-left: 10px;
 }
 #infoBtn {
-  background: url(../img/research/bu-drug-interactions.png);
-  width: 285px;
-  height: 80px;
-  position: relative;
-  margin-top: 20px;
-  margin-left: 10px;
+    background: url(../img/research/bu-drug-interactions.png);
+    width: 285px;
+    height: 80px;
+    position: relative;
+    margin-top: 20px;
+    margin-left: 10px;
 }
 #omnibtn8 {
-  border-radius: 0px 0px 10px 10px;
+    border-radius: 0px 0px 10px 10px;
 }
 #research-arrow {
-  position: absolute;
-  right: 20px;
-  top: 35px;
+    position: absolute;
+    right: 20px;
+    top: 35px;
 }
 #omnibtn1,
 #omnibtn2,
@@ -1820,260 +1822,262 @@ section#widgetScreen #scrollWrapper {
 #omnibtn6,
 #omnibtn7,
 #omnibtn8 {
-  width: 285px;
-  height: 80px;
-  position: relative;
+    width: 285px;
+    height: 80px;
+    position: relative;
 }
 #omnibtn1 {
-  background-color: #eafef8;
-  border-radius: 10px 10px 0px 0px;
+    background-color: #eafef8;
+    border-radius: 10px 10px 0px 0px;
 }
 #outerBox {
-  width: 45%;
-  height: 9%;
-  border: 2px solid;
-  position: absolute;
-  top: 12px;
-  right: 0;
-  margin: 10px;
-  background-color: white;
-  font: bold 13px "Avenir Next", Helvetica, Arial, sans-serif;
-  box-shadow: 2px 2px 1px 0px gray;
+    width: 45%;
+    height: 9%;
+    border: 2px solid;
+    position: absolute;
+    top: 12px;
+    right: 0;
+    margin: 10px;
+    background-color: white;
+    font: bold 13px "Avenir Next", Helvetica, Arial, sans-serif;
+    box-shadow: 2px 2px 1px 0px gray;
 }
 #research-menu {
-  position: absolute;
-  top: 50px;
-  z-index: 0;
-  border: 2px solid;
-  margin-left: 9px;
-  border-radius: 10px;
-  visibility: hidden;
+    position: absolute;
+    top: 50px;
+    z-index: 0;
+    border: 2px solid;
+    margin-left: 9px;
+    border-radius: 10px;
+    visibility: hidden;
 }
 #innerBox {
-  margin: 1px;
-  height: 98%;
-  padding: 5px;
+    margin: 1px;
+    height: 98%;
+    padding: 5px;
 }
 .btnTitle1 {
-  font-size: 19pt;
-  font-family: "Avenir Next Medium";
-  padding-left: 15px;
-  padding-bottom: 0px;
-  text-shadow: -1pt 1pt #ffffff;
-  padding-top: 12px;
-  position: absolute;
+    font: normal 19pt "Avenir Next Medium", Helvetica, Arial, sans-serif;
+    padding-left: 15px;
+    padding-bottom: 0px;
+    text-shadow: -1pt 1pt #ffffff;
+    padding-top: 12px;
+    position: absolute;
 }
 .btnTitle2 {
-  height: 0px;
-  font-size: 26pt;
-  font-family: "Avenir Next Bold";
-  padding-left: 35px;
-  margin-bottom: 0px;
-  top: 33px;
-  text-shadow: -1pt 1pt #ffffff;
-  padding-bottom: 0px;
-  position: absolute;
+    height: 0px;
+    font: bold 26pt "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
+    padding-left: 35px;
+    margin-bottom: 0px;
+    top: 33px;
+    text-shadow: -1pt 1pt #ffffff;
+    padding-bottom: 0px;
+    position: absolute;
 }
 #omniData p,
 #omniData ul {
-  width: 95%;
-  font-size: 11px;
-  padding-left: 30px;
+    width: 95%;
+    font: 14px "Avenir Next", Helvetica, Arial, sans-serif;
+    padding-left: 30px;
 }
 #omni-ad {
-  background-color: #ebebeb;
-  height: 147px;
-  border-radius: 10px;
-  margin-top: 50px;
-  position: relative;
-  padding: 10px;
+    background-color: #ebebeb;
+    height: 147px;
+    border-radius: 10px;
+    margin-top: 50px;
+    position: relative;
+    padding: 10px;
 }
 #ad-container {
-  background-color: white;
-  height: 125px;
-  margin: 0px;
-  position: relative;
-  /*
-top: 10px;
-left: 15px;*/
+    background-color: white;
+    height: 125px;
+    margin: 0px;
+    position: relative;
+    /*
+  top: 10px;
+  left: 15px;*/
 
 }
 #ad1 {
-  height: 100%;
-  width: 140px;
-  position: absolute;
+    height: 100%;
+    position: absolute;
 }
 #ad2 {
-  height: 100%;
-  width: 140px;
-  position: absolute;
-  left: 185px;
+    height: 100%;
+    position: absolute;
+    left: 188px;
 }
 #ad3 {
-  height: 100%;
-  width: 140px;
-  position: absolute;
-  right: 0px;
+    height: 100%;
+    position: absolute;
+    right: 0px;
 }
 .omni-ad {
-  border: 2px solid;
-  box-shadow: 2px 2px;
-  background-color: white;
+    border: 2px solid;
+    box-shadow: 2px 2px;
+    background-color: white;
+    width: 170px;
 }
 #omniData p,
 #omniData li {
-  padding-left: 10px;
+    padding-left: 10px;
 }
 #omniData,
 #infoData {
-  padding: 5% 23px 0px 5%;
+    padding: 5% 23px 0px 5%;
 }
 #omniList,
 #infoList {
-  background-color: white;
-  width: 96%;
-  margin: 12px;
-  padding: 2px 2px 1px 1px;
-  border-radius: 10px 10px 10px 10px;
-  font: 12px "Avenir Next Demi", Helvetica, Arial, sans-serif;
-  position: relative;
-  padding-bottom: 2px;
+    background-color: white;
+    width: 96%;
+    margin: 12px;
+    padding: 2px 2px 1px 1px;
+    border-radius: 10px 10px 10px 10px;
+    font: 14px "Avenir Next Demi", Helvetica, Arial, sans-serif;
+    position: relative;
+    padding-bottom: 2px;
 }
 #search_omniPedia,
 #search_information {
-  top: 20px;
-  right: 0;
-  position: absolute;
-  border: 2px solid;
-  border-radius: 20px;
-  margin-top: 0px;
-  width: 220px;
-  margin-right: 5px;
-  border-color: gray;
-  height: 28px;
+    top: 20px;
+    right: 0;
+    position: absolute;
+    border: 2px solid;
+    border-radius: 20px;
+    margin-top: 0px;
+    width: 220px;
+    margin-right: 5px;
+    border-color: gray;
+    height: 28px;
 }
 #onmi_search {
-  border: none;
+    border: none;
 }
 #omniListArea,
 #infoListArea {
-  margin-top: 45px;
+    margin-top: 45px;
 }
 #magnify {
-  padding-top: 5px;
-  padding-left: 5px;
+    padding-top: 5px;
+    padding-left: 5px;
 }
 #clrBtn {
-  height: 20px;
-  margin-top: 0px;
-  top: 3px;
-  position: absolute;
-  right: 2px;
+    height: 20px;
+    margin-top: 0px;
+    top: 3px;
+    position: absolute;
+    right: 2px;
 }
 #omniListHead,
 #infoListHead {
-  /*    margin-top: 76px;*/
+    /*    margin-top: 76px;*/
 
-  background: url(../img/research/gradient-bar-search-area.png);
-  width: 100%;
-  padding-left: 30px;
-  color: white;
-  background-repeat: no-repeat;
-  background-size: 100%;
-  height: 25px;
-  padding-top: 3px;
+    background: url(../img/research/gradient-bar-search-area.png);
+    width: 100%;
+    padding-left: 30px;
+    color: white;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    height: 25px;
+    padding-top: 3px;
 }
 #search_omniPediaDetails {
-  right: 0;
-  position: absolute;
-  border: 1px solid;
-  border-radius: 20px;
-  margin-top: 50px;
-  width: 211px;
-  margin-right: 15px;
-  height: 30px;
-  top: 0;
-  background-color: white;
+    right: 0;
+    position: absolute;
+    border: 1px solid;
+    border-radius: 20px;
+    margin-top: 50px;
+    width: 211px;
+    margin-right: 15px;
+    height: 30px;
+    top: 0;
+    background-color: white;
 }
 #pills {
-  position: absolute;
-  right: 15px;
-  z-index: 0;
-  height: 200px;
+    position: absolute;
+    right: 15px;
+    z-index: 0;
+    height: 200px;
 }
 #MedUse {
-  margin-bottom: 75px;
+    margin-bottom: 75px;
 }
 .researchMenuHeading {
-  color: #5a4d38;
-  font-size: 15px;
-  font-weight: bold;
+    color: #5a4d38;
+    font: normal 14pt "Avenir Next Bold", Helvetica, Arial, sans-serif;
 }
 .researchMenuSubHeading {
-  color: #8d8687;
-  font-size: 12px;
-  font-weight: bold;
+    color: #8d8687;
+    font: normal 13pt "Avenir Next Bold", Helvetica, Arial, sans-serif;
 }
 #omniDetailsHead,
 #infoDetailsHead {
-  background-color: gray;
-  height: 60px;
-  text-align: center;
-  padding-top: 25px;
-  font: bold 18pt #ffffff "Avenir Next Demi", Helvetica, Arial, sans-serif;
-  color: white;
-  text-shadow: -1pt 1pt #756d6f;
-  border-radius: 10px 10px 0px 0px;
+    background-color: gray;
+    height: 60px;
+    text-align: center;
+    padding-top: 25px;
+    font: normal 18pt "Avenir Next Medium", Helvetica, Arial, sans-serif;
+    color: white;
+    text-shadow: -1pt 1pt #756d6f;
+    border-radius: 10px 10px 0px 0px;
 }
 #omniListArea #omniDetails .boxEntry,
 #infoListArea #infoDetails .boxEntry {
-  padding: 15px 25px 30px 40px;
-  font-weight: bold;
+    padding: 15px 25px 30px 40px;
+    font: 12px "Avenir Next", Helvetica, Arial, sans-serif;
 }
 #omniListArea #omniDetails .boxEntry:after,
 #infoListArea #infoDetails .boxEntry:after {
-  content: url('../img/icons/smallArrow.png');
-  float: right;
-  clear: right;
+    content: url('../img/icons/smallArrow.png');
+    float: right;
+    clear: right;
 }
 #omniDetails,
 #infoDetails {
-  padding-top: 20px;
+    padding-top: 20px;
 }
 #omniresult,
 #infoResult {
-  position: absolute;
-  left: 20px;
-  top: 28px;
-  font: bold 13px "Avenir Next", Helvetica, Arial, sans-serif;
+    position: absolute;
+    left: 20px;
+    top: 28px;
+    font: bold 13px "Avenir Next", Helvetica, Arial, sans-serif;
 }
 #search_omniPediaDetails #magnify {
-  position: absolute;
-  top: 2px;
-  height: 20px;
-  left: 3px;
+    position: absolute;
+    top: 2px;
+    height: 20px;
+    left: 3px;
 }
 #search_omniPediaDetails #clrBtn {
-  height: 20px;
-  margin-top: 0px;
-  top: 4px;
-  position: absolute;
-  right: 5px;
+    height: 20px;
+    margin-top: 0px;
+    top: 4px;
+    position: absolute;
+    right: 5px;
 }
 #onmi_search {
-  position: absolute;
-  top: 5px;
-  left: 35px;
-}
-#medicine #selector {
-  padding-bottom: 20px;
-}
-#medicineBar {
-  display: inline-block;
-  width: 100%;
-  padding: 10px;
+    position: absolute;
+    top: 3px;
+    left: 35px;
+    width: 145px;
 }
 
+#interactionsContainter{
+    height: 410px;
+background-color: #EEEEEE;
+margin: 20px;
+position: relative;
+border-radius: 10px;
+}
+
+#interactionsContainter2{
+    height: 250px;
+background-color: white;
+margin: 20px;
+padding-top: 20px;
+border-radius: 10px;
+}
 
 #interactionsList1{
 height: 350px;
@@ -2109,36 +2113,19 @@ right: 10px;
 margin: 12px;
 border-radius: 10px;
 margin: 10px 5px 10px 0px;
-
-#medicineBar #searchImg {
-  position: absolute;
-  left: 20px;
-  top: 15px;
-}
-#medicineBar #medSearch {
-  padding-left: 4%;
-  border-radius: 15px;
-  width: 35%;
-}
-#medicineBar #medicineOptions {
-  float: right;
->>>>>>> a4c27401e7a76de19f9940f55f527e96bbfae5d0
-}
-#medicineBar #medicineOptions #viewOpt {
-  padding-right: 5px;
-}
-.medWrap {
-  background: white;
-  width: 90%;
-  margin-right: auto;
-  margin-left: auto;
-  border-radius: 8px;
-}
-.medWrap .medCab {
-  background: url('../img/medicine/med-cab-bg.png') center no-repeat;
-  background-size: 86%;
 }
 
+.imgSpace{
+    
+}
+
+.imgSpace img{
+    float: left;
+}
+
+.imgSpace p{
+    padding-left: 50px;
+}
 
 #interaction-tabs{
      list-style-type: none;
