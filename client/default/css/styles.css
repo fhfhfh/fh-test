@@ -2065,8 +2065,8 @@ left: 15px;*/
   top: 5px;
   left: 35px;
 }
-#medicine #medicine-content {
-  padding-bottom: 0px;
+#medicine #selector {
+  padding-bottom: 20px;
 }
 #medicineBar {
   display: inline-block;
@@ -2088,6 +2088,17 @@ left: 15px;*/
 }
 #medicineBar #medicineOptions #viewOpt {
   padding-right: 5px;
+}
+.medWrap {
+  background: white;
+  width: 90%;
+  margin-right: auto;
+  margin-left: auto;
+  border-radius: 8px;
+}
+.medWrap .medCab {
+  background: url('../img/medicine/med-cab-bg.png') center no-repeat;
+  background-size: 86%;
 }
 #notifications {
   position: absolute;
