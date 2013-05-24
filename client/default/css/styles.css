@@ -2246,18 +2246,18 @@ section#widgetScreen #scrollWrapper {
   overflow: hidden;
 }
 .medWrap .medCab .shelf {
-  margin-bottom: -100px;
+  margin-bottom: -140px;
 }
 .medWrap .medCab #shelf1,
 .medWrap .medCab #shelf2,
 .medWrap .medCab #shelf3 {
   position: relative;
-  top: 20px;
+  top: 28px;
 }
 .medWrap .medCab #shelf1 li,
 .medWrap .medCab #shelf2 li,
 .medWrap .medCab #shelf3 li {
-  padding-left: 16%;
+  padding-left: 14%;
 }
 #notifications {
   position: absolute;
