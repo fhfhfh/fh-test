@@ -40,7 +40,23 @@
 	
 	.medCab {
 		background: url('../img/medicine/med-cab-bg.png')center no-repeat;
-		background-size: 86%;
+		background-size: 86% 100%;
+		overflow: hidden;
+
+		.shelf {
+			margin-bottom : -100px;
+		}
+
+		#shelf1,
+		#shelf2,
+		#shelf3 {
+			position: relative;
+			top: 20px;
+
+			li {
+				padding-left: 16%;
+			}
+		}
 	}
 }
 
