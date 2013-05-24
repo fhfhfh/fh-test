@@ -21,11 +21,13 @@ define(['jquery',
             events		: {
                 'click #menu1, #omnibtn1' : 'showOmnipidia',
                 'click #menu2, #omnibtn2' : 'showInformation',
-                 'click #menu3, #omnibtn3' : 'showInteractions',
+                'click #menu3, #omnibtn3' : 'showInteractions',
                 'click #quitBtn' : 'render',
                 'click #omniListArea #omniDetails .boxEntry' : 'showOmnipidiaDetails',
                 'click #infoListArea #infoDetails .boxEntry' : 'showInformationDetails',
-                'click #infoBtn, #omnibtn':'showMenu'
+                'click #infoBtn, #omnibtn':'showMenu',
+                'click #interaction-myMedia':'showMyMedia',
+                'click #interaction-search':'showSearch'
  
             },
             template	: _.template(tpl),
@@ -97,7 +99,21 @@ define(['jquery',
                     description: "info",
                     src: imgSrc
                 }));
-                this.loadListInfo();
+               this.showMyMedia();
+            },
+            
+            showSearch: function(e){
+                this.$('li').removeClass('selected');
+                this.$('#interaction-search').addClass('selected');
+                 this.$('#inter-myMedia').attr("style","visibility:hidden");
+                 this.$('#inter-search').attr("style","visibility:visible");
+            },
+            
+              showMyMedia: function(e){
+                this.$('li').removeClass('selected');
+                this.$('#interaction-myMedia').addClass('selected');
+                this.$('#inter-myMedia').attr("style","visibility:visible");
+                 this.$('#inter-search').attr("style","visibility:hidden");
             },
             
             showInformationDetails: function(e){
