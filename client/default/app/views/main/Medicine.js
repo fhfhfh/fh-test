@@ -16,9 +16,9 @@ define([
 
     events : {
       'click #show-medFeatured' : 'showMedFeatured',
-      'click #show-medFavourites' : 'showMedFavourites',
-      'click #show-medResearch' : 'showMedResearch',
-      'click #show-medSuggested' : 'showMedSuggested',
+      // 'click #show-medFavourites' : 'showMedFavourites',
+      // 'click #show-medResearch' : 'showMedResearch',
+      // 'click #show-medSuggested' : 'showMedSuggested',
     },
 
     subViews: {
