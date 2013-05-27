@@ -11,7 +11,8 @@ define(['jquery',
     'text!templates/components/Information.html',
     'text!templates/components/InformationDetails.html',
     'text!templates/components/Interactions.html',
-    ], function($, _, Backbone, omnipidiaTpl,tpl,omniDetailsTpl,informationTpl,infoDetailsTpl,interactionsTpl) {
+    'text!templates/components/riskFactor.html',
+    ], function($, _, Backbone, omnipidiaTpl,tpl,omniDetailsTpl,informationTpl,infoDetailsTpl,interactionsTpl,riskFactorTpl) {
 
         return Backbone.View.extend({
 
@@ -22,6 +23,7 @@ define(['jquery',
                 'click #menu1, #omnibtn1' : 'showOmnipidia',
                 'click #menu2, #omnibtn2' : 'showInformation',
                 'click #menu3, #omnibtn3' : 'showInteractions',
+                'click #menu5, #omnibtn5' : 'showRiskFactor',
                 'click #quitBtn' : 'render',
                 'click #omniListArea #omniDetails .boxEntry' : 'showOmnipidiaDetails',
                 'click #infoListArea #infoDetails .boxEntry' : 'showInformationDetails',
@@ -99,21 +101,29 @@ define(['jquery',
                     description: "info",
                     src: imgSrc
                 }));
-               this.showMyMedia();
+                this.showMyMedia();
             },
             
+            showRiskFactor: function(e){
+                var target = e.currentTarget;
+                var page = $(this.el);
+                var details = _.template(riskFactorTpl);
+                this.$el.html(details);
+                this.showMyMedia();
+            },
+           
             showSearch: function(e){
                 this.$('li').removeClass('selected');
                 this.$('#interaction-search').addClass('selected');
-                 this.$('#inter-myMedia').attr("style","visibility:hidden");
-                 this.$('#inter-search').attr("style","visibility:visible");
+                this.$('#inter-myMedia').attr("style","visibility:hidden");
+                this.$('#inter-search').attr("style","visibility:visible");
             },
             
-              showMyMedia: function(e){
+            showMyMedia: function(e){
                 this.$('li').removeClass('selected');
                 this.$('#interaction-myMedia').addClass('selected');
                 this.$('#inter-myMedia').attr("style","visibility:visible");
-                 this.$('#inter-search').attr("style","visibility:hidden");
+                this.$('#inter-search').attr("style","visibility:hidden");
             },
             
             showInformationDetails: function(e){
