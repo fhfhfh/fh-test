@@ -108,7 +108,6 @@ define(['jquery',
         },
 
         populateList: function(){
-        	return "";
             var folders = this.folders;
             var items = libStore.models;
             var tpl = this.rowTpl;
@@ -119,22 +118,16 @@ define(['jquery',
                 web: "img/library/GlobeWhiteSmall.png",
             };
 
-            for(i=0; i<folders.length; i++){
-                var item = folders[i].attributes;
-                str += '<tr id="folder"><td>'+item.name+'</td><td></td><td></td></tr>';
 
-                for(j=0;j<items.length;j++){
-                    var asset = items[j].attributes;
-                    if(asset.folders.indexOf(item.id) >= 0){
-                        str+= tpl({
-                            id: asset.id,
-                            name: asset.title,
-                            type: 'video',
-                            date: 'Yesterday',
-                            src: src.video
-                        });
-                    }
-                }
+            for(j=0;j<items.length;j++){
+                var asset = items[j].attributes;
+                str+= tpl({
+                    id: asset.id,
+                    name: asset.title,
+                    type: 'video',
+                    date: 'Yesterday',
+                    src: src.video
+                });
             }
             return str;
         },
