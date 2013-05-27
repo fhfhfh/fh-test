@@ -1,197 +1,67 @@
 /*--------------------
-	app/views/main/library/ReadingRoom
+    app/views/main/library/ReadingRoom
 
 --------------------*/
 define(['jquery',
         'underscore',
         'backbone',
         'text!templates/components/ReadingRoom.html',
-        'text!templates/components/MyMediaFolder.html',
-        'text!templates/components/MyMediaItem.html',
         'text!templates/components/ReadingRoomRow.html',
         'collections/Library',
-        'collections/Folders',
-], function($, _, Backbone, tpl, folderTpl, itemTpl, rowTpl, folderStore, libStore) {
+], function($, _, Backbone, tpl, tpl2, libStore) {
 
     return Backbone.View.extend({
 
         // Backbone specific attributes
-        tagName		: 'section',
-        id			: 'myMedia',
-        events		: {
-            'click .cabinetFolder'	: 'displayFolder',
-            'click .cabinetItem'	: 'displayFile',
-            'click #changeView' 	: 'changeView',
-            'keyup #search'			: 'searchItems',
-            'click #item'			: 'displayFile',
-            'click #clearBtn'       : 'clearText'
+        tagName     : 'section',
+        id          : 'readingRoom',
+        events      : {
+            'click #changeView' : 'changeView',
+            "click #item"       : "displayFile",
+            'click #clearBtn'   : 'clearText'
+
         },
-        template	: _.template(tpl),
-        folderTpl 	: _.template(folderTpl),
-        itemTpl 	: _.template(itemTpl),
-        rowTpl 	 	: _.template(rowTpl),
+        template    : _.template(tpl),
+        rowTpl      : _.template(tpl2),
 
 
         initialize : function(){
             _.bindAll(this);
-            this.folders  = folderStore.models;
-            this.libStore = libStore.models;
-
-            // force page refresh when objects added to collections
-            folderStore.on('add', this.render);
-            libStore.on('add', this.render);
-            folderStore.on('remove', this.render);
-            libStore.on('remove', this.render);
         },
 
         render: function(){
-            var folders = this.populateFolders();
-            var items = this.populateItems();
-            var rows = this.populateList();
-            this.$el.html(this.template({folders:folders, items: items, rows:rows}));
-            this.thumbnailUpdate();
-			
-            this.bodyScroll = new iScroll(this.$('#cabinetBody')[0],{
-                bounceLock	: true,
-                bounce 		: false,
-                vScrollbar 	: false
-            });
-            this.refreshScroll();
-			
+            var self = this;
+
+            var rows = this.populate();
+
+            this.$el.html(this.template({rows: rows}));
             return this;
         },
 
-        refreshScroll: function(){
-            var self = this;
-            setTimeout(function(){
-                self.bodyScroll.refresh();	
-                self.headerScroll.refresh();
-            }, 100);
-        },
-
-        populateFolders: function(){
-            var folders = this.folders;
-            var tpl = this.folderTpl;
-            var str = '';
-            for(var i=0; i<folders.length; i++){
-                var item = folders[i].attributes;
-                str+=tpl({id:item.id, name:item.name});
-            }
-            return str;
-        },
-
-        populateItems: function(){
-            // var items = this.libStore;
-            var items = libStore.models;
-            var tpl = this.itemTpl;
-            var str = '';
-            for(var i=0; i<items.length; i++){
-                var item = items[i].attributes;
-
-                if(!item.folders){
-                    item.folders = '23'	;
-                }
-
-                str+=tpl({
-                    id		:item.id, 
-                    shortTitle	:item.shortTitle,
-                    title	:item.title,
-                    type	: 'video',
-                    folders	: item.folders
-                });
-            }
-            return str;
-        },
-
-        populateList: function(){
-            var folders = this.folders;
-            var items = libStore.models;
-            var row = this.rowTpl;
-            var str = '', i, j;
+        populate: function(){
             var src = {
                 video: "img/library/PlayWhiteSmall.png",
                 article: "img/library/ArticleWhiteSmall.png",
                 web: "img/library/GlobeWhiteSmall.png",
-            };
+                };
 
-            for(i=0; i<folders.length; i++){
-                var item = folders[i].attributes;
-                str += '<tr id="folder"><td>'+item.name+'</td><td></td><td></td></tr>';
-
-                for(j=0;j<items.length;j++){
-                    var asset = items[j].attributes;
-                    if(asset.folders.indexOf(item.id) >= 0){
-                        str+= tpl({
-                            id: asset.id,
-                            name: asset.title,
-                            type: 'video',
-                            date: 'Yesterday',
-                            src: src.video
-                        });
-                    }
+            var items = libStore.models;
+            var tpl = this.rowTpl;
+            var str = '';
+            for(var i=0; i<items.length; i++){
+                var item = items[i].attributes;
+                if(item.folders.indexOf(1) >= 0){
+                    str+=tpl({
+                        id      :item.id, 
+                        name    :item.title,
+                        type    : 'video',
+                        date    : 'Today',
+                        src     : src.video,
+                        folders : item.folders
+                    }); 
                 }
             }
             return str;
-        },
-
-        thumbnailUpdate: function(){
-            var self=this,i;
-            var items = this.$('.cabinetItem');
-
-            for(i=0;i<items.length;i++){
-                var item = this.$(items[i]);
-                if(item.attr('data-id')){
-                    var model =libStore.get(item.attr('data-id'));
-                    item.find('.thumbnail').css({
-                        'background':'url('+model.attributes.imgUrl+') no-repeat',
-                        'background-size':'110px 70px',
-                        'background-position':'8px 1px'
-                    });
-                }
-            }
-        },
-
-        displayFolder: function(e){
-            var target 	= e.currentTarget;
-            var title 	= $(target).text();
-            var id 		= $(target).attr('id');
-			
-            $('.cabinetFolder').removeClass('selected');
-            $('.cabinetFolder .folderImg').attr('src', 'img/library/AllBoxes@2x.png');
-            $(target).addClass('selected');
-            $(target).find('.folderImg').attr('src', 'img/library/OpenBox@2x.png');
-
-            if(id == 0){
-                $('.cabinetItem').show();
-                this.bodyScroll.refresh();
-                return;
-            }
-
-            var items = $('.cabinetItem');
-            items.hide();
-
-            for(var i=0; i<items.length; i++){
-                var item = items[i];
-                var folders = $(item).attr('folder') || '';
-
-                if(folders.indexOf(id) >= 0){
-                    $(item).show();
-                }
-            }
-            this.bodyScroll.refresh();
-        },
-
-        displayFile: function(e){
-            var target 	= e.currentTarget;
-            var title 	= $(target).text();
-            var id 		= $(target).attr('data-id');
-            var type 	= $(target).attr('type');
-            var model 	= libStore.get(id);
-
-            if(type == 'video'){
-                localStorage.setItem('tempVid', JSON.stringify(model));
-                Backbone.history.navigate('video', true, true);
-            }
         },
 
         changeView: function(e){
@@ -206,8 +76,22 @@ define(['jquery',
             else {
                 $(target).text('Shelf View');
                 $('#cabinet').show();
-                this.bodyScroll.refresh();
+                //this.bodyScroll.refresh();
                 $('#listView').hide();
+            }
+        },
+
+        displayFile: function(e){
+            console.log(e);
+            var target  = e.currentTarget;
+            var title   = $(target).text();
+            var id      = $(target).attr('data-id');
+            var type    = $(target).attr('type');
+            var model   = libStore.get(id);
+
+            if(type == 'video'){
+                localStorage.setItem('tempVid', JSON.stringify(model));
+                Backbone.history.navigate('video', true, true);
             }
         },
 
@@ -220,17 +104,17 @@ define(['jquery',
             }
 
 
-            // search cabinet
-            var items = $('.cabinetItem');
-            items.show();
-            for(i=0; i<items.length;i++){
-                var item = $(items[i]);
-                var title = item.find('p').attr('title').toLowerCase();
-                if(title.indexOf(text) == -1){
-                    console.log(text, title);
-                    item.hide();
-                }
-            }
+            // // search cabinet
+            // var items = $('.cabinetItem');
+            // items.show();
+            // for(i=0; i<items.length;i++){
+            //     var item = $(items[i]);
+            //     var title = item.find('p').attr('title').toLowerCase();
+            //     if(title.indexOf(text) == -1){
+            //         console.log(text, title);
+            //         item.hide();
+            //     }
+            // }
 
             // search list
             var items2 = $('tr#item');
