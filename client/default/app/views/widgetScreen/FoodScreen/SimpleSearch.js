@@ -19,6 +19,7 @@ define([
         itemTpl : _.template(foodItem),
         events  : {
             "click #searchImg"         : "searchFood",
+            "keyup #searchTerm"        : "enterPressed",
             "click #xImg"              : "clearSearchField",
             "click #backToTop"         : "backToTop",
             "click #foodList .boxEntry": "showFoodItemScreen",
@@ -82,6 +83,13 @@ define([
                 $('#backToTop').show();
                 self.refreshScroll();
             });
+        },
+
+        enterPressed: function(e){
+            var self = this;
+            if(e.keyCode ==13){
+                this.searchFood();
+            }
         },
 
         clearSearchField: function(){
