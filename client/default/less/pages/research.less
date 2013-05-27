@@ -19,7 +19,7 @@
 }
 #reserchInnerDiv {
     background-image: -webkit-linear-gradient(bottom, #dadada 85%, #878888 100%);
-    height:93%;
+    height: 93%;
     width: 100%;
     position: absolute;
     top: 30px;
@@ -63,7 +63,7 @@
         position: relative;
         overflow: hidden;
         /*        font: bold 25px "Avenir Next Demi", Helvetica, Arial, sans-serif;
-                      padding-left: 20px;*/
+                            padding-left: 20px;*/
 
     }
 }
@@ -107,7 +107,7 @@
     position: relative;
     overflow: hidden;
     /*    font: bold 25px "Avenir Next Demi", Helvetica, Arial, sans-serif;
-          padding-left: 20px;*/
+            padding-left: 20px;*/
 
 }
 #menu2,
@@ -193,6 +193,15 @@
     margin-top: 20px;
     margin-left: 10px;
 }
+
+.research-menuBtn{
+    width: 285px;
+    height: 80px;
+    position: relative;
+    margin-top: 20px;
+    margin-left: 10px;
+}
+
 #omnibtn8 {
     border-radius: 0px 0px 10px 10px;
 }
@@ -232,7 +241,7 @@
 #research-menu {
     position: absolute;
     top: 50px;
-    z-index: 0;
+    z-index: 10;
     border: 2px solid;
     margin-left: 9px;
     border-radius: 10px;
@@ -281,8 +290,8 @@
     margin: 0px;
     position: relative;
     /*
-  top: 10px;
-  left: 15px;*/
+    top: 10px;
+    left: 15px;*/
 
 }
 #ad1 {
@@ -449,80 +458,67 @@
     left: 35px;
     width: 145px;
 }
-
-#interactionsContainter{
+#interactionsContainter {
     height: 410px;
-background-color: #EEEEEE;
-margin: 20px;
-position: relative;
-border-radius: 10px;
+    background-color: #EEEEEE;
+    margin: 20px;
+    position: relative;
+    border-radius: 10px;
 }
-
-#interactionsContainter2{
+#interactionsContainter2 {
     height: 250px;
-background-color: white;
-margin: 20px;
-padding-top: 20px;
-border-radius: 10px;
+    background-color: white;
+    margin: 20px;
+    padding-top: 20px;
+    border-radius: 10px;
 }
-
-#interactionsList1{
-height: 350px;
-background-color: white;
-float: left;
-width: 295px;
-position: relative;
-margin: 0px 10px 10px 10px;
-border: 1px solid lightgray;
-border-radius: 0px 10px 10px 10px;
+#interactionsList1 {
+    height: 350px;
+    background-color: white;
+    float: left;
+    width: 295px;
+    position: relative;
+    margin: 0px 10px 10px 10px;
+    border: 1px solid lightgray;
+    border-radius: 0px 10px 10px 10px;
 }
-
-#interactionsList2{
-float: right;
-height: 280px;
-background-color: white;
-width: 212px;
-margin: 10px;
-margin-top: 0px;
-position: relative;
+#interactionsList2 {
+    float: right;
+    height: 280px;
+    background-color: white;
+    width: 200px;
+    margin: 10px;
+    margin-top: 0px;
+    position: relative;
 }
-
-#checkBtn{
-position: absolute;
-text-align: center;
-height: 45px;
-width: 205px;
-padding-top: 10px;
-background-color: lightcyan;
-font-weight: bold;
-bottom: 0px;
-right: 10px;
-margin: 12px;
-border-radius: 10px;
-margin: 10px 5px 10px 0px;
+#checkBtn {
+    position: absolute;
+    text-align: center;
+    height: 45px;
+    width: 205px;
+    padding-top: 10px;
+    background-color: lightcyan;
+    font-weight: bold;
+    bottom: 0px;
+    right: 10px;
+    margin: 12px;
+    border-radius: 10px;
+    margin: 10px 5px 10px 0px;
 }
-
-.imgSpace{
-    
-}
-
-.imgSpace img{
+.imgSpace img {
     float: left;
 }
-
-.imgSpace p{
+.imgSpace p {
     padding-left: 50px;
 }
-
-#interaction-tabs{
-     list-style-type: none;
+#interaction-tabs {
+    list-style-type: none;
     margin: 0;
     padding: 0;
     background: #EEEEEE;
     color: white;
     padding-top: 15px;
 }
-
 #interaction-tabs li {
     display: inline-block;
     width: 40%;
@@ -539,93 +535,165 @@ margin: 10px 5px 10px 0px;
     background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #cccccc), color-stop(0.85, #ffffff));
     font: bold 14px "Avenir Next", Helvetica, Arial, sans-serif;
 }
-#interaction-tabs li:active {
+
+#interaction-tabs li:active, #risk-factor-tabs li:active {
     background-image: linear-gradient(bottom, #ffffff 0%, #cccccc 85%);
     background-image: -webkit-linear-gradient(bottom, #ffffff 0%, #cccccc 85%);
     background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #ffffff), color-stop(0.85, #cccccc));
 }
-#interaction-tabs li.selected {
+
+#interaction-tabs li.selected{
     background-color: #fff;
     background-image: none;
 }
 
-#tabs{
+#risk-factor-tabs li.selected {
+    background-color: #fff;
+    background-image: none;
+    border-top: 1px solid;
+    border-right: 1px solid;
+    border-left: 1px solid;
+    border-color: lightgray;
+    z-index: 5;
+}
+#tabs {
     width: 310px;
-margin-left: 8px;
+    margin-left: 8px;
 }
-
-#inter-myMedia{
+#inter-myMedia {
     height: 100%;
-width: 100%;
-visibility: hidden;
-padding-top: 15px
+    width: 100%;
+    visibility: hidden;
+    padding-top: 15px;
 }
-
-#inter-search{
-height: 100%;
-width: 100%;
-position: absolute;
-top: 0px;
-visibility: hidden;
+#inter-search {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0px;
+    visibility: hidden;
 }
-
-
-
-
-#inter-myMedia div{
+#inter-myMedia div {
     height: 40px;
-position: relative;
-margin-left: 10px;
-padding-top: 10px;
+    position: relative;
+    margin-left: 10px;
+    padding-top: 10px;
 }
-
-#inter-plus{
+#inter-plus {
     float: right;
-margin-right: 20px;
+    margin-right: 20px;
 }
-
-#inter-myMedia div p{
-top: -10px;
-position: absolute;
+#inter-myMedia div p {
+    top: -10px;
+    position: absolute;
 }
-
-#inter-list2 div{
+#inter-list2 div {
     height: 40px;
-position: relative;
-margin-left: 10px;
-padding-top: 10px;
+    position: relative;
+    margin-left: 10px;
+    padding-top: 10px;
 }
-
-#inter-list2 div p{
-top: -10px;
-position: absolute;
+#inter-list2 div p {
+    top: -10px;
+    position: absolute;
 }
-
-#search_interaction{
+#search_interaction {
     border: 2px solid;
-height: 30px;
-border-radius: 20px;
-margin: 15px;
-position: relative;
+    height: 30px;
+    border-radius: 20px;
+    margin: 15px;
+    position: relative;
 }
-
-#inter-searchList{
+#inter-searchList {
     height: 100%;
-width: 100%;
-padding-top: 15px;
+    width: 100%;
+    padding-top: 15px;
 }
-
-
-
-#inter-searchList div{
+#inter-searchList div {
     height: 40px;
-position: relative;
-margin-left: 10px;
+    position: relative;
+    margin-left: 10px;
+    padding-top: 10px;
+}
+#inter-searchList div p {
+    top: -10px;
+    position: absolute;
+}
+
+#riskBtn {
+    background: url(../img/research/bu-risk-factor-navigator.png);
+}
+
+#risk-tabs{
+    margin-top: 5%;
+    margin-left: 20px;
+}
+
+#risk-tab-area{
+    height: 80%;
+    background-color: white;
+    margin: 0px 0px 0px 10px;
+    width: 96%;
+    border: 1px solid lightgray;
+    margin-top: -1px;
+    border-radius: 10px;
+    position: relative;
+    padding: 20px;
+}
+
+#risk-factor-tabs li {
+    display: inline-block;
+    width: 40%;
+    text-align: center;
+    margin: 0 1%;
+    padding: 10px 5px;
+    color: #2f3137;
+    text-shadow: 0 1px 1px #fff;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    position: relative;
+    background-image: linear-gradient(bottom, #cccccc 0%, #ffffff 85%);
+    background-image: -webkit-linear-gradient(bottom, #cccccc 0%, #ffffff 85%);
+    background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #cccccc), color-stop(0.85, #ffffff));
+    font: bold 12px "Avenir Next", Helvetica, Arial, sans-serif;
+}
+
+#risk-details{
+    font: 12px "Avenir Next", Helvetica, Arial, sans-serif;
+}
+
+#risk-headlines{
+    font: bold 13px "Avenir Next", Helvetica, Arial, sans-serif;
+}
+
+#general-riskBtn, .conditionBtn{
+background: url(../img/research/risk-factor/bu-pink-bar.png);
+height: 40px;
+width: 270px;
 padding-top: 10px;
+font: bold 13px "Avenir Next", Helvetica, Arial, sans-serif;
+padding-left: 15px;
 }
 
-#inter-searchList div p{
-top: -10px;
-position: absolute;
+#lifestyle-headline{
+    font:bold 14px "Avenir Next", Helvetica, Arial, sans-serif;
+    margin-bottom: 15px;
 }
 
+#risk-logo{
+    position: absolute;
+right: 47px;
+top: 100px;
+}
+
+.conditionBtn{
+    margin-bottom: 10px;
+}
+
+#lifestlye-assess{
+    float: right;
+}
+
+#condition-assess{
+    float: left;
+}
