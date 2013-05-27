@@ -11,7 +11,7 @@ define(['jquery',
     'text!templates/components/Information.html',
     'text!templates/components/InformationDetails.html',
     'text!templates/components/Interactions.html',
-    'text!templates/components/riskFactor.html',
+    'text!templates/components/RiskFactor.html',
     ], function($, _, Backbone, omnipidiaTpl,tpl,omniDetailsTpl,informationTpl,infoDetailsTpl,interactionsTpl,riskFactorTpl) {
 
         return Backbone.View.extend({
@@ -27,9 +27,11 @@ define(['jquery',
                 'click #quitBtn' : 'render',
                 'click #omniListArea #omniDetails .boxEntry' : 'showOmnipidiaDetails',
                 'click #infoListArea #infoDetails .boxEntry' : 'showInformationDetails',
-                'click #infoBtn, #omnibtn':'showMenu',
+                'click #infoBtn, #omnibtn, .research-menuBtn':'showMenu',
                 'click #interaction-myMedia':'showMyMedia',
-                'click #interaction-search':'showSearch'
+                'click #interaction-search':'showSearch',
+                'click #riskFactor-general':'showGenRisk',
+                'click #riskFactor-lifestyle':'showlifestyle'
  
             },
             template	: _.template(tpl),
@@ -109,7 +111,7 @@ define(['jquery',
                 var page = $(this.el);
                 var details = _.template(riskFactorTpl);
                 this.$el.html(details);
-                this.showMyMedia();
+                this.showGenRisk();
             },
            
             showSearch: function(e){
@@ -124,6 +126,19 @@ define(['jquery',
                 this.$('#interaction-myMedia').addClass('selected');
                 this.$('#inter-myMedia').attr("style","visibility:visible");
                 this.$('#inter-search').attr("style","visibility:hidden");
+            },
+            showGenRisk: function(e){
+                this.$('li').removeClass('selected');
+                this.$('#riskFactor-general').addClass('selected');
+                this.$('#lifestyle').attr("style","display:none");
+                this.$('#general-risk').attr("style","display:block");
+            },
+            
+            showlifestyle: function(e){
+                this.$('li').removeClass('selected');
+                this.$('#riskFactor-lifestyle').addClass('selected');
+                this.$('#lifestyle').attr("style","display:block");
+                this.$('#general-risk').attr("style","display:none");
             },
             
             showInformationDetails: function(e){
