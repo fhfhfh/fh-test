@@ -3,10 +3,10 @@ define([
   'underscore',
   'backbone',
   'views/ContainerView',
-  'views/main/medicine/FeaturedMeds',
-  'views/main/medicine/FavouriteMeds',
-  'views/main/medicine/ResearchMeds',
-  'views/main/medicine/SuggestedMeds',
+  'views/main/Medicine/FeaturedMeds',
+  'views/main/Medicine/FavouriteMeds',
+  'views/main/Medicine/ResearchMeds',
+  'views/main/Medicine/SuggestedMeds',
   'text!templates/pages/Medicine.html'
 ], function($, _, Backbone, ContainerView, FeaturedMedsView, FavouriteMedsView, ResearchMedsView, SuggestedMedsView, template) {
 
