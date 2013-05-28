@@ -1542,6 +1542,12 @@ table#listView #date {
 table#listView #type {
   width: 25%;
 }
+.suggested-new {
+  display: block;
+  position: absolute;
+  bottom: 45%;
+  left: 90%;
+}
 section#widgetScreen {
   z-index: 10;
   position: absolute;
