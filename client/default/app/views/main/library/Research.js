@@ -11,7 +11,7 @@ define(['jquery',
     'text!templates/components/Information.html',
     'text!templates/components/InformationDetails.html',
     'text!templates/components/Interactions.html',
-    'text!templates/components/RiskFactor.html',
+    'text!templates/components/riskFactor.html',
     ], function($, _, Backbone, omnipidiaTpl,tpl,omniDetailsTpl,informationTpl,infoDetailsTpl,interactionsTpl,riskFactorTpl) {
 
         return Backbone.View.extend({
