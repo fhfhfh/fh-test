@@ -42,8 +42,11 @@ define(['jquery',
                 'click .conditionBtn':'showRiskFactorDetails',
                 'click #showRiskFactorDetails':'showRiskFactorDetails',
                 'click #startImg':'showriskFactQues',
-                 'click #prevImg':'showRiskFactorDetails',
-                  'click #nextImg':'showRiskFactorCompleteAssessment'
+                'click #prevImg':'showRiskFactorDetails',
+                'click #nextImg':'showRiskFactorCompleteAssessment',
+                'click #showriskFactQues':'showriskFactQues',
+                'click #moreDetails':'showPopup',
+                'click #researchCloseBtn':'closePopup'
  
             },
             template	: _.template(tpl),
@@ -141,6 +144,19 @@ define(['jquery',
             showRiskFactorCompleteAssessment: function(e){
                 var details = _.template(completeAssessTpl);
                 this.$el.html(details);
+                this.closePopup();
+            },
+            
+            showPopup: function(){
+                 $('#modalMask1').show();
+                this.$('#popupDeatils').attr("style","display:block");
+                 this.iscroll.refresh();
+            },
+            
+            closePopup: function(){
+                 $('#modalMask1').hide();
+                this.$('#popupDeatils').attr("style","display:none");
+                 this.iscroll.refresh();
             },
             
             loadListOmni : function(){

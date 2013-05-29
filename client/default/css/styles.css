@@ -1543,10 +1543,10 @@ table#listView #type {
     width: 25%;
 }
 .suggested-new {
-  display: block;
-  position: absolute;
-  bottom: 45%;
-  left: 90%;
+    display: block;
+    position: absolute;
+    bottom: 45%;
+    left: 90%;
 }
 section#widgetScreen {
     z-index: 10;
@@ -2362,10 +2362,11 @@ section#widgetScreen #scrollWrapper {
 .risk-commonText{
     font: 11px "Avenir Next", Helvetica, Arial, sans-serif;
     line-height: 25px;
+
 }
 
 #risk-factorDetails{
-    margin: 13px;
+    margin: 35px 30px 10px 25px;
 }
 
 .brown-headline{
@@ -2404,9 +2405,9 @@ section#widgetScreen #scrollWrapper {
 }
 #gender{
     height: 60px;
-/*border: 1px solid;*/
-margin-top: 10px;
-margin-bottom: 10px;
+    /*border: 1px solid;*/
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .line{
@@ -2418,27 +2419,27 @@ margin-bottom: 10px;
 
 #age{
     height: 210px;
-/*border: 1px solid;*/
-margin-top: 10px;
-margin-bottom: 10px;
+    /*border: 1px solid;*/
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 #symptoms{
     margin-top: 10px;
-height: 65px;
+    height: 65px;
 }
 
 #center-btns{
- margin: 0 auto;
-width: 220px;
-position: relative;
-height: 100px;
-margin-top: 30px;
-overflow: hidden;
+    margin: 0 auto;
+    width: 220px;
+    position: relative;
+    height: 100px;
+    margin-top: 30px;
+    overflow: hidden;
 }
 
 #prevImg{
-     background: url(../img/research/risk-factor/bu-arrow-pink-left.png)no-repeat;
+    background: url(../img/research/risk-factor/bu-arrow-pink-left.png)no-repeat;
     width: 110px;
     height: 45px;
     margin: 0 auto;
@@ -2446,7 +2447,7 @@ overflow: hidden;
 }
 
 #nextImg{
-     background: url(../img/research/risk-factor/bu-arrow-pink-right.png)no-repeat;
+    background: url(../img/research/risk-factor/bu-arrow-pink-right.png)no-repeat;
     width: 110px;
     height: 45px;
     margin: 0 auto;
@@ -2459,13 +2460,107 @@ overflow: hidden;
     font: bold 14px "Avenir Next", Helvetica, Arial, sans-serif;
 }
 
+.gray-headline{
+    color: #8d8687;
+    font: bold 12px "Avenir Next", Helvetica, Arial, sans-serif;
+    position: absolute;
+    top: 6px;
+    left: 35px;
+}
+
+brown-headline div{
+    position: relative;
+
+}
+
+#allergySym li{
+    display: list-item;
+    list-style-type: disc;
+}
+
+
+#leftAlignText{
+    width: 390px;
+    float: left;
+}
+
+#allergySym
+{
+    margin-left: 35px;
+}
+
+#rightAlignImg{
+    height: 110px;
+    width: 120px;
+    border: 1px solid;
+
+}
+
+#middleText{
+    height: 100px;
+}
+#rightData{
+    right: 15px;
+    position: absolute;
+}
+
+#moreDetails{
+    background: url(../img/research/risk-factor/bu-more-details.png)no-repeat;
+    height: 25px;
+    width: 110px;
+    margin-left: 5px;
+}
 
 
 
+#popupDeatils{
+    height: 80%;
+    width: 83%;
+    background-color: white;
+    position: absolute;
+    top: 0px;
+    margin: 50px;
+    border-radius: 10px;
+    overflow: hidden;
+    display: none;
+    z-index: 999;
+}
 
+#research-popupHead{
+    background-color: #ffcefc;
+    height : 30px;
+    width: 100%;
+}
 
+#researchCloseBtn{
+    float: right;
+    margin-top: 7px;
+    margin-right: 5px;
+}
 
+#popup-inner{
+    padding: 15px 50px 10px 30px;
+}
 
+#research-popupImg{
+    height: 345px;
+    width: 405px;
+    border: 1px solid;
+    margin-top: 10px;
+    box-shadow: -2px -2px 2px;
+}
+
+#modalMask1 {
+    display: none;
+    position: absolute;
+    background-color: #000000;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 10;
+    opacity: 0.3;
+    text-align: center;
+}
 
 
 
@@ -2505,54 +2600,36 @@ overflow: hidden;
     border-radius: 8px;
 }
 .medWrap .medCab {
-<<<<<<< HEAD
     background: url('../img/medicine/med-cab-bg.png') center no-repeat;
     background-size: 86% 100%;
     overflow: hidden;
+    padding-bottom: 20%;
 }
 .medWrap .medCab .shelf {
-    margin-bottom: -140px;
-=======
-  background: url('../img/medicine/med-cab-bg.png') center no-repeat;
-  background-size: 86% 100%;
-  overflow: hidden;
-  padding-bottom: 20%;
-}
-.medWrap .medCab .shelf {
-  margin-bottom: -120px;
->>>>>>> 8238521ad852cadf5ae70e8cc392e4bec5bd329c
+    margin-bottom: -120px;
 }
 .medWrap .medCab #shelf1,
 .medWrap .medCab #shelf2,
 .medWrap .medCab #shelf3 {
-<<<<<<< HEAD
     position: relative;
-    top: 28px;
-=======
-  position: relative;
-  top: 25px;
+    top: 25px;
 }
 .medWrap .medCab #shelf1 ul,
 .medWrap .medCab #shelf2 ul,
 .medWrap .medCab #shelf3 ul {
-  width: 80%;
-  margin-left: auto;
-  margin-right: auto;
->>>>>>> 8238521ad852cadf5ae70e8cc392e4bec5bd329c
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
 }
 .medWrap .medCab #shelf1 li,
 .medWrap .medCab #shelf2 li,
 .medWrap .medCab #shelf3 li {
-<<<<<<< HEAD
-    padding-left: 14%;
-=======
-  width: 32%;
+    width: 32%;
 }
 .medWrap .medCab #shelf1 li img,
 .medWrap .medCab #shelf2 li img,
 .medWrap .medCab #shelf3 li img {
-  width: 85%;
->>>>>>> 8238521ad852cadf5ae70e8cc392e4bec5bd329c
+    width: 85%;
 }
 #notifications {
     position: absolute;
