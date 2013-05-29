@@ -105,7 +105,7 @@ define([
             this.model = model;
             //this.pageScroll = null;
             self.selectedFood = model;
-
+            self.container.container.iscroll.enable();
             self.oldHtml = this.$el.html();
             $('#filterButtons').hide();
             this.$el.html(self.itemTpl({item:model.attributes, imgSrc:imgSrc}));
@@ -138,7 +138,7 @@ define([
                                 "<span id='about'>" + "</span></div>";
                     $('#foodList').append(html);
                 }
-                //self.container.container.iscroll.disable();
+                self.container.container.iscroll.disable();
                 $('#modalMask').hide().html("");
                 $('#backToTop').show();
                 self.refreshScroll();
@@ -168,6 +168,7 @@ define([
                 bounceLock  : true,
                 bounce      : false
             });
+            this.container.container.iscroll.disable();
             this.refreshScroll();
             
         },
