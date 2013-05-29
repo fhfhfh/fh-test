@@ -11,8 +11,12 @@ define(['jquery',
     'text!templates/components/Information.html',
     'text!templates/components/InformationDetails.html',
     'text!templates/components/Interactions.html',
-    'text!templates/components/riskFactor.html',
-    ], function($, _, Backbone, omnipidiaTpl,tpl,omniDetailsTpl,informationTpl,infoDetailsTpl,interactionsTpl,riskFactorTpl) {
+    'text!templates/components/RiskFactor.html',
+    'text!templates/components/RiskFactorNaviDetails.html',
+    'text!templates/components/RiskFactorQuestion.html',
+    'text!templates/components/RiskFactorCompleteAssessment.html'
+    ], function($, _, Backbone, omnipidiaTpl,tpl,omniDetailsTpl,informationTpl,infoDetailsTpl,interactionsTpl,riskFactorTpl,riskFactorDeatilsTpl,riskFactQuesTpl,completeAssessTpl) {
+
 
         return Backbone.View.extend({
 
@@ -24,14 +28,22 @@ define(['jquery',
                 'click #menu2, #omnibtn2' : 'showInformation',
                 'click #menu3, #omnibtn3' : 'showInteractions',
                 'click #menu5, #omnibtn5' : 'showRiskFactor',
+                'click #showOmnipedia' : 'showOmnipidia',
                 'click #quitBtn' : 'render',
                 'click #omniListArea #omniDetails .boxEntry' : 'showOmnipidiaDetails',
                 'click #infoListArea #infoDetails .boxEntry' : 'showInformationDetails',
+                'click #showInformation' : 'showInformation',
+                'click #showRiskFactor' : 'showRiskFactor',
                 'click #infoBtn, #omnibtn, .research-menuBtn':'showMenu',
                 'click #interaction-myMedia':'showMyMedia',
                 'click #interaction-search':'showSearch',
                 'click #riskFactor-general':'showGenRisk',
-                'click #riskFactor-lifestyle':'showlifestyle'
+                'click #riskFactor-lifestyle':'showlifestyle',
+                'click .conditionBtn':'showRiskFactorDetails',
+                'click #showRiskFactorDetails':'showRiskFactorDetails',
+                'click #startImg':'showriskFactQues',
+                 'click #prevImg':'showRiskFactorDetails',
+                  'click #nextImg':'showRiskFactorCompleteAssessment'
  
             },
             template	: _.template(tpl),
@@ -56,59 +68,24 @@ define(['jquery',
             },
             
             showOmnipidia: function(e){
-                var target = e.currentTarget;
-                var page = $(this.el);
-
                 var details = _.template(omnipidiaTpl);
-                var title = $(target).find('h1').text() || 'Untitled';
-                // var info = $(target).attr('info');
-                var imgSrc = $(target).find('img').attr('src');
-
-                this.$el.html(details({
-                    title: title,
-                    description: "info",
-                    src: imgSrc
-                }));
+                this.$el.html(details);
                 this.loadListOmni();
             },
             
             showInformation: function(e){
-                var target = e.currentTarget;
-                var page = $(this.el);
-
                 var details = _.template(informationTpl);
-                var title = $(target).find('h1').text() || 'Untitled';
-                // var info = $(target).attr('info');
-                var imgSrc = $(target).find('img').attr('src');
-
-                this.$el.html(details({
-                    title: title,
-                    description: "info",
-                    src: imgSrc
-                }));
+                this.$el.html(details);
                 this.loadListInfo();
             },
             
             showInteractions: function(e){
-                var target = e.currentTarget;
-                var page = $(this.el);
-
                 var details = _.template(interactionsTpl);
-                var title = $(target).find('h1').text() || 'Untitled';
-                // var info = $(target).attr('info');
-                var imgSrc = $(target).find('img').attr('src');
-
-                this.$el.html(details({
-                    title: title,
-                    description: "info",
-                    src: imgSrc
-                }));
+                this.$el.html(details);
                 this.showMyMedia();
             },
             
             showRiskFactor: function(e){
-                var target = e.currentTarget;
-                var page = $(this.el);
                 var details = _.template(riskFactorTpl);
                 this.$el.html(details);
                 this.showGenRisk();
@@ -142,39 +119,30 @@ define(['jquery',
             },
             
             showInformationDetails: function(e){
-                var target = e.currentTarget;
-                var page = $(this.el);
-
                 var details = _.template(infoDetailsTpl);
-                var title = $(target).find('h1').text() || 'Untitled';
-                // var info = $(target).attr('info');
-                var imgSrc = $(target).find('img').attr('src');
-
-                this.$el.html(details({
-                    title: title,
-                    description: "info",
-                    src: imgSrc
-                }));
+                this.$el.html(details);
             },
                 
                 
             showOmnipidiaDetails: function(e){
-                var target = e.currentTarget;
-                var page = $(this.el);
-
                 var details = _.template(omniDetailsTpl);
-                var title = $(target).find('h1').text() || 'Untitled';
-                // var info = $(target).attr('info');
-                var imgSrc = $(target).find('img').attr('src');
-
-                this.$el.html(details({
-                    title: title,
-                    description: "info",
-                    src: imgSrc
-                }));
+                this.$el.html(details);
             },
             
-                
+            showRiskFactorDetails: function(e){
+                var details = _.template(riskFactorDeatilsTpl);
+                this.$el.html(details);
+            },
+            showriskFactQues: function(e){
+                var details = _.template(riskFactQuesTpl);
+                this.$el.html(details);
+            },
+            
+            showRiskFactorCompleteAssessment: function(e){
+                var details = _.template(completeAssessTpl);
+                this.$el.html(details);
+            },
+            
             loadListOmni : function(){
                 var flag = 0;
                 var name = new Array("A-fib","AAA","Aarskog syndrome","B-fib","BBB","C-fib");
