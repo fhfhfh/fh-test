@@ -87,7 +87,6 @@ define([
     showSuggested : function(){
       this.$('li').removeClass('selected');
       this.$('#show-suggested').addClass('selected');
-      this.$('#show-suggested').addClass('unreviewed');
       this.setActiveView('suggested');
       this.refreshScroll();
     }

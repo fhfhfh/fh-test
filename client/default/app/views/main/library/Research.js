@@ -17,6 +17,7 @@ define(['jquery',
     'text!templates/components/RiskFactorCompleteAssessment.html'
     ], function($, _, Backbone, omnipidiaTpl,tpl,omniDetailsTpl,informationTpl,infoDetailsTpl,interactionsTpl,riskFactorTpl,riskFactorDeatilsTpl,riskFactQuesTpl,completeAssessTpl) {
 
+
         return Backbone.View.extend({
 
             // Backbone specific attributes

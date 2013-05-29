@@ -1542,6 +1542,12 @@ table#listView #date {
 table#listView #type {
     width: 25%;
 }
+.suggested-new {
+  display: block;
+  position: absolute;
+  bottom: 45%;
+  left: 90%;
+}
 section#widgetScreen {
     z-index: 10;
     position: absolute;
@@ -2499,23 +2505,54 @@ overflow: hidden;
     border-radius: 8px;
 }
 .medWrap .medCab {
+<<<<<<< HEAD
     background: url('../img/medicine/med-cab-bg.png') center no-repeat;
     background-size: 86% 100%;
     overflow: hidden;
 }
 .medWrap .medCab .shelf {
     margin-bottom: -140px;
+=======
+  background: url('../img/medicine/med-cab-bg.png') center no-repeat;
+  background-size: 86% 100%;
+  overflow: hidden;
+  padding-bottom: 20%;
+}
+.medWrap .medCab .shelf {
+  margin-bottom: -120px;
+>>>>>>> 8238521ad852cadf5ae70e8cc392e4bec5bd329c
 }
 .medWrap .medCab #shelf1,
 .medWrap .medCab #shelf2,
 .medWrap .medCab #shelf3 {
+<<<<<<< HEAD
     position: relative;
     top: 28px;
+=======
+  position: relative;
+  top: 25px;
+}
+.medWrap .medCab #shelf1 ul,
+.medWrap .medCab #shelf2 ul,
+.medWrap .medCab #shelf3 ul {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+>>>>>>> 8238521ad852cadf5ae70e8cc392e4bec5bd329c
 }
 .medWrap .medCab #shelf1 li,
 .medWrap .medCab #shelf2 li,
 .medWrap .medCab #shelf3 li {
+<<<<<<< HEAD
     padding-left: 14%;
+=======
+  width: 32%;
+}
+.medWrap .medCab #shelf1 li img,
+.medWrap .medCab #shelf2 li img,
+.medWrap .medCab #shelf3 li img {
+  width: 85%;
+>>>>>>> 8238521ad852cadf5ae70e8cc392e4bec5bd329c
 }
 #notifications {
     position: absolute;
