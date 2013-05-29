@@ -103,7 +103,7 @@ define([
             var id = target.attr('data-id');
             var model = this.collection.get(id);
             this.model = model;
-            this.pageScroll = null;
+            //this.pageScroll = null;
             self.selectedFood = model;
 
             self.oldHtml = this.$el.html();
@@ -138,7 +138,7 @@ define([
                                 "<span id='about'>" + "</span></div>";
                     $('#foodList').append(html);
                 }
-                self.container.container.iscroll.disable();
+                //self.container.container.iscroll.disable();
                 $('#modalMask').hide().html("");
                 $('#backToTop').show();
                 self.refreshScroll();
