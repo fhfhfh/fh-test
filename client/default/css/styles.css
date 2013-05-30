@@ -1543,7 +1543,6 @@ table#listView #type {
   width: 25%;
 }
 .suggested-new {
-
   display: block;
   position: absolute;
   bottom: 45%;
@@ -1681,7 +1680,7 @@ section#widgetScreen #scrollWrapper {
     position: relative;
     overflow: hidden;
     /*        font: bold 25px "Avenir Next Demi", Helvetica, Arial, sans-serif;
-                              padding-left: 20px;*/
+                                    padding-left: 20px;*/
   
   }
 }
@@ -1725,7 +1724,7 @@ section#widgetScreen #scrollWrapper {
   position: relative;
   overflow: hidden;
   /*    font: bold 25px "Avenir Next Demi", Helvetica, Arial, sans-serif;
-            padding-left: 20px;*/
+              padding-left: 20px;*/
 
 }
 #menu2,
@@ -1906,8 +1905,8 @@ section#widgetScreen #scrollWrapper {
   margin: 0px;
   position: relative;
   /*
-    top: 10px;
-    left: 15px;*/
+      top: 10px;
+      left: 15px;*/
 
 }
 #ad1 {
@@ -1917,7 +1916,7 @@ section#widgetScreen #scrollWrapper {
 #ad2 {
   height: 100%;
   position: absolute;
-  left: 188px;
+  left: 200px;
 }
 #ad3 {
   height: 100%;
@@ -1939,7 +1938,8 @@ section#widgetScreen #scrollWrapper {
   padding: 5% 23px 0px 5%;
 }
 #omniList,
-#infoList {
+#infoList,
+#riskList {
   background-color: white;
   width: 96%;
   margin: 12px;
@@ -2023,11 +2023,12 @@ section#widgetScreen #scrollWrapper {
   font: normal 13pt "Avenir Next Bold", Helvetica, Arial, sans-serif;
 }
 #omniDetailsHead,
-#infoDetailsHead {
+#infoDetailsHead,
+#researchDetailsHead {
   background-color: gray;
   height: 60px;
   text-align: center;
-  padding-top: 25px;
+  padding-top: 18px;
   font: normal 18pt "Avenir Next Medium", Helvetica, Arial, sans-serif;
   color: white;
   text-shadow: -1pt 1pt #756d6f;
@@ -2249,13 +2250,12 @@ section#widgetScreen #scrollWrapper {
   margin-top: -1px;
   border-radius: 10px;
   position: relative;
-  padding: 20px;
+  padding: 8px;
 }
 #risk-factor-tabs li {
   display: inline-block;
-  width: 40%;
+  width: 42%;
   text-align: center;
-  margin: 0 1%;
   padding: 10px 5px;
   color: #2f3137;
   text-shadow: 0 1px 1px #fff;
@@ -2266,6 +2266,9 @@ section#widgetScreen #scrollWrapper {
   background-image: -webkit-linear-gradient(bottom, #cccccc 0%, #ffffff 85%);
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #cccccc), color-stop(0.85, #ffffff));
   font: bold 12px "Avenir Next", Helvetica, Arial, sans-serif;
+}
+#lifestyle-risk p {
+  margin-left: 10px;
 }
 #risk-details {
   font: 12px "Avenir Next", Helvetica, Arial, sans-serif;
@@ -2285,6 +2288,7 @@ section#widgetScreen #scrollWrapper {
 #lifestyle-headline {
   font: bold 14px "Avenir Next", Helvetica, Arial, sans-serif;
   margin-bottom: 15px;
+  margin-left: 10px;
 }
 #risk-logo {
   position: absolute;
@@ -2298,264 +2302,221 @@ section#widgetScreen #scrollWrapper {
   float: right;
 }
 #condition-assess {
-    float: left;
+  float: left;
 }
-
-.risk-backBtn{
-    background: url(../img/research/risk-factor/bu-back.png);
-    height: 27px;
-    width: 59px;
-    position: absolute;
-    top: 20px;
-    left: 15px;     
+.risk-backBtn {
+  background: url(../img/research/risk-factor/bu-back.png);
+  height: 27px;
+  width: 59px;
+  position: absolute;
+  top: 20px;
+  left: 15px;
 }
-
-#risk-sendBtn{
-    background: url(../img/research/risk-factor/bu-send.png)no-repeat;
-    height: 20px;
-    width: 23px;
-    margin-right: 20px;
-    float: left;
+#risk-sendBtn {
+  background: url(../img/research/risk-factor/bu-send.png) no-repeat;
+  height: 20px;
+  width: 23px;
+  margin-right: 20px;
+  float: left;
 }
-
-#risk-shareBtn{
-    background: url(../img/research/risk-factor/bu-share.png)no-repeat;
-    height: 19px;
-    width: 21px;
-    float: right;
+#risk-shareBtn {
+  background: url(../img/research/risk-factor/bu-share.png) no-repeat;
+  height: 19px;
+  width: 21px;
+  float: right;
 }
-
-#risk-rightBtn{
-    position: absolute;
-    top: 18px;
-    right: 30px;
-
+#risk-rightBtn {
+  position: absolute;
+  top: 18px;
+  right: 30px;
 }
-
-#risk-sendBtn div{
-    font: 11px "Avenir Next", Helvetica, Arial, sans-serif;
-    position: absolute;
-    top: 22px;
-    left: -2px;
+#risk-sendBtn div {
+  font: 11px "Avenir Next", Helvetica, Arial, sans-serif;
+  position: absolute;
+  top: 22px;
+  left: -2px;
 }
-
-#risk-shareBtn div{
-    font: 11px "Avenir Next", Helvetica, Arial, sans-serif;
-    position: absolute;
-    top: 22px;
-    right: -2px;
+#risk-shareBtn div {
+  font: 11px "Avenir Next", Helvetica, Arial, sans-serif;
+  position: absolute;
+  top: 22px;
+  right: -2px;
 }
-
-#riskDeatils-headlines{
-    font: bold 15px "Avenir Next", Helvetica, Arial, sans-serif;
-    margin-bottom: 10px;
-    margin-top: 35px;
+#riskDeatils-headlines {
+  font: bold 15px "Avenir Next", Helvetica, Arial, sans-serif;
+  margin-bottom: 10px;
+  margin-top: 35px;
 }
-
-.risk-commonText{
-    font: 11px "Avenir Next", Helvetica, Arial, sans-serif;
-    line-height: 25px;
-
+.risk-commonText {
+  font: 11px "Avenir Next", Helvetica, Arial, sans-serif;
+  line-height: 25px;
 }
+#risk-factorDetails {
+  margin: 35px 30px 10px 25px;
+}
+.brown-headline {
+  color: #5a4d38;
+  font: bold 14px "Avenir Next", Helvetica, Arial, sans-serif;
+}
+#startImg {
+  background: url(../img/research/risk-factor/bu-arrow-pink-right.png) no-repeat;
+  width: 110px;
+  height: 45px;
+  margin: 0 auto;
+}
+#startImg div {
+  padding: 12px 10px 10px 30px;
+  font: bold 15px "Avenir Next", Helvetica, Arial, sans-serif;
+}
+.research-left {
+  position: absolute;
+  width: 240px;
+  font: bold 12px "Avenir Next Demi", Helvetica, Arial, sans-serif;
+}
+.research-right {
+  position: absolute;
+  width: 240px;
+  font: bold 12px "Avenir Next Demi", Helvetica, Arial, sans-serif;
+  right: 60px;
+}
+.research-right-text {
+  position: absolute;
+  top: 7px;
+  left: 35px;
+}
+#gender {
+  height: 60px;
+  /*border: 1px solid;*/
 
-#risk-factorDetails{
-    margin: 35px 30px 10px 25px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
+.line {
+  border-bottom: 1px solid;
+  border-color: #bbb6b7;
+  width: 100%;
+  height: 1px;
+}
+#age {
+  height: 210px;
+  /*border: 1px solid;*/
 
-.brown-headline{
-    color: #5a4d38;
-    font: bold 14px "Avenir Next", Helvetica, Arial, sans-serif;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
-#startImg{
-    background: url(../img/research/risk-factor/bu-arrow-pink-right.png)no-repeat;
-    width: 110px;
-    height: 45px;
-    margin: 0 auto;
+#symptoms {
+  margin-top: 10px;
+  height: 65px;
 }
-
-#startImg div{
-    padding: 12px 10px 10px 30px;
-    font: bold 15px "Avenir Next", Helvetica, Arial, sans-serif;
+#center-btns {
+  margin: 0 auto;
+  width: 220px;
+  position: relative;
+  height: 100px;
+  margin-top: 30px;
+  overflow: hidden;
 }
-
-.research-left{
-    position: absolute;
-    width: 240px;
-    font: bold 12px "Avenir Next Demi", Helvetica, Arial, sans-serif;
+#prevImg {
+  background: url(../img/research/risk-factor/bu-arrow-pink-left.png) no-repeat;
+  width: 110px;
+  height: 45px;
+  margin: 0 auto;
+  float: left;
 }
-
-.research-right{
-    position: absolute;
-    width: 240px;
-    font: bold 12px "Avenir Next Demi", Helvetica, Arial, sans-serif;
-    right: 60px;
-}
-
-.research-right-text{
-    position: absolute;
-    top: 7px;
-    left: 35px;
-}
-#gender{
-    height: 60px;
-    /*border: 1px solid;*/
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
-
-.line{
-    border-bottom: 1px solid;
-    border-color: #bbb6b7;
-    width: 100%;
-    height: 1px;
-}
-
-#age{
-    height: 210px;
-    /*border: 1px solid;*/
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
-
-#symptoms{
-    margin-top: 10px;
-    height: 65px;
-}
-
-#center-btns{
-    margin: 0 auto;
-    width: 220px;
-    position: relative;
-    height: 100px;
-    margin-top: 30px;
-    overflow: hidden;
-}
-
-#prevImg{
-    background: url(../img/research/risk-factor/bu-arrow-pink-left.png)no-repeat;
-    width: 110px;
-    height: 45px;
-    margin: 0 auto;
-    float:left;
-}
-
-#nextImg{
-    background: url(../img/research/risk-factor/bu-arrow-pink-right.png)no-repeat;
-    width: 110px;
-    height: 45px;
-    margin: 0 auto;
-    float: right;
+#nextImg {
+  background: url(../img/research/risk-factor/bu-arrow-pink-right.png) no-repeat;
+  width: 110px;
+  height: 45px;
+  margin: 0 auto;
+  float: right;
 }
 #nextImg div,
-#prevImg div
-{
-    padding: 12px 10px 10px 30px;
-    font: bold 14px "Avenir Next", Helvetica, Arial, sans-serif;
+#prevImg div {
+  padding: 12px 10px 10px 30px;
+  font: bold 14px "Avenir Next", Helvetica, Arial, sans-serif;
 }
-
-.gray-headline{
-    color: #8d8687;
-    font: bold 12px "Avenir Next", Helvetica, Arial, sans-serif;
-    position: absolute;
-    top: 6px;
-    left: 35px;
+.gray-headline {
+  color: #8d8687;
+  font: bold 12px "Avenir Next", Helvetica, Arial, sans-serif;
+  position: absolute;
+  top: 6px;
+  left: 35px;
 }
-
-brown-headline div{
-    position: relative;
-
+brown-headline div {
+  position: relative;
 }
-
-#allergySym li{
-    display: list-item;
-    list-style-type: disc;
+#allergySym li {
+  display: list-item;
+  list-style-type: disc;
 }
-
-
-#leftAlignText{
-    width: 390px;
-    float: left;
+#leftAlignText {
+  width: 390px;
+  float: left;
 }
-
-#allergySym
-{
-    margin-left: 35px;
+#allergySym {
+  margin-left: 35px;
 }
-
-#rightAlignImg{
-    height: 110px;
-    width: 120px;
-    border: 1px solid;
-
+#rightAlignImg {
+  height: 110px;
+  width: 120px;
+  border: 1px solid;
 }
-
-#middleText{
-    height: 100px;
+#middleText {
+  height: 100px;
 }
-#rightData{
-    right: 15px;
-    position: absolute;
+#rightData {
+  right: 15px;
+  position: absolute;
 }
-
-#moreDetails{
-    background: url(../img/research/risk-factor/bu-more-details.png)no-repeat;
-    height: 25px;
-    width: 110px;
-    margin-left: 5px;
+#moreDetails {
+  background: url(../img/research/risk-factor/bu-more-details.png) no-repeat;
+  height: 25px;
+  width: 110px;
+  margin-left: 5px;
 }
-
-
-
-#popupDeatils{
-    height: 80%;
-    width: 83%;
-    background-color: white;
-    position: absolute;
-    top: 0px;
-    margin: 50px;
-    border-radius: 10px;
-    overflow: hidden;
-    display: none;
-    z-index: 999;
+#popupDeatils {
+  height: 80%;
+  width: 83%;
+  background-color: white;
+  position: absolute;
+  top: 0px;
+  margin: 50px;
+  border-radius: 10px;
+  overflow: hidden;
+  display: none;
+  z-index: 999;
 }
-
-#research-popupHead{
-    background-color: #ffcefc;
-    height : 30px;
-    width: 100%;
+#research-popupHead {
+  background-color: #ffcefc;
+  height: 30px;
+  width: 100%;
 }
-
-#researchCloseBtn{
-    float: right;
-    margin-top: 7px;
-    margin-right: 5px;
+#researchCloseBtn {
+  float: right;
+  margin-top: 7px;
+  margin-right: 5px;
 }
-
-#popup-inner{
-    padding: 15px 50px 10px 30px;
+#popup-inner {
+  padding: 15px 50px 10px 30px;
 }
-
-#research-popupImg{
-    height: 345px;
-    width: 405px;
-    border: 1px solid;
-    margin-top: 10px;
-    box-shadow: -2px -2px 2px;
+#research-popupImg {
+  height: 345px;
+  width: 405px;
+  border: 1px solid;
+  margin-top: 10px;
+  box-shadow: -2px -2px 2px;
 }
-
 #modalMask1 {
-    display: none;
-    position: absolute;
-    background-color: #000000;
-    top: 0;
-    height: 100%;
-    width: 100%;
-    z-index: 10;
-    opacity: 0.3;
-    text-align: center;
+  display: none;
+  position: absolute;
+  background-color: #000000;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 10;
+  opacity: 0.3;
+  text-align: center;
 }
-
-
 #medicine #selector {
   padding-bottom: 20px;
 }
@@ -2588,7 +2549,6 @@ brown-headline div{
   border-radius: 8px;
 }
 .medWrap .medCab {
-
   background: url('../img/medicine/med-cab-bg.png') center no-repeat;
   background-size: 86% 100%;
   overflow: hidden;
@@ -3365,7 +3325,7 @@ section#insights h1 {
 }
 @media only screen and (orientation: landscape) {
   #healthHub-content {
-    padding-bottom: 50px;
+    padding-bottom: 80px;
   }
 }
 #viewBtn {
