@@ -103,9 +103,9 @@ define([
             var id = target.attr('data-id');
             var model = this.collection.get(id);
             this.model = model;
-            this.pageScroll = null;
+            //this.pageScroll = null;
             self.selectedFood = model;
-
+            self.container.container.iscroll.enable();
             self.oldHtml = this.$el.html();
             $('#filterButtons').hide();
             this.$el.html(self.itemTpl({item:model.attributes, imgSrc:imgSrc}));
@@ -168,6 +168,7 @@ define([
                 bounceLock  : true,
                 bounce      : false
             });
+            this.container.container.iscroll.disable();
             this.refreshScroll();
             
         },
