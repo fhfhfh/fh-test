@@ -2704,6 +2704,7 @@ brown-headline div {
 }
 #goals {
   padding: 15px;
+  padding-bottom: 100px;
 }
 #goals h1 {
   color: #2b6891;
