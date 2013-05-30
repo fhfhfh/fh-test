@@ -3120,6 +3120,9 @@ brown-headline div {
 #tableContainer #calTable .today {
   background-color: #7fb0db;
 }
+section#month {
+  padding-bottom: 50px;
+}
 section#month h2 {
   color: #2b6891;
   font: bold 15px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
