@@ -8,7 +8,7 @@ define(['jquery',
     'text!templates/components/MyMedia.html',
     'text!templates/components/MyMediaFolder.html',
     'text!templates/components/MyMediaItem.html',
-    'text!templates/components/MyMediaRow.html',
+    'text!templates/components/MyMediaItem.html',
     'collections/Folders',
     'collections/Library',
 ], function($, _, Backbone, tpl, folderTpl, itemTpl, rowTpl, folderStore, libStore) {

@@ -6,9 +6,9 @@ define(['jquery',
     'underscore',
     'backbone',
     'text!templates/components/Suggested.html',
-    'text!templates/components/SuggestedFolder.html',
-    'text!templates/components/SuggestedItem.html',
-    'text!templates/components/SuggestedRow.html',
+    'text!templates/components/SuggestedMeds.html',
+    'text!templates/components/SuggestedMeds.html',
+    'text!templates/components/SuggestedMeds.html',
     'collections/Library',
 ], function($, _, Backbone, tpl, folderTpl, itemTpl, rowTpl, libStore) {
 

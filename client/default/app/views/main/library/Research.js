@@ -12,10 +12,17 @@ define(['jquery',
     'text!templates/components/InformationDetails.html',
     'text!templates/components/Interactions.html',
     'text!templates/components/RiskFactor.html',
+    'text!templates/components/Lifestyle.html',
     'text!templates/components/RiskFactorNaviDetails.html',
     'text!templates/components/RiskFactorQuestion.html',
-    'text!templates/components/RiskFactorCompleteAssessment.html'
-    ], function($, _, Backbone, omnipidiaTpl,tpl,omniDetailsTpl,informationTpl,infoDetailsTpl,interactionsTpl,riskFactorTpl,riskFactorDeatilsTpl,riskFactQuesTpl,completeAssessTpl) {
+    'text!templates/components/RiskFactorCompleteAssessment.html',
+    'text!templates/components/Tools.html',
+    'text!templates/components/Assistant.html',
+    'text!templates/components/AssistantSurgries.html',
+    'text!templates/components/AssistantTests.html',
+    ], function($, _, Backbone, omnipidiaTpl,tpl,omniDetailsTpl,informationTpl,infoDetailsTpl,
+        interactionsTpl,riskFactorTpl,lifestyleTpl,riskFactorDeatilsTpl,riskFactQuesTpl,completeAssessTpl,
+        toolsTpl,assistantTpl,surgriesTpl,testsTpl) {
 
 
         return Backbone.View.extend({
@@ -28,6 +35,8 @@ define(['jquery',
                 'click #menu2, #omnibtn2' : 'showInformation',
                 'click #menu3, #omnibtn3' : 'showInteractions',
                 'click #menu5, #omnibtn5' : 'showRiskFactor',
+                'click #menu6, #omnibtn6' : 'showAssistant',
+                'click #menu8, #omnibtn8' : 'showTools',
                 'click #showOmnipedia' : 'showOmnipidia',
                 'click #quitBtn' : 'render',
                 'click #omniListArea #omniDetails .boxEntry' : 'showOmnipidiaDetails',
@@ -46,7 +55,10 @@ define(['jquery',
                 'click #nextImg':'showRiskFactorCompleteAssessment',
                 'click #showriskFactQues':'showriskFactQues',
                 'click #moreDetails':'showPopup',
-                'click #researchCloseBtn':'closePopup'
+                'click #researchCloseBtn':'closePopup',
+                'click #bodyMass':'showBodyMass',
+                'click #surgeries':'showSurgeries',
+                'click #tests-tab':'showTests'
  
             },
             template	: _.template(tpl),
@@ -93,6 +105,17 @@ define(['jquery',
                 this.$el.html(details);
                 this.showGenRisk();
             },
+            
+            showTools: function(e){
+                var details = _.template(toolsTpl);
+                this.$el.html(details);
+                this.showBodyMass();
+            },
+            showAssistant: function(e){
+                var details = _.template(assistantTpl);
+                this.$el.html(details);
+                this.showSurgeries();
+            },
            
             showSearch: function(e){
                 this.$('li').removeClass('selected');
@@ -117,8 +140,8 @@ define(['jquery',
             showlifestyle: function(e){
                 this.$('li').removeClass('selected');
                 this.$('#riskFactor-lifestyle').addClass('selected');
-                this.$('#lifestyle').attr("style","display:block");
-                this.$('#general-risk').attr("style","display:none");
+                var details = _.template(lifestyleTpl);
+                this.$('#risk-tab-area').html(details);
             },
             
             showInformationDetails: function(e){
@@ -148,15 +171,38 @@ define(['jquery',
             },
             
             showPopup: function(){
-                 $('#modalMask1').show();
+                $('#modalMask1').show();
                 this.$('#popupDeatils').attr("style","display:block");
-                 this.iscroll.refresh();
+                this.iscroll.refresh();
             },
             
             closePopup: function(){
-                 $('#modalMask1').hide();
+                $('#modalMask1').hide();
                 this.$('#popupDeatils').attr("style","display:none");
-                 this.iscroll.refresh();
+                this.iscroll.refresh();
+            },
+            showSurgeries: function(e){
+                this.$('li').removeClass('selected');
+                this.$('#surgeries').addClass('selected');
+                var details = _.template(surgriesTpl);
+                this.$('#assistant-tab-area').html(details);
+                
+            },
+            
+            showTests: function(e){
+                this.$('li').removeClass('selected');
+                this.$('#tests-tab').addClass('selected');
+                var details = _.template(testsTpl);
+                this.$('#assistant-tab-area').html(details);
+                
+            },
+            
+            showBodyMass: function(e){
+                this.$('li').removeClass('selected');
+                this.$('#bodyMass').addClass('selected');
+                this.$('#tools-tab-area div').attr("style","display:none");
+                this.$('#toolsBodyMass').attr("style","display:block");
+                this.$('#toolsBodyMass div').attr("style","display:block");
             },
             
             loadListOmni : function(){

@@ -299,7 +299,7 @@
 #ad2 {
     height: 100%;
     position: absolute;
-    left: 200px;
+    left: 185px;
 }
 #ad3 {
     height: 100%;
@@ -487,24 +487,43 @@
     float: right;
     height: 280px;
     background-color: white;
-    width: 200px;
-    margin: 10px;
+    width: 220px;
+    margin-right: 10px;
     margin-top: 0px;
     position: relative;
+    box-shadow: 1px 3px 5px 1px;
+    border-radius: 5px;
 }
+
+#interactionsList2Inner{
+    background-color: #fff6e0;
+    margin: 5px;
+    height: 269px;
+    border-right: 1px solid;
+    border-left: 1px solid;
+    border-radius: 5px;
+    border-color: lightgray;
+}
+
 #checkBtn {
+    color: white;
     position: absolute;
     text-align: center;
     height: 45px;
     width: 205px;
-    padding-top: 10px;
-    background-color: lightcyan;
+    padding-top: 15px;
+    background-image: linear-gradient(bottom, #7e8b93 0%, #b2babe 85%);
+    background-image: -webkit-linear-gradient(bottom, #7e8b93 50%, #b2babe 85%);
+    background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0.50, #7e8b93), color-stop(0.85, #b2babe));
     font-weight: bold;
     bottom: 0px;
     right: 10px;
     margin: 12px;
     border-radius: 10px;
     margin: 10px 5px 10px 0px;
+}
+.imgSpace {
+    margin-top: 30px;
 }
 .imgSpace img {
     float: left;
@@ -524,17 +543,14 @@
     display: inline-block;
     width: 40%;
     text-align: center;
-    margin: 0 1%;
     padding: 10px 5px;
     color: #2f3137;
     text-shadow: 0 1px 1px #fff;
     border-top-left-radius: 4px;
     border-top-right-radius: 4px;
     position: relative;
-    background-image: linear-gradient(bottom, #cccccc 0%, #ffffff 85%);
-    background-image: -webkit-linear-gradient(bottom, #cccccc 0%, #ffffff 85%);
-    background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #cccccc), color-stop(0.85, #ffffff));
     font: bold 14px "Avenir Next", Helvetica, Arial, sans-serif;
+    background-color: #cccccc;
 }
 #interaction-tabs li:active,
 #risk-factor-tabs li:active {
@@ -555,9 +571,20 @@
     border-color: lightgray;
     z-index: 5;
 }
+
+#tools-tabs li.selected {
+    background-color: #fff;
+    background-image: none;
+    border-top: 1px solid;
+    border-right: 1px solid;
+    border-left: 1px solid;
+    border-color: lightgray;
+    z-index: 5;
+}
+
 #tabs {
     width: 310px;
-    margin-left: 8px;
+    margin-left: 10px;
 }
 #inter-myMedia {
     height: 100%;
@@ -582,9 +609,16 @@
     float: right;
     margin-right: 20px;
 }
+
+#inter-minus {
+    float: right;
+    margin-right: 20px;
+}
+
 #inter-myMedia div p {
     top: -10px;
     position: absolute;
+    font: bold 12px "Avenir Next", Helvetica, Arial, sans-serif;
 }
 #inter-list2 div {
     height: 40px;
@@ -593,9 +627,18 @@
     padding-top: 10px;
 }
 #inter-list2 div p {
-    top: -10px;
+    top: 0px;
     position: absolute;
+    font: bold 12px "Avenir Next", Helvetica, Arial, sans-serif;
 }
+
+#interaction-headline2{
+    position: absolute;
+    right: 45px;
+    top: 25px;
+    font: bold 14px "Avenir Next", Helvetica, Arial, sans-serif;
+}
+
 #search_interaction {
     border: 2px solid;
     height: 30px;
@@ -621,6 +664,11 @@
 #riskBtn {
     background: url(../img/research/bu-risk-factor-navigator.png);
 }
+
+#assistantBtn {
+    background: url(../img/research/bu-decision-assistant.png);
+}
+
 #risk-tabs {
     margin-top: 5%;
     margin-left: 20px;
@@ -650,6 +698,36 @@
     background-image: -webkit-linear-gradient(bottom, #cccccc 0%, #ffffff 85%);
     background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #cccccc), color-stop(0.85, #ffffff));
     font: bold 12px "Avenir Next", Helvetica, Arial, sans-serif;
+}
+
+#tools-tabs,
+#assistant-tabs{
+    margin:10px 0px 0px 10px;
+}
+
+#tools-tab-area ,
+#assistant-tab-area{
+    background-color: white;
+    margin: 0px 0px 0px 10px;
+    width: 96%;
+    border: 1px solid lightgray;
+    margin-top: -1px;
+    border-radius: 5px 10px 10px 10px;
+    position: relative;
+    padding: 8px;
+}
+#tools-tabs li{
+    display: inline-block;
+    width: 15%;
+    text-align: center;
+    padding: 10px 5px;
+    color: #2f3137;
+    text-shadow: 0 1px 1px #fff;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    position: relative;
+    font: bold 12px "Avenir Next", Helvetica, Arial, sans-serif;
+    background-color: darkgray;
 }
 
 #lifestyle-risk p{
@@ -943,4 +1021,118 @@ brown-headline div{
     z-index: 10;
     opacity: 0.3;
     text-align: center;
+}
+
+.toolsImg {
+    float: right;
+    margin-right: 15px;
+    margin-top: 15px;
+}
+
+#toolsBodyMass{
+    margin: 10px 10px 10px 15px;
+}
+
+#tools-bodyMass-cal{
+    height: 260px;
+    padding-top: 10px;
+}
+
+#bodyMassCal div {
+    margin-bottom: 5px;
+}
+
+.toolsCalInputType{
+    outline: none;
+    height: 30px;
+    border-radius: 5px;
+    border: 1px solid;
+    border-color: lightgray;
+    width: 125px;
+    margin-bottom: 6px;
+    margin-right: 10px;
+    font: 12px "Avenir Next", Helvetica, Arial, sans-serif;
+}
+
+#bodyMassCal{
+    float: left;
+    border: 1px solid;
+    border-radius: 10px;
+    height: 235px;
+    width: 290px;
+    padding: 10px 0px 10px 10px;
+    background-color: #fffeec;
+    border-color: lightgray;
+    box-shadow: 0px 0px 1px 0px;
+}
+
+.gray-bigHeadline{
+    color: #8d8687;
+    font: bold 14px "Avenir Next", Helvetica, Arial, sans-serif;
+}
+
+#bodyStatus{
+    width: 95%;
+}
+
+#bodyMassSubmit{
+    background-color: #fed790;
+    border-radius: 5px;
+    height: 30px;
+    width: 125px;
+    font: bold 14px "Avenir Next", Helvetica, Arial, sans-serif;
+    text-align: center;
+    margin-top: 10px;
+    padding-top: 5px;
+}
+
+#tools-tabs li.selected,
+#assistant-tabs li.selected {
+    background-color: #fff;
+    background-image: none;
+    border-top: 1px solid;
+    border-right: 1px solid;
+    border-left: 1px solid;
+    border-color: lightgray;
+    z-index: 5;
+}
+
+#tab-surgeries{
+    margin: 10px;
+}
+
+#assistant-tabs li{
+    width: 23%;
+    font: bold 10px "Avenir Next", Helvetica, Arial, sans-serif;
+    display: inline-block;
+    text-align: center;
+    padding: 10px 5px;
+    color: #2f3137;
+    text-shadow: 0 1px 1px #fff;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    position: relative;
+    background-color: darkgray;
+}
+
+.assistanceBtn{
+    background: url(../img/research/assistant/bu-tan-button-bar.png);
+    height: 40px;
+    width: 270px;
+    padding-top: 10px;
+    font: bold 13px "Avenir Next", Helvetica, Arial, sans-serif;
+    padding-left: 15px;
+    margin-bottom: 5px;
+}
+
+#assestant-surgries{
+    height: 320px;
+}
+
+.floatLeft{
+    float: left;
+}
+
+.floatRight{
+    float: right;
 }
