@@ -3667,7 +3667,7 @@ section#insights h1 {
 }
 @media only screen and (orientation: landscape) {
   #foodScreen #body #content #pageScroll {
-    max-height: 450px;
+    max-height: 410px;
   }
 }
 #foodScreen #body #content #filterButtons {
