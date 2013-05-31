@@ -13,6 +13,7 @@ define(['jquery',
     'iscroll',
     'views/main/Widgets',
     'views/main/HealthHub',
+    'views/main/Medicine',
     'views/main/Connect',
     'views/main/Calendar',
     'views/main/Library',
@@ -20,7 +21,7 @@ define(['jquery',
     'models/Store'
 
     ], function($, _, Backbone, ContainerView, HomeView, TopBar, template, iScroll,
-        WidgetsView, HealthHubView, ConnectView, CalendarView, LibraryView,Acts,Store) {
+        WidgetsView, HealthHubView, MedicineView, ConnectView, CalendarView, LibraryView,Acts,Store) {
 
         return ContainerView.extend({
             tagName	: 'section',
@@ -42,6 +43,7 @@ define(['jquery',
                 home: new HomeView(),
                 widgets : new WidgetsView(),
                 healthHub : new HealthHubView(),
+                medicine : new MedicineView(),
                 connect : new ConnectView(),
                 calendar : new CalendarView(),
                 library : new LibraryView()
@@ -131,7 +133,10 @@ define(['jquery',
             },
 
             medicine: function() {
-                Backbone.trigger('notify', 'Under Construction');
+                this.setActiveView('medicine');
+                this.$nav.find('li').removeClass('selected');
+                this.$('#medicine').addClass('selected');
+                //Backbone.trigger('notify', 'Under Construction');
             },
 
             calendar: function() {

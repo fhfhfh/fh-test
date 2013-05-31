@@ -21,7 +21,7 @@ define(['jquery',
             'click .piece' : 'goalDetails',
             'click #backBtn' : 'render'
         },
-        goals: null,
+        //goals: null,
         template    : _.template(template),
 
         //Function interface
@@ -43,8 +43,15 @@ define(['jquery',
     function _render(){
         this.$el.html(template);
         this.populateGoalInfo();
+        this.container.refreshScroll();
         return this;
     };
+
+    function _refreshScroll(){
+        if(this.container){
+            this.container._refreshScroll();
+        }
+    }
 
     function _addGoal(){
         // TODO: need flats from customer
