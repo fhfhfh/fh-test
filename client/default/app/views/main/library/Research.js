@@ -17,6 +17,12 @@ define(['jquery',
     'text!templates/components/RiskFactorQuestion.html',
     'text!templates/components/RiskFactorCompleteAssessment.html',
     'text!templates/components/Tools.html',
+    'text!templates/components/BodyMass.html',
+    'text!templates/components/Calories.html',
+    'text!templates/components/Heart.html',
+    'text!templates/components/Weight.html',
+    'text!templates/components/Nutrition.html',
+    'text!templates/components/Waist.html',
     'text!templates/components/Assistant.html',
     'text!templates/components/AssistantSurgries.html',
     'text!templates/components/AssistantTests.html',
@@ -26,7 +32,7 @@ define(['jquery',
     'text!templates/components/AngioStep2.html',
     ], function($, _, Backbone, omnipidiaTpl,tpl,omniDetailsTpl,informationTpl,infoDetailsTpl,
         interactionsTpl,riskFactorTpl,lifestyleTpl,riskFactorDeatilsTpl,riskFactQuesTpl,completeAssessTpl,
-        toolsTpl,assistantTpl,surgriesTpl,testsTpl,MedsTpl,angiogarphyTpl,angioStep1Tpl,angioStep2Tpl) {
+        toolsTpl,bodyMassTpl,caloriesTpl,heartTpl,weightTpl,nutritionTpl,waistTpl,assistantTpl,surgriesTpl,testsTpl,MedsTpl,angiogarphyTpl,angioStep1Tpl,angioStep2Tpl) {
 
 
         return Backbone.View.extend({
@@ -61,14 +67,18 @@ define(['jquery',
                 'click #moreDetails':'showPopup',
                 'click #researchCloseBtn':'closePopup',
                 'click #bodyMass':'showBodyMass',
+                'click #calories':'showCalories',
+                'click #heartRate':'showHeartRate',
+                'click #weight':'showWeight',
+                'click #nutrition-tab':'showNutrition',
+                'click #waist':'showWaist',
                 'click #surgeries':'showSurgeries',
                 'click #tests-tab ':'showTests',
                 'click #medications':'showMeds',
                 'click #angiography, #angio-prevImg, #showAngiography':'showAngiography',
                 'click #angio-startBtn, #showAngioStep1, #angio-step2-prevImg':'showAngioStep1',
                 'click #angio-nextImg':'showAngioStep2',
-                'click #angioMoreDetails':'showAngioPopup',
-                'click #angioCloseBtn':'closeAngioPopup'
+                'click #angioMoreDetails':'showAngioPopup'
                 
  
             },
@@ -88,7 +98,7 @@ define(['jquery',
                     bounce 		: true,
                     vScrollbar 	: true
                 });
-                this.refreshScroll();
+                //                this.refreshScroll();
                 //                this.loadList();
                 return this;
             },
@@ -246,9 +256,43 @@ define(['jquery',
             showBodyMass: function(e){
                 this.$('li').removeClass('selected');
                 this.$('#bodyMass').addClass('selected');
-                this.$('#tools-tab-area div').attr("style","display:none");
-                this.$('#toolsBodyMass').attr("style","display:block");
-                this.$('#toolsBodyMass div').attr("style","display:block");
+                var details = _.template(bodyMassTpl);
+                this.$('#tools-tab-area').html(details);
+            },
+            
+            showCalories: function(e){
+                this.$('li').removeClass('selected');
+                this.$('#calories').addClass('selected');
+                var details = _.template(caloriesTpl);
+                this.$('#tools-tab-area').html(details);
+            },
+            
+            showHeartRate: function(e){
+                this.$('li').removeClass('selected');
+                this.$('#heartRate').addClass('selected');
+                var details = _.template(heartTpl);
+                this.$('#tools-tab-area').html(details);
+            },
+            
+            showWeight: function(e){
+                this.$('li').removeClass('selected');
+                this.$('#weight').addClass('selected');
+                var details = _.template(weightTpl);
+                this.$('#tools-tab-area').html(details);
+            },
+            
+            showNutrition: function(e){
+                this.$('li').removeClass('selected');
+                this.$('#nutrition-tab').addClass('selected');
+                var details = _.template(nutritionTpl);
+                this.$('#tools-tab-area').html(details);
+            },
+            
+            showWaist: function(e){
+                this.$('li').removeClass('selected');
+                this.$('#waist').addClass('selected');
+                var details = _.template(waistTpl);
+                this.$('#tools-tab-area').html(details);
             },
             
             loadListOmni : function(){

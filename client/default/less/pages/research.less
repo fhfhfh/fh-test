@@ -233,8 +233,8 @@
     right: 0;
     margin: 10px;
     background-color: white;
-    font: bold 13px "Avenir Next", Helvetica, Arial, sans-serif;
-    box-shadow: 2px 2px 1px 0px gray;
+    font: bold 11px "Avenir Next", Helvetica, Arial, sans-serif;
+    box-shadow: 0px 0px 0px 2px;
 }
 #research-menu {
   position: absolute;
@@ -246,9 +246,12 @@
   visibility: hidden;
 }
 #innerBox {
-  margin: 1px;
-  height: 98%;
-  padding: 5px;
+  
+height: 88%;
+padding: 12px;
+border-right: 1px solid lightgray;
+margin: 5px;
+border-left: 1px solid lightgray;
 }
 .btnTitle1 {
   font: normal 19pt "Avenir Next Medium", Helvetica, Arial, sans-serif;
@@ -1011,7 +1014,12 @@ brown-headline div {
 #bodyStatus {
   width: 95%;
 }
-#bodyMassSubmit {
+#bodyMassSubmit,
+#calorieSubmit,
+#heartRateSubmit,
+#weightSubmit,
+#nutritionSubmit,
+#waistSubmit{
   background-color: #fed790;
   border-radius: 5px;
   height: 30px;
@@ -1020,6 +1028,7 @@ brown-headline div {
   text-align: center;
   margin-top: 10px;
   padding-top: 5px;
+  color: #8d8687;
 }
 #tools-tabs li.selected,
 #assistant-tabs li.selected {
@@ -1204,4 +1213,58 @@ padding:10px;
 #angio-popupImg{
     border: 1px solid;
 height: 280px;
+}
+
+#phyActivity{
+    width: 265px;
+}
+
+#tools-age-cal {
+height: 160px;
+padding-top: 10px;
+}
+
+#ageCal{
+float: left;
+border: 1px solid;
+border-radius: 10px;
+height: 125px;
+width: 290px;
+padding: 10px 0px 10px 10px;
+background-color: #fffeec;
+border-color: lightgray;
+box-shadow: 0px 0px 1px 0px;
+}
+
+
+#heartRateImg{
+float: right;
+margin-right: 15px;
+margin-top: -5px;
+}
+
+#ageLabel{
+margin-bottom: 10px;
+margin-left: 10px;
+}
+
+#tools-nutrition-cal{
+height: 385px;
+padding-top: 10px;
+}
+
+#nutritionCal {
+float: left;
+border: 1px solid;
+border-radius: 10px;
+height: 370px;
+width: 290px;
+padding: 10px 0px 10px 10px;
+background-color: #fffeec;
+border-color: lightgray;
+box-shadow: 0px 0px 1px 0px;
+}
+
+#nutritionCal div{
+margin-bottom: 8px;
 }
