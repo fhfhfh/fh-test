@@ -20,9 +20,13 @@ define(['jquery',
     'text!templates/components/Assistant.html',
     'text!templates/components/AssistantSurgries.html',
     'text!templates/components/AssistantTests.html',
+    'text!templates/components/AssistantMeds.html',
+    'text!templates/components/Angiography.html',
+    'text!templates/components/AngioStep1.html',
+    'text!templates/components/AngioStep2.html',
     ], function($, _, Backbone, omnipidiaTpl,tpl,omniDetailsTpl,informationTpl,infoDetailsTpl,
         interactionsTpl,riskFactorTpl,lifestyleTpl,riskFactorDeatilsTpl,riskFactQuesTpl,completeAssessTpl,
-        toolsTpl,assistantTpl,surgriesTpl,testsTpl) {
+        toolsTpl,assistantTpl,surgriesTpl,testsTpl,MedsTpl,angiogarphyTpl,angioStep1Tpl,angioStep2Tpl) {
 
 
         return Backbone.View.extend({
@@ -35,7 +39,7 @@ define(['jquery',
                 'click #menu2, #omnibtn2' : 'showInformation',
                 'click #menu3, #omnibtn3' : 'showInteractions',
                 'click #menu5, #omnibtn5' : 'showRiskFactor',
-                'click #menu6, #omnibtn6' : 'showAssistant',
+                'click #menu6, #omnibtn6,#showTests'  : 'showAssistant',
                 'click #menu8, #omnibtn8' : 'showTools',
                 'click #showOmnipedia' : 'showOmnipidia',
                 'click #quitBtn' : 'render',
@@ -58,7 +62,14 @@ define(['jquery',
                 'click #researchCloseBtn':'closePopup',
                 'click #bodyMass':'showBodyMass',
                 'click #surgeries':'showSurgeries',
-                'click #tests-tab':'showTests'
+                'click #tests-tab ':'showTests',
+                'click #medications':'showMeds',
+                'click #angiography, #angio-prevImg, #showAngiography':'showAngiography',
+                'click #angio-startBtn, #showAngioStep1, #angio-step2-prevImg':'showAngioStep1',
+                'click #angio-nextImg':'showAngioStep2',
+                'click #angioMoreDetails':'showAngioPopup',
+                'click #angioCloseBtn':'closeAngioPopup'
+                
  
             },
             template	: _.template(tpl),
@@ -74,7 +85,7 @@ define(['jquery',
                 this.$el.html(this.template());
                 this.bodyScroll = new iScroll(this.$('#research-desk')[0],{
                     bounceLock	: true,
-                    bounce 		: false,
+                    bounce 		: true,
                     vScrollbar 	: true
                 });
                 this.refreshScroll();
@@ -164,13 +175,29 @@ define(['jquery',
                 this.$el.html(details);
             },
             
+            showAngiography: function(e){
+                var details = _.template(angiogarphyTpl);
+                this.$el.html(details);
+                this.closeAngioPopup();
+            },
+            
+            showAngioStep1: function(e){
+                var details = _.template(angioStep1Tpl);
+                this.$el.html(details);
+            },
+              
+            showAngioStep2: function(e){
+                var details = _.template(angioStep2Tpl);
+                this.$el.html(details);
+            },
+            
             showRiskFactorCompleteAssessment: function(e){
                 var details = _.template(completeAssessTpl);
                 this.$el.html(details);
                 this.closePopup();
             },
             
-            showPopup: function(){
+            showPopup : function(){
                 $('#modalMask1').show();
                 this.$('#popupDeatils').attr("style","display:block");
                 this.iscroll.refresh();
@@ -181,6 +208,18 @@ define(['jquery',
                 this.$('#popupDeatils').attr("style","display:none");
                 this.iscroll.refresh();
             },
+            showAngioPopup : function(){
+                $('#modalMask1').show();
+                this.$('#popupDeatils').attr("style","display:block");
+                this.iscroll.refresh();
+            },
+            
+            closeAngioPopup: function(){
+                $('#modalMask1').hide();
+                this.$('#popupDeatils').attr("style","display:none");
+                this.iscroll.refresh();
+            },
+            
             showSurgeries: function(e){
                 this.$('li').removeClass('selected');
                 this.$('#surgeries').addClass('selected');
@@ -193,6 +232,13 @@ define(['jquery',
                 this.$('li').removeClass('selected');
                 this.$('#tests-tab').addClass('selected');
                 var details = _.template(testsTpl);
+                this.$('#assistant-tab-area').html(details);
+                
+            },
+            showMeds: function(e){
+                this.$('li').removeClass('selected');
+                this.$('#medications').addClass('selected');
+                var details = _.template(MedsTpl);
                 this.$('#assistant-tab-area').html(details);
                 
             },
