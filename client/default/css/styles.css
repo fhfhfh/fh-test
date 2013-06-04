@@ -1936,9 +1936,11 @@ section#widgetScreen #scrollWrapper {
     padding-left: 10px;
 }
 #omniData,
-#infoData {
-    padding: 5% 23px 0px 5%;
+#infoData,
+#sympData{
+    padding: 5% 23px 10px 5%;
 }
+
 #omniList,
 #infoList,
 #assistantList,
@@ -1986,7 +1988,8 @@ section#widgetScreen #scrollWrapper {
 }
 #omniListHead,
 #infoListHead,
-#assistantListHead{
+#assistantListHead,
+#symp-Head{
     /*    margin-top: 76px;*/
     background: url(../img/research/gradient-bar-search-area.png);
     width: 100%;
@@ -2028,23 +2031,26 @@ section#widgetScreen #scrollWrapper {
 }
 #omniDetailsHead,
 #infoDetailsHead,
-#researchDetailsHead {
+#researchDetailsHead,
+#sympDetailsHead{
     background-color: gray;
     height: 60px;
     text-align: center;
     padding-top: 18px;
-    font: normal 18pt "Avenir Next Medium", Helvetica, Arial, sans-serif;
+    font: normal 18pt "Avenir Next Medium", Helvetica, Arial, sans-symp-headserif;
     color: white;
     text-shadow: -1pt 1pt #756d6f;
     border-radius: 10px 10px 0px 0px;
 }
 #omniListArea #omniDetails .boxEntry,
-#infoListArea #infoDetails .boxEntry {
+#infoListArea #infoDetails .boxEntry,
+#symp-ListArea #symp-Details .boxEntry{
     padding: 15px 25px 30px 40px;
     font: 12px "Avenir Next", Helvetica, Arial, sans-serif;
 }
 #omniListArea #omniDetails .boxEntry:after,
-#infoListArea #infoDetails .boxEntry:after {
+#infoListArea #infoDetails .boxEntry:after,
+#symp-ListArea #symp-Details .boxEntry:after{
     content: url('../img/icons/smallArrow.png');
     float: right;
     clear: right;
@@ -2054,7 +2060,8 @@ section#widgetScreen #scrollWrapper {
     padding-top: 20px;
 }
 #omniresult,
-#infoResult {
+#infoResult ,
+#sympResult{
     position: absolute;
     left: 20px;
     top: 28px;
@@ -2073,10 +2080,12 @@ section#widgetScreen #scrollWrapper {
     position: absolute;
     right: 5px;
 }
-#onmi_search {
+#onmi_search,
+#symp_search{
     position: absolute;
     top: 3px;
     left: 35px;
+    border: none;
     width: 145px;
 }
 #interactionsContainter {
@@ -2893,8 +2902,6 @@ brown-headline div {
     margin-top: -1px;
     border-radius: 0px 10px 10px 10px;
     position: relative;
-    padding: 20px;
-    height: 525px;
 }
 
 #sympBtn{
@@ -2931,7 +2938,6 @@ brown-headline div {
 }
 
 .sympCommonDiv{
-    height: 470px;
     box-shadow: 0px 3px 4px 0px;
     padding: 2px;
 }
@@ -2951,7 +2957,7 @@ brown-headline div {
 }
 
 #sympInnerRight{
-     background-color: #f8f9f9;
+    background-color: #f8f9f9;
 }
 
 #sympListHeading{
@@ -2993,32 +2999,134 @@ brown-headline div {
     padding: 8px;
 }
 
+#showMeHeading{
+    font: bold 15px "Avenir Next", Helvetica, Arial, sans-serif;
+    float: left;
+}
+
+#showMeHead{
+    padding: 10px;
+    height: 45px;
+    margin-bottom: 20px;
+}
+
+#showMeBtn{
+    float: right;
+    width: 75px;
+    font: bold 10px "Avenir Next", Helvetica, Arial, sans-serif;
+}
+
+#showMeShare , #showMeClose{
+    margin-right: 10px;
+    text-align: center;
+    width: 30px;
+    float: left;
+}
 
 
+#showMeClose{
+    float: right;
+    margin-right: 0px;
+}
 
+#showMeShare{
+    padding-top: 1px;
+}
 
+#showMeOuter{
+    background-image: linear-gradient(bottom, #ffffff 75%, #cccccc 100%);
+    background-image: -webkit-linear-gradient(bottom, #ffffff 75%, #cccccc 100%);
+    background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0.75, #ffffff), color-stop(1, #cccccc));
+    margin: 20px;
+}
 
+#showMeText{
+    margin: 10px;
+    line-height: 10px;
+}
 
+.symp-commonText{
+    font: 11px "Avenir Next", Helvetica, Arial, sans-serif;
+    line-height: 15px;
+}
 
+#showMeText li{
+    display: list-item;
+    list-style-type: disc;
+    margin-left: 30px;
+}
 
+#symp-ad{
+    height: 100px;
+    background-image: linear-gradient(bottom, #ffffff 0%, #cccccc 100%);
+    background-image: -webkit-linear-gradient(bottom, #ffffff 0%, #cccccc 100%);
+    background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #ffffff), color-stop(1, #cccccc));
+}
 
+#symp-ad1{
+    border: 1px solid;
+    box-shadow: 0px 3px 4px 0px;
+    height: 80px;
+    width: 115px;
+    float: right;
+    margin: 10px;        
+}
 
+#symp-List{
+    background-color: white;
+    padding: 2px 2px 1px 1px;
+    border-radius: 10px 10px 10px 10px;
+    font: 14px "Avenir Next Demi", Helvetica, Arial, sans-serif;
+    position: relative;
+    padding-bottom: 2px;
+    margin-left: 2%;
+width: 96%;
+}
 
+sympResult {
+    position: absolute;
+    left: 20px;
+    top: 28px;
+    font: bold 13px "Avenir Next", Helvetica, Arial, sans-serif;
+}
 
+#symp-ListArea {
+    margin-top: 60px;
+}
 
+#showMeMain{
+    margin: 20px;
+    height: 520px;
+}
 
+#symp-List-Deatils{
+    margin-top: 60px;
+}
 
+#search_symp{
+    top: 20px;
+    right: 10px;
+    position: absolute;
+    border: 2px solid;
+    border-radius: 20px;
+    margin-top: 0px;
+    width: 220px;
+    margin-right: 5px;
+    border-color: gray;
+    height: 28px;
+}
 
+.sympHeadLine{
+    font: bold 18pt "Avenir Next Demi", Helvetica, Arial, sans-serif;
+    color: #5a4d38;
+}
 
-
-
-
-
-
-
-
-
-
+#sympData li{
+    display: list-item;
+    list-style-type: disc;
+    margin-left: 30px;
+    font: 11px "Avenir Next", Helvetica, Arial, sans-serif;
+}
 
 
 
