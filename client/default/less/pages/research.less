@@ -33,7 +33,7 @@
 #researchWrapper {
     /*     background-image:-webkit-linear-gradient(bottom, rgb(218, 218, 218) 85%, #878888 100%);*/
 
-    min-height: 1000px;
+    min-height: 1700px;
 }
 @media only screen and (orientation: landscape) {
     #reserchInnerDiv {
@@ -63,7 +63,7 @@
         position: relative;
         overflow: hidden;
         /*        font: bold 25px "Avenir Next Demi", Helvetica, Arial, sans-serif;
-                                  padding-left: 20px;*/
+                                        padding-left: 20px;*/
 
     }
 }
@@ -107,7 +107,7 @@
     position: relative;
     overflow: hidden;
     /*    font: bold 25px "Avenir Next Demi", Helvetica, Arial, sans-serif;
-              padding-left: 20px;*/
+                padding-left: 20px;*/
 
 }
 #menu2,
@@ -226,15 +226,14 @@
 }
 #outerBox {
     width: 45%;
-    height: 9%;
-    border: 2px solid;
+    height: 75px;
     position: absolute;
     top: 12px;
     right: 0;
     margin: 10px;
     background-color: white;
-    font: bold 13px "Avenir Next", Helvetica, Arial, sans-serif;
-    box-shadow: 2px 2px 1px 0px gray;
+    font: bold 11px "Avenir Next", Helvetica, Arial, sans-serif;
+    box-shadow: 0px 0px 5px 0px;
 }
 #research-menu {
     position: absolute;
@@ -246,9 +245,12 @@
     visibility: hidden;
 }
 #innerBox {
-    margin: 1px;
-    height: 98%;
-    padding: 5px;
+
+    height: 88%;
+    padding: 12px;
+    border-right: 1px solid lightgray;
+    margin: 5px;
+    border-left: 1px solid lightgray;
 }
 .btnTitle1 {
     font: normal 19pt "Avenir Next Medium", Helvetica, Arial, sans-serif;
@@ -288,8 +290,8 @@
     margin: 0px;
     position: relative;
     /*
-      top: 10px;
-      left: 15px;*/
+        top: 10px;
+        left: 15px;*/
 
 }
 #ad1 {
@@ -322,6 +324,7 @@
 }
 #omniList,
 #infoList,
+#assistantList,
 #riskList{
     background-color: white;
     width: 96%;
@@ -331,6 +334,7 @@
     font: 14px "Avenir Next Demi", Helvetica, Arial, sans-serif;
     position: relative;
     padding-bottom: 2px;
+
 }
 #search_omniPedia,
 #search_information {
@@ -349,7 +353,7 @@
     border: none;
 }
 #omniListArea,
-#infoListArea {
+#infoListArea{
     margin-top: 45px;
 }
 #magnify {
@@ -364,9 +368,9 @@
     right: 2px;
 }
 #omniListHead,
-#infoListHead {
+#infoListHead,
+#assistantListHead{
     /*    margin-top: 76px;*/
-
     background: url(../img/research/gradient-bar-search-area.png);
     width: 100%;
     padding-left: 30px;
@@ -407,8 +411,7 @@
 }
 #omniDetailsHead,
 #infoDetailsHead,
-#researchDetailsHead
-{
+#researchDetailsHead {
     background-color: gray;
     height: 60px;
     text-align: center;
@@ -494,8 +497,7 @@
     box-shadow: 1px 3px 5px 1px;
     border-radius: 5px;
 }
-
-#interactionsList2Inner{
+#interactionsList2Inner {
     background-color: #fff6e0;
     margin: 5px;
     height: 269px;
@@ -504,7 +506,6 @@
     border-radius: 5px;
     border-color: lightgray;
 }
-
 #checkBtn {
     color: white;
     position: absolute;
@@ -514,7 +515,7 @@
     padding-top: 15px;
     background-image: linear-gradient(bottom, #7e8b93 0%, #b2babe 85%);
     background-image: -webkit-linear-gradient(bottom, #7e8b93 50%, #b2babe 85%);
-    background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0.50, #7e8b93), color-stop(0.85, #b2babe));
+    background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0.5, #7e8b93), color-stop(0.85, #b2babe));
     font-weight: bold;
     bottom: 0px;
     right: 10px;
@@ -571,7 +572,6 @@
     border-color: lightgray;
     z-index: 5;
 }
-
 #tools-tabs li.selected {
     background-color: #fff;
     background-image: none;
@@ -581,7 +581,6 @@
     border-color: lightgray;
     z-index: 5;
 }
-
 #tabs {
     width: 310px;
     margin-left: 10px;
@@ -609,12 +608,10 @@
     float: right;
     margin-right: 20px;
 }
-
 #inter-minus {
     float: right;
     margin-right: 20px;
 }
-
 #inter-myMedia div p {
     top: -10px;
     position: absolute;
@@ -631,14 +628,12 @@
     position: absolute;
     font: bold 12px "Avenir Next", Helvetica, Arial, sans-serif;
 }
-
-#interaction-headline2{
+#interaction-headline2 {
     position: absolute;
     right: 45px;
     top: 25px;
     font: bold 14px "Avenir Next", Helvetica, Arial, sans-serif;
 }
-
 #search_interaction {
     border: 2px solid;
     height: 30px;
@@ -664,11 +659,9 @@
 #riskBtn {
     background: url(../img/research/bu-risk-factor-navigator.png);
 }
-
 #assistantBtn {
     background: url(../img/research/bu-decision-assistant.png);
 }
-
 #risk-tabs {
     margin-top: 5%;
     margin-left: 20px;
@@ -699,14 +692,12 @@
     background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #cccccc), color-stop(0.85, #ffffff));
     font: bold 12px "Avenir Next", Helvetica, Arial, sans-serif;
 }
-
 #tools-tabs,
-#assistant-tabs{
-    margin:10px 0px 0px 10px;
+#assistant-tabs {
+    margin: 10px 0px 0px 10px;
 }
-
-#tools-tab-area ,
-#assistant-tab-area{
+#tools-tab-area,
+#assistant-tab-area {
     background-color: white;
     margin: 0px 0px 0px 10px;
     width: 96%;
@@ -716,7 +707,7 @@
     position: relative;
     padding: 8px;
 }
-#tools-tabs li{
+#tools-tabs li {
     display: inline-block;
     width: 15%;
     text-align: center;
@@ -729,11 +720,9 @@
     font: bold 12px "Avenir Next", Helvetica, Arial, sans-serif;
     background-color: darkgray;
 }
-
-#lifestyle-risk p{
+#lifestyle-risk p {
     margin-left: 10px;
 }
-
 #risk-details {
     font: 12px "Avenir Next", Helvetica, Arial, sans-serif;
 }
@@ -768,129 +757,111 @@
 #condition-assess {
     float: left;
 }
-
-.risk-backBtn{
+.risk-backBtn {
     background: url(../img/research/risk-factor/bu-back.png);
     height: 27px;
     width: 59px;
     position: absolute;
     top: 20px;
-    left: 15px;     
+    left: 15px;
 }
-
-#risk-sendBtn{
-    background: url(../img/research/risk-factor/bu-send.png)no-repeat;
+#risk-sendBtn {
+    background: url(../img/research/risk-factor/bu-send.png) no-repeat;
     height: 20px;
     width: 23px;
     margin-right: 20px;
     float: left;
 }
-
-#risk-shareBtn{
-    background: url(../img/research/risk-factor/bu-share.png)no-repeat;
+#risk-shareBtn {
+    background: url(../img/research/risk-factor/bu-share.png) no-repeat;
     height: 19px;
     width: 21px;
     float: right;
 }
-
-#risk-rightBtn{
+#risk-rightBtn {
     position: absolute;
     top: 18px;
     right: 30px;
-
 }
-
-#risk-sendBtn div{
+#risk-sendBtn div {
     font: 11px "Avenir Next", Helvetica, Arial, sans-serif;
     position: absolute;
     top: 22px;
     left: -2px;
 }
-
-#risk-shareBtn div{
+#risk-shareBtn div {
     font: 11px "Avenir Next", Helvetica, Arial, sans-serif;
     position: absolute;
     top: 22px;
     right: -2px;
 }
-
-#riskDeatils-headlines{
+#riskDeatils-headlines {
     font: bold 15px "Avenir Next", Helvetica, Arial, sans-serif;
     margin-bottom: 10px;
     margin-top: 35px;
 }
-
-.risk-commonText{
+.risk-commonText {
     font: 11px "Avenir Next", Helvetica, Arial, sans-serif;
     line-height: 25px;
-
 }
-
-#risk-factorDetails{
+#risk-factorDetails {
     margin: 35px 30px 10px 25px;
 }
-
-.brown-headline{
+.brown-headline {
     color: #5a4d38;
     font: bold 14px "Avenir Next", Helvetica, Arial, sans-serif;
 }
-#startImg{
-    background: url(../img/research/risk-factor/bu-arrow-pink-right.png)no-repeat;
+#startImg {
+    background: url(../img/research/risk-factor/bu-arrow-pink-right.png) no-repeat;
     width: 110px;
     height: 45px;
     margin: 0 auto;
 }
-
-#startImg div{
+#startImg div,#angio-startBtn div {
     padding: 12px 10px 10px 30px;
     font: bold 15px "Avenir Next", Helvetica, Arial, sans-serif;
 }
-
-.research-left{
+.research-left {
     position: absolute;
     width: 240px;
     font: bold 12px "Avenir Next Demi", Helvetica, Arial, sans-serif;
 }
-
-.research-right{
+.research-right {
     position: absolute;
     width: 240px;
     font: bold 12px "Avenir Next Demi", Helvetica, Arial, sans-serif;
     right: 60px;
 }
-
-.research-right-text{
+.research-right-text {
     position: absolute;
     top: 7px;
     left: 35px;
 }
-#gender{
+#gender {
     height: 60px;
     /*border: 1px solid;*/
+
     margin-top: 10px;
     margin-bottom: 10px;
 }
-
-.line{
+.line {
     border-bottom: 1px solid;
     border-color: #bbb6b7;
     width: 100%;
     height: 1px;
 }
-
-#age{
+#age {
     height: 210px;
     /*border: 1px solid;*/
+
     margin-top: 10px;
     margin-bottom: 10px;
 }
-
-#symptoms{
+#symptoms {
     margin-top: 10px;
     height: 65px;
 }
-
-#center-btns{
+#center-btns {
     margin: 0 auto;
     width: 220px;
     position: relative;
@@ -898,84 +869,65 @@
     margin-top: 30px;
     overflow: hidden;
 }
-
-#prevImg{
-    background: url(../img/research/risk-factor/bu-arrow-pink-left.png)no-repeat;
+#prevImg {
+    background: url(../img/research/risk-factor/bu-arrow-pink-left.png) no-repeat;
     width: 110px;
     height: 45px;
     margin: 0 auto;
-    float:left;
+    float: left;
 }
-
-#nextImg{
-    background: url(../img/research/risk-factor/bu-arrow-pink-right.png)no-repeat;
+#nextImg {
+    background: url(../img/research/risk-factor/bu-arrow-pink-right.png) no-repeat;
     width: 110px;
     height: 45px;
     margin: 0 auto;
     float: right;
 }
 #nextImg div,
-#prevImg div
-{
+#prevImg div {
     padding: 12px 10px 10px 30px;
     font: bold 14px "Avenir Next", Helvetica, Arial, sans-serif;
 }
-
-.gray-headline{
+.gray-headline {
     color: #8d8687;
     font: bold 12px "Avenir Next", Helvetica, Arial, sans-serif;
     position: absolute;
     top: 6px;
     left: 35px;
 }
-
-brown-headline div{
+brown-headline div {
     position: relative;
-
 }
-
-#allergySym li{
+#allergySym li {
     display: list-item;
     list-style-type: disc;
 }
-
-
-#leftAlignText{
+#leftAlignText {
     width: 390px;
     float: left;
 }
-
-#allergySym
-{
+#allergySym {
     margin-left: 35px;
 }
-
-#rightAlignImg{
+#rightAlignImg {
     height: 110px;
     width: 120px;
     border: 1px solid;
-
 }
-
-#middleText{
+#middleText {
     height: 100px;
 }
-#rightData{
+#rightData {
     right: 15px;
     position: absolute;
 }
-
-#moreDetails{
-    background: url(../img/research/risk-factor/bu-more-details.png)no-repeat;
+#moreDetails {
+    background: url(../img/research/risk-factor/bu-more-details.png) no-repeat;
     height: 25px;
     width: 110px;
     margin-left: 5px;
 }
-
-
-
-#popupDeatils{
-    height: 80%;
+#popupDeatils {
     width: 83%;
     background-color: white;
     position: absolute;
@@ -986,31 +938,26 @@ brown-headline div{
     display: none;
     z-index: 999;
 }
-
-#research-popupHead{
+#research-popupHead {
     background-color: #ffcefc;
-    height : 30px;
+    height: 30px;
     width: 100%;
 }
-
-#researchCloseBtn{
+#researchCloseBtn,#angioCloseBtn {
     float: right;
     margin-top: 7px;
     margin-right: 5px;
 }
-
-#popup-inner{
+#popup-inner {
     padding: 15px 50px 10px 30px;
 }
-
-#research-popupImg{
+#research-popupImg {
     height: 345px;
     width: 405px;
     border: 1px solid;
     margin-top: 10px;
     box-shadow: -2px -2px 2px;
 }
-
 #modalMask1 {
     display: none;
     position: absolute;
@@ -1022,27 +969,22 @@ brown-headline div{
     opacity: 0.3;
     text-align: center;
 }
-
 .toolsImg {
     float: right;
     margin-right: 15px;
     margin-top: 15px;
 }
-
-#toolsBodyMass{
+#toolsBodyMass {
     margin: 10px 10px 10px 15px;
 }
-
-#tools-bodyMass-cal{
+#tools-bodyMass-cal {
     height: 260px;
     padding-top: 10px;
 }
-
 #bodyMassCal div {
     margin-bottom: 5px;
 }
-
-.toolsCalInputType{
+.toolsCalInputType {
     outline: none;
     height: 30px;
     border-radius: 5px;
@@ -1053,8 +995,7 @@ brown-headline div{
     margin-right: 10px;
     font: 12px "Avenir Next", Helvetica, Arial, sans-serif;
 }
-
-#bodyMassCal{
+#bodyMassCal {
     float: left;
     border: 1px solid;
     border-radius: 10px;
@@ -1065,17 +1006,19 @@ brown-headline div{
     border-color: lightgray;
     box-shadow: 0px 0px 1px 0px;
 }
-
-.gray-bigHeadline{
+.gray-bigHeadline {
     color: #8d8687;
     font: bold 14px "Avenir Next", Helvetica, Arial, sans-serif;
 }
-
-#bodyStatus{
+#bodyStatus {
     width: 95%;
 }
-
-#bodyMassSubmit{
+#bodyMassSubmit,
+#calorieSubmit,
+#heartRateSubmit,
+#weightSubmit,
+#nutritionSubmit,
+#waistSubmit{
     background-color: #fed790;
     border-radius: 5px;
     height: 30px;
@@ -1084,8 +1027,8 @@ brown-headline div{
     text-align: center;
     margin-top: 10px;
     padding-top: 5px;
+    color: #8d8687;
 }
-
 #tools-tabs li.selected,
 #assistant-tabs li.selected {
     background-color: #fff;
@@ -1096,12 +1039,10 @@ brown-headline div{
     border-color: lightgray;
     z-index: 5;
 }
-
-#tab-surgeries{
+#tab-surgeries {
     margin: 10px;
 }
-
-#assistant-tabs li{
+#assistant-tabs li {
     width: 23%;
     font: bold 10px "Avenir Next", Helvetica, Arial, sans-serif;
     display: inline-block;
@@ -1114,8 +1055,7 @@ brown-headline div{
     position: relative;
     background-color: darkgray;
 }
-
-.assistanceBtn{
+.assistanceBtn {
     background: url(../img/research/assistant/bu-tan-button-bar.png);
     height: 40px;
     width: 270px;
@@ -1124,15 +1064,314 @@ brown-headline div{
     padding-left: 15px;
     margin-bottom: 5px;
 }
-
-#assestant-surgries{
+#assestant-surgries {
     height: 320px;
 }
+.floatLeft {
+    float: left;
+}
+.floatRight {
+    float: right;
+}
+.headLine{
+    font: bold 15px "Avenir Next", Helvetica, Arial, sans-serif;
+}
 
-.floatLeft{
+#assistantListArea {
+    margin: 10px 35px 10px 15px;
+}
+
+#angioTextArea li {
+    display: list-item;
+    list-style-type: disc;
+    margin-left: 30px;
+}
+
+#angioImg {
+    height: 300px;
+    border: 1px solid;
+    margin: 5px 35px 5px 35px;
+}
+
+#angioUpperAnimation{
+    background: url("../img/research/assistant/bg-fade-tan-gray.png");
+    height: 90px;
+    border: 1px solid;
+    box-shadow: 0px 0px 2px 0px;
+    border-color: lightgray;
+}
+
+#animation-smallImg{
+    height: 65px;
+    width: 65px;
+    border: 1px solid;
+    margin: 10px 10px 10px 20px;
     float: left;
 }
 
-.floatRight{
+#angioArrow{
+    background: url("../img/research/assistant/arrow-points-right.png");
+    height: 25px;
+    width: 75px;
+    float: left;
+    margin: 5px 0px 0px 20px;
+}
+
+#angioInnerText{
     float: right;
+    color: #8d8687;
+    font: bold 12px "Avenir Next", Helvetica, Arial, sans-serif;
+    margin-top: 25px;
+    margin-right: 35px;
+}
+
+#angioMoreDetails{
+    background: url(../img/research/risk-factor/bu-more-details.png) no-repeat;
+    height: 25px;
+    width: 110px;
+    margin-left: 12px;
+}
+
+
+#angio-startBtn {
+    background: url(../img/research/assistant/bu-tan-arrow-right.png) no-repeat;
+    width: 110px;
+    height: 45px;
+    margin: 0 auto;
+}
+
+.assistant-commonText {
+    font: 11px "Avenir Next", Helvetica, Arial, sans-serif;
+    line-height: 25px;
+}
+
+.checkBox{
+    background: url(../img/research/assistant/bu-checkbox-tan-off.png) no-repeat;
+
+    height: 30px;
+    float: left;
+    width: 30px;
+}
+
+.check-list{
+    font: 12px "Avenir Next", Helvetica, Arial, sans-serif;
+    height: 35px;
+}
+
+.check-text {
+    margin-top: 8px;
+    padding-top: 3px;
+    margin-top: 8px;
+}
+
+
+#angio-prevImg,
+#angio-step2-prevImg{
+    background: url(../img/research/assistant/bu-tan-arrow-left.png) no-repeat;
+    width: 110px;
+    height: 45px;
+    margin: 0 auto;
+    float: left;
+}
+#angio-nextImg,
+#angio-step2-nextImg{
+    background: url(../img/research/assistant/bu-tan-arrow-right.png) no-repeat;
+    width: 110px;
+    height: 45px;
+    margin: 0 auto;
+    float: right;
+}
+#angio-nextImg div,
+#angio-prevImg div,
+#angio-step2-prevImg div,
+#angio-step2-nextImg div{
+    padding: 12px 10px 10px 30px;
+    font: bold 14px "Avenir Next", Helvetica, Arial, sans-serif;
+}
+
+.angioGray-headline {
+    color: #8d8687;
+    font: bold 11px "Avenir Next", Helvetica, Arial, sans-serif;
+    position: absolute;
+    top: 0px;
+    left: 35px;
+}
+
+.angio-box{
+    background-color: #fff6e0;
+    margin-left: 35px;
+    padding:10px;
+
+}
+
+#angio-popupHead{
+    background: url(../img/research/assistant/bg-fade-tan-gray.png) no-repeat;
+    height: 30px;
+}
+
+#angio-popupImg{
+    border: 1px solid;
+    height: 280px;
+}
+
+#phyActivity{
+    width: 265px;
+}
+
+#tools-age-cal {
+    height: 160px;
+    padding-top: 10px;
+}
+
+#ageCal{
+    float: left;
+    border: 1px solid;
+    border-radius: 10px;
+    height: 125px;
+    width: 290px;
+    padding: 10px 0px 10px 10px;
+    background-color: #fffeec;
+    border-color: lightgray;
+    box-shadow: 0px 0px 1px 0px;
+}
+
+
+#heartRateImg{
+    float: right;
+    margin-right: 15px;
+    margin-top: -5px;
+}
+
+#ageLabel{
+    margin-bottom: 10px;
+    margin-left: 10px;
+}
+
+#tools-nutrition-cal{
+    height: 385px;
+    padding-top: 10px;
+}
+
+#nutritionCal {
+    float: left;
+    border: 1px solid;
+    border-radius: 10px;
+    height: 370px;
+    width: 290px;
+    padding: 10px 0px 10px 10px;
+    background-color: #fffeec;
+    border-color: lightgray;
+    box-shadow: 0px 0px 1px 0px;
+}
+
+#nutritionCal div{
+    margin-bottom: 8px;
+}
+
+#symp-tab-area{
+    background-color: white;
+    margin: 0px 0px 0px 10px;
+    width: 96%;
+    border: 1px solid lightgray;
+    margin-top: -1px;
+    border-radius: 0px 10px 10px 10px;
+    position: relative;
+    padding: 20px;
+    height: 525px;
+}
+
+#sympBtn{
+    background: url(../img/research/bu-symptom-navigator.png);
+}
+
+#symp-tabs{
+    margin-top: 5%;
+    margin-left: 10px;
+}
+
+#symptoms-tabs li {
+    display: inline-block;
+    width: 25%;
+    text-align: center;
+    padding: 10px 5px;
+    color: #2f3137;
+    text-shadow: 0 1px 1px #fff;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    position: relative;
+    background-color: gray;
+    font: bold 12px "Avenir Next", Helvetica, Arial, sans-serif;
+}
+
+#symptoms-tabs li.selected {
+    background-color: #fff;
+    background-image: none;
+    border-top: 1px solid;
+    border-right: 1px solid;
+    border-left: 1px solid;
+    border-color: lightgray;
+    z-index: 5;
+}
+
+.sympCommonDiv{
+    height: 470px;
+    box-shadow: 0px 3px 4px 0px;
+    padding: 2px;
+}
+
+#showMeLeft{
+    float: left;
+    width: 300px;
+}
+
+#showMeRight{
+    float: right;
+    width: 210px;
+}
+
+#sympInnerLeft{
+    padding-top: 30px;
+}
+
+#sympInnerRight{
+     background-color: #f8f9f9;
+}
+
+#sympListHeading{
+    font: bold 13px "Avenir Next", Helvetica, Arial, sans-serif;
+    height: 35px;
+}
+
+.sympInner{
+    border-left: 1px solid lightgray;
+    border-right: 1px solid lightgray;
+    height: 100%;
+    width: 100%;
+}
+
+#sympLeftBtns select{
+    width: 70px;
+    margin-left: 10px;
+}
+
+#humanBody{
+    height: 380px;
+    border: 1px solid;
+    margin-bottom: 10px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.sympDark{
+    background-color: #ebebeb;
+    height: 30px;
+    font: 12px "Avenir Next", Helvetica, Arial, sans-serif;
+    padding: 8px;
+}
+
+.sympLight{
+    background-color: #f8f9f9;
+    height: 30px;
+    font: 12px "Avenir Next", Helvetica, Arial, sans-serif;
+    padding: 8px;
 }
