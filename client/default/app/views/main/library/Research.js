@@ -11,7 +11,9 @@ define(['jquery',
     'text!templates/components/Information.html',
     'text!templates/components/InformationDetails.html',
     'text!templates/components/Interactions.html',
+    'text!templates/components/Symptom.html',
     'text!templates/components/RiskFactor.html',
+    'text!templates/components/General-risk.html',
     'text!templates/components/Lifestyle.html',
     'text!templates/components/RiskFactorNaviDetails.html',
     'text!templates/components/RiskFactorQuestion.html',
@@ -31,8 +33,9 @@ define(['jquery',
     'text!templates/components/AngioStep1.html',
     'text!templates/components/AngioStep2.html',
     ], function($, _, Backbone, omnipidiaTpl,tpl,omniDetailsTpl,informationTpl,infoDetailsTpl,
-        interactionsTpl,riskFactorTpl,lifestyleTpl,riskFactorDeatilsTpl,riskFactQuesTpl,completeAssessTpl,
-        toolsTpl,bodyMassTpl,caloriesTpl,heartTpl,weightTpl,nutritionTpl,waistTpl,assistantTpl,surgriesTpl,testsTpl,MedsTpl,angiogarphyTpl,angioStep1Tpl,angioStep2Tpl) {
+        interactionsTpl,sympTpl,riskFactorTpl,genRiskTpl,lifestyleTpl,riskFactorDeatilsTpl,riskFactQuesTpl,completeAssessTpl,
+        toolsTpl,bodyMassTpl,caloriesTpl,heartTpl,weightTpl,nutritionTpl,waistTpl,assistantTpl,surgriesTpl,
+        testsTpl,MedsTpl,angiogarphyTpl,angioStep1Tpl,angioStep2Tpl) {
 
 
         return Backbone.View.extend({
@@ -44,6 +47,7 @@ define(['jquery',
                 'click #menu1, #omnibtn1' : 'showOmnipidia',
                 'click #menu2, #omnibtn2' : 'showInformation',
                 'click #menu3, #omnibtn3' : 'showInteractions',
+                'click #menu4, #omnibtn4' : 'showSymp',
                 'click #menu5, #omnibtn5' : 'showRiskFactor',
                 'click #menu6, #omnibtn6,#showTests'  : 'showAssistant',
                 'click #menu8, #omnibtn8' : 'showTools',
@@ -56,6 +60,7 @@ define(['jquery',
                 'click #infoBtn, #omnibtn, .research-menuBtn':'showMenu',
                 'click #interaction-myMedia':'showMyMedia',
                 'click #interaction-search':'showSearch',
+                'click #sympShowMe':'showShowMe',
                 'click #riskFactor-general':'showGenRisk',
                 'click #riskFactor-lifestyle':'showlifestyle',
                 'click .conditionBtn':'showRiskFactorDetails',
@@ -79,6 +84,7 @@ define(['jquery',
                 'click #angio-startBtn, #showAngioStep1, #angio-step2-prevImg':'showAngioStep1',
                 'click #angio-nextImg':'showAngioStep2',
                 'click #angioMoreDetails':'showAngioPopup'
+//                'click .sympDark, .sympLight' :'showShowMeDetails'
                 
  
             },
@@ -127,6 +133,12 @@ define(['jquery',
                 this.showGenRisk();
             },
             
+            showSymp: function(e){
+                var details = _.template(sympTpl);
+                this.$el.html(details);
+                this.showShowMe();
+            },
+            
             showTools: function(e){
                 var details = _.template(toolsTpl);
                 this.$el.html(details);
@@ -154,8 +166,8 @@ define(['jquery',
             showGenRisk: function(e){
                 this.$('li').removeClass('selected');
                 this.$('#riskFactor-general').addClass('selected');
-                this.$('#lifestyle').attr("style","display:none");
-                this.$('#general-risk').attr("style","display:block");
+                 var details = _.template(genRiskTpl);
+                this.$('#risk-tab-area').html(details);
             },
             
             showlifestyle: function(e){
@@ -228,6 +240,13 @@ define(['jquery',
                 $('#modalMask1').hide();
                 this.$('#popupDeatils').attr("style","display:none");
                 this.iscroll.refresh();
+            },
+            
+             showShowMe: function(e){
+                this.$('li').removeClass('selected');
+                this.$('#sympShowMe').addClass('selected');
+//                var details = _.template(weightTpl);
+//                this.$('#tools-tab-area').html(details);
             },
             
             showSurgeries: function(e){
