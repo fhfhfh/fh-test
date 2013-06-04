@@ -133,7 +133,8 @@ define(['jquery',
                             name: asset.title,
                             type: 'video',
                             date: 'Yesterday',
-                            src: src.video
+                            src: src.video,
+                            folders : asset.folders
                         });
                     }
                 }
