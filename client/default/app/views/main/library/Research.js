@@ -106,12 +106,12 @@ define(['jquery',
                 var self = this;
 
                 this.$el.html(this.template());
-                this.bodyScroll = new iScroll(this.$('#research-desk')[0],{
-                    bounceLock	: true,
-                    bounce 		: true,
-                    vScrollbar 	: true
-                });
-                this.refreshScroll();
+//                this.bodyScroll = new iScroll(this.$('#research-desk')[0],{
+//                    bounceLock	: true,
+//                    bounce 		: true,
+//                    vScrollbar 	: true
+//                });
+//                this.refreshScroll();
                 return this;
             },
             
