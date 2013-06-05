@@ -10,8 +10,20 @@
 	border-radius: 8px;
 	margin-bottom: 10px;
 
-	#search {
-		border-radius: 5px;
+	#searchField {
+		position: relative;
+
+		#search {
+			padding-right: 20px;
+			border-radius: 5px;
+			background-color: #ffffff;
+		}
+
+		#clearBtn {
+			position: absolute;
+			right: 5px;
+			top: 3px;
+		}
 	}
 }
 
@@ -177,6 +189,15 @@
 	}
 }
 
+#readingRoom {
+	#cabinet {
+		#cabinetBody {
+			border-top-left-radius: 8px;
+			border-top-right-radius: 8px;
+		}
+	}
+}
+
 table#listView {
 	width: 100%;
 	border-radius: 8px;
@@ -238,3 +259,23 @@ table#listView {
 	#date  {width:20%;}
 	#type  {width:25%;}
 }
+
+.suggested-new {
+	display: block;
+	position: absolute;
+	bottom: 45%;
+	left: 85%;
+}
+
+
+
+section#readingRoom {
+	#cabinetBody {
+		max-height: 370px;
+	}
+
+	#scroller {
+		padding-bottom: 1px;
+	}
+}
+

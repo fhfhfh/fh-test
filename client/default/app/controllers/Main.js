@@ -9,8 +9,9 @@ define(['jquery',
         'controllers/avatars',
         'controllers/HealthHub',
         'collections/Library',
-        'collections/Folders'
-], function($, _, User, Avatars, HealthHub, libStore, folders) {
+        'collections/Folders',
+        'collections/FoodJournal'
+], function($, _, User, Avatars, HealthHub, libStore, folders, journal) {
 
 	// initialise models etc...
 
@@ -19,14 +20,14 @@ define(['jquery',
 
 		fetchAll : function(){
                     
-                    setTimeout(function(){
-                           Avatars.loadAvatars(function(){});
-                            }, 2000);
-                            HealthHub.loadHealthHub(function(){});
-                            libStore.fetch();
+            setTimeout(function(){
+                Avatars.loadAvatars(function(){});
+            }, 2000);
+
+            HealthHub.loadHealthHub(function(){});
+            libStore.fetch();
 			folders.fetch();
-                    
-			
+            journal.load();
 		}
 	}
 

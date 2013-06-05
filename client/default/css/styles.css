@@ -1,4 +1,5 @@
 /*
+/*
  * This is the main 'hub' for all of our LESS styles. Styles are imported here
  * in the correct order, and the file may be overridden per target device.
 */
@@ -55,7 +56,6 @@ audio:not([controls]) {
 html {
     font-family: sans-serif;
     /* 1 */
-    -moz-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%;
     -ms-text-size-adjust: 100%;
     /* 2 */
@@ -252,6 +252,7 @@ input[type="reset"],
 input[type="submit"] {
     -webkit-appearance: button;
     -moz-appearance: button;
+
     /* 2 */
 
     cursor: pointer;
@@ -350,15 +351,13 @@ textarea,
 select {
   -webkit-user-select: text;
   user-select: text;
-
 }
 html,
 body,
 #content,
 #content > section {
     height: 100%;
-    right: 0;
-/*    overflow: hidden;*/
+    overflow: hidden;
     position: relative;
 }
 body {
@@ -371,11 +370,9 @@ input {
     outline: none;
 }
 .btn {
-    box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.15);
-    /*    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#1f1f1f', endColorstr='#525252');  for IE */
-    background-color: #1f1f1f;
     border-radius: 5px;
     border: 1px solid black;
+    box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.15);
     height: 30px;
     margin: 20px;
     color: white;
@@ -532,7 +529,7 @@ section h1 {
 }
 .popup h2 {
     text-shadow: 2px 2px #000000;
-    font: bold 16px "Avenir Next Heavy", Helvetica, Arial, sans-serif;
+    font: bold 16px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
     color: #ffffff;
     padding-bottom: 20px;
 }
@@ -723,7 +720,7 @@ section h1 {
     margin-top: 0;
     margin-bottom: 30px;
     text-align: center;
-    font: bold 18px "Avenir Next Heavy", Helvetica, Arial, sans-serif;
+    font: bold 18px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
 }
 #login-form input {
     width: 100%;
@@ -742,10 +739,6 @@ section h1 {
     color: #2b6991;
     font: normal 13px "Avenir Next", Helvetica, Arial, sans-serif;
 }
-#login-form input::-moz-input-placeholder {
-    color: #2b6991;
-    font: normal 13px "Avenir Next", Helvetica, Arial, sans-serif;
-}
 #login-help-button {
     border: none;
     width: 100%;
@@ -753,7 +746,7 @@ section h1 {
     background-color: transparent;
     text-shadow: 0 -2px 1px #000000;
     color: #fff;
-    font: bold 14px "Avenir Next Heavy", Helvetica, Arial, sans-serif;
+    font: bold 14px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
 }
 #login-help-button span {
     display: block;
@@ -880,7 +873,6 @@ section h1 {
     background-image: none;
     background-color: transparent;
     opacity: .2;
-    filter: alpha(opacity=20);
 }
 #login #login-help-button {
     border: none;
@@ -889,7 +881,7 @@ section h1 {
     background-color: transparent;
     text-shadow: 0 -2px 1px #000000;
     color: #fff;
-    font: bold 14px "Avenir Next Heavy", Helvetica, Arial, sans-serif;
+    font: bold 14px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
 }
 #login #login-help-button span {
     display: block;
@@ -964,8 +956,6 @@ section h1 {
 #content-tab-list li.selected {
     background-color: #fff;
     background-image: none;
-    /*    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#ffffff');  for IE */
-    background-color: #ffffff
 }
 #content-tab-list4 li {
     display: inline-block;
@@ -976,7 +966,6 @@ section h1 {
     text-shadow: 0 1px 1px #fff;
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
-    border-radius: 8px 8px 0px 0px;
     position: relative;
     background-image: linear-gradient(bottom, #cccccc 0%, #ffffff 85%);
     background-image: -webkit-linear-gradient(bottom, #cccccc 0%, #ffffff 85%);
@@ -1031,7 +1020,7 @@ section h1 {
     background-image: none;
 }
 .badge {
-    font: bold 13px "Avenir Next Heavy", Helvetica, Arial, sans-serif;
+   font: bold 13px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
     background-color: orange;
     border-top-left-radius: 5px;
     border-bottom-right-radius: 5px;
@@ -1047,8 +1036,8 @@ section h1 {
     min-height: 150px;
 }
 #wrapper {
-  max-height: 540px;
-  margin-top: 10px;
+    max-height: 540px;
+    margin-top: 10px;
 }
 @media only screen and (orientation: landscape) {
   #wrapper {
@@ -1057,9 +1046,9 @@ section h1 {
   }
 }
 @media only screen and (orientation: landscape) {
-  #VideoPlayback #wrapper {
-    min-height: 360px;
-  }
+    #VideoPlayback #wrapper {
+        min-height: 360px;
+    }
 }
 .overlaid #top-bar {
     border-bottom-color: transparent;
@@ -1068,7 +1057,7 @@ section h1 {
 }
 .overlaid #main-container {
     opacity: 0;
-    filter: alpha(opacity=00);
+/*    filter: alpha(opacity=00);*/
 }
 .iscroll-container {
     height: 100%;
@@ -1142,12 +1131,15 @@ li {
     padding: 10px;
 }
 #main-tabs li.selected {
-    font: bold 15px "Avenir Next", Helvetica, Arial, sans-serif;
+    font: bold 16px "Avenir Next", Helvetica, Arial, sans-serif;
     border-radius: 5px;
-    border: 2px solid #FFF1a0;
+    border: 2px solid #ffcc66;
 }
 #main-tabs li img {
-    margin-right: 10px;
+    margin-right: 5px;
+    margin-left: -5px;
+    vertical-align: middle;
+    height: 20px;
 }
 #scroller {
     padding-bottom: 50px;
@@ -1158,6 +1150,7 @@ li {
     border-radius: 0 0 10px 10px;
     color: #000;
     padding: 6%;
+    padding-top: 20px;
     margin-bottom: 30px;
     font: normal 11px "Avenir Next", Helvetica, Arial, sans-serif;
 }
@@ -1166,7 +1159,8 @@ li {
     width: 30%;
 }
 #general-body h2 {
-    font: bold 17px "Avenir Next", Helvetica, Arial, sans-serif;
+    font: bold 14px "Avenir Next", Helvetica, Arial, sans-serif;
+    color: #343434;
 }
 #general-body li {
     margin: 5px;
@@ -1175,15 +1169,15 @@ li {
     background-color: #fff;
     border-radius: 5px;
     border: 1px solid #c0c0c0;
-    font: normal 11px "Avenir Next", Helvetica, Arial, sans-serif;
+    font: normal 14px "Avenir Next", Helvetica, Arial, sans-serif;
 }
 #general-body li label {
-    font: normal 11px "Avenir Next", Helvetica, Arial, sans-serif;
-    color: #a8a8a8;
-    padding-right: 10px;
+    font: normal 12px "Avenir Next Medium", Helvetica, Arial, sans-serif;
+    color: #676767;
+    padding-right: 6px;
 }
 #general-body li.required label {
-    color: #2B60DE;
+    color: #002d99;
 }
 #general-body li input,
 #general-body li select,
@@ -1192,7 +1186,11 @@ li {
     outline: none;
     border: none;
     width: 65%;
-    font: normal 13px "Avenir Next", Helvetica, Arial, sans-serif;
+    font: normal 14px "Avenir Next", Helvetica, Arial, sans-serif;
+}
+#general-body li#bdayBox {
+    background: url('../img/calendar/IconCalendar.png') right no-repeat;
+    background-position-x: 202px;
 }
 #general-body li img {
     width: 90%;
@@ -1242,8 +1240,8 @@ li {
     color: #000;
 }
 #general-body .age {
-    font: bold 13px "Avenir Next", Helvetica, Arial, sans-serif;
-    color: #cdcdcd;
+    font: normal 14px "Avenir Next", Helvetica, Arial, sans-serif;
+    color: #676767;
 }
 #general-body form {
     margin-bottom: 20px;
@@ -1256,7 +1254,7 @@ li {
     border-radius: 10px;
     border: 1px solid #c0c0c0;
     height: 150px;
-    font: normal 13px "Avenir Next Medium", Helvetica, Arial, sans-serif;
+    font: normal 14px "Avenir Next", Helvetica, Arial, sans-serif;
 }
 #general-body #physicianBox #physician,
 #general-body #linkedBox #physician,
@@ -1498,8 +1496,18 @@ li {
     border-radius: 8px;
     margin-bottom: 10px;
 }
-#selector #search {
+#selector #searchField {
+    position: relative;
+}
+#selector #searchField #search {
+    padding-right: 20px;
     border-radius: 5px;
+    background-color: #ffffff;
+}
+#selector #searchField #clearBtn {
+    position: absolute;
+    right: 5px;
+    top: 3px;
 }
 #cabinet {
     width: 100%;
@@ -1637,6 +1645,10 @@ li {
     margin-top: 80px;
     margin-right: 0px;
 }
+#readingRoom #cabinet #cabinetBody {
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
 table#listView {
     width: 100%;
     border-radius: 8px;
@@ -1698,6 +1710,18 @@ table#listView #date {
 table#listView #type {
     width: 25%;
 }
+.suggested-new {
+    display: block;
+    position: absolute;
+    bottom: 45%;
+    left: 85%;
+}
+section#readingRoom #cabinetBody {
+  max-height: 370px;
+}
+section#readingRoom #scroller {
+  padding-bottom: 1px;
+}
 section#widgetScreen {
     z-index: 10;
     position: absolute;
@@ -1736,6 +1760,7 @@ section#widgetScreen #topBar .itemBox {
     padding: 5px;
     background: none;
     border-radius: 5px;
+    margin-right: 10px;
 }
 section#widgetScreen #topBar .itemBox img {
     height: 25px;
@@ -1800,107 +1825,103 @@ section#widgetScreen #scrollWrapper {
 
 #pencil-desk {
   width: 100%;
+    float: right;
+    margin: 0px;
+    margin-top: -4px;
 }
 #backDiv {
-  /*background-image:  webkit-gradient(linear, left bottom, left top, color-stop(0, #878888), color-stop(0.85, #ffffff));*/
+    /*background-image:  webkit-gradient(linear, left bottom, left top, color-stop(0, #878888), color-stop(0.85, #ffffff));*/
 
-  position: absolute;
-  border: 2px solid;
-  height: 96%;
-  margin: 2% 1% 2% 1%;
-  border-radius: 5px;
-  border-color: #cecece;
-  background: #ffffff;
+    width: 98%;
+    position: absolute;
+    border: 2px solid;
+    height: 96%;
+    margin: 2% 1% 2% 1%;
+    border-radius: 5px;
+    border-color: #cecece;
+    background: #ffffff;
 }
 #research-desk {
-  height: 100%;
-  width: 100%;
+    height: 100%;
+    width: 100%;
 }
 #reserchInnerDiv {
-  background-image: -webkit-linear-gradient(bottom, #dadada 85%, #878888 100%);
-  /*    position:absolute;*/
+    background-image: -webkit-linear-gradient(bottom, #dadada 85%, #878888 100%);
+    height: 93%;
+    width: 100%;
+    position: absolute;
+    top: 30px;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    /*    left: 1%;*/
 
-  height: 850px;
-  /*    padding-left: 10px;
-    padding-right: 10px;*/
-
-  width: 100%;
-  position: absolute;
-  top: 30px;
-  border-bottom-right-radius: 5px;
-  border-bottom-left-radius: 5px;
-  /*    left: 1%;*/
-
-  /*    top: 3%;*/
+    /*    top: 3%;*/
 
 }
 #researchWrapper {
-  /*     background-image:-webkit-linear-gradient(bottom, rgb(218, 218, 218) 85%, #878888 100%);*/
+    /*     background-image:-webkit-linear-gradient(bottom, rgb(218, 218, 218) 85%, #878888 100%);*/
 
-  min-height: 900px;
+    min-height: 1700px;
 }
 @media only screen and (orientation: landscape) {
-  #reserchInnerDiv {
-    background-image: -webkit-linear-gradient(bottom, #dadada 85%, #878888 100%);
-    /*    position:absolute;*/
-  
-    /*    height: 700px;*/
-  
-    /*    padding-left: 10px;
-      padding-right: 10px;*/
-  
-    width: 100%;
+    #reserchInnerDiv {
+        background-image: -webkit-linear-gradient(bottom, #dadada 85%, #878888 100%);
+        width: 100%;
+        position: absolute;
+        top: 32px;
+        height: 92%;
+    }
+    #researchMenu {
+        height: 87%;
+        border: 2px solid;
+        border-radius: 5px;
+        border-color: gray;
+        margin: 20px;
+        overflow: hidden;
+    }
+    #menu1,
+    #menu2,
+    #menu3,
+    #menu4,
+    #menu5,
+    #menu6,
+    #menu7,
+    #menu8 {
+        height: 77px;
+        position: relative;
+        overflow: hidden;
+        /*        font: bold 25px "Avenir Next Demi", Helvetica, Arial, sans-serif;
+                                        padding-left: 20px;*/
+
+    }
+}
+#welcomeDiv {
+    text-align: center;
+    padding: 10px;
+    background-color: gray;
+    font: bold 25px "Avenir Next Demi", Helvetica, Arial, sans-serif;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    color: white;
+}
+#researchDesc {
+    margin-top: 45px;
+    padding: 0 15px 0 15px;
+    font: 11px "Avenir Next Demi", Helvetica, Arial, sans-serif;
     position: absolute;
-    top: 32px;
-    /*    left: 1%;*/
-  
-    /*    top: 3%;*/
-  
-  }
-  #researchMenu {
-    height: 87%;
+    right: 15px;
+    width: 240px;
+    text-align: center;
+}
+#researchMenu {
+    padding: 2px;
+    height: 687px;
+    width: 270px;
     border: 2px solid;
-    border-radius: 5px;
+    border-radius: 10px;
     border-color: gray;
     margin: 20px;
     overflow: hidden;
-  }
-  #menu1,
-  #menu2,
-  #menu3,
-  #menu4,
-  #menu5,
-  #menu6,
-  #menu7,
-  #menu8 {
-    height: 77px;
-    position: relative;
-    overflow: hidden;
-    font: bold 25px "Avenir Next Demi", Helvetica, Arial, sans-serif;
-    padding-left: 20px;
-  }
-}
-#welcomeDiv {
-  text-align: center;
-  padding: 10px;
-  background-color: gray;
-  font: bold 25px "Avenir Next Demi", Helvetica, Arial, sans-serif;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
-  color: white;
-}
-#researchDesc {
-  margin-top: 20px;
-  padding: 0 60px 0 59px;
-  font: bold 12px "Avenir Next Demi", Helvetica, Arial, sans-serif;
-}
-#researchMenu {
-  height: 76%;
-  border: 2px solid;
-  border-radius: 5px;
-  border-color: gray;
-  margin: 20px;
-  overflow: hidden;
 }
 #menu1,
 #menu2,
@@ -1910,57 +1931,1530 @@ section#widgetScreen #scrollWrapper {
 #menu6,
 #menu7,
 #menu8 {
-  height: 77px;
-  position: relative;
-  overflow: hidden;
-  font: bold 25px "Avenir Next Demi", Helvetica, Arial, sans-serif;
-  padding-left: 20px;
+    height: 85px;
+    position: relative;
+    overflow: hidden;
+    /*    font: bold 25px "Avenir Next Demi", Helvetica, Arial, sans-serif;
+                padding-left: 20px;*/
+
 }
-#menu2 {
-  background-color: #deeeff;
+#menu2,
+#omnibtn2 {
+    background-color: #deeeff;
 }
 #menu1 {
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
-  background-color: #eafef8;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    background-color: #eafef8;
 }
-#menu3 {
-  background-color: #dcdded;
+#menu3,
+#omnibtn3 {
+    background-color: #dcdded;
 }
-#menu4 {
-  background-color: #eedbdc;
+#menu4,
+#omnibtn4 {
+    background-color: #eedbdc;
 }
-#menu5 {
-  background-color: #fee4ff;
+#menu5,
+#omnibtn5 {
+    background-color: #fee4ff;
 }
-#menu6 {
-  background-color: #fff6e0;
+#menu6,
+#omnibtn6 {
+    background-color: #fff6e0;
 }
-#menu7 {
-  background-color: #d9fee4;
+#menu7,
+#omnibtn7 {
+    background-color: #d9fee4;
 }
-#menu8 {
-  background-color: #ddb9c8;
+#menu8,
+#omnibtn8 {
+    background-color: #ddb9c8;
 }
 .menuName1 {
-  height: 0px;
-  font-size: 19pt;
-  font-family: "Avenir Next Medium";
-  padding-left: 15px;
-  padding-bottom: 0px;
-  top: -21px;
-  position: absolute;
-  text-shadow: -1pt -1pt #ffffff;
+    height: 0px;
+    font: normal 19pt "Avenir Next Medium", Helvetica, Arial, sans-serif;
+    padding-left: 15px;
+    padding-bottom: 0px;
+    top: -13px;
+    position: absolute;
+    text-shadow: -1pt -1pt #ffffff;
 }
 .menuName2 {
-  height: 0px;
-  font-size: 26pt;
-  font-family: "Avenir Next Bold";
-  padding-left: 35px;
-  margin-bottom: 0px;
-  position: absolute;
-  top: -5px;
-  text-shadow: -1pt -1pt #ffffff;
+    height: 0px;
+    font: bold 26pt "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
+    padding-left: 35px;
+    margin-bottom: 0px;
+    position: absolute;
+    top: 0px;
+    text-shadow: -1pt -1pt #ffffff;
+}
+#researchPeachyLogo {
+    height: 155px;
+    position: absolute;
+    top: 154px;
+    right: 21px;
+}
+#researchCat {
+    position: absolute;
+    right: 30px;
+    top: 325px;
+    width: 168px;
+    text-align: center;
+    color: gray;
+    font-weight: bold;
+    font-size: 14px;
+}
+#omnibtn {
+    background: url(../img/research/bu-welless-omnipedia.png);
+    width: 285px;
+    height: 80px;
+    position: relative;
+    margin-top: 20px;
+    margin-left: 10px;
+}
+#infoBtn {
+    background: url(../img/research/bu-drug-interactions.png);
+    width: 285px;
+    height: 80px;
+    position: relative;
+    margin-top: 20px;
+    margin-left: 10px;
+}
+.research-menuBtn {
+    width: 285px;
+    height: 80px;
+    position: relative;
+    margin-top: 20px;
+    margin-left: 10px;
+}
+#omnibtn8 {
+    border-radius: 0px 0px 10px 10px;
+}
+#research-arrow {
+    position: absolute;
+    right: 20px;
+    top: 35px;
+}
+#omnibtn1,
+#omnibtn2,
+#omnibtn3,
+#omnibtn4,
+#omnibtn5,
+#omnibtn6,
+#omnibtn7,
+#omnibtn8 {
+    width: 285px;
+    height: 80px;
+    position: relative;
+}
+#omnibtn1 {
+    background-color: #eafef8;
+    border-radius: 10px 10px 0px 0px;
+}
+#outerBox {
+    width: 45%;
+    height: 75px;
+    position: absolute;
+    top: 12px;
+    right: 0;
+    margin: 10px;
+    background-color: white;
+    font: bold 11px "Avenir Next", Helvetica, Arial, sans-serif;
+    box-shadow: 0px 0px 5px 0px;
+}
+#research-menu {
+    position: absolute;
+    top: 50px;
+    z-index: 10;
+    border: 2px solid;
+    margin-left: 9px;
+    border-radius: 10px;
+    visibility: hidden;
+}
+#innerBox {
+
+    height: 88%;
+    padding: 12px;
+    border-right: 1px solid lightgray;
+    margin: 5px;
+    border-left: 1px solid lightgray;
+}
+.btnTitle1 {
+    font: normal 19pt "Avenir Next Medium", Helvetica, Arial, sans-serif;
+    padding-left: 15px;
+    padding-bottom: 0px;
+    text-shadow: -1pt 1pt #ffffff;
+    padding-top: 12px;
+    position: absolute;
+}
+.btnTitle2 {
+    height: 0px;
+    font: bold 26pt "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
+    padding-left: 35px;
+    margin-bottom: 0px;
+    top: 33px;
+    text-shadow: -1pt 1pt #ffffff;
+    padding-bottom: 0px;
+    position: absolute;
+}
+#omniData p,
+#omniData ul {
+    width: 95%;
+    font: 14px "Avenir Next", Helvetica, Arial, sans-serif;
+    padding-left: 30px;
+}
+#omni-ad {
+    background-color: #ebebeb;
+    height: 147px;
+    border-radius: 10px;
+    margin-top: 50px;
+    position: relative;
+    padding: 10px;
+}
+#ad-container {
+    background-color: white;
+    height: 125px;
+    margin: 0px;
+    position: relative;
+    /*
+        top: 10px;
+        left: 15px;*/
+
+}
+#ad1 {
+    height: 100%;
+    position: absolute;
+}
+#ad2 {
+    height: 100%;
+    position: absolute;
+    left: 185px;
+}
+#ad3 {
+    height: 100%;
+    position: absolute;
+    right: 0px;
+}
+.omni-ad {
+    border: 2px solid;
+    box-shadow: 2px 2px;
+    background-color: white;
+    width: 170px;
+}
+#omniData p,
+#omniData li {
+    padding-left: 10px;
+}
+#omniData,
+#infoData,
+#sympData{
+    padding: 5% 23px 10px 5%;
+}
+
+#omniList,
+#infoList,
+#assistantList,
+#riskList{
+    background-color: white;
+    width: 96%;
+    margin: 12px;
+    padding: 2px 2px 1px 1px;
+    border-radius: 10px 10px 10px 10px;
+    font: 14px "Avenir Next Demi", Helvetica, Arial, sans-serif;
+    position: relative;
+    padding-bottom: 2px;
+
+}
+#search_omniPedia,
+#search_information {
+    top: 20px;
+    right: 0;
+    position: absolute;
+    border: 2px solid;
+    border-radius: 20px;
+    margin-top: 0px;
+    width: 220px;
+    margin-right: 5px;
+    border-color: gray;
+    height: 28px;
+}
+#onmi_search {
+    border: none;
+}
+#omniListArea,
+#infoListArea{
+    margin-top: 45px;
+}
+#magnify {
+    padding-top: 5px;
+    padding-left: 5px;
+}
+#clrBtn {
+    height: 20px;
+    margin-top: 0px;
+    top: 3px;
+    position: absolute;
+    right: 2px;
+}
+#omniListHead,
+#infoListHead,
+#assistantListHead,
+#symp-Head{
+    /*    margin-top: 76px;*/
+    background: url(../img/research/gradient-bar-search-area.png);
+    width: 100%;
+    padding-left: 30px;
+    color: white;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    height: 25px;
+    padding-top: 3px;
+}
+#search_omniPediaDetails {
+    right: 0;
+    position: absolute;
+    border: 1px solid;
+    border-radius: 20px;
+    margin-top: 50px;
+    width: 211px;
+    margin-right: 15px;
+    height: 30px;
+    top: 0;
+    background-color: white;
+}
+#pills {
+    position: absolute;
+    right: 15px;
+    z-index: 0;
+    height: 200px;
+}
+#MedUse {
+    margin-bottom: 75px;
+}
+.researchMenuHeading {
+    color: #5a4d38;
+    font: normal 14pt "Avenir Next Bold", Helvetica, Arial, sans-serif;
+}
+.researchMenuSubHeading {
+    color: #8d8687;
+    font: normal 13pt "Avenir Next Bold", Helvetica, Arial, sans-serif;
+}
+#omniDetailsHead,
+#infoDetailsHead,
+#researchDetailsHead,
+#sympDetailsHead{
+    background-color: gray;
+    height: 60px;
+    text-align: center;
+    padding-top: 18px;
+    font: normal 18pt "Avenir Next Medium", Helvetica, Arial, sans-symp-headserif;
+    color: white;
+    text-shadow: -1pt 1pt #756d6f;
+    border-radius: 10px 10px 0px 0px;
+}
+#omniListArea #omniDetails .boxEntry,
+#infoListArea #infoDetails .boxEntry,
+#symp-ListArea #symp-Details .boxEntry{
+    padding: 15px 25px 30px 40px;
+    font: 12px "Avenir Next", Helvetica, Arial, sans-serif;
+}
+#omniListArea #omniDetails .boxEntry:after,
+#infoListArea #infoDetails .boxEntry:after,
+#symp-ListArea #symp-Details .boxEntry:after{
+    content: url('../img/icons/smallArrow.png');
+    float: right;
+    clear: right;
+}
+#omniDetails,
+#infoDetails {
+    padding-top: 20px;
+}
+#omniresult,
+#infoResult ,
+#sympResult{
+    position: absolute;
+    left: 20px;
+    top: 28px;
+    font: bold 13px "Avenir Next", Helvetica, Arial, sans-serif;
+}
+#search_omniPediaDetails #magnify {
+    position: absolute;
+    top: 2px;
+    height: 20px;
+    left: 3px;
+}
+#search_omniPediaDetails #clrBtn {
+    height: 20px;
+    margin-top: 0px;
+    top: 4px;
+    position: absolute;
+    right: 5px;
+}
+#onmi_search,
+#symp_search{
+    position: absolute;
+    top: 3px;
+    left: 35px;
+    border: none;
+    width: 145px;
+}
+#interactionsContainter {
+    height: 410px;
+    background-color: #EEEEEE;
+    margin: 20px;
+    position: relative;
+    border-radius: 10px;
+}
+#interactionsContainter2 {
+    height: 250px;
+    background-color: white;
+    margin: 20px;
+    padding-top: 20px;
+    border-radius: 10px;
+}
+#interactionsList1 {
+    height: 350px;
+    background-color: white;
+    float: left;
+    width: 295px;
+    position: relative;
+    margin: 0px 10px 10px 10px;
+    border: 1px solid lightgray;
+    border-radius: 0px 10px 10px 10px;
+}
+#interactionsList2 {
+    float: right;
+    height: 280px;
+    background-color: white;
+    width: 220px;
+    margin-right: 10px;
+    margin-top: 0px;
+    position: relative;
+    box-shadow: 1px 3px 5px 1px;
+    border-radius: 5px;
+}
+#interactionsList2Inner {
+    background-color: #fff6e0;
+    margin: 5px;
+    height: 269px;
+    border-right: 1px solid;
+    border-left: 1px solid;
+    border-radius: 5px;
+    border-color: lightgray;
+}
+#checkBtn {
+    color: white;
+    position: absolute;
+    text-align: center;
+    height: 45px;
+    width: 205px;
+    padding-top: 15px;
+    background-image: linear-gradient(bottom, #7e8b93 0%, #b2babe 85%);
+    background-image: -webkit-linear-gradient(bottom, #7e8b93 50%, #b2babe 85%);
+    background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0.5, #7e8b93), color-stop(0.85, #b2babe));
+    font-weight: bold;
+    bottom: 0px;
+    right: 10px;
+    margin: 12px;
+    border-radius: 10px;
+    margin: 10px 5px 10px 0px;
+}
+.imgSpace {
+    margin-top: 30px;
+}
+.imgSpace img {
+    float: left;
+}
+.imgSpace p {
+    padding-left: 50px;
+}
+#interaction-tabs {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    background: #EEEEEE;
+    color: white;
+    padding-top: 15px;
+}
+#interaction-tabs li {
+    display: inline-block;
+    width: 40%;
+    text-align: center;
+    padding: 10px 5px;
+    color: #2f3137;
+    text-shadow: 0 1px 1px #fff;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    position: relative;
+    font: bold 14px "Avenir Next", Helvetica, Arial, sans-serif;
+    background-color: #cccccc;
+}
+#interaction-tabs li:active,
+#risk-factor-tabs li:active {
+    background-image: linear-gradient(bottom, #ffffff 0%, #cccccc 85%);
+    background-image: -webkit-linear-gradient(bottom, #ffffff 0%, #cccccc 85%);
+    background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #ffffff), color-stop(0.85, #cccccc));
+}
+#interaction-tabs li.selected {
+    background-color: #fff;
+    background-image: none;
+}
+#risk-factor-tabs li.selected {
+    background-color: #fff;
+    background-image: none;
+    border-top: 1px solid;
+    border-right: 1px solid;
+    border-left: 1px solid;
+    border-color: lightgray;
+    z-index: 5;
+}
+#tools-tabs li.selected {
+    background-color: #fff;
+    background-image: none;
+    border-top: 1px solid;
+    border-right: 1px solid;
+    border-left: 1px solid;
+    border-color: lightgray;
+    z-index: 5;
+}
+#tabs {
+    width: 310px;
+    margin-left: 10px;
+}
+#inter-myMedia {
+    height: 100%;
+    width: 100%;
+    visibility: hidden;
+    padding-top: 15px;
+}
+#inter-search {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0px;
+    visibility: hidden;
+}
+#inter-myMedia div {
+    height: 40px;
+    position: relative;
+    margin-left: 10px;
+    padding-top: 10px;
+}
+#inter-plus {
+    float: right;
+    margin-right: 20px;
+}
+#inter-minus {
+    float: right;
+    margin-right: 20px;
+}
+#inter-myMedia div p {
+    top: -10px;
+    position: absolute;
+    font: bold 12px "Avenir Next", Helvetica, Arial, sans-serif;
+}
+#inter-list2 div {
+    height: 40px;
+    position: relative;
+    margin-left: 10px;
+    padding-top: 10px;
+}
+#inter-list2 div p {
+    top: 0px;
+    position: absolute;
+    font: bold 12px "Avenir Next", Helvetica, Arial, sans-serif;
+}
+#interaction-headline2 {
+    position: absolute;
+    right: 45px;
+    top: 25px;
+    font: bold 14px "Avenir Next", Helvetica, Arial, sans-serif;
+}
+#search_interaction {
+    border: 2px solid;
+    height: 30px;
+    border-radius: 20px;
+    margin: 15px;
+    position: relative;
+}
+#inter-searchList {
+    height: 100%;
+    width: 100%;
+    padding-top: 15px;
+}
+#inter-searchList div {
+    height: 40px;
+    position: relative;
+    margin-left: 10px;
+    padding-top: 10px;
+}
+#inter-searchList div p {
+    top: -10px;
+    position: absolute;
+}
+#riskBtn {
+    background: url(../img/research/bu-risk-factor-navigator.png);
+}
+#assistantBtn {
+    background: url(../img/research/bu-decision-assistant.png);
+}
+#risk-tabs {
+    margin-top: 5%;
+    margin-left: 20px;
+}
+#risk-tab-area {
+    height: 80%;
+    background-color: white;
+    margin: 0px 0px 0px 10px;
+    width: 96%;
+    border: 1px solid lightgray;
+    margin-top: -1px;
+    border-radius: 10px;
+    position: relative;
+    padding: 8px;
+}
+#risk-factor-tabs li {
+    display: inline-block;
+    width: 42%;
+    text-align: center;
+    padding: 10px 5px;
+    color: #2f3137;
+    text-shadow: 0 1px 1px #fff;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    position: relative;
+    background-image: linear-gradient(bottom, #cccccc 0%, #ffffff 85%);
+    background-image: -webkit-linear-gradient(bottom, #cccccc 0%, #ffffff 85%);
+    background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #cccccc), color-stop(0.85, #ffffff));
+    font: bold 12px "Avenir Next", Helvetica, Arial, sans-serif;
+}
+#tools-tabs,
+#assistant-tabs {
+    margin: 10px 0px 0px 10px;
+}
+#tools-tab-area,
+#assistant-tab-area {
+    background-color: white;
+    margin: 0px 0px 0px 10px;
+    width: 96%;
+    border: 1px solid lightgray;
+    margin-top: -1px;
+    border-radius: 5px 10px 10px 10px;
+    position: relative;
+    padding: 8px;
+}
+#tools-tabs li {
+    display: inline-block;
+    width: 15%;
+    text-align: center;
+    padding: 10px 5px;
+    color: #2f3137;
+    text-shadow: 0 1px 1px #fff;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    position: relative;
+    font: bold 12px "Avenir Next", Helvetica, Arial, sans-serif;
+    background-color: darkgray;
+}
+#lifestyle-risk p {
+    margin-left: 10px;
+}
+#risk-details {
+    font: 12px "Avenir Next", Helvetica, Arial, sans-serif;
+}
+#risk-headlines {
+    font: bold 13px "Avenir Next", Helvetica, Arial, sans-serif;
+}
+#general-riskBtn,
+.conditionBtn {
+    background: url(../img/research/risk-factor/bu-pink-bar.png);
+    height: 40px;
+    width: 270px;
+    padding-top: 10px;
+    font: bold 13px "Avenir Next", Helvetica, Arial, sans-serif;
+    padding-left: 15px;
+}
+#lifestyle-headline {
+    font: bold 14px "Avenir Next", Helvetica, Arial, sans-serif;
+    margin-bottom: 15px;
+    margin-left: 10px;
+}
+#risk-logo {
+    position: absolute;
+    right: 47px;
+    top: 100px;
+}
+.conditionBtn {
+    margin-bottom: 10px;
+}
+#lifestlye-assess {
+    float: right;
+}
+#condition-assess {
+    float: left;
+}
+.risk-backBtn {
+    background: url(../img/research/risk-factor/bu-back.png);
+    height: 27px;
+    width: 59px;
+    position: absolute;
+    top: 20px;
+    left: 15px;
+}
+#risk-sendBtn {
+    background: url(../img/research/risk-factor/bu-send.png) no-repeat;
+    height: 20px;
+    width: 23px;
+    margin-right: 20px;
+    float: left;
+}
+#risk-shareBtn {
+    background: url(../img/research/risk-factor/bu-share.png) no-repeat;
+    height: 19px;
+    width: 21px;
+    float: right;
+}
+#risk-rightBtn {
+    position: absolute;
+    top: 18px;
+    right: 30px;
+}
+#risk-sendBtn div {
+    font: 11px "Avenir Next", Helvetica, Arial, sans-serif;
+    position: absolute;
+    top: 22px;
+    left: -2px;
+}
+#risk-shareBtn div {
+    font: 11px "Avenir Next", Helvetica, Arial, sans-serif;
+    position: absolute;
+    top: 22px;
+    right: -2px;
+}
+#riskDeatils-headlines {
+    font: bold 15px "Avenir Next", Helvetica, Arial, sans-serif;
+    margin-bottom: 10px;
+    margin-top: 35px;
+}
+.risk-commonText {
+    font: 11px "Avenir Next", Helvetica, Arial, sans-serif;
+    line-height: 25px;
+}
+#risk-factorDetails {
+    margin: 35px 30px 10px 25px;
+}
+.brown-headline {
+    color: #5a4d38;
+    font: bold 14px "Avenir Next", Helvetica, Arial, sans-serif;
+}
+#startImg {
+    background: url(../img/research/risk-factor/bu-arrow-pink-right.png) no-repeat;
+    width: 110px;
+    height: 45px;
+    margin: 0 auto;
+}
+#startImg div,#angio-startBtn div {
+    padding: 12px 10px 10px 30px;
+    font: bold 15px "Avenir Next", Helvetica, Arial, sans-serif;
+}
+.research-left {
+    position: absolute;
+    width: 240px;
+    font: bold 12px "Avenir Next Demi", Helvetica, Arial, sans-serif;
+}
+.research-right {
+    position: absolute;
+    width: 240px;
+    font: bold 12px "Avenir Next Demi", Helvetica, Arial, sans-serif;
+    right: 60px;
+}
+.research-right-text {
+    position: absolute;
+    top: 7px;
+    left: 35px;
+}
+#gender {
+    height: 60px;
+    /*border: 1px solid;*/
+
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.line {
+    border-bottom: 1px solid;
+    border-color: #bbb6b7;
+    width: 100%;
+    height: 1px;
+}
+#age {
+    height: 210px;
+    /*border: 1px solid;*/
+
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+#symptoms {
+    margin-top: 10px;
+    height: 65px;
+}
+#center-btns {
+    margin: 0 auto;
+    width: 220px;
+    position: relative;
+    height: 100px;
+    margin-top: 30px;
+    overflow: hidden;
+}
+#prevImg {
+    background: url(../img/research/risk-factor/bu-arrow-pink-left.png) no-repeat;
+    width: 110px;
+    height: 45px;
+    margin: 0 auto;
+    float: left;
+}
+#nextImg {
+    background: url(../img/research/risk-factor/bu-arrow-pink-right.png) no-repeat;
+    width: 110px;
+    height: 45px;
+    margin: 0 auto;
+    float: right;
+}
+#nextImg div,
+#prevImg div {
+    padding: 12px 10px 10px 30px;
+    font: bold 14px "Avenir Next", Helvetica, Arial, sans-serif;
+}
+.gray-headline {
+    color: #8d8687;
+    font: bold 12px "Avenir Next", Helvetica, Arial, sans-serif;
+    position: absolute;
+    top: 6px;
+    left: 35px;
+}
+brown-headline div {
+    position: relative;
+}
+#allergySym li {
+    display: list-item;
+    list-style-type: disc;
+}
+#leftAlignText {
+    width: 390px;
+    float: left;
+}
+#allergySym {
+    margin-left: 35px;
+}
+#rightAlignImg {
+    height: 110px;
+    width: 120px;
+    border: 1px solid;
+}
+#middleText {
+    height: 100px;
+}
+#rightData {
+    right: 15px;
+    position: absolute;
+}
+#moreDetails {
+    background: url(../img/research/risk-factor/bu-more-details.png) no-repeat;
+    height: 25px;
+    width: 110px;
+    margin-left: 5px;
+}
+#popupDeatils {
+    width: 83%;
+    background-color: white;
+    position: absolute;
+    top: 0px;
+    margin: 50px;
+    border-radius: 10px;
+    overflow: hidden;
+    display: none;
+    z-index: 999;
+}
+#research-popupHead {
+    background-color: #ffcefc;
+    height: 30px;
+    width: 100%;
+}
+#researchCloseBtn,#angioCloseBtn {
+    float: right;
+    margin-top: 7px;
+    margin-right: 5px;
+}
+#popup-inner {
+    padding: 15px 50px 10px 30px;
+}
+#research-popupImg {
+    height: 345px;
+    width: 405px;
+    border: 1px solid;
+    margin-top: 10px;
+    box-shadow: -2px -2px 2px;
+}
+#modalMask1 {
+    display: none;
+    position: absolute;
+    background-color: #000000;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 10;
+    opacity: 0.3;
+    text-align: center;
+}
+.toolsImg {
+    float: right;
+    margin-right: 15px;
+    margin-top: 15px;
+}
+#toolsBodyMass {
+    margin: 10px 10px 10px 15px;
+}
+#tools-bodyMass-cal {
+    height: 260px;
+    padding-top: 10px;
+}
+#bodyMassCal div {
+    margin-bottom: 5px;
+}
+.toolsCalInputType {
+    outline: none;
+    height: 30px;
+    border-radius: 5px;
+    border: 1px solid;
+    border-color: lightgray;
+    width: 125px;
+    margin-bottom: 6px;
+    margin-right: 10px;
+    font: 12px "Avenir Next", Helvetica, Arial, sans-serif;
+}
+#bodyMassCal {
+    float: left;
+    border: 1px solid;
+    border-radius: 10px;
+    height: 235px;
+    width: 290px;
+    padding: 10px 0px 10px 10px;
+    background-color: #fffeec;
+    border-color: lightgray;
+    box-shadow: 0px 0px 1px 0px;
+}
+.gray-bigHeadline {
+    color: #8d8687;
+    font: bold 14px "Avenir Next", Helvetica, Arial, sans-serif;
+}
+#bodyStatus {
+    width: 95%;
+}
+#bodyMassSubmit,
+#calorieSubmit,
+#heartRateSubmit,
+#weightSubmit,
+#nutritionSubmit,
+#waistSubmit{
+    background-color: #fed790;
+    border-radius: 5px;
+    height: 30px;
+    width: 125px;
+    font: bold 14px "Avenir Next", Helvetica, Arial, sans-serif;
+    text-align: center;
+    margin-top: 10px;
+    padding-top: 5px;
+    color: #8d8687;
+}
+#tools-tabs li.selected,
+#assistant-tabs li.selected {
+    background-color: #fff;
+    background-image: none;
+    border-top: 1px solid;
+    border-right: 1px solid;
+    border-left: 1px solid;
+    border-color: lightgray;
+    z-index: 5;
+}
+#tab-surgeries {
+    margin: 10px;
+}
+#assistant-tabs li {
+    width: 23%;
+    font: bold 10px "Avenir Next", Helvetica, Arial, sans-serif;
+    display: inline-block;
+    text-align: center;
+    padding: 10px 5px;
+    color: #2f3137;
+    text-shadow: 0 1px 1px #fff;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    position: relative;
+    background-color: darkgray;
+}
+.assistanceBtn {
+    background: url(../img/research/assistant/bu-tan-button-bar.png);
+    height: 40px;
+    width: 270px;
+    padding-top: 10px;
+    font: bold 13px "Avenir Next", Helvetica, Arial, sans-serif;
+    padding-left: 15px;
+    margin-bottom: 5px;
+}
+#assestant-surgries {
+    height: 320px;
+}
+.floatLeft {
+    float: left;
+}
+.floatRight {
+    float: right;
+}
+.headLine{
+    font: bold 15px "Avenir Next", Helvetica, Arial, sans-serif;
+}
+
+#assistantListArea {
+    margin: 10px 35px 10px 15px;
+}
+
+#angioTextArea li {
+    display: list-item;
+    list-style-type: disc;
+    margin-left: 30px;
+}
+
+#angioImg {
+    height: 300px;
+    border: 1px solid;
+    margin: 5px 35px 5px 35px;
+}
+
+#angioUpperAnimation{
+    background: url("../img/research/assistant/bg-fade-tan-gray.png");
+    height: 90px;
+    border: 1px solid;
+    box-shadow: 0px 0px 2px 0px;
+    border-color: lightgray;
+}
+
+#animation-smallImg{
+    height: 65px;
+    width: 65px;
+    border: 1px solid;
+    margin: 10px 10px 10px 20px;
+    float: left;
+}
+
+#angioArrow{
+    background: url("../img/research/assistant/arrow-points-right.png");
+    height: 25px;
+    width: 75px;
+    float: left;
+    margin: 5px 0px 0px 20px;
+}
+
+#angioInnerText{
+    float: right;
+    color: #8d8687;
+    font: bold 12px "Avenir Next", Helvetica, Arial, sans-serif;
+    margin-top: 25px;
+    margin-right: 35px;
+}
+
+#angioMoreDetails{
+    background: url(../img/research/risk-factor/bu-more-details.png) no-repeat;
+    height: 25px;
+    width: 110px;
+    margin-left: 12px;
+}
+
+
+#angio-startBtn {
+    background: url(../img/research/assistant/bu-tan-arrow-right.png) no-repeat;
+    width: 110px;
+    height: 45px;
+    margin: 0 auto;
+}
+
+.assistant-commonText {
+    font: 11px "Avenir Next", Helvetica, Arial, sans-serif;
+    line-height: 25px;
+}
+
+.checkBox{
+    background: url(../img/research/assistant/bu-checkbox-tan-off.png) no-repeat;
+
+    height: 30px;
+    float: left;
+    width: 30px;
+}
+
+.check-list{
+    font: 12px "Avenir Next", Helvetica, Arial, sans-serif;
+    height: 35px;
+}
+
+.check-text {
+    margin-top: 8px;
+    padding-top: 3px;
+    margin-top: 8px;
+}
+
+
+#angio-prevImg,
+#angio-step2-prevImg{
+    background: url(../img/research/assistant/bu-tan-arrow-left.png) no-repeat;
+    width: 110px;
+    height: 45px;
+    margin: 0 auto;
+    float: left;
+}
+#angio-nextImg,
+#angio-step2-nextImg{
+    background: url(../img/research/assistant/bu-tan-arrow-right.png) no-repeat;
+    width: 110px;
+    height: 45px;
+    margin: 0 auto;
+    float: right;
+}
+#angio-nextImg div,
+#angio-prevImg div,
+#angio-step2-prevImg div,
+#angio-step2-nextImg div{
+    padding: 12px 10px 10px 30px;
+    font: bold 14px "Avenir Next", Helvetica, Arial, sans-serif;
+}
+
+.angioGray-headline {
+    color: #8d8687;
+    font: bold 11px "Avenir Next", Helvetica, Arial, sans-serif;
+    position: absolute;
+    top: 0px;
+    left: 35px;
+}
+
+.angio-box{
+    background-color: #fff6e0;
+    margin-left: 35px;
+    padding:10px;
+
+}
+
+#angio-popupHead{
+    background: url(../img/research/assistant/bg-fade-tan-gray.png) no-repeat;
+    height: 30px;
+}
+
+#angio-popupImg{
+    border: 1px solid;
+    height: 280px;
+}
+
+#phyActivity{
+    width: 265px;
+}
+
+#tools-age-cal {
+    height: 160px;
+    padding-top: 10px;
+}
+
+#ageCal{
+    float: left;
+    border: 1px solid;
+    border-radius: 10px;
+    height: 125px;
+    width: 290px;
+    padding: 10px 0px 10px 10px;
+    background-color: #fffeec;
+    border-color: lightgray;
+    box-shadow: 0px 0px 1px 0px;
+}
+
+
+#heartRateImg{
+    float: right;
+    margin-right: 15px;
+    margin-top: -5px;
+}
+
+#ageLabel{
+    margin-bottom: 10px;
+    margin-left: 10px;
+}
+
+#tools-nutrition-cal{
+    height: 385px;
+    padding-top: 10px;
+}
+
+#nutritionCal {
+    float: left;
+    border: 1px solid;
+    border-radius: 10px;
+    height: 370px;
+    width: 290px;
+    padding: 10px 0px 10px 10px;
+    background-color: #fffeec;
+    border-color: lightgray;
+    box-shadow: 0px 0px 1px 0px;
+}
+
+#nutritionCal div{
+    margin-bottom: 8px;
+}
+
+#symp-tab-area{
+    background-color: white;
+    margin: 0px 0px 0px 10px;
+    width: 96%;
+    border: 1px solid lightgray;
+    margin-top: -1px;
+    border-radius: 0px 10px 10px 10px;
+    position: relative;
+}
+
+#sympBtn{
+    background: url(../img/research/bu-symptom-navigator.png);
+}
+
+#symp-tabs{
+    margin-top: 5%;
+    margin-left: 10px;
+}
+
+#symptoms-tabs li {
+    display: inline-block;
+    width: 25%;
+    text-align: center;
+    padding: 10px 5px;
+    color: #2f3137;
+    text-shadow: 0 1px 1px #fff;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    position: relative;
+    background-color: gray;
+    font: bold 12px "Avenir Next", Helvetica, Arial, sans-serif;
+}
+
+#symptoms-tabs li.selected {
+    background-color: #fff;
+    background-image: none;
+    border-top: 1px solid;
+    border-right: 1px solid;
+    border-left: 1px solid;
+    border-color: lightgray;
+    z-index: 5;
+}
+
+.sympCommonDiv{
+    box-shadow: 0px 3px 4px 0px;
+    padding: 2px;
+}
+
+#showMeLeft{
+    float: left;
+    width: 300px;
+}
+
+#showMeRight{
+    float: right;
+    width: 210px;
+}
+
+#sympInnerLeft{
+    padding-top: 30px;
+}
+
+#sympInnerRight{
+    background-color: #f8f9f9;
+}
+
+#sympListHeading{
+    font: bold 13px "Avenir Next", Helvetica, Arial, sans-serif;
+    height: 35px;
+}
+
+.sympInner{
+    border-left: 1px solid lightgray;
+    border-right: 1px solid lightgray;
+    height: 100%;
+    width: 100%;
+}
+
+#sympLeftBtns select{
+    width: 70px;
+    margin-left: 10px;
+}
+
+#humanBody{
+    height: 380px;
+    border: 1px solid;
+    margin-bottom: 10px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.sympDark{
+    background-color: #ebebeb;
+    height: 30px;
+    font: 12px "Avenir Next", Helvetica, Arial, sans-serif;
+    padding: 8px;
+}
+
+.sympLight{
+    background-color: #f8f9f9;
+    height: 30px;
+    font: 12px "Avenir Next", Helvetica, Arial, sans-serif;
+    padding: 8px;
+}
+
+#showMeHeading{
+    font: bold 15px "Avenir Next", Helvetica, Arial, sans-serif;
+    float: left;
+}
+
+#showMeHead{
+    padding: 10px;
+    height: 45px;
+    margin-bottom: 20px;
+}
+
+#showMeBtn{
+    float: right;
+    width: 75px;
+    font: bold 10px "Avenir Next", Helvetica, Arial, sans-serif;
+}
+
+#showMeShare , #showMeClose{
+    margin-right: 10px;
+    text-align: center;
+    width: 30px;
+    float: left;
+}
+
+
+#showMeClose{
+    float: right;
+    margin-right: 0px;
+}
+
+#showMeShare{
+    padding-top: 1px;
+}
+
+#showMeOuter{
+    background-image: linear-gradient(bottom, #ffffff 75%, #cccccc 100%);
+    background-image: -webkit-linear-gradient(bottom, #ffffff 75%, #cccccc 100%);
+    background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0.75, #ffffff), color-stop(1, #cccccc));
+    margin: 20px;
+}
+
+#showMeText{
+    margin: 10px;
+    line-height: 10px;
+}
+
+.symp-commonText{
+    font: 11px "Avenir Next", Helvetica, Arial, sans-serif;
+    line-height: 15px;
+}
+
+#showMeText li{
+    display: list-item;
+    list-style-type: disc;
+    margin-left: 30px;
+}
+
+#symp-ad{
+    height: 100px;
+    background-image: linear-gradient(bottom, #ffffff 0%, #cccccc 100%);
+    background-image: -webkit-linear-gradient(bottom, #ffffff 0%, #cccccc 100%);
+    background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #ffffff), color-stop(1, #cccccc));
+}
+
+#symp-ad1{
+    border: 1px solid;
+    box-shadow: 0px 3px 4px 0px;
+    height: 80px;
+    width: 115px;
+    float: right;
+    margin: 10px;        
+}
+
+#symp-List{
+    background-color: white;
+    padding: 2px 2px 1px 1px;
+    border-radius: 10px 10px 10px 10px;
+    font: 14px "Avenir Next Demi", Helvetica, Arial, sans-serif;
+    position: relative;
+    padding-bottom: 2px;
+    margin-left: 2%;
+width: 96%;
+}
+
+sympResult {
+    position: absolute;
+    left: 20px;
+    top: 28px;
+    font: bold 13px "Avenir Next", Helvetica, Arial, sans-serif;
+}
+
+#symp-ListArea {
+    margin-top: 60px;
+}
+
+#showMeMain{
+    margin: 20px;
+    height: 520px;
+}
+
+#symp-List-Deatils{
+    margin-top: 60px;
+}
+
+#search_symp{
+    top: 20px;
+    right: 10px;
+    position: absolute;
+    border: 2px solid;
+    border-radius: 20px;
+    margin-top: 0px;
+    width: 220px;
+    margin-right: 5px;
+    border-color: gray;
+    height: 28px;
+}
+
+.sympHeadLine{
+    font: bold 18pt "Avenir Next Demi", Helvetica, Arial, sans-serif;
+    color: #5a4d38;
+}
+
+#sympData li{
+    display: list-item;
+    list-style-type: disc;
+    margin-left: 30px;
+    font: 11px "Avenir Next", Helvetica, Arial, sans-serif;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+#medicine #selector {
+    padding-bottom: 20px;
+}
+#medicineBar {
+    display: inline-block;
+    width: 100%;
+    padding: 10px;
+}
+#medicineBar #searchImg {
+    position: absolute;
+    left: 20px;
+    top: 15px;
+}
+#medicineBar #medSearch {
+    padding-left: 4%;
+    border-radius: 15px;
+    width: 35%;
+}
+#medicineBar #medicineOptions {
+    float: right;
+}
+#medicineBar #medicineOptions #viewOpt {
+    padding-right: 5px;
+}
+.medWrap {
+    background: white;
+    width: 90%;
+    margin-right: auto;
+    margin-left: auto;
+    border-radius: 8px;
+}
+.medWrap .medCab {
+    background: url('../img/medicine/med-cab-bg.png') center no-repeat;
+    background-size: 86% 100%;
+    overflow: hidden;
+    padding-bottom: 20%;
+}
+.medWrap .medCab .shelf {
+    margin-bottom: -120px;
+}
+.medWrap .medCab #shelf1,
+.medWrap .medCab #shelf2,
+.medWrap .medCab #shelf3 {
+    position: relative;
+    top: 25px;
+}
+.medWrap .medCab #shelf1 ul,
+.medWrap .medCab #shelf2 ul,
+.medWrap .medCab #shelf3 ul {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.medWrap .medCab #shelf1 li,
+.medWrap .medCab #shelf2 li,
+.medWrap .medCab #shelf3 li {
+    width: 32%;
+}
+.medWrap .medCab #shelf1 li img,
+.medWrap .medCab #shelf2 li img,
+.medWrap .medCab #shelf3 li img {
+    width: 85%;
+}
+#notifications {
+    position: absolute;
+    top: 250px;
+    right: 30%;
+    width: 40%;
+    z-index: 999;
+}
+#notification {
+    text-align: center;
+    background-image: linear-gradient(bottom, #464646 0%, #1f1f1f 65%, #2e2e2e 21%, #525252 90%, #6b6b6b 100%);
+    background-image: -webkit-linear-gradient(bottom, #464646 0%, #1f1f1f 65%, #2e2e2e 21%, #525252 90%, #6b6b6b 100%);
+    background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #464646), color-stop(0.65, #1f1f1f), color-stop(0.21, #2e2e2e), color-stop(0.9, #525252), color-stop(1, #6b6b6b));
+    border-radius: 10px;
+    padding: 5px;
+    box-shadow: 2px 2px 5px #000000;
+}
+#notification h2 {
+    font: bold 16px "Avenir Next", Helvetica, Arial, sans-serif;
+    color: #ffffff;
+}
+#notification p {
+    font: normal 14px "Avenir Next", Helvetica, Arial, sans-serif;
+    padding-top: 25px;
+    text-align: center;
+}
+#notification li {
+    width: 100px;
+}
+#modalMask {
+    display: none;
+    position: absolute;
+    background-color: #000000;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 10;
+    opacity: 0.3;
+    text-align: center;
+}
+#modalMask img {
+    margin-top: 250px;
+    height: 80px;
 }
 
 #news-and-information {
@@ -2044,6 +3538,7 @@ section#widgetScreen #scrollWrapper {
 }
 #goals {
     padding: 15px;
+    padding-bottom: 100px;
 }
 #goals h1 {
     color: #2b6891;
@@ -2102,10 +3597,9 @@ section#widgetScreen #scrollWrapper {
     padding: 15px;
 }
 #alerts h1 {
-
-  color: #2b6891;
-  margin: 25px 0 15px 0;
-  font: bold 20px "Avenir Next", Helvetica, Arial, sans-serif;
+    color: #2b6891;
+    margin: 25px 0 15px 0;
+    font: bold 20px "Avenir Next", Helvetica, Arial, sans-serif;
 }
 #alerts #add-alert {
     -webkit-border-radius: 8px;
@@ -2203,7 +3697,7 @@ section#widgetScreen #scrollWrapper {
     padding: 30px 20px 15px 0px;
     display: block;
     margin: 0 auto;
-    font: bold 13px "Avenir Next", Helvetica, Arial, sans-serif;
+    font: bold 13px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
 }
 #main-nav li.selected {
     border-top-left-radius: 8px;
@@ -2221,6 +3715,7 @@ section#widgetScreen #scrollWrapper {
     font-size: 10pt;
     margin-top: 5px;
 }
+/*<<<<<<< HEAD*/
 #main-nav #home div {
     height: 30px;
     background: url(../img/nav/HomeWhite.png);
@@ -2324,6 +3819,49 @@ max-height: 500px;
     background-repeat: no-repeat;
     background-position: center;
     /*    content: url('../img/nav/LibraryDark.png');*/
+/*=======
+#main-nav #home img {
+    content: url('../img/nav/HomeWhite.png');
+}
+#main-nav #home.selected img {
+    content: url('../img/nav/HomeDark.png');
+}
+#main-nav #widgets img {
+    content: url('../img/nav/WidgetsWhite.png');
+}
+#main-nav #widgets.selected img {
+    content: url('../img/nav/WidgetsDark.png');
+}
+#main-nav #healthHub img {
+    content: url('../img/nav/HubWhite.png');
+}
+#main-nav #healthHub.selected img {
+    content: url('../img/nav/HubDark.png');
+}
+#main-nav #medicine img {
+    content: url('../img/nav/CabinetWhite.png');
+}
+#main-nav #medicine.selected img {
+    content: url('../img/nav/CabinetDark.png');
+}
+#main-nav #connect img {
+    content: url('../img/nav/ConnectWhite.png');
+}
+#main-nav #connect.selected img {
+    content: url('../img/nav/ConnectDark.png');
+}
+#main-nav #calendar img {
+    content: url('../img/nav/CalendarWhite.png');
+}
+#main-nav #calendar.selected img {
+    content: url('../img/nav/CalendarDark.png');
+}
+#main-nav #library img {
+    content: url('../img/nav/LibraryWhite.png');
+}
+#main-nav #library.selected img {
+    content: url('../img/nav/LibraryDark.png');
+>>>>>>> sprint5*/
 }
 #top-bar {
     height: 55px;
@@ -2560,9 +4098,12 @@ max-height: 500px;
 #tableContainer #calTable .today {
     background-color: #7fb0db;
 }
+section#month {
+    padding-bottom: 50px;
+}
 section#month h2 {
     color: #2b6891;
-    font: bold 15px "Avenir Next Heavy", Helvetica, Arial, sans-serif;
+    font: bold 15px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
 }
 #evt_div {
     text-align: center;
@@ -2586,9 +4127,9 @@ section#month h2 {
     width: 40%;
     display: block;
     display: none;
-    top: 120px;
-    left: 190px;
-    -moz-border-radius: 20px;border-radius: 20px;
+    top: 25%;
+    left: 30%;
+    -moz-border-radius: 20px;
     -webkit-border-radius: 20px;
     /*  box-shadow: 10px 10px 5px #888888;*/
 
@@ -2778,12 +4319,12 @@ section#insights h1 {
     height: 25px;
 }
 #healthHub-content {
-  padding-bottom: 30px;
+    padding-bottom: 30px;
 }
 @media only screen and (orientation: landscape) {
-  #healthHub-content {
-    padding-bottom: 50px;
-  }
+    #healthHub-content {
+        padding-bottom: 80px;
+    }
 }
 #viewBtn {
     float: right;
@@ -2893,155 +4434,155 @@ section#insights h1 {
 }
 
 #myWidgets .showPage {
-  padding: 0px;
+    padding: 0px;
 }
 #myWidgets .action {
-  background: #fff;
-  border: 0px solid #1f1f1f;
-  width: 12%;
-  min-height: 100px;
-  min-width: 76px;
-  max-width: 100px;
-  text-align: center;
-  margin: 8px 0px 0px 0px;
-  font-size: 12px;
-  color: #777;
+    background: #fff;
+    border: 0px solid #1f1f1f;
+    width: 12%;
+    min-height: 100px;
+    min-width: 76px;
+    max-width: 100px;
+    text-align: center;
+    margin: 8px 0px 0px 0px;
+    font-size: 12px;
+    color: #777;
 }
 #myWidgets .action:active {
-  opacity: 0.5;
+    opacity: 0.5;
 }
 #myWidgets img {
-  width: 74px;
-  pointer-events: none;
+    width: 74px;
+    pointer-events: none;
 }
 #mywidgets {
-  background: #ffffff url('../img/widgets/bg-widget-divider-bar-fade.png') repeat-x bottom;
-  padding-bottom: 28px;
+    background: #ffffff url('../img/widgets/bg-widget-divider-bar-fade.png') repeat-x bottom;
+    padding-bottom: 28px;
 }
 #suggestedWidgets .widget_panel,
 #widgetStore .widget_panel {
-  background: #cccccc url('../img/widgets/widgetpngfiles/widgetbg.png') no-repeat 50% top;
-  background-size: 100% 100%;
-  width: 140px;
-  height: 210px;
-  text-align: center;
-  margin: 15px 4px;
-  padding: 12px 6px;
-  color: #777;
-  overflow: hidden;
-  vertical-align: top;
+    background: #cccccc url('../img/widgets/widgetpngfiles/widgetbg.png') no-repeat 50% top;
+    background-size: 100% 100%;
+    width: 140px;
+    height: 210px;
+    text-align: center;
+    margin: 15px 4px;
+    padding: 12px 6px;
+    color: #777;
+    overflow: hidden;
+    vertical-align: top;
 }
 #suggestedWidgets .widget_panel h1,
 #widgetStore .widget_panel h1 {
-  font: bold 14px "Avenir Next", Helvetica, Arial, sans-serif;
-  color: #000;
-  margin: 0px;
-  padding: 4px 8px;
-  text-align: left;
+    font: bold 14px "Avenir Next", Helvetica, Arial, sans-serif;
+    color: #000;
+    margin: 0px;
+    padding: 4px 8px;
+    text-align: left;
 }
 #suggestedWidgets .widget_panel p,
 #widgetStore .widget_panel p {
-  font: 14px "Avenir Next", Helvetica, Arial, sans-serif;
-  color: #777;
-  margin: 0px;
-  padding: 0px 8px;
-  text-align: left;
-  overflow: none;
+    font: 14px "Avenir Next", Helvetica, Arial, sans-serif;
+    color: #777;
+    margin: 0px;
+    padding: 0px 8px;
+    text-align: left;
+    overflow: none;
 }
 #suggestedWidgets img,
 #widgetStore img {
-  width: 80px;
+    width: 80px;
 }
 #widgetStore h1 {
-  display: inline;
+    display: inline;
 }
 #widgetStore #selector {
-  margin: 30px 0 20px 0;
-  background-color: #fff;
+    margin: 30px 0 20px 0;
+    background-color: #fff;
 }
 #widgetStore #selector #search_store {
-  border: 3px solid #ccc;
-  border-radius: 15px;
-  float: right;
-  padding: 3px 15px;
+    border: 3px solid #ccc;
+    border-radius: 15px;
+    float: right;
+    padding: 3px 15px;
 }
 #widgetStore #selector #search_store img {
-  width: 15px;
-  height: 15px;
+    width: 15px;
+    height: 15px;
 }
 #widgetStore #selector #search_store #search {
-  border: 1px solid #fff;
+    border: 1px solid #fff;
 }
 #widgetdetails {
-  color: #000;
+    color: #000;
 }
 #widgetdetails .left {
-  width: 28%;
-  float: left;
+    width: 28%;
+    float: left;
 }
 #widgetdetails .left #iconw {
-  width: 90%;
+    width: 90%;
 }
 #widgetdetails .left #install {
-  background: #fee9c9;
-  border-radius: 10px;
-  width: 80%;
-  margin: 0px 10px;
-  padding: 3px 8px 13px;
+    background: #fee9c9;
+    border-radius: 10px;
+    width: 80%;
+    margin: 0px 10px;
+    padding: 3px 8px 13px;
 }
 #widgetdetails .left #install #plus {
-  position: relative;
-  top: 6px;
-  display: inline;
-  width: 20px;
-  height: 20px;
+    position: relative;
+    top: 6px;
+    display: inline;
+    width: 20px;
+    height: 20px;
 }
 #widgetdetails .left p {
-  font-size: 12px ;
-  font-weight: bold;
-  color: #555;
-  display: inline;
-  padding-left: 2px;
+    font-size: 12px ;
+    font-weight: bold;
+    color: #555;
+    display: inline;
+    padding-left: 2px;
 }
 #widgetdetails .maindetails {
-  float: right;
-  width: 68%;
-  text-align: left;
-  margin: 15px 4px;
-  padding: 12px 6px;
-  color: #777;
+    float: right;
+    width: 68%;
+    text-align: left;
+    margin: 15px 4px;
+    padding: 12px 6px;
+    color: #777;
 }
 #widgetdetails .maindetails h1 {
-  font: bold 24px "Avenir Next", Helvetica, Arial, sans-serif;
-  color: #2b6891;
-  text-align: left;
-  display: inline;
+    font: bold 24px "Avenir Next", Helvetica, Arial, sans-serif;
+    color: #2b6891;
+    text-align: left;
+    display: inline;
 }
 #widgetdetails .maindetails #quitBtn {
-  float: right;
-  width: 20px;
-  height: 20px;
+    float: right;
+    width: 20px;
+    height: 20px;
 }
 #widgetdetails .maindetails h2 {
-  font: bold 18px "Avenir Next", Helvetica, Arial, sans-serif;
-  color: #000;
-  text-align: left;
-  margin-top: 40px;
+    font: bold 18px "Avenir Next", Helvetica, Arial, sans-serif;
+    color: #000;
+    text-align: left;
+    margin-top: 40px;
 }
 #widgetdetails .maindetails p {
-  font-size: 14px;
-  color: #777;
-  margin: 10px 0px;
-  text-align: left;
+    font-size: 14px;
+    color: #777;
+    margin: 10px 0px;
+    text-align: left;
 }
 #widgetdetails .maindetails .screenshot {
-  width: 100%;
-  height: 50%;
-  margin-top: 15px;
+    width: 100%;
+    height: 50%;
+    margin-top: 15px;
 }
 #widgetdetails .maindetails ul {
-  list-style-type: disc;
-  margin-left: 15px;
+    list-style-type: disc;
+    margin-left: 15px;
 }
 #widgetdetails .maindetails li {
   display: block;
@@ -3084,10 +4625,10 @@ section#insights h1 {
     max-height: 105px;
 }
 @media only screen and (orientation: landscape) {
-  #addFavorite #body #wrapper {
-    max-height: 105px;
-    min-height: 105px;
-  }
+    #addFavorite #body #wrapper {
+        max-height: 105px;
+        min-height: 105px;
+    }
 }
 #addFavorite #body #customFolders {
     z-index: 1;
@@ -3188,17 +4729,17 @@ padding-right: 20px;
 
 
 #avatarSelect {
-  position: absolute;
-  top: 100px;
-  left: 15%;
-  width: 70%;
-  background-color: #fff;
-  border: 1px solid #000;
-  border-radius: 10px;
-  box-shadow: 10px 10px 5px #888888;
-  text-align: center;
-  color: #000000;
-  font: normal 12px "Avenir Next", Helvetica, Arial, sans-serif;
+    position: absolute;
+    top: 100px;
+    left: 15%;
+    width: 70%;
+    background-color: #fff;
+    border: 1px solid #000;
+    border-radius: 10px;
+    box-shadow: 10px 10px 5px #888888;
+    text-align: center;
+    color: #000000;
+    font: normal 12px "Avenir Next", Helvetica, Arial, sans-serif;
 }
 #avatarSelect #titleBar {
   border-top-left-radius: 10px;
@@ -3210,45 +4751,45 @@ padding-right: 20px;
   background-image: -moz-gradient(linear, left bottom, left top, color-stop(0, #ababab), color-stop(0.85, #e6e6e6));
 }
 #avatarSelect #titleBar #cancelBtn {
-  float: left;
+    float: left;
 }
 #avatarSelect #titleBar #saveBtn {
-  float: right;
+    float: right;
 }
 #avatarSelect #titleBar #cancelBtn,
 #avatarSelect #titleBar #saveBtn {
-  margin: 5px;
+    margin: 5px;
 }
 #avatarSelect #topSection p {
-  font: normal 12px "Avenir Next", Helvetica, Arial, sans-serif;
-  margin: 30px;
+    font: normal 12px "Avenir Next", Helvetica, Arial, sans-serif;
+    margin: 30px;
 }
 #avatarSelect #topSection li {
-  font: bold 14px "Avenir Next", Helvetica, Arial, sans-serif;
-  width: 30%;
-  margin: 5px;
-  margin-bottom: 30px;
-  background-color: #e6e6e6;
-  border-radius: 12px;
-  text-align: center;
-  color: #8c8c8c;
-  padding: 4px 0 4px 0;
+    font: bold 14px "Avenir Next", Helvetica, Arial, sans-serif;
+    width: 30%;
+    margin: 5px;
+    margin-bottom: 30px;
+    background-color: #e6e6e6;
+    border-radius: 12px;
+    text-align: center;
+    color: #8c8c8c;
+    padding: 4px 0 4px 0;
 }
 #avatarSelect #topSection li:hover {
-  background-color: #ccc;
+    background-color: #ccc;
 }
 #avatarSelect #topSection li:active {
-  background-color: #3d3d3d;
-  color: #fff;
+    background-color: #3d3d3d;
+    color: #fff;
 }
 #avatarSelect #topSection li.selected {
-  color: #fff;
-  background-color: #545454;
+    color: #fff;
+    background-color: #545454;
 }
 #avatarSelect h2 {
-  margin-top: 15px;
-  display: inline-block;
-  font: bold 16px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
+    margin-top: 15px;
+    display: inline-block;
+    font: bold 16px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
 }
 #avatarSelect #middleSection {
   width: 90%;
@@ -3260,85 +4801,85 @@ padding-right: 20px;
   margin-bottom: 50px;
 }
 #avatarSelect #middleSection img {
-  height: 80px;
-  padding: 5px;
+    height: 80px;
+    padding: 5px;
 }
 #avatarSelect #middleSection img.selected {
-  background-color: #fff1a0;
-  border-radius: 5px;
+    background-color: #fff1a0;
+    border-radius: 5px;
 }
 #avatarSelect #middleSection #pictureRoll {
-  float: left;
-  position: relative;
+    float: left;
+    position: relative;
 }
 #avatarSelect #bottomSection #uploadBtn {
-  padding: 10px;
-  background-color: #fff1a0;
-  border-radius: 5px;
-  padding-left: 30px;
+    padding: 10px;
+    background-color: #fff1a0;
+    border-radius: 5px;
+    padding-left: 30px;
 }
 #avatarSelect #bottomSection #uploadBtn:before {
-  content: ' ';
-  height: 20px;
-  width: 20px;
-  position: absolute;
-  margin-top: 1px;
-  margin-left: -25px;
-  background: url("../img/library/SearchClear.png") no-repeat;
-  -webkit-transform: rotate(45deg);
-  -moz-transform: rotate(45deg);
-  -ms-transform: rotate(45deg);
-  -o-transform: rotate(45deg);
-  transform: rotate(45deg);
+    content: ' ';
+    height: 20px;
+    width: 20px;
+    position: absolute;
+    margin-top: 1px;
+    margin-left: -25px;
+    background: url("../img/library/SearchClear.png") no-repeat;
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
 }
 #foodometer,
 #foodScreen {
-  position: relative;
+    position: relative;
 }
 
 #foodometer #body,
 #foodScreen #body {
-  margin: 20px;
-  border-radius: 8px;
-  padding: 10px;
-  height: 89%;
-  background-color: #000000;
+    margin: 20px;
+    border-radius: 8px;
+    padding: 10px;
+    height: 89%;
+    background-color: #000000;
 }
 #foodometer #body img.positioned,
 #foodScreen #body img.positioned {
-  position: absolute;
+    position: absolute;
 }
 #foodometer #body img#topleft,
 #foodScreen #body img#topleft {
-  top: 59px;
-  left: 12px;
+    top: 59px;
+    left: 12px;
 }
 #foodometer #body img#top,
 #foodScreen #body img#top {
-  top: 60px;
-  height: 15px;
-  width: 93%;
+    top: 60px;
+    height: 15px;
+    width: 93%;
 }
 #foodometer #body img#topright,
 #foodScreen #body img#topright {
-  top: 58px;
-  right: 12px;
+    top: 58px;
+    right: 12px;
 }
 #foodometer #body img#bottomleft,
 #foodScreen #body img#bottomleft {
-  bottom: -8px;
-  left: 14px;
+    bottom: -8px;
+    left: 14px;
 }
 #foodometer #body img#bottom,
 #foodScreen #body img#bottom {
-  bottom: -4px;
-  height: 15px;
-  width: 93%;
+    bottom: -4px;
+    height: 15px;
+    width: 93%;
 }
 #foodometer #body img#bottomright,
 #foodScreen #body img#bottomright {
-  bottom: -9px;
-  right: 14px;
+    bottom: -9px;
+    right: 14px;
 }
 #foodometer #body #binderBg,
 #foodScreen #body #binderBg {
@@ -3361,13 +4902,13 @@ padding-right: 20px;
 }
 #foodometer #body #content #leftContent,
 #foodScreen #body #content #leftContent {
-  float: left;
-  width: 280px;
-  height: 99%;
-  background-color: #ffffff;
-  box-shadow: 3px 7px 5px #ababab;
-  padding: 8px;
-  margin-bottom: 20px;
+    float: left;
+    width: 280px;
+    height: 99%;
+    background-color: #ffffff;
+    box-shadow: 3px 7px 5px #ababab;
+    padding: 8px;
+    margin-bottom: 20px;
 }
 
 #foodometer #body #content #leftContent #leftContentMask,
@@ -3383,153 +4924,150 @@ padding-right: 20px;
 }
 #foodometer #body #content #rightContent,
 #foodScreen #body #content #rightContent {
-  float: right;
-  width: 60%;
-  height: 100%;
+    float: right;
+    width: 60%;
+    height: 100%;
 }
 
 @media only screen and (orientation: landscape) {
-  #foodometer #body #content #rightContent,
-  #foodScreen #body #content #rightContent {
-    width: 70%;
-  }
+    #foodometer #body #content #rightContent,
+    #foodScreen #body #content #rightContent {
+        width: 70%;
+    }
 }
 
 #foodometer #body #content #rightContent #emptyFood,
 #foodScreen #body #content #rightContent #emptyFood {
-  color: #676767;
-  margin-top: 250px;
-  text-align: center;
-  font: bold 18px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
-  text-shadow: 0 1px 1px #ffffff;
+    color: #676767;
+    margin-top: 250px;
+    text-align: center;
+    font: bold 18px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
+    text-shadow: 0 1px 1px #ffffff;
 }
 #foodometer #body #content #rightContent #emptyFood #day,
 #foodScreen #body #content #rightContent #emptyFood #day {
-  color: #676767;
-  font: bold 48px "Avenir Next", Helvetica, Arial, sans-serif;
+    color: #676767;
+    font: bold 48px "Avenir Next", Helvetica, Arial, sans-serif;
 }
 #foodometer #body #content #rightContent #emptyFood #emptyMeals,
 #foodScreen #body #content #rightContent #emptyFood #emptyMeals {
-  margin-top: 150px;
-  width: 45%;
-  margin-left: auto;
-  margin-right: auto;
+    margin-top: 150px;
+    width: 45%;
+    margin-left: auto;
+    margin-right: auto;
 }
 #foodometer #body #content #rightContent #emptyFood #emptyMeals img,
 #foodScreen #body #content #rightContent #emptyFood #emptyMeals img {
-  float: left;
-  margin-left: -30px;
+    float: left;
+    margin-left: -30px;
 }
 #foodometer #smallCalendar,
 #foodScreen #smallCalendar {
-  height: 300px;
-  margin-bottom: 30px;
+    height: 300px;
+    margin-bottom: 30px;
 }
 #foodometer #smallCalendar #monthPick,
 #foodScreen #smallCalendar #monthPick {
-  float: right;
-  margin-right: 5px;
-  margin-top: 5px;
-  height: 25px;
+    float: right;
+    margin-right: 5px;
+    margin-top: 5px;
+    height: 25px;
 }
 #foodometer #smallCalendar #dayString,
 #foodScreen #smallCalendar #dayString {
-  font: normal 32px "Avenir Next Medium", Helvetica, Arial, sans-serif;
-  display: block;
-  padding-left: 10px;
-  padding-top: 15px;
-  margin-bottom: 10px;
+    font: normal 32px "Avenir Next Medium", Helvetica, Arial, sans-serif;
+    display: block;
+    padding-left: 10px;
+    padding-top: 15px;
+    margin-bottom: 10px;
 }
 #foodometer #smallCalendar #dateString,
 #foodScreen #smallCalendar #dateString {
-  color: #676767;
-  display: block;
-  font: normal 16px "Avenir Next Medium", Helvetica, Arial, sans-serif;
-  padding-left: 10px;
-  margin-bottom: 20px;
+    color: #676767;
+    display: block;
+    font: normal 16px "Avenir Next Medium", Helvetica, Arial, sans-serif;
+    padding-left: 10px;
+    margin-bottom: 20px;
 }
 #foodometer #smallCalendar #calTable,
 #foodScreen #smallCalendar #calTable {
-  border: none;
+    border: none;
 }
 #foodometer #smallCalendar #calTable td,
 #foodScreen #smallCalendar #calTable td {
-  height: 40px;
-  border: none;
+    height: 40px;
+    border: none;
 }
 #foodometer #smallCalendar #calTable td.selected,
 #foodScreen #smallCalendar #calTable td.selected {
   background-color: #fecd74;
-
 }
 #foodometer #calories,
 #foodScreen #calories {
-  padding-top: 200px;
-  padding: 10px;
-  width: 246px;
-  border-radius: 8px;
-  background-color: #fee9c9;
-  font-size: 16px;
-  margin-bottom: 60px;
+    padding-top: 200px;
+    padding: 10px;
+    width: 246px;
+    border-radius: 8px;
+    background-color: #fee9c9;
+    font-size: 16px;
+    margin-bottom: 60px;
 }
 #foodometer #calories span,
 #foodScreen #calories span {
-  width: 110px;
-  display: inline-block;
-  padding: 5px 0px;
+    width: 110px;
+    display: inline-block;
+    padding: 5px 0px;
 }
 
 #foodometer #calories span#remaining,
 #foodScreen #calories span#remaining {
-  font: bold 16px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
+    font: bold 16px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
 }
 #foodometer #calories span#remainingNum,
 #foodScreen #calories span#remainingNum {
-  text-align: right;
-  font: bold 16px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
+    text-align: right;
+    font: bold 16px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
 }
 #foodometer #calories span#goalNum,
 #foodScreen #calories span#goalNum {
-  text-align: right;
-  color: #676767;
-  font: normal 16px "Avenir Next Medium", Helvetica, Arial, sans-serif;
+    text-align: right;
+    color: #676767;
+    font: normal 16px "Avenir Next Medium", Helvetica, Arial, sans-serif;
 }
 #foodometer #calories span#currentNum,
 #foodScreen #calories span#currentNum {
-  text-align: right;
-  color: #676767;
-  font: normal 16px "Avenir Next Medium", Helvetica, Arial, sans-serif;
+    text-align: right;
+    color: #676767;
+    font: normal 16px "Avenir Next Medium", Helvetica, Arial, sans-serif;
 }
 #foodometer #meals,
 #foodScreen #meals {
   margin-left: 5px;
-
 }
 #foodometer #meals .meal,
 #foodScreen #meals .meal {
-  display: block;
-  height: 60px;
-  width: 270px;
-  padding: 20px 15px;
-  font: bold 16px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
+    display: block;
+    height: 60px;
+    width: 270px;
+    padding: 20px 15px;
+    font: bold 16px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
 }
 
 #foodometer #meals .meal img,
 #foodScreen #meals .meal img {
-  margin-right: 10px;
-  vertical-align: middle;
+    margin-right: 10px;
+    vertical-align: middle;
 }
 #foodometer #meals .meal span,
 #foodScreen #meals .meal span {
   position: absolute;
   left: 100px;
-
 }
 #foodometer #meals .meal.selected,
 #foodScreen #meals .meal.selected {
-  background: url('../img/food/bu-yellow-arrow-right.png') no-repeat;
-  background-size: 270px;
-  background-position: 0px 5px;
+    background: url('../img/food/bu-yellow-arrow-right.png') no-repeat;
+    background-size: 270px;
+    background-position: 0px 5px;
 }
 
 #foodometer #filterView,
@@ -3541,11 +5079,11 @@ padding-right: 20px;
 }
 #foodometer #filterView #body,
 #foodScreen #filterView #body {
-  background-color: #ffffff;
-  border-radius: 5px;
-  margin: 0px;
-  min-height: 0px;
-  font: bold 14px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
+    background-color: #ffffff;
+    border-radius: 5px;
+    margin: 0px;
+    min-height: 0px;
+    font: bold 14px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
 }
 #foodometer #filterView #body #picker,
 #foodScreen #filterView #body #picker {
@@ -3561,15 +5099,15 @@ padding-right: 20px;
 #foodScreen #filterView #body #picker #back,
 #foodometer #filterView #body #picker #forward,
 #foodScreen #filterView #body #picker #forward {
-  padding: 5px;
-  text-align: center;
+    padding: 5px;
+    text-align: center;
 }
 #foodometer #filterView #body #picker #back img,
 #foodScreen #filterView #body #picker #back img,
 #foodometer #filterView #body #picker #forward img,
 #foodScreen #filterView #body #picker #forward img {
-  height: 20px;
-  padding: 5px;
+    height: 20px;
+    padding: 5px;
 }
 #foodometer #filterView #body #picker #month,
 #foodScreen #filterView #body #picker #month {
@@ -3591,29 +5129,28 @@ padding-right: 20px;
 }
 #foodometer #filterView:before,
 #foodScreen #filterView:before {
-  right: 95px;
+    right: 95px;
 }
 #foodometer #mealContainer,
 #foodScreen #mealContainer {
-  display: none;
-  padding: 20px;
-  font: normal 14px "Avenir Next", Helvetica, Arial, sans-serif;
+    display: none;
+    padding: 20px;
+    font: normal 14px "Avenir Next", Helvetica, Arial, sans-serif;
 }
 #foodometer #mealContainer h3,
 #foodScreen #mealContainer h3 {
-  color: #000000;
-  display: inline-block;
-  font: bold 18px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
+    color: #000000;
+    display: inline-block;
+    font: bold 18px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
 }
 #foodometer #mealContainer h3 #calCount,
 #foodScreen #mealContainer h3 #calCount {
-  color: #676767;
-  display: block;
+    color: #676767;
+    display: block;
 }
 #foodometer #mealContainer .btn,
 #foodScreen #mealContainer .btn {
   float: right;
-
   background: url("../img/food/bu-share-gradient.png");
   border: none;
   margin: 15px 10px 15px 0px;
@@ -3633,83 +5170,83 @@ padding-right: 20px;
 #foodScreen #mealContainer .btn:active,
 #foodometer #mealContainer .btn.selected,
 #foodScreen #mealContainer .btn.selected {
-  background: url("../img/food/bu-yellow-gradient.png");
+    background: url("../img/food/bu-yellow-gradient.png");
 }
 #foodometer #mealContainer #share,
 #foodScreen #mealContainer #share {
-  padding: 9px;
+    padding: 9px;
 }
 #foodometer #mealContainer #add,
 #foodScreen #mealContainer #add {
-  padding: 5px;
+    padding: 5px;
 }
 
 
 #foodometer #mealContainer #foodList,
 #foodScreen #mealContainer #foodList {
-  padding: 0px;
-  min-height: 60px;
+    padding: 0px;
+    min-height: 60px;
 }
 #foodometer #mealContainer .box,
 #foodScreen #mealContainer .box {
-  background-color: #ffffff;
-  border-radius: 8px;
-  box-shadow: 1px 2px 5px #676767, inset -1px 1px 1px #ffffff;
-  margin: 20px 5px;
-  color: #000000;
-  padding: 5px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 1px 2px 5px #676767, inset -1px 1px 1px #ffffff;
+    margin: 20px 5px;
+    color: #000000;
+    padding: 5px;
 }
 #foodometer #mealContainer .box .boxHeader,
 #foodScreen #mealContainer .box .boxHeader {
-  background-color: #e6e6e6;
-  border-radius: 5px 5px 0 0;
-  padding: 5px 10px;
+    background-color: #e6e6e6;
+    border-radius: 5px 5px 0 0;
+    padding: 5px 10px;
 }
 #foodometer #mealContainer .box .boxEntry,
 #foodScreen #mealContainer .box .boxEntry {
-  padding: 15px 10px;
-  border-bottom: 2px solid #e6e6e6;
+    padding: 15px 10px;
+    border-bottom: 2px solid #e6e6e6;
 }
 #foodometer #mealContainer .box .boxEntry #name,
 #foodScreen #mealContainer .box .boxEntry #name {
-  display: inline-block;
-  width: 170px;
-  max-width: 170px;
-  white-space: nowrap;
-  overflow: hidden;
+    display: inline-block;
+    width: 170px;
+    max-width: 170px;
+    white-space: nowrap;
+    overflow: hidden;
 }
 #foodometer #mealContainer .box .boxEntry:after,
 #foodScreen #mealContainer .box .boxEntry:after {
-  content: url('../img/icons/smallArrow.png');
-  float: right;
-  clear: right;
+    content: url('../img/icons/smallArrow.png');
+    float: right;
+    clear: right;
 }
 #foodometer #mealContainer .box .boxEntry:last-child,
 #foodScreen #mealContainer .box .boxEntry:last-child {
-  border-bottom: none;
+    border-bottom: none;
 }
 #foodometer #mealContainer .box #about,
 #foodScreen #mealContainer .box #about,
 #foodometer #mealContainer .box label,
 #foodScreen #mealContainer .box label {
-  font: normal 12px "Avenir Next", Helvetica, Arial, sans-serif;
-  color: #676767;
-  margin-left: 10px;
-  overflow-x: hidden;
-  white-space: nowrap;
-  max-width: 140px;
-  display: inline-block;
+    font: normal 12px "Avenir Next", Helvetica, Arial, sans-serif;
+    color: #676767;
+    margin-left: 10px;
+    overflow-x: hidden;
+    white-space: nowrap;
+    max-width: 140px;
+    display: inline-block;
 }
 #foodometer #mealContainer .box label,
 #foodScreen #mealContainer .box label {
-  padding-top: 5px;
+    padding-top: 5px;
 }
 #foodometer #mealContainer .box input,
 #foodScreen #mealContainer .box input {
-  border: none;
-  box-shadow: none;
-  width: 50%;
-  padding: 5px;
+    border: none;
+    box-shadow: none;
+    width: 50%;
+    padding: 5px;
 }
 #foodometer #mealContainer .box textarea,
 #foodScreen #mealContainer .box textarea {
@@ -3718,29 +5255,28 @@ padding-right: 20px;
   padding: 10px;
   border: none;
   background: none;
-
 }
 #foodometer #nutrition,
 #foodScreen #nutrition,
 #foodometer #mealContainer #nutrition,
 #foodScreen #mealContainer #nutrition {
-  height: 55px;
-  padding: 2px 10px;
+    height: 55px;
+    padding: 2px 10px;
 }
 #foodometer #nutrition h2,
 #foodScreen #nutrition h2,
 #foodometer #mealContainer #nutrition h2,
 #foodScreen #mealContainer #nutrition h2 {
-  margin-bottom: 0px;
-  font: bold 18px "Avenir Next", Helvetica, Arial, sans-serif;
+    margin-bottom: 0px;
+    font: bold 18px "Avenir Next", Helvetica, Arial, sans-serif;
 }
 #foodometer #nutrition h2:after,
 #foodScreen #nutrition h2:after,
 #foodometer #mealContainer #nutrition h2:after,
 #foodScreen #mealContainer #nutrition h2:after {
-  content: url('../img/icons/smallArrow.png');
-  float: right;
-  clear: right;
+    content: url('../img/icons/smallArrow.png');
+    float: right;
+    clear: right;
 }
 #foodometer #addFoodPopup,
 #foodScreen #addFoodPopup {
@@ -3755,42 +5291,42 @@ padding-right: 20px;
 }
 #foodometer #addFoodPopup .btn,
 #foodScreen #addFoodPopup .btn {
-  display: block;
-  width: 97%;
-  padding: 10px;
-  height: 40px;
-  margin: 5px 5px;
-  font: normal 17px "Avenir Next Medium", Helvetica, Arial, sans-serif;
+    display: block;
+    width: 97%;
+    padding: 10px;
+    height: 40px;
+    margin: 5px 5px;
+    font: normal 17px "Avenir Next Medium", Helvetica, Arial, sans-serif;
 }
 #foodometer #addFoodPopup:before,
 #foodScreen #addFoodPopup:before {
-  border-bottom: 15px solid #6b6b6b;
-  border-right: 20px solid transparent;
-  border-left: 20px solid transparent;
-  top: -12px;
-  content: '';
-  position: absolute;
-  right: 17px;
+    border-bottom: 15px solid #6b6b6b;
+    border-right: 20px solid transparent;
+    border-left: 20px solid transparent;
+    top: -12px;
+    content: '';
+    position: absolute;
+    right: 17px;
 }
 #foodometer #nutritionSection,
 #foodScreen #nutritionSection {
-  display: none;
-  width: 90%;
-  margin-left: auto;
-  margin-right: auto;
+    display: none;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
 }
 #foodometer #nutritionSection .box,
 #foodScreen #nutritionSection .box {
-  background-color: #ffffff;
-  border-radius: 8px;
-  box-shadow: 1px 2px 5px #676767, inset -1px 1px 1px #ffffff;
-  margin: 20px 5px;
-  color: #000000;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 1px 2px 5px #676767, inset -1px 1px 1px #ffffff;
+    margin: 20px 5px;
+    color: #000000;
 }
 #foodometer #nutritionSection .box .first,
 #foodScreen #nutritionSection .box .first {
-  display: inline-block;
-  width: 51%;
+    display: inline-block;
+    width: 51%;
 }
 #foodometer #nutritionSection .box .second,
 #foodScreen #nutritionSection .box .second,
@@ -3800,188 +5336,188 @@ padding-right: 20px;
 #foodScreen #nutritionSection .box #amount,
 #foodometer #nutritionSection .box #rda,
 #foodScreen #nutritionSection .box #rda {
-  display: inline-block;
-  width: 23%;
-  color: #a8a8a8;
+    display: inline-block;
+    width: 23%;
+    color: #a8a8a8;
 }
 #foodometer #nutritionSection .box .boxHeader,
 #foodScreen #nutritionSection .box .boxHeader {
-  background-color: #ebebeb;
-  border-radius: 5px 5px 0 0;
-  padding: 5px 10px;
+    background-color: #ebebeb;
+    border-radius: 5px 5px 0 0;
+    padding: 5px 10px;
 }
 #foodometer #nutritionSection .box .boxHeader .first,
 #foodScreen #nutritionSection .box .boxHeader .first {
-  font: bold 18px "Avenir Next", Helvetica, Arial, sans-serif;
+    font: bold 18px "Avenir Next", Helvetica, Arial, sans-serif;
 }
 #foodometer #nutritionSection .box .boxHeader .second,
 #foodScreen #nutritionSection .box .boxHeader .second,
 #foodometer #nutritionSection .box .boxHeader .third,
 #foodScreen #nutritionSection .box .boxHeader .third {
-  font: bold 14px "Avenir Next", Helvetica, Arial, sans-serif;
-  color: #fa9100;
+    font: bold 14px "Avenir Next", Helvetica, Arial, sans-serif;
+    color: #fa9100;
 }
 #foodometer #nutritionSection .box .boxEntry,
 #foodScreen #nutritionSection .box .boxEntry {
-  padding: 15px 10px;
-  border-bottom: 2px solid #e6e6e6;
-  font: normal 14px "Avenir Next", Helvetica, Arial, sans-serif;
+    padding: 15px 10px;
+    border-bottom: 2px solid #e6e6e6;
+    font: normal 14px "Avenir Next", Helvetica, Arial, sans-serif;
 }
 #foodometer #nutritionSection .box .boxEntry #name,
 #foodScreen #nutritionSection .box .boxEntry #name {
-  display: inline-block;
-  width: 51%;
-  white-space: nowrap;
-  overflow: hidden;
-  background: url("../img/cornerTabs/greenbg.png") no-repeat;
-  background-size: 0px 100%;
+    display: inline-block;
+    width: 51%;
+    white-space: nowrap;
+    overflow: hidden;
+    background: url("../img/cornerTabs/greenbg.png") no-repeat;
+    background-size: 0px 100%;
 }
 #foodometer #nutritionSection .box .boxEntry:last-child,
 #foodScreen #nutritionSection .box .boxEntry:last-child {
-  border-bottom: none;
+    border-bottom: none;
 }
 #foodometer #foodItemScreen,
 #foodScreen #foodItemScreen {
-  text-align: center;
-  background: #E6E6E6;
-  margin: 10px;
-  border-radius: 8px;
+    text-align: center;
+    background: #E6E6E6;
+    margin: 10px;
+    border-radius: 8px;
 }
 #foodometer #foodItemScreen #top,
 #foodScreen #foodItemScreen #top {
-  text-align: center;
+    text-align: center;
 }
 #foodometer #foodItemScreen #cancelFood,
 #foodScreen #foodItemScreen #cancelFood {
-  float: left;
-  background-image: url('../img/food/bu-with-arrow-left.png');
-  display: inline-block;
-  padding: 3px 10px 3px 12px;
-  margin: 20px;
+    float: left;
+    background-image: url('../img/food/bu-with-arrow-left.png');
+    display: inline-block;
+    padding: 3px 10px 3px 12px;
+    margin: 20px;
 }
 #foodometer #foodItemScreen img,
 #foodScreen #foodItemScreen img {
-  margin-top: 14px;
-  float: left;
+    margin-top: 14px;
+    float: left;
 }
 #foodometer #foodItemScreen #foodFavBtn,
 #foodScreen #foodItemScreen #foodFavBtn {
-  display: none;
+    display: none;
 }
 #foodometer #foodItemScreen #foodName,
 #foodScreen #foodItemScreen #foodName {
-  color: #000000;
-  display: inline-block;
-  font: bold 16px "Avenir Next", Helvetica, Arial, sans-serif;
-  margin-top: 20px;
-  max-width: 70%;
-  white-space: nowrap;
+    color: #000000;
+    display: inline-block;
+    font: bold 16px "Avenir Next", Helvetica, Arial, sans-serif;
+    margin-top: 20px;
+    max-width: 70%;
+    white-space: nowrap;
 }
 #foodometer #foodItemScreen .box.inputs,
 #foodScreen #foodItemScreen .box.inputs {
-  background-color: #ffffff;
-  border-radius: 8px;
-  box-shadow: 1px 2px 5px #676767, inset -1px 1px 1px #ffffff;
-  margin: 20px 5px;
-  color: #000000;
-  padding: 5px;
-  display: inline-block;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 1px 2px 5px #676767, inset -1px 1px 1px #ffffff;
+    margin: 20px 5px;
+    color: #000000;
+    padding: 5px;
+    display: inline-block;
 }
 #foodometer #foodItemScreen .box.inputs label,
 #foodScreen #foodItemScreen .box.inputs label {
-  float: left;
+    float: left;
 }
 #foodometer #foodItemScreen .box.inputs.servings,
 #foodScreen #foodItemScreen .box.inputs.servings {
-  width: 45%;
+    width: 45%;
 }
 #foodometer #foodItemScreen .box.inputs.size,
 #foodScreen #foodItemScreen .box.inputs.size {
-  width: 45%;
+    width: 45%;
 }
 #foodometer #foodItemScreen .box.inputs.notes,
 #foodScreen #foodItemScreen .box.inputs.notes {
-  width: 92%;
+    width: 92%;
 }
 #foodometer #foodItemScreen .box.inputs label,
 #foodScreen #foodItemScreen .box.inputs label {
-  font: normal 12px "Avenir Next", Helvetica, Arial, sans-serif;
-  color: #676767;
-  margin-left: 10px;
+    font: normal 12px "Avenir Next", Helvetica, Arial, sans-serif;
+    color: #676767;
+    margin-left: 10px;
 }
 #foodometer #foodItemScreen .box.inputs label,
 #foodScreen #foodItemScreen .box.inputs label {
-  padding-top: 5px;
+    padding-top: 5px;
 }
 #foodometer #foodItemScreen .box.inputs input,
 #foodScreen #foodItemScreen .box.inputs input {
-  border: none;
-  box-shadow: none;
-  width: 56%;
-  padding: 5px;
+    border: none;
+    box-shadow: none;
+    width: 56%;
+    padding: 5px;
 }
 #foodometer #foodItemScreen .box.inputs input#serving,
 #foodScreen #foodItemScreen .box.inputs input#serving {
-  width: 30%;
+    width: 30%;
 }
 #foodometer #foodItemScreen .box.inputs textarea,
 #foodScreen #foodItemScreen .box.inputs textarea {
-  display: block;
-  width: 100%;
-  padding: 10px;
-  border: none;
-  background: none;
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background: none;
 }
 #foodometer #foodItemScreen #details,
 #foodScreen #foodItemScreen #details {
-  padding-bottom: 70px;
+    padding-bottom: 70px;
 }
 #foodometer #foodItemScreen #editItem,
 #foodScreen #foodItemScreen #editItem,
 #foodometer #foodItemScreen #deleteItem,
 #foodScreen #foodItemScreen #deleteItem {
-  display: inline-block;
-  background: none;
-  background-color: #fee5b8;
-  color: #676767;
-  border-color: #ffffff;
-  width: 40%;
+    display: inline-block;
+    background: none;
+    background-color: #fee5b8;
+    color: #676767;
+    border-color: #ffffff;
+    width: 40%;
 }
 #foodometer #foodItemScreen #editItem:active,
 #foodScreen #foodItemScreen #editItem:active,
 #foodometer #foodItemScreen #deleteItem:active,
 #foodScreen #foodItemScreen #deleteItem:active {
-  background-color: #fee999;
+    background-color: #fee999;
 }
 #foodometer #foodItemScreen #editItem,
 #foodScreen #foodItemScreen #editItem {
-  float: right;
+    float: right;
 }
 #foodometer #foodItemScreen #deleteItem,
 #foodScreen #foodItemScreen #deleteItem {
-  float: left;
-  background-color: #a6a6a6;
+    float: left;
+    background-color: #a6a6a6;
 }
 #foodometer #foodItemScreen #saveToMeal,
 #foodScreen #foodItemScreen #saveToMeal {
-  display: none;
+    display: none;
 }
 #foodometer #nutritionInfo.box,
 #foodScreen #nutritionInfo.box {
-  background-color: #ffffff;
-  border-radius: 8px;
-  box-shadow: 1px 2px 5px #676767, inset -1px 1px 1px #ffffff;
-  margin: 20px 5px;
-  color: #000000;
-  width: 90%;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 0px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 1px 2px 5px #676767, inset -1px 1px 1px #ffffff;
+    margin: 20px 5px;
+    color: #000000;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0px;
 }
 #foodometer #nutritionInfo.box .first,
 #foodScreen #nutritionInfo.box .first {
-  display: inline-block;
-  width: 51%;
+    display: inline-block;
+    width: 51%;
 }
 #foodometer #nutritionInfo.box .second,
 #foodScreen #nutritionInfo.box .second,
@@ -3991,58 +5527,58 @@ padding-right: 20px;
 #foodScreen #nutritionInfo.box #amount,
 #foodometer #nutritionInfo.box #rda,
 #foodScreen #nutritionInfo.box #rda {
-  display: inline-block;
-  width: 23%;
-  color: #a8a8a8;
+    display: inline-block;
+    width: 23%;
+    color: #a8a8a8;
 }
 #foodometer #nutritionInfo.box .boxHeader,
 #foodScreen #nutritionInfo.box .boxHeader {
-  background-color: #ebebeb;
-  border-radius: 5px 5px 0 0;
-  padding: 5px 10px;
+    background-color: #ebebeb;
+    border-radius: 5px 5px 0 0;
+    padding: 5px 10px;
 }
 #foodometer #nutritionInfo.box .boxHeader .first,
 #foodScreen #nutritionInfo.box .boxHeader .first {
-  font: bold 18px "Avenir Next", Helvetica, Arial, sans-serif;
+    font: bold 18px "Avenir Next", Helvetica, Arial, sans-serif;
 }
 #foodometer #nutritionInfo.box .boxHeader .second,
 #foodScreen #nutritionInfo.box .boxHeader .second,
 #foodometer #nutritionInfo.box .boxHeader .third,
 #foodScreen #nutritionInfo.box .boxHeader .third {
-  font: bold 14px "Avenir Next", Helvetica, Arial, sans-serif;
-  color: #fa9100;
+    font: bold 14px "Avenir Next", Helvetica, Arial, sans-serif;
+    color: #fa9100;
 }
 #foodometer #nutritionInfo.box .boxEntry,
 #foodScreen #nutritionInfo.box .boxEntry {
-  padding: 15px 10px;
-  border-bottom: 2px solid #e6e6e6;
-  font: normal 14px "Avenir Next", Helvetica, Arial, sans-serif;
+    padding: 15px 10px;
+    border-bottom: 2px solid #e6e6e6;
+    font: normal 14px "Avenir Next", Helvetica, Arial, sans-serif;
 }
 #foodometer #nutritionInfo.box .boxEntry #name,
 #foodScreen #nutritionInfo.box .boxEntry #name {
-  display: inline-block;
-  width: 51%;
-  white-space: nowrap;
-  overflow: hidden;
-  background: url("../img/cornerTabs/greenbg.png") no-repeat;
-  background-size: 0px 100%;
+    display: inline-block;
+    width: 51%;
+    white-space: nowrap;
+    overflow: hidden;
+    background: url("../img/cornerTabs/greenbg.png") no-repeat;
+    background-size: 0px 100%;
 }
 #foodometer #nutritionInfo.box .boxEntry:after,
 #foodScreen #nutritionInfo.box .boxEntry:after {
-  content: "";
+    content: "";
 }
 #foodometer #nutritionInfo.box .boxEntry:last-child,
 #foodScreen #nutritionInfo.box .boxEntry:last-child {
-  border-bottom: none;
+    border-bottom: none;
 }
 #foodScreen #panelTopBar #meal {
-  font: bold 18px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
+    font: bold 18px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
 }
 #foodScreen #panelTopBar #saveBtn {
-  float: right;
+    float: right;
 }
 #foodScreen #panelTopBar #cancelBtn.btn {
-  float: left;
+    float: left;
 }
 #foodScreen #body #content {
   background-color: #ffffff!important;
@@ -4053,33 +5589,38 @@ padding-right: 20px;
   text-align: center;
 }
 #foodScreen #body #content #pageScroll {
-  padding-bottom: 40px;
-  max-height: 600px;
+    padding-bottom: 40px;
+    max-height: 600px;
+}
+@media only screen and (orientation: landscape) {
+    #foodScreen #body #content #pageScroll {
+        max-height: 410px;
+    }
 }
 #foodScreen #body #content #filterButtons {
-  margin-top: 30px;
+    margin-top: 30px;
 }
 #foodScreen #body #content #filterButtons li {
-  font: bold 14px "Avenir Next", Helvetica, Arial, sans-serif;
-  width: 22%;
-  margin: 5px;
-  margin-bottom: 30px;
-  background-color: #e6e6e6;
-  border-radius: 12px;
-  text-align: center;
-  color: #8c8c8c;
-  padding: 4px 0 4px 0;
+    font: bold 14px "Avenir Next", Helvetica, Arial, sans-serif;
+    width: 22%;
+    margin: 5px;
+    margin-bottom: 30px;
+    background-color: #e6e6e6;
+    border-radius: 12px;
+    text-align: center;
+    color: #8c8c8c;
+    padding: 4px 0 4px 0;
 }
 #foodScreen #body #content #filterButtons li:hover {
-  background-color: #ccc;
+    background-color: #ccc;
 }
 #foodScreen #body #content #filterButtons li:active {
-  background-color: #3d3d3d;
-  color: #fff;
+    background-color: #3d3d3d;
+    color: #fff;
 }
 #foodScreen #body #content #filterButtons li.selected {
-  color: #fff;
-  background-color: #545454;
+    color: #fff;
+    background-color: #545454;
 }
 #foodScreen #body #content #level1Food {
   background-image: url('../img/food/bg-food-menu-bar.png');
@@ -4099,39 +5640,39 @@ padding-right: 20px;
   padding-right: 450px;*/
 }
 #foodScreen #body #content #level2Food {
-  background: url('../img/food/bg-food-menu-bar-sub.png') repeat-x;
-  max-height: 60px;
-  margin: 20px 0px;
-  width: 90%;
-  margin-left: auto;
-  margin-right: auto;
-  border-radius: 10px;
-  box-shadow: 0px 0px 4px 0px #000000;
-  color: #000000;
-  white-space: nowrap;
-  overflow: hidden;
+    background: url('../img/food/bg-food-menu-bar-sub.png') repeat-x;
+    max-height: 60px;
+    margin: 20px 0px;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 10px;
+    box-shadow: 0px 0px 4px 0px #000000;
+    color: #000000;
+    white-space: nowrap;
+    overflow: hidden;
 }
 #foodScreen #body #content #level2Food .foodItem {
-  width: 15%;
+    width: 15%;
 }
 #foodScreen #body #content #level2Food .foodItem img {
-  height: 35px;
+    height: 35px;
 }
 #foodScreen #body #content #level2Food .foods2 {
-  display: none;
+    display: none;
 }
 #foodScreen #body .foodItem {
-  width: 15%;
-  text-align: center;
-  font-size: 12px;
-  margin: 4px 4px;
+    width: 15%;
+    text-align: center;
+    font-size: 12px;
+    margin: 4px 4px;
 }
 #foodScreen #body .foodItem img {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 5px 0px;
-  height: 50px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 5px 0px;
+    height: 50px;
 }
 #foodScreen #body .foodItem.selected {
   background-image: linear-gradient(bottom, #fff1a0 0%, #fee9c9 85%);
@@ -4163,42 +5704,42 @@ padding-right: 20px;
   max-height: 345px;
 }
 #foodScreen #body .box {
-  background-color: #ffffff;
-  border-radius: 8px;
-  box-shadow: 1px 2px 5px #676767, inset -1px 1px 1px #ffffff;
-  margin: 20px 5px;
-  color: #000000;
-  padding: 5px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 1px 2px 5px #676767, inset -1px 1px 1px #ffffff;
+    margin: 20px 5px;
+    color: #000000;
+    padding: 5px;
 }
 #foodScreen #body .box .boxHeader {
-  background-color: #e6e6e6;
-  border-radius: 5px 5px 0 0;
-  padding: 5px 10px;
+    background-color: #e6e6e6;
+    border-radius: 5px 5px 0 0;
+    padding: 5px 10px;
 }
 #foodScreen #body .box .boxEntry {
-  padding: 10px 10px;
-  border-bottom: 2px solid #e6e6e6;
+    padding: 10px 10px;
+    border-bottom: 2px solid #e6e6e6;
 }
 #foodScreen #body .box .boxEntry #name {
-  display: inline-block;
-  width: 350px;
-  max-width: 350px;
-  white-space: nowrap;
-  overflow: hidden;
-  font: normal 14px "Avenir Next", Helvetica, Arial, sans-serif;
+    display: inline-block;
+    width: 485px;
+    max-width: 485px;
+    white-space: nowrap;
+    overflow: hidden;
+    font: normal 14px "Avenir Next", Helvetica, Arial, sans-serif;
 }
 #foodScreen #body .box .boxEntry #about {
-  color: #676767;
-  margin-left: 20px;
-  font: normal 12px "Avenir Next", Helvetica, Arial, sans-serif;
+    color: #676767;
+    margin-left: 20px;
+    font: normal 12px "Avenir Next", Helvetica, Arial, sans-serif;
 }
 #foodScreen #body .box .boxEntry:after {
-  content: url('../img/icons/smallArrow.png');
-  float: right;
-  clear: right;
+    content: url('../img/icons/smallArrow.png');
+    float: right;
+    clear: right;
 }
 #foodScreen #body .box .boxEntry:last-child {
-  border-bottom: none;
+    border-bottom: none;
 }
 
 
@@ -4217,207 +5758,211 @@ padding-right: 20px;
 }
 
 #foodScreen #backToTop {
-  display: none;
+    display: none;
 }
 #foodScreen #foodItemScreen {
-  text-align: center;
-  background: #E6E6E6;
-  margin: 10px;
-  border-radius: 8px;
+    text-align: center;
+    background: #E6E6E6;
+    margin: 10px;
+    border-radius: 8px;
 }
 #foodScreen #foodItemScreen #top {
-  text-align: center;
-  padding-bottom: 30px;
+    text-align: center;
 }
 #foodScreen #foodItemScreen #cancelFood {
-  float: left;
-  background-image: url('../img/food/bu-with-arrow-left.png');
-  display: inline-block;
-  padding: 3px 10px 3px 12px;
-  margin: 20px;
+    float: left;
+    background-image: url('../img/food/bu-with-arrow-left.png');
+    display: inline-block;
+    padding: 3px 10px 3px 12px;
+    margin: 20px;
 }
 #foodScreen #foodItemScreen img {
-  margin-top: 14px;
-  float: left;
+    margin-top: 14px;
+    float: left;
 }
 #foodScreen #foodItemScreen #foodFavBtn {
-  float: right;
-  background: #676767;
-  display: inline-block;
-  padding: 3px 10px;
-  margin: 20px;
-  border-radius: 5px;
+    float: right;
+    background: #676767;
+    display: inline-block;
+    padding: 3px 10px;
+    margin: 20px;
+    border-radius: 5px;
 }
 #foodScreen #foodItemScreen #foodName {
-  color: #000000;
-  display: inline-block;
-  font: bold 16px "Avenir Next", Helvetica, Arial, sans-serif;
-  margin-top: 20px;
-  max-width: 345px;
-  white-space: nowrap;
+    color: #000000;
+    display: inline-block;
+    font: bold 16px "Avenir Next", Helvetica, Arial, sans-serif;
+    margin-top: 20px;
+    max-width: 345px;
+    white-space: nowrap;
 }
 #foodScreen #foodItemScreen .box.inputs {
-  display: inline-block;
+    display: inline-block;
 }
 #foodScreen #foodItemScreen .box.inputs label {
-  float: left;
+    float: left;
 }
 #foodScreen #foodItemScreen .box.inputs.servings {
-  width: 45%;
+    width: 45%;
 }
 #foodScreen #foodItemScreen .box.inputs.size {
-  width: 45%;
+    width: 45%;
 }
 #foodScreen #foodItemScreen .box.inputs.notes {
-  width: 92%;
+    width: 92%;
 }
 #foodScreen #foodItemScreen .box.inputs label {
-  font: normal 12px "Avenir Next", Helvetica, Arial, sans-serif;
-  color: #676767;
-  margin-left: 10px;
+    font: normal 12px "Avenir Next", Helvetica, Arial, sans-serif;
+    color: #676767;
+    margin-left: 10px;
 }
 #foodScreen #foodItemScreen .box.inputs label {
-  padding-top: 5px;
+    padding-top: 5px;
 }
 #foodScreen #foodItemScreen .box.inputs input {
-  border: none;
-  box-shadow: none;
-  width: 56%;
-  padding: 5px;
+    border: none;
+    box-shadow: none;
+    width: 56%;
+    padding: 5px;
 }
 #foodScreen #foodItemScreen .box.inputs textarea {
-  display: block;
-  width: 100%;
-  padding: 10px;
-  border: none;
-  background: none;
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background: none;
 }
 #foodScreen #foodItemScreen #details {
-  padding-bottom: 60px;
+    padding-bottom: 60px;
 }
 #foodScreen #foodItemScreen #editItem,
 #foodScreen #foodItemScreen #deleteItem {
-  display: none;
+    display: none;
 }
 #foodScreen #foodItemScreen #saveToMeal {
-  display: inline-block;
-  background: none;
-  background-color: #fee5b8;
-  color: #676767;
-  border-color: #ffffff;
-  width: 40%;
+    display: inline-block;
+    background: none;
+    background-color: #fee5b8;
+    color: #676767;
+    border-color: #ffffff;
+    width: 40%;
 }
 #foodScreen #foodItemScreen #saveToMeal:active {
-  background-color: #fee999;
+    background-color: #fee999;
 }
 #foodScreen #nutritionInfo.box {
-  background-color: #ffffff;
-  border-radius: 8px;
-  box-shadow: 1px 2px 5px #676767, inset -1px 1px 1px #ffffff;
-  margin: 20px 5px;
-  color: #000000;
-  width: 90%;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 0px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 1px 2px 5px #676767, inset -1px 1px 1px #ffffff;
+    margin: 20px 5px;
+    color: #000000;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0px;
 }
 #foodScreen #nutritionInfo.box .first {
-  display: inline-block;
-  width: 51%;
+    display: inline-block;
+    width: 51%;
 }
 #foodScreen #nutritionInfo.box .second,
 #foodScreen #nutritionInfo.box .third,
 #foodScreen #nutritionInfo.box #amount,
 #foodScreen #nutritionInfo.box #rda {
-  display: inline-block;
-  width: 23%;
-  color: #a8a8a8;
+    display: inline-block;
+    width: 23%;
+    color: #a8a8a8;
 }
 #foodScreen #nutritionInfo.box .boxHeader {
-  background-color: #ebebeb;
-  border-radius: 5px 5px 0 0;
-  padding: 5px 10px;
+    background-color: #ebebeb;
+    border-radius: 5px 5px 0 0;
+    padding: 5px 10px;
 }
 #foodScreen #nutritionInfo.box .boxHeader .first {
-  font: bold 18px "Avenir Next", Helvetica, Arial, sans-serif;
+    font: bold 18px "Avenir Next", Helvetica, Arial, sans-serif;
 }
 #foodScreen #nutritionInfo.box .boxHeader .second,
 #foodScreen #nutritionInfo.box .boxHeader .third {
-  font: bold 14px "Avenir Next", Helvetica, Arial, sans-serif;
-  color: #fa9100;
+    font: bold 14px "Avenir Next", Helvetica, Arial, sans-serif;
+    color: #fa9100;
 }
 #foodScreen #nutritionInfo.box .boxEntry {
-  padding: 15px 10px;
-  border-bottom: 2px solid #e6e6e6;
-  font: normal 14px "Avenir Next", Helvetica, Arial, sans-serif;
+    padding: 15px 10px;
+    border-bottom: 2px solid #e6e6e6;
+    font: normal 14px "Avenir Next", Helvetica, Arial, sans-serif;
 }
 #foodScreen #nutritionInfo.box .boxEntry #name {
-  display: inline-block;
-  width: 51%;
-  white-space: nowrap;
-  overflow: hidden;
-  background: url("../img/cornerTabs/greenbg.png") no-repeat;
-  background-size: 0px 100%;
+    display: inline-block;
+    width: 51%;
+    white-space: nowrap;
+    overflow: hidden;
+    background: url("../img/cornerTabs/greenbg.png") no-repeat;
+    background-size: 0px 100%;
 }
 #foodScreen #nutritionInfo.box .boxEntry:after {
-  content: "";
+    content: "";
 }
 #foodScreen #nutritionInfo.box .boxEntry:last-child {
-  border-bottom: none;
+    border-bottom: none;
 }
 #simpleSearchScreen #searchBar {
-  background-image: url('../img/food/bg-food-menu-bar.png');
-  background-position: 4px;
-  width: 95%;
-  margin-left: auto;
-  margin-right: auto;
-  border-radius: 10px;
-  text-align: left;
+    background-image: url('../img/food/bg-food-menu-bar.png');
+    background-position: 4px;
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 10px;
+    text-align: left;
 }
 #simpleSearchScreen #searchBar #searchInput {
-  display: inline-block;
-  text-align: left;
-  background-color: #ffffff;
-  border-radius: 20px;
-  margin: 10px;
-  padding: 0px 5px;
+    display: inline-block;
+    text-align: left;
+    background-color: #ffffff;
+    border-radius: 20px;
+    margin: 10px;
+    padding: 0px 5px;
 }
 #simpleSearchScreen #searchBar #searchInput #searchImg {
-  margin: 7px 5px -2px 5px;
+    margin: 7px 5px -2px 5px;
 }
 #simpleSearchScreen #searchBar #searchInput input {
-  border: none;
-  width: 200px;
+    border: none;
+    width: 200px;
 }
 #simpleSearchScreen #searchBar #filter {
-  width: 300px;
-  background-color: #ffffff;
-  border-radius: 8px;
-  display: inline-block;
-  text-align: center;
-  color: #000000;
-  float: right;
-  margin: 10px;
-  padding: 5px;
+    width: 300px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    display: inline-block;
+    text-align: center;
+    color: #000000;
+    float: right;
+    margin: 10px;
+    padding: 5px;
 }
 #simpleSearchScreen #searchBar #filter #filterOptions li {
-  display: none;
-  width: 100%;
+    display: none;
+    width: 100%;
 }
 #simpleSearchScreen #searchBar #filter #filterOptions li.selected,
 #simpleSearchScreen #searchBar #filter #filterOptions li.open {
-  display: inline-block;
+    display: inline-block;
 }
 #simpleSearchScreen #searchBar #filter #filterOptions li.selected.open {
-  background-color: #fee5b8;
+    background-color: #fee5b8;
 }
 #simpleSearchScreen #scrollContainer {
-  margin-top: 20px;
-  max-height: 600px;
+    margin-top: 20px;
+    max-height: 600px;
+}
+@media only screen and (orientation: landscape) {
+    #simpleSearchScreen #scrollContainer {
+        max-height: 450px;
+    }
 }
 #simpleSearchScreen #foodList h1 {
-  margin-top: 20px;
-  text-align: center;
+    margin-top: 20px;
+    text-align: center;
 }
 
 #addFoodPopup{

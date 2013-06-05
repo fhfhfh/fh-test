@@ -35,6 +35,7 @@ define([
                 this.$content = this.$('#healthHub-content');
 
                 this.iscroll = new iScroll(this.$('#wrapper')[0], {
+                    vscroll: true,
                     hscroll: false,
                     fixedScrollbar: true,
                     bounce: false,

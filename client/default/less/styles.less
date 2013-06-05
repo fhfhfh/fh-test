@@ -1,4 +1,5 @@
 /*
+/*
  * This is the main 'hub' for all of our LESS styles. Styles are imported here
  * in the correct order, and the file may be overridden per target device.
  */
@@ -9,8 +10,6 @@
 @import "mixins";
 @import "general";
 
-@import "components/notifications";
-
 // Page specific styles...
 @import "pages/login";
 @import "pages/main";
@@ -20,9 +19,11 @@
 @import "pages/library";
 @import "pages/widgetScreen";
 @import "pages/research";
+@import "pages/medicine";
 
 
 // Component specific styles...
+@import "components/notifications";
 @import "components/news";
 @import "components/goals";
 @import "components/alerts";
@@ -45,5 +46,5 @@
 @import "widgets/simpleSearch";
 
 
-// Command to compile LESS
-//lessc client/default/less/styles.less > client/default/css/styles.css
+//  Command to compile LESS
+//  lessc client/default/less/styles.less > client/default/css/styles.css

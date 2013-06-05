@@ -48,6 +48,10 @@ define(['backbone'], function(Backbone) {
 			}
 		},
 
+		clearMeal: function(meal){
+			this.set(meal,[{calories: "0", location: "", "with" : "", time: "", notes: ""}]);
+		},
+
 		recalculateNutrients: function(){
 			var self = this;
 			var att  = this.attributes;
@@ -71,7 +75,6 @@ define(['backbone'], function(Backbone) {
 				
 				for(j=1;j<meal.length;j++){
 					var item=meal[j];
-					console.log(item);
 					calories      += parseFloat(item.calories) || 0;
 					fat           += parseFloat(item.total_fat) || 0;
 					cholesterol   += parseFloat(item.cholesterol) || 0;
@@ -158,11 +161,9 @@ define(['backbone'], function(Backbone) {
 			this.set("carbohydrates", carbohydrates);
 			this.set("fibre", fibre);
 			this.set("protein", protein);
-			console.log(this);
 		}
 
 	});
 
-window.j = journalDay;
 	return journalDay;
 });

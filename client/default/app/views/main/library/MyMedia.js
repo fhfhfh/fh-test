@@ -8,7 +8,7 @@ define(['jquery',
     'text!templates/components/MyMedia.html',
     'text!templates/components/MyMediaFolder.html',
     'text!templates/components/MyMediaItem.html',
-    'text!templates/components/ReadingRoomRow.html',
+    'text!templates/components/MyMediaItem.html',
     'collections/Folders',
     'collections/Library',
 ], function($, _, Backbone, tpl, folderTpl, itemTpl, rowTpl, folderStore, libStore) {
@@ -23,7 +23,8 @@ define(['jquery',
             'click .cabinetItem'	: 'displayFile',
             'click #changeView' 	: 'changeView',
             'keyup #search'			: 'searchItems',
-            'click #item'			: 'displayFile'
+            'click #item'			: 'displayFile',
+            'click #clearBtn'       : 'clearText'
         },
         template	: _.template(tpl),
         folderTpl 	: _.template(folderTpl),
@@ -132,7 +133,8 @@ define(['jquery',
                             name: asset.title,
                             type: 'video',
                             date: 'Yesterday',
-                            src: src.video
+                            src: src.video,
+                            folders : asset.folders
                         });
                     }
                 }
@@ -248,6 +250,10 @@ define(['jquery',
                     item.hide();
                 }
             }
+        },
+
+        clearText: function(e){
+            $('#search').val('');
         }
 
     });

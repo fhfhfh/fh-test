@@ -9,8 +9,9 @@ define([
     'backbone',
     'text!templates/widgets/FoodScreen/Foodometer.html',
     'text!templates/widgets/FoodItem.html',
-    'collections/Foods'
-], function($, _, Backbone, tpl, foodItem, collection) {
+    'collections/Foods',
+    'collections/FoodJournal'
+], function($, _, Backbone, tpl, foodItem, collection, journal) {
     return Backbone.View.extend({
         tagName: 'section',
         id: 'foodScreen',
@@ -102,9 +103,9 @@ define([
             var id = target.attr('data-id');
             var model = this.collection.get(id);
             this.model = model;
-            this.pageScroll = null;
+            //this.pageScroll = null;
             self.selectedFood = model;
-
+            self.container.container.iscroll.enable();
             self.oldHtml = this.$el.html();
             $('#filterButtons').hide();
             this.$el.html(self.itemTpl({item:model.attributes, imgSrc:imgSrc}));
@@ -167,6 +168,7 @@ define([
                 bounceLock  : true,
                 bounce      : false
             });
+            this.container.container.iscroll.disable();
             this.refreshScroll();
             
         },
@@ -222,6 +224,27 @@ define([
             el.find("#carbohydrates #amount").text(carbohydrates*servings);
             el.find("#dietryFibre #amount").text(fibre*servings);
             el.find("#protein #amount").text(protein*servings);
+
+            //rda's
+            el.find("#totalCalories #rda")  .text(Math.round((calories*servings/journal.dailyValues.calories)*100) + "%");
+            el.find("#fat #rda")            .text(Math.round((fat*servings/journal.dailyValues.fat)*100) + "%");
+            el.find("#cholesterol #rda")    .text(Math.round((cholesterol*servings/journal.dailyValues.cholesterol)*100) + "%");
+            el.find("#sodium #rda")         .text(Math.round((sodium*servings/journal.dailyValues.sodium)*100) + "%");
+            el.find("#carbohydrates #rda")  .text(Math.round((carbohydrates*servings/journal.dailyValues.carbohydrates)*100) + "%");
+            el.find("#dietryFibre #rda")    .text(Math.round((fibre*servings/journal.dailyValues.fibre)*100) + "%");
+            el.find("#protein #rda")        .text(Math.round((protein*servings/journal.dailyValues.protein)*100) + "%");
+            this.updateNutrition();
+        },
+
+        updateNutrition: function(){
+            var el = $("#nutritionInfo .boxEntry");
+            
+            for(var i=0; i<el.length; i++){
+                var thisEl = $(el[i]);
+                var percent = thisEl.find("#rda").text() || "0%";
+                thisEl.find("#name").css("background-size", percent +" 100%");
+            }
+            
         },
 
         multiplyServing: function(serving, model){

@@ -26,8 +26,8 @@ if(item.fullname.length >40){
 		<div id="values">
 			<div class="boxEntry" id="totalCalories">
 				<span id="name">Calories</span>
-				<span id="amount">300</span>
-				<span id="rda">10%</span>
+				<span id="amount"></span>
+				<span id="rda"></span>
 			</div>
 
 			<div class="boxEntry" id="fat">
@@ -62,14 +62,14 @@ if(item.fullname.length >40){
 
 			<div class="boxEntry" id="protein"> 
 				<span id="name">Protein</span>
-				<span id="amount">20g</span>
-				<span id="rda">20%</span>
+				<span id="amount"></span>
+				<span id="rda"></span>
 			</div>
 
 			<div class="boxEntry" id="peachyPower"> 
 				<span id="name">Peachy&reg; Power&reg;</span>
-				<span id="amount">1</span>
-				<span id="rda">5%</span>
+				<span id="amount"></span>
+				<span id="rda"></span>
 			</div>
 		</div>
 	</div>
@@ -82,7 +82,7 @@ if(item.fullname.length >40){
 
 		<div class="box inputs size">
 			<label for="size">Serving Size</label>
-			<input type="text" name="size" id="size" value="<%=item.serving[0].name%>"/>
+			<input type="text" name="size" id="size" value="<%=item.serving[0].name%>" disabled="disabled"/>
 		</div>
 
 		<div class="box inputs notes">

@@ -18,12 +18,12 @@ define([
         id: 'foodScreen',
         template: _.template(tpl),
         events: {
-            'click #foodometerList'  : 'foodometer',
-            'click #simpleSearch': 'simpleSearch',
-            'click #scan'        : 'scan',
-            'click #favorites'   : 'favorites',
-            'click #cancelBtn' : 'cancelFoodEntry',
-            'click #saveBtn' : 'saveAllFoods'
+            'click #foodometerList': 'foodometer',
+            'click #simpleSearch'  : 'simpleSearch',
+            'click #scan'          : 'scan',
+            'click #favorites'     : 'favorites',
+            'click #cancelBtn'     : 'cancelFoodEntry',
+            'click #saveBtn'       : 'saveAllFoods'
         },
 
         subViews: {

@@ -35,6 +35,7 @@ define([
       this.$nav = this.$('#home-nav');    
 
       this.iscroll = new iScroll(this.$('#wrapper')[0], {
+        vscroll: true,
           hscroll: false,
           fixedScrollbar: true,
           bounce: false,
@@ -62,7 +63,8 @@ define([
     refreshScroll: function(){
       var self = this;
       if(this.iscroll){
-      this.iscroll.refresh.call(self.iscroll);        
+      this.iscroll.refresh.call(self.iscroll);
+      this.iscroll.scrollTo(0, 0, 200);
       }
     },
 

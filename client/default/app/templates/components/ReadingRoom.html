@@ -1,10 +1,28 @@
-<h1>Reading Room</h1>
+<div id="selector">
+	<li id="changeView" class="action btn">Shelf View</li>
+	<li>
+		<span id="searchField">
+			<input id="search" type="text" placeholder="Search" />
+			<span><img id="clearBtn" src="img/library/SearchClear.png"/></span>
+		</span>
+	</li>
+</div>
 
-<table id="listView">
+<div id="cabinet" class="cabinet">
+	<div id="scroller">
+		<div id="cabinetBody">
+			<div id="bodyScroller">
+				<%= items %>
+			</div>
+		</div>
+	</div>
+</div>
+
+<table id="listView" style="display:none;">
 	<tr id="header">
 		<td id="title">Title</td>
 		<td id="date">Date</td>
 		<td id="type">Type</td>
 	</tr>
-	<%= rows%>
+	<%= list%>
 </table>

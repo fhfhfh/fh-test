@@ -29,6 +29,7 @@ define([
             'home(     /:page)': 'home',
             'widgets'  : 'widgets',
             'healthHub': 'healthHub',
+            'medicine' : 'medicine',
             'connect'  : 'connect',
             'calendar' : 'calendar',
             'library'  : 'library',
@@ -121,8 +122,6 @@ define([
     //    library: function(){
     //      this.libraryView = new LibraryView();
     //    },
-
-
        profile: function() {
         this.$content.html((new ProfileView()).render().el);
        },
