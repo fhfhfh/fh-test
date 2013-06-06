@@ -12,6 +12,10 @@ define(['jquery',
     'text!templates/components/InformationDetails.html',
     'text!templates/components/Interactions.html',
     'text!templates/components/Symptom.html',
+    'text!templates/components/ShowMe.html',
+    'text!templates/components/ShowMeDetails.html',
+    'text!templates/components/SymptomList.html',
+    'text!templates/components/SympDetails.html',
     'text!templates/components/RiskFactor.html',
     'text!templates/components/General-risk.html',
     'text!templates/components/Lifestyle.html',
@@ -33,9 +37,9 @@ define(['jquery',
     'text!templates/components/AngioStep1.html',
     'text!templates/components/AngioStep2.html',
     ], function($, _, Backbone, omnipidiaTpl,tpl,omniDetailsTpl,informationTpl,infoDetailsTpl,
-        interactionsTpl,sympTpl,riskFactorTpl,genRiskTpl,lifestyleTpl,riskFactorDeatilsTpl,riskFactQuesTpl,completeAssessTpl,
-        toolsTpl,bodyMassTpl,caloriesTpl,heartTpl,weightTpl,nutritionTpl,waistTpl,assistantTpl,surgriesTpl,
-        testsTpl,MedsTpl,angiogarphyTpl,angioStep1Tpl,angioStep2Tpl) {
+        interactionsTpl,sympTpl,showMeTpl,showMeDetailsTpl,showSymptomListTpl,sympDetailsTpl,riskFactorTpl,genRiskTpl,lifestyleTpl,riskFactorDeatilsTpl,riskFactQuesTpl,completeAssessTpl,
+        toolsTpl,bodyMassTpl,caloriesTpl,heartTpl,weightTpl,nutritionTpl,waistTpl,assistantTpl,
+        surgriesTpl,testsTpl,MedsTpl,angiogarphyTpl,angioStep1Tpl,angioStep2Tpl) {
 
 
         return Backbone.View.extend({
@@ -61,6 +65,8 @@ define(['jquery',
                 'click #interaction-myMedia':'showMyMedia',
                 'click #interaction-search':'showSearch',
                 'click #sympShowMe':'showShowMe',
+                'click #sympList':'showSympList',
+                'click .sympDark, .sympLight' :'showMeDetails',
                 'click #riskFactor-general':'showGenRisk',
                 'click #riskFactor-lifestyle':'showlifestyle',
                 'click .conditionBtn':'showRiskFactorDetails',
@@ -83,8 +89,9 @@ define(['jquery',
                 'click #angiography, #angio-prevImg, #showAngiography':'showAngiography',
                 'click #angio-startBtn, #showAngioStep1, #angio-step2-prevImg':'showAngioStep1',
                 'click #angio-nextImg':'showAngioStep2',
-                'click #angioMoreDetails':'showAngioPopup'
-//                'click .sympDark, .sympLight' :'showShowMeDetails'
+                'click #angioMoreDetails':'showAngioPopup',
+                'click #symp-Details .boxEntry':'showSympDetails'
+                
                 
  
             },
@@ -104,8 +111,7 @@ define(['jquery',
                     bounce 		: true,
                     vScrollbar 	: true
                 });
-                //                this.refreshScroll();
-                //                this.loadList();
+                this.refreshScroll();
                 return this;
             },
             
@@ -166,7 +172,7 @@ define(['jquery',
             showGenRisk: function(e){
                 this.$('li').removeClass('selected');
                 this.$('#riskFactor-general').addClass('selected');
-                 var details = _.template(genRiskTpl);
+                var details = _.template(genRiskTpl);
                 this.$('#risk-tab-area').html(details);
             },
             
@@ -242,11 +248,34 @@ define(['jquery',
                 this.iscroll.refresh();
             },
             
-             showShowMe: function(e){
+            showShowMe: function(e){
                 this.$('li').removeClass('selected');
                 this.$('#sympShowMe').addClass('selected');
-//                var details = _.template(weightTpl);
-//                this.$('#tools-tab-area').html(details);
+                var details = _.template(showMeTpl);
+                this.$('#symp-tab-area').html(details);
+            },
+            
+            showSympList: function(e){
+                this.$('li').removeClass('selected');
+                this.$('#sympList').addClass('selected');
+                var details = _.template(showSymptomListTpl);
+                this.$('#symp-tab-area').html(details);
+                this.loadListSymp();
+            },
+            
+            showSympDetails: function(e){
+                this.$('li').removeClass('selected');
+                this.$('#sympList').addClass('selected');
+                var details = _.template(sympDetailsTpl);
+                this.$('#symp-tab-area').html(details);
+            },
+            
+            showMeDetails: function(e){
+                this.$('li').removeClass('selected');
+                this.$('#sympShowMe').addClass('selected');
+                var details = _.template(showMeDetailsTpl);
+                this.$('#symp-tab-area').html(details);
+               
             },
             
             showSurgeries: function(e){
@@ -376,6 +405,40 @@ define(['jquery',
                         var html = "<div class='boxEntry'  id='"+temp+"''><span id='name'> "+temp+"</span>"+
                         "<span id='about'>" + "</span></div>";
                         $('#infoDetails').append(html);
+                        flag=1;
+                    }
+                        
+                }
+            },
+            
+            loadListSymp : function(){
+                var flag = 0;
+                var name = new Array("Abdominal bloating","Abdomen - swollen","Aarskog syndrome","Abdominal cramps in children","Abdominal fullness prematurely after meals Abdominal mass","BBB","C-fib");
+                name.sort();
+                for(var i=0;i<name.length;i++){
+                    
+                    var temp = name[i];
+                    if(i==0){
+                    {
+                        $('#symp-Details').append("<div id='symp-Head'>"+temp.charAt(0)+"</div>");
+                    }
+                    }
+                    if(!i==0)
+                        if(temp.charAt(0)!=name[i-1].charAt(0))
+                        {
+                            $('#symp-Details').append("<div id='symp-Head'>"+temp.charAt(0)+"</div>");
+                        }
+                    if(flag == 1){
+                        var html = "<div class='boxEntry' style='background-color:#ebebeb' id='"+temp+"''><span id='name'> "+temp+"</span>"+
+                        "<span id='about'>" + "</span></div>";
+                        $('#symp-Details').append(html);
+                        flag=0;
+                    }
+                    else
+                    {
+                        var html = "<div class='boxEntry'  id='"+temp+"''><span id='name'> "+temp+"</span>"+
+                        "<span id='about'>" + "</span></div>";
+                        $('#symp-Details').append(html);
                         flag=1;
                     }
                         
