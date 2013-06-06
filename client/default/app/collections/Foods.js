@@ -17,6 +17,17 @@ define(['backbone',
 		foods : [],
 
 		initialize: function(){
+			var self=this;
+			
+			this.on('change:favorite', function(){
+				self.saveFavs();
+			});
+
+			this.on('change:recent', function(){
+				self.saveFavs();
+			});
+
+			this.loadFavs();
 		},
 
 		singleSearch: function(term, type, cb){
@@ -105,6 +116,73 @@ define(['backbone',
 				}
 			});
 		},
+
+		setRecentOrFav: function(string, obj){
+			if(string === "favorite"){
+				obj.set("favorite", true);
+			} else {
+				obj.set("recent", true);
+			}
+			this.saveFavs();
+		},
+
+		getRecentOrFav: function(string){
+			var arr = [];
+			var i,j;
+			var items = this.models;
+
+			if(string === "favorite"){
+				for(i=0;i<items.length;i++){
+					if(items[i].attributes.favorite === true){
+						items[i].attributes.type = "favorite";
+						arr.push(items[i]);
+					}
+				}
+				return arr;
+			} else {
+				for(j=0;j<items.length;j++){
+					if(items[j].attributes.recent === true){
+						items[j].attributes.type = "recent";
+						arr.push(items[j]);
+					}
+				}
+				return arr;
+			}
+			console.log(string, arr);
+		},
+
+		saveFavs: function(){
+			var items = this.models;
+			var i = 0;
+			var arr = [];
+
+			for(i;i<items.length;i++){
+				if(items[i].attributes.favorite === true || items[i].attributes.favorite === true){
+					arr.push(items[i]);
+				}
+			}
+			console.log("arr",arr);
+
+			var data = JSON.stringify(arr);
+			Store.save("peachy_favs", data, function(){
+				console.log('saved favorite foods to localStorage');
+			});
+
+		},
+
+		loadFavs: function(){
+			var self = this;
+			Store.load("peachy_favs", function(bool,res){
+				if(bool && res){
+					var obj = JSON.parse(res);
+					console.log(obj);
+					for(var i=0;i<obj.length;i++){
+						var asset = new model(obj[i]);
+						self.add(asset);
+					}
+				}
+			});
+		}
 
 	});
 	return new collection();

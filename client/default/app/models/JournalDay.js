@@ -46,6 +46,12 @@ define(['backbone'], function(Backbone) {
 				this.set("currentCals", sum);
 				this.set("remainingCals", att.remainingCals - sum);
 			}
+
+			// make sure date is valid
+			if(typeof att.date != "object"){
+				var badDate = att.date;
+				att.date = new Date(badDate);
+			}
 		},
 
 		clearMeal: function(meal){

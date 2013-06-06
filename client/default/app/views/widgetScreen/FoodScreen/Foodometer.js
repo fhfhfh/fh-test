@@ -111,6 +111,10 @@ define([
             this.$el.html(self.itemTpl({item:model.attributes, imgSrc:imgSrc}));
             this.calculateNutrients();
             self.refreshScroll();
+
+            if(model.attributes.favorite === true){
+                $('#foodFavBtn').addClass('active');
+            }
         },
 
         populateFoodList: function(el){
@@ -173,13 +177,15 @@ define([
             
         },
 
-        addFoodToFav: function(){
+        addFoodToFav: function(e){
+            var target = $(e.currentTarget);
             var food = this.selectedFood;
             if(!food){
                 console.warn('No Food Selected');
                 return;
             } else {
                 food.set("favorite", true);
+                target.addClass('active');
             }
         },
 
@@ -189,6 +195,7 @@ define([
                 console.warn('No Food Selected');
                 return;
             } else {
+                food.set("recent", true);
                 food.attributes.serving = $("#serving").val() + " x " + $('#size').val();
                 food = this.multiplyServing($("#serving").val(), food);
                 this.container.container.foodItems.push(food);

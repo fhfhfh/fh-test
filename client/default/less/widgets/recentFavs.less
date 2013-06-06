@@ -1,0 +1,79 @@
+#foodScreen {
+    #recentFavsScreen {
+
+        .box.grey {
+            background-color: #e6e6e6;
+
+            img {
+                height: 40px;
+                float: right;
+            }
+
+            .boxEntry {
+                display: block;
+                text-align: left;
+                margin-left: 40px;
+                img {
+                    float:left;
+                    height: 30px;
+                    margin-left: -40px;
+                    display: none;
+                }
+            }
+        }
+
+        #wrapper {
+            margin-top: 50px;
+        }
+
+        .box.inputs {
+    		display: inline-block;
+    		label {float: left;}
+
+    		&.servings {width: 44%}
+    		&.size {width:45%}
+    		&.notes {width: 92%;}
+
+    		label {
+                .avenir(12px);
+                color: #676767;
+                margin-left: 10px;
+            }
+
+            label {
+                padding-top: 5px;
+            }
+
+            input {
+                border: none;
+                box-shadow: none;
+                width: 45%;
+                padding: 5px;
+            }
+            textarea {
+                display: block;
+                width: 100%;
+                padding: 10px;
+                border: none;
+                background: none;
+            }
+    	}
+
+    	#details {
+    		padding-bottom: 60px;
+    	}
+
+        #saveToMeal {
+            display: inline-block;
+            background: none;
+            background-color: #fee5b8;
+            color: #676767;
+            border-color: #ffffff;
+            width: 40%;
+
+            &:active {
+                background-color: #fee999;
+            }
+        }
+    }
+}
