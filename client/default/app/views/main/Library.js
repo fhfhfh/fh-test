@@ -18,7 +18,7 @@ define([
       'click #show-myMedia'    : 'showMyMedia',
       'click #show-readingRoom': 'showReadingRoom',
       'click #show-research'   : 'showResearch',
-      'click #show-suggested'  : 'showSuggested',
+      'click #show-suggested'  : 'showSuggested'
     },
 
     subViews: {
