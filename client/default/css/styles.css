@@ -6019,3 +6019,8 @@ padding-right: 20px;
     overflow: auto;
     height: 360px;
 }
+
+#featuredMeds{
+    overflow: auto;
+height: 515px;
+}
