@@ -19,8 +19,9 @@ define([
                 'click #profile-button': 'showProfile',
                 'click #save'          : 'saveProf',
                 'click #cancel'        : 'cancel',
-                'click #logo'          : 'logout',
-                'click #points-button' : 'setPeachyPoints'
+                'click #logout'          : 'logout',
+                'click #points-button' : 'setPeachyPoints',
+                'click #avatar'        : 'showPopup'
             },
 
             initialize: function() {
@@ -64,7 +65,7 @@ define([
             },
 
             logout: function(){
-               
+               $('#topBarPopup').hide();
                 avatar_id = "";
                 imgUrl= "";
                 var setAvatars=this.setAvatar();
@@ -102,6 +103,10 @@ define([
                     self.$('#avatar').attr("src", "data:image/png;base64,"+image);
                     $('#account-information').find('img').attr("src", "data:image/png;base64,"+image);
                 }
+            },
+
+            showPopup: function(){
+                $('#topBarPopup').toggle();
             }
         
         });

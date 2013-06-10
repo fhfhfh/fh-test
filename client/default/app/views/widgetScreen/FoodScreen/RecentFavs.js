@@ -26,7 +26,7 @@ define([
         },
 
         initialize: function() {
-            _.bindAll(this);
+            // _.bindAll(this);
             
         },
 
@@ -41,6 +41,8 @@ define([
             },100);
             
             this.$el.html(this.template({list:list}));
+
+            this.iscroll = new iScroll(self.$('#wrapper')[0]);
             return this;
         },
 
@@ -100,8 +102,8 @@ define([
 
         saveFoodList: function(){
             console.log('saving meal...');
-            var list = $('.boxEntry .selected');
-
+            var list = $('.boxEntry.selected');
+            console.log(list);
             for(var i=0;i<list.length;i++){
                 var id = $(list[i]).attr('data-id');
                 var model = collection.get(id);
@@ -109,6 +111,7 @@ define([
                 model.set("recent", true);
                 model.attributes.serving = $("#serving").val() + " x " + $('#size').val();
                 model = this.multiplyServing($("#serving").val(), model);
+                console.log(model);
                 this.container.container.foodItems.push(model);
             }
 

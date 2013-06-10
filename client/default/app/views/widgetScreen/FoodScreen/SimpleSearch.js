@@ -19,14 +19,14 @@ define([
         itemTpl : _.template(foodItem),
         events  : {
             "click #searchImg"         : "searchFood",
-            "keyup #searchTerm"        : "enterPressed",
             "click #xImg"              : "clearSearchField",
             "click #backToTop"         : "backToTop",
             "click #foodList .boxEntry": "showFoodItemScreen",
             'click #cancelFood'        : 'cancelFood',
             'click #foodFavBtn'        : 'addFoodToFav',
             'click #saveToMeal'        : 'saveFoodToMeal',
-            'change #serving'          : 'calculateNutrients'
+            'change #serving'          : 'calculateNutrients',
+            'submit #searchForm'       : "searchFood"
         },
 
         initialize: function() {
@@ -38,6 +38,7 @@ define([
             $('#filterButtons').show();
             this.listScroll = new iScroll(this.$('#scrollContainer')[0]);
             $("span#meal").text("Lunch - ("+this.container.container.foodItems.length+")");
+
             return this;
         },
 
@@ -83,13 +84,7 @@ define([
                 $('#backToTop').show();
                 self.refreshScroll();
             });
-        },
-
-        enterPressed: function(e){
-            var self = this;
-            if(e.keyCode ==13){
-                this.searchFood();
-            }
+            return false;
         },
 
         clearSearchField: function(){

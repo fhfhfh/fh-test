@@ -889,7 +889,7 @@ section h1 {
   border-bottom-right-radius: 5px;
   position: absolute;
   top: 2px;
-  right: 2px;
+  right: -4px;
   padding: 0 6px;
   color: white;
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.33);
@@ -3598,6 +3598,32 @@ sympResult {
   background-image: -webkit-linear-gradient(bottom, #000000 0%, #cdcdcd 85%);
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #000000), color-stop(0.85, #cdcdcd));
 }
+#topBarPopup {
+  display: none;
+  position: absolute;
+  right: 0px;
+  top: 53px;
+  width: 300px;
+  left: auto;
+  box-shadow: 0px -1px 1px #000000;
+}
+#topBarPopup .btn {
+  display: block;
+  width: 97%;
+  padding: 10px;
+  height: 40px;
+  margin: 5px 5px;
+  font: normal 17px "Avenir Next Medium", Helvetica, Arial, sans-serif;
+}
+#topBarPopup:before {
+  border-bottom: 15px solid #6b6b6b;
+  border-right: 20px solid transparent;
+  border-left: 20px solid transparent;
+  top: -12px;
+  content: '';
+  position: absolute;
+  right: 17px;
+}
 .ads {
   position: relative;
   background-color: #ebebeb;
@@ -5364,6 +5390,9 @@ section#insights h1 {
 #simpleSearchScreen #searchBar #searchInput #searchImg {
   margin: 7px 5px -2px 5px;
 }
+#simpleSearchScreen #searchBar #searchInput form {
+  display: inline;
+}
 #simpleSearchScreen #searchBar #searchInput input {
   border: none;
   width: 200px;
@@ -5423,6 +5452,9 @@ section#insights h1 {
 }
 #foodScreen #recentFavsScreen #wrapper {
   margin-top: 50px;
+  max-height: 200px;
+  min-height: 20px;
+  overflow: hidden;
 }
 #foodScreen #recentFavsScreen .box.inputs {
   display: inline-block;
