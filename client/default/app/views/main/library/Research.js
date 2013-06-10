@@ -77,6 +77,7 @@ define(['jquery',
                 'click #showriskFactQues':'showriskFactQues',
                 'click #moreDetails':'showPopup',
                 'click #researchCloseBtn':'closePopup',
+                'click #angioCloseBtn':'closeAngioPopup',
                 'click #bodyMass':'showBodyMass',
                 'click #calories':'showCalories',
                 'click #heartRate':'showHeartRate',
@@ -106,7 +107,7 @@ define(['jquery',
                 var self = this;
 
                 this.$el.html(this.template());
-                this.bodyScroll = new iScroll(this.$('#research-desk')[0],{
+                this.resScroll = new iScroll(this.$('#research-desk')[0],{
                     bounceLock	: true,
                     bounce 		: true,
                     vScrollbar 	: true
@@ -119,41 +120,48 @@ define(['jquery',
                 var details = _.template(omnipidiaTpl);
                 this.$el.html(details);
                 this.loadListOmni();
+                this.resScroll.refresh();
             },
             
             showInformation: function(e){
                 var details = _.template(informationTpl);
                 this.$el.html(details);
                 this.loadListInfo();
+                this.resScroll.refresh();
             },
             
             showInteractions: function(e){
                 var details = _.template(interactionsTpl);
                 this.$el.html(details);
                 this.showMyMedia();
+                this.resScroll.refresh();
             },
             
             showRiskFactor: function(e){
                 var details = _.template(riskFactorTpl);
                 this.$el.html(details);
                 this.showGenRisk();
+                this.resScroll.refresh();
             },
             
             showSymp: function(e){
                 var details = _.template(sympTpl);
                 this.$el.html(details);
                 this.showShowMe();
+                this.resScroll.refresh();
             },
             
             showTools: function(e){
                 var details = _.template(toolsTpl);
                 this.$el.html(details);
                 this.showBodyMass();
+                this.resScroll.refresh();
             },
             showAssistant: function(e){
                 var details = _.template(assistantTpl);
                 this.$el.html(details);
                 this.showSurgeries();
+                this.resScroll.refresh();
             },
            
             showSearch: function(e){
@@ -201,51 +209,56 @@ define(['jquery',
             showriskFactQues: function(e){
                 var details = _.template(riskFactQuesTpl);
                 this.$el.html(details);
+                this.resScroll.refresh();
             },
             
             showAngiography: function(e){
                 var details = _.template(angiogarphyTpl);
                 this.$el.html(details);
                 this.closeAngioPopup();
+                this.resScroll.refresh();
             },
             
             showAngioStep1: function(e){
                 var details = _.template(angioStep1Tpl);
                 this.$el.html(details);
+                this.resScroll.refresh();
             },
               
             showAngioStep2: function(e){
                 var details = _.template(angioStep2Tpl);
                 this.$el.html(details);
+                this.resScroll.refresh();
             },
             
             showRiskFactorCompleteAssessment: function(e){
                 var details = _.template(completeAssessTpl);
                 this.$el.html(details);
                 this.closePopup();
+                this.resScroll.refresh();
             },
             
             showPopup : function(){
                 $('#modalMask1').show();
                 this.$('#popupDeatils').attr("style","display:block");
-                this.iscroll.refresh();
+                this.resScroll.refresh();
             },
             
             closePopup: function(){
                 $('#modalMask1').hide();
                 this.$('#popupDeatils').attr("style","display:none");
-                this.iscroll.refresh();
+                this.resScroll.refresh();
             },
             showAngioPopup : function(){
                 $('#modalMask1').show();
                 this.$('#popupDeatils').attr("style","display:block");
-                this.iscroll.refresh();
+                this.resScroll.refresh();
             },
             
             closeAngioPopup: function(){
                 $('#modalMask1').hide();
                 this.$('#popupDeatils').attr("style","display:none");
-                this.iscroll.refresh();
+                this.resScroll.refresh();
             },
             
             showShowMe: function(e){
