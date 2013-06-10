@@ -1,15 +1,19 @@
 define(['backbone', 
 		'models/NewsItem',
-		'models/Acts'
-		], function(Backbone, NewsItem, Act) {
+		'models/Acts',
+		'models/Store'
+		], function(Backbone, NewsItem, Act, Store) {
 
 
 	var collection = Backbone.Collection.extend({
 		//Backbone specific attributes
 		model : NewsItem,
+		watched: [],
 
 		initialize: function(){
 			var self = this;
+
+			this.loadWatched();
 		},
 
 
@@ -62,6 +66,44 @@ define(['backbone',
 		        }
 		    );
 		},
+
+		videoWatched: function(id){
+			var self = this;
+			var model = this.get(id);
+			if(model){
+				var obj = {id:id}
+				self.watched.push(obj);
+				Store.save('peachy_watchedItem', JSON.stringify(self.watched), function(){
+					console.log('saved watched item id');
+				});
+
+				// TODO : tell peachy what video was watched
+			}
+		},
+
+		checkVideo: function(id){
+			var watched = this.watched;
+			for(var i=0;i<watched.length;i++){
+				if(id === watched[i].id){
+					return true;
+				}
+			}
+		},
+
+		loadWatched: function(){
+			console.log('loading Watched');
+			var self = this;
+			Store.load('peachy_watchedItem', function(bool,res){
+				if(bool && res){
+					var obj = JSON.parse(res);
+					console.log(obj)
+					for(var i=0;i<obj.length;i++){
+						self.watched.push(obj[i]);
+					}
+				}
+			});
+			console.log(self.watched);
+		}
 
 	});
 

@@ -13,8 +13,7 @@ define(['backbone'], function(Backbone) {
 		defaults: {
 			title			: 'Untitled',
 			description		: 'Description not available',
-			shortDescription: 'Description not available',
-			watched			: ''
+			shortDescription: 'Description not available'
 		},
 
 		initialize: function(){

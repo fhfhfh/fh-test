@@ -35,14 +35,6 @@ define(['jquery',
 			_.bindAll(this);
 			this.collection = new NewsItems();
 			this.collection.on('add', this.appendItems);
-
-			setInterval(function(){
-				if(self.badgeNum == 0){
-					$('#show-news aside.badge').html('');	
-				}else {
-					$('#show-news aside.badge').html(self.badgeNum);
-				}
-			}, 1000);
 		},
 
 		render: function(){
@@ -57,6 +49,15 @@ define(['jquery',
 			this.watched();
 			this.$el.html(this.template({newsItems: str}));
 			return this;
+		},
+
+		setBadge: function(){
+			var self = this;
+			if(self.badgeNum == 0){
+				$('#show-news aside.badge').html('');	
+			}else {
+				$('#show-news aside.badge').html(self.badgeNum);
+			}
 		},
 
 		refreshScroll: function(){
@@ -86,6 +87,7 @@ define(['jquery',
 		        this.$('ul').append(itemsString);
 			}
 			this.refreshScroll();
+			this.watched();
 	    },
 
 	    loadNews: function() {
@@ -119,29 +121,31 @@ define(['jquery',
 	    	var id		= $(e.currentTarget).closest('li').attr('data-id');
 	    	var item	= this.collection.get(id);
 
-	    	// add 'watched' icon
-	    	// $(e.currentTarget).closest('li').find('.watched').show();
-	    	// item.set('watched', '1');
+	    	//add 'watched' icon
+	    	$(e.currentTarget).closest('li').find('.watched').show();
+	    	this.collection.videoWatched(id);
 
 	    	localStorage.setItem('tempVid', JSON.stringify(item));
 	    	Backbone.history.navigate('video', true, true);
 		},
 
 		watched: function(){
-			// var self = this;
-			// var li = this.$('li');
+			var self = this;
+			var li = this.$('li');
 
-			// for(var i=0; i<li.length; i++){
-			// 	var id = self.$(li[i]).attr('data-id');
-			// 	var wIcon = self.$(li[i]).find('.watched');
-			// 	var item	= self.collection.get(id);
+			for(var i=0; i<li.length; i++){
+				var id = self.$(li[i]).attr('data-id');
+				var wIcon = self.$(li[i]).find('.watched');
+				var pIcon = self.$(li[i]).find('.points');
+				var item	= self.collection.get(id);
 				
-			// 	if(item.attributes.watched == '1'){
-			// 		console.log('SHOW');
-			// 		console.log(wIcon);
-			// 		wIcon.show();
-			// 	}
-			// }
+				if(self.collection.checkVideo(id)){
+					wIcon.show();
+					pIcon.hide();
+				}
+			}
+			this.badgeNum = this.$('.points:visible').length;
+			this.setBadge();
 		}
 	});
 
