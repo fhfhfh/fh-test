@@ -69,14 +69,25 @@ define(['backbone',
 
 		videoWatched: function(id){
 			var self = this;
+			var save = true;
+
 			var model = this.get(id);
 			if(model){
-				var obj = {id:id}
-				self.watched.push(obj);
-				Store.save('peachy_watchedItem', JSON.stringify(self.watched), function(){
-					console.log('saved watched item id');
+				// don't save if video is already in list
+				self.watched.forEach(function(item){
+					if(item.id == id){
+						save = false;
+					}
 				});
 
+				if(save){
+					var obj = {id:id}
+					self.watched.push(obj);
+					Store.save('peachy_watchedItem', JSON.stringify(self.watched), function(){
+						console.log('saved watched item id');
+					});	
+				}
+				
 				// TODO : tell peachy what video was watched
 			}
 		},

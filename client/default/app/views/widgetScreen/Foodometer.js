@@ -234,7 +234,8 @@ define([
             this.$('#foodList .boxEntry').remove();
             var item = this.item;
             var self = this;
-            if(item){
+
+            if(item && meal){
                 var foods = item.attributes[meal];
                 if(foods.length == 0){
                     this.$('#calCount').text("");

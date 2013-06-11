@@ -119,13 +119,24 @@ define(['jquery',
 	    	e.preventDefault();
 	    	e.stopPropagation();
 	    	var id		= $(e.currentTarget).closest('li').attr('data-id');
-	    	var item	= this.collection.get(id);
+
+	    	var prev = this.collection.get($(e.currentTarget).prev('.clearfix').attr('data-id'));
+	    	var item = this.collection.get(id);
+	    	var next = this.collection.get($(e.currentTarget).next('.clearfix').attr('data-id'));
 
 	    	//add 'watched' icon
 	    	$(e.currentTarget).closest('li').find('.watched').show();
 	    	this.collection.videoWatched(id);
 
+	    	console.log('prev', prev);
+	    	console.log('next', next);
+
+	    	// Store prev, current and next videos
+	    	localStorage.setItem('prevVid', JSON.stringify(prev || null));
 	    	localStorage.setItem('tempVid', JSON.stringify(item));
+	    	localStorage.setItem('nextVid', JSON.stringify(next || null));
+
+	    	this.watched();
 	    	Backbone.history.navigate('video', true, true);
 		},
 

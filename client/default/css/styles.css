@@ -1239,7 +1239,10 @@ li {
   margin: 10px;
 }
 #VideoPlayback #pageDiv {
-  width: 100%;
+  position: relative;
+  white-space: nowrap;
+  width: auto;
+  float: left;
 }
 #VideoPlayback #videoContainer {
   width: 100%;
@@ -1247,6 +1250,10 @@ li {
   margin-top: 60px;
   height: 300px;
   text-align: center;
+  position: relative;
+  white-space: nowrap;
+  width: auto;
+  float: left;
 }
 #VideoPlayback #videoContainer > div {
   display: inline-block;
@@ -1256,6 +1263,8 @@ li {
 }
 #VideoPlayback #videoContainer #currentVideo {
   width: 550px;
+  margin-left: 100px;
+  margin-right: 100px;
 }
 #VideoPlayback #videoContainer #currentVideo iframe {
   width: 100%;
