@@ -1807,7 +1807,7 @@ section#widgetScreen #body {
     background-color: #000000;
 }
 section#widgetScreen #body #content {
-    max-height: 520px;
+    max-height: 585px;
     overflow: auto;
     background-color: #cdcdcd;
     box-shadow: 7px 0px 0 -4px #cccccc, 12px 0px 0 -7px #8b8b8b;
@@ -1929,7 +1929,7 @@ section#widgetScreen #scrollWrapper {
 }
 #researchMenu {
     padding: 2px;
-    height: 687px;
+    height: 684px;
     width: 270px;
     border: 2px solid;
     border-radius: 10px;
@@ -1987,20 +1987,20 @@ section#widgetScreen #scrollWrapper {
 }
 .menuName1 {
     height: 0px;
-    font: normal 19pt "Avenir Next Medium", Helvetica, Arial, sans-serif;
-    padding-left: 15px;
+    font: normal 19px "Avenir Next Medium", Helvetica, Arial, sans-serif;
+    padding-left: 21px;
     padding-bottom: 0px;
-    top: -13px;
+    top: 0px;
     position: absolute;
     text-shadow: -1pt -1pt #ffffff;
 }
 .menuName2 {
     height: 0px;
-    font: bold 26pt "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
+    font: bold 26px "Avenir Next Demi", Helvetica, Arial, sans-serif;
     padding-left: 35px;
     margin-bottom: 0px;
     position: absolute;
-    top: 0px;
+    top: 10px;
     text-shadow: -1pt -1pt #ffffff;
 }
 #researchPeachyLogo {
@@ -2095,16 +2095,16 @@ section#widgetScreen #scrollWrapper {
     border-left: 1px solid lightgray;
 }
 .btnTitle1 {
-    font: normal 19pt "Avenir Next Medium", Helvetica, Arial, sans-serif;
-    padding-left: 15px;
-    padding-bottom: 0px;
-    text-shadow: -1pt 1pt #ffffff;
-    padding-top: 12px;
-    position: absolute;
+    font: normal 19px "Avenir Next Medium", Helvetica, Arial, sans-serif;
+padding-left: 21px;
+padding-bottom: 0px;
+text-shadow: -1pt 1pt #ffffff;
+padding-top: 15px;
+position: absolute;
 }
 .btnTitle2 {
     height: 0px;
-    font: bold 26pt "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
+    font: bold 26px "Avenir Next Demi", Helvetica, Arial, sans-serif;
     padding-left: 35px;
     margin-bottom: 0px;
     top: 33px;
@@ -6022,5 +6022,5 @@ padding-right: 20px;
 
 #featuredMeds{
     overflow: auto;
-height: 515px;
+    height: 515px;
 }

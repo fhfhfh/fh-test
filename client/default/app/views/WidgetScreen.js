@@ -31,7 +31,8 @@ define([
           'click #learning'  : 'showLearning',
           'click #drVisits'  : 'showDrVisits',
           'click #wellBeing' : 'showWellBeing',
-          'click #closeBtn'  : 'close'
+          'click #closeBtn'  : 'close',
+          'click input':'setFocus'
         },
 
         subViews: {
@@ -70,7 +71,8 @@ define([
               hscroll: false,
               fixedScrollbar: true,
               bounce: false,
-              vScrollbar: false
+              vScrollbar: false,
+              onBeforeScrollStart: null
           });
          
 
@@ -86,6 +88,13 @@ define([
 //          
 //          }
         },
+        
+         setFocus : function(e)
+            {
+                var target=e.currentTarget;
+                $(target).focus();
+
+            },
 
         showFood : function(){
           this.$('#buttons li').removeClass('selected');
@@ -149,6 +158,6 @@ define([
               this.remove();
 
             });
-        },
+        }
     });
 });

@@ -14,6 +14,8 @@
             var avatar_id = "";
             var imgRes = "";
             var imgUrl = "";
+            
+            if(typeof console === "undefined") { var console = { log: function (logMsg) { } }; }
         </script>
     </head>
     <body>
@@ -21,7 +23,7 @@
         <div id="content"></div>
         <div id="notifications"></div>
         <div id="modalMask"></div>
-        <script type="text/javascript" src="https://getfirebug.com/firebug-lite.js"></script> 
+<!--        <script type="text/javascript" src="https://getfirebug.com/firebug-lite.js"></script> -->
         <!-- See http://requirejs.org/ for more info. -->
         <script data-main="app/app.js" src="app/require.js" async></script>
 
