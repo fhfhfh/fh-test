@@ -1921,7 +1921,7 @@ section#widgetScreen #scrollWrapper {
 #researchDesc {
     margin-top: 45px;
     padding: 0 15px 0 15px;
-    font: 11px "Avenir Next Demi", Helvetica, Arial, sans-serif;
+    font: 12px "Avenir Next", Helvetica, Arial, sans-serif;
     position: absolute;
     right: 15px;
     width: 240px;
@@ -6007,7 +6007,7 @@ padding-right: 20px;
 
 #foodItemScreen{
     overflow: auto;
-    height: 525px;
+    height: 545px;
 }
 
 #foodScreen #pageScroll #scroller{
@@ -6023,4 +6023,8 @@ padding-right: 20px;
 #featuredMeds{
     overflow: auto;
     height: 515px;
+}
+
+#widgetScreen #closeBtn{
+    background-color: black!important;
 }
