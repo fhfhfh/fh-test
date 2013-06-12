@@ -32,7 +32,7 @@ define([
 
       this.$el.html(template);
       this.$content = this.$('#home-content');
-      this.$nav = this.$('#home-nav');    
+      this.$nav = this.$('#home-nav');
 
       this.iscroll = new iScroll(this.$('#wrapper')[0], {
         vscroll: true,
@@ -40,10 +40,10 @@ define([
           fixedScrollbar: true,
           bounce: false,
           vScrollbar: false
-      });  
+      });
 
       // self.setActiveView(((options && options.activeView) || 'news'));  
-      
+
     },
 
     render: function() {

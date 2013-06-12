@@ -13,32 +13,32 @@ define(['jquery',
 	//interface----------------------------------
 	var store = {
 
-		save	: _save, 	// save a model to local storage
+		save	: _save,	// save a model to local storage
 		load	: _load,	// load a model from local storage
-		clear	: _clear, 	// clear a model from local storage
+		clear	: _clear,	// clear a model from local storage
 		clearAll: _clearAll // wipe local storage
 	};
 
 	//implementation-------------------------------
 
 	function _save(modelName, model, callback){
-		var model = model || {};
+		model = model || {};
 
 		localStorage.setItem(modelName, model);
 		return callback(true);
-	};
+	}
 
 	function _load(modelName, callback){
 
 		var res =localStorage.getItem(modelName);
 		return callback(true, res);
-	};
+	}
 
 	function _clear(modelName, callback){
 
 		localStorage.removeItem(modelName);
 		return callback(true);
-	};
+	}
 
 	function _clearAll(callback){
 
@@ -46,7 +46,7 @@ define(['jquery',
 		localStorage.clear();
 		return true;
 
-	};
+	}
 
 	return store;
 

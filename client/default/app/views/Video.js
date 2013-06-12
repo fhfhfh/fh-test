@@ -24,7 +24,6 @@ define([
 
         events: {
             'click #doneBtn'  : 'close',
-            'click #title'    : 'refreshScroll',
             'click #saveBtn'  : 'addToFavorites',
             'click #removeBtn': 'removeFromFavs',
             'click #logo'     : 'logout',
@@ -66,7 +65,7 @@ define([
                 fixedScrollbar: true,
                 bounce: false,
                 hScrollbar: false
-            });            
+            });
             // ------------------------------------------
         },
 
@@ -78,7 +77,7 @@ define([
                     self.iscroll.refresh.call(self.iscroll);
                 }
                 if(self.iscroll2){
-                    self.iscroll2.refresh.call(self.iscroll2);   
+                    self.iscroll2.refresh.call(self.iscroll2);
                 }
                 // var width = this.$('#videoContainer').width() - this.$('#pageDiv').width();
                 // console.log(width);
@@ -94,7 +93,7 @@ define([
             return this;
         },
 
-        logout: function(){    
+        logout: function(){
             Backbone.history.navigate('login', true);
         },
 
@@ -127,7 +126,7 @@ define([
                 this.$('#removeBtn').show();
             }
             else{
-                this.$('#removeBtn').hide();   
+                this.$('#removeBtn').hide();
             }
         },
 
@@ -147,7 +146,7 @@ define([
             //     },500);    
             // }
             // this.refreshScroll();          
-                        
+
         }
 
     });

@@ -6,13 +6,13 @@ define(['jquery',
     'underscore',
     'backbone',
     'text!templates/components/Month.html',
-    'text!templates/popups/DayEvents.html',
+    'text!templates/popups/DayEvents.html'
     ], function($, _, Backbone, tpl, dayEventTpl) {
         var evtArr = [];
         var target="";
         var timer ='';
         return Backbone.View.extend({
-               
+
             // Backbone specific attributes
             tagName		: 'section',
             id			: 'month',
@@ -27,9 +27,9 @@ define(['jquery',
                 'click #month_options'     :'monthOptions'
             },
             template	: _.template(tpl),
-            evt_day    :   "",
-            
-            dayTpl 		: _.template(dayEventTpl),
+            evt_day     :   "",
+
+            dayTpl		: _.template(dayEventTpl),
             monthName: [
             'January', 'Febuary', 'March', 'April', 'May', 'June', 'July', 'August', 'September',
             'October', 'November', 'December'
@@ -62,7 +62,7 @@ define(['jquery',
             },
 
             daysInMonth: function(month,year) {
-                var month = month +1;
+                month = month +1;
                 return new Date(year, month, 0).getDate();
             },
 
@@ -104,14 +104,14 @@ define(['jquery',
 
                     $(days[i]).html("<div class='day'>" + num + "</div>");
                     $(days[i]).addClass(cls);
-                    
+
                     if(evtArr.length>=0){
                         for( var j=0; j <= evtArr.length; j++){
-                           
+
                             if(evtArr[j] && num == evtArr[j].day && self.month == evtArr[j].month && this.year == evtArr[j].year){
                                 if($(days[i]).css('background-color')!= 'rgb(255, 246, 218)'){
                                     if(num == new Date().getDate() && this.month == new Date().getMonth() && this.year == new Date().getFullYear())
-                                    {  
+                                    {
                                         $(days[i]).css({
                                             'background-color':'#7fb0db'
                                         });
@@ -131,12 +131,12 @@ define(['jquery',
                             }
                         }
                     }
-				
+
                     num = num +1;
                 }
                 $("#monthName").html(this.monthName[this.month]+","+this.year);
             },
-                
+
             nextMonth: function(){
                 var date		= new Date();
                 if(this.month>=11 )
@@ -153,7 +153,7 @@ define(['jquery',
                     this.setMonth(this.month+1);
                 }
             },
-            
+
             previousMonth: function(){
                 var date		= new Date();
                 if(this.month<=0 )
@@ -163,18 +163,18 @@ define(['jquery',
                 }
                 if(this.month == date.month && this.year == date.getFullYear()){
                     this.renderCal();
-                    return
+                    return;
                 }
                 $("#monthName").html(this.monthName[this.month-1]+","+this.year);
                 this.setMonth(this.month-1);
             },
-            
+
             currentMonth : function(){
                 var date		= new Date();
                 this.year = date.getFullYear();
                 this.month = date.getMonth();
                 $("#monthName").html(this.monthName[this.month]+","+date.getFullYear());
-                this.setMonth(this.month)
+                this.setMonth(this.month);
             },
 
 
@@ -185,7 +185,7 @@ define(['jquery',
             eventsOn: function(e){
                 target = e.currentTarget;
                 if(!$(target).children("div[id='popDate']").is(":visible")){
-                if(timer != null)
+                if(timer !== null)
                 {
                     clearTimeout(timer);
                     $('#popDate').remove();
@@ -195,16 +195,16 @@ define(['jquery',
                     var day = $(target).find('.day').html();
                     var dateModel = '';// get Events model Item for the date that is clicked
                     evt_day = day;
-               
-                    var html = 	this.dayTpl({
+
+                    var html =	this.dayTpl({
                         date: month + ' ' + day + ', ' + self.year,
                         energy: dateModel.energy || 'Average',
                         mood: dateModel.mood || 'Good',
                         diet: dateModel.diet || 'Good'
                     });
-                
-                
-                    if(day != undefined && day>0 ){
+
+
+                    if(day !== undefined && day>0 ){
                         $(html).insertBefore($(target).find(".day"));
                         if(evtArrLength >0)
                         {
@@ -215,7 +215,7 @@ define(['jquery',
                             }
                         }
                         var xxx = $(target).find('.day').css("height");
-                        var temp = $(target).position().left+parseInt($(target).css("width"))-parseInt($('#popDate').css("width"));
+                        var temp = $(target).position().left+parseInt($(target).css("width"),10)-parseInt($('#popDate').css("width"),10);
                         if(temp>10)
                             $('#popDate').css("left",temp);
                         else
@@ -226,10 +226,10 @@ define(['jquery',
                             }, 8000);
 //                            alert(timer);
                     }
-                }  
+                }
                 }else{
                      $('#popDate').remove();
-                    $(target).find('#popDate').slideUp(200);                
+                    $(target).find('#popDate').slideUp(200);
                     $('#popDate').remove();
                 }
         },
@@ -242,7 +242,7 @@ define(['jquery',
             $('#evt_name').val("");
             $('#evt_details').val("");
             $('#evt_name').focus();
-            if(evt_day == '')
+            if(evt_day === '')
                 return;
             var self = this;
             var month = this.monthName[self.month];
@@ -263,7 +263,7 @@ define(['jquery',
             }
         //                alert('Need information on what is needed here')
         },
-            
+
         setMonth : function(month){
             this.month = month;//date.getMonth();
             var date		= new Date();
@@ -285,48 +285,48 @@ define(['jquery',
             }
             var monthLength = this.daysInMonth(this.month, self.year);
             var num = 1;
-            for(var i=first; i<42 + first ; i++){
-                $(days[i]).css({
+            for(var x=first; x<42 + first ; x++){
+                $(days[x]).css({
                     'background-color':'white'
                 });
-                if(days[i] && days[i].className == 'today'){
-                    $(days[i]).removeClass('today')
-                    $(days[i]).addClass(' ');
+                if(days[x] && days[x].className == 'today'){
+                    $(days[x]).removeClass('today');
+                    $(days[x]).addClass(' ');
                 }
                 cls = '';
                 if(num == today && this.month == date.getMonth() && this.year == date.getFullYear()){
-                    $(days[i]).css({
+                    $(days[x]).css({
                         'background-color':'#7fb0db'
                     });
                     cls = 'today';
                 }
-                $(days[i]).html("<div class='day'>  </div>");
+                $(days[x]).html("<div class='day'>  </div>");
                 if(monthLength >= num){
-                    $(days[i]).html("<div class='day'>" + num + "</div>");
-                    $(days[i]).addClass(cls);
+                    $(days[x]).html("<div class='day'>" + num + "</div>");
+                    $(days[x]).addClass(cls);
                 }
                 if(evtArr.length>=0){
-                        
+
                     for( var j=0; j <= evtArr.length; j++){
-                           
+
                         if(evtArr[j] && num == evtArr[j].day && month == evtArr[j].month && this.year == evtArr[j].year){
-                            if($(days[i]).css('background-color')!= 'rgb(255, 246, 218)'){
+                            if($(days[x]).css('background-color')!= 'rgb(255, 246, 218)'){
                                 if(num == new Date().getDate() && this.month == new Date().getMonth() && this.year == new Date().getFullYear())
-                                {  
-                                    $(days[i]).css({
+                                {
+                                    $(days[x]).css({
                                         'background-color':'#7fb0db'
                                     });
-                                    if($(days[i]).children().length <2)
+                                    if($(days[x]).children().length <2)
                                     {
-                                        $(days[i]).append(evtArr[j].img);
+                                        $(days[x]).append(evtArr[j].img);
                                     }
                                 }
                                 else
                                 {
-                                    $(days[i]).css({
+                                    $(days[x]).css({
                                         'background-color':'rgb(255, 246, 218)'
                                     });
-                                    $(days[i]).append(evtArr[j].img);
+                                    $(days[x]).append(evtArr[j].img);
                                 }
                             }
                         }
@@ -335,7 +335,7 @@ define(['jquery',
                 num = num +1;
             }
         },
-            
+
         saveEvent : function(){
             $('#evt_err').html("");
             $('#popDate').remove();
@@ -353,8 +353,8 @@ define(['jquery',
                     month : this.month,
                     year : this.year,
                     img : "<img src='img/calendar/DaceHappyWhite@2x.png' style='margin-top: 12%;height : 50px'>"
-                }
-                if(obj.name !="" && obj.details !="")
+                };
+                if(obj.name !=="" && obj.details !=="")
                 {
                     evtArr.push(obj);
                     var num=1;
@@ -364,7 +364,7 @@ define(['jquery',
                         for(var i=1; i<42 + 1 ; i++){
                             if(num == obj.day ){
                                 if(num == new Date().getDate() && this.month == new Date().getMonth() && this.year == new Date().getFullYear())
-                                {  
+                                {
                                     $(target).css({
                                         'background-color':'#7fb0db'
                                     });
@@ -374,7 +374,6 @@ define(['jquery',
                                     }
                                 }
                                 else{
-                                    
                                     $(target).append(obj.img);
                                     $(target).css({
                                         align : 'center'
@@ -383,7 +382,7 @@ define(['jquery',
                                         'background-color':'rgb(255, 246, 218)'
                                     });
                                 }
-                            } 
+                            }
                             num++;
                         }
                 }
@@ -393,8 +392,7 @@ define(['jquery',
                 $('#cover_div').hide();
             }
         },
-            
-            
+
         monthOptions : function(){
             Backbone.trigger('notify', 'No Information available');
         }

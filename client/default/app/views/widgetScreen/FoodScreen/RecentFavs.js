@@ -27,7 +27,7 @@ define([
 
         initialize: function() {
             // _.bindAll(this);
-            
+
         },
 
         render: function() {
@@ -39,7 +39,7 @@ define([
             setTimeout(function(){
                 self.showRecentItems();
             },100);
-            
+
             this.$el.html(this.template({list:list}));
 
             this.iscroll = new iScroll(self.$('#wrapper')[0]);
@@ -49,7 +49,7 @@ define([
         refreshScroll: function(){
             var self = this;
             if(this.iscroll){
-                this.iscroll.refresh.call(self.iscroll);        
+                this.iscroll.refresh.call(self.iscroll);
             }
         },
 
@@ -89,7 +89,7 @@ define([
             var id = target.attr('data-id');
             var model = collection.get(id);
             var attr = model.attributes;
-            this.selectFood = model
+            this.selectFood = model;
             target.find('img').toggle();
             target.toggleClass('selected');
 

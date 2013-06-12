@@ -36,11 +36,11 @@ define([
 
         subViews: {
           foodometerNav  : new Foodometer(),
-          busyBodyNav  : new BusyBody(), 
-          medBotNav  : new MedBot(), 
-          myStatsNav  : new MyStats(), 
-          learningNav  : new Learning(), 
-          drVisitsNav  : new DrVisits(), 
+          busyBodyNav  : new BusyBody(),
+          medBotNav  : new MedBot(),
+          myStatsNav  : new MyStats(),
+          learningNav  : new Learning(),
+          drVisitsNav  : new DrVisits(),
           wellBeingNav  : new WellBeing(),
           foodScreen  : new FoodScreen()
         },
@@ -55,7 +55,7 @@ define([
 
         render: function() {
           var self = this;
-          self.setActiveView(initial);  
+          self.setActiveView(initial);
           this.delegateEvents();
           if (this.activeView) {
             this.activeView.delegateEvents();
@@ -81,9 +81,9 @@ define([
           var self = this;
           if(this.iscroll){
             setTimeout(function(){
-              self.iscroll.refresh.call(self.iscroll);    
+              self.iscroll.refresh.call(self.iscroll);
             }, 1000);
-          
+
           }
         },
 
@@ -109,8 +109,6 @@ define([
         },
 
         showMyStats : function(){
-                  console.log("hello stats");
-  
           this.$('#buttons li').removeClass('selected');
           this.$('#buttons #myStats').addClass('selected');
           this.setActiveView('myStatsNav');
@@ -149,6 +147,6 @@ define([
               this.remove();
 
             });
-        },
+        }
     });
 });

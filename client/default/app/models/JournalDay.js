@@ -9,20 +9,16 @@ define(['backbone'], function(Backbone) {
 	var journalDay = Backbone.Model.extend({
 
 		defaults: {
-			date 			: new Date(),
-			goalCals 		: 1500,
-			remainingCals 	: 1500,
-			currentCals 	: 0,
-			// breakfast 		: [{calories: "0", location: "", "with" : "", time: "", notes: ""}],
-			// lunch 			: [{calories: "0", location: "", "with" : "", time: "", notes: ""}],
-			// dinner 			: [{calories: "0", location: "", "with" : "", time: "", notes: ""}],
-			// snacks 			: [{calories: "0", location: "", "with" : "", time: "", notes: ""}],
-			// beverages 		: [{calories: "0", location: "", "with" : "", time: "", notes: ""}]
+			date			: new Date(),
+			goalCals		: 1500,
+			remainingCals	: 1500,
+			currentCals		: 0
+
 		},
 
 		initialize: function(){
 			console.log('Journal Day created');
-			
+
 			// initialize values
 			this.set("breakfast",[{calories: "0", location: "", "with" : "", time: "", notes: ""}]);
 			this.set("lunch",[{calories: "0", location: "", "with" : "", time: "", notes: ""}]);
@@ -78,7 +74,7 @@ define(['backbone'], function(Backbone) {
 				var carbohydrates = 0;
 				var fibre         = 0;
 				var protein       = 0;
-				
+
 				for(j=1;j<meal.length;j++){
 					var item=meal[j];
 					calories      += parseFloat(item.calories) || 0;
@@ -125,10 +121,10 @@ define(['backbone'], function(Backbone) {
 		},
 
 		getCals: function(meal){
-			if(meal.length == 0){
+			if(meal.length === 0){
 				return 0;
 			} else {
-				return parseInt(meal[0].calories);
+				return parseInt(meal[0].calories, 10);
 			}
 		},
 

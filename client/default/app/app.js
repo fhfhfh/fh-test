@@ -58,7 +58,7 @@ require([
     'fullcalendar',
     'jflot',
     'flottime'
-    
+
 ], function($fh, $, Backbone, FastClick, NotificationManager, AppRouter) {
 
   // To enable development (and future deployment) on desktop browsers, we make
@@ -94,7 +94,7 @@ require([
       new AppRouter();
 
       // $fh.fh_timeout = 120000;
-      
+
     }, function() {
       Backbone.trigger('notify', 'FeedHenry init failed!');
     });

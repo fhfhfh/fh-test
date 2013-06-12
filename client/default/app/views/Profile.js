@@ -17,7 +17,7 @@ define([
           'click #general'      : 'showGeneral',
           'click #privacy'      : 'showPrivacy',
           'click #content'      : 'showContent',
-          'click #accessibility': 'showAccess',
+          'click #accessibility': 'showAccess'
         },
 
         subViews: {
@@ -30,7 +30,7 @@ define([
 
             this.$el.html(template);
             this.$content = this.$('#scroller');
-            this.$nav = this.$('#main-tabs');    
+            this.$nav = this.$('#main-tabs');
 
             // iScroll ---------------------------
             this.iscroll = new iScroll(this.$('#profile-iscroll')[0], {
@@ -38,13 +38,13 @@ define([
                 fixedScrollbar: true,
                 bounce: false,
                 vScrollbar: false
-            });   
+            });
         },
 
         render: function() {
           var self = this;
-          
-          self.setActiveView('general');  
+
+          self.setActiveView('general');
           this.delegateEvents();
           if (this.activeView) {
             this.activeView.delegateEvents();
@@ -58,7 +58,7 @@ define([
         refreshScroll: function(){
           var self = this;
           if(this.iscroll){
-          this.iscroll.refresh.call(self.iscroll);        
+          this.iscroll.refresh.call(self.iscroll);
           }
         },
 

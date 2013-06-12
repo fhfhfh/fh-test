@@ -12,7 +12,7 @@ define(['jquery',
 
         //interface----------------------------------
         var avatars = {
-            loadAvatars 	: _loadAvatars,
+            loadAvatars     : _loadAvatars,
             getAvatars      : _getAvatars,
             getAvatarById   : _getAvatarById,
             getUserAvatar   : _getUserAvatar
@@ -22,12 +22,12 @@ define(['jquery',
         function _loadAvatars(cb){
             Avatars.fetchAvatars(function(res, data){
                 // Store avatars to local Storage.
-                var data = JSON.stringify(res.payload);
+                data = JSON.stringify(res.payload);
                 Store.save('peachy_avatars', data, function(){
                     return cb(res.payload);
-                })
-            });                        
-        };
+                });
+            });
+        }
 
         function _getAvatars(){
             Store.load('peachy_avatars', function(res, data){
@@ -36,8 +36,8 @@ define(['jquery',
                     var obj = JSON.parse(data);
                     return obj.avatars;
                 }
-            })
-        };
+            });
+        }
 
         function _getAvatarById(id){
             var item;
@@ -45,10 +45,10 @@ define(['jquery',
                 if(res && data){
                     var obj = JSON.parse(data);
                     var array = obj.avatars;
-                    
+
                     for(var i=0;i<array.length;i++){
                          item = array[i];
-                    
+
                         if(item.avatarId == id){
                             return item;
                         }
@@ -56,7 +56,7 @@ define(['jquery',
                 }
             });
             return item;
-        };
+        }
 
         function _getUserAvatar(){
             var self = this;
@@ -65,12 +65,11 @@ define(['jquery',
                 if(res && data){
                     var obj = JSON.parse(data);
                     var id = obj.userDetails.avatarId;
-                    avatar = self.getAvatarById(id);   
+                    avatar = self.getAvatarById(id);
                 }
             });
             return avatar;
         }
-	
 
         return avatars;
 

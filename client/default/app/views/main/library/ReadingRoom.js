@@ -21,9 +21,7 @@ define(['jquery',
             'click #changeView' : 'changeView',
             "click #item"       : "displayFile",
             'click #clearBtn'   : 'clearText',
-            'keyup #search'     : 'searchItems',
-            'click #item'       : 'displayFile',
-
+            'keyup #search'     : 'searchItems'
         },
         template    : _.template(tpl),
         rowTpl      : _.template(rowTpl),
@@ -65,7 +63,7 @@ define(['jquery',
             var src = {
                 video: "img/library/PlayWhiteSmall.png",
                 article: "img/library/ArticleWhiteSmall.png",
-                web: "img/library/GlobeWhiteSmall.png",
+                web: "img/library/GlobeWhiteSmall.png"
                 };
 
             var items = libStore.models;
@@ -75,13 +73,13 @@ define(['jquery',
                 var item = items[i].attributes;
                 if(item.folders.indexOf(1) >= 0){
                     str+=tpl({
-                        id      :item.id, 
+                        id      :item.id,
                         name    :item.title,
                         type    : 'video',
                         date    : 'Today',
                         src     : src.video,
                         folders : item.folders
-                    }); 
+                    });
                 }
             }
             return str;
@@ -99,7 +97,7 @@ define(['jquery',
                 }
 
                 str+=tpl({
-                    id      :item.id, 
+                    id      :item.id,
                     shortTitle  :item.shortTitle,
                     title   :item.title,
                     type    : 'video',
@@ -157,20 +155,6 @@ define(['jquery',
             }
         },
 
-        displayFile: function(e){
-            console.log(e);
-            var target  = e.currentTarget;
-            var title   = $(target).text();
-            var id      = $(target).attr('data-id');
-            var type    = $(target).attr('type');
-            var model   = libStore.get(id);
-
-            if(type == 'video'){
-                localStorage.setItem('tempVid', JSON.stringify(model));
-                Backbone.history.navigate('video', true, true);
-            }
-        },
-
         thumbnailUpdate: function(){
             var self=this,i;
             var items = this.$('.cabinetItem');
@@ -191,7 +175,7 @@ define(['jquery',
         searchItems: function(e){
             var target = e.currentTarget;
             var text = $(target).val().toLowerCase();
-            var i,j;
+            var i,j, item, title;
             if(e.which == 13){
                 $(target).blur();
             }
@@ -201,8 +185,8 @@ define(['jquery',
             var items = $('.cabinetItem');
             items.show();
             for(i=0; i<items.length;i++){
-                var item = $(items[i]);
-                var title = item.find('p').attr('title').toLowerCase();
+                item = $(items[i]);
+                title = item.find('p').attr('title').toLowerCase();
                 if(title.indexOf(text) == -1){
                     console.log(text, title);
                     item.hide();
@@ -213,8 +197,8 @@ define(['jquery',
             var items2 = $('tr#item');
             items2.show();
             for(i=0; i<items2.length;i++){
-                var item = $(items2[i]);
-                var title = item.find('#title').text().toLowerCase();
+                item = $(items2[i]);
+                title = item.find('#title').text().toLowerCase();
                 if(title.indexOf(text) == -1){
                     item.hide();
                 }
@@ -236,7 +220,7 @@ define(['jquery',
                 localStorage.setItem('tempVid', JSON.stringify(model));
                 Backbone.history.navigate('video', true, true);
             }
-        },
+        }
 
     });
 });

@@ -55,7 +55,7 @@ define([
         },
 
         renderCal: function(date){
-            var date        = date || new Date();
+            date        = date || new Date();
             date.setMonth(this.month);
             date.setFullYear(this.year);
             var todaysDate  = new Date();
@@ -81,8 +81,8 @@ define([
                  model = collection.find(function(item){
                     return item.get('date').toDateString() == dateNumber.toDateString();
                 });
-                 
-                if(model != null && !model.isEmpty()){
+
+                if(model !== null && !model.isEmpty()){
                     $(days[i]).css("background-image", "url('../img/calendar/FaceHappy.png')");
                     $(days[i]).css("background-position", "10px 10px");
                     $(days[i]).css("background-repeat", "no-repeat no-repeat");
@@ -106,7 +106,7 @@ define([
             }
             else {
                 $('#foodometer').append(self.monthTpl());
-                $("#month").html(this.calendar.monthName[this.month]+", "+this.year); 
+                $("#month").html(this.calendar.monthName[this.month]+", "+this.year);
                 $('#back').unbind().bind('click', function(){
                     self.prevMonth();
                 });
@@ -168,7 +168,7 @@ define([
 
         renderDay: function(date){
             var self = this;
-            var date = date || new Date();
+            date = date || new Date();
             var dayModel = collection.find(function(item){
                 return item.get('date').toDateString() == date.toDateString();
             });
@@ -179,7 +179,7 @@ define([
                 if(self.item.isEmpty()){ // check if model has any food entries
                     self.showEmptyScreen();
                 } else {
-                    self.showMealScreen();    
+                    self.showMealScreen();
                 }
             }
             else {
@@ -197,8 +197,8 @@ define([
             this.$(target).addClass('selected');
 
             var dateString = this.$('#dateString').text();
-            var mealString = 'My ' + meal.substring(0,1).toUpperCase() + meal.substring(1,meal.length); 
-    
+            var mealString = 'My ' + meal.substring(0,1).toUpperCase() + meal.substring(1,meal.length);
+
             this.$('#mealContainer').show();
             this.$('#emptyFood').hide();
             this.$('#foodItemScreen').remove();
@@ -222,12 +222,11 @@ define([
                     var arr = self.item.attributes[meal];
                     arr.push(foodArr[i].attributes);
                     self.item.set(meal, arr);
-                    self.item.recalculateNutrients();   
+                    self.item.recalculateNutrients();
                 }
-                
+                this.container.foodItems = [];
+                this.populateMeal(meal);
             }
-            this.container.foodItems = [];
-            this.populateMeal(meal);
         },
 
         populateMeal: function(meal){
@@ -237,7 +236,7 @@ define([
 
             if(item && meal){
                 var foods = item.attributes[meal];
-                if(foods.length == 0){
+                if(foods.length === 0){
                     this.$('#calCount').text("");
                     this.$('#location').val("");
                     this.$('#with').val("");
@@ -257,7 +256,7 @@ define([
                         '</div>';
                     this.$('#foodList').append(html);
                 }
-                
+
                 // populate meal info
                 var foodInfo = foods[0];
 
@@ -300,7 +299,7 @@ define([
                  }, function(err, msg){
                    console.log(JSON.stringify(msg));
                 });
-                
+
             $('#add').toggleClass('selected');
             $('#addFoodPopup').toggle();
         },
@@ -327,11 +326,11 @@ define([
 
             if(!todayModel){
                 yesterdayModel.attributes.date = new Date();
-                collection.createDay(date, yesterdayModel);    
+                collection.createDay(date, yesterdayModel);
             } else {
                 todayModel.set(meal, yesterdayModel.attributes[meal]);
             }
-            
+
             this.populateMeal(meal);
             $('#add').toggleClass('selected');
             $('#addFoodPopup').toggle();
@@ -359,14 +358,14 @@ define([
         },
 
         updateNutrition: function(el){
-            var el = el || $("#nutritionSection .boxEntry");
-            
+            el = el || $("#nutritionSection .boxEntry");
+
             for(var i=0; i<el.length; i++){
                 var thisEl = $(el[i]);
                 var percent = thisEl.find("#rda").text() || "0%";
                 thisEl.find("#name").css("background-size", percent +" 100%");
             }
-            
+
         },
 
         populateNutrition: function(model, meal, el, index){
@@ -409,13 +408,13 @@ define([
                     if(index.id === id){
                         var servings = index.serving.split(" x ")[0];
                         var size = index.serving.split(" x ")[1];
-                        
+
                         this.foodItem = foods[i];
                         this.$('#mealContainer').hide();
                         this.$('#nutritionSection').hide();
                         this.$("#rightContent").append(self.foodItemTpl({item:index, imgSrc:""}));
                         $("#size").val(size).attr('disabled','disabled');
-                        $("#serving").val(parseInt(servings));
+                        $("#serving").val(parseInt(servings,10));
                         self.populateNutrition(item, meal, $('#nutritionInfo'), i);
                         $("#foodItemScreen").attr("data-id", id);
                     }
@@ -433,8 +432,8 @@ define([
             var self = this;
             var meal = $(".meal.selected").attr('data-name') || "breakfast";
             var mealArr = this.item.attributes[meal];
-            var newServing = parseInt($("#serving").val());
-            var oldServing = parseInt(self.foodItem.serving.split(" x ")[0]);
+            var newServing = parseInt($("#serving").val(),10);
+            var oldServing = parseInt(self.foodItem.serving.split(" x ")[0],10);
             var size       = self.foodItem.serving.split(" x ")[1];
 
             for(var i=1;i<mealArr.length;i++){

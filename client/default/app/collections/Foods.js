@@ -18,7 +18,7 @@ define(['backbone',
 
 		initialize: function(){
 			var self=this;
-			
+
 			this.on('change:favorite', function(){
 				self.saveFavs();
 			});
@@ -32,7 +32,7 @@ define(['backbone',
 
 		singleSearch: function(term, type, cb){
 			var self = this;
-			
+
 			Act.call("searchDBAction", {"type":term},
 				function(res){
 					var data = res.payload;
@@ -81,17 +81,17 @@ define(['backbone',
 					return cb(null, models);
 				}, function(err, msg){
 					console.warn(err, msg);
-					return cb(err, null);;
+					return cb(err, null);
 				}
 			);
 		},
 
 		populateCollection: function(list, type){
 			var self = this;
-			
+
 			for(var i=0;i<list.length;i++){
 				var item =list[i];
-				item.type = type
+				item.type = type;
 				var asset = new self.model(item);
 				self.add(asset);
 			}

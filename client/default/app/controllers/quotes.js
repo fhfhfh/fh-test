@@ -11,22 +11,17 @@ define(['jquery',
 
         //interface----------------------------------
         var quotes = {
-            loadQuotes 	: _loadQuotes 
+            loadQuotes	: _loadQuotes
         };
 
 
         function _loadQuotes(callback){
-               Quotes.fetchQuotes(function(res, data){
+            Quotes.fetchQuotes(function(res, data){
                 if(res){
-                  return callback(res);
+                    return callback(res);
                 }
-                
-                
-                });
-           
-
+            });
         }
-	
 
         return quotes;
 

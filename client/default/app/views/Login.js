@@ -35,7 +35,7 @@ define([
                 this.$el.html(loginTpl);
 
                 if(navigator.splashscreen){
-                    navigator.splashscreen.hide();                
+                    navigator.splashscreen.hide();
                 }
 
                 // TODO: Remove this in production!
@@ -79,7 +79,7 @@ define([
                         if(res === false){
                             self.showLogin();
                         }
-                        else if(url != null) {
+                        else if(url !== null) {
                             self.showVideo(url);
                         }
                         else {
@@ -100,7 +100,7 @@ define([
                 $('#content').html('');
                 $(renderedPage.el).appendTo($('#content')).hide().fadeIn(400);
                 welcome.loadVideo(url);
-                
+
             },
 
             showLoading: function() {

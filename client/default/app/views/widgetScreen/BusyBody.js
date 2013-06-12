@@ -7,7 +7,7 @@ define([
     'underscore',
     'backbone',
     'text!templates/widgets/BusyBody.html',
-    'models/Calendar',
+    'models/Calendar'
      // when taking the above lines out, make sure it is reflected in the following line also
 ], function($, _, Backbone, tpl, calendar) {
     return Backbone.View.extend({

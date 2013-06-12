@@ -30,7 +30,7 @@ define([
             initialize: function(options) {
                 var self = this;
                 _.bindAll(this);
-                
+
                 this.$el.html(template);
                 this.$content = this.$('#healthHub-content');
 
@@ -65,7 +65,7 @@ define([
             refreshScroll: function(){
                 var self = this;
                 if(this.iscroll){
-                    this.iscroll.refresh.call(self.iscroll);        
+                    this.iscroll.refresh.call(self.iscroll);
                 }
             },
 
@@ -117,7 +117,7 @@ define([
                 // Get data from localStorage
                 Store.load('peachy_healthHub', function(res, obj){
                     if(res && obj){
-                        self.healthHubData = JSON.parse(obj);  
+                        self.healthHubData = JSON.parse(obj);
                     }
                 });
             }

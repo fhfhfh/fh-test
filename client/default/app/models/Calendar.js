@@ -12,7 +12,7 @@ define(['jquery',
 
 	//interface----------------------------------
 	var calendar = Backbone.Model.extend({
-		
+
 		monthName: [
             'January', 'Febuary', 'March', 'April', 'May', 'June', 'July', 'August', 'September',
             'October', 'November', 'December'
@@ -45,7 +45,7 @@ define(['jquery',
 		 * returns the number of days in that month
 		 */
         daysInMonth: function(month,year) {
-            var month = month +1;
+            month = month +1;
             return new Date(year, month, 0).getDate();
         },
 
@@ -68,7 +68,7 @@ define(['jquery',
             var first = dateObj.getDay();
 
             return first;
-        },
+        }
 	});
 
 	return calendar;

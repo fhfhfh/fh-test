@@ -44,7 +44,7 @@ define([
 
     render: function() {
       var self = this;
-      self.setActiveView('month');  
+      self.setActiveView('month');
       this.delegateEvents();
       if (this.activeView) {
         this.activeView.delegateEvents();
@@ -58,7 +58,7 @@ define([
     refreshScroll: function(){
       var self = this;
       if(this.iscroll){
-        this.iscroll.refresh.call(self.iscroll);        
+        this.iscroll.refresh.call(self.iscroll);
       }
     },
 
@@ -81,7 +81,7 @@ define([
       this.$('#show-insights').addClass('selected');
       this.setActiveView('insights');
       this.refreshScroll();
-    },
+    }
 
   });
 });

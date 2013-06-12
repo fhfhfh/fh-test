@@ -2,7 +2,7 @@
  * This is a Collection of all LibraryItems
  */
 
-define(['backbone', 
+define(['backbone',
 		'models/JournalDay',
 		'models/Acts',
 		'models/Store'
@@ -13,7 +13,7 @@ define(['backbone',
 		//Backbone specific attributes
 		model : model,
 		storageKey: 'peachy_foodJournal',
-		
+
 		dailyValues: {
 			calories: 1500,
 			fat: 20,
@@ -27,14 +27,14 @@ define(['backbone',
 		initialize: function(){
 			var self=this;
 			// this.on('change', function(){
-			// 	self.store();
+			//	self.store();
 			// });
 
 		},
 
 		addEntry: function(obj){
 			console.log(obj);
-			
+
 			var asset = new model(obj);
 			this.add(asset);
 			this.store();
@@ -47,7 +47,7 @@ define(['backbone',
 			console.log(asset);
 			console.log(this);
 			return asset;
-			
+
 		},
 
 
@@ -56,18 +56,18 @@ define(['backbone',
 			return;
 			var self=this;
 
-            Act.call('fetchNewsAction', {}, 
-		        function(res){
+            Act.call('fetchNewsAction', {},
+				function(res){
 					var lib = res.payload.News;
 					for(var i = 0; i<lib.length; i++){
 						var item = lib[i];
 						item.imgData = "data:image/png;base64," + item.videoImgBase64;
 						// self.addAsset(item);
 					}
-		        }, function(err, msg){
-		          console.log(err, msg);
-		        }
-		    );
+				}, function(err, msg){
+					console.log(err, msg);
+				}
+			);
 		},
 
 		store: function(){

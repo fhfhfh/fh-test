@@ -60,7 +60,7 @@ define([
                 var points = this.setPeachyPoints();
                 this.setAvatar();
                 this.$('#points-button em').html(points);
-                
+
                 $('#top-bar').removeClass('profileBar');
             },
 
@@ -71,7 +71,7 @@ define([
                 var setAvatars=this.setAvatar();
                 // TODO : clear session ID from local storage, and possibly all user data
                 var params = "";
-                Acts.call('logoutAction', params, 
+                Acts.call('logoutAction', params,
                     function(res){
                     }, function(err, msg){
                         console.log(err);
@@ -79,24 +79,23 @@ define([
                 );
                 Backbone.history.navigate('login', true);
             },
-        
+
             setPeachyPoints : function(){
-                Acts.call('peachyPointsAction', {}, 
+                Acts.call('peachyPointsAction', {},
                     function(res){
                         var points = res.payload.points[0].peachyPoints;
                         this.$('#points-button em').html(points);
                         peachyPoints = points;
                         return(points);
-                    }, 
+                    },
                     function(err, msg){
                         console.log(err);
                     }
                     );
             },
-            
+
             setAvatar : function(){
                 var self = this;
- 
                 var avatar = controller.getUserAvatar();
                 if(avatar){
                     var image = avatar.image64;
@@ -108,6 +107,5 @@ define([
             showPopup: function(){
                 $('#topBarPopup').toggle();
             }
-        
         });
     });

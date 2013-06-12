@@ -15,7 +15,7 @@ define(['jquery',
 
             logout		: _logout
         });
-	
+
         //scripts------------------------------------
 
 
@@ -23,7 +23,7 @@ define(['jquery',
         function _logout(){
             var params = "";
             // Call logout cloud function
-            Acts.call('logoutAction', params, 
+            Acts.call('logoutAction', params,
                 function(res){
                     avatar_id = "";
                     imgRes = "";
@@ -36,18 +36,17 @@ define(['jquery',
                     return callback(err, msg);
                 }
                 );
-        };
+        }
 
         function _loggedIn(session, username){
             user.setSession(session);
             user.setName(username);
-		
+
             // Get user profile from cloud
             user.fetchUser(function(res){
                 console.log(res);
             });
-        };
-	
+        }
 
         return logout;
 

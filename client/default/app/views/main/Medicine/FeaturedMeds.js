@@ -34,18 +34,18 @@ define([
 
         showFilter: function(){
             var self = this;
-            var body = 
+            var body =
                     "<label data-id='viewMedList' data-type='1' class=''>View Medicines as a List<img src='img/healthHub/CheckmarkOrange.png'/></label>"+
                     "<label data-id='showMed' data-type='medication' class='checked'>Show Medication<img src='img/healthHub/CheckmarkOrange.png'/></label>"+
                     "<label data-id='showSupplements' data-type='supplement' class='checked'>Show Supplements<img src='img/healthHub/CheckmarkOrange.png'/></label>"+
                     "<label data-id='showMedDevices' data-type='device' class='checked'>Show Devices<img src='img/healthHub/CheckmarkOrange.png'/></label>";
-            
+
             if($('div #filterView').length > 0){
                 $('div #filterView').toggle();
                 return;
             }
             else {
-                $('#featuredMeds').append(self.filterTpl({body: body})); 
+                $('#featuredMeds').append(self.filterTpl({body: body}));
             }
         },
 
@@ -55,19 +55,19 @@ define([
             var type = target.attr("data-type");
 
             target.toggleClass('checked');
-            
-            if(type != 1){ 
+
+            if(type != 1){
                 // toggle individual medicine types
                 $('.' + type).toggle();
             } else {
                 // toggle between shelf and list views
                 if(self.activeView == "shelf"){
-                    self.activeView = "list"
+                    self.activeView = "list";
                     $('#medCabinet').hide();
                     $('#listView').show();
                 }
                 else {
-                    self.activeView = "shelf"
+                    self.activeView = "shelf";
                     $('#medCabinet').show();
                     // this.bodyScroll.refresh();
                     $('#listView').hide();

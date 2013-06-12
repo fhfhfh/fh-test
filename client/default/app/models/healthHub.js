@@ -13,24 +13,23 @@ define(['jquery',
         //interface----------------------------------
         var healthHub = {
             //Backbone specific attributes
-		
+
             fetchHealthHub  : _fetchHealthHub
-        }
-	
+        };
+
         //implementation-------------------------------
 
-	
         function _fetchHealthHub(callback){
             // fetch HealthHub  from cloud
-            Acts.call('healthHubAction', {}, 
+            Acts.call('healthHubAction', {},
                 function(res){
                     return callback(null,res);
-                    
+
                 }, function(err, msg){
                     console.log(err,null);
                 }
                 );
-        };
+        }
 
         return healthHub;
 

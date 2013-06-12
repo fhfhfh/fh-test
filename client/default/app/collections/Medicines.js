@@ -2,7 +2,7 @@
  * This is a Collection of all user Medicines
  */
 
-define(['backbone', 
+define(['backbone',
 		'models/MedicineItem',
 		'models/Acts',
 		'models/Store'
@@ -25,7 +25,7 @@ define(['backbone',
 
 		addEntry: function(obj){
 			console.log(obj);
-			
+
 			var asset = new model(obj);
 			this.add(asset);
 		},
@@ -35,18 +35,18 @@ define(['backbone',
 			return;
 			var self=this;
 
-            Act.call('fetchNewsAction', {}, 
-		        function(res){
+            Act.call('fetchNewsAction', {},
+				function(res){
 					var lib = res.payload.News;
 					for(var i = 0; i<lib.length; i++){
 						var item = lib[i];
 						item.imgData = "data:image/png;base64," + item.videoImgBase64;
 						// self.addAsset(item);
 					}
-		        }, function(err, msg){
-		          console.log(err, msg);
-		        }
-		    );
+				}, function(err, msg){
+					console.log(err, msg);
+				}
+			);
 		},
 
 		store: function(){

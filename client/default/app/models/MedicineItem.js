@@ -13,12 +13,12 @@ define(['backbone'], function(Backbone) {
 			name		: 'Untitled',
 			fullname	: 'Description not available',
 			type		: 'medication',
-			startDate 	: new Date(),
-			endDate 	: new Date()
+			startDate	: new Date(),
+			endDate		: new Date()
 		},
 
 		initialize: function(){
-		},
+		}
 
 	});
 

@@ -36,7 +36,7 @@ define(['jquery',
                 'click #library' : 'library'
             },
 
-            setPeachyPoints 		: _setPeachyPoints,
+            setPeachyPoints	: _setPeachyPoints,
 
 
             subViews: {
@@ -63,7 +63,7 @@ define(['jquery',
                 //     bounce: false,
                 //     vScrollbar: false
                 // });
-                
+
                 Backbone.View.prototype.refreshScroll = function() {
                     var self = this;
                     setTimeout(function() {
@@ -88,7 +88,7 @@ define(['jquery',
                 if (this.activeView) {
                     this.activeView.delegateEvents();
                 }
-                 
+
                 return this;
             },
 
@@ -96,16 +96,16 @@ define(['jquery',
             // Check if we need to show Profile page first
             checkUser: function(){
                 Store.load('userProfile', function(res, data){
-                    var data = JSON.parse(data);
+                    data = JSON.parse(data);
                     var userDetails = data.userDetails;
 
                     if(userDetails.newDataValidation == '0'){
                         setTimeout(function(){
                             Backbone.history.navigate('profile', true, true);
                             $('#top-bar-buttons').html('<li><button id="cancel">Cancel</button></li>' +
-                                '<li><button id="save">Save</button></li>');    
+                                '<li><button id="save">Save</button></li>');
                         }, 100);
-                        
+
                     }
                 });
             },
@@ -125,7 +125,7 @@ define(['jquery',
             },
 
             healthHub: function() {
-                 
+
                 this.setActiveView('healthHub');
                 this.$nav.find('li').removeClass('selected');
                 this.$('#healthHub').addClass('selected');

@@ -73,7 +73,7 @@ define([
                     $('.foodItem.lv1.selected img').attr('src', $('.foodItem.lv1.selected img').attr('src').replace("icon-over", "icon"));
                     $('.foodItem.lv1').removeClass('selected');
                 }
-                
+
                 target.find('img').attr('src', target.find('img').attr('src').replace("icon.", "icon-over."));
                 var name = target.attr('data-id');
 
@@ -85,7 +85,7 @@ define([
             else if(target.hasClass('lv2')){
                 $('.foodItem.lv2').removeClass('selected');
             }
-            
+
             target.addClass('selected');
 
             // if both level categories are selected, show foodList
@@ -160,7 +160,7 @@ define([
 
         cancelFood: function(){
             this.model = null;
-            this.selectedFood = null; 
+            this.selectedFood = null;
             this.$el.html(this.oldHtml);
             $('#filterButtons').show();
             this.level1Scroll.destroy();
@@ -174,7 +174,7 @@ define([
             });
             this.container.container.iscroll.disable();
             this.refreshScroll();
-            
+
         },
 
         addFoodToFav: function(e){
@@ -208,7 +208,7 @@ define([
         saveAllItems: function(){
             this.container.container.subViews.foodometerNav.saveFoodsToJournal();
             this.container.container.setActiveView('foodometerNav');
-            
+
         },
 
         // When serving number changes, recalculate nutrient values
@@ -245,13 +245,13 @@ define([
 
         updateNutrition: function(){
             var el = $("#nutritionInfo .boxEntry");
-            
+
             for(var i=0; i<el.length; i++){
                 var thisEl = $(el[i]);
                 var percent = thisEl.find("#rda").text() || "0%";
                 thisEl.find("#name").css("background-size", percent +" 100%");
             }
-            
+
         },
 
         multiplyServing: function(serving, model){

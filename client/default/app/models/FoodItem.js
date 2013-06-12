@@ -13,19 +13,19 @@ define(['backbone'], function(Backbone) {
 			name			: 'Untitled',
 			fullname		: 'Description not available',
 			calories		: 0,
-			protein 		: 0.0,
-			total_fat 		: 0.0,
+			protein			: 0.0,
+			total_fat		: 0.0,
 			total_carbohydrate: 0.0,
-			sodium	 		: 0.0,
-			cholesterol 	: 0.0,
-			serving 		: [ {name: "quantity (1 oz)", size: "20.5"}],
-			favorite 		: false,
-			recent 			: false,
-			notes 			: ""
+			sodium			: 0.0,
+			cholesterol		: 0.0,
+			serving			: [ {name: "quantity (1 oz)", size: "20.5"}],
+			favorite		: false,
+			recent			: false,
+			notes			: ""
 		},
 
 		initialize: function(){
-		},
+		}
 
 	});
 

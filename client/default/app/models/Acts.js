@@ -7,9 +7,9 @@ define(['jquery',
         'underscore',
         'backbone',
         'cloudFunctionMap',
-	    'feedhenry',
-	    'models/session',
-	    'models/Store'
+		'feedhenry',
+		'models/session',
+		'models/Store'
 ], function($, _, Backbone, map, $fh, session, Store) {
 
 
@@ -30,10 +30,10 @@ define(['jquery',
 		if(payloadName === '' || payloadName === undefined){
 			payload = params;
 		}else {
-			payload[payloadName] = params;	
+			payload[payloadName] = params;
 		}
-		
-		if(sessId == undefined){
+
+		if(sessId === undefined){
 			Store.load('peachy_session', function(bool, res){
 				sessId = res;
 				head.sessionId = sessId;
@@ -64,7 +64,7 @@ define(['jquery',
 			// alert('Act Fail ' + func);
 			return failFn(err, msg);
 		});
-	};
+	}
 
 	return acts;
 

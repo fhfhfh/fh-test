@@ -19,10 +19,10 @@ define(['jquery',
 	return Backbone.View.extend({
 		// Backbone specific attributes
 		tagName		: 'section',
-	    id			: 'general',
-	    controller 	: new Controller(),
-	    user 		: new User(),
-	    
+        id			: 'general',
+        controller	: new Controller(),
+        user		: new User(),
+
 		template: _.template(template),
         events : {
             'change #birthday'     : 'ageCalc',
@@ -46,7 +46,7 @@ define(['jquery',
 			var self = this;
             Store.load('peachy_avatars', function(res, data){
                 if(res && data){
-                    self.avatars = JSON.parse(data).avatars;    
+                    self.avatars = JSON.parse(data).avatars;
                 }
                 else {
                     self.avatars = [];
@@ -95,7 +95,7 @@ define(['jquery',
 
 		refreshScroll: function(){
 			if(this.container){
-				this.container.refreshScroll();  
+				this.container.refreshScroll();
 			}
 		},
 
@@ -108,15 +108,15 @@ define(['jquery',
             else if(e && e.currentTarget.id == 'okPass'){
                 var pass1 = $('#confirmPassword_txt').val();
                 var pass2 = $('#confirmPassword_txt2').val();
-                if(pass1 == pass2 && pass1 != ''){
+                if(pass1 == pass2 && pass1 !== ''){
                     Backbone.trigger('notify', 'Password Reset Functionality not added!');
                     $('#passwordDiv').hide();
                     $('#modalMask').hide();
                 }
-                else if(pass1 == ''){
+                else if(pass1 === ''){
                     Backbone.trigger('notify', 'Password can not be empty!', 'Password Error');
                 }
-                else { 
+                else {
                     Backbone.trigger('notify', 'Passwords do not match!', 'Password Error');
                 }
             }
@@ -124,11 +124,11 @@ define(['jquery',
                 var box     = $(passwordBox);
                 $('body').append(box);
                 $('#passwordDiv').show();
-                $('#modalMask').show();   
+                $('#modalMask').show();
                 $('#confirmPassword_txt').val("").focus();
                 $('#confirmPassword_txt2').val("");
                 this.fixEvents(box);
-            }              
+            }
         },
 
         ageCalc: function(){
@@ -149,10 +149,10 @@ define(['jquery',
             e.stopPropagation();
 
             $('#addressBox').remove();
-            var self 	= this;
+            var self	= this;
             var target	= this.$('#address').find('div')[0];
             var text	= target.innerText;
-            var box 	= $(addressBox);
+            var box     = $(addressBox);
             target.blur();
 
             $('#modalMask').show();
@@ -163,13 +163,13 @@ define(['jquery',
 
             $('#line1').val(vals[0]);
 
-            if(vals.length == 3){                
-                $('#state').val(vals[1]);    
+            if(vals.length == 3){
+                $('#state').val(vals[1]);
                 $('#zip').val(vals[2]);
             }
             else {
-                $('#line2').val(vals[1]);                
-                $('#state').val(vals[2]);    
+                $('#line2').val(vals[1]);
+                $('#state').val(vals[2]);
                 $('#zip').val(vals[3]);
             }
 
@@ -194,17 +194,17 @@ define(['jquery',
             if(zip.length != 5 || isNaN(zip)){
                 return Backbone.trigger('notify', 'Please enter a valid Zip (5 digits)');
             }
-            else if(line1.length ==0 || state.length == 0){
+            else if(line1.length === 0 || state.length === 0){
                 return Backbone.trigger('notify', 'Please fill in Address and State');
             }
 
-            if(line2.length == 0){
-                text = line1 + "\n" + state + "\n" + zip;    
+            if(line2.length === 0){
+                text = line1 + "\n" + state + "\n" + zip;
             }
             else {
-                text = line1 + "\n" + line2 + "\n" + state + "\n" + zip;    
+                text = line1 + "\n" + line2 + "\n" + state + "\n" + zip;
             }
-            
+
             this.$('div#address').val(text);
             this.$('div#address')[0].innerText = text;
 
@@ -212,7 +212,7 @@ define(['jquery',
                 $('#addressBox').remove();
                 $('#modalMask').hide();
             }, 300);
-            
+
         },
 
         mapValues: function(details){
@@ -220,14 +220,15 @@ define(['jquery',
             var d    = details.userDetails;
             var d2   = details.providers;
             var d3   = details.linkedAccounts;
+            var addr = null;
 
             // Map User Details Fields ---------------------------------
             // ---------------------------------------------------------
-            if(d.address2 == undefined){
-                var addr = d.address1 +'\n'+ d.state +'\n'+ d.zip;
+            if(d.address2 === undefined){
+                addr = d.address1 +'\n'+ d.state +'\n'+ d.zip;
             }
             else {
-                var addr = d.address1 +'\n'+ d.address2 +'\n'+ d.state +'\n'+ d.zip;
+                addr = d.address1 +'\n'+ d.address2 +'\n'+ d.state +'\n'+ d.zip;
             }
 
             this.$('#firstName').val(d.firstName);
@@ -257,12 +258,13 @@ define(['jquery',
             // ----------------------------------------------------------
 
             var box = this.$('#physicianBox');
+            var item, html;
             box.html('');
 
-            for(var i=0; i<d2.length; i++){
-                var item = d2[i];
+            for(var j=0; j<d2.length; j++){
+                item = d2[j];
 
-                var html =  "<div id='physician'>"+
+                html =  "<div id='physician'>"+
                                 "<div id='name'>" + item.firstName + ' ' + item.lastName + "</div>"+
                                 "<div id='job'>" + item.type + "</div>"+
                                 "<div id='email'>" + item.emailAddress + "</div>"+
@@ -275,13 +277,13 @@ define(['jquery',
             // Map Linked Accounts Details ------------------------------
             // ----------------------------------------------------------
 
-            var box = this.$('#linkedBox');
+            box = this.$('#linkedBox');
             box.html('');
 
-            for(var i=0; i<d3.length; i++){
-                var item = d3[i];
-   
-                var html =  "<div id='account'>"+
+            for(var k=0; k<d3.length; k++){
+                item = d3[k];
+
+                html =  "<div id='account'>"+
                                 "<div id='name'>" + item.userDetails.firstName + ' ' + item.userDetails.lastName + "</div>"+
                                 "<div id='job'>" + item.relationship +  "</div>"+
                                 "<div id='email'>" + item.userDetails.email + "</div>"+
@@ -299,7 +301,7 @@ define(['jquery',
             var box = avatarBox;
             var html;
 
-            if(self.avatars.length == 0){
+            if(self.avatars.length === 0){
                 self.initialize();
             }
 
@@ -320,14 +322,14 @@ define(['jquery',
             setTimeout(function(){
                 self.avatarScroll.refresh();
             }, 100);
-            
+
         },
-    
+
 
         closeAvatar: function(e){
-            var e = $(e.currentTarget);
+            e = $(e.currentTarget);
             var id = e[0].id;
-            
+
             if(id === 'cancelBtn'){
                 $('#avatarSelect').remove();
                 return;
@@ -335,7 +337,7 @@ define(['jquery',
             var image = $('.avatarPic.selected');
             var imageId = image.attr('imgid');
             var imageSrc = image.attr('src');
-  
+
             this.$('#profile-avatar').attr('src',imageSrc).attr('imgid', imageId);
             $('#avatar').attr('src', imageSrc);
             $('#avatarSelect').remove();
@@ -343,7 +345,7 @@ define(['jquery',
 
         pickAvatar: function(e){
             $('.avatarPic').removeClass('selected');
-            var e = $(e.currentTarget);
+            e = $(e.currentTarget);
             e.addClass('selected');
         },
 
@@ -371,12 +373,12 @@ define(['jquery',
 
             el.find('.btn').click(function(e){
                 if(id === 'addressBox'){
-                    self.closeAddr(e);    
+                    self.closeAddr(e);
                 }
                 else {
                     self.password(e);
                 }
-                
+
             });
         },
 

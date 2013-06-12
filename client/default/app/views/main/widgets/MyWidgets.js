@@ -13,12 +13,12 @@ define(['jquery',
 
 		// Backbone specific attributes
 		tagName		: 'section',
-	    id			: 'myWidgets',
-	    events		: {
-	    	'click .showPage' : 'showPage'
-	    },
-	    template	: _.template(tpl),
- 
+		id			: 'myWidgets',
+		events		: {
+			'click .showPage' : 'showPage'
+		},
+		template	: _.template(tpl),
+
 		initialize : function(){
 			_.bindAll(this);
 		},
@@ -27,7 +27,6 @@ define(['jquery',
 			var self = this;
 
 			this.$el.html(this.template());
-	
 			return this;
 		},
 
@@ -43,7 +42,7 @@ define(['jquery',
 			$(html).hide();
 			$('#content').append(html);
 
-			$(html).slideDown(1000);		
+			$(html).slideDown(1000);
 		}
 
 	});

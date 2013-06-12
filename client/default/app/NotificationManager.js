@@ -43,7 +43,7 @@ define([
         self.remove();
         $('#modalMask').hide();
       });
-      
+
       Backbone.trigger('notify:close', this);
     }
   });
@@ -72,7 +72,7 @@ define([
     this.timeout = (options && options.timeout) || 4000;
 
     Backbone.on('notify', function(msg, title) {
-      var title = title || 'Peachy Alert';
+      title = title || 'Peachy Alert';
       var newNotification = new self.View({
         msg: msg,
         title: title

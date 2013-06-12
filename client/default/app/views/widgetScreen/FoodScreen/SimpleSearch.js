@@ -54,7 +54,7 @@ define([
             var searchTerm = $("#searchTerm").val();
             var type = $("#filter").find(":selected").text();
 
-            if(searchTerm == null || searchTerm === ""){
+            if(searchTerm === null || searchTerm === ""){
                 Backbone.trigger('notify', 'Please enter a search term', 'Search Error');
                 return;
             }
@@ -116,13 +116,13 @@ define([
 
         cancelFood: function(){
             this.model = null;
-            this.selectedFood = null; 
+            this.selectedFood = null;
             this.$el.html(this.oldHtml);
             $('#filterButtons').show();
             this.listScroll = new iScroll(this.$('#scrollContainer')[0]);
 
             this.refreshScroll();
-            
+
         },
 
         addFoodToFav: function(){
@@ -183,13 +183,13 @@ define([
 
         updateNutrition: function(){
             var el = $("#nutritionInfo .boxEntry");
-            
+
             for(var i=0; i<el.length; i++){
                 var thisEl = $(el[i]);
                 var percent = thisEl.find("#rda").text() || "0%";
                 thisEl.find("#name").css("background-size", percent +" 100%");
             }
-            
+
         },
 
         multiplyServing: function(serving, model){

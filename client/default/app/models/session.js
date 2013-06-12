@@ -67,7 +67,7 @@ define([
      */
     logout: function() {
       var self = this;
-      
+
       this.clear();
       // localStorage.removeItem(this.storageKey);
       Store.clear(self.storageKey, function(){});
@@ -115,7 +115,7 @@ define([
             msg: msg
           };
           options.error(model, theError, options);
-          self.trigger('error', model, theError, options)
+          self.trigger('error', model, theError, options);
         });
       }
 

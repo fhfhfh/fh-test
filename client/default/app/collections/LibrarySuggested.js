@@ -2,7 +2,7 @@
  * This is a Collection of Suggested LibraryItems
  */
 
-define(['backbone', 
+define(['backbone',
 		'models/LibraryItem',
 		'models/Acts',
 		'models/Store'
@@ -37,19 +37,6 @@ define(['backbone',
 			this.load();
 			return;
 			var self=this;
-
-     //        Act.call('fetchNewsAction', {}, 
-		   //      function(res){
-					// var lib = res.payload.News;
-					// for(var i = 0; i<lib.length; i++){
-					// 	var item = lib[i];
-					// 	item.imgData = "data:image/png;base64," + item.videoImgBase64;
-					// 	// self.addAsset(item);
-					// }
-		   //      }, function(err, msg){
-		   //        console.log(err, msg);
-		   //      }
-		   //  );
 		},
 
 		store: function(){

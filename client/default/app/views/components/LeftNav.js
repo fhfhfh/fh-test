@@ -44,7 +44,7 @@ define([
             element.addClass('selected');
 
             appRouter.navigate(id, true);
-        },
+        }
 
     });
 });

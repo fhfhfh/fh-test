@@ -18,7 +18,7 @@ define([
       'click #show-myMedia'    : 'showMyMedia',
       'click #show-readingRoom': 'showReadingRoom',
       'click #show-research'   : 'showResearch',
-      'click #show-suggested'  : 'showSuggested',
+      'click #show-suggested'  : 'showSuggested'
     },
 
     subViews: {
@@ -59,7 +59,7 @@ define([
     refreshScroll: function(){
       var self = this;
       if(this.iscroll){
-        this.iscroll.refresh.call(self.iscroll);        
+        this.iscroll.refresh.call(self.iscroll);
       }
     },
 
