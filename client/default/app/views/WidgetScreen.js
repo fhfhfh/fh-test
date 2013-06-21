@@ -11,17 +11,20 @@ define([
     'views/widgetScreen/DrVisits',
     'views/widgetScreen/WellBeing',
     'views/widgetScreen/FoodScreen',
+    'views/widgetScreen/ActivityScreen',
     'text!templates/pages/WidgetScreen.html',
     'models/Calendar'
 ], function($, _, Backbone, ContainerView, Foodometer, BusyBody,
               MedBot, MyStats, Learning, DrVisits,
-              WellBeing, FoodScreen, template, Calendar) {
+              WellBeing, FoodScreen, ActivityScreen, template, Calendar) {
 
     return ContainerView.extend({
         tagName : 'section',
         id      : 'widgetScreen',
         calendar  : Calendar,
         foodItems : [],
+        activityItems: [],
+        time: '',
 
         events : {
           'click #foodometer': 'showFood',
@@ -42,7 +45,8 @@ define([
           learningNav  : new Learning(),
           drVisitsNav  : new DrVisits(),
           wellBeingNav  : new WellBeing(),
-          foodScreen  : new FoodScreen()
+          foodScreen  : new FoodScreen(),
+          activityScreen : new ActivityScreen()
         },
 
         initialize: function(options) {

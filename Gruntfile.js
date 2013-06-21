@@ -114,7 +114,7 @@ module.exports = function(grunt) {
           'local',
           'singlePage=false'
       ]
-    }, function(error, result, code) {
+    }, function done(error, result, code) {
       // TODO: Implement quit on error.
     });
     fhc.stderr.pipe(process.stderr);

@@ -82,7 +82,7 @@ define([
                     return item.get('date').toDateString() == dateNumber.toDateString();
                 });
 
-                if(model !== null && !model.isEmpty()){
+                if(model !== null && model !== undefined && !model.isEmpty()){
                     $(days[i]).css("background-image", "url('../img/calendar/FaceHappy.png')");
                     $(days[i]).css("background-position", "10px 10px");
                     $(days[i]).css("background-repeat", "no-repeat no-repeat");

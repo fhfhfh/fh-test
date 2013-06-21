@@ -4372,11 +4372,13 @@ section#insights h1 {
   transform: rotate(45deg);
 }
 #foodometer,
-#foodScreen {
+#foodScreen,
+#activityScreen {
   position: relative;
 }
 #foodometer #body,
-#foodScreen #body {
+#foodScreen #body,
+#activityScreen #body {
   margin: 20px;
   border-radius: 8px;
   padding: 10px;
@@ -4384,43 +4386,51 @@ section#insights h1 {
   background-color: #000000;
 }
 #foodometer #body img.positioned,
-#foodScreen #body img.positioned {
+#foodScreen #body img.positioned,
+#activityScreen #body img.positioned {
   position: absolute;
 }
 #foodometer #body img#topleft,
-#foodScreen #body img#topleft {
+#foodScreen #body img#topleft,
+#activityScreen #body img#topleft {
   top: 59px;
   left: 12px;
 }
 #foodometer #body img#top,
-#foodScreen #body img#top {
+#foodScreen #body img#top,
+#activityScreen #body img#top {
   top: 60px;
   height: 15px;
   width: 93%;
 }
 #foodometer #body img#topright,
-#foodScreen #body img#topright {
+#foodScreen #body img#topright,
+#activityScreen #body img#topright {
   top: 58px;
   right: 12px;
 }
 #foodometer #body img#bottomleft,
-#foodScreen #body img#bottomleft {
+#foodScreen #body img#bottomleft,
+#activityScreen #body img#bottomleft {
   bottom: -8px;
   left: 14px;
 }
 #foodometer #body img#bottom,
-#foodScreen #body img#bottom {
+#foodScreen #body img#bottom,
+#activityScreen #body img#bottom {
   bottom: -4px;
   height: 15px;
   width: 93%;
 }
 #foodometer #body img#bottomright,
-#foodScreen #body img#bottomright {
+#foodScreen #body img#bottomright,
+#activityScreen #body img#bottomright {
   bottom: -9px;
   right: 14px;
 }
 #foodometer #body #binderBg,
-#foodScreen #body #binderBg {
+#foodScreen #body #binderBg,
+#activityScreen #body #binderBg {
   width: 40px;
   height: 88%;
   float: left;
@@ -4432,13 +4442,15 @@ section#insights h1 {
   background-position: 0px 40px;
 }
 #foodometer #body #content,
-#foodScreen #body #content {
+#foodScreen #body #content,
+#activityScreen #body #content {
   background-color: #d8d4d5;
   box-shadow: 7px 0px 0 -4px #cccccc, 12px 0px 0 -7px #8b8b8b;
   background-image: url('../img/food/bg-gray-texture.png');
 }
 #foodometer #body #content #leftContent,
-#foodScreen #body #content #leftContent {
+#foodScreen #body #content #leftContent,
+#activityScreen #body #content #leftContent {
   float: left;
   width: 280px;
   height: 99%;
@@ -4448,7 +4460,8 @@ section#insights h1 {
   margin-bottom: 20px;
 }
 #foodometer #body #content #leftContent #leftContentMask,
-#foodScreen #body #content #leftContent #leftContentMask {
+#foodScreen #body #content #leftContent #leftContentMask,
+#activityScreen #body #content #leftContent #leftContentMask {
   height: 99%;
   background-color: #f6f5f5;
   box-shadow: 1px 1px 1px #cdcdcd, -1px 0px 1px #cdcdcd;
@@ -4458,19 +4471,22 @@ section#insights h1 {
   background-image: url('../img/food/bg-light-gray-left-column.png');
 }
 #foodometer #body #content #rightContent,
-#foodScreen #body #content #rightContent {
+#foodScreen #body #content #rightContent,
+#activityScreen #body #content #rightContent {
   float: right;
   width: 60%;
   height: 100%;
 }
 @media only screen and (orientation: landscape) {
   #foodometer #body #content #rightContent,
-  #foodScreen #body #content #rightContent {
+  #foodScreen #body #content #rightContent,
+  #activityScreen #body #content #rightContent {
     width: 70%;
   }
 }
 #foodometer #body #content #rightContent #emptyFood,
-#foodScreen #body #content #rightContent #emptyFood {
+#foodScreen #body #content #rightContent #emptyFood,
+#activityScreen #body #content #rightContent #emptyFood {
   color: #676767;
   margin-top: 250px;
   text-align: center;
@@ -4478,36 +4494,42 @@ section#insights h1 {
   text-shadow: 0 1px 1px #ffffff;
 }
 #foodometer #body #content #rightContent #emptyFood #day,
-#foodScreen #body #content #rightContent #emptyFood #day {
+#foodScreen #body #content #rightContent #emptyFood #day,
+#activityScreen #body #content #rightContent #emptyFood #day {
   color: #676767;
   font: bold 48px "Avenir Next", Helvetica, Arial, sans-serif;
 }
 #foodometer #body #content #rightContent #emptyFood #emptyMeals,
-#foodScreen #body #content #rightContent #emptyFood #emptyMeals {
+#foodScreen #body #content #rightContent #emptyFood #emptyMeals,
+#activityScreen #body #content #rightContent #emptyFood #emptyMeals {
   margin-top: 150px;
   width: 45%;
   margin-left: auto;
   margin-right: auto;
 }
 #foodometer #body #content #rightContent #emptyFood #emptyMeals img,
-#foodScreen #body #content #rightContent #emptyFood #emptyMeals img {
+#foodScreen #body #content #rightContent #emptyFood #emptyMeals img,
+#activityScreen #body #content #rightContent #emptyFood #emptyMeals img {
   float: left;
   margin-left: -30px;
 }
 #foodometer #smallCalendar,
-#foodScreen #smallCalendar {
+#foodScreen #smallCalendar,
+#activityScreen #smallCalendar {
   height: 300px;
   margin-bottom: 30px;
 }
 #foodometer #smallCalendar #monthPick,
-#foodScreen #smallCalendar #monthPick {
+#foodScreen #smallCalendar #monthPick,
+#activityScreen #smallCalendar #monthPick {
   float: right;
   margin-right: 5px;
   margin-top: 5px;
   height: 25px;
 }
 #foodometer #smallCalendar #dayString,
-#foodScreen #smallCalendar #dayString {
+#foodScreen #smallCalendar #dayString,
+#activityScreen #smallCalendar #dayString {
   font: normal 32px "Avenir Next Medium", Helvetica, Arial, sans-serif;
   display: block;
   padding-left: 10px;
@@ -4515,7 +4537,8 @@ section#insights h1 {
   margin-bottom: 10px;
 }
 #foodometer #smallCalendar #dateString,
-#foodScreen #smallCalendar #dateString {
+#foodScreen #smallCalendar #dateString,
+#activityScreen #smallCalendar #dateString {
   color: #676767;
   display: block;
   font: normal 16px "Avenir Next Medium", Helvetica, Arial, sans-serif;
@@ -4523,20 +4546,24 @@ section#insights h1 {
   margin-bottom: 20px;
 }
 #foodometer #smallCalendar #calTable,
-#foodScreen #smallCalendar #calTable {
+#foodScreen #smallCalendar #calTable,
+#activityScreen #smallCalendar #calTable {
   border: none;
 }
 #foodometer #smallCalendar #calTable td,
-#foodScreen #smallCalendar #calTable td {
+#foodScreen #smallCalendar #calTable td,
+#activityScreen #smallCalendar #calTable td {
   height: 40px;
   border: none;
 }
 #foodometer #smallCalendar #calTable td.selected,
-#foodScreen #smallCalendar #calTable td.selected {
+#foodScreen #smallCalendar #calTable td.selected,
+#activityScreen #smallCalendar #calTable td.selected {
   background-color: #fecd74;
 }
 #foodometer #calories,
-#foodScreen #calories {
+#foodScreen #calories,
+#activityScreen #calories {
   padding-top: 200px;
   padding: 10px;
   width: 246px;
@@ -4546,38 +4573,45 @@ section#insights h1 {
   margin-bottom: 60px;
 }
 #foodometer #calories span,
-#foodScreen #calories span {
+#foodScreen #calories span,
+#activityScreen #calories span {
   width: 110px;
   display: inline-block;
   padding: 5px 0px;
 }
 #foodometer #calories span#remaining,
-#foodScreen #calories span#remaining {
+#foodScreen #calories span#remaining,
+#activityScreen #calories span#remaining {
   font: bold 16px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
 }
 #foodometer #calories span#remainingNum,
-#foodScreen #calories span#remainingNum {
+#foodScreen #calories span#remainingNum,
+#activityScreen #calories span#remainingNum {
   text-align: right;
   font: bold 16px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
 }
 #foodometer #calories span#goalNum,
-#foodScreen #calories span#goalNum {
+#foodScreen #calories span#goalNum,
+#activityScreen #calories span#goalNum {
   text-align: right;
   color: #676767;
   font: normal 16px "Avenir Next Medium", Helvetica, Arial, sans-serif;
 }
 #foodometer #calories span#currentNum,
-#foodScreen #calories span#currentNum {
+#foodScreen #calories span#currentNum,
+#activityScreen #calories span#currentNum {
   text-align: right;
   color: #676767;
   font: normal 16px "Avenir Next Medium", Helvetica, Arial, sans-serif;
 }
 #foodometer #meals,
-#foodScreen #meals {
+#foodScreen #meals,
+#activityScreen #meals {
   margin-left: 5px;
 }
 #foodometer #meals .meal,
-#foodScreen #meals .meal {
+#foodScreen #meals .meal,
+#activityScreen #meals .meal {
   display: block;
   height: 60px;
   width: 270px;
@@ -4585,30 +4619,35 @@ section#insights h1 {
   font: bold 16px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
 }
 #foodometer #meals .meal img,
-#foodScreen #meals .meal img {
+#foodScreen #meals .meal img,
+#activityScreen #meals .meal img {
   margin-right: 10px;
   vertical-align: middle;
 }
 #foodometer #meals .meal span,
-#foodScreen #meals .meal span {
+#foodScreen #meals .meal span,
+#activityScreen #meals .meal span {
   position: absolute;
   left: 100px;
 }
 #foodometer #meals .meal.selected,
-#foodScreen #meals .meal.selected {
+#foodScreen #meals .meal.selected,
+#activityScreen #meals .meal.selected {
   background: url('../img/food/bu-yellow-arrow-right.png') no-repeat;
   background-size: 270px;
   background-position: 0px 5px;
 }
 #foodometer #filterView,
-#foodScreen #filterView {
+#foodScreen #filterView,
+#activityScreen #filterView {
   z-index: 10;
   left: 165px;
   top: 175px;
   width: 250px;
 }
 #foodometer #filterView #body,
-#foodScreen #filterView #body {
+#foodScreen #filterView #body,
+#activityScreen #filterView #body {
   background-color: #ffffff;
   border-radius: 5px;
   margin: 0px;
@@ -4616,7 +4655,8 @@ section#insights h1 {
   font: bold 14px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
 }
 #foodometer #filterView #body #picker,
-#foodScreen #filterView #body #picker {
+#foodScreen #filterView #body #picker,
+#activityScreen #filterView #body #picker {
   border: 1px solid #cdcdcd;
   border-radius: 5px;
   background-image: linear-gradient(bottom, #ababab 0%, #ebebeb 85%);
@@ -4625,20 +4665,25 @@ section#insights h1 {
 }
 #foodometer #filterView #body #picker #back,
 #foodScreen #filterView #body #picker #back,
+#activityScreen #filterView #body #picker #back,
 #foodometer #filterView #body #picker #forward,
-#foodScreen #filterView #body #picker #forward {
+#foodScreen #filterView #body #picker #forward,
+#activityScreen #filterView #body #picker #forward {
   padding: 5px;
   text-align: center;
 }
 #foodometer #filterView #body #picker #back img,
 #foodScreen #filterView #body #picker #back img,
+#activityScreen #filterView #body #picker #back img,
 #foodometer #filterView #body #picker #forward img,
-#foodScreen #filterView #body #picker #forward img {
+#foodScreen #filterView #body #picker #forward img,
+#activityScreen #filterView #body #picker #forward img {
   height: 20px;
   padding: 5px;
 }
 #foodometer #filterView #body #picker #month,
-#foodScreen #filterView #body #picker #month {
+#foodScreen #filterView #body #picker #month,
+#activityScreen #filterView #body #picker #month {
   background-image: linear-gradient(bottom, #343434 0%, #cdcdcd 85%);
   background-image: -webkit-linear-gradient(bottom, #343434 0%, #cdcdcd 85%);
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #343434), color-stop(0.85, #cdcdcd));
@@ -4653,28 +4698,33 @@ section#insights h1 {
   text-shadow: 0 1px 1px #000000;
 }
 #foodometer #filterView:before,
-#foodScreen #filterView:before {
+#foodScreen #filterView:before,
+#activityScreen #filterView:before {
   right: 95px;
 }
 #foodometer #mealContainer,
-#foodScreen #mealContainer {
+#foodScreen #mealContainer,
+#activityScreen #mealContainer {
   display: none;
   padding: 20px;
   font: normal 14px "Avenir Next", Helvetica, Arial, sans-serif;
 }
 #foodometer #mealContainer h3,
-#foodScreen #mealContainer h3 {
+#foodScreen #mealContainer h3,
+#activityScreen #mealContainer h3 {
   color: #000000;
   display: inline-block;
   font: bold 18px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
 }
 #foodometer #mealContainer h3 #calCount,
-#foodScreen #mealContainer h3 #calCount {
+#foodScreen #mealContainer h3 #calCount,
+#activityScreen #mealContainer h3 #calCount {
   color: #676767;
   display: block;
 }
 #foodometer #mealContainer .btn,
-#foodScreen #mealContainer .btn {
+#foodScreen #mealContainer .btn,
+#activityScreen #mealContainer .btn {
   float: right;
   background: url("../img/food/bu-share-gradient.png");
   border: none;
@@ -4686,31 +4736,38 @@ section#insights h1 {
   width: 115px;
 }
 #foodometer #mealContainer .btn img,
-#foodScreen #mealContainer .btn img {
+#foodScreen #mealContainer .btn img,
+#activityScreen #mealContainer .btn img {
   vertical-align: middle;
   padding-right: 5px;
 }
 #foodometer #mealContainer .btn:active,
 #foodScreen #mealContainer .btn:active,
+#activityScreen #mealContainer .btn:active,
 #foodometer #mealContainer .btn.selected,
-#foodScreen #mealContainer .btn.selected {
+#foodScreen #mealContainer .btn.selected,
+#activityScreen #mealContainer .btn.selected {
   background: url("../img/food/bu-yellow-gradient.png");
 }
 #foodometer #mealContainer #share,
-#foodScreen #mealContainer #share {
+#foodScreen #mealContainer #share,
+#activityScreen #mealContainer #share {
   padding: 9px;
 }
 #foodometer #mealContainer #add,
-#foodScreen #mealContainer #add {
+#foodScreen #mealContainer #add,
+#activityScreen #mealContainer #add {
   padding: 5px;
 }
 #foodometer #mealContainer #foodList,
-#foodScreen #mealContainer #foodList {
+#foodScreen #mealContainer #foodList,
+#activityScreen #mealContainer #foodList {
   padding: 0px;
   min-height: 60px;
 }
 #foodometer #mealContainer .box,
-#foodScreen #mealContainer .box {
+#foodScreen #mealContainer .box,
+#activityScreen #mealContainer .box {
   background-color: #ffffff;
   border-radius: 8px;
   box-shadow: 1px 2px 5px #676767, inset -1px 1px 1px #ffffff;
@@ -4719,18 +4776,21 @@ section#insights h1 {
   padding: 5px;
 }
 #foodometer #mealContainer .box .boxHeader,
-#foodScreen #mealContainer .box .boxHeader {
+#foodScreen #mealContainer .box .boxHeader,
+#activityScreen #mealContainer .box .boxHeader {
   background-color: #e6e6e6;
   border-radius: 5px 5px 0 0;
   padding: 5px 10px;
 }
 #foodometer #mealContainer .box .boxEntry,
-#foodScreen #mealContainer .box .boxEntry {
+#foodScreen #mealContainer .box .boxEntry,
+#activityScreen #mealContainer .box .boxEntry {
   padding: 15px 10px;
   border-bottom: 2px solid #e6e6e6;
 }
 #foodometer #mealContainer .box .boxEntry #name,
-#foodScreen #mealContainer .box .boxEntry #name {
+#foodScreen #mealContainer .box .boxEntry #name,
+#activityScreen #mealContainer .box .boxEntry #name {
   display: inline-block;
   width: 170px;
   max-width: 170px;
@@ -4738,19 +4798,23 @@ section#insights h1 {
   overflow: hidden;
 }
 #foodometer #mealContainer .box .boxEntry:after,
-#foodScreen #mealContainer .box .boxEntry:after {
+#foodScreen #mealContainer .box .boxEntry:after,
+#activityScreen #mealContainer .box .boxEntry:after {
   content: url('../img/icons/smallArrow.png');
   float: right;
   clear: right;
 }
 #foodometer #mealContainer .box .boxEntry:last-child,
-#foodScreen #mealContainer .box .boxEntry:last-child {
+#foodScreen #mealContainer .box .boxEntry:last-child,
+#activityScreen #mealContainer .box .boxEntry:last-child {
   border-bottom: none;
 }
 #foodometer #mealContainer .box #about,
 #foodScreen #mealContainer .box #about,
+#activityScreen #mealContainer .box #about,
 #foodometer #mealContainer .box label,
-#foodScreen #mealContainer .box label {
+#foodScreen #mealContainer .box label,
+#activityScreen #mealContainer .box label {
   font: normal 12px "Avenir Next", Helvetica, Arial, sans-serif;
   color: #676767;
   margin-left: 10px;
@@ -4760,18 +4824,21 @@ section#insights h1 {
   display: inline-block;
 }
 #foodometer #mealContainer .box label,
-#foodScreen #mealContainer .box label {
+#foodScreen #mealContainer .box label,
+#activityScreen #mealContainer .box label {
   padding-top: 5px;
 }
 #foodometer #mealContainer .box input,
-#foodScreen #mealContainer .box input {
+#foodScreen #mealContainer .box input,
+#activityScreen #mealContainer .box input {
   border: none;
   box-shadow: none;
   width: 50%;
   padding: 5px;
 }
 #foodometer #mealContainer .box textarea,
-#foodScreen #mealContainer .box textarea {
+#foodScreen #mealContainer .box textarea,
+#activityScreen #mealContainer .box textarea {
   display: block;
   width: 100%;
   padding: 10px;
@@ -4780,28 +4847,35 @@ section#insights h1 {
 }
 #foodometer #nutrition,
 #foodScreen #nutrition,
+#activityScreen #nutrition,
 #foodometer #mealContainer #nutrition,
-#foodScreen #mealContainer #nutrition {
+#foodScreen #mealContainer #nutrition,
+#activityScreen #mealContainer #nutrition {
   height: 55px;
   padding: 2px 10px;
 }
 #foodometer #nutrition h2,
 #foodScreen #nutrition h2,
+#activityScreen #nutrition h2,
 #foodometer #mealContainer #nutrition h2,
-#foodScreen #mealContainer #nutrition h2 {
+#foodScreen #mealContainer #nutrition h2,
+#activityScreen #mealContainer #nutrition h2 {
   margin-bottom: 0px;
   font: bold 18px "Avenir Next", Helvetica, Arial, sans-serif;
 }
 #foodometer #nutrition h2:after,
 #foodScreen #nutrition h2:after,
+#activityScreen #nutrition h2:after,
 #foodometer #mealContainer #nutrition h2:after,
-#foodScreen #mealContainer #nutrition h2:after {
+#foodScreen #mealContainer #nutrition h2:after,
+#activityScreen #mealContainer #nutrition h2:after {
   content: url('../img/icons/smallArrow.png');
   float: right;
   clear: right;
 }
 #foodometer #addFoodPopup,
-#foodScreen #addFoodPopup {
+#foodScreen #addFoodPopup,
+#activityScreen #addFoodPopup {
   display: none;
   position: absolute;
   right: 60px;
@@ -4811,7 +4885,8 @@ section#insights h1 {
   box-shadow: 0px -1px 1px #000000;
 }
 #foodometer #addFoodPopup .btn,
-#foodScreen #addFoodPopup .btn {
+#foodScreen #addFoodPopup .btn,
+#activityScreen #addFoodPopup .btn {
   display: block;
   width: 97%;
   padding: 10px;
@@ -4820,7 +4895,8 @@ section#insights h1 {
   font: normal 17px "Avenir Next Medium", Helvetica, Arial, sans-serif;
 }
 #foodometer #addFoodPopup:before,
-#foodScreen #addFoodPopup:before {
+#foodScreen #addFoodPopup:before,
+#activityScreen #addFoodPopup:before {
   border-bottom: 15px solid #6b6b6b;
   border-right: 20px solid transparent;
   border-left: 20px solid transparent;
@@ -4830,14 +4906,16 @@ section#insights h1 {
   right: 17px;
 }
 #foodometer #nutritionSection,
-#foodScreen #nutritionSection {
+#foodScreen #nutritionSection,
+#activityScreen #nutritionSection {
   display: none;
   width: 90%;
   margin-left: auto;
   margin-right: auto;
 }
 #foodometer #nutritionSection .box,
-#foodScreen #nutritionSection .box {
+#foodScreen #nutritionSection .box,
+#activityScreen #nutritionSection .box {
   background-color: #ffffff;
   border-radius: 8px;
   box-shadow: 1px 2px 5px #676767, inset -1px 1px 1px #ffffff;
@@ -4845,47 +4923,58 @@ section#insights h1 {
   color: #000000;
 }
 #foodometer #nutritionSection .box .first,
-#foodScreen #nutritionSection .box .first {
+#foodScreen #nutritionSection .box .first,
+#activityScreen #nutritionSection .box .first {
   display: inline-block;
   width: 51%;
 }
 #foodometer #nutritionSection .box .second,
 #foodScreen #nutritionSection .box .second,
+#activityScreen #nutritionSection .box .second,
 #foodometer #nutritionSection .box .third,
 #foodScreen #nutritionSection .box .third,
+#activityScreen #nutritionSection .box .third,
 #foodometer #nutritionSection .box #amount,
 #foodScreen #nutritionSection .box #amount,
+#activityScreen #nutritionSection .box #amount,
 #foodometer #nutritionSection .box #rda,
-#foodScreen #nutritionSection .box #rda {
+#foodScreen #nutritionSection .box #rda,
+#activityScreen #nutritionSection .box #rda {
   display: inline-block;
   width: 23%;
   color: #a8a8a8;
 }
 #foodometer #nutritionSection .box .boxHeader,
-#foodScreen #nutritionSection .box .boxHeader {
+#foodScreen #nutritionSection .box .boxHeader,
+#activityScreen #nutritionSection .box .boxHeader {
   background-color: #ebebeb;
   border-radius: 5px 5px 0 0;
   padding: 5px 10px;
 }
 #foodometer #nutritionSection .box .boxHeader .first,
-#foodScreen #nutritionSection .box .boxHeader .first {
+#foodScreen #nutritionSection .box .boxHeader .first,
+#activityScreen #nutritionSection .box .boxHeader .first {
   font: bold 18px "Avenir Next", Helvetica, Arial, sans-serif;
 }
 #foodometer #nutritionSection .box .boxHeader .second,
 #foodScreen #nutritionSection .box .boxHeader .second,
+#activityScreen #nutritionSection .box .boxHeader .second,
 #foodometer #nutritionSection .box .boxHeader .third,
-#foodScreen #nutritionSection .box .boxHeader .third {
+#foodScreen #nutritionSection .box .boxHeader .third,
+#activityScreen #nutritionSection .box .boxHeader .third {
   font: bold 14px "Avenir Next", Helvetica, Arial, sans-serif;
   color: #fa9100;
 }
 #foodometer #nutritionSection .box .boxEntry,
-#foodScreen #nutritionSection .box .boxEntry {
+#foodScreen #nutritionSection .box .boxEntry,
+#activityScreen #nutritionSection .box .boxEntry {
   padding: 15px 10px;
   border-bottom: 2px solid #e6e6e6;
   font: normal 14px "Avenir Next", Helvetica, Arial, sans-serif;
 }
 #foodometer #nutritionSection .box .boxEntry #name,
-#foodScreen #nutritionSection .box .boxEntry #name {
+#foodScreen #nutritionSection .box .boxEntry #name,
+#activityScreen #nutritionSection .box .boxEntry #name {
   display: inline-block;
   width: 51%;
   white-space: nowrap;
@@ -4894,22 +4983,26 @@ section#insights h1 {
   background-size: 0px 100%;
 }
 #foodometer #nutritionSection .box .boxEntry:last-child,
-#foodScreen #nutritionSection .box .boxEntry:last-child {
+#foodScreen #nutritionSection .box .boxEntry:last-child,
+#activityScreen #nutritionSection .box .boxEntry:last-child {
   border-bottom: none;
 }
 #foodometer #foodItemScreen,
-#foodScreen #foodItemScreen {
+#foodScreen #foodItemScreen,
+#activityScreen #foodItemScreen {
   text-align: center;
   background: #E6E6E6;
   margin: 10px;
   border-radius: 8px;
 }
 #foodometer #foodItemScreen #top,
-#foodScreen #foodItemScreen #top {
+#foodScreen #foodItemScreen #top,
+#activityScreen #foodItemScreen #top {
   text-align: center;
 }
 #foodometer #foodItemScreen #cancelFood,
-#foodScreen #foodItemScreen #cancelFood {
+#foodScreen #foodItemScreen #cancelFood,
+#activityScreen #foodItemScreen #cancelFood {
   float: left;
   background-image: url('../img/food/bu-with-arrow-left.png');
   display: inline-block;
@@ -4917,16 +5010,19 @@ section#insights h1 {
   margin: 20px;
 }
 #foodometer #foodItemScreen img,
-#foodScreen #foodItemScreen img {
+#foodScreen #foodItemScreen img,
+#activityScreen #foodItemScreen img {
   margin-top: 14px;
   float: left;
 }
 #foodometer #foodItemScreen #foodFavBtn,
-#foodScreen #foodItemScreen #foodFavBtn {
+#foodScreen #foodItemScreen #foodFavBtn,
+#activityScreen #foodItemScreen #foodFavBtn {
   display: none;
 }
 #foodometer #foodItemScreen #foodName,
-#foodScreen #foodItemScreen #foodName {
+#foodScreen #foodItemScreen #foodName,
+#activityScreen #foodItemScreen #foodName {
   color: #000000;
   display: inline-block;
   font: bold 16px "Avenir Next", Helvetica, Arial, sans-serif;
@@ -4935,7 +5031,8 @@ section#insights h1 {
   white-space: nowrap;
 }
 #foodometer #foodItemScreen .box.inputs,
-#foodScreen #foodItemScreen .box.inputs {
+#foodScreen #foodItemScreen .box.inputs,
+#activityScreen #foodItemScreen .box.inputs {
   background-color: #ffffff;
   border-radius: 8px;
   box-shadow: 1px 2px 5px #676767, inset -1px 1px 1px #ffffff;
@@ -4945,44 +5042,53 @@ section#insights h1 {
   display: inline-block;
 }
 #foodometer #foodItemScreen .box.inputs label,
-#foodScreen #foodItemScreen .box.inputs label {
+#foodScreen #foodItemScreen .box.inputs label,
+#activityScreen #foodItemScreen .box.inputs label {
   float: left;
 }
 #foodometer #foodItemScreen .box.inputs.servings,
-#foodScreen #foodItemScreen .box.inputs.servings {
+#foodScreen #foodItemScreen .box.inputs.servings,
+#activityScreen #foodItemScreen .box.inputs.servings {
   width: 45%;
 }
 #foodometer #foodItemScreen .box.inputs.size,
-#foodScreen #foodItemScreen .box.inputs.size {
+#foodScreen #foodItemScreen .box.inputs.size,
+#activityScreen #foodItemScreen .box.inputs.size {
   width: 45%;
 }
 #foodometer #foodItemScreen .box.inputs.notes,
-#foodScreen #foodItemScreen .box.inputs.notes {
+#foodScreen #foodItemScreen .box.inputs.notes,
+#activityScreen #foodItemScreen .box.inputs.notes {
   width: 92%;
 }
 #foodometer #foodItemScreen .box.inputs label,
-#foodScreen #foodItemScreen .box.inputs label {
+#foodScreen #foodItemScreen .box.inputs label,
+#activityScreen #foodItemScreen .box.inputs label {
   font: normal 12px "Avenir Next", Helvetica, Arial, sans-serif;
   color: #676767;
   margin-left: 10px;
 }
 #foodometer #foodItemScreen .box.inputs label,
-#foodScreen #foodItemScreen .box.inputs label {
+#foodScreen #foodItemScreen .box.inputs label,
+#activityScreen #foodItemScreen .box.inputs label {
   padding-top: 5px;
 }
 #foodometer #foodItemScreen .box.inputs input,
-#foodScreen #foodItemScreen .box.inputs input {
+#foodScreen #foodItemScreen .box.inputs input,
+#activityScreen #foodItemScreen .box.inputs input {
   border: none;
   box-shadow: none;
   width: 56%;
   padding: 5px;
 }
 #foodometer #foodItemScreen .box.inputs input#serving,
-#foodScreen #foodItemScreen .box.inputs input#serving {
+#foodScreen #foodItemScreen .box.inputs input#serving,
+#activityScreen #foodItemScreen .box.inputs input#serving {
   width: 30%;
 }
 #foodometer #foodItemScreen .box.inputs textarea,
-#foodScreen #foodItemScreen .box.inputs textarea {
+#foodScreen #foodItemScreen .box.inputs textarea,
+#activityScreen #foodItemScreen .box.inputs textarea {
   display: block;
   width: 100%;
   padding: 10px;
@@ -4990,13 +5096,16 @@ section#insights h1 {
   background: none;
 }
 #foodometer #foodItemScreen #details,
-#foodScreen #foodItemScreen #details {
+#foodScreen #foodItemScreen #details,
+#activityScreen #foodItemScreen #details {
   padding-bottom: 70px;
 }
 #foodometer #foodItemScreen #editItem,
 #foodScreen #foodItemScreen #editItem,
+#activityScreen #foodItemScreen #editItem,
 #foodometer #foodItemScreen #deleteItem,
-#foodScreen #foodItemScreen #deleteItem {
+#foodScreen #foodItemScreen #deleteItem,
+#activityScreen #foodItemScreen #deleteItem {
   display: inline-block;
   background: none;
   background-color: #fee5b8;
@@ -5006,25 +5115,31 @@ section#insights h1 {
 }
 #foodometer #foodItemScreen #editItem:active,
 #foodScreen #foodItemScreen #editItem:active,
+#activityScreen #foodItemScreen #editItem:active,
 #foodometer #foodItemScreen #deleteItem:active,
-#foodScreen #foodItemScreen #deleteItem:active {
+#foodScreen #foodItemScreen #deleteItem:active,
+#activityScreen #foodItemScreen #deleteItem:active {
   background-color: #fee999;
 }
 #foodometer #foodItemScreen #editItem,
-#foodScreen #foodItemScreen #editItem {
+#foodScreen #foodItemScreen #editItem,
+#activityScreen #foodItemScreen #editItem {
   float: right;
 }
 #foodometer #foodItemScreen #deleteItem,
-#foodScreen #foodItemScreen #deleteItem {
+#foodScreen #foodItemScreen #deleteItem,
+#activityScreen #foodItemScreen #deleteItem {
   float: left;
   background-color: #a6a6a6;
 }
 #foodometer #foodItemScreen #saveToMeal,
-#foodScreen #foodItemScreen #saveToMeal {
+#foodScreen #foodItemScreen #saveToMeal,
+#activityScreen #foodItemScreen #saveToMeal {
   display: none;
 }
 #foodometer #nutritionInfo.box,
-#foodScreen #nutritionInfo.box {
+#foodScreen #nutritionInfo.box,
+#activityScreen #nutritionInfo.box {
   background-color: #ffffff;
   border-radius: 8px;
   box-shadow: 1px 2px 5px #676767, inset -1px 1px 1px #ffffff;
@@ -5036,47 +5151,58 @@ section#insights h1 {
   padding: 0px;
 }
 #foodometer #nutritionInfo.box .first,
-#foodScreen #nutritionInfo.box .first {
+#foodScreen #nutritionInfo.box .first,
+#activityScreen #nutritionInfo.box .first {
   display: inline-block;
   width: 51%;
 }
 #foodometer #nutritionInfo.box .second,
 #foodScreen #nutritionInfo.box .second,
+#activityScreen #nutritionInfo.box .second,
 #foodometer #nutritionInfo.box .third,
 #foodScreen #nutritionInfo.box .third,
+#activityScreen #nutritionInfo.box .third,
 #foodometer #nutritionInfo.box #amount,
 #foodScreen #nutritionInfo.box #amount,
+#activityScreen #nutritionInfo.box #amount,
 #foodometer #nutritionInfo.box #rda,
-#foodScreen #nutritionInfo.box #rda {
+#foodScreen #nutritionInfo.box #rda,
+#activityScreen #nutritionInfo.box #rda {
   display: inline-block;
   width: 23%;
   color: #a8a8a8;
 }
 #foodometer #nutritionInfo.box .boxHeader,
-#foodScreen #nutritionInfo.box .boxHeader {
+#foodScreen #nutritionInfo.box .boxHeader,
+#activityScreen #nutritionInfo.box .boxHeader {
   background-color: #ebebeb;
   border-radius: 5px 5px 0 0;
   padding: 5px 10px;
 }
 #foodometer #nutritionInfo.box .boxHeader .first,
-#foodScreen #nutritionInfo.box .boxHeader .first {
+#foodScreen #nutritionInfo.box .boxHeader .first,
+#activityScreen #nutritionInfo.box .boxHeader .first {
   font: bold 18px "Avenir Next", Helvetica, Arial, sans-serif;
 }
 #foodometer #nutritionInfo.box .boxHeader .second,
 #foodScreen #nutritionInfo.box .boxHeader .second,
+#activityScreen #nutritionInfo.box .boxHeader .second,
 #foodometer #nutritionInfo.box .boxHeader .third,
-#foodScreen #nutritionInfo.box .boxHeader .third {
+#foodScreen #nutritionInfo.box .boxHeader .third,
+#activityScreen #nutritionInfo.box .boxHeader .third {
   font: bold 14px "Avenir Next", Helvetica, Arial, sans-serif;
   color: #fa9100;
 }
 #foodometer #nutritionInfo.box .boxEntry,
-#foodScreen #nutritionInfo.box .boxEntry {
+#foodScreen #nutritionInfo.box .boxEntry,
+#activityScreen #nutritionInfo.box .boxEntry {
   padding: 15px 10px;
   border-bottom: 2px solid #e6e6e6;
   font: normal 14px "Avenir Next", Helvetica, Arial, sans-serif;
 }
 #foodometer #nutritionInfo.box .boxEntry #name,
-#foodScreen #nutritionInfo.box .boxEntry #name {
+#foodScreen #nutritionInfo.box .boxEntry #name,
+#activityScreen #nutritionInfo.box .boxEntry #name {
   display: inline-block;
   width: 51%;
   white-space: nowrap;
@@ -5085,11 +5211,935 @@ section#insights h1 {
   background-size: 0px 100%;
 }
 #foodometer #nutritionInfo.box .boxEntry:after,
-#foodScreen #nutritionInfo.box .boxEntry:after {
+#foodScreen #nutritionInfo.box .boxEntry:after,
+#activityScreen #nutritionInfo.box .boxEntry:after {
   content: "";
 }
 #foodometer #nutritionInfo.box .boxEntry:last-child,
-#foodScreen #nutritionInfo.box .boxEntry:last-child {
+#foodScreen #nutritionInfo.box .boxEntry:last-child,
+#activityScreen #nutritionInfo.box .boxEntry:last-child {
+  border-bottom: none;
+}
+#activityScreen #panelTopBar #time {
+  font: bold 18px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
+}
+#activityScreen #panelTopBar #saveBtn {
+  float: right;
+}
+#activityScreen #panelTopBar #cancelBtn.btn {
+  float: left;
+}
+#activityScreen #body #content {
+  background-color: #ffffff;
+  background-image: none;
+  min-height: 850px;
+  max-height: 885px;
+  padding-left: 20px;
+  text-align: center;
+}
+#activityScreen #body #content #pageScroll {
+  padding-bottom: 40px;
+  max-height: 600px;
+}
+@media only screen and (orientation: landscape) {
+  #activityScreen #body #content #pageScroll {
+    max-height: 410px;
+  }
+}
+#activityScreen #body #content #filterButtons {
+  margin-top: 30px;
+}
+#activityScreen #body #content #filterButtons li {
+  font: bold 14px "Avenir Next", Helvetica, Arial, sans-serif;
+  width: 22%;
+  margin: 5px;
+  margin-bottom: 30px;
+  background-color: #e6e6e6;
+  border-radius: 12px;
+  text-align: center;
+  color: #8c8c8c;
+  padding: 4px 0 4px 0;
+}
+#activityScreen #body #content #filterButtons li:hover {
+  background-color: #ccc;
+}
+#activityScreen #body #content #filterButtons li:active {
+  background-color: #3d3d3d;
+  color: #fff;
+}
+#activityScreen #body #content #filterButtons li.selected {
+  color: #fff;
+  background-color: #545454;
+}
+#activityScreen #body #content #level1Activity {
+  background-image: url('../img/food/bg-food-menu-bar.png');
+  background-position: 4px;
+  width: 95%;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 10px;
+  white-space: nowrap;
+  overflow: hidden;
+}
+#activityScreen #body #content #level1Activity #hScroller {
+  white-space: nowrap;
+  width: auto;
+  float: left;
+  position: relative;
+  padding-right: 250px;
+}
+#activityScreen #body #content #level2Activity {
+  background: url('../img/food/bg-food-menu-bar-sub.png') repeat-x;
+  max-height: 60px;
+  margin: 20px 0px;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 10px;
+  box-shadow: 0px 0px 4px 0px #000000;
+  color: #000000;
+  white-space: nowrap;
+  overflow: hidden;
+}
+#activityScreen #body #content #level2Activity .activityItem {
+  width: 15%;
+}
+#activityScreen #body #content #level2Activity .activityItem img {
+  height: 35px;
+}
+#activityScreen #body #content #level2Activity .activity2 {
+  display: none;
+}
+#activityScreen #body .activityItem {
+  width: 13%;
+  text-align: center;
+  font-size: 12px;
+  margin: 4px 4px;
+}
+#activityScreen #body .activityItem img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 5px 0px;
+  height: 50px;
+}
+#activityScreen #body .activityItem.selected {
+  background-image: linear-gradient(bottom, #a0e382 0%, #e1f9d6 85%);
+  background-image: -webkit-linear-gradient(bottom, #a0e382 0%, #e1f9d6 85%);
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #a0e382), color-stop(0.85, #e1f9d6));
+  border-radius: 5px;
+  color: #000000;
+}
+#activityScreen #body .activityItem.selected:active {
+  background-image: linear-gradient(bottom, #e1f9d6 0%, #a0e382 85%);
+  background-image: -webkit-linear-gradient(bottom, #e1f9d6 0%, #a0e382 85%);
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #e1f9d6), color-stop(0.85, #a0e382));
+}
+#activityScreen #body .activityItem[data-id=outdoor],
+#activityScreen #body .activityItem[data-id=strengthFlexibility] {
+  width: 22%;
+}
+#activityScreen #body #activityList {
+  padding: 0px;
+  min-height: 60px;
+  text-align: left;
+  display: none;
+  width: 85%;
+  margin-left: auto;
+  margin-right: auto;
+}
+#activityScreen #body .box {
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 1px 2px 5px #676767, inset -1px 1px 1px #ffffff;
+  margin: 20px 5px;
+  color: #000000;
+  padding: 5px;
+}
+#activityScreen #body .box .boxHeader {
+  background-color: #e6e6e6;
+  border-radius: 5px 5px 0 0;
+  padding: 5px 10px;
+}
+#activityScreen #body .box .boxEntry {
+  padding: 10px 10px;
+  border-bottom: 2px solid #e6e6e6;
+}
+#activityScreen #body .box .boxEntry #name {
+  display: inline-block;
+  width: 485px;
+  max-width: 485px;
+  white-space: nowrap;
+  overflow: hidden;
+  font: normal 14px "Avenir Next", Helvetica, Arial, sans-serif;
+}
+#activityScreen #body .box .boxEntry #about {
+  color: #676767;
+  margin-left: 20px;
+  font: normal 12px "Avenir Next", Helvetica, Arial, sans-serif;
+}
+#activityScreen #body .box .boxEntry:after {
+  content: url('../img/icons/smallArrow.png');
+  float: right;
+  clear: right;
+}
+#activityScreen #body .box .boxEntry:last-child {
+  border-bottom: none;
+}
+#activityScreen #backToTop {
+  display: none;
+}
+#activityScreen #activityItemScreen {
+  text-align: center;
+  background: #E6E6E6;
+  margin: 10px;
+  border-radius: 8px;
+}
+#activityScreen #activityItemScreen #top {
+  text-align: center;
+}
+#activityScreen #activityItemScreen #cancelActivity {
+  float: left;
+  background-image: url('../img/food/bu-with-arrow-left.png');
+  display: inline-block;
+  padding: 3px 10px 3px 12px;
+  margin: 20px;
+}
+#activityScreen #activityItemScreen img {
+  margin-top: 14px;
+  float: left;
+}
+#activityScreen #activityItemScreen #activityFavBtn {
+  float: right;
+  background: #676767;
+  display: inline-block;
+  padding: 3px 10px;
+  margin: 20px;
+  border-radius: 5px;
+}
+#activityScreen #activityItemScreen #activityFavBtn:active,
+#activityScreen #activityItemScreen #activityFavBtn.active {
+  background-color: #fee999;
+  color: #000000;
+}
+#activityScreen #activityItemScreen #activityName {
+  color: #000000;
+  display: inline-block;
+  font: bold 16px "Avenir Next", Helvetica, Arial, sans-serif;
+  margin-top: 20px;
+  max-width: 345px;
+  white-space: nowrap;
+}
+#activityScreen #activityItemScreen .box.inputs {
+  display: inline-block;
+}
+#activityScreen #activityItemScreen .box.inputs label {
+  float: left;
+}
+#activityScreen #activityItemScreen .box.inputs.servings {
+  width: 45%;
+}
+#activityScreen #activityItemScreen .box.inputs.size {
+  width: 45%;
+}
+#activityScreen #activityItemScreen .box.inputs.notes {
+  width: 92%;
+}
+#activityScreen #activityItemScreen .box.inputs label {
+  font: normal 12px "Avenir Next", Helvetica, Arial, sans-serif;
+  color: #676767;
+  margin-left: 10px;
+}
+#activityScreen #activityItemScreen .box.inputs label {
+  padding-top: 5px;
+}
+#activityScreen #activityItemScreen .box.inputs input {
+  border: none;
+  box-shadow: none;
+  width: 56%;
+  padding: 5px;
+}
+#activityScreen #activityItemScreen .box.inputs textarea {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  border: none;
+  background: none;
+}
+#activityScreen #activityItemScreen #details {
+  padding-bottom: 60px;
+}
+#activityScreen #activityItemScreen #editItem,
+#activityScreen #activityItemScreen #deleteItem {
+  display: none;
+}
+#activityScreen #activityItemScreen #saveToTime {
+  display: inline-block;
+  background: none;
+  background-color: #a0e382;
+  color: #676767;
+  border-color: #ffffff;
+  width: 40%;
+}
+#activityScreen #activityItemScreen #saveToTime:active {
+  background-color: #fee999;
+}
+#activityScreen #nutritionInfo.box {
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 1px 2px 5px #676767, inset -1px 1px 1px #ffffff;
+  margin: 20px 5px;
+  color: #000000;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0px;
+}
+#activityScreen #nutritionInfo.box .first {
+  display: inline-block;
+  width: 51%;
+}
+#activityScreen #nutritionInfo.box .second,
+#activityScreen #nutritionInfo.box .third,
+#activityScreen #nutritionInfo.box #amount,
+#activityScreen #nutritionInfo.box #rda {
+  display: inline-block;
+  width: 23%;
+  color: #a8a8a8;
+}
+#activityScreen #nutritionInfo.box .boxHeader {
+  background-color: #ebebeb;
+  border-radius: 5px 5px 0 0;
+  padding: 5px 10px;
+}
+#activityScreen #nutritionInfo.box .boxHeader .first {
+  font: bold 18px "Avenir Next", Helvetica, Arial, sans-serif;
+}
+#activityScreen #nutritionInfo.box .boxHeader .second,
+#activityScreen #nutritionInfo.box .boxHeader .third {
+  font: bold 14px "Avenir Next", Helvetica, Arial, sans-serif;
+  color: #fa9100;
+}
+#activityScreen #nutritionInfo.box .boxEntry {
+  padding: 15px 10px;
+  border-bottom: 2px solid #e6e6e6;
+  font: normal 14px "Avenir Next", Helvetica, Arial, sans-serif;
+}
+#activityScreen #nutritionInfo.box .boxEntry #name {
+  display: inline-block;
+  width: 51%;
+  white-space: nowrap;
+  overflow: hidden;
+  background: url("../img/cornerTabs/greenbg.png") no-repeat;
+  background-size: 0px 100%;
+}
+#activityScreen #nutritionInfo.box .boxEntry:after {
+  content: "";
+}
+#activityScreen #nutritionInfo.box .boxEntry:last-child {
+  border-bottom: none;
+}
+#busyBody {
+  position: relative;
+}
+#busyBody #body {
+  margin: 20px;
+  border-radius: 8px;
+  padding: 10px;
+  height: 89%;
+  background-color: #000000;
+}
+#busyBody #body img.positioned {
+  position: absolute;
+}
+#busyBody #body img#topleft {
+  top: 59px;
+  left: 12px;
+}
+#busyBody #body img#top {
+  top: 60px;
+  height: 15px;
+  width: 93%;
+}
+#busyBody #body img#topright {
+  top: 58px;
+  right: 12px;
+}
+#busyBody #body img#bottomleft {
+  bottom: -8px;
+  left: 14px;
+}
+#busyBody #body img#bottom {
+  bottom: -4px;
+  height: 15px;
+  width: 93%;
+}
+#busyBody #body img#bottomright {
+  bottom: -9px;
+  right: 14px;
+}
+#busyBody #body #binderBg {
+  width: 40px;
+  height: 88%;
+  float: left;
+  margin-left: -21px;
+  position: absolute;
+  background: url('../img/food/spiral-bind.png') left top repeat-y;
+  z-index: 10;
+  background-size: 37px;
+  background-position: 0px 40px;
+}
+#busyBody #body #content {
+  background-color: #d8d4d5;
+  box-shadow: 7px 0px 0 -4px #cccccc, 12px 0px 0 -7px #8b8b8b;
+  background-image: url('../img/food/bg-gray-texture.png');
+}
+#busyBody #body #content #leftContent {
+  float: left;
+  width: 280px;
+  height: 99%;
+  background-color: #ffffff;
+  box-shadow: 3px 7px 5px #ababab;
+  padding: 8px;
+  margin-bottom: 20px;
+}
+#busyBody #body #content #leftContent #leftContentMask {
+  height: 99%;
+  background-color: #f6f5f5;
+  box-shadow: 1px 1px 1px #cdcdcd, -1px 0px 1px #cdcdcd;
+  color: #000000;
+  padding: 5px;
+  padding-left: 15px;
+  background-image: url('../img/food/bg-light-gray-left-column.png');
+}
+#busyBody #body #content #rightContent {
+  float: right;
+  width: 60%;
+  height: 100%;
+}
+@media only screen and (orientation: landscape) {
+  #busyBody #body #content #rightContent {
+    width: 70%;
+  }
+}
+#busyBody #body #content #rightContent #emptyDay {
+  color: #676767;
+  margin-top: 250px;
+  text-align: center;
+  font: bold 18px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
+  text-shadow: 0 1px 1px #ffffff;
+}
+#busyBody #body #content #rightContent #emptyDay #day {
+  color: #676767;
+  font: bold 48px "Avenir Next", Helvetica, Arial, sans-serif;
+}
+#busyBody #body #content #rightContent #emptyDay #emptyActivities {
+  margin-top: 150px;
+  width: 45%;
+  margin-left: auto;
+  margin-right: auto;
+}
+#busyBody #body #content #rightContent #emptyDay #emptyActivities img {
+  float: left;
+  margin-left: -30px;
+}
+#busyBody #smallCalendar {
+  height: 300px;
+  margin-bottom: 30px;
+}
+#busyBody #smallCalendar #monthPick {
+  float: right;
+  margin-right: 5px;
+  margin-top: 5px;
+  height: 25px;
+}
+#busyBody #smallCalendar #dayString {
+  font: normal 32px "Avenir Next Medium", Helvetica, Arial, sans-serif;
+  display: block;
+  padding-left: 10px;
+  padding-top: 15px;
+  margin-bottom: 10px;
+}
+#busyBody #smallCalendar #dateString {
+  color: #676767;
+  display: block;
+  font: normal 16px "Avenir Next Medium", Helvetica, Arial, sans-serif;
+  padding-left: 10px;
+  margin-bottom: 20px;
+}
+#busyBody #smallCalendar #calTable {
+  border: none;
+}
+#busyBody #smallCalendar #calTable td {
+  height: 40px;
+  border: none;
+}
+#busyBody #smallCalendar #calTable td.selected {
+  background-color: #fecd74;
+}
+#busyBody #smallCalendar #calTable td.today {
+  background-color: #a0e382;
+}
+#busyBody #calories {
+  padding-top: 200px;
+  padding: 10px;
+  width: 246px;
+  border-radius: 8px;
+  background-color: #a0e382;
+  font-size: 16px;
+  margin-bottom: 60px;
+}
+#busyBody #calories span {
+  width: 110px;
+  display: inline-block;
+  padding: 5px 0px;
+}
+#busyBody #calories span#remaining {
+  font: bold 16px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
+}
+#busyBody #calories span#remainingNum {
+  text-align: right;
+  font: bold 16px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
+}
+#busyBody #calories span#goalNum {
+  text-align: right;
+  color: #676767;
+  font: normal 16px "Avenir Next Medium", Helvetica, Arial, sans-serif;
+}
+#busyBody #calories span#currentNum {
+  text-align: right;
+  color: #676767;
+  font: normal 16px "Avenir Next Medium", Helvetica, Arial, sans-serif;
+}
+#busyBody #activities {
+  margin-left: 5px;
+}
+#busyBody #activities .time {
+  display: block;
+  height: 60px;
+  width: 270px;
+  padding: 20px 15px;
+  font: bold 16px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
+}
+#busyBody #activities .time img {
+  margin-right: 10px;
+  vertical-align: middle;
+}
+#busyBody #activities .time span {
+  position: absolute;
+  left: 85px;
+}
+#busyBody #activities .time span.count {
+  font: bold 12px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
+  left: 185px;
+  color: #676767;
+}
+#busyBody #activities .time.selected {
+  background: url('../img/busybody/bu-arrow-green.png') no-repeat;
+  background-size: 270px;
+  background-position: 0px 5px;
+}
+#busyBody #filterView {
+  z-index: 10;
+  left: 165px;
+  top: 175px;
+  width: 250px;
+}
+#busyBody #filterView #body {
+  background-color: #ffffff;
+  border-radius: 5px;
+  margin: 0px;
+  min-height: 0px;
+  font: bold 14px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
+}
+#busyBody #filterView #body #picker {
+  border: 1px solid #cdcdcd;
+  border-radius: 5px;
+  background-image: linear-gradient(bottom, #ababab 0%, #ebebeb 85%);
+  background-image: -webkit-linear-gradient(bottom, #ababab 0%, #ebebeb 85%);
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #ababab), color-stop(0.85, #ebebeb));
+}
+#busyBody #filterView #body #picker #back,
+#busyBody #filterView #body #picker #forward {
+  padding: 5px;
+  text-align: center;
+}
+#busyBody #filterView #body #picker #back img,
+#busyBody #filterView #body #picker #forward img {
+  height: 20px;
+  padding: 5px;
+}
+#busyBody #filterView #body #picker #month {
+  background-image: linear-gradient(bottom, #343434 0%, #cdcdcd 85%);
+  background-image: -webkit-linear-gradient(bottom, #343434 0%, #cdcdcd 85%);
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #343434), color-stop(0.85, #cdcdcd));
+  color: #ffffff;
+  width: 155px;
+  height: 32px;
+  text-align: center;
+  display: inline-block;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  box-shadow: inset 0 0 7px #000000;
+  text-shadow: 0 1px 1px #000000;
+}
+#busyBody #filterView:before {
+  right: 95px;
+}
+#busyBody #activityContainer {
+  display: none;
+  padding: 20px;
+  font: normal 14px "Avenir Next", Helvetica, Arial, sans-serif;
+}
+#busyBody #activityContainer h3 {
+  color: #000000;
+  display: inline-block;
+  font: bold 18px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
+}
+#busyBody #activityContainer h3 #calCount {
+  color: #676767;
+  display: block;
+}
+#busyBody #activityContainer .btn {
+  float: right;
+  background: url("../img/food/bu-share-gradient.png");
+  border: none;
+  margin: 15px 10px 15px 0px;
+  box-shadow: -1px 1px 3px 0px;
+  color: #676767;
+  font: bold 13px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
+  height: 40px;
+  width: 115px;
+}
+#busyBody #activityContainer .btn img {
+  vertical-align: middle;
+  padding-right: 5px;
+}
+#busyBody #activityContainer .btn:active,
+#busyBody #activityContainer .btn.selected {
+  background: url("../img/busybody/bu-add-activity.png");
+  background-position: -4px -4px;
+}
+#busyBody #activityContainer #share {
+  padding: 9px;
+}
+#busyBody #activityContainer #add {
+  padding: 5px;
+  width: 120px;
+}
+#busyBody #activityContainer #foodList {
+  padding: 0px;
+  min-height: 60px;
+}
+#busyBody #activityContainer .box {
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 1px 2px 5px #676767, inset -1px 1px 1px #ffffff;
+  margin: 20px 5px;
+  color: #000000;
+  padding: 5px;
+}
+#busyBody #activityContainer .box .boxHeader {
+  background-color: #e6e6e6;
+  border-radius: 5px 5px 0 0;
+  padding: 5px 10px;
+}
+#busyBody #activityContainer .box .boxEntry {
+  padding: 15px 10px;
+  border-bottom: 2px solid #e6e6e6;
+}
+#busyBody #activityContainer .box .boxEntry #name {
+  display: inline-block;
+  width: 170px;
+  max-width: 170px;
+  white-space: nowrap;
+  overflow: hidden;
+}
+#busyBody #activityContainer .box .boxEntry:after {
+  content: url('../img/icons/smallArrow.png');
+  float: right;
+  clear: right;
+}
+#busyBody #activityContainer .box .boxEntry:last-child {
+  border-bottom: none;
+}
+#busyBody #activityContainer .box #about,
+#busyBody #activityContainer .box label {
+  font: normal 12px "Avenir Next", Helvetica, Arial, sans-serif;
+  color: #676767;
+  margin-left: 10px;
+  overflow-x: hidden;
+  white-space: nowrap;
+  max-width: 180px;
+  display: inline-block;
+}
+#busyBody #activityContainer .box label {
+  padding-top: 5px;
+}
+#busyBody #activityContainer .box input {
+  border: none;
+  box-shadow: none;
+  width: 47%;
+  padding: 5px;
+}
+#busyBody #activityContainer .box textarea {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  border: none;
+  background: none;
+}
+#busyBody #nutrition,
+#busyBody #activityContainer #nutrition {
+  height: 55px;
+  padding: 2px 10px;
+}
+#busyBody #nutrition h2,
+#busyBody #activityContainer #nutrition h2 {
+  margin-bottom: 0px;
+  font: bold 18px "Avenir Next", Helvetica, Arial, sans-serif;
+}
+#busyBody #nutrition h2:after,
+#busyBody #activityContainer #nutrition h2:after {
+  content: url('../img/icons/smallArrow.png');
+  float: right;
+  clear: right;
+}
+#busyBody #addActivityPopup {
+  display: none;
+  position: absolute;
+  right: 60px;
+  top: 155px;
+  width: 300px;
+  left: auto;
+  box-shadow: 0px -1px 1px #000000;
+}
+#busyBody #addActivityPopup .btn {
+  display: block;
+  width: 97%;
+  padding: 10px;
+  height: 40px;
+  margin: 5px 5px;
+  font: normal 17px "Avenir Next Medium", Helvetica, Arial, sans-serif;
+}
+#busyBody #addActivityPopup:before {
+  border-bottom: 15px solid #6b6b6b;
+  border-right: 20px solid transparent;
+  border-left: 20px solid transparent;
+  top: -12px;
+  content: '';
+  position: absolute;
+  right: 17px;
+}
+#busyBody #nutritionSection {
+  display: none;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+#busyBody #nutritionSection .box {
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 1px 2px 5px #676767, inset -1px 1px 1px #ffffff;
+  margin: 20px 5px;
+  color: #000000;
+}
+#busyBody #nutritionSection .box .first {
+  display: inline-block;
+  width: 51%;
+}
+#busyBody #nutritionSection .box .second,
+#busyBody #nutritionSection .box .third,
+#busyBody #nutritionSection .box #amount,
+#busyBody #nutritionSection .box #rda {
+  display: inline-block;
+  width: 23%;
+  color: #a8a8a8;
+}
+#busyBody #nutritionSection .box .boxHeader {
+  background-color: #ebebeb;
+  border-radius: 5px 5px 0 0;
+  padding: 5px 10px;
+}
+#busyBody #nutritionSection .box .boxHeader .first {
+  font: bold 18px "Avenir Next", Helvetica, Arial, sans-serif;
+}
+#busyBody #nutritionSection .box .boxHeader .second,
+#busyBody #nutritionSection .box .boxHeader .third {
+  font: bold 14px "Avenir Next", Helvetica, Arial, sans-serif;
+  color: #fa9100;
+}
+#busyBody #nutritionSection .box .boxEntry {
+  padding: 15px 10px;
+  border-bottom: 2px solid #e6e6e6;
+  font: normal 14px "Avenir Next", Helvetica, Arial, sans-serif;
+}
+#busyBody #nutritionSection .box .boxEntry #name {
+  display: inline-block;
+  width: 51%;
+  white-space: nowrap;
+  overflow: hidden;
+  background: url("../img/cornerTabs/greenbg.png") no-repeat;
+  background-size: 0px 100%;
+}
+#busyBody #nutritionSection .box .boxEntry:last-child {
+  border-bottom: none;
+}
+#busyBody #foodItemScreen {
+  text-align: center;
+  background: #E6E6E6;
+  margin: 10px;
+  border-radius: 8px;
+}
+#busyBody #foodItemScreen #top {
+  text-align: center;
+}
+#busyBody #foodItemScreen #cancelFood {
+  float: left;
+  background-image: url('../img/food/bu-with-arrow-left.png');
+  display: inline-block;
+  padding: 3px 10px 3px 12px;
+  margin: 20px;
+}
+#busyBody #foodItemScreen img {
+  margin-top: 14px;
+  float: left;
+}
+#busyBody #foodItemScreen #foodFavBtn {
+  display: none;
+}
+#busyBody #foodItemScreen #foodName {
+  color: #000000;
+  display: inline-block;
+  font: bold 16px "Avenir Next", Helvetica, Arial, sans-serif;
+  margin-top: 20px;
+  max-width: 70%;
+  white-space: nowrap;
+}
+#busyBody #foodItemScreen .box.inputs {
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 1px 2px 5px #676767, inset -1px 1px 1px #ffffff;
+  margin: 20px 5px;
+  color: #000000;
+  padding: 5px;
+  display: inline-block;
+}
+#busyBody #foodItemScreen .box.inputs label {
+  float: left;
+}
+#busyBody #foodItemScreen .box.inputs.servings {
+  width: 45%;
+}
+#busyBody #foodItemScreen .box.inputs.size {
+  width: 45%;
+}
+#busyBody #foodItemScreen .box.inputs.notes {
+  width: 92%;
+}
+#busyBody #foodItemScreen .box.inputs label {
+  font: normal 12px "Avenir Next", Helvetica, Arial, sans-serif;
+  color: #676767;
+  margin-left: 10px;
+}
+#busyBody #foodItemScreen .box.inputs label {
+  padding-top: 5px;
+}
+#busyBody #foodItemScreen .box.inputs input {
+  border: none;
+  box-shadow: none;
+  width: 56%;
+  padding: 5px;
+}
+#busyBody #foodItemScreen .box.inputs input#serving {
+  width: 30%;
+}
+#busyBody #foodItemScreen .box.inputs textarea {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  border: none;
+  background: none;
+}
+#busyBody #foodItemScreen #details {
+  padding-bottom: 70px;
+}
+#busyBody #foodItemScreen #editItem,
+#busyBody #foodItemScreen #deleteItem {
+  display: inline-block;
+  background: none;
+  background-color: #fee5b8;
+  color: #676767;
+  border-color: #ffffff;
+  width: 40%;
+}
+#busyBody #foodItemScreen #editItem:active,
+#busyBody #foodItemScreen #deleteItem:active {
+  background-color: #fee999;
+}
+#busyBody #foodItemScreen #editItem {
+  float: right;
+}
+#busyBody #foodItemScreen #deleteItem {
+  float: left;
+  background-color: #a6a6a6;
+}
+#busyBody #foodItemScreen #saveToMeal {
+  display: none;
+}
+#busyBody #nutritionInfo.box {
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 1px 2px 5px #676767, inset -1px 1px 1px #ffffff;
+  margin: 20px 5px;
+  color: #000000;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0px;
+}
+#busyBody #nutritionInfo.box .first {
+  display: inline-block;
+  width: 51%;
+}
+#busyBody #nutritionInfo.box .second,
+#busyBody #nutritionInfo.box .third,
+#busyBody #nutritionInfo.box #amount,
+#busyBody #nutritionInfo.box #rda {
+  display: inline-block;
+  width: 23%;
+  color: #a8a8a8;
+}
+#busyBody #nutritionInfo.box .boxHeader {
+  background-color: #ebebeb;
+  border-radius: 5px 5px 0 0;
+  padding: 5px 10px;
+}
+#busyBody #nutritionInfo.box .boxHeader .first {
+  font: bold 18px "Avenir Next", Helvetica, Arial, sans-serif;
+}
+#busyBody #nutritionInfo.box .boxHeader .second,
+#busyBody #nutritionInfo.box .boxHeader .third {
+  font: bold 14px "Avenir Next", Helvetica, Arial, sans-serif;
+  color: #fa9100;
+}
+#busyBody #nutritionInfo.box .boxEntry {
+  padding: 15px 10px;
+  border-bottom: 2px solid #e6e6e6;
+  font: normal 14px "Avenir Next", Helvetica, Arial, sans-serif;
+}
+#busyBody #nutritionInfo.box .boxEntry #name {
+  display: inline-block;
+  width: 51%;
+  white-space: nowrap;
+  overflow: hidden;
+  background: url("../img/cornerTabs/greenbg.png") no-repeat;
+  background-size: 0px 100%;
+}
+#busyBody #nutritionInfo.box .boxEntry:after {
+  content: "";
+}
+#busyBody #nutritionInfo.box .boxEntry:last-child {
   border-bottom: none;
 }
 #foodScreen #panelTopBar #meal {
@@ -5469,70 +6519,86 @@ section#insights h1 {
   margin-top: 20px;
   text-align: center;
 }
-#foodScreen #recentFavsScreen .box.grey {
+#foodScreen #recentFavsScreen .box.grey,
+#activityScreen #recentFavsScreen .box.grey {
   background-color: #e6e6e6;
 }
-#foodScreen #recentFavsScreen .box.grey img {
+#foodScreen #recentFavsScreen .box.grey img,
+#activityScreen #recentFavsScreen .box.grey img {
   height: 40px;
   float: right;
 }
-#foodScreen #recentFavsScreen .box.grey .boxEntry {
+#foodScreen #recentFavsScreen .box.grey .boxEntry,
+#activityScreen #recentFavsScreen .box.grey .boxEntry {
   display: block;
   text-align: left;
   margin-left: 40px;
 }
-#foodScreen #recentFavsScreen .box.grey .boxEntry img {
+#foodScreen #recentFavsScreen .box.grey .boxEntry img,
+#activityScreen #recentFavsScreen .box.grey .boxEntry img {
   float: left;
   height: 30px;
   margin-left: -40px;
   display: none;
 }
-#foodScreen #recentFavsScreen #wrapper {
+#foodScreen #recentFavsScreen #wrapper,
+#activityScreen #recentFavsScreen #wrapper {
   margin-top: 50px;
   max-height: 200px;
   min-height: 20px;
   overflow: hidden;
 }
-#foodScreen #recentFavsScreen .box.inputs {
+#foodScreen #recentFavsScreen .box.inputs,
+#activityScreen #recentFavsScreen .box.inputs {
   display: inline-block;
 }
-#foodScreen #recentFavsScreen .box.inputs label {
+#foodScreen #recentFavsScreen .box.inputs label,
+#activityScreen #recentFavsScreen .box.inputs label {
   float: left;
 }
-#foodScreen #recentFavsScreen .box.inputs.servings {
+#foodScreen #recentFavsScreen .box.inputs.servings,
+#activityScreen #recentFavsScreen .box.inputs.servings {
   width: 44%;
 }
-#foodScreen #recentFavsScreen .box.inputs.size {
+#foodScreen #recentFavsScreen .box.inputs.size,
+#activityScreen #recentFavsScreen .box.inputs.size {
   width: 45%;
 }
-#foodScreen #recentFavsScreen .box.inputs.notes {
+#foodScreen #recentFavsScreen .box.inputs.notes,
+#activityScreen #recentFavsScreen .box.inputs.notes {
   width: 92%;
 }
-#foodScreen #recentFavsScreen .box.inputs label {
+#foodScreen #recentFavsScreen .box.inputs label,
+#activityScreen #recentFavsScreen .box.inputs label {
   font: normal 12px "Avenir Next", Helvetica, Arial, sans-serif;
   color: #676767;
   margin-left: 10px;
 }
-#foodScreen #recentFavsScreen .box.inputs label {
+#foodScreen #recentFavsScreen .box.inputs label,
+#activityScreen #recentFavsScreen .box.inputs label {
   padding-top: 5px;
 }
-#foodScreen #recentFavsScreen .box.inputs input {
+#foodScreen #recentFavsScreen .box.inputs input,
+#activityScreen #recentFavsScreen .box.inputs input {
   border: none;
   box-shadow: none;
   width: 45%;
   padding: 5px;
 }
-#foodScreen #recentFavsScreen .box.inputs textarea {
+#foodScreen #recentFavsScreen .box.inputs textarea,
+#activityScreen #recentFavsScreen .box.inputs textarea {
   display: block;
   width: 100%;
   padding: 10px;
   border: none;
   background: none;
 }
-#foodScreen #recentFavsScreen #details {
+#foodScreen #recentFavsScreen #details,
+#activityScreen #recentFavsScreen #details {
   padding-bottom: 60px;
 }
-#foodScreen #recentFavsScreen #saveToMeal {
+#foodScreen #recentFavsScreen #saveToMeal,
+#activityScreen #recentFavsScreen #saveToMeal {
   display: inline-block;
   background: none;
   background-color: #fee5b8;
@@ -5540,6 +6606,20 @@ section#insights h1 {
   border-color: #ffffff;
   width: 40%;
 }
-#foodScreen #recentFavsScreen #saveToMeal:active {
+#foodScreen #recentFavsScreen #saveToMeal:active,
+#activityScreen #recentFavsScreen #saveToMeal:active {
   background-color: #fee999;
+}
+#foodScreen #recentFavsScreen #saveToTime,
+#activityScreen #recentFavsScreen #saveToTime {
+  display: inline-block;
+  background: none;
+  background-color: #a0e382;
+  color: #676767;
+  border-color: #ffffff;
+  width: 40%;
+}
+#foodScreen #recentFavsScreen #saveToTime:active,
+#activityScreen #recentFavsScreen #saveToTime:active {
+  background-color: #e1f9d6;
 }
