@@ -1,9 +1,9 @@
 /*
- * This is a Collection of all LibraryItems
+ * This is a Collection of all Activity Days
  */
 
 define(['backbone',
-        'models/JournalDay',
+        'models/ActivityDay',
         'models/Acts',
         'models/Store'
         ], function(Backbone, model, Act, Store) {
@@ -12,24 +12,14 @@ define(['backbone',
     var collection = Backbone.Collection.extend({
         //Backbone specific attributes
         model : model,
-        storageKey: 'peachy_foodJournal',
+        storageKey: 'peachy_activityJournal',
 
-        dailyValues: {
-            calories: 1500,
-            fat: 20,
-            sodium : 2300,
-            carbohydrates: 200,
-            cholesterol: 300,
-            fibre: 25,
-            protein: 45
-        },
 
         initialize: function(){
             var self=this;
             // this.on('change', function(){
             //  self.store();
             // });
-
         },
 
         addEntry: function(obj){
@@ -73,7 +63,7 @@ define(['backbone',
         store: function(){
             var models = JSON.stringify(this.models);
             Store.save(this.storageKey, models, function(){
-                console.log('saved foodJournal to localStorage');
+                console.log('saved activityJournal to localStorage');
             });
         },
 
@@ -92,7 +82,7 @@ define(['backbone',
         },
 
         saveToCloud: function(item){
-            Act.call("saveJournalAction", {"item":item},
+            Act.call("saveActivityJournalAction", {"item":item},
                 function(res){
                     console.log(res);
                 }, function(err, msg){

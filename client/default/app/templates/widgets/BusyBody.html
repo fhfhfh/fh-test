@@ -56,24 +56,29 @@
 					<span id="remaining">Remaining</span>
 					<span id="remainingNum"><%= '1,500 Calories' %></span>
 				</div>
+				
+				<div id="pointsContainer">
+					<span id="peachyPoints">Peachy Points</span>
+					<span id="peachyPointsNum">200 pts</span>
+				</div>
 
 				<div id="activities">
 					<h3>My Activities</h3>
 					<li class="time" data-name="morning">
 						<img src="img/busybody/icon-morning.png"/>
-						<span>Morning</span><span class="count">800 Calories</span>
+						<span>Morning</span><span class="count"></span>
 					</li>
 					<li class="time" data-name="afternoon">
 						<img src="img/busybody/icon-afternoon.png"/>
-						<span>Afternoon</span><span class="count">800 Calories</span>
+						<span>Afternoon</span><span class="count"></span>
 					</li>
 					<li class="time" data-name="evening">
 						<img src="img/busybody/icon-evening.png"/>
-						<span>Evening</span><span class="count">800 Calories</span>
+						<span>Evening</span><span class="count"></span>
 					</li>
 					<li class="time" data-name="other">
 						<img src="img/busybody/icon-other.png"/>
-						<span>Other</span><span class="count">800 Calories</span>
+						<span>Other</span><span class="count"></span>
 					</li>
 				</div>
 
@@ -98,7 +103,7 @@
 			<div id="activityContainer">
 				<h3 id="title">
 					<span id="activityString"></span> 
-					<span id="calCount"></span>
+					<span id="calCount">0 Calories Burned</span>
 				</h3>
 
 				<li id="add" class="btn"><img src="img/food/big-plus-icon.png"/>Add Activity</li>
@@ -159,42 +164,6 @@
 							<span id="amount"></span>
 							<span id="rda"></span>
 						</div>
-						
-						<div class="boxEntry" id="cholesterol"> 
-							<span id="name">Cholesterol</span>
-							<span id="amount"></span>
-							<span id="rda"></span>
-						</div>
-
-						<div class="boxEntry" id="sodium"> 
-							<span id="name">Sodium</span>
-							<span id="amount"></span>
-							<span id="rda"></span>
-						</div>
-
-						<div class="boxEntry" id="carbohydrates"> 
-							<span id="name">Carbohydrates</span>
-							<span id="amount"></span>
-							<span id="rda"></span>
-						</div>
-
-						<div class="boxEntry" id="dietryFibre"> 
-							<span id="name">Dietry Fibre</span>
-							<span id="amount"></span>
-							<span id="rda"></span>
-						</div>
-
-						<div class="boxEntry" id="protein"> 
-							<span id="name">Protein</span>
-							<span id="amount">20g</span>
-							<span id="rda">20%</span>
-						</div>
-
-						<div class="boxEntry" id="peachyPower"> 
-							<span id="name">Peachy&reg; Power&reg;</span>
-							<span id="amount">1</span>
-							<span id="rda">5%</span>
-						</div>
 					</div>
 				</div>
 
@@ -212,9 +181,9 @@
 
 <!-- Popup Buttons -->
 <div id='addActivityPopup' class="popup">
-	<li id="addFood" class='btn white'>Add Items...</li>
+	<li id="addFood" class='btn white'>Add New Activity...</li>
 	<li id="copyFood" class='btn white'>Copy from Yesterday</li>
-	<li id="clearFood" class='btn red'>Clear Meal</li>
+	<li id="clearFood" class='btn red'>Clear Activity</li>
 </div>
 
 

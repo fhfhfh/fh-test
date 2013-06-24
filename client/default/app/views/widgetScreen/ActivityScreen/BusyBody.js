@@ -9,25 +9,30 @@ define([
     'backbone',
     'text!templates/widgets/ActivityScreen/BusyBody.html',
     'text!templates/widgets/ActivityItem.html',
-    'collections/Foods',
-    'collections/ActivityJournal'
-], function($, _, Backbone, tpl, activityItem, collection, journal) {
+    'collections/Activities',
+    'collections/ActivityJournal',
+    'models/Clock'
+], function($, _, Backbone, tpl, activityItem, collection, journal, Clock) {
     return Backbone.View.extend({
         tagName: 'section',
         id: 'activityListScreen',
         collection: collection,
         template: _.template(tpl),
         itemTpl: _.template(activityItem),
+        clock: new Clock(),
+        timer: {},
         events: {
             'click .activityItem'          : 'selectActivity',
-            'click #foodList .boxEntry': 'showActivityItemScreen',
+            'click #activityList .boxEntry': 'showActivityItemScreen',
             'click #backToTop'         : 'backToTop',
             'click .item'              : 'selectItem',
             'click #cancelFood'        : 'cancelActivity',
             'click #foodFavBtn'        : 'addActivityToFav',
             'click #saveToMeal'        : 'saveActivityToTime',
             'click #saveBtn'           : 'saveAllItems',
-            'change #serving'          : 'calculateNutrients'
+            'change #serving'          : 'calculateNutrients',
+            'click #startStop'         : 'startStopClock',
+            'click #reset'             : 'resetClock'
         },
 
         initialize: function() {
@@ -102,10 +107,12 @@ define([
         showActivityItemScreen: function(e){
             var self = this;
             var target = $(e.currentTarget);
-            var imgSrc = $(".lv2.selected img").attr("src");
+            var imgSrc = $(".lv2.selected img").attr("src") || "sdf";
             var id = target.attr('data-id');
             var model = this.collection.get(id);
             this.model = model;
+
+            model = {attributes:{fullname: 'Eoins Marathon',calBurned:200}};
             //this.pageScroll = null;
             self.selectedActivity = model;
             self.container.container.iscroll.enable();
@@ -278,6 +285,28 @@ define([
 
             model.attributes = att;
             return model;
+        },
+
+        startStopClock: function(){
+            var self = this;
+            var clock = this.clock;
+            if(clock.isRunning()){
+                console.log('stopping clock');
+                clearInterval(self.timer);
+                clock.stop();
+            } else {
+                self.timer = setInterval(function(){
+                    time = clock.tick();
+                    $('#stopWatch #time').html(time);
+                },1000);
+            }
+
+        },
+
+        resetClock: function(){
+            this.clock.reset();
+            clearInterval(this.timer);
+            $('#stopWatch #time').html("00:00:00");
         }
 
     });

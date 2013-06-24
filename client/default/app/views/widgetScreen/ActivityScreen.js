@@ -56,7 +56,7 @@ define([
         },
 
         saveAllActivities: function(){
-            this.container.subViews.busyBodyNav.saveFoodsToJournal();
+            this.container.subViews.busyBodyNav.saveActivitiesToJournal();
             this.container.setActiveView('busyBodyNav');
 
         },

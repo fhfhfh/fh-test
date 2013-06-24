@@ -9,11 +9,11 @@ if(item.fullname.length >40){
 %>
 
 
-<div id="foodItemScreen" class='boxEntry'>
+<div id="activityItemScreen" class='boxEntry'>
     <div id="top">
-        <li id="cancelFood">Cancel</li>
-        <img src="<%=imgSrc%>"/><h2 id="foodName" style="overflow-x:<%=r%>"><%= item.fullname%></h2>
-        <li id="foodFavBtn">Favorite</li>
+        <li id="cancelActivity">Cancel</li>
+        <img src="<%=imgSrc%>"/><h2 id="activityName" style="overflow-x:<%=r%>"><%= item.fullname%></h2>
+        <li id="activityFavBtn">Favorite</li>
     </div>
 
     <div id="nutritionInfo" class="box">
@@ -35,36 +35,6 @@ if(item.fullname.length >40){
                 <span id="amount"></span>
                 <span id="rda"></span>
             </div>
-            
-            <div class="boxEntry" id="cholesterol"> 
-                <span id="name">Cholesterol</span>
-                <span id="amount"></span>
-                <span id="rda"></span>
-            </div>
-
-            <div class="boxEntry" id="sodium"> 
-                <span id="name">Sodium</span>
-                <span id="amount"></span>
-                <span id="rda"></span>
-            </div>
-
-            <div class="boxEntry" id="carbohydrates"> 
-                <span id="name">Carbohydrates</span>
-                <span id="amount"></span>
-                <span id="rda"></span>
-            </div>
-
-            <div class="boxEntry" id="dietryFibre"> 
-                <span id="name">Dietry Fibre</span>
-                <span id="amount"></span>
-                <span id="rda"></span>
-            </div>
-
-            <div class="boxEntry" id="protein"> 
-                <span id="name">Protein</span>
-                <span id="amount"></span>
-                <span id="rda"></span>
-            </div>
 
             <div class="boxEntry" id="peachyPower"> 
                 <span id="name">Peachy&reg; Power&reg;</span>
@@ -75,14 +45,24 @@ if(item.fullname.length >40){
     </div>
 
     <div id="details">
-        <div class="box inputs servings">
-            <label for="serving">Number of Servings</label>
-            <input type="number" min="1" name="serving" id="serving" value="1"/>
+        <div class="box inputs minutes">
+            <label for="minutes">Minutes Performed</label>
+            <input type="number" min="1" name="minutes" id="minutes" value="1"/>
         </div>
 
-        <div class="box inputs size">
-            <label for="size">Serving Size</label>
-            <input type="text" name="size" id="size" value="<%=item.serving[0].name%>" disabled="disabled"/>
+        <div class="box inputs calBurned">
+            <label for="calBurned">Calories Burned</label>
+            <input type="text" name="calBurned" id="calBurned" value="<%=item.calBurned%>" disabled="disabled"/>
+        </div>
+
+        <div id="stopWatch">
+            <img id="clockImg" src="img/busybody/stopwatch.png"/>
+            <div id="time">00:00:00</div>
+            <div id="buttons">
+                <li id="startStop" class="btn">Start / Stop</li>
+                <li id="reset" class="btn">Reset</li>
+            </div>
+            <p>This timer will sound an alert every 15 minutes as a reminder.</p>
         </div>
 
         <div class="box inputs notes">
@@ -90,8 +70,8 @@ if(item.fullname.length >40){
             <textarea id="notes" name="notes"></textarea>
         </div>
 
-        <li class="btn" id="saveToMeal">Save this to Meal</li>
+        <li class="btn" id="saveToTime">Save this Activity</li>
         <li class="btn" id="editItem">Save</li>
-        <li class="btn" id="deleteItem">Delete this Food</li>
+        <li class="btn" id="deleteItem">Delete this Activity</li>
     </div>
 </div>

@@ -45,9 +45,6 @@ define([
             this.year     = date.getFullYear();
             this.calendar = new calendar();
             _.bindAll(this);
-            collection = {};
-            collection.find = function(){};
-            collection.createDay = function(){};
         },
 
         render: function() {
@@ -176,7 +173,6 @@ define([
                 return item.get('date').toDateString() == date.toDateString();
             });
             self.item = null;
-
             if(dayModel){ // check if model exists for selected date
                 self.item = dayModel; // make model globally accessible 
                 if(self.item.isEmpty()){ // check if model has any food entries
@@ -232,11 +228,10 @@ define([
             }
         },
 
-        populateTime: function(meal){
+        populateTime: function(time){
             this.$('#foodList .boxEntry').remove();
             var item = this.item;
             var self = this;
-
             if(item && time){
                 var activities = item.attributes[time];
                 if(activities.length === 0){
@@ -263,17 +258,20 @@ define([
                 // populate meal info
                 var activityInfo = activities[0];
 
-                this.$('#calCount').text(activityInfo.calories + ' Calories');
+                this.$('#calCount').text(activityInfo.calories + ' Calories Burned');
                 this.$('#location').val(activityInfo.location);
                 this.$('#with').val(activityInfo.with);
                 this.$('#time').val(activityInfo.time);
                 this.$('#notes').val(activityInfo.notes);
+
+                this.$('.time[data-name=afternoon] .count').html(activityInfo.calories + ' Calories');
 
                 // populate calorie counter
                 var att = item.attributes;
                 this.$('#goalNum').text(att.goalCals + ' Calories');
                 this.$('#currentNum').text(att.currentCals + ' Calories');
                 this.$('#remainingNum').text(att.remainingCals + ' Calories');
+
             }
             else {
                 this.$('#calCount').text("");
@@ -302,7 +300,7 @@ define([
               //    }, function(err, msg){
               //      console.log(JSON.stringify(msg));
               //   });
-
+            navigator.notification.beep(5);
             $('#add').toggleClass('selected');
             $('#addActivityPopup').toggle();
         },

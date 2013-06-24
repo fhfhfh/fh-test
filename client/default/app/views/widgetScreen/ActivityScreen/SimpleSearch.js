@@ -9,9 +9,9 @@ define([
     'backbone',
     'text!templates/widgets/ActivityScreen/SimpleSearch.html',
     'text!templates/widgets/ActivityItem.html',
-    'collections/Foods',
-    'collections/FoodJournal'
-], function($, _, Backbone, tpl, activityItem, foods, journal) {
+    'collections/Activities',
+    'collections/ActivityJournal'
+], function($, _, Backbone, tpl, activityItem, activities, journal) {
     return Backbone.View.extend({
         tagName : 'section',
         id      : 'simpleSearchScreen',
@@ -65,7 +65,7 @@ define([
             $('#activityList').html('');
             $('#modalMask').show().append("<img src='img/spinner.gif'/>");
 
-            foods.singleSearch(searchTerm, type, function(err,data){
+            activities.singleSearch(searchTerm, type, function(err,data){
                 if(err){
                     Backbone.trigger('notify', err, 'Error getting Activity List');
                     $('#modalMask').hide().html("");
@@ -102,7 +102,7 @@ define([
             var self = this;
             var target = $(e.currentTarget);
             var id = target.attr('data-id');
-            var model = foods.get(id);
+            var model = activities.get(id);
             this.model = model;
             this.selectedActivity = model;
             // this.oldHtml = this.$el.html();
