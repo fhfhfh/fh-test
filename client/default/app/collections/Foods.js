@@ -30,10 +30,10 @@ define(['backbone',
 			this.loadFavs();
 		},
 
-		singleSearch: function(term, type, cb){
+		singleSearch: function(name, category, cb){
 			var self = this;
 
-			Act.call("searchDBAction", {"type":term},
+			Act.call("searchDBAction", {"type":name, "category":category},
 				function(res){
 					var data = res.payload;
 					for(var i=0;i<data.length;i++){
@@ -43,8 +43,10 @@ define(['backbone',
 
 					return cb(null,data);
 				}, function(err, msg){
-					console.warn(err, msg);
-					return cb(err,null);
+					console.warn(msg);
+					var message = JSON.parse(msg.error);
+					message = message.response.payload.status.msg;
+					return cb(message,null);
 				}
 			);
 		},

@@ -105,8 +105,6 @@ define([
             var model = activities.get(id);
             this.model = model;
             this.selectedActivity = model;
-            // this.oldHtml = this.$el.html();
-            // this.$el.html(self.itemTpl({item:model.attributes, imgSrc:""}));
 
             this.oldHtml = this.$el.html();
             $('#filterButtons').hide();

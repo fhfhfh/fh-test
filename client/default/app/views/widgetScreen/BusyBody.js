@@ -294,13 +294,13 @@ define([
         },
 
         showAddPopup: function(){
-              // Act.call('createDBAction',{},
-              //    function(res){
-              //      alert('Saved successfully'+JSON.stringify(res));
-              //    }, function(err, msg){
-              //      console.log(JSON.stringify(msg));
-              //   });
-            navigator.notification.beep(5);
+              Act.call('fetchActivityAction',{},
+                 function(res){
+                   console.log('Saved successfully',res);
+                 }, function(err, msg){
+                   console.log(JSON.stringify(msg));
+                });
+
             $('#add').toggleClass('selected');
             $('#addActivityPopup').toggle();
         },

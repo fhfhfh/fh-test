@@ -52,7 +52,7 @@ define([
         searchFood: function(){
             var self = this;
             var searchTerm = $("#searchTerm").val();
-            var type = $("#filter").find(":selected").text();
+            var type = $("#filter").find(":selected").val();
 
             if(searchTerm === null || searchTerm === ""){
                 Backbone.trigger('notify', 'Please enter a search term', 'Search Error');

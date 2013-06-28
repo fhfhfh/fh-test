@@ -72,9 +72,13 @@ define(['jquery',
         },
 
         checkBeep: function(){
-            if(min%15===0){
+            if(this.min%15===0){
                 // attempt beep
-                navigator.notification.beep(2);
+                try{
+                    navigator.notification.beep(2);
+                } catch(e){
+                    console.log(e);
+                }
             }
         }
     });

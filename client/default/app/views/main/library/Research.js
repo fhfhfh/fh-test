@@ -5,7 +5,8 @@
 define(['jquery',
     'underscore',
     'backbone',
-    'text!templates/components/Omnipedial.html',
+    'views/ContainerView',
+    'text!templates/components/Omnipedia.html',
     'text!templates/components/Research.html',
     'text!templates/components/OmnipediaDetails.html',
     'text!templates/components/Information.html',
@@ -36,13 +37,13 @@ define(['jquery',
     'text!templates/components/Angiography.html',
     'text!templates/components/AngioStep1.html',
     'text!templates/components/AngioStep2.html'
-    ], function($, _, Backbone, omnipidiaTpl,tpl,omniDetailsTpl,informationTpl,infoDetailsTpl,
+    ], function($, _, Backbone, ContainerView, omnipidiaTpl,tpl,omniDetailsTpl,informationTpl,infoDetailsTpl,
         interactionsTpl,sympTpl,showMeTpl,showMeDetailsTpl,showSymptomListTpl,sympDetailsTpl,riskFactorTpl,genRiskTpl,lifestyleTpl,riskFactorDeatilsTpl,riskFactQuesTpl,completeAssessTpl,
         toolsTpl,bodyMassTpl,caloriesTpl,heartTpl,weightTpl,nutritionTpl,waistTpl,assistantTpl,
         surgriesTpl,testsTpl,MedsTpl,angiogarphyTpl,angioStep1Tpl,angioStep2Tpl) {
 
 
-        return Backbone.View.extend({
+        return ContainerView.extend({
 
             // Backbone specific attributes
             tagName		: 'section',
@@ -96,15 +97,20 @@ define(['jquery',
             },
             template	: _.template(tpl),
 
+            subViews: {
+
+            },
+
 
             initialize : function(){
                 _.bindAll(this);
+                this.$el.html(this.template());
+                this.$content = this.$('#researchInnerDiv');
             },
 
             render: function(){
                 var self = this;
 
-                this.$el.html(this.template());
                 this.resScroll = new iScroll(this.$('#research-desk')[0],{
                     bounceLock	: true,
                     bounce		: true,
@@ -170,10 +176,10 @@ define(['jquery',
             },
 
             showMyMedia: function(e){
-                this.$('li').removeClass('selected');
-                this.$('#interaction-myMedia').addClass('selected');
-                this.$('#inter-myMedia').attr("style","visibility:visible");
-                this.$('#inter-search').attr("style","visibility:hidden");
+                // this.$('li').removeClass('selected');
+                // this.$('#interaction-myMedia').addClass('selected');
+                // this.$('#inter-myMedia').attr("style","visibility:visible");
+                // this.$('#inter-search').attr("style","visibility:hidden");
             },
             showGenRisk: function(e){
                 this.$('li').removeClass('selected');

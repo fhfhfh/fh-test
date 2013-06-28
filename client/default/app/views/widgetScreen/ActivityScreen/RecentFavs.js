@@ -90,7 +90,7 @@ define([
             var id = target.attr('data-id');
             var model = collection.get(id);
             var attr = model.attributes;
-            this.selectActivity = model;
+            this.selectedActivity = model;
             target.find('img').toggle();
             target.toggleClass('selected');
 

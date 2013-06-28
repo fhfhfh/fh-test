@@ -107,12 +107,11 @@ define([
         showActivityItemScreen: function(e){
             var self = this;
             var target = $(e.currentTarget);
-            var imgSrc = $(".lv2.selected img").attr("src") || "sdf";
+            var imgSrc = $(".lv2.selected img").attr("src");
             var id = target.attr('data-id');
             var model = this.collection.get(id);
             this.model = model;
 
-            model = {attributes:{fullname: 'Eoins Marathon',calBurned:200}};
             //this.pageScroll = null;
             self.selectedActivity = model;
             self.container.container.iscroll.enable();
