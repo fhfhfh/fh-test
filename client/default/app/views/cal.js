@@ -14,13 +14,13 @@ define(['jquery',
 
 		// Backbone specific attributes
 		tagName		: 'section',
-	    id			: 'calendar1',
-	    events		: {
-	    },
-	    template	: _.template(template),
-	    // el 		: $('#home-content'),
+		id			: 'calendar1',
+		events		: {
+		},
+		template	: _.template(template),
+		// el		: $('#home-content'),
 
-	    //Function interface
+		//Function interface
 		initialize	: _initialize,
 		render		: _render		// return template
 

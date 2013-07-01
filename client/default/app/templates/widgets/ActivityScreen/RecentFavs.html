@@ -1,0 +1,40 @@
+<div>
+    <div class="box">
+        <ul id="content-tab-list">
+            <li id="show-recentItems">Recent Items</li>
+            <li id="show-myFavourites">My Favourites</li>
+        </ul>
+
+    <div class="box grey">
+        <img src="img/pencil.png"/>
+        <div id="wrapper" class="box">
+            <div id="scroller">
+                <!-- INSERT FOODS HERE -->
+                <!-- <li class="boxEntry" data-type="recent"><img src="img/healthHub/CheckmarkOrange.png">Water</li>
+                <li class="boxEntry" data-type="recent"><img src="img/healthHub/CheckmarkOrange.png">Soda</li>
+                <li class="boxEntry" data-type="favorite"><img src="img/healthHub/CheckmarkOrange.png">Burger</li>
+                <li class="boxEntry" data-type="favorite"><img src="img/healthHub/CheckmarkOrange.png">Chips</li>
+                <li class="boxEntry" data-type="favorite"><img src="img/healthHub/CheckmarkOrange.png">Chocolate</li> -->
+                <%= list %>
+            </div>
+        </div>
+
+        <div id="details">
+            <div class="box inputs minutes">
+                <label for="minutes">Minutes Performed</label>
+                <input type="number" min="1" name="minutes" id="minutes" value="1"/>
+            </div>
+
+            <div class="box inputs calBurned">
+                <label for="calBurned">Calories Burned</label>
+                <input type="text" name="calBurned" id="calBurned" value="" disabled="disabled"/>
+            </div>
+
+            <div class="box inputs notes">
+                <label for="notes">Notes</label>
+                <textarea id="notes" name="notes"></textarea>
+            </div>
+
+            <li class="btn" id="saveToTime">Save this Activity</li>
+        </div>
+</div>

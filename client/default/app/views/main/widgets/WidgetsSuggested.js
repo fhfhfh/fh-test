@@ -13,12 +13,12 @@ define(['jquery',
 
 		// Backbone specific attributes
 		tagName		: 'section',
-	    id			: 'suggestedWidgets',
-	    events		: {
-	    	'click .widget_panel' : 'showWidgetDetails',
-	    	'click #quitBtn' : 'render'
-	    },
-	    template	: _.template(tpl),
+		id			: 'suggestedWidgets',
+		events		: {
+			'click .widget_panel' : 'showWidgetDetails',
+			'click #quitBtn' : 'render'
+		},
+		template	: _.template(tpl),
 
 
 		initialize : function(){
@@ -34,19 +34,19 @@ define(['jquery',
 		},
 
 		showWidgetDetails: function(e){
-	        var target = e.currentTarget;
-	        console.log('widget clicked', target);
-	        var page = $(this.el);
+			var target = e.currentTarget;
+			console.log('widget clicked', target);
+			var page = $(this.el);
 
-	        var details = _.template(widgetDetailsTpl);
+			var details = _.template(widgetDetailsTpl);
 			var title = $(target).find('h1').text() || 'Untitled';
 			// var info = $(target).attr('info');
 			var imgSrc = $(target).find('img').attr('src');
 
 			this.$el.html(details({
-			   title: title,
-			   description: "info",
-			   src: imgSrc
+				title: title,
+				description: "info",
+				src: imgSrc
 			}));
 		}
 

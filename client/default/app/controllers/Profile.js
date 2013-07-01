@@ -14,7 +14,7 @@ define(['jquery',
 	//interface----------------------------------
 	var profile = Backbone.Model.extend({
 
-		saveProfile 	: _saveProfile,
+		saveProfile		: _saveProfile,
 		validateInputs	: _validateInputs
 	});
 
@@ -29,10 +29,10 @@ define(['jquery',
 		// break address box into individual variables
 		var home = $('div#address')[0].innerText || '';
 		home = home.split('\n');
-		
+
 		var address1;
-		var address2;	
-		var zip;	
+		var address2;
+		var zip;
 		var state;
 
 		if(home.length == 3){
@@ -46,7 +46,7 @@ define(['jquery',
 			state		= home[2] || '';
 			zip			= home[3] || '';
 		}
-		
+
 
 		// all input values from view
 		var inputs = {
@@ -55,14 +55,14 @@ define(['jquery',
 			lastName	: $('#lastName').val(),
 			sex			: $('#sex').val(),
 			email		: $('#email').val(),
-			dob 		: $('#birthday').val(),
+			dob		: $('#birthday').val(),
 			address1	: address1,
 			address2	: address2,
-			zip 		: zip,
-			state 		: state,
+			zip			: zip,
+			state		: state,
 			phone		: $('#phone').val(),
 			mobile		: $('#mobile').val(),
-			avatarId 	: $('#profile-avatar').attr('imgId'),
+			avatarId	: $('#profile-avatar').attr('imgId'),
 			// last check before saving profile
 			username	: $('#username').val(),
 			password	: $('#password').val()
@@ -82,21 +82,20 @@ define(['jquery',
 						user.saveUserOnline(function(res){
 							if(res){
 								// simulate user navigating back to Home screen
-								$('#topBar #cancel').click(); 		
+								$('#topBar #cancel').click();
 							}
 						});
-		
-						
+
 					});
 				} else {
 					console.log('prof load fail');
 				}
-			});	
+			});
 		} else {
 			Backbone.trigger('notify', valid, 'Validation Error');
 			return;
 		}
-	};
+	}
 
 	/*
 	 * Basic Form validation
@@ -115,7 +114,7 @@ define(['jquery',
 					// var currentPassword	= user.getPassword();
 					// console.log(hashPassword, currentPassword);
 					// if(hashPassword != currentPassword){
-					// 	// return 'Incorrect Password';
+					//	// return 'Incorrect Password';
 					// }
 				}
 				else if(prop === 'phone'){
@@ -135,12 +134,12 @@ define(['jquery',
 					}
 				}
 
-				if(d[prop] == undefined || d[prop].length <1){
+				if(d[prop] === undefined || d[prop].length <1){
 //					if(prop === 'password'){
 //						return 'Please enter your password to make profile changes';
 //					}
-					 if(prop === 'middleName' || prop === 'mobile' || prop === 'address2'){
-						console.log(prop, ': not required');	
+					if(prop === 'middleName' || prop === 'mobile' || prop === 'address2'){
+						console.log(prop, ': not required');
 					}
 					else {
 //						console.log(prop, ': fail');
@@ -152,7 +151,7 @@ define(['jquery',
 
 		return true;
 	}
-	
+
 
 	return profile;
 

@@ -18,15 +18,15 @@ define(['jquery',
 
 		// Backbone specific attributes
 		tagName		: 'section',
-	    id			: 'news-and-information',
-	    visible		: 0,
-	    badgeNum	: 0,
-	    events		: {
-	    	'click #load-more-news': 'loadNews',
-	    	'click .clearfix' : 'videoScreen'
-	    },
-	    template	: _.template(template),
-	    itemTemplate: _.template(itemTemplate),
+		id			: 'news-and-information',
+		visible		: 0,
+		badgeNum	: 0,
+		events	: {
+			'click #load-more-news': 'loadNews',
+			'click .clearfix' : 'videoScreen'
+		},
+		template	: _.template(template),
+		itemTemplate: _.template(itemTemplate),
 
 
 
@@ -35,14 +35,6 @@ define(['jquery',
 			_.bindAll(this);
 			this.collection = new NewsItems();
 			this.collection.on('add', this.appendItems);
-
-			setInterval(function(){
-				if(self.badgeNum == 0){
-					$('#show-news aside.badge').html('');	
-				}else {
-					$('#show-news aside.badge').html(self.badgeNum);
-				}
-			}, 1000);
 		},
 
 		render: function(){
@@ -59,9 +51,18 @@ define(['jquery',
 			return this;
 		},
 
+		setBadge: function(){
+			var self = this;
+			if(self.badgeNum === 0){
+				$('#show-news aside.badge').html('');
+			}else {
+				$('#show-news aside.badge').html(self.badgeNum);
+			}
+		},
+
 		refreshScroll: function(){
 			if(this.container){
-				this.container.refreshScroll();  
+				this.container.refreshScroll();
 			}
 		},
 
@@ -77,71 +78,85 @@ define(['jquery',
 			if (!items.length) {
 				if(self.visible <2){
 					this.$('ul').append(this.itemTemplate(items.toJSON()));
-					self.visible = self.visible + 1;	
+					self.visible = self.visible + 1;
 				}
-				
+
 			} else {
-		        var itemsString = '';
+				var itemsString = '';
 				itemsString += self.itemTemplate(self.collection.at(0).toJSON());
-		        this.$('ul').append(itemsString);
+				this.$('ul').append(itemsString);
 			}
 			this.refreshScroll();
-	    },
+			this.watched();
+		},
 
-	    loadNews: function() {
-	    	var self = this;
-	    	var str  = '';
+		loadNews: function() {
+			var self = this;
+			var str  = '';
 
-	    	if($('.clearfix').length == this.collection.length){
-	    		var oldCollection = self.collection;
-	    		this.collection.fetch();
-	    		if(oldCollection == self.collection){
-	    			Backbone.trigger('notify', 'No more news available', 'Peachy');	
-	    		}
+			if($('.clearfix').length == this.collection.length){
+				var oldCollection = self.collection;
+				this.collection.fetch();
+				if(oldCollection == self.collection){
+					Backbone.trigger('notify', 'No more news available', 'Peachy');
+				}
 				return;
 			} else if(('.clearfix').length == this.collection.length -1){
 				str += self.itemTemplate(self.collection.at(self.visible).toJSON());
 				this.$('ul').append(str);
-		        self.visible = self.visible + 1;
+				self.visible = self.visible + 1;
 			} else {
 				str += self.itemTemplate(self.collection.at(self.visible).toJSON());
 				str += self.itemTemplate(self.collection.at(self.visible + 1).toJSON());
-		        this.$('ul').append(str);
-		        self.visible = self.visible + 2;
+				this.$('ul').append(str);
+				self.visible = self.visible + 2;
 			}
-	    	this.refreshScroll();
-	    	this.watched();
-	    },
+			this.refreshScroll();
+			this.watched();
+		},
 
-	    videoScreen: function(e) {
-	    	e.preventDefault();
-	    	e.stopPropagation();
-	    	var id		= $(e.currentTarget).closest('li').attr('data-id');
-	    	var item	= this.collection.get(id);
+		videoScreen: function(e) {
+			e.preventDefault();
+			e.stopPropagation();
+			var id		= $(e.currentTarget).closest('li').attr('data-id');
 
-	    	// add 'watched' icon
-	    	// $(e.currentTarget).closest('li').find('.watched').show();
-	    	// item.set('watched', '1');
+			var prev = this.collection.get($(e.currentTarget).prev('.clearfix').attr('data-id'));
+			var item = this.collection.get(id);
+			var next = this.collection.get($(e.currentTarget).next('.clearfix').attr('data-id'));
 
-	    	localStorage.setItem('tempVid', JSON.stringify(item));
-	    	Backbone.history.navigate('video', true, true);
+			//add 'watched' icon
+			$(e.currentTarget).closest('li').find('.watched').show();
+			this.collection.videoWatched(id);
+
+			console.log('prev', prev);
+			console.log('next', next);
+
+			// Store prev, current and next videos
+			localStorage.setItem('prevVid', JSON.stringify(prev || null));
+			localStorage.setItem('tempVid', JSON.stringify(item));
+			localStorage.setItem('nextVid', JSON.stringify(next || null));
+
+			this.watched();
+			Backbone.history.navigate('video', true, true);
 		},
 
 		watched: function(){
-			// var self = this;
-			// var li = this.$('li');
+			var self = this;
+			var li = this.$('li');
 
-			// for(var i=0; i<li.length; i++){
-			// 	var id = self.$(li[i]).attr('data-id');
-			// 	var wIcon = self.$(li[i]).find('.watched');
-			// 	var item	= self.collection.get(id);
-				
-			// 	if(item.attributes.watched == '1'){
-			// 		console.log('SHOW');
-			// 		console.log(wIcon);
-			// 		wIcon.show();
-			// 	}
-			// }
+			for(var i=0; i<li.length; i++){
+				var id = self.$(li[i]).attr('data-id');
+				var wIcon = self.$(li[i]).find('.watched');
+				var pIcon = self.$(li[i]).find('.points');
+				var item	= self.collection.get(id);
+
+				if(self.collection.checkVideo(id)){
+					wIcon.show();
+					pIcon.hide();
+				}
+			}
+			this.badgeNum = this.$('.points:visible').length;
+			this.setBadge();
 		}
 	});
 

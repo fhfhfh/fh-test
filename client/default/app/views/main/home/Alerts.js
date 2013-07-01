@@ -14,15 +14,15 @@ define(['jquery',
 
 		// Backbone specific attributes
 		tagName		: 'section',
-	    id			: 'alerts',
-	    events		: {
-	    	"click #add-alert"		: "checkAlerts",
-	    	"click #allBtn"			: "showAll",
-	    	"click #alertsBtn"		: "showAlerts",
-	    	"click #remindersBtn"	: "showReminders",
-	    	"click #expirationsBtn"	: "showExpirations"
-	    },
-	    template	: _.template(tpl),
+		id			: 'alerts',
+		events		: {
+			"click #add-alert"		: "checkAlerts",
+			"click #allBtn"			: "showAll",
+			"click #alertsBtn"		: "showAlerts",
+			"click #remindersBtn"	: "showReminders",
+			"click #expirationsBtn"	: "showExpirations"
+		},
+		template	: _.template(tpl),
 
 
 		initialize : function(){
@@ -60,7 +60,7 @@ define(['jquery',
 
 		refreshScroll: function(){
 			if(this.container){
-				this.container.refreshScroll();  
+				this.container.refreshScroll();
 			}
 		},
 
@@ -106,6 +106,7 @@ define(['jquery',
 			var alerts		= entries.alerts;
 			var reminders	= entries.reminders;
 			var expirations	= entries.expirations;
+			var html, cls;
 
 			// empty all alerts etc.
 			$('#alert-list div').remove();
@@ -113,27 +114,27 @@ define(['jquery',
 			$('#expiration-list div').remove();
 
 			for(var i=0; i<alerts.length; i++){
-				var cls = self.mapAlert(alerts[i].noticeSeverityText);
-				var html = 
+				cls = self.mapAlert(alerts[i].noticeSeverityText);
+				html =
 					'<div class="alert '+cls+'">'+
 					alerts[i].noticeSummary +
-					'<span id="date">' + alerts[i].dueDate +'</span></div>'
+					'<span id="date">' + alerts[i].dueDate +'</span></div>';
 				self.$('#alert-list').append(html);
 			}
-			for(var i=0; i<reminders.length; i++){
-				var cls = self.mapAlert(reminders[i].noticeSeverityText);
-				var html = 
+			for(var j=0; j<reminders.length; j++){
+				cls = self.mapAlert(reminders[j].noticeSeverityText);
+				html =
 					'<div class="alert '+cls+'">'+
-					reminders[i].noticeSummary +
-					'<span id="date">' + reminders[i].dueDate +'</span></div>'
+					reminders[j].noticeSummary +
+					'<span id="date">' + reminders[j].dueDate +'</span></div>';
 				self.$('#reminder-list').append(html);
 			}
-			for(var i=0; i<expirations.length; i++){
-				var cls = self.mapAlert(expirations[i].noticeSeverityText);
-				var html = 
+			for(var k=0; k<expirations.length; k++){
+				cls = self.mapAlert(expirations[k].noticeSeverityText);
+				html =
 					'<div class="alert '+cls+'">'+
-					expirations[i].noticeSummary +
-					'<span id="date">' + expirations[i].dueDate +'</span></div>'
+					expirations[k].noticeSummary +
+					'<span id="date">' + expirations[k].dueDate +'</span></div>';
 				self.$('#expiration-list').append(html);
 			}
 
@@ -150,8 +151,8 @@ define(['jquery',
 				$('#expiration-list').append('<p> No expirations added yet.</p>');
 			}
 			// <div class="alert redtip">
-			// 	You haven't completed your health risk assessment.
-			// 	<span id="date">Yesterday</span>
+			//	You haven't completed your health risk assessment.
+			//	<span id="date">Yesterday</span>
 			// </div>
 
 			this.refreshScroll();
@@ -179,11 +180,11 @@ define(['jquery',
 		},
 
 		count: function(){
-			var total = 0
+			var total = 0;
 			total += $('#alert-list').children().length;
 			total += $('#reminder-list').children().length;
 			total += $('#expiration-list').children().length;
-			
+
 			return total;
 		}
 

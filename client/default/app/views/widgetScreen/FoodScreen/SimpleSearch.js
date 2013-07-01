@@ -19,14 +19,14 @@ define([
         itemTpl : _.template(foodItem),
         events  : {
             "click #searchImg"         : "searchFood",
-            "keyup #searchTerm"        : "enterPressed",
             "click #xImg"              : "clearSearchField",
             "click #backToTop"         : "backToTop",
             "click #foodList .boxEntry": "showFoodItemScreen",
             'click #cancelFood'        : 'cancelFood',
             'click #foodFavBtn'        : 'addFoodToFav',
             'click #saveToMeal'        : 'saveFoodToMeal',
-            'change #serving'          : 'calculateNutrients'
+            'change #serving'          : 'calculateNutrients',
+            'submit #searchForm'       : "searchFood"
         },
 
         initialize: function() {
@@ -38,6 +38,7 @@ define([
             $('#filterButtons').show();
             this.listScroll = new iScroll(this.$('#scrollContainer')[0]);
             $("span#meal").text("Lunch - ("+this.container.container.foodItems.length+")");
+
             return this;
         },
 
@@ -51,9 +52,9 @@ define([
         searchFood: function(){
             var self = this;
             var searchTerm = $("#searchTerm").val();
-            var type = $("#filter").find(":selected").text();
+            var type = $("#filter").find(":selected").val();
 
-            if(searchTerm == null || searchTerm === ""){
+            if(searchTerm === null || searchTerm === ""){
                 Backbone.trigger('notify', 'Please enter a search term', 'Search Error');
                 return;
             }
@@ -83,13 +84,7 @@ define([
                 $('#backToTop').show();
                 self.refreshScroll();
             });
-        },
-
-        enterPressed: function(e){
-            var self = this;
-            if(e.keyCode ==13){
-                this.searchFood();
-            }
+            return false;
         },
 
         clearSearchField: function(){
@@ -121,13 +116,13 @@ define([
 
         cancelFood: function(){
             this.model = null;
-            this.selectedFood = null; 
+            this.selectedFood = null;
             this.$el.html(this.oldHtml);
             $('#filterButtons').show();
             this.listScroll = new iScroll(this.$('#scrollContainer')[0]);
 
             this.refreshScroll();
-            
+
         },
 
         addFoodToFav: function(){
@@ -188,13 +183,13 @@ define([
 
         updateNutrition: function(){
             var el = $("#nutritionInfo .boxEntry");
-            
+
             for(var i=0; i<el.length; i++){
                 var thisEl = $(el[i]);
                 var percent = thisEl.find("#rda").text() || "0%";
                 thisEl.find("#name").css("background-size", percent +" 100%");
             }
-            
+
         },
 
         multiplyServing: function(serving, model){

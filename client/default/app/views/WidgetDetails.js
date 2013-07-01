@@ -11,13 +11,12 @@ define([
     return ContainerView.extend({
         tagName : 'section',
         id      : 'widgetScreen',
-  
         events : {
-           'click #quit'  : 'close',
+           'click #quit'  : 'close'
          },
 
         subViews: {
-          widget1  : new Widget1(),
+          widget1  : new Widget1()
         },
 
         initialize: function(options) {
@@ -26,17 +25,17 @@ define([
 
             this.$el.html(template);
             this.$content = this.$('#widgets-content');
-           
+
         },
 
         render: function() {
           var self = this;
-          self.setActiveView(initial); 
+          self.setActiveView(initial);
           this.delegateEvents();
           if (this.activeView) {
             this.activeView.delegateEvents();
           }
-      
+
           return this;
         },
 
@@ -46,6 +45,6 @@ define([
               this.remove();
 
             });
-        },
+        }
     });
 });

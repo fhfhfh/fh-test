@@ -1,0 +1,674 @@
+#busyBody {
+    position: relative;
+    #body {
+        margin: 20px;
+        border-radius: 8px;
+        padding: 10px;
+        height: 89%;
+        background-color: #000000;
+
+        img.positioned  { position:absolute;}
+        img#topleft     { top:59px;    left:12px; }
+        img#top         { top:60px; height:15px; width:93%;}
+        img#topright    { top:58px;    right:12px; }
+        img#bottomleft  { bottom:-8px; left:14px; }
+        img#bottom      { bottom:-4px; height:15px; width:93%;}
+        img#bottomright { bottom:-9px; right:14px; }
+
+
+        #binderBg {
+            width: 40px;
+            height: 88%;
+            float: left;
+            margin-left: -20px;
+            position: absolute;
+            background: url('../img/food/spiral-bind.png') left top repeat-y;
+            z-index: 10;
+            background-size: 37px;
+            background-position: 0px 40px;
+        }
+        
+        #content {
+            background-color: #d8d4d5;
+            box-shadow: 7px 0px 0 -4px #ccc, 12px 0px 0 -7px rgb(139, 139, 139);
+            background-image: url('../img/food/bg-gray-texture.png');
+
+            #leftContent {
+                float: left;
+                width: 280px;
+                height: 99%;
+                background-color: #ffffff;
+                box-shadow: 3px 7px 5px #ababab;
+                padding: 8px;
+                margin-bottom: 20px;
+
+                #leftContentMask {
+                    height: 99%;
+                    background-color: #f6f5f5;
+                    box-shadow: 1px 1px 1px #cdcdcd, -1px 0px 1px #cdcdcd;
+                    color: #000000;
+                    padding: 5px;
+                    padding-left: 15px;
+                    background-image: url('../img/food/bg-light-gray-left-column.png');
+                }
+            }
+
+            #rightContent {
+                float: right;
+                width: 60%;
+                height: 100%;
+
+                @media only screen and (orientation: landscape) {
+                    width: 70%;
+                }
+
+                #emptyDay {
+                    color: #676767;
+                    margin-top: 250px;
+                    text-align: center;
+                    .avenir-demi(18px);
+                    text-shadow: 0 1px 1px #ffffff;
+
+                    #day {
+                        color: #676767;
+                        .avenir-bold(48px);
+                    }
+
+                    #emptyActivities {
+                        margin-top: 150px;
+                        width: 61%;
+                        margin-left: auto;
+                        margin-right: auto;
+
+                        img {
+                            float: left;
+                            margin-left: -30px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    #smallCalendar {
+        height: 300px;
+        margin-bottom: 30px;
+
+        #monthPick {
+            float: right;
+            margin-right: 5px;
+            margin-top: 5px;
+            height: 25px;
+        }
+
+        #dayString {
+            .avenir-medium(32px);
+            display: block;
+            padding-left: 10px;
+            padding-top: 15px;
+            margin-bottom: 10px
+        }
+        #dateString {
+            color: #676767;
+            display: block;
+            .avenir-medium(16px);
+            padding-left: 10px;
+            margin-bottom: 20px
+        }
+
+        #calTable {
+            border: none;
+
+            td {
+                height: 40px;
+                border: none;
+
+                &.selected {
+                    background-color: #fecd74;
+                }
+                &.today {
+                    background-color: #a0e382;
+                }
+            }    
+        }
+        
+    }
+
+    #calories {
+        padding-top: 200px;
+        padding: 10px;
+        width: 246px;
+        border-radius: 8px;
+        // background-color: #a0e382;
+        background-color: #e6e6e6;
+        font-size: 16px;
+
+        span {
+            width: 110px;
+            display: inline-block;
+            padding: 5px 0px;
+
+            &#remaining {
+                .avenir-demi(16px);
+            }
+            &#remainingNum {
+                text-align: right;
+                .avenir-demi(16px);
+            }
+            &#goalNum {
+                text-align: right;
+                color: #676767;
+                .avenir-medium(16px);
+            }
+            &#currentNum {
+                text-align: right;
+                color: #676767;
+                .avenir-medium(16px);
+            }
+        }
+    }
+    
+    #pointsContainer {
+        margin-top: 5px;
+        .avenir-demi(16px);
+        background-color: #7ad359;
+        margin-bottom: 30px;
+
+        #peachyPoints, #peachyPointsNum {
+            padding: 10px;
+            padding-right: 0;
+            display: inline-block;
+            width: 130px;
+        }
+        #peachyPointsNum {
+            width: 100px;
+            text-align: right;
+        }
+    }
+
+    
+
+    #activities {
+        margin-left: 5px;
+        .time{
+            display: block;
+            height: 60px;
+            width: 270px;
+            padding: 20px 15px;
+            .avenir-demi(16px);
+            img {
+                margin-right: 10px;
+                vertical-align: middle;
+            }
+
+            span {
+                position: absolute;
+                left: 85px;
+
+                &.count {
+                    .avenir-demi(12px);
+                    left: 185px;
+                    color: #676767;
+                }
+            }
+
+            &.selected {
+                background: url('../img/busybody/bu-arrow-green.png') no-repeat;
+                background-size: 270px;
+                background-position: 0px 5px;
+            }
+        }
+    }
+
+    #filterView {
+        z-index: 10;
+        left: 130px;
+        top: 175px;
+        width: 250px;
+
+        #body{
+            background-color: #ffffff;
+            border-radius: 5px;
+            margin: 0px;
+            min-height: 0px;
+            .avenir-demi(14px);
+
+            #picker {
+                border: 1px solid #cdcdcd;
+                border-radius: 5px;
+                .background-gradient-fixed(#ababab, #ebebeb);
+
+                #back, #forward {
+                    padding: 5px;
+                    text-align: center;
+                    img{ 
+                        height: 20px;
+                        padding: 5px;
+                    }
+                }
+                #back {
+                    // border-right: 2px solid #cdcdcd;
+                }
+                #forward {
+                    // border-left: 2px solid #cdcdcd;
+                }
+                #month {
+                    .background-gradient-fixed(#343434, #cdcdcd);
+                    color: #ffffff;
+                    width: 155px;
+                    height: 32px;
+                    text-align: center;
+                    display: inline-block;
+                    padding-top: 6px;
+                    padding-bottom: 6px;
+                    box-shadow: inset 0 0 7px #000000;
+                    text-shadow: 0 1px 1px #000000;
+                }
+            }
+        }
+
+        &:before{
+            right: 95px;
+        }
+    }
+
+    #activityContainer {
+        display: none;
+        padding: 20px;
+        .avenir(14px);
+
+        h3 {
+            color: #000000;
+            display: inline-block;
+            .avenir-demi(18px);
+
+            #calCount {
+                color: #676767;
+                display: block;
+                .avenir-demi(12px);
+            }
+        }
+
+        .btn {
+            float: right;
+            background: url("../img/food/bu-share-gradient.png");
+            border: none;
+            margin: 15px 10px 15px 0px;
+            box-shadow: -1px 1px 3px 0px;
+            color: #676767;
+            .avenir-demi(13px);
+            height: 40px;
+            width: 115px;
+
+            img {
+                vertical-align: middle;
+                padding-right: 5px;
+            }
+
+            &:active, &.selected {
+                background: url("../img/busybody/bu-add-activity.png");
+                background-position: -4px -4px;
+            }
+        }
+
+        #share {
+            padding: 9px;
+        }
+
+        #add {
+            padding: 5px;
+            width: 120px;
+        }
+
+        #foodList {
+            padding: 0px;
+            min-height: 60px;
+        }
+
+        .box {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 1px 2px 5px #676767, inset -1px 1px 1px #ffffff;
+            margin: 20px 5px;
+            color: #000000;
+            padding: 5px;
+
+            .boxHeader {
+                background-color: #e6e6e6;
+                border-radius: 5px 5px 0 0;
+                padding: 5px 10px;
+            }
+            .boxEntry {
+                padding: 15px 10px;
+                border-bottom: 2px solid #e6e6e6;
+
+                #name {
+                    display: inline-block;
+                    width: 170px;
+                    max-width: 170px;
+                    white-space: nowrap;
+                    overflow: hidden;
+                }
+
+                &:after{
+                    content: url('../img/icons/smallArrow.png');
+                    float: right;
+                    clear: right;
+                }
+
+                &:last-child{
+                    border-bottom: none;
+                }
+            }
+
+            #about, label {
+                .avenir(12px);
+                color: #676767;
+                margin-left: 10px;
+                overflow-x: hidden;
+                white-space: nowrap;
+                max-width: 180px;
+                display: inline-block;
+            }
+
+            label {
+                padding-top: 5px;
+            }
+
+            input {
+                border: none;
+                box-shadow: none;
+                width: 47%;
+                padding: 5px;
+            }
+            textarea {
+                display: block;
+                width: 100%;
+                padding: 10px;
+                border: none;
+                background: none;
+            }
+        }
+    }
+
+    #nutrition, #activityContainer #nutrition {
+        height: 55px;
+        padding: 2px 10px;
+
+        h2 {
+            margin-bottom: 0px;
+            .avenir-bold(18px);
+
+            &:after{
+                content: url('../img/icons/smallArrow.png');
+                float: right;
+                clear: right;
+            }
+        }
+    }
+
+    #addActivityPopup {
+        display: none;
+        position: absolute;
+        right: 60px;
+        top: 155px;
+        width: 300px;
+        left: auto;
+        box-shadow: 0px -1px 1px #000000;
+
+        .btn {
+            display: block;
+            width: 97%;
+            padding: 10px;
+            height: 40px;
+            margin: 5px 5px;
+            .avenir-medium(17px);
+        }
+
+        &:before {
+            border-bottom: 15px solid #6b6b6b;
+            border-right: 20px solid transparent;
+            border-left: 20px solid transparent;
+            // bottom: 151px;
+            top: -12px;
+            content: '';
+            position: absolute;
+            right: 17px;
+        }
+    }
+
+    #nutritionSection {
+        display: none;
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    #nutritionSection .box {
+        background-color: #ffffff;
+        border-radius: 8px;
+        box-shadow: 1px 2px 5px #676767, inset -1px 1px 1px #ffffff;
+        margin: 20px 5px;
+        color: #000000;
+
+        .first {
+            display: inline-block;
+            width: 45%;
+        }
+
+        .second, .third, #amount, #rda {
+            display: inline-block;
+            width: 20%;
+            color: #a8a8a8;
+        }
+        .third, #rda {
+            width: 32%;
+        }
+
+        .boxHeader {
+            background-color: #ebebeb;
+            border-radius: 5px 5px 0 0;
+            padding: 5px 10px;
+
+            .first {
+                .avenir-bold(18px);
+            }
+            .second, .third {
+                .avenir-bold(14px);
+                // color: #fa9100;
+                color: #007e23;
+            }
+        }
+        .boxEntry {
+            padding: 15px 10px;
+            border-bottom: 2px solid #e6e6e6;
+            .avenir(14px);
+
+            #name {
+                display: inline-block;
+                width: 45%;
+                white-space: nowrap;
+                overflow: hidden;
+                background: url("../img/cornerTabs/greenbg.png") no-repeat;
+                background-size: 0px 100%;
+            }
+
+            &:last-child{
+                border-bottom: none;
+            }
+        }
+    }
+
+    #activityItemScreen {
+        text-align: center;
+        background: #E6E6E6;
+        margin: 10px;
+        border-radius: 8px;
+
+        #top {
+            text-align: center;
+        }
+        #cancelFood {
+            float: left;
+            background-image: url('../img/food/bu-with-arrow-left.png');
+            display: inline-block;
+            padding: 3px 10px 3px 12px;
+            margin: 20px;
+        }
+        img {
+            margin-top: 14px;
+            float: left;
+        }
+        #foodFavBtn {
+            display: none;
+        }
+        #foodName {
+            color: #000000;
+            display: inline-block;
+            .avenir-bold(16px);
+            margin-top: 20px;
+            max-width: 70%;
+            white-space: nowrap;
+        }
+
+        .box.inputs {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 1px 2px 5px #676767, inset -1px 1px 1px #ffffff;
+            margin: 20px 5px;
+            color: #000000;
+            padding: 5px;
+            display: inline-block;
+            label {float: left;}
+
+            &.minutes {width: 45%}
+            &.calBurned {width:45%}
+            &.notes {width: 92%;}
+
+            label {
+                .avenir(12px);
+                color: #676767;
+                margin-left: 10px;
+            }
+
+            label {
+                padding-top: 5px;
+            }
+
+            input {
+                border: none;
+                box-shadow: none;
+                width: 56%;
+                padding: 5px;
+
+                &#minutes {width: 30%;}
+            }
+            textarea {
+                display: block;
+                width: 100%;
+                padding: 10px;
+                border: none;
+                background: none;
+            }
+        }
+
+        #stopWatch {
+            width: 60%;
+            margin-left: auto;
+            margin-right: auto;
+            color: #000000;
+
+            #time {.avenir-bold(20px);}
+        }
+
+        #details {
+            padding-bottom: 70px;
+        }
+
+        #editItem, #deleteItem {
+            display: inline-block;
+            background: none;
+            background-color: #fee5b8;
+            color: #676767;
+            border-color: #ffffff;
+            width: 40%;
+
+            &:active {
+                background-color: #fee999;
+            }
+        }
+
+        #editItem {
+            float: right;
+        }
+        #deleteItem {
+            float: left;
+            background-color: #a6a6a6;
+        }
+
+        #saveToMeal {
+            display: none;
+        }
+
+    }
+
+    #nutritionInfo.box {
+        background-color: #ffffff;
+        border-radius: 8px;
+        box-shadow: 1px 2px 5px #676767, inset -1px 1px 1px #ffffff;
+        margin: 20px 5px;
+        color: #000000;
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 0px;
+
+        .first {
+            display: inline-block;
+            width: 51%;
+        }
+
+        .second, .third, #amount, #rda {
+            display: inline-block;
+            width: 23%;
+            color: #a8a8a8;
+        }
+
+        .boxHeader {
+            background-color: #ebebeb;
+            border-radius: 5px 5px 0 0;
+            padding: 5px 10px;
+
+            .first {
+                .avenir-bold(18px);
+            }
+            .second, .third {
+                .avenir-bold(14px);
+                color: #fa9100;
+            }
+        }
+        .boxEntry {
+            padding: 15px 10px;
+            border-bottom: 2px solid #e6e6e6;
+            .avenir(14px);
+
+            #name {
+                display: inline-block;
+                width: 51%;
+                white-space: nowrap;
+                overflow: hidden;
+                background: url("../img/cornerTabs/greenbg.png") no-repeat;
+                background-size: 0px 100%;
+            }
+
+            &:after {
+                content: "";
+            }
+
+            &:last-child{
+                border-bottom: none;
+            }
+        }
+    }
+
+}

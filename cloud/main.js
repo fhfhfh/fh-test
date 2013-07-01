@@ -7,40 +7,41 @@ var logoutEndpoint =  require("./endpoints/logout.js");
 var resetEndpoint = require("./endpoints/reset.js");
 var userProfileEndpoint =  require("./endpoints/userProfile.js");
 var saveUserProfileEndpoint = require("./endpoints/updateProfile.js");
-var peachyPointsEndpoint = require("./endpoints/peachyPoints.js")
-var medicineCabinetEndpoint = require("./endpoints/medicineCabinetList.js")
-var searchMedicineEndpoint = require("./endpoints/searchMedicine.js")
-var saveMedicineEndpoint = require("./endpoints/saveMedicine.js")
-var delMedicineEndpoint = require("./endpoints/delMedicine.js")
-var delMulMedicineEndpoint = require("./endpoints/delMulMedicine.js")
-var reminderMedicineEndpoint = require("./endpoints/reminderMedicine.js")
-var fetchReminderListEndpoint = require("./endpoints/reminderList.js")
-var fetchDiagnosisListEndpoint = require("./endpoints/fetchDiagnosisList.js")
-var fetchTestResultListEndpoint = require("./endpoints/fetchTestResultList.js")
-var filterContentEndpoint = require("./endpoints/filterContent.js")
-var fetchMedicalHistoryEndpoint = require("./endpoints/fetchMedicalHistory.js")
-var searchAllergyEndpoint = require("./endpoints/searchAllergy.js")
-var addAllergyEndpoint = require("./endpoints/addAllergy.js")
-var fetchFeaturedContentEndpoint = require("./endpoints/fetchFeaturedContent.js")
-var fetchAlertEndpoint = require("./endpoints/fetchAlert.js")
-var fetchQuotesEndpoint = require("./endpoints/fetchQuotes.js")
-var fetchNewsEndpoint = require("./endpoints/fetchNews.js")
-var fetchAvatarsEndpoint = require("./endpoints/fetchAvatars.js")
-var fetchProblemsEndpoint = require("./endpoints/fetchProblems.js")
-var fetchAllergiesEndpoint = require("./endpoints/fetchAllergies.js")
-var fetchSocialHistoryEndpoint = require("./endpoints/fetchSocialHistory.js")
-var fetchFamilyHistoryEndpoint = require("./endpoints/fetchFamilyHistory.js")
-var fetchProceduresEndpoint = require("./endpoints/fetchProcedures.js")
-var fetchImmunizationsEndpoint = require("./endpoints/fetchImmunization.js")
-var fetchEncountersEndpoint = require("./endpoints/fetchEncounters.js")
-var fetchVitalsignsEndpoint = require("./endpoints/fetchVitalsigns.js")
-var fetchResultsEndpoint = require("./endpoints/fetchResults.js")
-var healthHubEndpoint = require("./endpoints/healthHub.js")
-var folderManagerEndpoint = require("./endpoints/folderManager.js")
-var createCKEndpoint = require("./endpoints/CKdb_create.js")
-var fetchCKEndpoint = require("./endpoints/fetchCKdb.js")
-var deleteCKEndpoint = require("./endpoints/deleteCKdb.js")
-var searchCKEndpoint = require("./endpoints/searchCKdb.js")
+var peachyPointsEndpoint = require("./endpoints/peachyPoints.js");
+var medicineCabinetEndpoint = require("./endpoints/medicineCabinetList.js");
+var searchMedicineEndpoint = require("./endpoints/searchMedicine.js");
+var saveMedicineEndpoint = require("./endpoints/saveMedicine.js");
+var delMedicineEndpoint = require("./endpoints/delMedicine.js");
+var delMulMedicineEndpoint = require("./endpoints/delMulMedicine.js");
+var reminderMedicineEndpoint = require("./endpoints/reminderMedicine.js");
+var fetchReminderListEndpoint = require("./endpoints/reminderList.js");
+var fetchDiagnosisListEndpoint = require("./endpoints/fetchDiagnosisList.js");
+var fetchTestResultListEndpoint = require("./endpoints/fetchTestResultList.js");
+var filterContentEndpoint = require("./endpoints/filterContent.js");
+var fetchMedicalHistoryEndpoint = require("./endpoints/fetchMedicalHistory.js");
+var searchAllergyEndpoint = require("./endpoints/searchAllergy.js");
+var addAllergyEndpoint = require("./endpoints/addAllergy.js");
+var fetchFeaturedContentEndpoint = require("./endpoints/fetchFeaturedContent.js");
+var fetchAlertEndpoint = require("./endpoints/fetchAlert.js");
+var fetchQuotesEndpoint = require("./endpoints/fetchQuotes.js");
+var fetchNewsEndpoint = require("./endpoints/fetchNews.js");
+var fetchAvatarsEndpoint = require("./endpoints/fetchAvatars.js");
+var fetchProblemsEndpoint = require("./endpoints/fetchProblems.js");
+var fetchAllergiesEndpoint = require("./endpoints/fetchAllergies.js");
+var fetchSocialHistoryEndpoint = require("./endpoints/fetchSocialHistory.js");
+var fetchFamilyHistoryEndpoint = require("./endpoints/fetchFamilyHistory.js");
+var fetchProceduresEndpoint = require("./endpoints/fetchProcedures.js");
+var fetchImmunizationsEndpoint = require("./endpoints/fetchImmunization.js");
+var fetchEncountersEndpoint = require("./endpoints/fetchEncounters.js");
+var fetchVitalsignsEndpoint = require("./endpoints/fetchVitalsigns.js");
+var fetchResultsEndpoint = require("./endpoints/fetchResults.js");
+var healthHubEndpoint = require("./endpoints/healthHub.js");
+var folderManagerEndpoint = require("./endpoints/folderManager.js");
+var createCKEndpoint = require("./endpoints/CKdb_create.js");
+var fetchCKEndpoint = require("./endpoints/fetchCKdb.js");
+var deleteCKEndpoint = require("./endpoints/deleteCKdb.js");
+var searchCKEndpoint = require("./endpoints/searchCKdb.js");
+var fetchActivityEndpoint = require("./endpoints/fetchActivity");
 
 var dbParser = require("./dbparser.js");
 
@@ -92,6 +93,8 @@ exports.createDBAction = createDBAction;
 exports.fetchDBAction = fetchDBAction;
 exports.deleteCKAction = deleteCKAction;
 exports.searchDBAction = searchDBAction;
+exports.fetchActivityAction = fetchActivityAction;
+exports.searchActivityAction = searchActivityAction;
 exports.saveJournalAction = saveJournalAction;
 
 //--------------------------------------login----------------------------------------
@@ -420,12 +423,31 @@ function deleteCKAction(params, callback) {
 //---------------------------------------searchDB--------------------------------------------------------------------
 
 function searchDBAction(params, callback) {
-  
+
   searchCKEndpoint.searchCK(params,function cb(err, respData) {
     callback(err,respData);
   });
 }
 
+//-------------------------------------- fetchActivityAction---------------------------------------------------------
+
+function fetchActivityAction(params, callback){
+  fetchActivityEndpoint.fetchData(params,function cb(err, respData) {
+    callback(err,respData);
+  });
+}
+
+//---------------------------------------searchActivity--------------------------------------------------------------------
+
+function searchActivityAction(params, callback) {
+
+  fetchActivityEndpoint.searchData(params,function cb(err, respData) {
+    callback(err,respData);
+  });
+}
+
+//-------------------------------------- saveJournal Action----------------------------------------------------------
+// save the users food journal to peachy backend
 function saveJournalAction(params, callback){
   // for ashish to implement
   return callback(null, {response: {payload: {status: "OK"}}});

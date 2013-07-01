@@ -19,7 +19,7 @@ define(['jquery',
 	var ctr = {
 
 		fetchAll : function(){
-                    
+
             setTimeout(function(){
                 Avatars.loadAvatars(function(){});
             }, 2000);
@@ -29,7 +29,7 @@ define(['jquery',
 			folders.fetch();
             journal.load();
 		}
-	}
+	};
 
 	return ctr;
 });

@@ -11,17 +11,20 @@ define([
     'views/widgetScreen/DrVisits',
     'views/widgetScreen/WellBeing',
     'views/widgetScreen/FoodScreen',
+    'views/widgetScreen/ActivityScreen',
     'text!templates/pages/WidgetScreen.html',
     'models/Calendar'
 ], function($, _, Backbone, ContainerView, Foodometer, BusyBody,
               MedBot, MyStats, Learning, DrVisits,
-              WellBeing, FoodScreen, template, Calendar) {
+              WellBeing, FoodScreen, ActivityScreen, template, Calendar) {
 
     return ContainerView.extend({
         tagName : 'section',
         id      : 'widgetScreen',
         calendar  : Calendar,
         foodItems : [],
+        activityItems: [],
+        time: '',
 
         events : {
           'click #foodometer': 'showFood',
@@ -37,13 +40,14 @@ define([
 
         subViews: {
           foodometerNav  : new Foodometer(),
-          busyBodyNav  : new BusyBody(), 
-          medBotNav  : new MedBot(), 
-          myStatsNav  : new MyStats(), 
-          learningNav  : new Learning(), 
-          drVisitsNav  : new DrVisits(), 
+          busyBodyNav  : new BusyBody(),
+          medBotNav  : new MedBot(),
+          myStatsNav  : new MyStats(),
+          learningNav  : new Learning(),
+          drVisitsNav  : new DrVisits(),
           wellBeingNav  : new WellBeing(),
-          foodScreen  : new FoodScreen()
+          foodScreen  : new FoodScreen(),
+          activityScreen : new ActivityScreen()
         },
 
         initialize: function(options) {
@@ -56,7 +60,7 @@ define([
 
         render: function() {
           var self = this;
-          self.setActiveView(initial);  
+          self.setActiveView(initial);
           this.delegateEvents();
           if (this.activeView) {
             this.activeView.delegateEvents();
@@ -80,13 +84,13 @@ define([
         },
 
         refreshScroll: function(){
-//          var self = this;
-//          if(this.iscroll){
-//            setTimeout(function(){
-//              self.iscroll.refresh.call(self.iscroll);    
-//            }, 1000);
-//          
-//          }
+          var self = this;
+          if(this.iscroll){
+            setTimeout(function(){
+              self.iscroll.refresh.call(self.iscroll);
+            }, 1000);
+
+          }
         },
         
          setFocus : function(e)
@@ -118,8 +122,6 @@ define([
         },
 
         showMyStats : function(){
-                  console.log("hello stats");
-  
           this.$('#buttons li').removeClass('selected');
           this.$('#buttons #myStats').addClass('selected');
           this.setActiveView('myStatsNav');

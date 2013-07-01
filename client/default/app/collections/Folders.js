@@ -51,11 +51,11 @@ define(['backbone',
 
 		sort: function(array){
 			array.sort(function(a,b){
-				var aName =a.attributes.name.toLowerCase(); 
+				var aName =a.attributes.name.toLowerCase();
 				var bName =b.attributes.name.toLowerCase();
 				if(aName<bName) return -1;
-			    if(aName>bName) return 1;
-			    return 0;
+				if(aName>bName) return 1;
+				return 0;
 			});
 		},
 

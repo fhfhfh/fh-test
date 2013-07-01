@@ -1,0 +1,77 @@
+<%
+
+if(item.fullname.length >40){
+    var r = "-webkit-marquee";
+} else {
+    var r = "hidden";
+}
+
+%>
+
+
+<div id="activityItemScreen" class='boxEntry'>
+    <div id="top">
+        <li id="cancelActivity">Cancel</li>
+        <img src="<%=imgSrc%>"/><h2 id="activityName" style="overflow-x:<%=r%>"><%= item.fullname%></h2>
+        <li id="activityFavBtn">Favorite</li>
+    </div>
+
+    <div id="nutritionInfo" class="box">
+        <div class="boxHeader">
+            <span class="first">Nutritional Facts</span>
+            <span class="second">Amount</span>
+            <span class="third">Daily Value</span>
+        </div>
+
+        <div id="values">
+            <div class="boxEntry" id="totalCalories">
+                <span id="name">Calories</span>
+                <span id="amount"></span>
+                <span id="rda"></span>
+            </div>
+
+            <div class="boxEntry" id="fat">
+                <span id="name">Total Fat</span>
+                <span id="amount"></span>
+                <span id="rda"></span>
+            </div>
+
+            <div class="boxEntry" id="peachyPower"> 
+                <span id="name">Peachy&reg; Power&reg;</span>
+                <span id="amount"></span>
+                <span id="rda"></span>
+            </div>
+        </div>
+    </div>
+
+    <div id="details">
+        <div class="box inputs minutes">
+            <label for="minutes">Minutes Performed</label>
+            <input type="number" min="1" name="minutes" id="minutes" value="1"/>
+        </div>
+
+        <div class="box inputs calBurned">
+            <label for="calBurned">Calories Burned</label>
+            <input type="text" name="calBurned" id="calBurned" value="<%=item.calBurned%>" disabled="disabled"/>
+        </div>
+
+        <div id="stopWatch">
+            <img id="clockImg" src="img/busybody/stopwatch.png"/>
+            <div id="time">00:00:00</div>
+            <div id="buttons">
+                <li id="startStop" class="btn">Start / Stop</li>
+                <li id="reset" class="btn">Reset</li>
+            </div>
+            <p>This timer will sound an alert every 15 minutes as a reminder.</p>
+        </div>
+
+        <div class="box inputs notes">
+            <label for="notes">Notes</label>
+            <textarea id="notes" name="notes"></textarea>
+        </div>
+
+        <li class="btn" id="saveToTime">Save this Activity</li>
+        <li class="btn" id="editItem">Save</li>
+        <li class="btn" id="deleteItem">Delete this Activity</li>
+    </div>
+</div>

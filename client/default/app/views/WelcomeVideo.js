@@ -8,7 +8,7 @@ define([
     'backbone',
     'text!templates/pages/WelcomeVideo.html',
     'models/User',
-    'views/components/TopBar',
+    'views/components/TopBar'
 
     ], function($, _, Backbone, tpl, User,TopBar) {
 
@@ -24,7 +24,7 @@ define([
                 _.bindAll(this);
                 this.$topBar = this.$('#top-bar');
                 this.render();
-                
+
             },
 
             render: function() {
@@ -47,7 +47,7 @@ define([
                 Backbone.history.navigate('home', {
                     trigger: true,
                     replace: true
-                });           
+                });
             }
         });
     });

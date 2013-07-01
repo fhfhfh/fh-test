@@ -19,8 +19,9 @@ define([
                 'click #profile-button': 'showProfile',
                 'click #save'          : 'saveProf',
                 'click #cancel'        : 'cancel',
-                'click #logo'          : 'logout',
-                'click #points-button' : 'setPeachyPoints'
+                'click #logout'          : 'logout',
+                'click #points-button' : 'setPeachyPoints',
+                'click #avatar'        : 'showPopup'
             },
 
             initialize: function() {
@@ -59,18 +60,18 @@ define([
                 var points = this.setPeachyPoints();
                 this.setAvatar();
                 this.$('#points-button em').html(points);
-                
+
                 $('#top-bar').removeClass('profileBar');
             },
 
             logout: function(){
-               
+               $('#topBarPopup').hide();
                 avatar_id = "";
                 imgUrl= "";
                 var setAvatars=this.setAvatar();
                 // TODO : clear session ID from local storage, and possibly all user data
                 var params = "";
-                Acts.call('logoutAction', params, 
+                Acts.call('logoutAction', params,
                     function(res){
                     }, function(err, msg){
                         console.log(err);
@@ -78,31 +79,33 @@ define([
                 );
                 Backbone.history.navigate('login', true);
             },
-        
+
             setPeachyPoints : function(){
-                Acts.call('peachyPointsAction', {}, 
+                Acts.call('peachyPointsAction', {},
                     function(res){
                         var points = res.payload.points[0].peachyPoints;
                         this.$('#points-button em').html(points);
                         peachyPoints = points;
                         return(points);
-                    }, 
+                    },
                     function(err, msg){
                         console.log(err);
                     }
                     );
             },
-            
+
             setAvatar : function(){
                 var self = this;
- 
                 var avatar = controller.getUserAvatar();
                 if(avatar){
                     var image = avatar.image64;
                     self.$('#avatar').attr("src", "data:image/png;base64,"+image);
                     $('#account-information').find('img').attr("src", "data:image/png;base64,"+image);
                 }
+            },
+
+            showPopup: function(){
+                $('#topBarPopup').toggle();
             }
-        
         });
     });

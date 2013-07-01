@@ -57,10 +57,10 @@ define([
     },
 
     refreshScroll: function(){
-//      var self = this;
-//      if(this.iscroll){
-//        this.iscroll.refresh.call(self.iscroll);        
-//      }
+      var self = this;
+      if(this.iscroll){
+        this.iscroll.refresh.call(self.iscroll);
+      }
     },
 
     showMyMedia : function(){

@@ -27,7 +27,6 @@ define([
 
         initialize: function() {
             _.bindAll(this);
-            
             // this.item is the media going to be added to a folder
             this.item = this.options;
             this.folders = folderStore.models;
@@ -128,7 +127,7 @@ define([
 
             for(var i=0; i<picked.length; i++){
                 var folder =$(picked[i]);
-                ids.push(parseInt(folder.attr('for')));
+                ids.push(parseInt(folder.attr('for'),10));
             }
 
             if(this.$('#create').val().length >0){
@@ -140,9 +139,8 @@ define([
             setTimeout(function(){
                 console.log('ids',ids);
                 itemModel.set('folders',ids);
-                self.cancel();    
+                self.cancel();
             }, 100);
-            
         },
 
         removeItem: function(){

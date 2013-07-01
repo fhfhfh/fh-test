@@ -8,7 +8,7 @@ var fs = require('fs');
 var async = require('../lib/async.js');
 var request = require('request');
 var sessionManager = require('../lib/session/session.js');
-var appConfig = require('../config/appConfig.js')
+var appConfig = require('../config/appConfig.js');
 var jsonUtils = require('../lib/jsonUtils.js');
 var constants = require('../config/constants.js');
 var respUtils = require("../utils/responseUtils.js");
@@ -20,46 +20,59 @@ var reqUtils = require("../utils/requestUtils.js");
      * Process searchCK request.
      */
 var searchCKEndpoint = function() {
-    
-   
+
     // Exposed operations
     this.searchCK = function searchCK(reqJson, callback){
-      
-        if (jsonUtils.getPath(reqJson, "request.head.sessionId") == null)         
+
+        if (jsonUtils.getPath(reqJson, "request.head.sessionId") === null)
         {
             log.error("[searchCKEndpoint][searchCK] >> SessionId Not Available");
             var responseJson = respUtils.constructStatusResponse("searchCK", constants.RESP_AUTH_FAILED, "Authentication  Fail",{});
-            return callback(responseJson,null) 
+            return callback(responseJson,null);
         }
-      
+
         // Extract sessionId from request params
         var sessionId = jsonUtils.getPath(reqJson, "request.head.sessionId").trim();
-        
+
         //searching session details
         sessionManager.getSession(sessionId, function(err, data ){
             log.info("[searchCKEndpoint][searchCK] >> Session Details :"+JSON.stringify(data));
             if(data)
             //searching data from FH database for Calorie King
             {
-                if (jsonUtils.getPath(reqJson, "request.payload.type") == null) 
+                if (jsonUtils.getPath(reqJson, "request.payload.type") === null)
                 {
                     log.error("[searchCKEndpoint][searchCK] >> Calorie King Category not provided");
                     var responseJson = respUtils.constructStatusResponse("searchCK", constants.RESP_AUTH_FAILED, "Calorie King Category not provided",{});
-                    return callback(responseJson,null) 
+                    return callback(responseJson,null);
                 }
-                $fh.db({
+                var actObj = {
                     "act": "list",
-                    "type": "CalorieKing_DB"
-                }, function(err, data) {
+                    "type": "CalorieKing_DB",
+                    "eq" : {
+                        "Name":reqJson.request.payload.category || null
+                    }
+                };
+                if(reqJson.request.payload.category === 'all'){
+                    delete actObj['eq'];
+                }
+                console.log("**********************************");
+                console.log("**********************************");
+                console.log(actObj);
+                console.log("**********************************");
+                console.log("**********************************");
+
+                $fh.db(actObj,
+                function(err, data) {
                     if (err) {
                         var fail = respUtils.constructStatusResponse("searchCK", constants.RESP_SERVER_ERROR, err,{});
                         log.error("[searchCKEndpoint]["+"searchCK"+"][READ DATA] >> " + err);
                         return callback(fail,null);
-                                        
+
                     }
                     else{
-                        
-                       
+
+
                         if(!data.list.length)
                         {
                             var fail = respUtils.constructStatusResponse("searchCK", constants.RESP_NOT_FOUND, "No Records Found",{});
@@ -71,18 +84,18 @@ var searchCKEndpoint = function() {
                         var jsonObj = respUtils.constructStatusResponse("searchCK", constants.RESP_SUCCESS, "Records searched Successfully",result);
                         return callback(null,jsonObj);
                     }
-                      
+
                     }
                 });
-            } 
+            }
             else        //If session not found
             {
                 var responseJson = respUtils.constructStatusResponse("searchCK", constants.RESP_AUTH_FAILED, "Authentication  Fail",{});
-                return callback(responseJson,null) 
+                return callback(responseJson,null);
             }
-        });           
-    }
-}
+        });
+    };
+};
 module.exports = new searchCKEndpoint();
 
 
@@ -96,12 +109,12 @@ function search(data,reqJson){
             var str = data.list[j].fields[name][i].fullname;
             var substr = reqJson.request.payload.type;
             if(str.indexOf(substr) > -1) {
-                dataList.push(data.list[j].fields[name][i])
+                dataList.push(data.list[j].fields[name][i]);
                 count++;
             }
         }
     }
     log.debug("[searchCKEndpoint][searchCK][view] Records searched Successfully ");
-    return dataList;   
-                   
+    return dataList;
+
 }

@@ -11,7 +11,7 @@ define([
     'views/widgetScreen/FoodScreen/SimpleSearch',
     'views/widgetScreen/FoodScreen/Scan',
     'views/widgetScreen/FoodScreen/RecentFavs',
-    'text!templates/widgets/FoodScreen.html',
+    'text!templates/widgets/FoodScreen.html'
 ], function($, _, Backbone, ContainerView, Foodometer, SimpleSearch, Scan, RecentFavs, tpl ) {
     return ContainerView.extend({
         tagName: 'section',
@@ -59,7 +59,7 @@ define([
         saveAllFoods: function(){
             this.container.subViews.foodometerNav.saveFoodsToJournal();
             this.container.setActiveView('foodometerNav');
-            
+
         },
         
         cancel : function(){
@@ -88,7 +88,7 @@ define([
           this.$buttons.find('li').removeClass('selected');
           this.$buttons.find('#favorites').addClass('selected');
           this.setActiveView('recentFavs');
-        },
+        }
 
     });
 });

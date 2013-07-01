@@ -5,17 +5,17 @@
 define(['jquery',
         'underscore',
         'backbone',
-        'text!templates/components/Month.html',
+        'text!templates/components/Month.html'
 ], function($, _, Backbone, tpl) {
 
 	return Backbone.View.extend({
 
 		// Backbone specific attributes
 		tagName		: 'section',
-	    id			: 'month',
-	    events		: {
-	    },
-	    template	: _.template(tpl),
+		id			: 'month',
+		events		: {
+		},
+		template	: _.template(tpl),
 
 
 		initialize : function(){

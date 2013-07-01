@@ -24,19 +24,23 @@ define([
 
         events: {
             'click #doneBtn'  : 'close',
-            'click #title'    : 'refreshScroll',
             'click #saveBtn'  : 'addToFavorites',
             'click #removeBtn': 'removeFromFavs',
-            'click #logo'     : 'logout'
+            'click #logo'     : 'logout',
+            'click #title'    : 'nextVideo'
         },
 
         initialize: function() {
             var self = this;
             _.bindAll(this);
 
-
+            this.prev = JSON.parse(localStorage.getItem('prevVid'));
             this.video = JSON.parse(localStorage.getItem('tempVid'));
+            this.next = JSON.parse(localStorage.getItem('nextVid'));
+
+            localStorage.removeItem('prevVid');
             localStorage.removeItem('tempVid');
+            localStorage.removeItem('nextVid');
 
 
             this.$el.html(self.template({
@@ -60,8 +64,8 @@ define([
                 vscroll: false,
                 fixedScrollbar: true,
                 bounce: false,
-                hScrollbar: true
-            });            
+                hScrollbar: false
+            });
             // ------------------------------------------
         },
 
@@ -73,7 +77,7 @@ define([
                     self.iscroll.refresh.call(self.iscroll);
                 }
                 if(self.iscroll2){
-                    self.iscroll2.refresh.call(self.iscroll2);   
+                    self.iscroll2.refresh.call(self.iscroll2);
                 }
                 // var width = this.$('#videoContainer').width() - this.$('#pageDiv').width();
                 // console.log(width);
@@ -89,7 +93,7 @@ define([
             return this;
         },
 
-        logout: function(){    
+        logout: function(){
             Backbone.history.navigate('login', true);
         },
 
@@ -122,8 +126,28 @@ define([
                 this.$('#removeBtn').show();
             }
             else{
-                this.$('#removeBtn').hide();   
+                this.$('#removeBtn').hide();
             }
+        },
+
+        nextVideo: function(){
+            var self = this;
+
+            // if(this.next){
+            //     $('#pageDiv').animate({"right": "+=500px"}, 500).show();
+
+            //     setTimeout(function(){
+            //         self.$el.html(self.template({
+            //             url: self.next.url + "?modestbranding=1;rel=0;controls=1", // disable related videos
+            //             title: self.next.title,
+            //             time: self.next.duration,
+            //             description: self.next.description
+            //         }));
+            //     },500);    
+            // }
+            // this.refreshScroll();          
+
         }
+
     });
 });

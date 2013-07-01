@@ -2,7 +2,7 @@
  * This is a Collection of all LibraryItems
  */
 
-define(['backbone', 
+define(['backbone',
 		'models/LibraryItem',
 		'models/Acts',
 		'models/Store'
@@ -38,18 +38,18 @@ define(['backbone',
 			return;
 			var self=this;
 
-            Act.call('fetchNewsAction', {}, 
-		        function(res){
+            Act.call('fetchNewsAction', {},
+				function(res){
 					var lib = res.payload.News;
 					for(var i = 0; i<lib.length; i++){
 						var item = lib[i];
 						item.imgData = "data:image/png;base64," + item.videoImgBase64;
 						// self.addAsset(item);
 					}
-		        }, function(err, msg){
-		          console.log(err, msg);
-		        }
-		    );
+				}, function(err, msg){
+					console.log(err, msg);
+				}
+			);
 		},
 
 		store: function(){

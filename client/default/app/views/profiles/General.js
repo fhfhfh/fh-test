@@ -16,13 +16,14 @@ define(['jquery',
     'models/Store'
     ], function($, iscroll, _, Backbone, User, template, addressBox, passwordBox, avatarBox, Controller, Store) {
 
-        return Backbone.View.extend({
-            // Backbone specific attributes
-            tagName		: 'section',
-            id			: 'general',
-            controller 	: new Controller(),
-            user 		: new User(),
-	    
+
+	return Backbone.View.extend({
+		// Backbone specific attributes
+		tagName		: 'section',
+        id			: 'general',
+        controller	: new Controller(),
+        user		: new User(),
+
 		template: _.template(template),
         events : {
             'change #birthday'     : 'ageCalc',
@@ -46,7 +47,7 @@ define(['jquery',
 			var self = this;
             Store.load('peachy_avatars', function(res, data){
                 if(res && data){
-                    self.avatars = JSON.parse(data).avatars;    
+                    self.avatars = JSON.parse(data).avatars;
                 }
                 else {
                     self.avatars = [];
@@ -122,57 +123,43 @@ define(['jquery',
                 this.controller.saveProfile(this);
             },
 
-            refreshScroll: function(){
-                if(this.container){
-                    this.container.refreshScroll();  
-                }
-            },
+		refreshScroll: function(){
+			if(this.container){
+				this.container.refreshScroll();
+			}
+		},
 
-            password: function(e){
-                e.stopPropagation();
-                if(e && e.currentTarget.id == 'cancelPass'){
+		password: function(e){
+            e.stopPropagation();
+            if(e && e.currentTarget.id == 'cancelPass'){
+                $('#passwordDiv').hide();
+                $('#modalMask').hide();
+            }
+            else if(e && e.currentTarget.id == 'okPass'){
+                var pass1 = $('#confirmPassword_txt').val();
+                var pass2 = $('#confirmPassword_txt2').val();
+                if(pass1 == pass2 && pass1 !== ''){
+                    Backbone.trigger('notify', 'Password Reset Functionality not added!');
                     $('#passwordDiv').hide();
                     $('#modalMask').hide();
                 }
-                else if(e && e.currentTarget.id == 'okPass'){
-                    var pass1 = $('#confirmPassword_txt').val();
-                    var pass2 = $('#confirmPassword_txt2').val();
-                    if(pass1 == pass2 && pass1 != ''){
-                        Backbone.trigger('notify', 'Password Reset Functionality not added!');
-                        $('#passwordDiv').hide();
-                        $('#modalMask').hide();
-                    }
-                    else if(pass1 == ''){
-                        Backbone.trigger('notify', 'Password can not be empty!', 'Password Error');
-                    }
-                    else { 
-                        Backbone.trigger('notify', 'Passwords do not match!', 'Password Error');
-                    }
+                else if(pass1 === ''){
+                    Backbone.trigger('notify', 'Password can not be empty!', 'Password Error');
                 }
                 else {
-                    var box     = $(passwordBox);
-                    $('body').append(box);
-                    $('#passwordDiv').show();
-                    $('#modalMask').show();   
-                    $('#confirmPassword_txt').val("").focus();
-                    $('#confirmPassword_txt2').val("");
-                    this.fixEvents(box);
-                }              
-            },
-
-            ageCalc: function(){
-                var self = this;
-                var dob = new Date(self.$('#birthday').val()) || new Date();
-                var msg = this.$('#age');
-                var today = new Date();
-
-                var diff = today.getTime() - dob.getTime();
-                var age = Math.floor(diff / (1000 * 60 * 60 * 24 * 365.25));
-
-                if(age > 0){
-                    msg.html(age + ' years old');
+                    Backbone.trigger('notify', 'Passwords do not match!', 'Password Error');
                 }
-            },
+            }
+            else {
+                var box     = $(passwordBox);
+                $('body').append(box);
+                $('#passwordDiv').show();
+                $('#modalMask').show();
+                $('#confirmPassword_txt').val("").focus();
+                $('#confirmPassword_txt2').val("");
+                this.fixEvents(box);
+            }
+        },
 
             showAddr: function(e){
                 e.stopPropagation();
@@ -197,10 +184,10 @@ define(['jquery',
             e.stopPropagation();
 
             $('#addressBox').remove();
-            var self 	= this;
+            var self	= this;
             var target	= this.$('#address').find('div')[0];
             var text	= target.innerText;
-            var box 	= $(addressBox);
+            var box     = $(addressBox);
             target.blur();
 
             $('#modalMask').show();
@@ -211,13 +198,13 @@ define(['jquery',
 
             $('#line1').val(vals[0]);
 
-            if(vals.length == 3){                
-                $('#state').val(vals[1]);    
+            if(vals.length == 3){
+                $('#state').val(vals[1]);
                 $('#zip').val(vals[2]);
             }
             else {
-                $('#line2').val(vals[1]);                
-                $('#state').val(vals[2]);    
+                $('#line2').val(vals[1]);
+                $('#state').val(vals[2]);
                 $('#zip').val(vals[3]);
             }
 
@@ -243,26 +230,20 @@ define(['jquery',
                     return;
                 }
 
-                var line1	= $('#line1').val();
-                var line2	= $('#line2').val();
-                var zip		= $('#zip').val();
-                var state	= $('#state').val();
-                var text    = '';
+            if(zip.length != 5 || isNaN(zip)){
+                return Backbone.trigger('notify', 'Please enter a valid Zip (5 digits)');
+            }
+            else if(line1.length === 0 || state.length === 0){
+                return Backbone.trigger('notify', 'Please fill in Address and State');
+            }
 
-                if(zip.length != 5 || isNaN(zip)){
-                    return Backbone.trigger('notify', 'Please enter a valid Zip (5 digits)');
-                }
-                else if(line1.length ==0 || state.length == 0){
-                    return Backbone.trigger('notify', 'Please fill in Address and State');
-                }
+            if(line2.length === 0){
+                text = line1 + "\n" + state + "\n" + zip;
+            }
+            else {
+                text = line1 + "\n" + line2 + "\n" + state + "\n" + zip;
+            }
 
-                if(line2.length == 0){
-                    text = line1 + "\n" + state + "\n" + zip;    
-                }
-                else {
-                    text = line1 + "\n" + line2 + "\n" + state + "\n" + zip;    
-                }
-            
             this.$('div#address').val(text);
             this.$('div#address')[0].innerText = text;
 
@@ -270,7 +251,7 @@ define(['jquery',
                 $('#addressBox').remove();
                 $('#modalMask').hide();
             }, 300);
-            
+
         },
 
         mapValues: function(details){
@@ -278,14 +259,15 @@ define(['jquery',
             var d    = details.userDetails;
             var d2   = details.providers;
             var d3   = details.linkedAccounts;
+            var addr = null;
 
             // Map User Details Fields ---------------------------------
             // ---------------------------------------------------------
-            if(d.address2 == undefined){
-                var addr = d.address1 +'\n'+ d.state +'\n'+ d.zip;
+            if(d.address2 === undefined){
+                addr = d.address1 +'\n'+ d.state +'\n'+ d.zip;
             }
             else {
-                var addr = d.address1 +'\n'+ d.address2 +'\n'+ d.state +'\n'+ d.zip;
+                addr = d.address1 +'\n'+ d.address2 +'\n'+ d.state +'\n'+ d.zip;
             }
 
                 box.fadeOut({}, 300);
@@ -330,14 +312,22 @@ define(['jquery',
                 this.avatarId = d.avatarId;
                 // ----------------------------------------------------------
 
-                // Map Providers Details ------------------------------------
-                // ----------------------------------------------------------
+            var box = this.$('#physicianBox');
+            var item, html;
+            box.html('');
 
-                var box = this.$('#physicianBox');
-                box.html('');
+            for(var j=0; j<d2.length; j++){
+                item = d2[j];
 
-                for(var i=0; i<d2.length; i++){
-                    var item = d2[i];
+                html =  "<div id='physician'>"+
+                                "<div id='name'>" + item.firstName + ' ' + item.lastName + "</div>"+
+                                "<div id='job'>" + item.type + "</div>"+
+                                "<div id='email'>" + item.emailAddress + "</div>"+
+                                "<div id='phone'>" + item.officePhone + "</div>"+
+                            "</div>";
+                box.append(html);
+            }
+            // -----------------------------------------------------------
 
                     var html =  "<div id='physician'>"+
                     "<div id='name'>" + item.firstName + ' ' + item.lastName + "</div>"+
@@ -349,24 +339,22 @@ define(['jquery',
                 }
                 // -----------------------------------------------------------
 
-                // Map Linked Accounts Details ------------------------------
-                // ----------------------------------------------------------
+            box = this.$('#linkedBox');
+            box.html('');
 
-                var box = this.$('#linkedBox');
-                box.html('');
+            for(var k=0; k<d3.length; k++){
+                item = d3[k];
 
-                for(var i=0; i<d3.length; i++){
-                    var item = d3[i];
-   
-                    var html =  "<div id='account'>"+
-                    "<div id='name'>" + item.userDetails.firstName + ' ' + item.userDetails.lastName + "</div>"+
-                    "<div id='job'>" + item.relationship +  "</div>"+
-                    "<div id='email'>" + item.userDetails.email + "</div>"+
-                    "<div id='phone'>" + item.userDetails.phone + "</div>"+
-                    "</div>";
-                    box.append(html);
-                }
-                // -----------------------------------------------------------
+                html =  "<div id='account'>"+
+                                "<div id='name'>" + item.userDetails.firstName + ' ' + item.userDetails.lastName + "</div>"+
+                                "<div id='job'>" + item.relationship +  "</div>"+
+                                "<div id='email'>" + item.userDetails.email + "</div>"+
+                                "<div id='phone'>" + item.userDetails.phone + "</div>"+
+                            "</div>";
+                box.append(html);
+            }
+            // -----------------------------------------------------------
+
 
                 this.ageCalc();
             },
@@ -376,7 +364,7 @@ define(['jquery',
             var box = avatarBox;
             var html;
 
-            if(self.avatars.length == 0){
+            if(self.avatars.length === 0){
                 self.initialize();
             }
 
@@ -397,14 +385,14 @@ define(['jquery',
             setTimeout(function(){
                 self.avatarScroll.refresh();
             }, 100);
-            
+
         },
-    
+
 
         closeAvatar: function(e){
-            var e = $(e.currentTarget);
+            e = $(e.currentTarget);
             var id = e[0].id;
-            
+
             if(id === 'cancelBtn'){
                 $('#avatarSelect').remove();
                 return;
@@ -412,7 +400,7 @@ define(['jquery',
             var image = $('.avatarPic.selected');
             var imageId = image.attr('imgid');
             var imageSrc = image.attr('src');
-  
+
             this.$('#profile-avatar').attr('src',imageSrc).attr('imgid', imageId);
             $('#avatar').attr('src', imageSrc);
             $('#avatarSelect').remove();
@@ -420,7 +408,7 @@ define(['jquery',
 
         pickAvatar: function(e){
             $('.avatarPic').removeClass('selected');
-            var e = $(e.currentTarget);
+            e = $(e.currentTarget);
             e.addClass('selected');
         },
 
@@ -446,14 +434,14 @@ define(['jquery',
                 var self    = this;
                 var id      = el.attr('id');
 
-                el.find('.btn').click(function(e){
-                    if(id === 'addressBox'){
-                        self.closeAddr(e);    
-                    }
-                    else {
-                        self.password(e);
-                    }
-                
+            el.find('.btn').click(function(e){
+                if(id === 'addressBox'){
+                    self.closeAddr(e);
+                }
+                else {
+                    self.password(e);
+                }
+
             });
         },
 

@@ -1,3 +1,10 @@
+<div id="panelTopBar">
+	Overview
+	<li id="settingsBtn" class="btn">
+		<img src="img/OptionsGear.png"/>
+	</li>
+</div>
+
 <div id="body">
 	<img class="positioned" id="topleft" src="img/food/notebook-top-left-curve@2x.png"/>
 	<img class="positioned" id="top" src="img/food/top-page-graphic.png"/>
@@ -7,13 +14,177 @@
 	<img class="positioned" id="bottomright" src="img/food/notebook-bottom-right-curve@2x.png"/>
 	<div id="binderBg"></div>
 	<div id="content">
-		<div id="emptyFood">
-				<p></p><p></p><p></p><p></p>
-				<h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-					Template for Busy Body</h1>
-				<p></p><p></p><p></p><p></p>
+		<div id="leftContent">
+			<div id="leftContentMask">
+
+				<div id="smallCalendar">
+					<img id="monthPick" src="img/calendar/IconCalendar.png"/>
+					<span id="dayString">Today</span>
+					<span id="dateString"></span>
+
+					<div id='tableContainer'>
+					    <table id="calTable">
+					        <tr id="1" class="days" align="center">
+					            <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+					        </tr>
+					        <tr id="2" class="days" align="center">
+					            <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+					        </tr>
+					        <tr id="3" class="days" align="center">
+					            <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+					        </tr>
+					        <tr id="4" class="days" align="center">
+					            <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+					        </tr>
+					        <tr id="5" class="days" align="center">
+					            <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+					        </tr>
+					        <tr id="6" class="days" align="center">
+					            <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+					        </tr>
+					    </table>
+					</div>
+				</div>
+
+				<div id="calories">
+					<span id="goal">Goal</span>
+					<span id="goalNum"><%= '1,500 Calories' %></span>
+
+					<span id="current">Burned</span>
+					<span id="currentNum"></span>
+
+					<span id="remaining">Remaining</span>
+					<span id="remainingNum"><%= '1,500 Calories' %></span>
+				</div>
+				
+				<div id="pointsContainer">
+					<span id="peachyPoints">Peachy Points</span>
+					<span id="peachyPointsNum">200 pts</span>
+				</div>
+
+				<div id="activities">
+					<h3>My Activities</h3>
+					<li class="time" data-name="morning">
+						<img src="img/busybody/icon-morning.png"/>
+						<span>Morning</span><span class="count"></span>
+					</li>
+					<li class="time" data-name="afternoon">
+						<img src="img/busybody/icon-afternoon.png"/>
+						<span>Afternoon</span><span class="count"></span>
+					</li>
+					<li class="time" data-name="evening">
+						<img src="img/busybody/icon-evening.png"/>
+						<span>Evening</span><span class="count"></span>
+					</li>
+					<li class="time" data-name="other">
+						<img src="img/busybody/icon-other.png"/>
+						<span>Other</span><span class="count"></span>
+					</li>
+				</div>
 
 			</div>
+		</div>
+
+		<div id="rightContent">
+			<div id="emptyDay">
+				<img id="emptyImage" src="img/busybody/Logo.png"/>
+				<p>BusyBody is not active!</p>
+				<p>There is no information entered for<br/>
+					<span id="day">Today</span>
+				</p>			
+
+				<div id="emptyActivities">
+					<img src="img/busybody/arrow-left.png"/>
+					<p>Tap a Time of Day to the left to get started.</p>
+				</div>
+
+			</div>
+
+			<div id="activityContainer">
+				<h3 id="title">
+					<span id="activityString"></span> 
+					<span id="calCount">0 Calories Burned</span>
+				</h3>
+
+				<li id="add" class="btn"><img src="img/food/big-plus-icon.png"/>Add Activity</li>
+				<li id="share" class="btn"><img src="img/food/big-share-icon.png"/>Share</li>
+				
+				<div id="activityInputs">
+					<div id="foodList" class="box">
+						<div class="boxHeader">
+							<span>
+							</span>
+						</div>
+					</div>
+
+					<div class="box">
+						<label for="location">Location (where you were active)</label>
+						<input id="location" name="location" value="At Work"/>
+					</div>
+
+					<div class="box">
+						<label for="with">With (who you were active with)</label>
+						<input id="with" name="with" value="Co-Workers"/>
+					</div>
+
+					<div class="box">
+						<label for="time">Activity Time (time of day)</label>
+						<input id="time" name="time" value="12:30 PM"/>
+					</div>
+
+					<div class="box">
+						<label for="notes">Special Notes</label>
+						<textarea id="notes" name="notes" rows="4"></textarea>
+					</div>
+
+					<div class="box" id="nutrition">
+						<h2>Activity Facts</h2>
+					</div>
+				</div>
+
+			</div>
+
+			<div id="nutritionSection">
+				<div class="box">
+					<div class="boxHeader">
+						<span class="first">Activity Facts</span>
+						<span class="second">Time</span>
+						<span class="third">Calories Burned</span>
+					</div>
+
+					<div id="values">
+						<div class="boxEntry" id="totalCalories">
+							<span id="name">Calories</span>
+							<span id="amount">300</span>
+							<span id="rda">10%</span>
+						</div>
+
+						<div class="boxEntry" id="fat">
+							<span id="name">Total Fat</span>
+							<span id="amount"></span>
+							<span id="rda"></span>
+						</div>
+					</div>
+				</div>
+
+				<div class="box" id="nutrition">
+					<h2>Back to Activity Details</h2>
+				</div>
+
+			</div>
+
+
+		</div>
 	</div>
 </div>
+
+
+<!-- Popup Buttons -->
+<div id='addActivityPopup' class="popup">
+	<li id="addFood" class='btn white'>Add New Activity...</li>
+	<li id="copyFood" class='btn white'>Copy from Yesterday</li>
+	<li id="clearFood" class='btn red'>Clear Activity</li>
+</div>
+
+
+

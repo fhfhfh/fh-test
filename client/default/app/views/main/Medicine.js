@@ -18,14 +18,14 @@ define([
       'click #show-medFeatured' : 'showMedFeatured',
       'click #show-medFavourites' : 'showMedFavourites',
       'click #show-medResearch' : 'showMedResearch',
-      'click #show-medSuggested' : 'showMedSuggested',
+      'click #show-medSuggested' : 'showMedSuggested'
     },
 
     subViews: {
       featuredMeds : new FeaturedMedsView(),
       favouriteMeds : new FavouriteMedsView(),
       researchMeds : new ResearchMedsView(),
-      suggestedMeds : new SuggestedMedsView(),
+      suggestedMeds : new SuggestedMedsView()
     },
 
     initialize: function(options) {
@@ -41,7 +41,7 @@ define([
           fixedScrollbar: true,
           bounce: false,
           vScrollbar: false
-      });  
+      });
     },
 
     render: function() {
@@ -91,6 +91,6 @@ define([
       this.$('#show-medSuggested').addClass('selected');
       this.setActiveView('suggestedMeds');
       this.refreshScroll();
-    },
+    }
   });
 });

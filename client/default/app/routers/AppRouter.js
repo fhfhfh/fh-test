@@ -139,10 +139,7 @@ define([
         html = self.widgetView;
         $(html).hide();
         self.$content.append(html);
-        
         $(html).slideDown();
-        
-        
        }
 
     });

@@ -38,14 +38,14 @@ define(['jquery',
 
     function _initialize(){
         _.bindAll(this);
-    };
+    }
 
     function _render(){
         this.$el.html(template);
         this.populateGoalInfo();
         this.container.refreshScroll();
         return this;
-    };
+    }
 
     function _refreshScroll(){
         if(this.container){
@@ -55,7 +55,7 @@ define(['jquery',
 
     function _addGoal(){
         // TODO: need flats from customer
-    };
+    }
 
     // Fetch all goal data from model/collection
     function _populateGoalInfo(){
@@ -87,7 +87,7 @@ define(['jquery',
             $(div).html('<p>' + obj.title + '</p>').attr('info', obj.data);
         }
 
-    };
+    }
 
 
     // Change html to show Goals detail page template

@@ -6,10 +6,10 @@ define(['jquery',
     'underscore',
     'backbone',
     'text!templates/components/Suggested.html',
-    'text!templates/components/SuggestedMeds.html',
-    'text!templates/components/SuggestedMeds.html',
-    'text!templates/components/SuggestedMeds.html',
-    'collections/Library',
+    'text!templates/components/SuggestedFolder.html',
+    'text!templates/components/SuggestedItem.html',
+    'text!templates/components/SuggestedRow.html',
+    'collections/LibrarySuggested'
 ], function($, _, Backbone, tpl, folderTpl, itemTpl, rowTpl, libStore) {
 
     return Backbone.View.extend({
@@ -20,15 +20,15 @@ define(['jquery',
         events		: {
             'click .cabinetFolder'	: 'displayFolder',
             'click .cabinetItem'	: 'displayFile',
-            'click #changeView' 	: 'changeView',
+            'click #changeView'     : 'changeView',
             'keyup #search'			: 'searchItems',
             'click #item'			: 'displayFile',
             'click #clearBtn'       : 'clearText'
         },
         template	: _.template(tpl),
-        folderTpl 	: _.template(folderTpl),
-        itemTpl 	: _.template(itemTpl),
-        rowTpl 	 	: _.template(rowTpl),
+        folderTpl	: _.template(folderTpl),
+        itemTpl     : _.template(itemTpl),
+        rowTpl      : _.template(rowTpl),
 
 
         initialize : function(){
@@ -46,34 +46,34 @@ define(['jquery',
             var list = this.populateList();
             this.$el.html(this.template({folders:folders, items: items, list:list}));
             this.thumbnailUpdate();
-			
+
             this.bodyScroll = new iScroll(this.$('#cabinetBody')[0],{
                 bounceLock	: true,
-                bounce 		: false,
-                vScrollbar 	: false
+                bounce      : false,
+                vScrollbar  : false
             });
             this.headerScroll = new iScroll(this.$('#cabinetHeader')[0],{
-                hScroll 	: true,
-                vScroll 	: false,
-                hScrollbar 	: false,
-                bounceLock 	: true,
-                bounce 		: false
+                hScroll     : true,
+                vScroll     : false,
+                hScrollbar	: false,
+                bounceLock	: true,
+                bounce      : false
             });
             this.refreshScroll();
-			
+
             return this;
         },
 
         refreshScroll: function(){
             var self = this;
             setTimeout(function(){
-                self.bodyScroll.refresh();	
+                self.bodyScroll.refresh();
                 self.headerScroll.refresh();
             }, 100);
         },
 
         populateFolders: function(){
-        	return "";
+            return "";
             var folders = this.folders;
             var tpl = this.folderTpl;
             var str = '';
@@ -97,7 +97,7 @@ define(['jquery',
                 }
 
                 str+=tpl({
-                    id		:item.id, 
+                    id		:item.id,
                     shortTitle	:item.shortTitle,
                     title	:item.title,
                     type	: 'video',
@@ -115,7 +115,7 @@ define(['jquery',
             var src = {
                 video: "img/library/PlayWhiteSmall.png",
                 article: "img/library/ArticleWhiteSmall.png",
-                web: "img/library/GlobeWhiteSmall.png",
+                web: "img/library/GlobeWhiteSmall.png"
             };
 
 
@@ -150,16 +150,16 @@ define(['jquery',
         },
 
         displayFolder: function(e){
-            var target 	= e.currentTarget;
-            var title 	= $(target).text();
-            var id 		= $(target).attr('id');
-			
+            var target = e.currentTarget;
+            var title  = $(target).text();
+            var id     = $(target).attr('id');
+
             $('.cabinetFolder').removeClass('selected');
             $('.cabinetFolder .folderImg').attr('src', 'img/library/AllBoxes@2x.png');
             $(target).addClass('selected');
             $(target).find('.folderImg').attr('src', 'img/library/OpenBox@2x.png');
 
-            if(id == 0){
+            if(id === 0){
                 $('.cabinetItem').show();
                 this.bodyScroll.refresh();
                 return;
@@ -180,11 +180,11 @@ define(['jquery',
         },
 
         displayFile: function(e){
-            var target 	= e.currentTarget;
-            var title 	= $(target).text();
-            var id 		= $(target).attr('data-id');
-            var type 	= $(target).attr('type');
-            var model 	= libStore.get(id);
+            var target	= e.currentTarget;
+            var title	= $(target).text();
+            var id		= $(target).attr('data-id');
+            var type	= $(target).attr('type');
+            var model	= libStore.get(id);
 
             if(type == 'video'){
                 localStorage.setItem('tempVid', JSON.stringify(model));
@@ -212,7 +212,7 @@ define(['jquery',
         searchItems: function(e){
             var target = e.currentTarget;
             var text = $(target).val().toLowerCase();
-            var i,j;
+            var i,j, item, title;
             if(e.which == 13){
                 $(target).blur();
             }
@@ -222,8 +222,8 @@ define(['jquery',
             var items = $('.cabinetItem');
             items.show();
             for(i=0; i<items.length;i++){
-                var item = $(items[i]);
-                var title = item.find('p').attr('title').toLowerCase();
+                item = $(items[i]);
+                title = item.find('p').attr('title').toLowerCase();
                 if(title.indexOf(text) == -1){
                     console.log(text, title);
                     item.hide();
@@ -234,8 +234,8 @@ define(['jquery',
             var items2 = $('tr#item');
             items2.show();
             for(i=0; i<items2.length;i++){
-                var item = $(items2[i]);
-                var title = item.find('#title').text().toLowerCase();
+                item = $(items2[i]);
+                title = item.find('#title').text().toLowerCase();
                 if(title.indexOf(text) == -1){
                     item.hide();
                 }

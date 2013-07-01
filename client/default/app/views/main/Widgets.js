@@ -56,7 +56,7 @@ define([
     refreshScroll: function(){
       var self = this;
       if(this.iscroll){
-        this.iscroll.refresh.call(self.iscroll);        
+        this.iscroll.refresh.call(self.iscroll);
       }
     },
 

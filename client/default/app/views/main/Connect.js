@@ -17,11 +17,11 @@ define(['jquery',
 
 		// Backbone specific attributes
 		tagName	: 'section',
-	    id		: 'main-content',
-	    el 		: $('#content'),
-	    events	: {
-	    },
-	    template: template,
+		id		: 'main-content',
+		el		: $('#content'),
+		events	: {
+		},
+		template: template,
 
 			initialize			: _initialize,		// Used to refresh iScroll on content
 			render				: _render
@@ -34,7 +34,7 @@ define(['jquery',
 
 	function _initialize(){
 		_.bindAll(this);
-      	var self = this;
+		var self = this;
 
 		Backbone.View.prototype.refreshScroll = function() {
 			setTimeout(function() {
@@ -46,7 +46,7 @@ define(['jquery',
 
 		//this.refreshScroll();
 		//this.render();
-	};
+	}
 
 	function _render(){
 		this.$el.html(template);
@@ -60,7 +60,7 @@ define(['jquery',
         });
 
 		return this;
-	};
+	}
 
 	return connect;
 

@@ -13,28 +13,25 @@ define(['jquery',
         //interface----------------------------------
         var quotes = {
             //Backbone specific attributes
-		
             fetchQuotes  : _fetchQuotes
-        }
-	
+        };
         //scripts------------------------------------
 
 
         //implementation-------------------------------
 
-	
         function _fetchQuotes(callback){
             // fetch Quotes profile from cloud
-            Acts.call('fetchQuotesAction', {}, 
+            Acts.call('fetchQuotesAction', {},
                 function(res){
                    return callback(res);
-                    
+
                 }, function(err, msg){
                     alert("error "+JSON.stringify(msg));
                     console.log(err);
                 }
                 );
-        };
+        }
 
         return quotes;
 

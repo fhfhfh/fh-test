@@ -16,7 +16,8 @@ define([
     storageKey: 'peachy_session',
 
     // The amount of time, in milliseconds, that the session remains valid for.
-    timeout: 1000 * 60 * 60,
+    // timeout: 1000 * 60 * 60, // 1 hour
+    timeout: 1000 * 60 * 15, // 15 min
     video: 'null',
 
     initialize: function() {
@@ -67,7 +68,7 @@ define([
      */
     logout: function() {
       var self = this;
-      
+
       this.clear();
       // localStorage.removeItem(this.storageKey);
       Store.clear(self.storageKey, function(){});
@@ -115,7 +116,7 @@ define([
             msg: msg
           };
           options.error(model, theError, options);
-          self.trigger('error', model, theError, options)
+          self.trigger('error', model, theError, options);
         });
       }
 

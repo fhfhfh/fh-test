@@ -13,24 +13,22 @@ define(['jquery',
         //interface----------------------------------
         var avatars = {
             //Backbone specific attributes
-		
             fetchAvatars  : _fetchAvatars
-        }
-	
+        };
+
         //implementation-------------------------------
 
-	
         function _fetchAvatars(callback){
             // fetch Avatars profile from cloud
-            Acts.call('fetchAvatarsAction', {}, 
+            Acts.call('fetchAvatarsAction', {},
                 function(res){
                     return callback(res);
-                    
+
                 }, function(err, msg){
                     console.log(err);
                 }
                 );
-        };
+        }
 
         return avatars;
 

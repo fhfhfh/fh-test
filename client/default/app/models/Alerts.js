@@ -45,18 +45,18 @@ define([
         this.entries.alerts      = [];
         this.entries.reminders   = [];
         this.entries.expirations = [];
-        
 
-        Act.call('fetchAlertAction', {}
-        , function(res) {
+        Act.call('fetchAlertAction', {},
+        function(res) {
             var entries = res.payload.alerts;
+            var item, today;
 
             //organise entries in model
             for(var i=0; i<entries.length; i++){
                 // ----------- ALERTS -------------------------
                 if(entries[i].noticeCatagory === "Alerts"){
-                    var item = entries[i];
-                    var today= new Date();
+                    item = entries[i];
+                    today= new Date();
                     item.dueDate = new Date(item.noticeDueDate.split(' ')[0]);
 
                     if(self.checkToday(item.dueDate, today)){
@@ -69,8 +69,8 @@ define([
                 }
                 // ------------- REMINDERS ---------------------------
                 else if(entries[i].noticeCatagory === "Reminders"){
-                    var item = entries[i];
-                    var today= new Date();
+                    item = entries[i];
+                    today= new Date();
                     item.dueDate = new Date(item.noticeDueDate.split(' ')[0]);
 
                     if(self.checkToday(item.dueDate, today)){
@@ -83,17 +83,17 @@ define([
                 }
                 // ------------- EXPIRATIONS ----------------------------
                 else if(entries[i].noticeCatagory === "Expirations"){
-                    var item = entries[i];
-                    var today= new Date();
+                    item = entries[i];
+                    today= new Date();
                     item.dueDate = new Date(item.noticeDueDate.split(' ')[0]);
 
                     if(self.checkToday(item.dueDate, today)){
                         item.dueDate = 'Today';
-                        self.entries.expirations.push(item); 
+                        self.entries.expirations.push(item);
                     } else {
                         item.dueDate = item.noticeDueDate.split(' ')[0];
-                        self.entries.expirations.push(item); 
-                    }     
+                        self.entries.expirations.push(item);
+                    }
                 }
             }
 
