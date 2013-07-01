@@ -37,18 +37,18 @@ define([
         render: function() {
             this.$el.html(this.template());
 
-//            this.level1Scroll = new iScroll(this.$('#level1Food')[0],{
-//                hScroll     : true,
-//                vScroll     : false,
-//                hScrollbar  : false,
-//                bounceLock  : true,
-//                bounce      : false
-//            });
+           this.level1Scroll = new iScroll(this.$('#level1Food')[0],{
+               hScroll     : true,
+               vScroll     : false,
+               hScrollbar  : false,
+               bounceLock  : true,
+               bounce      : false
+           });
 
             $('#filterButtons').show();
-//            this.pageScroll = new iScroll(this.$('#pageScroll')[0]);
+           this.pageScroll = new iScroll(this.$('#pageScroll')[0]);
             $("span#meal").text("Lunch - ("+this.container.container.foodItems.length+")");
-//            this.refreshScroll();
+           this.refreshScroll();
             return this;
         },
 

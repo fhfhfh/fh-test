@@ -380,6 +380,7 @@ input {
   background-image: linear-gradient(bottom, #1f1f1f 0%, #525252 85%);
   background-image: -webkit-linear-gradient(bottom, #1f1f1f 0%, #525252 85%);
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #1f1f1f), color-stop(0.85, #525252));
+  background-image: -moz-linear-gradient(bottom, #464646 0%, #1f1f1f 50%, #2e2e2e 51%, #525252 73%, #6b6b6b 100%);
 }
 .btn:active {
   background-image: linear-gradient(bottom, #525252 0%, #1f1f1f 85%);
@@ -402,6 +403,7 @@ input {
   background-image: -webkit-linear-gradient(bottom, #f26622 0%, #feb000 85%);
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #f26622), color-stop(0.85, #feb000));
   border: 1px solid #d38800;
+  background-image: -moz-linear-gradient(bottom, #f26622 0%, #feb000 100%);
 }
 .decline:active {
   background-image: linear-gradient(bottom, #feb000 0%, #f26622 85%);
@@ -414,6 +416,7 @@ input {
   background-image: -webkit-linear-gradient(bottom, #800000 0%, #ff0000 85%);
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #800000), color-stop(0.85, #ff0000));
   border: 1px solid #d38800;
+  background-image: -moz-linear-gradient(bottom, #800000 0%, #ff0000 100%);
 }
 .red:active {
   background-image: linear-gradient(bottom, #ff0000 0%, #800000 85%);
@@ -426,6 +429,7 @@ input {
   background-image: linear-gradient(bottom, #c7f0f6 0%, #ffffff 85%);
   background-image: -webkit-linear-gradient(bottom, #c7f0f6 0%, #ffffff 85%);
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #c7f0f6), color-stop(0.85, #ffffff));
+  background: -moz-linear-gradient(bottom, #c7f0f6 0%, #ffffff 100%);
   border: 1px solid #d38800;
 }
 .white:active {
@@ -479,6 +483,7 @@ section h1 {
   border: none;
   text-align: center;
   background-image: linear-gradient(bottom, #464646 0%, #1f1f1f 65%, #2e2e2e 21%, #525252 90%, #6b6b6b 100%);
+  background: -moz-linear-gradient(bottom, #464646 0%, #2e2e2e 21%, #1f1f1f 65%, #525252 90%, #6b6b6b 100%);
   background-image: -webkit-linear-gradient(bottom, #464646 0%, #1f1f1f 65%, #2e2e2e 21%, #525252 90%, #6b6b6b 100%);
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #464646), color-stop(0.65, #1f1f1f), color-stop(0.21, #2e2e2e), color-stop(0.9, #525252), color-stop(1, #6b6b6b));
   border-radius: 10px;
@@ -825,6 +830,7 @@ section h1 {
   background-image: linear-gradient(bottom, #878888 0%, #ffffff 85%);
   background-image: -webkit-linear-gradient(bottom, #878888 0%, #ffffff 85%);
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #878888), color-stop(0.85, #ffffff));
+  background: -moz-linear-gradient(top, #ffffff 0%, #878888 100%);
   font: bold 14px "Avenir Next", Helvetica, Arial, sans-serif;
 }
 #content-tab-list li:active {
@@ -873,6 +879,7 @@ section h1 {
   background-image: linear-gradient(bottom, #cccccc 0%, #ffffff 85%);
   background-image: -webkit-linear-gradient(bottom, #cccccc 0%, #ffffff 85%);
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #cccccc), color-stop(0.85, #ffffff));
+  background: -moz-linear-gradient(top, #878888 0%, #ffffff 100%);
   font: bold 12px "Avenir Next", Helvetica, Arial, sans-serif;
 }
 #content-tab-list5 li:active {
@@ -1581,6 +1588,7 @@ section#widgetScreen #topBar {
   background-image: linear-gradient(bottom, #ababab 0%, #ebebeb 85%);
   background-image: -webkit-linear-gradient(bottom, #ababab 0%, #ebebeb 85%);
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #ababab), color-stop(0.85, #ebebeb));
+  background: -moz-linear-gradient(bottom, #ababab 0%, #ebebeb 100%);
   color: #000000;
   vertical-align: middle;
   font: normal 14px "Avenir Next", Helvetica, Arial, sans-serif;
@@ -1869,6 +1877,7 @@ section#widgetScreen #scrollWrapper {
 #notification {
   text-align: center;
   background-image: linear-gradient(bottom, #464646 0%, #1f1f1f 65%, #2e2e2e 21%, #525252 90%, #6b6b6b 100%);
+  background: -moz-linear-gradient(bottom, #464646 0%, #2e2e2e 21%, #1f1f1f 65%, #525252 90%, #6b6b6b 100%);
   background-image: -webkit-linear-gradient(bottom, #464646 0%, #1f1f1f 65%, #2e2e2e 21%, #525252 90%, #6b6b6b 100%);
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #464646), color-stop(0.65, #1f1f1f), color-stop(0.21, #2e2e2e), color-stop(0.9, #525252), color-stop(1, #6b6b6b));
   border-radius: 10px;
@@ -2271,7 +2280,7 @@ section#widgetScreen #scrollWrapper {
   display: none;
 }
 #top-bar-buttons li button {
-  background-color: blue;
+  background-color: #464646;
   height: 30px;
   padding: 0 10px;
   vertical-align: middle;
@@ -2283,6 +2292,7 @@ section#widgetScreen #scrollWrapper {
   font: bold 14px "Avenir Next", Helvetica, Arial, sans-serif;
   background-image: linear-gradient(bottom, #464646 0%, #1f1f1f 50%, #2e2e2e 51%, #525252 73%, #6b6b6b 100%);
   background-image: -webkit-linear-gradient(bottom, #464646 0%, #1f1f1f 50%, #2e2e2e 51%, #525252 73%, #6b6b6b 100%);
+  background-image: -moz-linear-gradient(bottom, #464646 0%, #1f1f1f 50%, #2e2e2e 51%, #525252 73%, #6b6b6b 100%);
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #464646), color-stop(0.5, #1f1f1f), color-stop(0.51, #2e2e2e), color-stop(0.73, #525252), color-stop(1, #6b6b6b));
 }
 #top-bar-buttons li button#save {
@@ -2295,6 +2305,7 @@ section#widgetScreen #scrollWrapper {
   background-image: linear-gradient(bottom, #cdcdcd 0%, #000000 85%);
   background-image: -webkit-linear-gradient(bottom, #cdcdcd 0%, #000000 85%);
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #cdcdcd), color-stop(0.85, #000000));
+  background-image: -moz-linear-gradient(top, #cdcdcd 0%, #000000 100%);
 }
 #top-bar-buttons li button:active:active {
   background-image: linear-gradient(bottom, #000000 0%, #cdcdcd 85%);
@@ -2305,6 +2316,7 @@ section#widgetScreen #scrollWrapper {
   font: bold 13px "Avenir Next", Helvetica, Arial, sans-serif;
   background-image: url('../img/PointsButtonWatermark.png'), linear-gradient(bottom, #464646 0%, #1f1f1f 50%, #2e2e2e 51%, #525252 73%, #6b6b6b 100%);
   background-image: url('../img/PointsButtonWatermark.png'), -webkit-linear-gradient(bottom, #464646 0%, #1f1f1f 50%, #2e2e2e 51%, #525252 73%, #6b6b6b 100%);
+  background-image: url('../img/PointsButtonWatermark.png'), -moz-linear-gradient(top, #464646 0%, #1f1f1f 50%, #2e2e2e 51%, #525252 73%, #6b6b6b 100%);
   background-image: url('../img/PointsButtonWatermark.png'), -webkit-gradient(linear, left bottom, left top, color-stop(0, #464646), color-stop(0.5, #1f1f1f), color-stop(0.51, #2e2e2e), color-stop(0.73, #525252), color-stop(1, #6b6b6b));
   background-position: left bottom;
   background-repeat: no-repeat;
@@ -3983,7 +3995,6 @@ section#insights h1 {
   margin-right: auto;
   border-radius: 10px;
   white-space: nowrap;
-  overflow: hidden;
 }
 #activityScreen #body #content #level1Activity #hScroller,
 #activityListScreen #body #content #level1Activity #hScroller {
@@ -5037,7 +5048,7 @@ section#insights h1 {
   margin-right: auto;
   border-radius: 10px;
   white-space: nowrap;
-  overflow: hidden;
+  overflow: scroll;
 }
 #foodScreen #body #content #level1Food #hScroller {
   white-space: nowrap;
