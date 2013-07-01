@@ -161,6 +161,20 @@ define(['jquery',
             }
         },
 
+        ageCalc: function(){
+           var self = this;
+           var dob = new Date(self.$('#birthday').val()) || new Date();
+           var msg = this.$('#age');
+           var today = new Date();
+
+           var diff = today.getTime() - dob.getTime();
+           var age = Math.floor(diff / (1000 * 60 * 60 * 24 * 365.25));
+
+           if(age > 0){
+               msg.html(age + ' years old');
+           }
+       },
+
             showAddr: function(e){
                 e.stopPropagation();
                 var self 	= this;
@@ -327,17 +341,6 @@ define(['jquery',
                             "</div>";
                 box.append(html);
             }
-            // -----------------------------------------------------------
-
-                    var html =  "<div id='physician'>"+
-                    "<div id='name'>" + item.firstName + ' ' + item.lastName + "</div>"+
-                    "<div id='job'>" + item.type + "</div>"+
-                    "<div id='email'>" + item.emailAddress + "</div>"+
-                    "<div id='phone'>" + item.officePhone + "</div>"+
-                    "</div>";
-                    box.append(html);
-                }
-                // -----------------------------------------------------------
 
             box = this.$('#linkedBox');
             box.html('');
