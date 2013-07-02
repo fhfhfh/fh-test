@@ -74,6 +74,9 @@ var RequestsUtil = function() {
                    
                     if(data!="")
                     {
+                        console.log('**************************');
+                        console.log(data.substring(0,50));
+                        console.log('**************************');
                         //converting the response data into JSON object
                         var jsonObject= JSON.parse(data.toString());
                         var jsonObj = respUtils.constructStatusResponse(requestJson.EndPointName, constants.RESP_SUCCESS, requestJson.EndPointName+" Success",jsonObject);

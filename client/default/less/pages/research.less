@@ -1,5 +1,5 @@
 #research {
-
+    padding-bottom: 20px;
     #topImg{
         margin-bottom: -6px;
         img{
@@ -10,17 +10,17 @@
     #researchInnerDivMenu {
         height: 100%;
         .background-gradient-slight(#676767, #cdcdcd);
-        // background-color: blue;
         padding: 10px 5px 10px 5px;
-        margin-bottom: 30px;
         border-bottom-right-radius: 8px;
         border-bottom-left-radius: 8px;
+        box-shadow: 0 1px 5px #676767;
 
         #backDiv{
             border: 2px solid #ffffff;
             border-radius: 8px;
             background-color: #ffffff;
             height: 710px;
+            box-shadow: 0 1px 2px #676767;
 
             #welcomeDiv{
                 text-align: center;
@@ -77,16 +77,6 @@
             padding: 15px;
         }
 
-        .menuName1, .btnTitle1{
-            .avenir-medium(15pt);
-            margin: 0px;
-        }
-        .menuName2, .btnTitle2{
-            .avenir-demi(26px);
-            padding-left: 20px;
-            margin: 0px;
-        }
-
         #menu1, #omnibtn1{background-color: #eafef8};
         #menu2, #omnibtn2{background-color: #deeeff};
         #menu3, #omnibtn3{background-color: #dcdded};
@@ -108,8 +98,76 @@
         border-radius: 10px;
         display: none;
 
+        .btnTitle2{display: inline-block;}
+
         div{
-            img{float:right;}
+            img{
+                float:right;
+                display: inline-block;
+            }
+        }
+    }
+
+    .topBtn  {
+        display: inline-block;
+        width: 285px;
+        height: 80px;
+        border-radius: 10px 10px 10px 10px;
+        border: 2px solid #ababab;
+        padding: 10px;
+        margin-bottom: 20px;
+        img{
+            float:right;
+            margin-top: -30px;
+        }
+
+    }
+
+    #omniBtn {background-color: #eafef8;}
+    #infoBtn {background-color: #deeeff;}
+    #interactionBtn {background-color: #dcdded;}
+    #symptomBtn {background-color: #eedbdc;}
+    #riskBtn {background-color: #fee4ff;}
+    #decisionBtn {background-color: #fff6e0;}
+    #careBtn {background-color: #d9fee4;}
+    #toolsBtn {background-color: #ddb9c8;}
+    
+    #infoBox {
+        display: inline-block;
+        padding: 10px;
+        width: 45%;
+        height: 66px;
+        margin: 10px;
+        background-color: white;
+        .avenir-demi(12px);
+        box-shadow: 0px 0px 5px 0px;
+    }
+
+    .menuName1, .btnTitle1{
+        .avenir-medium(15pt);
+        margin: 0px;
+    }
+    .menuName2, .btnTitle2{
+        .avenir-demi(26px);
+        padding-left: 20px;
+        margin: 0px;
+    }
+
+    #frameContainer {
+        width: 100%;
+        background-color: #ffffff;
+        height: 380px;
+        max-height: 380px;
+        border-radius: 10px;
+        padding: 5px;
+        box-shadow: 0 1px 2px #676767;
+        overflow:auto;
+        -webkit-overflow-scrolling:touch;
+
+        iframe{
+            width: 100%;
+            height: 100%;
+            border: none;
         }
     }
 }

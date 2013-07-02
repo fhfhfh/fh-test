@@ -3,9 +3,6 @@
  * 
  */
 
-var http = require('http');
-var fs = require('fs');
-var async = require('../lib/async.js');
 var request = require('request');
 var sessionManager = require('../lib/session/session.js');
 var appConfig = require('../config/appConfig.js');

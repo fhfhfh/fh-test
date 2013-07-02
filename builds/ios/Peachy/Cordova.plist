@@ -39,6 +39,8 @@
 		<string>*.google.com</string>
 		<string>*.cloudflare.com</string>
 		<string>*.oesmith.co.uk</string>
+		<string>http://securehealthhub.adam.com</string>
+		<string>http://thomson4.adam.com</string>
 	</array>
 	<key>Plugins</key>
 	<dict>
