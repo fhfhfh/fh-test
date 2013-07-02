@@ -430,6 +430,8 @@ input {
   background-image: -webkit-linear-gradient(bottom, #c7f0f6 0%, #ffffff 85%);
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #c7f0f6), color-stop(0.85, #ffffff));
   background: -moz-linear-gradient(bottom, #c7f0f6 0%, #ffffff 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#c7f0f6', endColorstr='#ffffff', GradientType=0);
+  font: bold 14px "Avenir Next", Helvetica, Arial, sans-serif;
   border: 1px solid #d38800;
 }
 .white:active {
@@ -832,6 +834,7 @@ section h1 {
   background-image: -webkit-linear-gradient(bottom, #878888 0%, #ffffff 85%);
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #878888), color-stop(0.85, #ffffff));
   background: -moz-linear-gradient(top, #ffffff 0%, #878888 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#878888', endColorstr='#ffffff', GradientType=0);
   font: bold 14px "Avenir Next", Helvetica, Arial, sans-serif;
 }
 #content-tab-list li:active {
