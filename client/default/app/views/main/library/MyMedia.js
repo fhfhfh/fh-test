@@ -51,11 +51,11 @@ define(['jquery',
             this.$el.html(this.template({folders:folders, items: items, list:list}));
             this.thumbnailUpdate();
 
-            this.bodyScroll = new iScroll(this.$('#cabinetBody')[0],{
-                bounceLock	: true,
-                bounce		: false,
-                vScrollbar	: false
-            });
+            // this.bodyScroll = new iScroll(this.$('#cabinetBody')[0],{
+            //     bounceLock	: true,
+            //     bounce		: false,
+            //     vScrollbar	: false
+            // });
             this.headerScroll = new iScroll(this.$('#cabinetHeader')[0],{
                 hScroll    : true,
                 vScroll    : false,

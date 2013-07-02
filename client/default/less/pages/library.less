@@ -38,7 +38,7 @@
 		border-bottom: 3px solid #000000;
 		// box-shadow: 0 5px 20px #cbcbcb;
 		width: 100%;
-		float: left;
+		//float: left;
 		position: relative;
 		overflow: auto;
 
@@ -90,13 +90,16 @@
 		padding-top: 25px;
 		padding-bottom: 20px;
 		width: 100%;
+		@-moz-document url-prefix(){
+			width: 103%;
+		}
 		background: url('../img/library/section.png');
 		background-attachment: scroll;
 		background-position: 0px 25px;
 		margin-bottom: 50px;
 		min-height: 200px;
 		max-height: 280px;
-		overflow: hidden;
+		overflow: scroll;
 		border-bottom-left-radius: 8px;
 		border-bottom-right-radius: 8px;
 

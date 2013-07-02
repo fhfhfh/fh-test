@@ -34,13 +34,13 @@ define([
       this.$content = this.$('#home-content');
       this.$nav = this.$('#home-nav');
 
-      this.iscroll = new iScroll(this.$('#wrapper')[0], {
-        vscroll: true,
-          hscroll: false,
-          fixedScrollbar: true,
-          bounce: false,
-          vScrollbar: false
-      });
+      // this.iscroll = new iScroll(this.$('#wrapper')[0], {
+      //   vscroll: true,
+      //     hscroll: false,
+      //     fixedScrollbar: true,
+      //     bounce: false,
+      //     vScrollbar: false
+      // });
 
       // self.setActiveView(((options && options.activeView) || 'news'));  
 

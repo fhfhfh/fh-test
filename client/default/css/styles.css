@@ -454,6 +454,7 @@ input {
   background-image: linear-gradient(bottom, #1f1f1f 0%, #7fb0db 85%);
   background-image: -webkit-linear-gradient(bottom, #1f1f1f 0%, #7fb0db 85%);
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #1f1f1f), color-stop(0.85, #7fb0db));
+  background: -moz-linear-gradient(bottom, #1f1f1f 0%, #7fb0db 85%);
   border: 1px solid #1f1f1f;
 }
 .action:active {
@@ -855,6 +856,7 @@ section h1 {
   background-image: linear-gradient(bottom, #cccccc 0%, #ffffff 85%);
   background-image: -webkit-linear-gradient(bottom, #cccccc 0%, #ffffff 85%);
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #cccccc), color-stop(0.85, #ffffff));
+  background: -moz-linear-gradient(bottom, #cccccc 0%, #ffffff 85%);
   font: bold 14px "Avenir Next", Helvetica, Arial, sans-serif;
 }
 #content-tab-list4 li:active {
@@ -931,7 +933,7 @@ section h1 {
 }
 .iscroll-container {
   height: 100%;
-  overflow: visible;
+  overflow: scroll;
   position: relative;
 }
 .iscroll-inner {
@@ -1373,7 +1375,6 @@ li {
 #cabinet #cabinetHeader {
   border-bottom: 3px solid #000000;
   width: 100%;
-  float: left;
   position: relative;
   overflow: auto;
 }
@@ -1424,9 +1425,12 @@ li {
   margin-bottom: 50px;
   min-height: 200px;
   max-height: 280px;
-  overflow: hidden;
+  overflow: scroll;
   border-bottom-left-radius: 8px;
   border-bottom-right-radius: 8px;
+}
+@-moz-document url-prefix() {
+  width: 103%;
 }
 #cabinet #cabinetBody #bodyScroller {
   background: url('../img/library/section.png');
@@ -2294,6 +2298,7 @@ section#widgetScreen #scrollWrapper {
   background-image: -webkit-linear-gradient(bottom, #464646 0%, #1f1f1f 50%, #2e2e2e 51%, #525252 73%, #6b6b6b 100%);
   background-image: -moz-linear-gradient(bottom, #464646 0%, #1f1f1f 50%, #2e2e2e 51%, #525252 73%, #6b6b6b 100%);
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #464646), color-stop(0.5, #1f1f1f), color-stop(0.51, #2e2e2e), color-stop(0.73, #525252), color-stop(1, #6b6b6b));
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#464646', endColorstr='#6b6b6b', GradientType=0);
 }
 #top-bar-buttons li button#save {
   border: 2px solid #fff1a0;
@@ -4003,6 +4008,7 @@ section#insights h1 {
   float: left;
   position: relative;
   padding-right: 250px;
+  overflow: auto;
 }
 #activityScreen #body #content #level2Activity,
 #activityListScreen #body #content #level2Activity {
@@ -4016,7 +4022,7 @@ section#insights h1 {
   box-shadow: 0px 0px 4px 0px #000000;
   color: #000000;
   white-space: nowrap;
-  overflow: hidden;
+  overflow: auto;
 }
 #activityScreen #body #content #level2Activity .activityItem,
 #activityListScreen #body #content #level2Activity .activityItem {
@@ -5096,6 +5102,7 @@ section#insights h1 {
   background-image: linear-gradient(bottom, #fff1a0 0%, #fee9c9 85%);
   background-image: -webkit-linear-gradient(bottom, #fff1a0 0%, #fee9c9 85%);
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #fff1a0), color-stop(0.85, #fee9c9));
+  background-image: -moz-linear-gradient(bottom, #fff1a0 0%, #fee9c9 85%);
   border-radius: 5px;
   color: #000000;
 }
