@@ -71,13 +71,13 @@ define([
           this.$(initialButton).addClass('selected');
 
           // // iScroll ---------------------------
-          this.iscroll = new iScroll(this.$('#scrollWrapper')[0], {
-              hscroll: false,
-              fixedScrollbar: true,
-              bounce: false,
-              vScrollbar: false,
-              onBeforeScrollStart: null
-          });
+          // this.iscroll = new iScroll(this.$('#scrollWrapper')[0], {
+          //     hscroll: false,
+          //     fixedScrollbar: true,
+          //     bounce: false,
+          //     vScrollbar: false,
+          //     onBeforeScrollStart: null
+          // });
          
 
           return this;

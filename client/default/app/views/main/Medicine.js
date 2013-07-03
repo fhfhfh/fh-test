@@ -36,12 +36,12 @@ define([
       this.$el.html(template);
       this.$content = this.$('#medicine-content');
 
-      this.iscroll = new iScroll(this.$('#wrapper')[0], {
-          hscroll: false,
-          fixedScrollbar: true,
-          bounce: false,
-          vScrollbar: false
-      });
+      // this.iscroll = new iScroll(this.$('#wrapper')[0], {
+      //     hscroll: false,
+      //     fixedScrollbar: true,
+      //     bounce: false,
+      //     vScrollbar: false
+      // });
     },
 
     render: function() {
