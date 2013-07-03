@@ -1647,6 +1647,9 @@ section#widgetScreen #panelTopBar #cancelBtn {
 section#widgetScreen #scrollWrapper {
   height: 100%;
 }
+#research {
+  padding-bottom: 20px;
+}
 #research #topImg {
   margin-bottom: -6px;
 }
@@ -1659,15 +1662,16 @@ section#widgetScreen #scrollWrapper {
   background-image: -webkit-linear-gradient(bottom, #cdcdcd 9%, #676767 99%);
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0.9, #cdcdcd), color-stop(0.99, #676767));
   padding: 10px 5px 10px 5px;
-  margin-bottom: 30px;
   border-bottom-right-radius: 8px;
   border-bottom-left-radius: 8px;
+  box-shadow: 0 1px 5px #676767;
 }
 #research #researchInnerDivMenu #backDiv {
   border: 2px solid #ffffff;
   border-radius: 8px;
   background-color: #ffffff;
   height: 710px;
+  box-shadow: 0 1px 2px #676767;
 }
 #research #researchInnerDivMenu #backDiv #welcomeDiv {
   text-align: center;
@@ -1725,21 +1729,6 @@ section#widgetScreen #scrollWrapper {
   height: 80px;
   padding: 15px;
 }
-#research #researchMenu .menuName1,
-#research #research-menu .menuName1,
-#research #researchMenu .btnTitle1,
-#research #research-menu .btnTitle1 {
-  font: normal 15pt "Avenir Next Medium", Helvetica, Arial, sans-serif;
-  margin: 0px;
-}
-#research #researchMenu .menuName2,
-#research #research-menu .menuName2,
-#research #researchMenu .btnTitle2,
-#research #research-menu .btnTitle2 {
-  font: bold 26px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
-  padding-left: 20px;
-  margin: 0px;
-}
 #research #researchMenu #menu1,
 #research #research-menu #menu1,
 #research #researchMenu #omnibtn1,
@@ -1796,8 +1785,86 @@ section#widgetScreen #scrollWrapper {
   border-radius: 10px;
   display: none;
 }
+#research #research-menu .btnTitle2 {
+  display: inline-block;
+}
 #research #research-menu div img {
   float: right;
+  display: inline-block;
+}
+#research .topBtn {
+  display: inline-block;
+  width: 285px;
+  height: 80px;
+  border-radius: 10px 10px 10px 10px;
+  border: 2px solid #ababab;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+#research .topBtn img {
+  float: right;
+  margin-top: -30px;
+}
+#research #omniBtn {
+  background-color: #eafef8;
+}
+#research #infoBtn {
+  background-color: #deeeff;
+}
+#research #interactionBtn {
+  background-color: #dcdded;
+}
+#research #symptomBtn {
+  background-color: #eedbdc;
+}
+#research #riskBtn {
+  background-color: #fee4ff;
+}
+#research #decisionBtn {
+  background-color: #fff6e0;
+}
+#research #careBtn {
+  background-color: #d9fee4;
+}
+#research #toolsBtn {
+  background-color: #ddb9c8;
+}
+#research #infoBox {
+  display: inline-block;
+  padding: 10px;
+  width: 45%;
+  height: 66px;
+  margin: 10px;
+  background-color: white;
+  font: bold 12px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
+  box-shadow: 0px 0px 5px 0px;
+}
+#research .menuName1,
+#research .btnTitle1 {
+  font: normal 15pt "Avenir Next Medium", Helvetica, Arial, sans-serif;
+  margin: 0px;
+}
+#research .menuName2,
+#research .btnTitle2 {
+  font: bold 26px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
+  padding-left: 20px;
+  margin: 0px;
+}
+#research #frameContainer {
+  width: 100%;
+  background-color: #ffffff;
+  height: 380px;
+  max-height: 380px;
+  border-radius: 10px;
+  padding: 5px;
+  box-shadow: 0 1px 2px #676767;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+#research #frameContainer iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
 }
 #medicine #selector {
   padding-bottom: 20px;
@@ -4660,7 +4727,8 @@ section#insights h1 {
 #busyBody #activityContainer .btn:active,
 #busyBody #activityContainer .btn.selected {
   background: url("../img/busybody/bu-add-activity.png");
-  background-position: -4px -4px;
+  background-position: -55px -8px;
+  background-size: 190px;
 }
 #busyBody #activityContainer #share {
   padding: 9px;

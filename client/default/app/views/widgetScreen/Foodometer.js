@@ -293,7 +293,6 @@ define([
         },
 
         showAddPopup: function(){
-
               
               // Act.call('createDBAction',{},
               //    function(res){
