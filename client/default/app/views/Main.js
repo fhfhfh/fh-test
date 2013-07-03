@@ -27,6 +27,7 @@ define(['jquery',
             tagName	: 'section',
             id		: 'main',
             events : {
+                'click #main-nav li' : 'changeTab',
                 'click #home' : 'home',
                 'click #widgets' : 'widgets',
                 'click #healthHub' : 'healthHub',
@@ -78,6 +79,7 @@ define(['jquery',
                 var topbar = new TopBar();
                 this.setActiveView(((options && options.activeView) || 'home'));
                 this.checkUser();
+  
             },
 
             render: function() {
@@ -89,6 +91,8 @@ define(['jquery',
                     this.activeView.delegateEvents();
                 }
 
+                this.home();
+                
                 return this;
             },
 
@@ -110,25 +114,47 @@ define(['jquery',
                 });
             },
 
+            changeTab: function() {
+                var home =this.$nav.find('li#home').find('img')[0];
+                $(home).attr('src', 'img/nav/HomeWhite.png');
+                var widget =this.$nav.find('li#widgets').find('img')[0];
+                $(widget).attr('src', 'img/nav/WidgetsWhite.png');
+                var hub =this.$nav.find('li#healthHub').find('img')[0];
+                $(hub).attr('src', 'img/nav/HubWhite.png');
+                var med =this.$nav.find('li#medicine').find('img')[0];
+                $(med).attr('src', 'img/nav/CabinetWhite.png');
+                var cal =this.$nav.find('li#calendar').find('img')[0];
+                $(cal).attr('src', 'img/nav/CalendarWhite.png');
+                var library =this.$nav.find('li#library').find('img')[0];
+                $(library).attr('src', 'img/nav/LibraryWhite.png');
+            },
+
             home: function() {
+                var self = this;
                 this.setActiveView('home');
                 this.$nav.find('li').removeClass('selected');
                 this.$('#home').addClass('selected');
+                var li = this.$nav.find('li.selected').find('img')[0];
+                $(li).attr('src', 'img/nav/HomeDark.png');
                 Backbone.history.navigate('home', false);
+
             },
 
             widgets: function() {
                 this.setActiveView('widgets');
                 this.$nav.find('li').removeClass('selected');
                 this.$('#widgets').addClass('selected');
+                var li = this.$nav.find('li.selected').find('img')[0];
+                $(li).attr('src', 'img/nav/WidgetsDark.png');
             // Backbone.history.navigate('widgets', false);
             },
 
             healthHub: function() {
-
                 this.setActiveView('healthHub');
                 this.$nav.find('li').removeClass('selected');
                 this.$('#healthHub').addClass('selected');
+                var li = this.$nav.find('li.selected').find('img')[0];
+                $(li).attr('src', 'img/nav/HubDark.png');
             // Backbone.history.navigate('healthHub', false);
             },
 
@@ -136,6 +162,8 @@ define(['jquery',
                 this.setActiveView('medicine');
                 this.$nav.find('li').removeClass('selected');
                 this.$('#medicine').addClass('selected');
+                var li = this.$nav.find('li.selected').find('img')[0];
+                $(li).attr('src', 'img/nav/CabinetDark.png');
                 //Backbone.trigger('notify', 'Under Construction');
             },
 
@@ -143,10 +171,14 @@ define(['jquery',
                 this.setActiveView('calendar');
                 this.$nav.find('li').removeClass('selected');
                 this.$('#calendar').addClass('selected');
+                var li = this.$nav.find('li.selected').find('img')[0];
+                $(li).attr('src', 'img/nav/CalendarDark.png');
             // Backbone.history.navigate('calendar', false);
             },
 
             connect: function() {
+                // var li = this.$nav.find('li#connect').find('img')[0];
+                // $(li).attr('src', 'img/nav/ConnectDark.png');
                 Backbone.trigger('notify', 'Under Construction');
             },
 
@@ -154,6 +186,8 @@ define(['jquery',
                 this.setActiveView('library');
                 this.$nav.find('li').removeClass('selected');
                 this.$('#library').addClass('selected');
+                var li = this.$nav.find('li.selected').find('img')[0];
+                $(li).attr('src', 'img/nav/LibraryDark.png');
             }
         });
 

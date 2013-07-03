@@ -430,7 +430,6 @@ input {
   background-image: -webkit-linear-gradient(bottom, #c7f0f6 0%, #ffffff 85%);
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #c7f0f6), color-stop(0.85, #ffffff));
   background: -moz-linear-gradient(bottom, #c7f0f6 0%, #ffffff 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#c7f0f6', endColorstr='#ffffff', GradientType=0);
   font: bold 14px "Avenir Next", Helvetica, Arial, sans-serif;
   border: 1px solid #d38800;
 }
@@ -830,11 +829,11 @@ section h1 {
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
   position: relative;
+  background-color: #878888;
   background-image: linear-gradient(bottom, #878888 0%, #ffffff 85%);
   background-image: -webkit-linear-gradient(bottom, #878888 0%, #ffffff 85%);
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #878888), color-stop(0.85, #ffffff));
   background: -moz-linear-gradient(top, #ffffff 0%, #878888 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#878888', endColorstr='#ffffff', GradientType=0);
   font: bold 14px "Avenir Next", Helvetica, Arial, sans-serif;
 }
 #content-tab-list li:active {
@@ -2294,7 +2293,6 @@ section#widgetScreen #scrollWrapper {
   -webkit-border-radius: 5px;
   border-radius: 5px;
   border: 1px solid black;
-  box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.15);
   color: #fff;
   font: bold 14px "Avenir Next", Helvetica, Arial, sans-serif;
   background-image: linear-gradient(bottom, #464646 0%, #1f1f1f 50%, #2e2e2e 51%, #525252 73%, #6b6b6b 100%);
@@ -2302,6 +2300,7 @@ section#widgetScreen #scrollWrapper {
   background-image: -moz-linear-gradient(bottom, #464646 0%, #1f1f1f 50%, #2e2e2e 51%, #525252 73%, #6b6b6b 100%);
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #464646), color-stop(0.5, #1f1f1f), color-stop(0.51, #2e2e2e), color-stop(0.73, #525252), color-stop(1, #6b6b6b));
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#464646', endColorstr='#6b6b6b', GradientType=0);
+  box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.15);
 }
 #top-bar-buttons li button#save {
   border: 2px solid #fff1a0;

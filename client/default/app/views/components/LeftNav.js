@@ -37,13 +37,13 @@ define([
         },
 
         switchTab: function(e){
-            var element = $(e.target).closest('li');
-            var id = element[0].id;
+            // var element = $(e.target).closest('li');
+            // var id = element[0].id;
 
-            this.$el.find('li').removeClass('selected');
-            element.addClass('selected');
+            // this.$el.find('li').removeClass('selected');
+            // element.addClass('selected');
 
-            appRouter.navigate(id, true);
+            // appRouter.navigate(id, true);
         }
 
     });
