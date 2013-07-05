@@ -175,6 +175,7 @@ define([
             var dayModel = collection.find(function(item){
                 return item.get('date').toDateString() == date.toDateString();
             });
+            console.log('dayModel',dayModel);
             self.item = null;
             if(dayModel){ // check if model exists for selected date
                 self.item = dayModel; // make model globally accessible 
