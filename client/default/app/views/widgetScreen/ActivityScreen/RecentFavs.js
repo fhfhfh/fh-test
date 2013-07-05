@@ -9,7 +9,7 @@ define([
     'backbone',
     'text!templates/widgets/ActivityScreen/RecentFavs.html',
     'text!templates/widgets/ActivityScreen/RecentFavsRow.html',
-    'collections/Foods'
+    'collections/Activities'
 ], function($, _, Backbone, tpl, itemTpl, collection) {
 
     return Backbone.View.extend({
@@ -22,7 +22,7 @@ define([
             'click #show-recentItems'   : 'showRecentItems',
             'click #show-myFavourites'  : 'showMyFavourites',
             'click .boxEntry'           : 'selectActivity',
-            'click #saveToMeal'         : 'saveActivityList'
+            'click #saveToTime'         : 'saveActivityList'
         },
 
         initialize: function() {
@@ -64,7 +64,7 @@ define([
 
             for(var i=0;i<allItems.length;i++){
                 var item = allItems[i].attributes;
-                str +=self.itemTpl({id:item.id, type:item.type ,name:item.name});
+                str +=self.itemTpl({id:item.id, type:item.type ,activity:item.activity});
             }
             return str;
         },
@@ -96,8 +96,8 @@ define([
 
             //TODO: populate notes, and add selected food to array, ready to save to time
 
-            $('#serving').val(1);
-            $('#size').val(attr.serving[0].name);
+            $('#minutes').val(1);
+            $('#calBurned').val(attr.calorieBaseline);
             $('#notes').val(attr.notes);
         },
 
@@ -105,41 +105,28 @@ define([
             var self = this;
             console.log('saving activity...');
             var list = $('.boxEntry.selected');
-            console.log(list);
+
             for(var i=0;i<list.length;i++){
                 var id = $(list[i]).attr('data-id');
                 var model = collection.get(id);
 
                 model.set("recent", true);
-                model.attributes.serving = $("#serving").val() + " x " + $('#size').val();
-                model = this.multiplyServing($("#serving").val(), model);
-                console.log(model);
+                model.attributes.calorieBaseline = $("#minutes").val() + " x " + $('#calBurned').val();
+                model = this.multiplyServing($("#minutes").val(), model);
+
                 this.container.container.activityItems.push(model);
             }
 
             $("span#time").text(self.time+" - ("+this.container.container.activityItems.length+")");
         },
 
-        multiplyServing: function(serving, model){
-            // var att = model.attributes;
-            // var calories      = parseFloat(att.calories) || 0;
-            // var fat           = parseFloat(att.total_fat) || 0;
-            // var cholesterol   = parseFloat(att.cholesterol) || 0;
-            // var sodium        = parseFloat(att.sodium) || 0;
-            // var carbohydrates = parseFloat(att.total_carbohydrates) || 0;
-            // var fibre         = parseFloat(att.fiber) || 0;
-            // var protein       = parseFloat(att.protein) || 0;
+        multiplyServing: function(minutes, model){
+            var att = model.attributes;
+            var calories      = parseFloat(att.calories) || 0;
 
-            // att.calories      = calories*serving;
-            // att.fat           = fat*serving;
-            // att.cholesterol   = cholesterol*serving;
-            // att.sodium        = sodium*serving;
-            // att.carbohydrates = carbohydrates*serving;
-            // att.fibre         = fibre*serving;
-            // att.protein       = protein*serving;
-
-            // model.attributes = att;
-            // return model;
+            att.calories      = calories*minutes;
+            model.attributes = att;
+            return model;
         }
 
     });

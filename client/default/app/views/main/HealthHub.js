@@ -18,7 +18,9 @@ define([
             events : {
                 'click #show-history'		: 'showHistory',
                 'click #show-data'			: 'showData',
-                'click #show-conditions'	: 'showConditions'
+                'click #show-conditions'	: 'showConditions',
+                'click .dataGrid #body #row': 'openWebView',
+                'click #backBtn'            : 'closeWebView'
             },
 
             subViews: {
@@ -46,6 +48,7 @@ define([
             },
 
             render: function() {
+                console.log('123');
                 var self = this;
                 this.getHealthHubData();
 
@@ -59,6 +62,7 @@ define([
                 this.$('li').removeClass('selected');
                 this.$('#show-data').addClass('selected');
                 this.refreshScroll();
+                this.closeWebView();
                 return this;
             },
 
@@ -78,6 +82,7 @@ define([
                 // for(var i=0; i<resp.payload.socialHistories.length; i++)
                 //     $('div #history #socialHistory #body').append('<div id="row"><span class="name">'+resp.payload.socialHistories[i].socialHistoryElement+'</span><span class="value">'+resp.payload.socialHistories[i].description+'</span></div>');
                 this.refreshScroll();
+                this.closeWebView();
             },
 
             showData : function(){
@@ -95,6 +100,7 @@ define([
                 // for(var i=0; i<resp.payload.immunizations.length; i++)
                 //     $('div #data #immunizations #body').append('<div id="row"><span class="name">'+resp.payload.immunizations[i].vaccine+'</span><span class="value">'+resp.payload.immunizations[i].status+'</span></div>');
                 this.refreshScroll();
+                this.closeWebView();
             },
 
             showConditions : function(){
@@ -110,6 +116,7 @@ define([
                 // for(var i=0; i<resp.payload.encounters.length; i++)
                 //     $('div #conditions #recentVisits #body').append('<div id="row"><span class="name">'+resp.payload.encounters[i].encounter+'</span><span class="value">'+resp.payload.encounters[i].location+'</span></div>');
                 this.refreshScroll();
+                this.closeWebView();
             },
 
             getHealthHubData: function(){
@@ -120,40 +127,19 @@ define([
                         self.healthHubData = JSON.parse(obj);
                     }
                 });
+            },
+
+            openWebView: function(e){
+                $('#frameContainer').show();
+                var url = $(e.currentTarget).attr('url') || null;
+
+                $('#frameContainer iframe').attr('src',
+                    'http://thomson4.adam.com/content.aspx?productId=117&pid=1&gid=000141');
+            },
+
+            closeWebView: function(){
+                this.$('#frameContainer').hide();
             }
 
         });
-        // function setValue (){
-        //     if (resp == "")
-        //         controller.loadHealthHub(function (err, res){
-        //             if(res || resp == ""){
-        //                 resp = res;
-        //                 for(var i=0; i<resp.payload.vitalSigns.length; i++)
-        //                  {  
-        //                      $('div #data #measurements #body').append('<div id="row"><span class="name">Height</span><span class="value">'+resp.payload.vitalSigns[i].bodyHeight+'</span></div>');
-        //                     $('div #data #measurements #body').append('<div id="row"><span class="name">Weight</span><span class="value">'+resp.payload.vitalSigns[i].bodyWeight+'</span></div>');
-        //                     $('div #data #measurements #body').append('<div id="row"><span class="name">DiastolicBp</span><span class="value">'+resp.payload.vitalSigns[i].diastolicBp+'</span></div>');
-        //                  }
-        //                 for(var i=0; i<resp.payload.results.length; i++)
-        //                     $('div #data #testResults #body').append('<div id="row"><span class="name">'+resp.payload.results[i].testName+'</span><span class="value">'+resp.payload.results[i].result+' '+resp.payload.results[i].units+'</span></div>');
-        //                 for(var i=0; i<resp.payload.immunizations.length; i++)
-        //                     $('div #data #immunizations #body').append('<div id="row"><span class="name">'+resp.payload.immunizations[i].vaccine+'</span><span class="value">'+resp.payload.immunizations[i].status+'</span></div>');
-        //                 return;
-        //             }
-        //         })
-        //     else
-        //     {
-        //         for(var i=0; i<resp.payload.vitalSigns.length; i++)
-        //                  {  
-        //                      $('div #data #measurements #body').append('<div id="row"><span class="name">Height</span><span class="value">'+resp.payload.vitalSigns[i].bodyHeight+'</span></div>');
-        //                     $('div #data #measurements #body').append('<div id="row"><span class="name">Weight</span><span class="value">'+resp.payload.vitalSigns[i].bodyWeight+'</span></div>');
-        //                     $('div #data #measurements #body').append('<div id="row"><span class="name">DiastolicBp</span><span class="value">'+resp.payload.vitalSigns[i].diastolicBp+'</span></div>');
-        //                  }
-        //         for(var i=0; i<resp.payload.results.length; i++)
-        //             $('div #data #testResults #body').append('<div id="row"><span class="name">'+resp.payload.results[i].testName+'</span><span class="value">'+resp.payload.results[i].result+' '+resp.payload.results[i].units+'</span></div>');
-        //         for(var i=0; i<resp.payload.immunizations.length; i++)
-        //             $('div #data #immunizations #body').append('<div id="row"><span class="name">'+resp.payload.immunizations[i].vaccine+'</span><span class="value">'+resp.payload.immunizations[i].status+'</span></div>');
-        //         return;
-        //     }
-        // };
     });

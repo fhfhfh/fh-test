@@ -15,9 +15,14 @@ define(['backbone',
         model : model,
         storageKey: 'peachy_activities',
         activities : [],
+        index: 1,
 
         initialize: function(){
             var self=this;
+
+            this.on('add', function(){
+                self.index++;
+            });
 
             this.on('change:favorite', function(){
                 self.saveFavs();
@@ -33,10 +38,11 @@ define(['backbone',
         singleSearch: function(term, type, cb){
             var self = this;
 
-            Act.call("searchDBAction", {"type":term},
+            Act.call("searchActivityAction", {"term":term,"type":type},
                 function(res){
-                    var data = res.payload;
+                    var data = res.payload.activities;
                     for(var i=0;i<data.length;i++){
+                        data[i].id = self.index;
                         var asset = new self.model(data[i]);
                         self.add(asset);
                     }
@@ -70,14 +76,11 @@ define(['backbone',
                 return cb(null,list);
             }
 
-            Act.call("fetchDBAction", {"type":type},
+            Act.call("fetchActivityAction", {"type":type},
                 function(res){
-                    var name = res.payload.Name;
-                    var list = res.payload[name];
-
+                    var list = res.payload.activities;
                     var models = self.populateCollection(list, type);
                     self.activities[type] = true;
-
                     return cb(null, models);
                 }, function(err, msg){
                     console.warn(err, msg);
@@ -92,6 +95,7 @@ define(['backbone',
             for(var i=0;i<list.length;i++){
                 var item =list[i];
                 item.type = type;
+                item.id = self.index;
                 var asset = new self.model(item);
                 self.add(asset);
             }
@@ -148,7 +152,6 @@ define(['backbone',
                 }
                 return arr;
             }
-            console.log(string, arr);
         },
 
         saveFavs: function(){
@@ -161,7 +164,6 @@ define(['backbone',
                     arr.push(items[i]);
                 }
             }
-            console.log("arr",arr);
 
             var data = JSON.stringify(arr);
             Store.save("peachy_activity_favs", data, function(){
@@ -175,7 +177,6 @@ define(['backbone',
             Store.load("peachy_activity_favs", function(bool,res){
                 if(bool && res){
                     var obj = JSON.parse(res);
-                    console.log(obj);
                     for(var i=0;i<obj.length;i++){
                         var asset = new model(obj[i]);
                         self.add(asset);

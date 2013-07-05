@@ -1,6 +1,6 @@
 <%
 
-if(item.fullname.length >40){
+if(item.activity.length >40){
     var r = "-webkit-marquee";
 } else {
     var r = "hidden";
@@ -12,7 +12,7 @@ if(item.fullname.length >40){
 <div id="activityItemScreen" class='boxEntry'>
     <div id="top">
         <li id="cancelActivity">Cancel</li>
-        <img src="<%=imgSrc%>"/><h2 id="activityName" style="overflow-x:<%=r%>"><%= item.fullname%></h2>
+        <img src="<%=imgSrc%>"/><h2 id="activityName" style="overflow-x:<%=r%>"><%= item.activity%></h2>
         <li id="activityFavBtn">Favorite</li>
     </div>
 
@@ -26,12 +26,6 @@ if(item.fullname.length >40){
         <div id="values">
             <div class="boxEntry" id="totalCalories">
                 <span id="name">Calories</span>
-                <span id="amount"></span>
-                <span id="rda"></span>
-            </div>
-
-            <div class="boxEntry" id="fat">
-                <span id="name">Total Fat</span>
                 <span id="amount"></span>
                 <span id="rda"></span>
             </div>
@@ -52,7 +46,7 @@ if(item.fullname.length >40){
 
         <div class="box inputs calBurned">
             <label for="calBurned">Calories Burned</label>
-            <input type="text" name="calBurned" id="calBurned" value="<%=item.calBurned%>" disabled="disabled"/>
+            <input type="text" name="calBurned" id="calBurned" value="<%=item.calorieBaseline%>" disabled="disabled"/>
         </div>
 
         <div id="stopWatch">

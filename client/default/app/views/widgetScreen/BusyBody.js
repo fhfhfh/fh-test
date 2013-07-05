@@ -105,7 +105,7 @@ define([
                 return;
             }
             else {
-                $('#foodometer').append(self.monthTpl());
+                $('#busyBody').append(self.monthTpl());
                 $("#month").html(this.calendar.monthName[this.month]+", "+this.year);
                 $('#back').unbind().bind('click', function(){
                     self.prevMonth();
@@ -133,11 +133,14 @@ define([
             // remove selected class from any meals
             this.$('.time').removeClass('selected');
             $("#nutritionSection").hide();
-            $('#foodItemScreen').remove();
+            $('#activityItemScreen').remove();
 
             $("#dateString").html( dayStr +', '+monthStr+ " " + day + ", "+this.year);
             $('.days td').removeClass('selected');
             $(target).addClass('selected');
+
+            // Clear calorie count on individual Times
+            $('.count').html('');
 
             this.renderDay(date);
         },
@@ -178,7 +181,7 @@ define([
                 if(self.item.isEmpty()){ // check if model has any food entries
                     self.showEmptyScreen();
                 } else {
-                    self.showMealScreen();
+                    self.showTimeScreen();
                 }
             }
             else {
@@ -200,10 +203,10 @@ define([
 
             this.$('#activityContainer').show();
             this.$('#emptyDay').hide();
-            this.$('#foodItemScreen').remove();
+            this.$('#activityItemScreen').remove();
 
             this.$('#activityString').text(activityString);
-            this.$('#foodList .boxHeader span').text(dateString);
+            this.$('#activityList .boxHeader span').text(dateString);
             this.populateTime(time);
         },
 
@@ -229,7 +232,7 @@ define([
         },
 
         populateTime: function(time){
-            this.$('#foodList .boxEntry').remove();
+            this.$('#activityList .boxEntry').remove();
             var item = this.item;
             var self = this;
             if(item && time){
@@ -249,10 +252,10 @@ define([
                 for(var i=1;i<activities.length;i++){
                     var index = activities[i];
                     var html = '<div class="boxEntry" data-id="'+index.id+'">'+
-                        '<span id="name">'+ index.name+'</span>'+
-                        '<span id="about">'+index.serving+'</span>'+
+                        '<span id="name">'+ index.activity+'</span>'+
+                        '<span id="about">'+index.minutes+'  minutes</span>'+
                         '</div>';
-                    this.$('#foodList').append(html);
+                    this.$('#activityList').append(html);
                 }
 
                 // populate meal info
@@ -260,11 +263,11 @@ define([
 
                 this.$('#calCount').text(activityInfo.calories + ' Calories Burned');
                 this.$('#location').val(activityInfo.location);
-                this.$('#with').val(activityInfo.with);
+                this.$('#with').val(activityInfo['with']);
                 this.$('#time').val(activityInfo.time);
                 this.$('#notes').val(activityInfo.notes);
 
-                this.$('.time[data-name=afternoon] .count').html(activityInfo.calories + ' Calories');
+                this.$('.time.selected .count').html(activityInfo.calories + ' Calories');
 
                 // populate calorie counter
                 var att = item.attributes;
@@ -294,12 +297,12 @@ define([
         },
 
         showAddPopup: function(){
-              Act.call('fetchActivityAction',{},
-                 function(res){
-                   console.log('Saved successfully',res);
-                 }, function(err, msg){
-                   console.log(JSON.stringify(msg));
-                });
+              // Act.call('fetchActivityAction',{type:'Childcare'},
+              //    function(res){
+              //      console.log('Saved successfully',res);
+              //    }, function(err, msg){
+              //      console.log(JSON.stringify(msg));
+              //   });
 
             $('#add').toggleClass('selected');
             $('#addActivityPopup').toggle();
@@ -307,8 +310,9 @@ define([
 
         addActivityItem: function(){
             this.time = $(".time.selected").attr('data-name') || "morning";
-            this.container.time = this.time.slice(0,1).toUpperCase() + this.time.slice(1,this.time.length);
-            console.log(this.time);
+            var timeStr = this.time.slice(0,1).toUpperCase() + this.time.slice(1,this.time.length);
+            console.log(timeStr);
+            this.container.time = timeStr;
             this.container.setActiveView('activityScreen');
         },
 
@@ -341,7 +345,7 @@ define([
         clearActivity: function(){
             //TODO: clear todays meal
             var time = $(".time.selected").attr('data-name') || "morning";
-            this.item.clearMeal(time);
+            this.item.clearTime(time);
             $('#add').toggleClass('selected');
             $('#addActivityPopup').toggle();
             this.populateTime(time);
