@@ -1908,7 +1908,7 @@ section#widgetScreen #scrollWrapper {
 .medWrap .medCab #shelf3,
 .medWrap .medCab #shelf4 {
   position: relative;
-  top: 45px;
+  top: 40px;
 }
 .medWrap .medCab #shelf1 ul,
 .medWrap .medCab #shelf2 ul,
@@ -1924,7 +1924,7 @@ section#widgetScreen #scrollWrapper {
 .medWrap .medCab #shelf4 li {
   width: 32%;
   text-align: center;
-  font-size: 0.8em;
+  font-size: 0.6em;
 }
 .medWrap .medCab #shelf1 li img,
 .medWrap .medCab #shelf2 li img,
