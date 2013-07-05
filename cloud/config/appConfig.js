@@ -41,7 +41,8 @@ var appConfig = {
                 "immunizations":"/PeachyWebApi/api/Immunizations/",
                 "encounters":"/PeachyWebApi/api/Encounters/",
                 "vitalsigns":"/PeachyWebApi/api/vitalsigns/",
-                "fetchResults":"/PeachyWebApi/api/Results/"
+                "fetchResults":"/PeachyWebApi/api/Results/",
+                "activities": "/PeachyWebApi/api/activities/",
             },
             "session": {
                 // Inactivity timeout (Seconds)

@@ -27,14 +27,18 @@
             max-height: 200px;
             min-height: 20px;
             overflow: hidden;
+
+            #scroller {
+                padding-bottom: 0px;
+            }
         }
 
         .box.inputs {
     		display: inline-block;
     		label {float: left;}
 
-    		&.servings {width: 44%}
-    		&.size {width:45%}
+    		&.servings, &.minutes {width: 44%}
+    		&.size, &.calBurned {width:45%}
     		&.notes {width: 92%;}
 
     		label {

@@ -18,15 +18,15 @@ define([
         template: _.template(tpl),
         itemTpl : _.template(activityItem),
         events  : {
-            "click #searchImg"         : "searchActivity",
-            "click #xImg"              : "clearSearchField",
-            "click #backToTop"         : "backToTop",
-            "click #foodList .boxEntry": "showActivityItemScreen",
-            'click #cancelFood'        : 'cancelActivity',
-            'click #foodFavBtn'        : 'addActivityToFav',
-            'click #saveToMeal'        : 'saveActivityToTime',
-            'change #serving'          : 'calculateNutrients',
-            'submit #searchForm'       : "searchActivity"
+            "click #searchImg"             : "searchActivity",
+            "click #xImg"                  : "clearSearchField",
+            "click #backToTop"             : "backToTop",
+            "click #activityList .boxEntry": "showActivityItemScreen",
+            'click #cancelActivity'        : 'cancelActivity',
+            'click #activityFavBtn'        : 'addActivityToFav',
+            'click #saveToTime'            : 'saveActivityToTime',
+            'change #minutes'              : 'calculateNutrients',
+            'submit #searchForm'           : "searchActivity"
         },
 
         initialize: function() {
@@ -55,7 +55,7 @@ define([
         searchActivity: function(){
             var self = this;
             var searchTerm = $("#searchTerm").val();
-            var type = $("#filter").find(":selected").text();
+            var type = $("#filter").find(":selected").val();
 
             if(searchTerm === null || searchTerm === ""){
                 Backbone.trigger('notify', 'Please enter a search term', 'Search Error');
@@ -77,10 +77,10 @@ define([
                 $('#activityList').show();
                 for(var i=0;i<data.length;i++){
                     var item = data[i];
-                    var name = item.fullname || item.attributes.fullname;
+                    var name = item.activity || item.attributes.activity;
                     var html = "<div class='boxEntry' data-id='"+item.id+"''><span id='name'>" +name +"</span>"+
                                 "<span id='about'>" + "</span></div>";
-                    $('#foodList').append(html);
+                    $('#activityList').append(html);
                 }
                 self.container.container.iscroll.disable();
                 $('#modalMask').hide().html("");
@@ -99,6 +99,7 @@ define([
         },
 
         showActivityItemScreen: function(e){
+            console.log('Selected');
             var self = this;
             var target = $(e.currentTarget);
             var id = target.attr('data-id');
@@ -137,48 +138,32 @@ define([
         },
 
         saveActivityToTime: function(){
-            var food = this.selectedFood;
-            if(!food){
-                console.warn('No Food Selected');
+            var self = this;
+            var activity = this.selectedActivity;
+            if(!activity){
+                console.warn('No Activity Selected');
                 return;
             } else {
-                food.attributes.serving = $("#serving").val() + " x " + $('#size').val();
-                food = this.multiplyServing($("#serving").val(), food);
-                this.container.container.foodItems.push(food);
-                console.log(this.container.container.foodItems);
+                var mins = parseInt($("#minutes").val());
+                var cals = parseFloat($('#calBurned').val());
+                console.log('mins',mins,cals);
+                activity.set("recent", true);
+                activity.set('calories', mins*cals);
+                activity.set('minutes', mins);
+                this.container.container.activityItems.push(activity);
             }
-            $("span#meal").text("Lunch - ("+this.container.container.foodItems.length+")");
-            this.cancelFood();
+            $("span#time").text(self.time+" - ("+this.container.container.activityItems.length+")");
+            this.cancelActivity();
         },
 
+        // When minutes number changes, recalculate calories
         calculateNutrients: function(){
-            var servings = $('#serving').val();
+            var minutes = $('#minutes').val();
             var att = this.model.attributes;
-            var calories      = parseFloat(att.calories) || 0;
-            var fat           = parseFloat(att.total_fat) || 0;
-            var cholesterol   = parseFloat(att.cholesterol) || 0;
-            var sodium        = parseFloat(att.sodium) || 0;
-            var carbohydrates = parseFloat(att.total_carbohydrates) || 0;
-            var fibre         = parseFloat(att.fiber) || 0;
-            var protein       = parseFloat(att.protein) || 0;
+            var calories      = parseFloat(att.calorieBaseline) || 0;
 
             var el = $("#nutritionInfo");
-            el.find("#totalCalories #amount").text(calories*servings);
-            el.find("#fat #amount").text(fat*servings);
-            el.find("#cholesterol #amount").text(cholesterol*servings);
-            el.find("#sodium #amount").text(sodium*servings);
-            el.find("#carbohydrates #amount").text(carbohydrates*servings);
-            el.find("#dietryFibre #amount").text(fibre*servings);
-            el.find("#protein #amount").text(protein*servings);
-
-                //rda's
-            el.find("#totalCalories #rda")  .text(Math.round((calories*servings/journal.dailyValues.calories)*100) + "%");
-            el.find("#fat #rda")            .text(Math.round((fat*servings/journal.dailyValues.fat)*100) + "%");
-            el.find("#cholesterol #rda")    .text(Math.round((cholesterol*servings/journal.dailyValues.cholesterol)*100) + "%");
-            el.find("#sodium #rda")         .text(Math.round((sodium*servings/journal.dailyValues.sodium)*100) + "%");
-            el.find("#carbohydrates #rda")  .text(Math.round((carbohydrates*servings/journal.dailyValues.carbohydrates)*100) + "%");
-            el.find("#dietryFibre #rda")    .text(Math.round((fibre*servings/journal.dailyValues.fibre)*100) + "%");
-            el.find("#protein #rda")        .text(Math.round((protein*servings/journal.dailyValues.protein)*100) + "%");
+            el.find("#totalCalories #amount").text(calories*minutes);
             this.updateNutrition();
         },
 
@@ -190,29 +175,6 @@ define([
                 var percent = thisEl.find("#rda").text() || "0%";
                 thisEl.find("#name").css("background-size", percent +" 100%");
             }
-
-        },
-
-        multiplyServing: function(serving, model){
-            var att = model.attributes;
-            var calories      = parseFloat(att.calories) || 0;
-            var fat           = parseFloat(att.total_fat) || 0;
-            var cholesterol   = parseFloat(att.cholesterol) || 0;
-            var sodium        = parseFloat(att.sodium) || 0;
-            var carbohydrates = parseFloat(att.total_carbohydrates) || 0;
-            var fibre         = parseFloat(att.fiber) || 0;
-            var protein       = parseFloat(att.protein) || 0;
-
-            att.calories      = calories*serving;
-            att.fat           = fat*serving;
-            att.cholesterol   = cholesterol*serving;
-            att.sodium        = sodium*serving;
-            att.carbohydrates = carbohydrates*serving;
-            att.fibre         = fibre*serving;
-            att.protein       = protein*serving;
-
-            model.attributes = att;
-            return model;
         }
 
     });
