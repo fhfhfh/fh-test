@@ -58,6 +58,8 @@ html {
   /* 1 */
 
   -webkit-text-size-adjust: 100%;
+  /* 2 */
+
   -ms-text-size-adjust: 100%;
   /* 2 */
 
@@ -1904,26 +1906,33 @@ section#widgetScreen #scrollWrapper {
 }
 .medWrap .medCab #shelf1,
 .medWrap .medCab #shelf2,
-.medWrap .medCab #shelf3 {
+.medWrap .medCab #shelf3,
+.medWrap .medCab #shelf4 {
   position: relative;
-  top: 25px;
+  top: 40px;
 }
 .medWrap .medCab #shelf1 ul,
 .medWrap .medCab #shelf2 ul,
-.medWrap .medCab #shelf3 ul {
+.medWrap .medCab #shelf3 ul,
+.medWrap .medCab #shelf4 ul {
   width: 80%;
   margin-left: auto;
   margin-right: auto;
 }
 .medWrap .medCab #shelf1 li,
 .medWrap .medCab #shelf2 li,
-.medWrap .medCab #shelf3 li {
+.medWrap .medCab #shelf3 li,
+.medWrap .medCab #shelf4 li {
   width: 32%;
+  text-align: center;
+  font-size: 0.6em;
 }
 .medWrap .medCab #shelf1 li img,
 .medWrap .medCab #shelf2 li img,
-.medWrap .medCab #shelf3 li img {
+.medWrap .medCab #shelf3 li img,
+.medWrap .medCab #shelf4 li img {
   width: 85%;
+  margin-bottom: -5px !important;
 }
 #notifications {
   position: absolute;
