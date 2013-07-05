@@ -65,30 +65,13 @@ define(['backbone'], function(Backbone) {
                 var time          = arr[i];
                 var totals        = time[0];
                 var calories      = 0;
-                var fat           = 0;
-                var cholesterol   = 0;
-                var sodium        = 0;
-                var carbohydrates = 0;
-                var fibre         = 0;
-                var protein       = 0;
 
                 for(j=1;j<time.length;j++){
                     var item=time[j];
+                    console.log(item);
                     calories      += parseFloat(item.calories) || 0;
-                    fat           += parseFloat(item.total_fat) || 0;
-                    cholesterol   += parseFloat(item.cholesterol) || 0;
-                    sodium        += parseFloat(item.sodium) || 0;
-                    carbohydrates += parseFloat(item.carbohydrates) || 0;
-                    fibre         += parseFloat(item.fibre) || 0;
-                    protein       += parseFloat(item.protein) || 0;
                 }
                 totals.calories = calories;
-                totals.fat = fat;
-                totals.cholesterol = cholesterol;
-                totals.sodium = sodium;
-                totals.carbohydrates = carbohydrates;
-                totals.fibre = fibre;
-                totals.protein = protein;
                 self.set(time[0], totals);
             }
             this.addTotals();
@@ -101,7 +84,7 @@ define(['backbone'], function(Backbone) {
             this.set("remainingCals", att.goalCals - sum);
         },
 
-        // Return true is no times have been added to model
+        // Return true if no activities have been added to model
         isEmpty: function(){
             var att = this.attributes;
             var m = att.morning.length;
@@ -127,37 +110,20 @@ define(['backbone'], function(Backbone) {
         addTotals: function(){
             var self = this;
             var calories      = 0;
-            var fat           = 0;
-            var cholesterol   = 0;
-            var sodium        = 0;
-            var carbohydrates = 0;
-            var fibre         = 0;
-            var protein       = 0;
+            console.log(this);
 
             var att  = this.attributes;
-            var m    = att.breakfast;
-            var a    = att.lunch;
-            var e    = att.dinner;
-            var o    = att.snacks;
+            var m    = att.morning;
+            var a    = att.afternoon;
+            var e    = att.evening;
+            var o    = att.other;
             var arr  = [m,a,e,o];
 
             for(var i=0;i<arr.length;i++){
                 var time = arr[i][0];
                 calories      += time.calories || 0;
-                fat           += time.total_fat || 0;
-                cholesterol   += time.cholesterol || 0;
-                sodium        += time.sodium || 0;
-                carbohydrates += time.carbohydrates || 0;
-                fibre         += time.fibre || 0;
-                protein       += time.protein || 0;
             }
             this.set("calories", calories);
-            this.set("fat", fat);
-            this.set("cholesterol", cholesterol);
-            this.set("sodium", sodium);
-            this.set("carbohydrates", carbohydrates);
-            this.set("fibre", fibre);
-            this.set("protein", protein);
         }
 
     });

@@ -39,14 +39,14 @@ define([
 
         render: function() {
             var self = this;
-            this.setActiveView('busyBody');
             this.time = this.container.time;
+            this.setActiveView('busyBody');
             this.delegateEvents();
             if (this.activeView) {
                 this.activeView.delegateEvents();
             }
 
-            $("span#time").text(self.time+" - ("+this.container.activityItems.length+")");
+            $("span#time").text(self.time +" - ("+this.container.activityItems.length+")");
             return this;
         },
 
@@ -63,7 +63,7 @@ define([
 
         busyBody : function(){
           this.$buttons.find('li').removeClass('selected');
-          this.$buttons.find('#busyBody').addClass('selected');
+          this.$buttons.find('#busyBodyList').addClass('selected');
           this.setActiveView('busyBody');
         },
 
