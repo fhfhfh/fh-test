@@ -377,6 +377,7 @@ input {
   color: white;
   padding: 5px 10px 5px 10px;
   font: bold 14px "Avenir Next", Helvetica, Arial, sans-serif;
+  background-color: #525252;
   background-image: linear-gradient(bottom, #1f1f1f 0%, #525252 85%);
   background-image: -webkit-linear-gradient(bottom, #1f1f1f 0%, #525252 85%);
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #1f1f1f), color-stop(0.85, #525252));
@@ -411,7 +412,7 @@ input {
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #feb000), color-stop(0.85, #f26622));
 }
 .red {
-  background-color: red;
+  background-color: #ff0000;
   background-image: linear-gradient(bottom, #800000 0%, #ff0000 85%);
   background-image: -webkit-linear-gradient(bottom, #800000 0%, #ff0000 85%);
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #800000), color-stop(0.85, #ff0000));
@@ -425,7 +426,7 @@ input {
 }
 .white {
   color: #000000;
-  background-color: #ffffff;
+  background-color: #e7f9fb;
   background-image: linear-gradient(bottom, #c7f0f6 0%, #ffffff 85%);
   background-image: -webkit-linear-gradient(bottom, #c7f0f6 0%, #ffffff 85%);
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #c7f0f6), color-stop(0.85, #ffffff));
@@ -484,6 +485,7 @@ section h1 {
   z-index: 500;
   border: none;
   text-align: center;
+  background-color: #585858;
   background-image: linear-gradient(bottom, #464646 0%, #1f1f1f 65%, #2e2e2e 21%, #525252 90%, #6b6b6b 100%);
   background: -moz-linear-gradient(bottom, #464646 0%, #2e2e2e 21%, #1f1f1f 65%, #525252 90%, #6b6b6b 100%);
   background-image: -webkit-linear-gradient(bottom, #464646 0%, #1f1f1f 65%, #2e2e2e 21%, #525252 90%, #6b6b6b 100%);
@@ -501,11 +503,9 @@ section h1 {
 }
 .popup li {
   display: block;
-  background-color: #ffffff;
   margin: 10px 5px;
   padding: 8px;
   padding-right: 0px;
-  background-color: #fff;
   border-radius: 5px;
   border: 1px solid #c0c0c0;
 }
@@ -855,6 +855,7 @@ section h1 {
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
   position: relative;
+  background-color: #878888;
   background-image: linear-gradient(bottom, #cccccc 0%, #ffffff 85%);
   background-image: -webkit-linear-gradient(bottom, #cccccc 0%, #ffffff 85%);
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #cccccc), color-stop(0.85, #ffffff));
@@ -1595,6 +1596,7 @@ section#widgetScreen #topBar {
   background-image: -webkit-linear-gradient(bottom, #ababab 0%, #ebebeb 85%);
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #ababab), color-stop(0.85, #ebebeb));
   background: -moz-linear-gradient(bottom, #ababab 0%, #ebebeb 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ebebeb', endColorstr='#ababab', GradientType=0);
   color: #000000;
   vertical-align: middle;
   font: normal 14px "Avenir Next", Helvetica, Arial, sans-serif;
@@ -1870,7 +1872,6 @@ section#widgetScreen #scrollWrapper {
 }
 #medicine #selector {
   padding-bottom: 20px;
-  overflow: scroll;
 }
 #featuredMeds #filterView {
   top: 50px;
@@ -1941,7 +1942,7 @@ section#widgetScreen #scrollWrapper {
 .medWrap .medCab #shelf4 li {
   width: 32%;
   text-align: center;
-  font-size: 0.6em;
+  font-size: 0.7em;
 }
 .medWrap .medCab #shelf1 li img,
 .medWrap .medCab #shelf2 li img,
@@ -1959,6 +1960,7 @@ section#widgetScreen #scrollWrapper {
 }
 #notification {
   text-align: center;
+  background: #2e2e2e;
   background-image: linear-gradient(bottom, #464646 0%, #1f1f1f 65%, #2e2e2e 21%, #525252 90%, #6b6b6b 100%);
   background: -moz-linear-gradient(bottom, #464646 0%, #2e2e2e 21%, #1f1f1f 65%, #525252 90%, #6b6b6b 100%);
   background-image: -webkit-linear-gradient(bottom, #464646 0%, #1f1f1f 65%, #2e2e2e 21%, #525252 90%, #6b6b6b 100%);
@@ -4103,15 +4105,14 @@ section#insights h1 {
 #activityListScreen #body #content #level1Activity #hScroller {
   white-space: nowrap;
   width: auto;
-  float: left;
   position: relative;
-  padding-right: 250px;
-  overflow: scroll;
+  padding-right: 20%;
+  padding-left: 5%;
 }
 #activityScreen #body #content #level2Activity,
 #activityListScreen #body #content #level2Activity {
   background: url('../img/food/bg-food-menu-bar-sub.png') repeat-x;
-  max-height: 60px;
+  height: auto;
   margin: 20px 0px;
   width: 90%;
   margin-left: auto;
@@ -4120,7 +4121,6 @@ section#insights h1 {
   box-shadow: 0px 0px 4px 0px #000000;
   color: #000000;
   white-space: nowrap;
-  overflow: scroll;
 }
 #activityScreen #body #content #level2Activity .activityItem,
 #activityListScreen #body #content #level2Activity .activityItem {
@@ -4151,6 +4151,7 @@ section#insights h1 {
 }
 #activityScreen #body .activityItem.selected,
 #activityListScreen #body .activityItem.selected {
+  background-color: #a0e382;
   background-image: linear-gradient(bottom, #a0e382 0%, #e1f9d6 85%);
   background-image: -webkit-linear-gradient(bottom, #a0e382 0%, #e1f9d6 85%);
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #a0e382), color-stop(0.85, #e1f9d6));
@@ -5202,6 +5203,7 @@ section#insights h1 {
   height: 50px;
 }
 #foodScreen #body .foodItem.selected {
+  background-color: #fee9c9;
   background-image: linear-gradient(bottom, #fff1a0 0%, #fee9c9 85%);
   background-image: -webkit-linear-gradient(bottom, #fff1a0 0%, #fee9c9 85%);
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #fff1a0), color-stop(0.85, #fee9c9));
