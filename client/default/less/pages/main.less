@@ -184,3 +184,15 @@
 #child-content {
     padding: 15px;
 }
+
+@-moz-document url-prefix() { 
+  #child-content  {
+     padding: 15px;
+     padding-bottom: 60px;
+  }
+}
+
+#child-content x:-moz-any-link, x:default { 
+    padding: 15px;
+    padding-bottom: 60px; 
+}
