@@ -2801,6 +2801,7 @@ section#insights h1 {
   left: 415px;
   width: 200px;
   text-align: center;
+  background-color: #2b6891;
   background-image: linear-gradient(bottom, #000000 9%, #2b6891 99%);
   background-image: -webkit-linear-gradient(bottom, #000000 9%, #2b6891 99%);
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0.9, #000000), color-stop(0.99, #2b6891));
