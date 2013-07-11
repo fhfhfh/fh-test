@@ -128,7 +128,7 @@ var SessionUtils = function() {
         // Do we have the object in session?
         $fh.session.get(sessionId,function handleSessionLoad(err, data) {
           
-                if (err) {
+                if (err || !data) {
                     return callback("Error Fetching Session Object from session: " + JSON.stringify(err), null);
                 }
             
