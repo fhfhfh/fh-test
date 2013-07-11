@@ -319,3 +319,4 @@ var SessionUtils = function() {
 
 // Export Module
 module.exports = new SessionUtils();
+ SessionUtils();
