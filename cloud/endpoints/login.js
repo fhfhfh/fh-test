@@ -92,7 +92,7 @@ var loginEndpoint = function() {
                                 if(err)
                                 {
                                     var fail = respUtils.constructStatusResponse("Login", constants.RESP_SERVER_ERROR, errMsg,{});
-                                    return callback(fail, null);                                        
+                                    return callback(fail, null);
                                 }
                                 success.response.payload = respData.response.payload;
                                 return callback(null,success);
