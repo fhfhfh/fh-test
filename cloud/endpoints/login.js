@@ -38,19 +38,19 @@ var loginEndpoint = function() {
                 userId: userId,
                 password: password
             }
-        }
-        
-          var requestJson = {
-                    EndPointName : "login",
-                    path : "auth",
-                    apiSessionId : "",
-                    method :"POST",
-                    jsonObj : jsonObj
-                }
-         var apiSessionId = "";
-          var respJson = reqUtils.makeRequestCall(requestJson, function(err,res){
-             
-             if(res != null){
+        };
+
+        var requestJson = {
+            EndPointName : "login",
+            path : "auth",
+            apiSessionId : "",
+            method :"POST",
+            jsonObj : jsonObj
+        };
+        var apiSessionId = "";
+        var respJson = reqUtils.makeRequestCall(requestJson, function(err,res){
+
+            if(res !== null){
                  apiSessionId = res.headers.sessionid;
                 if(!apiSessionId)
                 {
@@ -60,10 +60,10 @@ var loginEndpoint = function() {
                 else
                 {
                     //Creating the session 
-                    sessionManager.createSession(function handleCreateSession(errMsg, data) {
+                    sessionManager.createSession(function(errMsg, data) {
 
                         // Trouble?
-                        if (errMsg != null) {
+                        if (errMsg !== null) {
                             var fail = respUtils.constructStatusResponse("Login", constants.RESP_SERVER_ERROR, errMsg,{});
                             return callback(fail, null);
                         }

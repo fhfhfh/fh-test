@@ -33,7 +33,7 @@ var SessionUtils = function() {
      * Creates new session object and returns the sessionId.
      */
     function createSession(callback) {
-
+        log.info('CREATING SESSION');
         // Pseudo random sessionId
         var sessionId = generateSessionId();
         var self = this;
@@ -43,29 +43,29 @@ var SessionUtils = function() {
         var sessionObjJson = {
             "sessionId" : sessionId
         };
-        
+
         // Serialize it
         var sessionObj = JSON.stringify(sessionObjJson);
         log.debug("["+this.className+"]"+"[createSession]>>Attempting to save sessionObj: " + sessionObj);
-        
+
         // Save it
         $fh.session.set(sessionId, sessionObj, config.session.lifetime,
             function(err) {
-          
+
                 if (err) {
                     log.debug("["+self.className+"]"+"[createSession]>>Error creating session: " + util.inspect(err));
                     return callback("Failed to save session object to $fh.session()." + JSON.stringify(err), null);
                 }
-              
+
                 log.debug("["+self.className+"]"+"[createSession]>>Session created successfully: " + sessionId);
                 return callback(null, {
                     "sessionId" : sessionId
                 });
-          
+
             }
             );
 
-    }; // createSession()
+    } // createSession()
 
     /*
      * Checks whether the session is valid and active.
