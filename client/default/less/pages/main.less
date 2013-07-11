@@ -36,10 +36,12 @@
     background-color: #878888;
     .background-gradient(#878888, #fff);
     background: -moz-linear-gradient(top, #ffffff 0%, #878888 100%); 
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#878888',GradientType=0 );
     .avenir-bold(14px);
 
     &.selected {
         background-color: #fff;
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ffffff',GradientType=0 );
         background-image: none;
     }
 }
@@ -57,10 +59,12 @@
     background-color: #878888;
     .background-gradient(#ccc, #fff);
     background: -moz-linear-gradient(bottom, #cccccc 0%, #ffffff 85%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#cccccccc',GradientType=0 );
     .avenir-bold(14px);
 
     &.selected {
         background-color: #fff;
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ffffff',GradientType=0 );
         background-image: none;
     }
 }

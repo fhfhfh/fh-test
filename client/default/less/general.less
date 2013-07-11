@@ -78,6 +78,7 @@ input {
     .background-gradient(#800000, red);
     border: 1px solid rgb(211, 136, 0);
     background-image: -moz-linear-gradient(bottom, #800000 0%, red 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff0000', endColorstr='#800000',GradientType=0 );
 }
 
 .white {
@@ -87,7 +88,8 @@ input {
     background: -moz-linear-gradient(bottom, #c7f0f6 0%, #ffffff 100%);
     .avenir-bold(14px);
     border: 1px solid rgb(211, 136, 0);
-}
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#c7f0f6',GradientType=0 );
+    }
 
 .accept {
     background-color: green;
@@ -148,8 +150,10 @@ section {
         color-stop(0.9, rgb(82,82,82)),
         color-stop(1, rgb(107,107,107))
     );
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#707070', endColorstr='#191919',GradientType=0 );
 
     border-radius: 10px;
+    border-radius: 0\9;
     padding: 5px;
     box-shadow: 2px 2px 5px #000000;
     .avenir(13px);
@@ -170,7 +174,9 @@ section {
         padding-right: 0px;
         //background-color: #fff;
         border-radius: 5px;
+        border-radius: 0\9;
         border: 1px solid #c0c0c0;
+        border: none\9;
 
 
         label {

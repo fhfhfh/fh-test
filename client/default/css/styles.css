@@ -418,6 +418,7 @@ input {
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #800000), color-stop(0.85, #ff0000));
   border: 1px solid #d38800;
   background-image: -moz-linear-gradient(bottom, #800000 0%, #ff0000 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff0000', endColorstr='#800000', GradientType=0);
 }
 .red:active {
   background-image: linear-gradient(bottom, #ff0000 0%, #800000 85%);
@@ -433,6 +434,7 @@ input {
   background: -moz-linear-gradient(bottom, #c7f0f6 0%, #ffffff 100%);
   font: bold 14px "Avenir Next", Helvetica, Arial, sans-serif;
   border: 1px solid #d38800;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#c7f0f6', GradientType=0);
 }
 .white:active {
   background-image: linear-gradient(bottom, #ffffff 0%, #c7f0f6 85%);
@@ -490,7 +492,9 @@ section h1 {
   background: -moz-linear-gradient(bottom, #464646 0%, #2e2e2e 21%, #1f1f1f 65%, #525252 90%, #6b6b6b 100%);
   background-image: -webkit-linear-gradient(bottom, #464646 0%, #1f1f1f 65%, #2e2e2e 21%, #525252 90%, #6b6b6b 100%);
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #464646), color-stop(0.65, #1f1f1f), color-stop(0.21, #2e2e2e), color-stop(0.9, #525252), color-stop(1, #6b6b6b));
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#707070', endColorstr='#191919', GradientType=0);
   border-radius: 10px;
+  border-radius: 0\9;
   padding: 5px;
   box-shadow: 2px 2px 5px #000000;
   font: normal 13px "Avenir Next", Helvetica, Arial, sans-serif;
@@ -507,7 +511,9 @@ section h1 {
   padding: 8px;
   padding-right: 0px;
   border-radius: 5px;
+  border-radius: 0\9;
   border: 1px solid #c0c0c0;
+  border: none\9;
 }
 .popup li label {
   color: #000000;
@@ -834,6 +840,7 @@ section h1 {
   background-image: -webkit-linear-gradient(bottom, #878888 0%, #ffffff 85%);
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #878888), color-stop(0.85, #ffffff));
   background: -moz-linear-gradient(top, #ffffff 0%, #878888 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#878888', GradientType=0);
   font: bold 14px "Avenir Next", Helvetica, Arial, sans-serif;
 }
 #content-tab-list li:active {
@@ -843,6 +850,7 @@ section h1 {
 }
 #content-tab-list li.selected {
   background-color: #fff;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#ffffff', GradientType=0);
   background-image: none;
 }
 #content-tab-list4 li {
@@ -860,6 +868,7 @@ section h1 {
   background-image: -webkit-linear-gradient(bottom, #cccccc 0%, #ffffff 85%);
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #cccccc), color-stop(0.85, #ffffff));
   background: -moz-linear-gradient(bottom, #cccccc 0%, #ffffff 85%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#cccccccc', GradientType=0);
   font: bold 14px "Avenir Next", Helvetica, Arial, sans-serif;
 }
 #content-tab-list4 li:active {
@@ -869,6 +878,7 @@ section h1 {
 }
 #content-tab-list4 li.selected {
   background-color: #fff;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#ffffff', GradientType=0);
   background-image: none;
 }
 #content-tab-list5 li {
@@ -2382,15 +2392,15 @@ section#widgetScreen #scrollWrapper {
   vertical-align: middle;
   -webkit-border-radius: 5px;
   border-radius: 5px;
+  border-radius: 0\9;
   border: 1px solid black;
   color: #fff;
   font: bold 14px "Avenir Next", Helvetica, Arial, sans-serif;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#464646', endColorstr='#6b6b6b', GradientType=0);
   background-image: linear-gradient(bottom, #464646 0%, #1f1f1f 50%, #2e2e2e 51%, #525252 73%, #6b6b6b 100%);
   background-image: -webkit-linear-gradient(bottom, #464646 0%, #1f1f1f 50%, #2e2e2e 51%, #525252 73%, #6b6b6b 100%);
   background-image: -moz-linear-gradient(bottom, #464646 0%, #1f1f1f 50%, #2e2e2e 51%, #525252 73%, #6b6b6b 100%);
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #464646), color-stop(0.5, #1f1f1f), color-stop(0.51, #2e2e2e), color-stop(0.73, #525252), color-stop(1, #6b6b6b));
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#464646', endColorstr='#6b6b6b', GradientType=0);
-  box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.15);
 }
 #top-bar-buttons li button#save {
   border: 2px solid #fff1a0;
@@ -2415,6 +2425,8 @@ section#widgetScreen #scrollWrapper {
   background-image: url('../img/PointsButtonWatermark.png'), -webkit-linear-gradient(bottom, #464646 0%, #1f1f1f 50%, #2e2e2e 51%, #525252 73%, #6b6b6b 100%);
   background-image: url('../img/PointsButtonWatermark.png'), -moz-linear-gradient(top, #464646 0%, #1f1f1f 50%, #2e2e2e 51%, #525252 73%, #6b6b6b 100%);
   background-image: url('../img/PointsButtonWatermark.png'), -webkit-gradient(linear, left bottom, left top, color-stop(0, #464646), color-stop(0.5, #1f1f1f), color-stop(0.51, #2e2e2e), color-stop(0.73, #525252), color-stop(1, #6b6b6b));
+  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../img/PointsButtonWatermarkIE.png') progid:DXImageTransform.Microsoft.gradient(startColorstr='#464646', endColorstr='#6b6b6b', GradientType=0);
+  border: 1px solid black\9;
   background-position: left bottom;
   background-repeat: no-repeat;
   background-opacity: 0.2;
@@ -3294,8 +3306,10 @@ section#insights h1 {
 #foodometer #body #content #rightContent,
 #foodScreen #body #content #rightContent,
 #activityScreen #body #content #rightContent {
-  float: right;
-  width: 80%;
+  display: inline-block;
+  width: 75%;
+  float: left;
+  padding-left: 2%;
   height: 100%;
 }
 #foodometer #body #content #rightContent #emptyFood,
@@ -3693,11 +3707,10 @@ section#insights h1 {
 #activityScreen #addFoodPopup {
   display: none;
   position: absolute;
-  right: 60px;
-  top: 155px;
+  right: 8%;
+  top: 10%;
   width: 300px;
   left: auto;
-  box-shadow: 0px -1px 1px #000000;
 }
 #foodometer #addFoodPopup .btn,
 #foodScreen #addFoodPopup .btn,
@@ -4541,8 +4554,10 @@ section#insights h1 {
   background-image: url('../img/food/bg-light-gray-left-column.png');
 }
 #busyBody #body #content #rightContent {
-  float: right;
-  width: 80%;
+  display: inline-block;
+  width: 75%;
+  float: left;
+  padding-left: 2%;
   height: 100%;
 }
 #busyBody #body #content #rightContent #emptyDay {
@@ -4853,8 +4868,8 @@ section#insights h1 {
 #busyBody #addActivityPopup {
   display: none;
   position: absolute;
-  right: 60px;
-  top: 155px;
+  right: 10%;
+  top: 17%;
   width: 300px;
   left: auto;
   box-shadow: 0px -1px 1px #000000;
