@@ -28,7 +28,7 @@ var healthHubEndpoint = function() {
         {
             log.error("[healthHubEndpoint][healthHub] >> SessionId Not Available");
             var responseJson = respUtils.constructStatusResponse("healthHub", constants.RESP_AUTH_FAILED, "Authentication  Fail",{});
-            return callback(responseJson,null) 
+            return callback(responseJson,null);
         }
         // Extract sessionId from request params
         var sessionId = jsonUtils.getPath(reqJson, "request.head.sessionId").trim();
@@ -36,7 +36,7 @@ var healthHubEndpoint = function() {
         //Fetching session details
         sessionManager.getSession(sessionId, function(err, data ){
             log.info("[healthHubEndpoint][healthHub] >> Session Details :"+JSON.stringify(data));
-            if(data)
+            if(!err)
             {
                 var JsonObj = [
                 {

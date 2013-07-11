@@ -38,19 +38,19 @@ var loginEndpoint = function() {
                 userId: userId,
                 password: password
             }
-        }
-        
-          var requestJson = {
-                    EndPointName : "login",
-                    path : "auth",
-                    apiSessionId : "",
-                    method :"POST",
-                    jsonObj : jsonObj
-                }
-         var apiSessionId = "";
-          var respJson = reqUtils.makeRequestCall(requestJson, function(err,res){
-             
-             if(res != null){
+        };
+
+        var requestJson = {
+            EndPointName : "login",
+            path : "auth",
+            apiSessionId : "",
+            method :"POST",
+            jsonObj : jsonObj
+        };
+        var apiSessionId = "";
+        var respJson = reqUtils.makeRequestCall(requestJson, function(err,res){
+
+            if(res !== null){
                  apiSessionId = res.headers.sessionid;
                 if(!apiSessionId)
                 {
@@ -60,22 +60,22 @@ var loginEndpoint = function() {
                 else
                 {
                     //Creating the session 
-                    sessionManager.createSession(function handleCreateSession(errMsg, data) {
+                    sessionManager.createSession(function(errMsg, data) {
 
                         // Trouble?
-                        if (errMsg != null) {
+                        if (errMsg !== null) {
                             var fail = respUtils.constructStatusResponse("Login", constants.RESP_SERVER_ERROR, errMsg,{});
                             return callback(fail, null);
                         }
 
                         // Initialize session state.
                         var sessionId = data.sessionId;
-                        
+
                         //preparing object for apiSession
                         var sessionAttrs = {
                             "apiSessionId": apiSessionId
                         };
-                 
+
                         log.debug("Attempting to Save to SessionId: " + sessionId );
                         //adding apisession into session
                         sessionManager.setSessionAttributes(sessionId, sessionAttrs, function onSessionSetAttr(errMsg, success){
@@ -92,7 +92,7 @@ var loginEndpoint = function() {
                                 if(err)
                                 {
                                     var fail = respUtils.constructStatusResponse("Login", constants.RESP_SERVER_ERROR, errMsg,{});
-                                    return callback(fail, null);                                        
+                                    return callback(fail, null);
                                 }
                                 success.response.payload = respData.response.payload;
                                 return callback(null,success);

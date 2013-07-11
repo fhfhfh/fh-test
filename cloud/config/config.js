@@ -1,8 +1,8 @@
 var config = {
-    
+
     version: '0.0.1',
     debug: true,
-  
+
     //
     // Logging Configuration
     //
@@ -13,7 +13,7 @@ var config = {
             INFO: 3,
             WARN: 4,
             ERROR: 5,
-            OFF: 6          
+            OFF: 6
         },
         logPrefixes: {
             1: "TRACE",
@@ -24,22 +24,18 @@ var config = {
         },
         currentLogLevel: 2
     },
-    
+
     //
     // Session Configuration
     //
     session: {
         // Inactivity timeout (Seconds)
-        lifetime: 24 *  60 * 60
+        // lifetime: 24 *  60 * 60 // no need for cloud session to timeout daily per user
+        lifetime: 0
     }
-    
- 
-  
-  
-    
-}
+};
 
 
 exports.getConfig = function() {
     return config;
-}
+};

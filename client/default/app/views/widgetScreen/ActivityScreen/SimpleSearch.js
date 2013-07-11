@@ -54,7 +54,7 @@ define([
 
         searchActivity: function(){
             var self = this;
-            var searchTerm = $("#searchTerm").val();
+            var searchTerm = $("#searchTerm").val().toLowerCase();
             var type = $("#filter").find(":selected").val();
 
             if(searchTerm === null || searchTerm === ""){

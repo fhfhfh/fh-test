@@ -26,8 +26,10 @@ fetchData = function (reqJson, callback){
     // Extract sessionId from request params
     var sessionId = jsonUtils.getPath(reqJson, "request.head.sessionId").trim();
 
+    log.info("SessionId >> ", sessionId);
     //Fetching session details
     sessionManager.getSession(sessionId, function(err, data ){
+        log.info('DATA >> ', data);
         log.info("[fetchActivity][fetchData] >> Session Details :"+JSON.stringify(data));
         if(data)
         //Fetching data from FH database for Calorie King
