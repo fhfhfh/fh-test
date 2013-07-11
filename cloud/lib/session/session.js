@@ -45,7 +45,7 @@ var SessionUtils = function() {
         };
         
         // Serialize it
-        var sessionObj = JSON.stringify(sessionObjJson); 
+        var sessionObj = JSON.stringify(sessionObjJson);
         log.debug("["+this.className+"]"+"[createSession]>>Attempting to save sessionObj: " + sessionObj);
         
         // Save it
@@ -126,27 +126,28 @@ var SessionUtils = function() {
         log.debug("[Session]"+"[getSession]>>GetSession for SessionId:" + sessionId);
 
         // Do we have the object in session?
-        $fh.session.get(sessionId,function handleSessionLoad(err, data) {
-          
+        $fh.session.get(sessionId,function(err, data) {
+                log.info('Session DATA: >> ', data);
                 if (err || !data) {
+                    log.error('Session DATA is null');
                     return callback("Error Fetching Session Object from session: " + JSON.stringify(err), null);
                 }
-            
+
                 log.debug("[Session]"+"[getSession]>>Loaded session object from session: " + data);
-            
+
                 // Extend the session expiry time.
                 resetSessionTimeout(sessionId, data, function(errMsg, status) {
-              
+
                     // Failed to extend session lifetime?
-                    if (errMsg != null) {
+                    if (errMsg !== null) {
                         return callback(errMsg, null);
                     }
-                
+
                     // All ok! Deserialize session string and return.
                     return callback(null, JSON.parse(data));
-                
+
                 });
-            
+
             }
             );
         
