@@ -1918,7 +1918,7 @@ section#widgetScreen #scrollWrapper {
 }
 .medWrap {
   background: white;
-  width: 90%;
+  width: 600px;
   margin-right: auto;
   margin-left: auto;
   border-radius: 8px;
@@ -1937,7 +1937,7 @@ section#widgetScreen #scrollWrapper {
 .medWrap .medCab #shelf3,
 .medWrap .medCab #shelf4 {
   position: relative;
-  top: 40px;
+  top: 45px;
 }
 .medWrap .medCab #shelf1 ul,
 .medWrap .medCab #shelf2 ul,
@@ -1960,7 +1960,7 @@ section#widgetScreen #scrollWrapper {
 .medWrap .medCab #shelf3 li img,
 .medWrap .medCab #shelf4 li img {
   width: 85%;
-  margin-bottom: -5px !important;
+  margin-bottom: -2px !important;
 }
 #notifications {
   position: absolute;
@@ -3295,15 +3295,8 @@ section#insights h1 {
 #foodScreen #body #content #rightContent,
 #activityScreen #body #content #rightContent {
   float: right;
-  width: 60%;
+  width: 80%;
   height: 100%;
-}
-@media only screen and (orientation: landscape) {
-  #foodometer #body #content #rightContent,
-  #foodScreen #body #content #rightContent,
-  #activityScreen #body #content #rightContent {
-    width: 70%;
-  }
 }
 #foodometer #body #content #rightContent #emptyFood,
 #foodScreen #body #content #rightContent #emptyFood,
@@ -4549,13 +4542,8 @@ section#insights h1 {
 }
 #busyBody #body #content #rightContent {
   float: right;
-  width: 60%;
+  width: 80%;
   height: 100%;
-}
-@media only screen and (orientation: landscape) {
-  #busyBody #body #content #rightContent {
-    width: 70%;
-  }
 }
 #busyBody #body #content #rightContent #emptyDay {
   color: #676767;
