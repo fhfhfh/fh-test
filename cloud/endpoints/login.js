@@ -70,12 +70,12 @@ var loginEndpoint = function() {
 
                         // Initialize session state.
                         var sessionId = data.sessionId;
-                        
+
                         //preparing object for apiSession
                         var sessionAttrs = {
                             "apiSessionId": apiSessionId
                         };
-                 
+
                         log.debug("Attempting to Save to SessionId: " + sessionId );
                         //adding apisession into session
                         sessionManager.setSessionAttributes(sessionId, sessionAttrs, function onSessionSetAttr(errMsg, success){
