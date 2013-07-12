@@ -370,6 +370,7 @@ input {
 }
 .btn {
   border-radius: 5px;
+  border-radius: 0\9;
   border: 1px solid black;
   box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.15);
   height: 30px;
@@ -459,6 +460,7 @@ input {
   background-image: -webkit-linear-gradient(bottom, #1f1f1f 0%, #7fb0db 85%);
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #1f1f1f), color-stop(0.85, #7fb0db));
   background: -moz-linear-gradient(bottom, #1f1f1f 0%, #7fb0db 85%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#7fb0db', endColorstr='#1f1f1f', GradientType=0);
   border: 1px solid #1f1f1f;
 }
 .action:active {
@@ -1896,12 +1898,12 @@ section#widgetScreen #scrollWrapper {
 }
 #featuredMeds #filterView {
   top: 50px;
-  left: 346px;
+  right: 50px;
   width: 215px;
 }
 @media only screen and (orientation: landscape) {
   #featuredMeds #filterView {
-    left: 322px;
+    right: 50px;
     top: 50px;
   }
 }
@@ -1986,7 +1988,9 @@ section#widgetScreen #scrollWrapper {
   background: -moz-linear-gradient(bottom, #464646 0%, #2e2e2e 21%, #1f1f1f 65%, #525252 90%, #6b6b6b 100%);
   background-image: -webkit-linear-gradient(bottom, #464646 0%, #1f1f1f 65%, #2e2e2e 21%, #525252 90%, #6b6b6b 100%);
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #464646), color-stop(0.65, #1f1f1f), color-stop(0.21, #2e2e2e), color-stop(0.9, #525252), color-stop(1, #6b6b6b));
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#6b6b6b', endColorstr='#1f1f1f', GradientType=0);
   border-radius: 10px;
+  border-radius: 0\9;
   padding: 5px;
   box-shadow: 2px 2px 5px #000000;
 }
@@ -2396,7 +2400,7 @@ section#widgetScreen #scrollWrapper {
   border: 1px solid black;
   color: #fff;
   font: bold 14px "Avenir Next", Helvetica, Arial, sans-serif;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#464646', endColorstr='#6b6b6b', GradientType=0);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#8d8d8d', endColorstr='#464646', GradientType=0);
   background-image: linear-gradient(bottom, #464646 0%, #1f1f1f 50%, #2e2e2e 51%, #525252 73%, #6b6b6b 100%);
   background-image: -webkit-linear-gradient(bottom, #464646 0%, #1f1f1f 50%, #2e2e2e 51%, #525252 73%, #6b6b6b 100%);
   background-image: -moz-linear-gradient(bottom, #464646 0%, #1f1f1f 50%, #2e2e2e 51%, #525252 73%, #6b6b6b 100%);
@@ -2425,8 +2429,8 @@ section#widgetScreen #scrollWrapper {
   background-image: url('../img/PointsButtonWatermark.png'), -webkit-linear-gradient(bottom, #464646 0%, #1f1f1f 50%, #2e2e2e 51%, #525252 73%, #6b6b6b 100%);
   background-image: url('../img/PointsButtonWatermark.png'), -moz-linear-gradient(top, #464646 0%, #1f1f1f 50%, #2e2e2e 51%, #525252 73%, #6b6b6b 100%);
   background-image: url('../img/PointsButtonWatermark.png'), -webkit-gradient(linear, left bottom, left top, color-stop(0, #464646), color-stop(0.5, #1f1f1f), color-stop(0.51, #2e2e2e), color-stop(0.73, #525252), color-stop(1, #6b6b6b));
-  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../img/PointsButtonWatermarkIE.png') progid:DXImageTransform.Microsoft.gradient(startColorstr='#464646', endColorstr='#6b6b6b', GradientType=0);
-  border: 1px solid black\9;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#8d8d8d', endColorstr='#464646', GradientType=0);
+  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../img/PointsButtonWatermarkIE.png');
   background-position: left bottom;
   background-repeat: no-repeat;
   background-opacity: 0.2;
@@ -2809,8 +2813,8 @@ section#insights h1 {
 }
 #filterView {
   position: absolute;
-  top: 40px;
-  left: 415px;
+  top: 75px;
+  right: 0;
   width: 200px;
   text-align: center;
   background-color: #2b6891;
@@ -2818,13 +2822,15 @@ section#insights h1 {
   background-image: -webkit-linear-gradient(bottom, #000000 9%, #2b6891 99%);
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0.9, #000000), color-stop(0.99, #2b6891));
   background: -moz-linear-gradient(top, #2b6891 0%, #000000 10%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#2b6891', endColorstr='#000000', GradientType=0);
   border-radius: 10px;
+  border-radius: 0\9;
   padding: 5px;
   box-shadow: 2px 2px 5px #ababab;
 }
 @media only screen and (orientation: landscape) {
   #filterView {
-    left: 385px;
+    right: 0;
   }
 }
 #filterView h2 {

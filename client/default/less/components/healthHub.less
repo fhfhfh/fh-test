@@ -59,19 +59,21 @@
 
 #filterView {
 	position: absolute;
-	top: 40px;
-	left: 415px;
+	top: 75px;
+	right: 0;
 	width: 200px;
 	text-align: center;
 	background-color: #2b6891;
 	.background-gradient-slight(#2b6891, #000000);
 	background: -moz-linear-gradient(top, rgb(43,104,145) 0%, rgb(0,0,0) 10%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2b6891', endColorstr='#000000',GradientType=0 );
 	border-radius: 10px;
+	border-radius: 0\9;
 	padding: 5px;
 	box-shadow: 2px 2px 5px #ababab;
 
 	@media only screen and (orientation: landscape) {
-        left: 385px;
+        right: 0;
     }
 
 	h2 {
