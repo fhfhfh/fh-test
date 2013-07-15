@@ -44,6 +44,7 @@ var searchCKEndpoint = require("./endpoints/searchCKdb.js");
 var fetchActivityEndpoint = require("./endpoints/fetchActivity");
 
 var dbParser = require("./dbparser.js");
+var http = require("http");
 
 
 // mock service if not on $fh
@@ -96,6 +97,7 @@ exports.searchDBAction = searchDBAction;
 exports.fetchActivityAction = fetchActivityAction;
 exports.searchActivityAction = searchActivityAction;
 exports.saveJournalAction = saveJournalAction;
+exports.html = html;
 
 //--------------------------------------login----------------------------------------
 function loginAction(params, callback) {
@@ -451,6 +453,38 @@ function searchActivityAction(params, callback) {
 function saveJournalAction(params, callback){
   // for ashish to implement
   return callback(null, {response: {payload: {status: "OK"}}});
+}
+
+
+// return cb(null, data, {"Content-Type": 'text/html'});
+function html(params, cb){
+  console.log('In HTML');
+
+  var options = {
+  host: 'http://google.com',
+  path: '/',
+  port: 80,
+  method: 'GET'
+};
+
+callback = function(response) {
+  var str = '';
+
+  //another chunk of data has been recieved, so append it to `str`
+  response.on('data', function (chunk) {
+    console.log('chunk');
+    str += chunk;
+  });
+
+  //the whole response has been recieved, so we just print it out here
+  response.on('end', function () {
+    console.log('END');
+    console.log('str: ', str);
+    return cb(null, str, {"Content-Type": 'text/html'});
+  });
+};
+
+http.request(options, callback).end();
 }
 
 

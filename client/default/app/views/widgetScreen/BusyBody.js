@@ -305,6 +305,7 @@ define([
               //      console.log(JSON.stringify(msg));
               //   });
 
+
             $('#add').toggleClass('selected');
             $('#addActivityPopup').toggle();
         },

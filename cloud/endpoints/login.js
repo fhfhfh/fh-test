@@ -81,7 +81,7 @@ var loginEndpoint = function() {
                         sessionManager.setSessionAttributes(sessionId, sessionAttrs, function onSessionSetAttr(errMsg, success){
                          
                             // Trouble?
-                            if (errMsg != null) {
+                            if (errMsg !== null) {
                                 var fail = respUtils.constructStatusResponse("Login", constants.RESP_SERVER_ERROR, errMsg,{});
                                 return callback(fail, null);
                             }
@@ -100,14 +100,14 @@ var loginEndpoint = function() {
                         });
                     });
                 }
-                 
+
              }
-             
-             
+
+
           });
 
-    }
-}
+    };
+};
 
 module.exports = new loginEndpoint();
 
@@ -120,9 +120,9 @@ function validateLoginRequest(reqJson) {
         status: true,
         msg: ""
     };
-        
+
     // Request payload exists?
-    if (reqJson == null || reqJson == undefined) {
+    if (reqJson === null || reqJson === undefined) {
         resp.status = false;
         resp.msg = "Missing request payload.";
         return resp;

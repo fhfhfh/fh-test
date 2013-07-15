@@ -59,15 +59,7 @@ define(['jquery',
         showOmnipedia: function(e) {
             var details = _.template(omnipediaTpl);
             this.$content.html(details);
-            $.ajax({
-                url: "http://securehealthhub.adam.com/content.aspx?productId=117",
-                beforeSend: function(xhr) {
-                    xhr.setRequestHeader("Referer", 'peachy');
-                },
-                success: function() {
-                    $("iframe").attr("src", 'http://securehealthhub.adam.com/content.aspx?productId=117');
-                }
-            });
+            // $("iframe").attr("src", '127.0.0.1:8001/cloud/html');
             // this.container.refreshScroll();
         },
 
