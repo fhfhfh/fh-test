@@ -97,7 +97,14 @@ exports.searchDBAction = searchDBAction;
 exports.fetchActivityAction = fetchActivityAction;
 exports.searchActivityAction = searchActivityAction;
 exports.saveJournalAction = saveJournalAction;
-exports.html = html;
+exports.omnipedia = omnipedia;
+exports.drugInformation = drugInformation;
+exports.drugInteractions = drugInteractions;
+exports.symptomNavigator = symptomNavigator;
+exports.riskNavigator = riskNavigator;
+exports.decisionAssistant = decisionAssistant;
+exports.careGuides = careGuides;
+exports.wellnessTools = wellnessTools;
 
 //--------------------------------------login----------------------------------------
 function loginAction(params, callback) {
@@ -456,21 +463,110 @@ function saveJournalAction(params, callback){
 }
 
 
-// return cb(null, data, {"Content-Type": 'text/html'});
-function html(params, cb){
+//------------------------------------ Research Desk Re-Directs ---------------------------------------------------
+//=================================================================================================================
 
-  console.log('In HTML');
-
+function omnipedia(params, cb){
   request.get({
     url: 'http://securehealthhub.adam.com/content.aspx?productId=117',
     headers: {'referer':'feedhenry.com'}
   }, function (error, response, body) {
-    console.log('got response from web!!');
     if (!error && response.statusCode == 200) {
       body = body.replace("<head>", "<head><base href='http://securehealthhub.adam.com/'>");
       return cb(null, body, {"Content-Type": 'text/html'});
     }
   });
 }
+function drugInformation(params, cb){
+  request.get({
+    url: 'http://securehealthhub.adam.com/content.aspx?productId=47',
+    headers: {'referer':'feedhenry.com'}
+  }, function (error, response, body) {
+    if (!error && response.statusCode == 200) {
+      body = body.replace("<head>", "<head><base href='http://securehealthhub.adam.com/'>");
+      return cb(null, body, {"Content-Type": 'text/html'});
+    }
+  });
+}
+function drugInteractions(params, cb){
+  request.get({
+    url: 'http://securehealthhub.adam.com/content.aspx?productId=46',
+    headers: {'referer':'feedhenry.com'}
+  }, function (error, response, body) {
+    if (!error && response.statusCode == 200) {
+      body = body.replace("<head>", "<head><base href='http://securehealthhub.adam.com/'>");
+      return cb(null, body, {"Content-Type": 'text/html'});
+    }
+  });
+}
+function symptomNavigator(params, cb){
+  request.get({
+    url: 'http://securehealthhub.adam.com/content.aspx?productId=44',
+    headers: {'referer':'feedhenry.com'}
+  }, function (error, response, body) {
+    if (!error && response.statusCode == 200) {
+      body = body.replace("<head>", "<head><base href='http://securehealthhub.adam.com/'>");
+      return cb(null, body, {"Content-Type": 'text/html'});
+    }
+  });
+}
+function riskNavigator(params, cb){
+  request.get({
+    url: 'http://securehealthhub.adam.com/content.aspx?productId=36',
+    headers: {'referer':'feedhenry.com'}
+  }, function (error, response, body) {
+    if (!error && response.statusCode == 200) {
+      body = body.replace("<head>", "<head><base href='http://securehealthhub.adam.com/'>");
+      return cb(null, body, {"Content-Type": 'text/html'});
+    }
+  });
+}
+function decisionAssistant(params, cb){
+  request.get({
+    url: 'http://securehealthhub.adam.com/content.aspx?productId=42',
+    headers: {'referer':'feedhenry.com'}
+  }, function (error, response, body) {
+    if (!error && response.statusCode == 200) {
+      body = body.replace("<head>", "<head><base href='http://securehealthhub.adam.com/'>");
+      return cb(null, body, {"Content-Type": 'text/html'});
+    }
+  });
+}
+function careGuides(params, cb){
+  request.get({
+    url: 'http://securehealthhub.adam.com/content.aspx?productId=28',
+    headers: {'referer':'feedhenry.com'}
+  }, function (error, response, body) {
+    if (!error && response.statusCode == 200) {
+      body = body.replace("<head>", "<head><base href='http://securehealthhub.adam.com/'>");
+      return cb(null, body, {"Content-Type": 'text/html'});
+    }
+  });
+}
+function wellnessTools(params, cb){
+  request.get({
+    url: 'http://securehealthhub.adam.com/content.aspx?productId=20',
+    headers: {'referer':'feedhenry.com'}
+  }, function (error, response, body) {
+    if (!error && response.statusCode == 200) {
+      body = body.replace("<head>", "<head><base href='http://securehealthhub.adam.com/'>");
+      return cb(null, body, {"Content-Type": 'text/html'});
+    }
+  });
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
