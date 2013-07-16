@@ -44,7 +44,7 @@ var searchCKEndpoint = require("./endpoints/searchCKdb.js");
 var fetchActivityEndpoint = require("./endpoints/fetchActivity");
 
 var dbParser = require("./dbparser.js");
-var http = require("http");
+var request = require("request");
 
 
 // mock service if not on $fh
@@ -458,33 +458,19 @@ function saveJournalAction(params, callback){
 
 // return cb(null, data, {"Content-Type": 'text/html'});
 function html(params, cb){
+
   console.log('In HTML');
 
-  var options = {
-  host: 'http://google.com',
-  path: '/',
-  port: 80,
-  method: 'GET'
-};
-
-callback = function(response) {
-  var str = '';
-
-  //another chunk of data has been recieved, so append it to `str`
-  response.on('data', function (chunk) {
-    console.log('chunk');
-    str += chunk;
+  request.get({
+    url: 'http://securehealthhub.adam.com/content.aspx?productId=117',
+    headers: {'referer':'feedhenry.com'}
+  }, function (error, response, body) {
+    console.log('got response from web!!');
+    if (!error && response.statusCode == 200) {
+      body = body.replace("<head>", "<head><base href='http://securehealthhub.adam.com/'>");
+      return cb(null, body, {"Content-Type": 'text/html'});
+    }
   });
-
-  //the whole response has been recieved, so we just print it out here
-  response.on('end', function () {
-    console.log('END');
-    console.log('str: ', str);
-    return cb(null, str, {"Content-Type": 'text/html'});
-  });
-};
-
-http.request(options, callback).end();
 }
 
 
