@@ -103,7 +103,7 @@ exports.drugInteractions = drugInteractions;
 exports.symptomNavigator = symptomNavigator;
 exports.riskNavigator = riskNavigator;
 exports.decisionAssistant = decisionAssistant;
-exports.careGuides = careGuides;
+exports.careGuide = careGuide;
 exports.wellnessTools = wellnessTools;
 
 //--------------------------------------login----------------------------------------
@@ -532,7 +532,7 @@ function decisionAssistant(params, cb){
     }
   });
 }
-function careGuides(params, cb){
+function careGuide(params, cb){
   request.get({
     url: 'http://securehealthhub.adam.com/content.aspx?productId=28',
     headers: {'referer':'feedhenry.com'}
