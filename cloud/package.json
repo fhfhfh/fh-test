@@ -6,6 +6,7 @@
     "assert" : "*",
     "request" : "2.12.0",
     "fh-nodeapp": "*",
-    "xml2js" : "0.2.6"
+    "xml2js" : "0.2.6",
+    "fh-connect" : "*"
   }
 }
