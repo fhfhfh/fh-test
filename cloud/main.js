@@ -106,7 +106,7 @@ exports.decisionAssistant = decisionAssistant;
 exports.careGuide = careGuide;
 exports.wellnessTools = wellnessTools;
 exports.proxy = proxy;
-exports.subpage=subpage;
+exports.subPage=subPage;
 
 //--------------------------------------login----------------------------------------
 function loginAction(params, callback) {
