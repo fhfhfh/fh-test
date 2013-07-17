@@ -610,7 +610,7 @@ function subPage(params, cb){
   console.log('TYPE:', type);
 
   request.get({
-    url: "http://securehealthhub.adam.com/"+params.url,
+    url: "http://securehealthhub.adam.com"+params.url,
     headers: {'referer':'feedhenry.com'}
   }, function (error, response, body) {
     if (!error && response.statusCode == 200) {
