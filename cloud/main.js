@@ -560,6 +560,22 @@ function proxy(params,cb){
   console.log('PARAMS',params);
   var prefix ='https://securehealthhub-2mzdpxsuthcolhscb40uonnh-live_securehealthhub.df.live.u101.feedhenry.net/cloud/proxy';
   var paramStr="?url=http://securehealthhub.adam.com/";
+  var type=params.url.split('.').pop();
+  var content = {
+    html: 'text/html',
+    css : 'text/css',
+    js  : 'text/javascript',
+    jpg : 'image/jpeg',
+    png : 'image/png',
+    gif : 'image/gif'
+  };
+
+  if(content[type]){
+    type=content[type];
+  } else {
+    type=content.html;
+  }
+  console.log('TYPE:', type);
 
   request.get({
     url: params.url,
@@ -567,7 +583,7 @@ function proxy(params,cb){
   }, function (error, response, body) {
     if (!error && response.statusCode == 200) {
       body = body.replace("<head>", "<head><base href='"+prefix+paramStr+"'>");
-      return cb(null, body, {"Content-Type": 'text/html'});
+      return cb(null, body, {"Content-Type": type});
     }
   });
 }
