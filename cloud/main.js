@@ -105,6 +105,7 @@ exports.riskNavigator = riskNavigator;
 exports.decisionAssistant = decisionAssistant;
 exports.careGuide = careGuide;
 exports.wellnessTools = wellnessTools;
+exports.proxy = proxy;
 
 //--------------------------------------login----------------------------------------
 function loginAction(params, callback) {
