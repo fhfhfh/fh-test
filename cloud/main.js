@@ -558,8 +558,7 @@ function wellnessTools(params, cb){
 
 function proxy(params,cb){
   console.log('PARAMS',params);
-  var prefix ='https://securehealthhub-2mzdpxsuthcolhscb40uonnh-live_securehealthhub.df.live.u101.feedhenry.net/cloud/proxy';
-  var paramStr="?url=http://securehealthhub.adam.com/";
+  var prefix ='https://securehealthhub-2mzdpxsuthcolhscb40uonnh-live_securehealthhub.df.live.u101.feedhenry.net/proxy/adam/';
   var type=params.url.split('.').pop();
   var content = {
     html: 'text/html',
@@ -582,14 +581,43 @@ function proxy(params,cb){
     headers: {'referer':'feedhenry.com'}
   }, function (error, response, body) {
     if (!error && response.statusCode == 200) {
-      body = body.replace("<head>", "<head><base href='"+prefix+paramStr+"'>");
+      body = body.replace("<head>", "<head><base href='"+prefix+"'>");
+      body = body.replace("../../", "up/up/");
       return cb(null, body, {"Content-Type": type});
     }
   });
 }
 
+function subPage(params, cb){
+  console.log('PARAMS',params);
+  var prefix ='https://securehealthhub-2mzdpxsuthcolhscb40uonnh-live_securehealthhub.df.live.u101.feedhenry.net/proxy/adam/';
+  var type=params.url.split('.').pop();
+  var content = {
+    html: 'text/html',
+    css : 'text/css',
+    js  : 'text/javascript',
+    jpg : 'image/jpeg',
+    png : 'image/png',
+    gif : 'image/gif'
+  };
 
+  if(content[type]){
+    type=content[type];
+  } else {
+    type=content.html;
+  }
+  console.log('TYPE:', type);
 
+  request.get({
+    url: "http://securehealthhub.adam.com/"+params.url,
+    headers: {'referer':'feedhenry.com'}
+  }, function (error, response, body) {
+    if (!error && response.statusCode == 200) {
+      body = body.replace("<head>", "<head><base href='"+prefix+"'>");
+      return cb(null, body, {"Content-Type": type});
+    }
+  });
+}
 
 
 
