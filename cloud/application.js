@@ -422,7 +422,7 @@ function HostApp() {
 			.use('/proxy/adam', function(req, res) {
 				console.log('******Proxy/Adam req******');
 				console.log(req);
-				var url = (req.params && req.params.url) || (req.query && req.query.url);
+				var url = (req.params && req.params.url) || (req.query && req.query.url) || req.url;
 				console.log('URL----', url);
 				if (url) {
 					url = url.replace('up/up/', '../../');
