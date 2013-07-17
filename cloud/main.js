@@ -617,6 +617,7 @@ function subPage(params, cb){
     url: "http://securehealthhub.adam.com"+params.url,
     headers: {'referer':'feedhenry.com'}
   }, function (error, response, body) {
+    console.log('subpage is back');
     if (!error && response.statusCode == 200) {
       body = body.replace("<head>", "<head><base href='"+prefix+"'>");
       return cb(null, body, {"Content-Type": type});
