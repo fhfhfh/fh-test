@@ -585,6 +585,10 @@ function proxy(params,cb){
       body = body.replace("<head>", "<head><base href='"+prefix+"'>");
       body = body.replace("../../", "up/up/");
       return cb(null, body, {"Content-Type": type});
+    } else {
+      console.log("ERROR---", error);
+      console.log("ERROR CODE---", response.statusCode);
+      console.log("Resp---", response);
     }
   });
 }
@@ -616,6 +620,10 @@ function subPage(params, cb){
     if (!error && response.statusCode == 200) {
       body = body.replace("<head>", "<head><base href='"+prefix+"'>");
       return cb(null, body, {"Content-Type": type});
+    } else {
+      console.log("ERROR---", error);
+      console.log("ERROR CODE---", response.statusCode);
+      console.log("Resp---", response);
     }
   });
 }
