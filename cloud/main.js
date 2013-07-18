@@ -584,8 +584,11 @@ function proxy(params,cb){
   }, function (error, response, body) {
     if (!error && response.statusCode == 200) {
       body = body.replace("<head>", "<head><base href='"+prefix+"'>");
-      body = body.replace("../../", "up/up/");
-      console.log('BODY****************\n', JSON.stringify(body));
+
+      // ---- Replace ALL '../../' with 'up/up/' --------- I know, I know, sorry
+      body = body.replace(new RegExp("../../", 'g'), "up/up/");
+      // -------------------------------------------------
+
       return cb(null, body, {"Content-Type": type});
     } else {
       console.log("ERROR---", error);
