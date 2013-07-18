@@ -584,6 +584,7 @@ function proxy(params,cb){
     if (!error && response.statusCode == 200) {
       body = body.replace("<head>", "<head><base href='"+prefix+"'>");
       body = body.replace("../../", "up/up/");
+      console.log('BODY****************\n', body);
       return cb(null, body, {"Content-Type": type});
     } else {
       console.log("ERROR---", error);
@@ -620,6 +621,7 @@ function subPage(params, cb){
     console.log('subpage is back from: http://securehealthhub.adam.com'+params.url);
     if (!error && response.statusCode == 200) {
       body = body.replace("<head>", "<head><base href='"+prefix+"'>");
+      body = body.replace("../../", "up/up/");
       return cb(null, body, {"Content-Type": type});
     } else {
       console.log("ERROR---", error);
