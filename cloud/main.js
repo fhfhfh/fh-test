@@ -629,7 +629,7 @@ function subPage(params, cb){
       // ---- Replace ALL '../../' with 'up/up/' --------- I know, I know, sorry
       body = body.replace(new RegExp("../../", 'g'), "up/up/");
       // -------------------------------------------------
-
+      console.log('returning SUBPAGE! -----------');
       return cb(null, body, {"Content-Type": type});
     } else {
       console.log("ERROR---", error);
