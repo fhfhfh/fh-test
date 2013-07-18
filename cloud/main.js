@@ -558,6 +558,7 @@ function wellnessTools(params, cb){
 }
 
 function proxy(params,cb){
+  console.log('\n****************\nCALLED ONCE\n******************');
   console.log('PARAMS',params);
   var prefix ='https://securehealthhub-2mzdpxsuthcolhscb40uonnh-live_securehealthhub.df.live.u101.feedhenry.net/proxy/adam/';
   var type=params.url.split('.').pop();
