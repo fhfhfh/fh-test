@@ -614,7 +614,7 @@ function subPage(params, cb){
     type=content.html;
   }
   console.log('TYPE:', type);
-
+  params.url = params.url.replace("../../", "");
   request.get({
     url: "http://securehealthhub.adam.com"+params.url,
     headers: {'referer':'feedhenry.com'}
