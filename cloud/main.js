@@ -584,7 +584,7 @@ function proxy(params,cb){
     if (!error && response.statusCode == 200) {
       body = body.replace("<head>", "<head><base href='"+prefix+"'>");
       body = body.replace("../../", "up/up/");
-      console.log('BODY****************\n', body);
+      console.log('BODY****************\n', body +'asdf');
       return cb(null, body, {"Content-Type": type});
     } else {
       console.log("ERROR---", error);
@@ -626,7 +626,6 @@ function subPage(params, cb){
     } else {
       console.log("ERROR---", error);
       console.log("ERROR CODE---", response.statusCode);
-      console.log("Resp---", response);
     }
   });
 }
