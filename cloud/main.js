@@ -584,7 +584,7 @@ function proxy(params,cb){
     if (!error && response.statusCode == 200) {
       body = body.replace("<head>", "<head><base href='"+prefix+"'>");
       body = body.replace("../../", "up/up/");
-      console.log('BODY****************\n', body +'asdf');
+      console.log('BODY****************\n', 'asdf'+body);
       return cb(null, body, {"Content-Type": type});
     } else {
       console.log("ERROR---", error);
