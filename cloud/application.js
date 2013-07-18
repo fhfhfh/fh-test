@@ -424,7 +424,11 @@ function HostApp() {
 				var url = (req.params && req.params.url) || (req.query && req.query.url) || req.url;
 				console.log('URL----', url);
 				if (url) {
-					url = url.replace('up/up/', '../../');
+
+					// ---- Replace ALL 'up/up/' with '../../' --------- I know, I know, sorry
+					url = url.replace(new RegExp("up/up/", 'g'), "../../");
+					// -------------------------------------------------
+
 					console.log('FIXING URL', url);
 					mainjs.subPage({
 						url: url
