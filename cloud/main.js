@@ -622,7 +622,11 @@ function subPage(params, cb){
     console.log('subpage is back from: http://securehealthhub.adam.com'+params.url);
     if (!error && response.statusCode == 200) {
       body = body.replace("<head>", "<head><base href='"+prefix+"'>");
-      body = body.replace("../../", "up/up/");
+
+      // ---- Replace ALL '../../' with 'up/up/' --------- I know, I know, sorry
+      body = body.replace(new RegExp("../../", 'g'), "up/up/");
+      // -------------------------------------------------
+
       return cb(null, body, {"Content-Type": type});
     } else {
       console.log("ERROR---", error);
