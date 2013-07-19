@@ -45,6 +45,7 @@ var fetchActivityEndpoint = require("./endpoints/fetchActivity");
 
 var dbParser = require("./dbparser.js");
 var request = require("request");
+var fs = require('fs');
 
 
 // mock service if not on $fh
@@ -616,7 +617,19 @@ function subPage(params, cb){
   } else {
     type=content.html;
   }
-  console.log('TYPE:', type);
+
+  if(type==='image/jpeg'||type==='image/png'||type==='image/gif'){
+    var ws = fs.createWriteStream('/public/img'+params.url);
+    ws.on('end', function(err) {
+      fs.readFile('/etc/passwd', function (err, data) {
+        if (err) throw err;
+        return cb(null, data, {"Content-Type": type});
+      });
+      
+    });
+    request("http://securehealthhub.adam.com"+params.url).pipe(ws);
+  }
+
   params.url = params.url.replace("../../", "");
   request.get({
     url: "http://securehealthhub.adam.com"+params.url,
@@ -625,11 +638,6 @@ function subPage(params, cb){
     console.log('subpage is back from: http://securehealthhub.adam.com'+params.url);
     if (!error && response.statusCode == 200) {
       body = body.replace("<head>", "<head><base href='"+prefix+"'>");
-
-      // // ---- Replace ALL '../../' with 'up/up/' --------- I know, I know, sorry
-      // body = body.replace(new RegExp("../../", 'g'), "up/up/");
-      // // -------------------------------------------------
-      console.log('returning SUBPAGE! -----------');
       return cb(null, body, {"Content-Type": type});
     } else {
       console.log("ERROR---", error);
