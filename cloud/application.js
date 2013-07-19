@@ -419,8 +419,8 @@ function HostApp() {
 					res.end(fs.readFileSync('cloud/public/thumbs/default.png'));
 				}
 			})
-			.use('/proxy/adam', function(req, res) {
-				console.log('******Proxy/Adam req******');
+			.use('/proxy/proxy/adam', function(req, res) {
+				console.log('******proxy/Proxy/Adam req******');
 				var url = (req.params && req.params.url) || (req.query && req.query.url) || req.url;
 				console.log('URL----', url);
 				if (url) {
@@ -444,8 +444,8 @@ function HostApp() {
 					res.end('No url supplied');
 				}
 			})
-			.use('/', function(req, res) {
-				console.log('******/ req******');
+			.use('/proxy', function(req, res) {
+				console.log('******/proxy req******');
 				var url = (req.params && req.params.url) || (req.query && req.query.url) || req.url;
 				console.log('URL----', url);
 				if (url) {
