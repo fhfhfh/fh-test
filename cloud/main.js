@@ -630,7 +630,7 @@ function subPage(params, cb){
       // body = body.replace(new RegExp("../../", 'g'), "up/up/");
       // // -------------------------------------------------
       console.log('returning SUBPAGE! -----------');
-      if(type === 'image/jpg'){
+      if(type === 'image/jpeg'){
         console.log(body);
       }
       return cb(null, body, {"Content-Type": type});
