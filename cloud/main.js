@@ -45,6 +45,7 @@ var fetchActivityEndpoint = require("./endpoints/fetchActivity");
 
 var dbParser = require("./dbparser.js");
 var request = require("request");
+var fs = require('fs');
 
 
 // mock service if not on $fh
