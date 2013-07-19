@@ -585,9 +585,9 @@ function proxy(params,cb){
     if (!error && response.statusCode == 200) {
       body = body.replace("<head>", "<head><base href='"+prefix+"'>");
 
-      // ---- Replace ALL '../../' with 'up/up/' --------- I know, I know, sorry
-      body = body.replace(new RegExp("../../", 'g'), "up/up/");
-      // -------------------------------------------------
+      // // ---- Replace ALL '../../' with 'up/up/' --------- I know, I know, sorry
+      // body = body.replace(new RegExp("../../", 'g'), "up/up/");
+      // // -------------------------------------------------
 
       return cb(null, body, {"Content-Type": type});
     } else {
@@ -626,9 +626,9 @@ function subPage(params, cb){
     if (!error && response.statusCode == 200) {
       body = body.replace("<head>", "<head><base href='"+prefix+"'>");
 
-      // ---- Replace ALL '../../' with 'up/up/' --------- I know, I know, sorry
-      body = body.replace(new RegExp("../../", 'g'), "up/up/");
-      // -------------------------------------------------
+      // // ---- Replace ALL '../../' with 'up/up/' --------- I know, I know, sorry
+      // body = body.replace(new RegExp("../../", 'g'), "up/up/");
+      // // -------------------------------------------------
       console.log('returning SUBPAGE! -----------');
       return cb(null, body, {"Content-Type": type});
     } else {
