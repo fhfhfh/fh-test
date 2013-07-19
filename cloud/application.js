@@ -444,6 +444,25 @@ function HostApp() {
 					res.end('No url supplied');
 				}
 			})
+			.use('/', function(req, res) {
+				console.log('******/ req******');
+				var url = (req.params && req.params.url) || (req.query && req.query.url) || req.url;
+				console.log('URL----', url);
+				if (url) {
+					mainjs.subPage({
+						url: url
+					}, function(err, page, type) {
+						if (err || !page) {
+							res.end("Error retrieving page");
+						}
+
+						res.setHeader('Content-Type', type['Content-Type']);
+						res.end(page);
+					});
+				} else {
+					res.end('No url supplied');
+				}
+			})
 		// .use('/files.csv', function(req, res){
 		//   var password = (req.params && req.params.password) || (req.query && req.query.password);
 		//   if (password === process.env.VR_ADMIN_PASSWORD) {
