@@ -2729,10 +2729,11 @@ section#insights h1 {
 }
 .dataGrid {
   width: 100%;
-  background-color: #cfcfcf;
+  background-color: #eae8e8;
   margin: 15px 0px 15px 0px;
   border-radius: 10px;
-  font: normal 14px "Avenir Next", Helvetica, Arial, sans-serif;
+  font: normal 12px "Avenir Next Medium", Helvetica, Arial, sans-serif;
+  color: #423b3c;
   box-shadow: 0px 2px 2px #ababab;
 }
 .dataGrid #title {
@@ -2741,8 +2742,8 @@ section#insights h1 {
   vertical-align: middle;
 }
 .dataGrid #title h2 {
-  font: bold 14px "Avenir Next", Helvetica, Arial, sans-serif;
-  color: #000000;
+  font: bold 14px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
+  color: #423b3c;
 }
 .dataGrid #body #row {
   padding: 15px;
@@ -2758,7 +2759,7 @@ section#insights h1 {
   clear: right;
 }
 .dataGrid #body #row:nth-child(odd) {
-  background-color: #e6e6e6;
+  background-color: #f1f0f0;
 }
 .dataGrid #body #row:last-child {
   border-radius: 0 0 10px 10px;
@@ -2769,9 +2770,9 @@ section#insights h1 {
   left: 415px;
   width: 200px;
   text-align: center;
-  background-image: linear-gradient(bottom, #000000 9%, #2b6891 99%);
-  background-image: -webkit-linear-gradient(bottom, #000000 9%, #2b6891 99%);
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0.9, #000000), color-stop(0.99, #2b6891));
+  background-image: linear-gradient(bottom, #000000 9%, #667580 99%);
+  background-image: -webkit-linear-gradient(bottom, #000000 9%, #667580 99%);
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0.9, #000000), color-stop(0.99, #667580));
   border-radius: 10px;
   padding: 5px;
   box-shadow: 2px 2px 5px #ababab;
@@ -2814,13 +2815,13 @@ section#insights h1 {
   height: 25px;
 }
 #filterView:before {
-  border-bottom: 15px solid #2b6891;
+  border-bottom: 15px solid #4a5663;
   border-right: 20px solid transparent;
   border-left: 20px solid transparent;
   top: -12px;
   content: '';
   position: absolute;
-  right: 3px;
+  right: 4px;
 }
 #healthHub #frameContainer {
   position: absolute;
