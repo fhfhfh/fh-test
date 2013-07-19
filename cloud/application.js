@@ -455,7 +455,7 @@ function HostApp() {
 						if (err || !page) {
 							res.end("Error retrieving page");
 						}
-
+						console.log('***CONTENT***', type['Content-Type']);
 						res.setHeader('Content-Type', type['Content-Type']);
 						res.end(page);
 					});
@@ -463,22 +463,7 @@ function HostApp() {
 					res.end('No url supplied');
 				}
 			})
-		// .use('/files.csv', function(req, res){
-		//   var password = (req.params && req.params.password) || (req.query && req.query.password);
-		//   if (password === process.env.VR_ADMIN_PASSWORD) {
-		//     mainjs.filesAsCsv({password : password }, function(err, users){
-		//       if (err || !users){
-		//         res.end("Error retrieving files");
-		//       }
-		//       res.setHeader('Content-Disposition', 'attachment');
-		//       res.end(users);
-		//     });
-		//   }else{
-		//     res.end('No password supplied');
-		//   }
-		// })
-		// .use('/public1', connect['static']('/home/fh/apps/valueretail-qyny77eeab2l4uwbsdgiehs7-dev/src/cloud/public'))
-		.use('/sys', sys)
+			.use('/sys', sys)
 			.use(function(req, res) {
 				if (req.url === '/') {
 					res.statusCode = 200;
