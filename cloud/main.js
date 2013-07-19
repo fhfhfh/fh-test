@@ -560,7 +560,7 @@ function wellnessTools(params, cb){
 function proxy(params,cb){
   console.log('\n****************\nCALLED ONCE\n******************');
   console.log('PARAMS',params);
-  var prefix ='https://securehealthhub-2mzdpxsuthcolhscb40uonnh-live_securehealthhub.df.live.u101.feedhenry.net/proxy/adam/';
+  var prefix ='https://securehealthhub-2mzdpxsuthcolhscb40uonnh-live_securehealthhub.df.live.u101.feedhenry.net/proxy/proxy/adam/';
   var type=params.url.split('.').pop();
   var content = {
     html: 'text/html',
@@ -584,8 +584,11 @@ function proxy(params,cb){
   }, function (error, response, body) {
     if (!error && response.statusCode == 200) {
       body = body.replace("<head>", "<head><base href='"+prefix+"'>");
-      body = body.replace("../../", "up/up/");
-      console.log('BODY****************\n', JSON.stringify(body));
+
+      // // ---- Replace ALL '../../' with 'up/up/' --------- I know, I know, sorry
+      // body = body.replace(new RegExp("../../", 'g'), "up/up/");
+      // // -------------------------------------------------
+
       return cb(null, body, {"Content-Type": type});
     } else {
       console.log("ERROR---", error);
@@ -597,7 +600,7 @@ function proxy(params,cb){
 
 function subPage(params, cb){
   console.log('PARAMS',params);
-  var prefix ='https://securehealthhub-2mzdpxsuthcolhscb40uonnh-live_securehealthhub.df.live.u101.feedhenry.net/proxy/adam/';
+  var prefix ='https://securehealthhub-2mzdpxsuthcolhscb40uonnh-live_securehealthhub.df.live.u101.feedhenry.net/proxy/proxy/adam/';
   var type=params.url.split('.').pop();
   var content = {
     html: 'text/html',
@@ -614,7 +617,7 @@ function subPage(params, cb){
     type=content.html;
   }
   console.log('TYPE:', type);
-
+  params.url = params.url.replace("../../", "");
   request.get({
     url: "http://securehealthhub.adam.com"+params.url,
     headers: {'referer':'feedhenry.com'}
@@ -623,10 +626,10 @@ function subPage(params, cb){
     if (!error && response.statusCode == 200) {
       body = body.replace("<head>", "<head><base href='"+prefix+"'>");
 
-      // ---- Replace ALL '../../' with 'up/up/' --------- I know, I know, sorry
-      body = body.replace(new RegExp("../../", 'g'), "up/up/");
-      // -------------------------------------------------
-
+      // // ---- Replace ALL '../../' with 'up/up/' --------- I know, I know, sorry
+      // body = body.replace(new RegExp("../../", 'g'), "up/up/");
+      // // -------------------------------------------------
+      console.log('returning SUBPAGE! -----------');
       return cb(null, body, {"Content-Type": type});
     } else {
       console.log("ERROR---", error);
