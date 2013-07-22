@@ -416,7 +416,7 @@ function HostApp() {
 					return static(req, res, next);
 				} else {
 					// return default.png thumb
-					res.end(fs.readFileSync('cloud/public/thumbs/default.png'));
+					res.end(fs.readFileSync('cloud/public/default.png'));
 				}
 			})
 			.use('/proxy/proxy/adam', function(req, res) {
