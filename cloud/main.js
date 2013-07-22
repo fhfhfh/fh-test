@@ -621,7 +621,21 @@ function subPage(params, cb){
   if(type==='image/jpeg'||type==='image/png'||type==='image/gif'){
     console.log('***** THIS IS IMAGE ****');
     var ws = fs.createWriteStream('/public'+params.url);
-    ws.on('end', function(err) {
+    // ws.on('end', function(err) {
+    //   console.log('***** WRITE FINISHED *****');
+    //   fs.readFile('/public'+params.url, function (err, data) {
+    //     if (err){
+    //       console.log('**ERROR**', err);
+    //     }
+    //     console.log('returning image');
+    //     return cb(null, data, {"Content-Type": type});
+    //   });
+
+    // });
+    console.log('request the image-------------');
+
+    var req =request("http://securehealthhub.adam.com"+params.url);
+    req.on('end', function(err) {
       console.log('***** WRITE FINISHED *****');
       fs.readFile('/public'+params.url, function (err, data) {
         if (err){
@@ -632,8 +646,7 @@ function subPage(params, cb){
       });
 
     });
-    console.log('request the image-------------');
-    request("http://securehealthhub.adam.com"+params.url).pipe(ws);
+    req.pipe(ws);
   }
   else{
 
