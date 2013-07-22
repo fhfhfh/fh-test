@@ -619,8 +619,10 @@ function subPage(params, cb){
   }
 
   if(type==='image/jpeg'||type==='image/png'||type==='image/gif'){
+    console.log('***** THIS IS IMAGE ****');
     var ws = fs.createWriteStream('/public/img'+params.url);
     ws.on('end', function(err) {
+      console.log('***** WRITE FINISHED *****');
       fs.readFile('/public/img'+params.url, function (err, data) {
         if (err) throw err;
         console.log('returning image');
