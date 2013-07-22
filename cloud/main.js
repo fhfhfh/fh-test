@@ -621,11 +621,12 @@ function subPage(params, cb){
   if(type==='image/jpeg'||type==='image/png'||type==='image/gif'){
     var ws = fs.createWriteStream('/public/img'+params.url);
     ws.on('end', function(err) {
-      fs.readFile('/etc/passwd', function (err, data) {
+      fs.readFile('/public/img'+params.url, function (err, data) {
         if (err) throw err;
+        console.log('returning image');
         return cb(null, data, {"Content-Type": type});
       });
-      
+
     });
     request("http://securehealthhub.adam.com"+params.url).pipe(ws);
   }
