@@ -632,21 +632,23 @@ function subPage(params, cb){
     });
     request("http://securehealthhub.adam.com"+params.url).pipe(ws);
   }
+  else{
 
-  params.url = params.url.replace("../../", "");
-  request.get({
-    url: "http://securehealthhub.adam.com"+params.url,
-    headers: {'referer':'feedhenry.com'}
-  }, function (error, response, body) {
-    console.log('subpage is back from: http://securehealthhub.adam.com'+params.url);
-    if (!error && response.statusCode == 200) {
-      body = body.replace("<head>", "<head><base href='"+prefix+"'>");
-      return cb(null, body, {"Content-Type": type});
-    } else {
-      console.log("ERROR---", error);
-      console.log("ERROR CODE---", response.statusCode);
-    }
-  });
+    params.url = params.url.replace("../../", "");
+    request.get({
+      url: "http://securehealthhub.adam.com"+params.url,
+      headers: {'referer':'feedhenry.com'}
+    }, function (error, response, body) {
+      console.log('subpage is back from: http://securehealthhub.adam.com'+params.url);
+      if (!error && response.statusCode == 200) {
+        body = body.replace("<head>", "<head><base href='"+prefix+"'>");
+        return cb(null, body, {"Content-Type": type});
+      } else {
+        console.log("ERROR---", error);
+        console.log("ERROR CODE---", response.statusCode);
+      }
+    });
+  }
 }
 
 
