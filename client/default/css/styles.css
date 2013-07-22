@@ -467,7 +467,7 @@ ul {
 section h1 {
   color: #2b6891;
   margin: 30px 0 20px 0;
-  font: bold 20px "Avenir Next", Helvetica, Arial, sans-serif;
+  font: bold 20px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
 }
 .popup {
   display: none;
@@ -1983,7 +1983,7 @@ section#widgetScreen #scrollWrapper {
 #news-and-information h1 {
   color: #2b6891;
   margin: 30px 0 20px 0;
-  font: bold 20px "Avenir Next", Helvetica, Arial, sans-serif;
+  font: bold 20px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
 }
 #news-and-information #headlines {
   list-style-type: none;
@@ -2042,7 +2042,7 @@ section#widgetScreen #scrollWrapper {
 }
 #news-and-information #headlines li .description h2 {
   color: #1a1a1a;
-  font: bold 13px "Avenir Next", Helvetica, Arial, sans-serif;
+  font: bold 13px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
 }
 #news-and-information #headlines li .description p {
   color: #343434;
@@ -2127,7 +2127,7 @@ section#widgetScreen #scrollWrapper {
 #alerts h1 {
   color: #2b6891;
   margin: 25px 0 15px 0;
-  font: bold 20px "Avenir Next", Helvetica, Arial, sans-serif;
+  font: bold 20px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
 }
 #alerts #add-alert {
   -webkit-border-radius: 8px;
@@ -2170,7 +2170,8 @@ section#widgetScreen #scrollWrapper {
   margin-right: 0;
 }
 #alerts .alert {
-  font: normal 14px "Avenir Next Medium", Helvetica, Arial, sans-serif;
+  color: #343434;
+  font: bold 14px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
   background-color: #e6e6e6;
   width: 100%;
   padding: 25px 0px 25px 20px;
@@ -2180,7 +2181,8 @@ section#widgetScreen #scrollWrapper {
 }
 #alerts .alert #date {
   float: right;
-  color: #8c8c8c;
+  color: #808080;
+  font: normal 14px "Avenir Next Medium", Helvetica, Arial, sans-serif;
   margin-right: 80px;
 }
 #alerts .alert:hover,
@@ -2416,7 +2418,7 @@ section#widgetScreen #scrollWrapper {
   padding: 10px;
   height: 40px;
   margin: 5px 5px;
-  font: normal 17px "Avenir Next Medium", Helvetica, Arial, sans-serif;
+  font: bold 18px "Avenir Next", Helvetica, Arial, sans-serif;
 }
 #topBarPopup:before {
   border-bottom: 15px solid #6b6b6b;
@@ -2727,10 +2729,11 @@ section#insights h1 {
 }
 .dataGrid {
   width: 100%;
-  background-color: #cfcfcf;
+  background-color: #eae8e8;
   margin: 15px 0px 15px 0px;
   border-radius: 10px;
-  font: normal 14px "Avenir Next", Helvetica, Arial, sans-serif;
+  font: normal 12px "Avenir Next Medium", Helvetica, Arial, sans-serif;
+  color: #423b3c;
   box-shadow: 0px 2px 2px #ababab;
 }
 .dataGrid #title {
@@ -2739,8 +2742,8 @@ section#insights h1 {
   vertical-align: middle;
 }
 .dataGrid #title h2 {
-  font: bold 14px "Avenir Next", Helvetica, Arial, sans-serif;
-  color: #000000;
+  font: bold 14px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
+  color: #423b3c;
 }
 .dataGrid #body #row {
   padding: 15px;
@@ -2756,7 +2759,7 @@ section#insights h1 {
   clear: right;
 }
 .dataGrid #body #row:nth-child(odd) {
-  background-color: #e6e6e6;
+  background-color: #f1f0f0;
 }
 .dataGrid #body #row:last-child {
   border-radius: 0 0 10px 10px;
@@ -2767,9 +2770,9 @@ section#insights h1 {
   left: 415px;
   width: 200px;
   text-align: center;
-  background-image: linear-gradient(bottom, #000000 9%, #2b6891 99%);
-  background-image: -webkit-linear-gradient(bottom, #000000 9%, #2b6891 99%);
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0.9, #000000), color-stop(0.99, #2b6891));
+  background-image: linear-gradient(bottom, #000000 9%, #667580 99%);
+  background-image: -webkit-linear-gradient(bottom, #000000 9%, #667580 99%);
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0.9, #000000), color-stop(0.99, #667580));
   border-radius: 10px;
   padding: 5px;
   box-shadow: 2px 2px 5px #ababab;
@@ -2812,13 +2815,13 @@ section#insights h1 {
   height: 25px;
 }
 #filterView:before {
-  border-bottom: 15px solid #2b6891;
+  border-bottom: 15px solid #4a5663;
   border-right: 20px solid transparent;
   border-left: 20px solid transparent;
   top: -12px;
   content: '';
   position: absolute;
-  right: 3px;
+  right: 4px;
 }
 #healthHub #frameContainer {
   position: absolute;
@@ -2853,6 +2856,7 @@ section#insights h1 {
   margin: 8px 0px 0px 0px;
   font-size: 12px;
   color: #777;
+  font: normal 12px "Avenir Next Medium", Helvetica, Arial, sans-serif;
 }
 #myWidgets .action:active {
   opacity: 0.5;
@@ -2867,28 +2871,27 @@ section#insights h1 {
 }
 #suggestedWidgets .widget_panel,
 #widgetStore .widget_panel {
-  background: #cccccc url('../img/widgets/widgetpngfiles/widgetbg.png') no-repeat 50% top;
-  background-size: 100% 100%;
-  width: 140px;
-  height: 210px;
-  text-align: center;
-  margin: 15px 4px;
+  background: #ffffff url('../img/widgets/widgetpngfiles/widgetbg.png') no-repeat 50% top;
+  width: 145px;
+  height: 175px;
+  margin: 10px 4px;
   padding: 12px 6px;
   color: #777;
   overflow: hidden;
   vertical-align: top;
+  text-align: left;
 }
 #suggestedWidgets .widget_panel h1,
 #widgetStore .widget_panel h1 {
-  font: bold 14px "Avenir Next", Helvetica, Arial, sans-serif;
+  font: bold 12px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
   color: #000;
   margin: 0px;
-  padding: 4px 8px;
+  padding: 0px 7px;
   text-align: left;
 }
 #suggestedWidgets .widget_panel p,
 #widgetStore .widget_panel p {
-  font: 14px "Avenir Next", Helvetica, Arial, sans-serif;
+  font: 12px "Avenir Next", Helvetica, Arial, sans-serif;
   color: #777;
   margin: 0px;
   padding: 0px 8px;
@@ -2898,23 +2901,25 @@ section#insights h1 {
 #suggestedWidgets img,
 #widgetStore img {
   width: 80px;
+  margin-left: 27px;
 }
 #widgetStore h1 {
-  display: inline;
+  display: inline-block;
 }
 #widgetStore #selector {
   margin: 30px 0 20px 0;
   background-color: #fff;
 }
 #widgetStore #selector #search_store {
-  border: 3px solid #ccc;
-  border-radius: 15px;
+  border: 2px solid #ccc;
+  border-radius: 20px;
   float: right;
-  padding: 3px 15px;
+  padding: 3px 15px 0;
 }
 #widgetStore #selector #search_store img {
   width: 15px;
   height: 15px;
+  margin-left: 0;
 }
 #widgetStore #selector #search_store #search {
   border: 1px solid #fff;
