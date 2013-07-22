@@ -624,7 +624,9 @@ function subPage(params, cb){
     ws.on('end', function(err) {
       console.log('***** WRITE FINISHED *****');
       fs.readFile('/public'+params.url, function (err, data) {
-        if (err) throw err;
+        if (err){
+          console.log('**ERROR**', err);
+        }
         console.log('returning image');
         return cb(null, data, {"Content-Type": type});
       });
