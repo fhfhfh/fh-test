@@ -620,16 +620,17 @@ function subPage(params, cb){
 
   if(type==='image/jpeg'||type==='image/png'||type==='image/gif'){
     console.log('***** THIS IS IMAGE ****');
-    var ws = fs.createWriteStream('/public/img'+params.url);
+    var ws = fs.createWriteStream('/public'+params.url);
     ws.on('end', function(err) {
       console.log('***** WRITE FINISHED *****');
-      fs.readFile('/public/img'+params.url, function (err, data) {
+      fs.readFile('/public'+params.url, function (err, data) {
         if (err) throw err;
         console.log('returning image');
         return cb(null, data, {"Content-Type": type});
       });
 
     });
+    console.log('request the image-------------');
     request("http://securehealthhub.adam.com"+params.url).pipe(ws);
   }
   else{
