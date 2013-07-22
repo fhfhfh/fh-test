@@ -620,7 +620,7 @@ function subPage(params, cb){
 
   if(type==='image/jpeg'||type==='image/png'||type==='image/gif'){
     console.log('***** THIS IS IMAGE ****');
-    var ws = fs.createWriteStream('./public'+params.url);
+    var ws = fs.createWriteStream('/public'+params.url);
     // ws.on('end', function(err) {
     //   console.log('***** WRITE FINISHED *****');
     //   fs.readFile('/public'+params.url, function (err, data) {
@@ -637,7 +637,7 @@ function subPage(params, cb){
     var req =request("http://securehealthhub.adam.com"+params.url);
     req.on('end', function(err) {
       console.log('***** WRITE FINISHED *****');
-      fs.readFile('./public'+params.url, function (err, data) {
+      fs.readFile('/public'+params.url, function (err, data) {
         if (err){
           console.log('**ERROR**', err);
         }
