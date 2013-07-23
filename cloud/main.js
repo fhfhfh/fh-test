@@ -469,95 +469,6 @@ function saveJournalAction(params, callback){
 //------------------------------------ Research Desk Re-Directs ---------------------------------------------------
 //=================================================================================================================
 
-function omnipedia(params, cb){
-  request.get({
-    url: 'http://securehealthhub.adam.com/content.aspx?productId=117',
-    headers: {'referer':'feedhenry.com'}
-  }, function (error, response, body) {
-    if (!error && response.statusCode == 200) {
-      body = body.replace("<head>", "<head><base href='http://securehealthhub.adam.com/'>");
-      return cb(null, body, {"Content-Type": 'text/html'});
-    }
-  });
-}
-function drugInformation(params, cb){
-  request.get({
-    url: 'http://securehealthhub.adam.com/content.aspx?productId=47',
-    headers: {'referer':'feedhenry.com'}
-  }, function (error, response, body) {
-    if (!error && response.statusCode == 200) {
-      body = body.replace("<head>", "<head><base href='http://securehealthhub.adam.com/'>");
-      return cb(null, body, {"Content-Type": 'text/html'});
-    }
-  });
-}
-function drugInteractions(params, cb){
-  request.get({
-    url: 'http://securehealthhub.adam.com/content.aspx?productId=46',
-    headers: {'referer':'feedhenry.com'}
-  }, function (error, response, body) {
-    if (!error && response.statusCode == 200) {
-      body = body.replace("<head>", "<head><base href='http://securehealthhub.adam.com/'>");
-      return cb(null, body, {"Content-Type": 'text/html'});
-    }
-  });
-}
-function symptomNavigator(params, cb){
-  request.get({
-    url: 'http://securehealthhub.adam.com/content.aspx?productId=44',
-    headers: {'referer':'feedhenry.com'}
-  }, function (error, response, body) {
-    if (!error && response.statusCode == 200) {
-      body = body.replace("<head>", "<head><base href='http://securehealthhub.adam.com/'>");
-      return cb(null, body, {"Content-Type": 'text/html'});
-    }
-  });
-}
-function riskNavigator(params, cb){
-  request.get({
-    url: 'http://securehealthhub.adam.com/content.aspx?productId=36',
-    headers: {'referer':'feedhenry.com'}
-  }, function (error, response, body) {
-    if (!error && response.statusCode == 200) {
-      body = body.replace("<head>", "<head><base href='http://securehealthhub.adam.com/'>");
-      return cb(null, body, {"Content-Type": 'text/html'});
-    }
-  });
-}
-function decisionAssistant(params, cb){
-  request.get({
-    url: 'http://securehealthhub.adam.com/content.aspx?productId=42',
-    headers: {'referer':'feedhenry.com'}
-  }, function (error, response, body) {
-    if (!error && response.statusCode == 200) {
-      body = body.replace("<head>", "<head><base href='http://securehealthhub.adam.com/'>");
-      return cb(null, body, {"Content-Type": 'text/html'});
-    }
-  });
-}
-function careGuide(params, cb){
-  request.get({
-    url: 'http://securehealthhub.adam.com/content.aspx?productId=28',
-    headers: {'referer':'feedhenry.com'}
-  }, function (error, response, body) {
-    if (!error && response.statusCode == 200) {
-      body = body.replace("<head>", "<head><base href='http://securehealthhub.adam.com/'>");
-      return cb(null, body, {"Content-Type": 'text/html'});
-    }
-  });
-}
-function wellnessTools(params, cb){
-  request.get({
-    url: 'http://securehealthhub.adam.com/content.aspx?productId=20',
-    headers: {'referer':'feedhenry.com'}
-  }, function (error, response, body) {
-    if (!error && response.statusCode == 200) {
-      body = body.replace("<head>", "<head><base href='http://securehealthhub.adam.com/'>");
-      return cb(null, body, {"Content-Type": 'text/html'});
-    }
-  });
-}
-
 function proxy(params,cb){
   var prefix ='https://securehealthhub-2mzdpxsuthcolhscb40uonnh-live_securehealthhub.df.live.u101.feedhenry.net/proxy/proxy/adam/';
   var base = 'http://securehealthhub.adam.com';
@@ -584,7 +495,7 @@ function proxy(params,cb){
     if (!error && response.statusCode == 200) {
       body = body.replace("<head>", "<head><base href='"+base+"'>");
 
-      // // ---- Replace ALL '../../' with 'up/up/' --------- I know, I know, sorry
+      // // ---- Replace ALL 'content' with '<cloudUrl>/content'
       body = body.replace(new RegExp('href="content', 'g'), 'href="'+prefix+'content');
       // // -------------------------------------------------
 
@@ -598,7 +509,6 @@ function proxy(params,cb){
 }
 
 function subPage(params, cb){
-  console.log('PARAMS',params);
   var prefix ='https://securehealthhub-2mzdpxsuthcolhscb40uonnh-live_securehealthhub.df.live.u101.feedhenry.net/proxy/proxy/adam/';
   var base = 'http://securehealthhub.adam.com';
   var type=params.url.split('.').pop();
