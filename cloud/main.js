@@ -587,7 +587,7 @@ function proxy(params,cb){
       body = body.replace("<head>", "<head><base href='"+prefix+"'>");
 
       // // ---- Replace ALL '../../' with 'up/up/' --------- I know, I know, sorry
-      body = body.replace(new RegExp('src="../../"', 'g'), 'src="http://securehealthhub.adam.com/"');
+      body = body.replace(new RegExp('src="../../', 'g'), 'src="http://securehealthhub.adam.com/');
       // // -------------------------------------------------
 
       return cb(null, body, {"Content-Type": type});
