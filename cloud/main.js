@@ -532,6 +532,7 @@ function subPage(params, cb){
 
     // // ---- Replace ALL 'content' with '<cloudUrl>/content'
     body = body.replace(new RegExp('href="content', 'g'), 'href="'+prefix+'content');
+    body = body.replace(new RegExp("location='content", 'g'), "location='"+prefix+"content");
     // // -------------------------------------------------
 
       return cb(null, body, {"Content-Type": type});
