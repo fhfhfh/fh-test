@@ -559,9 +559,8 @@ function wellnessTools(params, cb){
 }
 
 function proxy(params,cb){
-  console.log('\n****************\nCALLED ONCE\n******************');
-  console.log('PARAMS',params);
   var prefix ='https://securehealthhub-2mzdpxsuthcolhscb40uonnh-live_securehealthhub.df.live.u101.feedhenry.net/proxy/proxy/adam/';
+  var base = 'http://securehealthhub.adam.com';
   var type=params.url.split('.').pop();
   var content = {
     html: 'text/html',
@@ -577,17 +576,16 @@ function proxy(params,cb){
   } else {
     type=content.html;
   }
-  console.log('TYPE:', type);
 
   request.get({
     url: params.url,
     headers: {'referer':'feedhenry.com'}
   }, function (error, response, body) {
     if (!error && response.statusCode == 200) {
-      body = body.replace("<head>", "<head><base href='"+prefix+"'>");
+      body = body.replace("<head>", "<head><base href='"+base+"'>");
 
       // // ---- Replace ALL '../../' with 'up/up/' --------- I know, I know, sorry
-      body = body.replace(new RegExp('src="../../', 'g'), 'src="http://securehealthhub.adam.com/');
+      body = body.replace(new RegExp('href="content', 'g'), 'href="'+prefix+'content');
       // // -------------------------------------------------
 
       return cb(null, body, {"Content-Type": type});
@@ -635,7 +633,7 @@ function subPage(params, cb){
     req.pipe(ws);
   }
   else{
-
+    console.log('getting sub page');
     params.url = params.url.replace("../../", "");
     request.get({
       url: "http://securehealthhub.adam.com"+params.url,
