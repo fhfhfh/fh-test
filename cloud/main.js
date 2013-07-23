@@ -98,14 +98,6 @@ exports.searchDBAction = searchDBAction;
 exports.fetchActivityAction = fetchActivityAction;
 exports.searchActivityAction = searchActivityAction;
 exports.saveJournalAction = saveJournalAction;
-exports.omnipedia = omnipedia;
-exports.drugInformation = drugInformation;
-exports.drugInteractions = drugInteractions;
-exports.symptomNavigator = symptomNavigator;
-exports.riskNavigator = riskNavigator;
-exports.decisionAssistant = decisionAssistant;
-exports.careGuide = careGuide;
-exports.wellnessTools = wellnessTools;
 exports.proxy = proxy;
 exports.subPage=subPage;
 
