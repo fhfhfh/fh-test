@@ -425,11 +425,6 @@ function HostApp() {
 				console.log('URL----', url);
 				if (url) {
 
-					// ---- Replace ALL 'up/up/' with '../../' --------- I know, I know, sorry
-					url = url.replace(new RegExp("up/up/", 'g'), "../../");
-					// -------------------------------------------------
-
-					console.log('FIXING URL', url);
 					mainjs.subPage({
 						url: url
 					}, function(err, page, type) {
@@ -444,25 +439,25 @@ function HostApp() {
 					res.end('No url supplied');
 				}
 			})
-			.use('/proxy', function(req, res) {
-				console.log('******/proxy req******');
-				var url = (req.params && req.params.url) || (req.query && req.query.url) || req.url;
-				console.log('URL----', url);
-				if (url) {
-					mainjs.subPage({
-						url: url
-					}, function(err, page, type) {
-						if (err || !page) {
-							res.end("Error retrieving page");
-						}
-						console.log('***CONTENT***', type['Content-Type']);
-						res.setHeader('Content-Type', type['Content-Type']);
-						res.end(page);
-					});
-				} else {
-					res.end('No url supplied');
-				}
-			})
+			// .use('/proxy', function(req, res) {
+			// 	console.log('******/proxy req******');
+			// 	var url = (req.params && req.params.url) || (req.query && req.query.url) || req.url;
+			// 	console.log('URL----', url);
+			// 	if (url) {
+			// 		mainjs.subPage({
+			// 			url: url
+			// 		}, function(err, page, type) {
+			// 			if (err || !page) {
+			// 				res.end("Error retrieving page");
+			// 			}
+			// 			console.log('***CONTENT***', type['Content-Type']);
+			// 			res.setHeader('Content-Type', type['Content-Type']);
+			// 			res.end(page);
+			// 		});
+			// 	} else {
+			// 		res.end('No url supplied');
+			// 	}
+			// })
 			.use('/sys', sys)
 			.use(function(req, res) {
 				if (req.url === '/') {

@@ -617,44 +617,26 @@ function subPage(params, cb){
     type=content.html;
   }
 
-  // if(type==='image/jpeg'||type==='image/png'||type==='image/gif'){
-  //   var ws = fs.createWriteStream('./public'+params.url);
-  //   var req =request("http://securehealthhub.adam.com"+params.url);
+  console.log('getting sub page');
+  params.url = params.url.replace("../../", "");
+  request.get({
+    url: "http://securehealthhub.adam.com"+params.url,
+    headers: {'referer':'feedhenry.com'}
+  }, function (error, response, body) {
+    console.log('subpage is back from: http://securehealthhub.adam.com'+params.url);
+    if (!error && response.statusCode == 200) {
+      body = body.replace("<head>", "<head><base href='"+base+"'>");
 
-  //   req.on('end', function(err) {
-  //     console.log('***** WRITE FINISHED *****');
-  //     fs.readFile('./public'+params.url, function (err, data) {
-  //       if (err){
-  //         console.log('**ERROR**', err);
-  //       }
-  //       return cb(null, data, {"Content-Type": type});
-  //     });
+    // // ---- Replace ALL 'content' with '<cloudUrl>/content'
+    body = body.replace(new RegExp('href="content', 'g'), 'href="'+prefix+'content');
+    // // -------------------------------------------------
 
-  //   });
-  //   req.pipe(ws);
-  // }
-  // else{
-    console.log('getting sub page');
-    params.url = params.url.replace("../../", "");
-    request.get({
-      url: "http://securehealthhub.adam.com"+params.url,
-      headers: {'referer':'feedhenry.com'}
-    }, function (error, response, body) {
-      console.log('subpage is back from: http://securehealthhub.adam.com'+params.url);
-      if (!error && response.statusCode == 200) {
-        body = body.replace("<head>", "<head><base href='"+base+"'>");
-
-      // // ---- Replace ALL 'content' with '<cloudUrl>/content'
-      body = body.replace(new RegExp('href="content', 'g'), 'href="'+prefix+'content');
-      // // -------------------------------------------------
-
-        return cb(null, body, {"Content-Type": type});
-      } else {
-        console.log("ERROR---", error);
-        console.log("ERROR CODE---", response.statusCode);
-      }
-    });
-  // }
+      return cb(null, body, {"Content-Type": type});
+    } else {
+      console.log("ERROR---", error);
+      console.log("ERROR CODE---", response.statusCode);
+    }
+  });
 }
 
 
