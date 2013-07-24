@@ -422,8 +422,23 @@ function HostApp() {
 			// HealthHub pages -----------------
 			.use('/doc', function(req,res){
 				var url = 'cloud/healthhub'+req.url;
+				var type=url.split('.').pop();
+				var content = {
+					html: 'text/html',
+					css : 'text/css',
+					js  : 'text/javascript',
+					jpg : 'image/jpeg',
+					png : 'image/png',
+					gif : 'image/gif'
+				};
+
+				if(content[type]){
+					type=content[type];
+				} else {
+					type=content.html;
+				}
 				console.log(url);
-				res.setHeader('Content-Type', 'text/html');
+				res.setHeader('Content-Type', type);
 				res.end(fs.readFileSync(url));
 			})//----------------------------------
 
