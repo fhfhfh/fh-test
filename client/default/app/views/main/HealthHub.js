@@ -48,7 +48,6 @@ define([
             },
 
             render: function() {
-                console.log('123');
                 var self = this;
                 this.getHealthHubData();
 
