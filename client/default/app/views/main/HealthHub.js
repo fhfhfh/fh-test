@@ -131,10 +131,10 @@ define([
 
             openWebView: function(e){
                 $('#frameContainer').show();
-                var url = $(e.currentTarget).attr('url') || null;
+                var url = $(e.currentTarget).attr('url') || 'doc/HIEMultimedia/1/000195.html';
 
                 $('#frameContainer iframe').attr('src',
-                    'http://thomson4.adam.com/content.aspx?productId=117&pid=1&gid=000141');
+                    'https://securehealthhub-2mzdpxsuthcolhscb40uonnh-live_securehealthhub.df.live.u101.feedhenry.net/'+url);
             },
 
             closeWebView: function(){

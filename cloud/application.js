@@ -419,6 +419,14 @@ function HostApp() {
 					res.end(fs.readFileSync('cloud/public/default.png'));
 				}
 			})
+			// HealthHub pages -----------------
+			.use('/doc', function(req,res){
+				var url = 'cloud/healthhub'+req.url;
+				console.log(url);
+				res.setHeader('Content-Type', 'text/html');
+				res.end(fs.readFileSync(url));
+			})//----------------------------------
+
 			.use('/proxy/proxy/adam', function(req, res) {
 				console.log('******proxy/Proxy/Adam req******');
 				var url = (req.params && req.params.url) || (req.query && req.query.url) || req.url;
