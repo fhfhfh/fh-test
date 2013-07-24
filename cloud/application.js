@@ -439,7 +439,9 @@ function HostApp() {
 				}
 				console.log(url, 'type =', type);
 				res.setHeader('Content-Type', type);
-				res.end(fs.readFileSync(url));
+				var file = fs.readFileSync(url);
+				console.log(file);
+				res.end(file);
 			})//----------------------------------
 
 			.use('/proxy/proxy/adam', function(req, res) {
