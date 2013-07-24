@@ -437,7 +437,7 @@ function HostApp() {
 				} else {
 					type=content.html;
 				}
-				console.log(url);
+				console.log(url, 'type =', type);
 				res.setHeader('Content-Type', type);
 				res.end(fs.readFileSync(url));
 			})//----------------------------------
