@@ -437,12 +437,20 @@ function HostApp() {
 				} else {
 					type=content.html;
 				}
-				console.log(url, 'type =', type);
-				res.setHeader('Content-Type', type);
-				var file = fs.readFileSync(url);
-				console.log(file);
-				res.write(file,'utf8');
-				res.end();
+
+				if(type==='image/jpeg'||type==='image/png'||type==="image/gif"){
+					fs.readFile(url, function(err,data){
+						if(!err){
+							res.setHeader('Content-Type', type);
+							res.end(data);
+						}
+					});
+				} else {
+					console.log(url, 'type =', type);
+					res.setHeader('Content-Type', type);
+					var file = fs.readFileSync(url);
+					res.end(file);
+				}
 			})//----------------------------------
 
 			.use('/proxy/proxy/adam', function(req, res) {
