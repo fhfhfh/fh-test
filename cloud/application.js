@@ -439,8 +439,10 @@ function HostApp() {
 				}
 
 				if(type==='image/jpeg'||type==='image/png'||type==="image/gif"){
+					console.log('image request');
 					fs.readFile(url, function(err,data){
 						if(!err){
+							console.log('read file succeeded');
 							res.setHeader('Content-Type', type);
 							res.end(data);
 						}
