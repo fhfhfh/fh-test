@@ -423,15 +423,15 @@ input {
 .white {
   color: #000000;
   background-color: #ffffff;
-  background-image: linear-gradient(bottom, #c7f0f6 0%, #ffffff 85%);
-  background-image: -webkit-linear-gradient(bottom, #c7f0f6 0%, #ffffff 85%);
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #c7f0f6), color-stop(0.85, #ffffff));
+  background-image: linear-gradient(bottom, #ffffff 0%, #ffffff 85%);
+  background-image: -webkit-linear-gradient(bottom, #ffffff 0%, #ffffff 85%);
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #ffffff), color-stop(0.85, #ffffff));
   border: 1px solid #d38800;
 }
 .white:active {
-  background-image: linear-gradient(bottom, #ffffff 0%, #c7f0f6 85%);
-  background-image: -webkit-linear-gradient(bottom, #ffffff 0%, #c7f0f6 85%);
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #ffffff), color-stop(0.85, #c7f0f6));
+  background-image: linear-gradient(bottom, #ffffff 0%, #ffffff 85%);
+  background-image: -webkit-linear-gradient(bottom, #ffffff 0%, #ffffff 85%);
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #ffffff), color-stop(0.85, #ffffff));
 }
 .accept {
   background-color: green;
@@ -478,9 +478,30 @@ section h1 {
   z-index: 500;
   border: none;
   text-align: center;
-  background-image: linear-gradient(bottom, #464646 0%, #1f1f1f 65%, #2e2e2e 21%, #525252 90%, #6b6b6b 100%);
-  background-image: -webkit-linear-gradient(bottom, #464646 0%, #1f1f1f 65%, #2e2e2e 21%, #525252 90%, #6b6b6b 100%);
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #464646), color-stop(0.65, #1f1f1f), color-stop(0.21, #2e2e2e), color-stop(0.9, #525252), color-stop(1, #6b6b6b));
+  background: #494e5a;
+  /* Old browsers */
+
+  background: -moz-linear-gradient(top, #494e5a 11%, #0c0e18 28%, #1d2536 56%, #0c0e18 99%);
+  /* FF3.6+ */
+
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(11%, #494e5a), color-stop(28%, #0c0e18), color-stop(56%, #1d2536), color-stop(99%, #0c0e18));
+  /* Chrome,Safari4+ */
+
+  background: -webkit-linear-gradient(top, #494e5a 11%, #0c0e18 28%, #1d2536 56%, #0c0e18 99%);
+  /* Chrome10+,Safari5.1+ */
+
+  background: -o-linear-gradient(top, #494e5a 11%, #0c0e18 28%, #1d2536 56%, #0c0e18 99%);
+  /* Opera 11.10+ */
+
+  background: -ms-linear-gradient(top, #494e5a 11%, #0c0e18 28%, #1d2536 56%, #0c0e18 99%);
+  /* IE10+ */
+
+  background: linear-gradient(to bottom, #494e5a 11%, #0c0e18 28%, #1d2536 56%, #0c0e18 99%);
+  /* W3C */
+
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#494e5a', endColorstr='#0c0e18', GradientType=0);
+  /* IE6-9 */
+
   border-radius: 10px;
   padding: 5px;
   box-shadow: 2px 2px 5px #000000;
@@ -501,6 +522,7 @@ section h1 {
   background-color: #fff;
   border-radius: 5px;
   border: 1px solid #c0c0c0;
+  box-shadow: 0px 1px 4px #fff;
 }
 .popup li label {
   color: #000000;
@@ -517,7 +539,7 @@ section h1 {
 .popup li.btn {
   display: inline-block;
   width: 100px;
-  border: 1px solid #000000;
+  border: 1px solid #313a48;
   padding: 4px;
 }
 #login {
@@ -1187,7 +1209,7 @@ li {
 }
 #welcome #video {
   position: relative;
-  margin-top: 25%;
+  margin-top: 15%;
   text-align: center;
 }
 #welcome #video img,
@@ -1216,7 +1238,7 @@ li {
 #welcome #info {
   position: absolute;
   left: 6%;
-  top: 16%;
+  top: 10%;
   color: #5a5a5a;
 }
 #welcome #buttons {
@@ -2406,11 +2428,12 @@ section#widgetScreen #scrollWrapper {
 #topBarPopup {
   display: none;
   position: absolute;
-  right: 0px;
+  right: 10px;
   top: 53px;
   width: 300px;
   left: auto;
-  box-shadow: 0px -1px 1px #000000;
+  box-shadow: 0px 2px 4px #000000;
+  border: 1px #fff solid;
 }
 #topBarPopup .btn {
   display: block;
@@ -2420,14 +2443,28 @@ section#widgetScreen #scrollWrapper {
   margin: 5px 5px;
   font: bold 18px "Avenir Next", Helvetica, Arial, sans-serif;
 }
+#topBarPopup:after,
 #topBarPopup:before {
-  border-bottom: 15px solid #6b6b6b;
-  border-right: 20px solid transparent;
-  border-left: 20px solid transparent;
-  top: -12px;
-  content: '';
+  bottom: 100%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
   position: absolute;
-  right: 17px;
+}
+#topBarPopup:after {
+  border-color: rgba(136, 183, 213, 0);
+  border-bottom-color: #494e5a;
+  border-width: 15px;
+  top: -29px;
+  right: 8px;
+}
+#topBarPopup:before {
+  border-color: rgba(194, 225, 245, 0);
+  border-bottom-color: #fff;
+  border-width: 16px;
+  top: -32px;
+  right: 7px;
 }
 .ads {
   position: relative;
