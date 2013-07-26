@@ -444,7 +444,8 @@ function HostApp() {
 						if(!err){
 							console.log('read file succeeded');
 							res.setHeader('Content-Type', type);
-							res.end(data);
+							res.write(data, 'utf');
+							res.end();
 						}
 					});
 				} else {
