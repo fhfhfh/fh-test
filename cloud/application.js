@@ -421,7 +421,7 @@ function HostApp() {
 			})
 			// HealthHub pages -----------------
 			.use('/doc', function(req,res){
-				var url = 'cloud/healthhub'+req.url;
+				var url = './cloud/healthhub'+req.url;
 				var type=url.split('.').pop();
 				var content = {
 					html: 'text/html',
