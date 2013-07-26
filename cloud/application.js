@@ -460,6 +460,7 @@ function HostApp() {
 						console.log('PATH******',path);
 						if (fs.existsSync(path)) {
 							console.log('image FOUND');
+							res.setHeader('Content-Type', 'image/jpeg');
 							res.end(fs.readFileSync(url));
 							return static(req, res, next);
 						} else {
