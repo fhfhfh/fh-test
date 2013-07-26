@@ -452,9 +452,11 @@ function HostApp() {
 						var path = decodeURI(req.url);
 						console.log(url);
 						if (fs.existsSync(path)) {
+							console.log('image FOUND');
 							return static(req, res, next);
 						} else {
 							// return default.png thumb
+							console.log('NO image FOUND');
 							res.end(fs.readFileSync(url));
 						}
 				} else {
