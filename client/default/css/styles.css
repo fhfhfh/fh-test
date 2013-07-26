@@ -3391,10 +3391,10 @@ section#insights h1 {
 #foodometer #body #content #rightContent #emptyFood,
 #foodScreen #body #content #rightContent #emptyFood,
 #activityScreen #body #content #rightContent #emptyFood {
-  color: #676767;
+  color: #6d6d6d;
   margin-top: 250px;
   text-align: center;
-  font: bold 18px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
+  font: bold 18px "Avenir Next", Helvetica, Arial, sans-serif;
   text-shadow: 0 1px 1px #ffffff;
 }
 #foodometer #body #content #rightContent #emptyFood #day,
@@ -4705,7 +4705,8 @@ section#insights h1 {
   width: 246px;
   border-radius: 8px;
   background-color: #e6e6e6;
-  font-size: 16px;
+  font-size: 13px;
+  color: #000;
 }
 #busyBody #calories span {
   width: 110px;
@@ -4713,16 +4714,17 @@ section#insights h1 {
   padding: 5px 0px;
 }
 #busyBody #calories span#remaining {
-  font: bold 16px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
+  font: normal 13px "Avenir Next Medium", Helvetica, Arial, sans-serif;
+  color: #676767;
 }
 #busyBody #calories span#remainingNum {
   text-align: right;
-  font: bold 16px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
+  font: normal 14px "Avenir Next Medium", Helvetica, Arial, sans-serif;
 }
 #busyBody #calories span#goalNum {
   text-align: right;
   color: #676767;
-  font: normal 16px "Avenir Next Medium", Helvetica, Arial, sans-serif;
+  font: normal 14px "Avenir Next Medium", Helvetica, Arial, sans-serif;
 }
 #busyBody #calories span#currentNum {
   text-align: right;
