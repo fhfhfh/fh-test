@@ -449,7 +449,7 @@ function HostApp() {
 					// });
 					var static = connect['static']('./cloud/healthhub');
 						console.log(process.cwd());
-						fs.readdir('./',function(err,dir){
+						fs.readdir('./cloud/healthhub/graphics/tnails/',function(err,dir){
 							console.log(dir);
 						});
 						var path = decodeURI(req.url);
