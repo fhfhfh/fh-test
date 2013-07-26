@@ -420,8 +420,8 @@ function HostApp() {
 				}
 			})
 			// HealthHub pages -----------------
-			.use('/doc', function(req,res){
-				var url = 'cloud/healthhub'+req.url;
+			.use('/doc', function(req,res,next){
+				var url = './cloud/healthhub'+req.url;
 				var type=url.split('.').pop();
 				var content = {
 					html: 'text/html',
@@ -449,13 +449,24 @@ function HostApp() {
 					// });
 					var static = connect['static']('./cloud/healthhub');
 						console.log(process.cwd());
-						var path = decodeURI(req.url);
+						fs.readdir('./cloud/healthhub/graphics/tnail/',function(err,dir){
+							if(err){
+								console.error(err);
+							}
+							console.log(dir);
+						});
+						var path = decodeURI(url);
 						console.log(url);
+						console.log('PATH******',path);
 						if (fs.existsSync(path)) {
+							console.log('image FOUND');
+							res.setHeader('Content-Type', 'image/jpeg');
+							res.end(fs.readFileSync(url));
 							return static(req, res, next);
 						} else {
 							// return default.png thumb
-							res.end(fs.readFileSync(url));
+							console.log('NO image FOUND');
+							res.end();
 						}
 				} else {
 					console.log(url, 'type =', type);
