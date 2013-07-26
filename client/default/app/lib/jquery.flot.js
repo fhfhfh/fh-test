@@ -43,7 +43,7 @@ Licensed under the MIT license.
 	$(function() {
 		$("head").prepend([
 			"<style id='flot-default-styles'>",
-			".flot-tick-label {font-size:smaller;color:#545454;}",
+			".flot-tick-label {font-size:smaller;color:#545454;text-align: center;}",
 			"</style>"
 		].join(""));
 	});

@@ -64,7 +64,15 @@
 	left: 415px;
 	width: 200px;
 	text-align: center;
-	.background-gradient-slight(#667580, #000000);
+	background: #425160; /* Old browsers */
+	background: -moz-linear-gradient(top,  #425160 1%, #0a0c13 20%, #0a0c13 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(1%,#425160), color-stop(20%,#0a0c13), color-stop(100%,#0a0c13)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #425160 1%,#0a0c13 20%,#0a0c13 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #425160 1%,#0a0c13 20%,#0a0c13 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #425160 1%,#0a0c13 20%,#0a0c13 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #425160 1%,#0a0c13 20%,#0a0c13 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#425160', endColorstr='#0a0c13',GradientType=0 ); /* IE6-9 */
+
 	border-radius: 10px;
 	padding: 5px;
 	box-shadow: 2px 2px 5px #ababab;
@@ -74,16 +82,18 @@
     }
 
 	h2 {
-		.avenir-demi(14px);
+		.avenir-bold(16px);
 		color: #ffffff;
 	}
 
 	#body {
-		.avenir-bold(12px);
+		.avenir-demi(14px);
+		color: #343434;
 		text-align: left;
 		min-height: 100px;
-		background-color: #ffffff;
+		background-color: #eef2fa;
 		border-radius: 5px;
+		padding-bottom: 10px;
 
 		input[type=checkbox] {
 		    display:none;
@@ -101,8 +111,8 @@
 		label {
 			display: inline-block;
 			width: 100%;
-			padding: 10px;
-			height: 35px;
+			padding: 20px 10px 0 20px;
+			height: 45px;
 			img {
 				float: right;
 				display: none;
@@ -114,7 +124,7 @@
 }
 
 #filterView:before {
-    border-bottom: 15px solid #4a5663;
+    border-bottom: 15px solid #3C4958;
     border-right: 20px solid transparent;
     border-left: 20px solid transparent;
     // bottom: 151px;

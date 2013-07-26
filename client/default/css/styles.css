@@ -913,7 +913,7 @@ section h1 {
   border-bottom-right-radius: 5px;
   position: absolute;
   top: 2px;
-  right: -4px;
+  right: 6px;
   padding: 0 6px;
   color: white;
   text-shadow: 0 1px 1px #000000;
@@ -927,7 +927,6 @@ section h1 {
 }
 @media only screen and (orientation: landscape) {
   #wrapper {
-    max-height: 640px;
     min-height: 590px;
   }
 }
@@ -1209,8 +1208,13 @@ li {
 }
 #welcome #video {
   position: relative;
-  margin-top: 15%;
+  margin-top: 40%;
   text-align: center;
+}
+@media only screen and (orientation: landscape) {
+  #welcome #video {
+    margin-top: 15%;
+  }
 }
 #welcome #video img,
 #welcome #video video {
@@ -1238,8 +1242,13 @@ li {
 #welcome #info {
   position: absolute;
   left: 6%;
-  top: 10%;
+  top: 15%;
   color: #5a5a5a;
+}
+@media only screen and (orientation: landscape) {
+  #welcome #info {
+    top: 10%;
+  }
 }
 #welcome #buttons {
   position: relative;
@@ -1287,8 +1296,12 @@ li {
 }
 #VideoPlayback #videoContainer #currentVideo {
   width: 550px;
-  margin-left: 100px;
-  margin-right: 100px;
+  margin-left: 16%;
+}
+@media only screen and (orientation: landscape) {
+  #VideoPlayback #videoContainer #currentVideo {
+    margin-left: 40%;
+  }
 }
 #VideoPlayback #videoContainer #currentVideo iframe {
   width: 100%;
@@ -1297,12 +1310,10 @@ li {
 #VideoPlayback #videoContainer #previousVideo {
   float: left;
   margin-left: -10px;
-  background-color: blue;
 }
 #VideoPlayback #videoContainer #nextVideo {
   float: right;
   margin-right: -10px;
-  background-color: red;
 }
 #VideoPlayback #scroller {
   padding-bottom: 450px;
@@ -1693,30 +1704,36 @@ section#widgetScreen #scrollWrapper {
 }
 #research #researchInnerDivMenu #backDiv #researchDesc {
   margin: 20px;
-  width: 40%;
+  width: 38%;
   text-align: center;
-  font: normal 12px "Avenir Next", Helvetica, Arial, sans-serif;
+  font: normal 14px "Avenir Next Medium", Helvetica, Arial, sans-serif;
+  color: #1a1a1a;
   float: right;
 }
 #research #researchInnerDivMenu #backDiv #researchCat {
   margin-top: 200px;
-  width: 40%;
-  color: #676767;
+  width: 43%;
+  color: #1a1a1a;
   float: right;
   clear: right;
   text-align: center;
   margin-right: 10px;
-  font: bold 16px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
+  font: bold 18px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
 }
 #research #researchInnerDivMenu #backDiv #researchCat img {
   float: left;
 }
+@media only screen and (orientation: landscape) {
+  #research #researchInnerDivMenu #backDiv #researchCat img {
+    margin-bottom: 14px;
+  }
+}
 #research #researchMenu,
 #research #research-menu {
-  border: 2px solid #676767;
+  border: 2px solid #b2b2b2;
   border-radius: 8px;
   width: 300px;
-  color: #000000;
+  color: #343434;
   text-shadow: 1px 1px #ffffff;
   margin: 10px;
 }
@@ -1724,11 +1741,13 @@ section#widgetScreen #scrollWrapper {
 #research #research-menu div:first-child {
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
+  border-top: 2px solid #ffffff;
 }
 #research #researchMenu div:last-child,
 #research #research-menu div:last-child {
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
+  border-bottom: 2px solid #ffffff;
 }
 #research #researchMenu .researchBtn,
 #research #research-menu .researchBtn,
@@ -1736,6 +1755,8 @@ section#widgetScreen #scrollWrapper {
 #research #research-menu .omniBtn {
   height: 80px;
   padding: 15px;
+  border-right: 2px solid #ffffff;
+  border-left: 2px solid #ffffff;
 }
 #research #researchMenu #menu1,
 #research #research-menu #menu1,
@@ -1877,6 +1898,7 @@ section#widgetScreen #scrollWrapper {
 }
 #medicine #selector {
   padding-bottom: 20px;
+  background-color: #e6e6e6;
 }
 #featuredMeds #filterView {
   top: 50px;
@@ -1897,11 +1919,12 @@ section#widgetScreen #scrollWrapper {
 #medicineBar #searchImg {
   position: absolute;
   left: 20px;
-  top: 15px;
+  top: 17px;
 }
 #medicineBar #medSearch {
   padding-left: 4%;
   border-radius: 15px;
+  border: #ccc solid 2px;
   width: 35%;
 }
 #medicineBar #medicineOptions {
@@ -2472,7 +2495,7 @@ section#widgetScreen #scrollWrapper {
   border-radius: 8px;
   padding: 30px;
   overflow: hidden;
-  margin: 15px;
+  margin: 0 15px;
 }
 @media only screen and (orientation: landscape) {
   .ads {
@@ -2491,7 +2514,7 @@ section#widgetScreen #scrollWrapper {
   color: #2b6891;
   margin-top: 0;
   margin-bottom: 5px;
-  font: bold 15px "Avenir Next", Helvetica, Arial, sans-serif;
+  font: bold 15px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
 }
 .ad-notice {
   color: #808080;
@@ -2700,7 +2723,7 @@ section#month h2 {
 #insight_div {
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px;
-  box-shadow: -2px 4px 4px #888888;
+  box-shadow: 0px 2px 2px #ababab;
   margin-left: 15px;
 }
 #mood_section {
@@ -2709,11 +2732,12 @@ section#month h2 {
   padding-bottom: 25px;
 }
 #mood_desc {
-  font-size: 14px;
+  font: 12pt "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
+  color: #676767;
 }
 #mood_head_line {
-  font-weight: bold;
-  font-size: 17px;
+  font: bold 16pt "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
+  color: #676767;
 }
 #insight_graph {
   height: 45%;
@@ -2731,12 +2755,16 @@ section#insights h1 {
 }
 #insight_div {
   background-color: #ebebeb;
+  color: #676767;
+  font-family: "Avenir Next Medium", Helvetica, Arial, sans-serif;
 }
 #mood_img img {
   padding-right: 8px;
   height: 25px;
 }
 .insight_list {
+  font: normal 12pt "Avenir Next Medium", Helvetica, Arial, sans-serif;
+  color: #676767;
   border: 2px solid lightgray;
   height: 70px;
   -moz-border-radius: 10px;
@@ -2807,9 +2835,30 @@ section#insights h1 {
   left: 415px;
   width: 200px;
   text-align: center;
-  background-image: linear-gradient(bottom, #000000 9%, #667580 99%);
-  background-image: -webkit-linear-gradient(bottom, #000000 9%, #667580 99%);
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0.9, #000000), color-stop(0.99, #667580));
+  background: #425160;
+  /* Old browsers */
+
+  background: -moz-linear-gradient(top, #425160 1%, #0a0c13 20%, #0a0c13 100%);
+  /* FF3.6+ */
+
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(1%, #425160), color-stop(20%, #0a0c13), color-stop(100%, #0a0c13));
+  /* Chrome,Safari4+ */
+
+  background: -webkit-linear-gradient(top, #425160 1%, #0a0c13 20%, #0a0c13 100%);
+  /* Chrome10+,Safari5.1+ */
+
+  background: -o-linear-gradient(top, #425160 1%, #0a0c13 20%, #0a0c13 100%);
+  /* Opera 11.10+ */
+
+  background: -ms-linear-gradient(top, #425160 1%, #0a0c13 20%, #0a0c13 100%);
+  /* IE10+ */
+
+  background: linear-gradient(to bottom, #425160 1%, #0a0c13 20%, #0a0c13 100%);
+  /* W3C */
+
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#425160', endColorstr='#0a0c13', GradientType=0);
+  /* IE6-9 */
+
   border-radius: 10px;
   padding: 5px;
   box-shadow: 2px 2px 5px #ababab;
@@ -2820,15 +2869,17 @@ section#insights h1 {
   }
 }
 #filterView h2 {
-  font: bold 14px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
+  font: bold 16px "Avenir Next", Helvetica, Arial, sans-serif;
   color: #ffffff;
 }
 #filterView #body {
-  font: bold 12px "Avenir Next", Helvetica, Arial, sans-serif;
+  font: bold 14px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
+  color: #343434;
   text-align: left;
   min-height: 100px;
-  background-color: #ffffff;
+  background-color: #eef2fa;
   border-radius: 5px;
+  padding-bottom: 10px;
 }
 #filterView #body input[type=checkbox] {
   display: none;
@@ -2843,8 +2894,8 @@ section#insights h1 {
 #filterView #body label {
   display: inline-block;
   width: 100%;
-  padding: 10px;
-  height: 35px;
+  padding: 20px 10px 0 20px;
+  height: 45px;
 }
 #filterView #body label img {
   float: right;
@@ -2852,7 +2903,7 @@ section#insights h1 {
   height: 25px;
 }
 #filterView:before {
-  border-bottom: 15px solid #4a5663;
+  border-bottom: 15px solid #3C4958;
   border-right: 20px solid transparent;
   border-left: 20px solid transparent;
   top: -12px;
@@ -2883,17 +2934,23 @@ section#insights h1 {
   padding: 0px;
 }
 #myWidgets .action {
-  background: #fff;
+  background: none;
   border: 0px solid #1f1f1f;
   width: 12%;
   min-height: 100px;
-  min-width: 76px;
+  min-width: 80px;
   max-width: 100px;
   text-align: center;
-  margin: 8px 0px 0px 0px;
+  margin: 8px 0px 0px 4px;
   font-size: 12px;
   color: #777;
   font: normal 12px "Avenir Next Medium", Helvetica, Arial, sans-serif;
+}
+@media only screen and (orientation: landscape) {
+  #myWidgets .action {
+    min-width: 78px;
+    margin: 8px 0px 0px 2px;
+  }
 }
 #myWidgets .action:active {
   opacity: 0.5;
@@ -2906,17 +2963,37 @@ section#insights h1 {
   background: #ffffff url('../img/widgets/bg-widget-divider-bar-fade.png') repeat-x bottom;
   padding-bottom: 28px;
 }
+#widgets-library {
+  background-image: url('../img/widgets/widgetpngfiles/bg-gray-texture.png');
+  padding-bottom: 47px;
+  padding-top: 1px;
+  border-radius: 8px;
+  margin-top: -6px;
+  border-top-right-radius: 0;
+  border-top-left-radius: 0;
+}
+@media only screen and (orientation: landscape) {
+  #widgets-library {
+    padding-bottom: 24px;
+  }
+}
 #suggestedWidgets .widget_panel,
 #widgetStore .widget_panel {
   background: #ffffff url('../img/widgets/widgetpngfiles/widgetbg.png') no-repeat 50% top;
   width: 145px;
   height: 175px;
-  margin: 10px 4px;
+  margin: 10px 29px;
   padding: 12px 6px;
   color: #777;
   overflow: hidden;
   vertical-align: top;
   text-align: left;
+}
+@media only screen and (orientation: landscape) {
+  #suggestedWidgets .widget_panel,
+  #widgetStore .widget_panel {
+    margin: 10px 23px;
+  }
 }
 #suggestedWidgets .widget_panel h1,
 #widgetStore .widget_panel h1 {

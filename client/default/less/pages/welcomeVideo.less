@@ -12,8 +12,12 @@
 
 	#video {
 		position: relative;
-		margin-top: 15%;
+		margin-top: 40%;
 		text-align: center;
+
+		@media @landscape {
+		 	margin-top: 15%;
+		 }
 
 		img, video {
 			height: 10%;
@@ -44,8 +48,12 @@
 	#info {
 		position: absolute;
 		left: 6%;
-		top: 10%;
+		top: 15%;
 		color: #5a5a5a;
+
+		@media @landscape {
+		 	top: 10%;
+		 }
 	}
 
 	#buttons {

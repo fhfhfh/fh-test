@@ -6,17 +6,22 @@
 	}
  	
 	.action {
-		background:#fff;
+		background:none;
 		border: 0px solid #1f1f1f;
 		width: 12%;
 		min-height: 100px;
-		min-width: 76px;
+		min-width: 80px;
 		max-width:100px;
 		text-align:center;
-		margin:8px 0px 0px 0px;
+		margin:8px 0px 0px 4px;
 		font-size:12px;
 		color: #777;
 		.avenir-medium(12px);
+
+		@media @landscape {
+			min-width: 78px;
+			margin:8px 0px 0px 2px;
+		}
 
 		&:active {
 			opacity: 0.5;
@@ -33,4 +38,18 @@
 #mywidgets {
 	  background: #fff url('../img/widgets/bg-widget-divider-bar-fade.png') repeat-x bottom;
 	  padding-bottom:28px;
+}
+
+#widgets-library {
+	background-image: url('../img/widgets/widgetpngfiles/bg-gray-texture.png');
+	padding-bottom: 47px;
+	padding-top: 1px;
+	border-radius: 8px;
+	margin-top: -6px;
+	border-top-right-radius: 0;
+	border-top-left-radius: 0;
+
+	@media @landscape {
+		padding-bottom: 24px;
+	}
 }
