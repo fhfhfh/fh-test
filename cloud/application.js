@@ -438,22 +438,22 @@ function HostApp() {
 					type=content.html;
 				}
 
-				if(type==='image/jpeg'||type==='image/png'||type==="image/gif"){
-					console.log('image request');
-					fs.readFile(url, function(err,data){
-						if(!err){
-							console.log('read file succeeded');
-							res.setHeader('Content-Type', type);
-							res.write(data, 'utf');
-							res.end();
-						}
-					});
-				} else {
+				// if(type==='image/jpeg'||type==='image/png'||type==="image/gif"){
+				// 	console.log('image request');
+				// 	fs.readFile(url,{encoding:'base64'}, function(err,data){
+				// 		if(!err){
+				// 			console.log('read file succeeded');
+				// 			res.setHeader('Content-Type', type);
+				// 			res.write('data:'+type+';base64,'+data, 'utf8');
+				// 			res.end();
+				// 		}
+				// 	});
+				// } else {
 					console.log(url, 'type =', type);
 					res.setHeader('Content-Type', type);
 					var file = fs.readFileSync(url);
 					res.end(file);
-				}
+				// }
 			})//----------------------------------
 
 			.use('/proxy/proxy/adam', function(req, res) {
