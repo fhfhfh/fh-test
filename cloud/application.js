@@ -438,22 +438,31 @@ function HostApp() {
 					type=content.html;
 				}
 
-				// if(type==='image/jpeg'||type==='image/png'||type==="image/gif"){
-				// 	console.log('image request');
-				// 	fs.readFile(url,{encoding:'base64'}, function(err,data){
-				// 		if(!err){
-				// 			console.log('read file succeeded');
-				// 			res.setHeader('Content-Type', type);
-				// 			res.write('data:'+type+';base64,'+data, 'utf8');
-				// 			res.end();
-				// 		}
-				// 	});
-				// } else {
+				if(type==='image/jpeg'||type==='image/png'||type==="image/gif"){
+					console.log('image request', url);
+					// fs.readFile(url, function(err,data){
+					// 	if(!err){
+					// 		console.log('read file succeeded');
+					// 		res.setHeader('Content-Type', type);
+					// 		res.end();
+					// 	}
+					// });
+					var static = connect['static']('./cloud/healthhub');
+						console.log(process.cwd());
+						var path = decodeURI(req.url);
+						console.log(url);
+						if (fs.existsSync(path)) {
+							return static(req, res, next);
+						} else {
+							// return default.png thumb
+							res.end(fs.readFileSync(url));
+						}
+				} else {
 					console.log(url, 'type =', type);
 					res.setHeader('Content-Type', type);
 					var file = fs.readFileSync(url);
 					res.end(file);
-				// }
+				}
 			})//----------------------------------
 
 			.use('/proxy/proxy/adam', function(req, res) {
