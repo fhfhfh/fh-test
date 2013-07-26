@@ -460,11 +460,12 @@ function HostApp() {
 						console.log('PATH******',path);
 						if (fs.existsSync(path)) {
 							console.log('image FOUND');
+							res.end(fs.readFileSync(url));
 							return static(req, res, next);
 						} else {
 							// return default.png thumb
 							console.log('NO image FOUND');
-							res.end(fs.readFileSync(url));
+							res.end();
 						}
 				} else {
 					console.log(url, 'type =', type);
