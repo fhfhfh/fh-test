@@ -1732,7 +1732,7 @@ section#widgetScreen #scrollWrapper {
 #research #research-menu {
   border: 2px solid #b2b2b2;
   border-radius: 8px;
-  width: 300px;
+  width: 285px;
   color: #343434;
   text-shadow: 1px 1px #ffffff;
   margin: 10px;
@@ -1741,7 +1741,6 @@ section#widgetScreen #scrollWrapper {
 #research #research-menu div:first-child {
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
-  border-top: 2px solid #ffffff;
 }
 #research #researchMenu div:last-child,
 #research #research-menu div:last-child {
@@ -1808,9 +1807,9 @@ section#widgetScreen #scrollWrapper {
 }
 #research #research-menu {
   position: absolute;
-  top: 50px;
+  top: 40px;
   z-index: 10;
-  margin-left: 17px;
+  margin-left: 6px;
   border-radius: 10px;
   display: none;
 }
@@ -1824,61 +1823,62 @@ section#widgetScreen #scrollWrapper {
 #research .topBtn {
   display: inline-block;
   width: 285px;
-  height: 80px;
-  border-radius: 10px 10px 10px 10px;
-  border: 2px solid #ababab;
+  height: 83px;
   padding: 10px;
   margin-bottom: 20px;
+  margin-top: 7px;
 }
 #research .topBtn img {
   float: right;
   margin-top: -30px;
 }
 #research #omniBtn {
-  background-color: #eafef8;
+  background: url('../img/research/bu-welless-omnipedia.png');
 }
 #research #infoBtn {
-  background-color: #deeeff;
+  background: url('../img/research/bu-drug-information.png');
 }
 #research #interactionBtn {
-  background-color: #dcdded;
+  background: url('../img/research/bu-drug-interactions.png');
 }
 #research #symptomBtn {
-  background-color: #eedbdc;
+  background: url('../img/research/bu-symptom-navigator.png');
 }
 #research #riskBtn {
-  background-color: #fee4ff;
+  background: url('../img/research/bu-risk-factor-navigator.png');
 }
 #research #decisionBtn {
-  background-color: #fff6e0;
+  background: url('../img/research/bu-decision-assistant.png');
 }
 #research #careBtn {
-  background-color: #d9fee4;
+  background: url('../img/research/bu-care-guides.png');
 }
 #research #toolsBtn {
-  background-color: #ddb9c8;
+  background: url('../img/research/bu-wellness-tools.png');
 }
 #research #infoBox {
   display: inline-block;
   vertical-align: top;
-  padding: 10px;
-  width: 45%;
-  height: 66px;
-  margin: 10px;
-  background-color: white;
-  font: bold 12px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
-  box-shadow: 0px 0px 5px 0px;
+  padding: 20px;
+  width: 276px;
+  height: 97px;
+  margin: 0 0 10px 10px;
+  background-image: url('../img/research/bg-instructions-box.png');
+  font: normal 13px "Avenir Next Medium", Helvetica, Arial, sans-serif;
+  color: #1a1a1a;
 }
 #research .menuName1,
 #research .btnTitle1 {
   font: normal 15pt "Avenir Next Medium", Helvetica, Arial, sans-serif;
   margin: 0px;
+  color: #343434;
 }
 #research .menuName2,
 #research .btnTitle2 {
   font: bold 26px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
   padding-left: 20px;
   margin: 0px;
+  color: #343434;
 }
 #research #frameContainer {
   width: 100%;
