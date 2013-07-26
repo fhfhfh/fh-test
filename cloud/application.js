@@ -439,14 +439,24 @@ function HostApp() {
 				}
 
 				if(type==='image/jpeg'||type==='image/png'||type==="image/gif"){
-					console.log('image request');
-					fs.readFile(url, function(err,data){
-						if(!err){
-							console.log('read file succeeded');
-							res.setHeader('Content-Type', type);
-							res.end(data);
+					console.log('image request', url);
+					// fs.readFile(url, function(err,data){
+					// 	if(!err){
+					// 		console.log('read file succeeded');
+					// 		res.setHeader('Content-Type', type);
+					// 		res.end();
+					// 	}
+					// });
+					var static = connect['static']('./cloud/healthhub');
+						console.log(process.cwd());
+						var path = decodeURI(req.url);
+						console.log(url);
+						if (fs.existsSync(path)) {
+							return static(req, res, next);
+						} else {
+							// return default.png thumb
+							res.end(fs.readFileSync(url));
 						}
-					});
 				} else {
 					console.log(url, 'type =', type);
 					res.setHeader('Content-Type', type);
