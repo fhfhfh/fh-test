@@ -133,8 +133,8 @@ define([
                 var url = $(e.currentTarget).attr('url') || 'doc/HIEMultimedia/1/000195.html';
 
                 $('#frameContainer iframe').attr('src',
-                    // 'https://securehealthhub-2mzdpxsuthcolhscb40uonnh-live_securehealthhub.df.live.u101.feedhenry.net/'+url);
-                'http://127.0.0.1:8001/'+url);
+                    'https://securehealthhub-2mzdpxsuthcolhscb40uonnh-live_securehealthhub.df.live.u101.feedhenry.net/'+url);
+                // 'http://127.0.0.1:8001/'+url);
             },
 
             closeWebView: function(){
