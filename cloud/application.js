@@ -420,7 +420,7 @@ function HostApp() {
 				}
 			})
 			// HealthHub pages -----------------
-			.use('/doc', function(req,res){
+			.use('/doc', function(req,res,next){
 				var url = './cloud/healthhub'+req.url;
 				var type=url.split('.').pop();
 				var content = {
@@ -455,7 +455,7 @@ function HostApp() {
 							}
 							console.log(dir);
 						});
-						var path = decodeURI(req.url);
+						var path = decodeURI(url);
 						console.log(url);
 						console.log('PATH******',path);
 						if (fs.existsSync(path)) {
