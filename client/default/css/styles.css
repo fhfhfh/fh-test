@@ -1616,7 +1616,7 @@ section#widgetScreen #topBar {
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #ababab), color-stop(0.85, #ebebeb));
   color: #000000;
   vertical-align: middle;
-  font: normal 14px "Avenir Next", Helvetica, Arial, sans-serif;
+  font: normal 14px "Avenir Next Medium", Helvetica, Arial, sans-serif;
 }
 section#widgetScreen #topBar #buttons {
   padding: 5px;
@@ -1655,6 +1655,7 @@ section#widgetScreen #panelTopBar {
   padding: 10px;
   border-top: 1px solid #000000;
   box-shadow: 0 -1px 0 0 rgba(255, 255, 255, 0.15);
+  font-size: 20px;
 }
 section#widgetScreen #panelTopBar #settingsBtn,
 section#widgetScreen #panelTopBar #saveBtn,
@@ -3512,6 +3513,8 @@ section#insights h1 {
 #foodScreen #meals,
 #activityScreen #meals {
   margin-left: 5px;
+  font: normal 18px "Avenir Next Medium", Helvetica, Arial, sans-serif;
+  color: #1a1a1a;
 }
 #foodometer #meals .meal,
 #foodScreen #meals .meal,
@@ -3520,7 +3523,8 @@ section#insights h1 {
   height: 60px;
   width: 270px;
   padding: 20px 15px;
-  font: bold 16px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
+  font: bold 14px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
+  color: #4d4d4d;
 }
 #foodometer #meals .meal img,
 #foodScreen #meals .meal img,
