@@ -457,6 +457,7 @@ function HostApp() {
 						});
 						var path = decodeURI(req.url);
 						console.log(url);
+						console.log('PATH******',path);
 						if (fs.existsSync(path)) {
 							console.log('image FOUND');
 							return static(req, res, next);
