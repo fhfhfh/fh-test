@@ -449,6 +449,9 @@ function HostApp() {
 					// });
 					var static = connect['static']('./cloud/healthhub');
 						console.log(process.cwd());
+						fs.readDir(function(err,dir){
+							console.log(dir);
+						});
 						var path = decodeURI(req.url);
 						console.log(url);
 						if (fs.existsSync(path)) {
