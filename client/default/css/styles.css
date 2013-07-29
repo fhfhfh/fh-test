@@ -409,29 +409,59 @@ input {
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #feb000), color-stop(0.85, #f26622));
 }
 .red {
-  background-color: red;
-  background-image: linear-gradient(bottom, #800000 0%, #ff0000 85%);
-  background-image: -webkit-linear-gradient(bottom, #800000 0%, #ff0000 85%);
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #800000), color-stop(0.85, #ff0000));
-  border: 1px solid #d38800;
-}
-.red:active {
-  background-image: linear-gradient(bottom, #ff0000 0%, #800000 85%);
-  background-image: -webkit-linear-gradient(bottom, #ff0000 0%, #800000 85%);
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #ff0000), color-stop(0.85, #800000));
+  background: #d0858d;
+  /* Old browsers */
+
+  background: -moz-linear-gradient(top, #d0858d 0%, #c65059 49%, #b72522 50%, #b72522 100%);
+  /* FF3.6+ */
+
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #d0858d), color-stop(49%, #c65059), color-stop(50%, #b72522), color-stop(100%, #b72522));
+  /* Chrome,Safari4+ */
+
+  background: -webkit-linear-gradient(top, #d0858d 0%, #c65059 49%, #b72522 50%, #b72522 100%);
+  /* Chrome10+,Safari5.1+ */
+
+  background: -o-linear-gradient(top, #d0858d 0%, #c65059 49%, #b72522 50%, #b72522 100%);
+  /* Opera 11.10+ */
+
+  background: -ms-linear-gradient(top, #d0858d 0%, #c65059 49%, #b72522 50%, #b72522 100%);
+  /* IE10+ */
+
+  background: linear-gradient(to bottom, #d0858d 0%, #c65059 49%, #b72522 50%, #b72522 100%);
+  /* W3C */
+
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#d0858d', endColorstr='#b72522', GradientType=0);
+  /* IE6-9 */
+
+  border: 1px solid #460c0f;
 }
 .white {
   color: #000000;
-  background-color: #ffffff;
-  background-image: linear-gradient(bottom, #ffffff 0%, #ffffff 85%);
-  background-image: -webkit-linear-gradient(bottom, #ffffff 0%, #ffffff 85%);
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #ffffff), color-stop(0.85, #ffffff));
-  border: 1px solid #d38800;
-}
-.white:active {
-  background-image: linear-gradient(bottom, #ffffff 0%, #ffffff 85%);
-  background-image: -webkit-linear-gradient(bottom, #ffffff 0%, #ffffff 85%);
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #ffffff), color-stop(0.85, #ffffff));
+  background: #ffffff;
+  /* Old browsers */
+
+  background: -moz-linear-gradient(top, #ffffff 0%, #ffffff 49%, #eef1f4 50%, #eef1f4 100%);
+  /* FF3.6+ */
+
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ffffff), color-stop(49%, #ffffff), color-stop(50%, #eef1f4), color-stop(100%, #eef1f4));
+  /* Chrome,Safari4+ */
+
+  background: -webkit-linear-gradient(top, #ffffff 0%, #ffffff 49%, #eef1f4 50%, #eef1f4 100%);
+  /* Chrome10+,Safari5.1+ */
+
+  background: -o-linear-gradient(top, #ffffff 0%, #ffffff 49%, #eef1f4 50%, #eef1f4 100%);
+  /* Opera 11.10+ */
+
+  background: -ms-linear-gradient(top, #ffffff 0%, #ffffff 49%, #eef1f4 50%, #eef1f4 100%);
+  /* IE10+ */
+
+  background: linear-gradient(to bottom, #ffffff 0%, #ffffff 49%, #eef1f4 50%, #eef1f4 100%);
+  /* W3C */
+
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#eef1f4', GradientType=0);
+  /* IE6-9 */
+
+  border: 1px solid #404b5a;
 }
 .accept {
   background-color: green;
@@ -478,28 +508,28 @@ section h1 {
   z-index: 500;
   border: none;
   text-align: center;
-  background: #494e5a;
+  background: #6a7783;
   /* Old browsers */
 
-  background: -moz-linear-gradient(top, #494e5a 11%, #0c0e18 28%, #1d2536 56%, #0c0e18 99%);
+  background: -moz-linear-gradient(top, #6a7783 0%, #364d5a 24%, #051125 25%, #010515 100%);
   /* FF3.6+ */
 
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(11%, #494e5a), color-stop(28%, #0c0e18), color-stop(56%, #1d2536), color-stop(99%, #0c0e18));
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #6a7783), color-stop(24%, #364d5a), color-stop(25%, #051125), color-stop(100%, #010515));
   /* Chrome,Safari4+ */
 
-  background: -webkit-linear-gradient(top, #494e5a 11%, #0c0e18 28%, #1d2536 56%, #0c0e18 99%);
+  background: -webkit-linear-gradient(top, #6a7783 0%, #364d5a 24%, #051125 25%, #010515 100%);
   /* Chrome10+,Safari5.1+ */
 
-  background: -o-linear-gradient(top, #494e5a 11%, #0c0e18 28%, #1d2536 56%, #0c0e18 99%);
+  background: -o-linear-gradient(top, #6a7783 0%, #364d5a 24%, #051125 25%, #010515 100%);
   /* Opera 11.10+ */
 
-  background: -ms-linear-gradient(top, #494e5a 11%, #0c0e18 28%, #1d2536 56%, #0c0e18 99%);
+  background: -ms-linear-gradient(top, #6a7783 0%, #364d5a 24%, #051125 25%, #010515 100%);
   /* IE10+ */
 
-  background: linear-gradient(to bottom, #494e5a 11%, #0c0e18 28%, #1d2536 56%, #0c0e18 99%);
+  background: linear-gradient(to bottom, #6a7783 0%, #364d5a 24%, #051125 25%, #010515 100%);
   /* W3C */
 
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#494e5a', endColorstr='#0c0e18', GradientType=0);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#6a7783', endColorstr='#010515', GradientType=0);
   /* IE6-9 */
 
   border-radius: 10px;
@@ -2490,7 +2520,7 @@ section#widgetScreen #scrollWrapper {
 }
 #topBarPopup:after {
   border-color: rgba(136, 183, 213, 0);
-  border-bottom-color: #494e5a;
+  border-bottom-color: #6a7783;
   border-width: 15px;
   top: -29px;
   right: 8px;
@@ -4156,7 +4186,7 @@ section#insights h1 {
 }
 #activityScreen #body #content,
 #activityListScreen #body #content {
-  background-color: #ffffff;
+  background-color: #f6f5f0;
   background-image: none;
   min-height: 850px;
   max-height: 885px;
@@ -4214,6 +4244,8 @@ section#insights h1 {
   border-radius: 10px;
   white-space: nowrap;
   overflow: hidden;
+  font: normal 12px "Avenir Next Medium", Helvetica, Arial, sans-serif;
+  color: #fff;
 }
 #activityScreen #body #content #level1Activity #hScroller,
 #activityListScreen #body #content #level1Activity #hScroller {
@@ -4233,9 +4265,10 @@ section#insights h1 {
   margin-right: auto;
   border-radius: 10px;
   box-shadow: 0px 0px 4px 0px #000000;
-  color: #000000;
   white-space: nowrap;
   overflow: hidden;
+  font: normal 12px "Avenir Next Medium", Helvetica, Arial, sans-serif;
+  color: #1a1a1a;
 }
 #activityScreen #body #content #level2Activity .activityItem,
 #activityListScreen #body #content #level2Activity .activityItem {
@@ -4266,17 +4299,33 @@ section#insights h1 {
 }
 #activityScreen #body .activityItem.selected,
 #activityListScreen #body .activityItem.selected {
-  background-image: linear-gradient(bottom, #a0e382 0%, #e1f9d6 85%);
-  background-image: -webkit-linear-gradient(bottom, #a0e382 0%, #e1f9d6 85%);
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #a0e382), color-stop(0.85, #e1f9d6));
+  background: #f2fde8;
+  /* Old browsers */
+
+  background: -moz-linear-gradient(top, #f2fde8 0%, #dbf5c4 46%, #c1eb9b 47%, #93dc4c 100%);
+  /* FF3.6+ */
+
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #f2fde8), color-stop(46%, #dbf5c4), color-stop(47%, #c1eb9b), color-stop(100%, #93dc4c));
+  /* Chrome,Safari4+ */
+
+  background: -webkit-linear-gradient(top, #f2fde8 0%, #dbf5c4 46%, #c1eb9b 47%, #93dc4c 100%);
+  /* Chrome10+,Safari5.1+ */
+
+  background: -o-linear-gradient(top, #f2fde8 0%, #dbf5c4 46%, #c1eb9b 47%, #93dc4c 100%);
+  /* Opera 11.10+ */
+
+  background: -ms-linear-gradient(top, #f2fde8 0%, #dbf5c4 46%, #c1eb9b 47%, #93dc4c 100%);
+  /* IE10+ */
+
+  background: linear-gradient(to bottom, #f2fde8 0%, #dbf5c4 46%, #c1eb9b 47%, #93dc4c 100%);
+  /* W3C */
+
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f2fde8', endColorstr='#93dc4c', GradientType=0);
+  /* IE6-9 */
+
   border-radius: 5px;
-  color: #000000;
-}
-#activityScreen #body .activityItem.selected:active,
-#activityListScreen #body .activityItem.selected:active {
-  background-image: linear-gradient(bottom, #e1f9d6 0%, #a0e382 85%);
-  background-image: -webkit-linear-gradient(bottom, #e1f9d6 0%, #a0e382 85%);
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #e1f9d6), color-stop(0.85, #a0e382));
+  font: bold 12px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
+  color: #1a1a1a;
 }
 #activityScreen #body .activityItem[data-id=outdoor],
 #activityListScreen #body .activityItem[data-id=outdoor],
@@ -4298,8 +4347,7 @@ section#insights h1 {
 #activityListScreen #body .box {
   background-color: #ffffff;
   border-radius: 8px;
-  box-shadow: 1px 2px 5px #676767, inset -1px 1px 1px #ffffff;
-  margin: 20px 5px;
+  margin: 20px 5px 5px;
   color: #000000;
   padding: 5px;
 }
@@ -4322,6 +4370,7 @@ section#insights h1 {
   white-space: nowrap;
   overflow: hidden;
   font: normal 14px "Avenir Next", Helvetica, Arial, sans-serif;
+  text-align: left;
 }
 #activityScreen #body .box .boxEntry #about,
 #activityListScreen #body .box .boxEntry #about {
@@ -4346,7 +4395,7 @@ section#insights h1 {
 #activityScreen #activityItemScreen,
 #activityListScreen #activityItemScreen {
   text-align: center;
-  background: #E6E6E6;
+  background: #ebebeb;
   margin: 10px;
   border-radius: 8px;
 }
@@ -4354,13 +4403,21 @@ section#insights h1 {
 #activityListScreen #activityItemScreen #top {
   text-align: center;
 }
+#activityScreen #activityItemScreen #top #activityLogo,
+#activityListScreen #activityItemScreen #top #activityLogo {
+  float: center;
+  margin-right: 5px;
+  padding-top: 5px;
+}
 #activityScreen #activityItemScreen #cancelActivity,
 #activityListScreen #activityItemScreen #cancelActivity {
   float: left;
   background-image: url('../img/food/bu-with-arrow-left.png');
+  background-repeat: no-repeat;
   display: inline-block;
-  padding: 3px 10px 3px 12px;
+  padding: 6px 15px;
   margin: 20px;
+  font: bold 14px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
 }
 #activityScreen #activityItemScreen img,
 #activityListScreen #activityItemScreen img {
@@ -4372,9 +4429,10 @@ section#insights h1 {
   float: right;
   background: #676767;
   display: inline-block;
-  padding: 3px 10px;
+  padding: 6px 15px;
   margin: 20px;
   border-radius: 5px;
+  font: bold 14px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
 }
 #activityScreen #activityItemScreen #activityFavBtn:active,
 #activityListScreen #activityItemScreen #activityFavBtn:active,
@@ -4387,10 +4445,11 @@ section#insights h1 {
 #activityListScreen #activityItemScreen #activityName {
   color: #000000;
   display: inline-block;
-  font: bold 16px "Avenir Next", Helvetica, Arial, sans-serif;
-  margin-top: 20px;
+  font: bold 18px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
+  margin-top: 22px;
   max-width: 345px;
   white-space: nowrap;
+  vertical-align: top;
 }
 #activityScreen #activityItemScreen .box.inputs,
 #activityListScreen #activityItemScreen .box.inputs {
@@ -4403,14 +4462,17 @@ section#insights h1 {
 #activityScreen #activityItemScreen .box.inputs.minutes,
 #activityListScreen #activityItemScreen .box.inputs.minutes {
   width: 45%;
+  border: 1px solid #bebebe;
 }
 #activityScreen #activityItemScreen .box.inputs.calBurned,
 #activityListScreen #activityItemScreen .box.inputs.calBurned {
   width: 45%;
+  border: 1px solid #bebebe;
 }
 #activityScreen #activityItemScreen .box.inputs.notes,
 #activityListScreen #activityItemScreen .box.inputs.notes {
   width: 92%;
+  border: 1px solid #bebebe;
 }
 #activityScreen #activityItemScreen .box.inputs label,
 #activityListScreen #activityItemScreen .box.inputs label {
@@ -4420,7 +4482,7 @@ section#insights h1 {
 }
 #activityScreen #activityItemScreen .box.inputs label,
 #activityListScreen #activityItemScreen .box.inputs label {
-  padding-top: 5px;
+  padding-top: 9px;
 }
 #activityScreen #activityItemScreen .box.inputs input,
 #activityListScreen #activityItemScreen .box.inputs input {
@@ -4446,7 +4508,7 @@ section#insights h1 {
 }
 #activityScreen #activityItemScreen #stopWatch #time,
 #activityListScreen #activityItemScreen #stopWatch #time {
-  font: normal 50px "Avenir Next Medium", Helvetica, Arial, sans-serif;
+  font: bold 48px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
 }
 #activityScreen #activityItemScreen #stopWatch li,
 #activityListScreen #activityItemScreen #stopWatch li {
@@ -4456,7 +4518,7 @@ section#insights h1 {
   background: url("../img/food/bu-share-gradient.png");
   border: none;
   margin: 15px 10px 15px 0px;
-  box-shadow: -1px 1px 3px 0px;
+  box-shadow: 0px 1px 6px -1px;
   color: #000000;
   font: bold 13px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
 }
@@ -4497,7 +4559,8 @@ section#insights h1 {
 #activityListScreen #nutritionInfo.box {
   background-color: #ffffff;
   border-radius: 8px;
-  box-shadow: 1px 2px 5px #676767, inset -1px 1px 1px #ffffff;
+  box-shadow: 0px 2px 2px #ababab;
+  border: 1px solid #bebebe;
   margin: 20px 5px;
   color: #000000;
   width: 90%;
@@ -4509,6 +4572,7 @@ section#insights h1 {
 #activityListScreen #nutritionInfo.box .first {
   display: inline-block;
   width: 51%;
+  text-align: left;
 }
 #activityScreen #nutritionInfo.box .second,
 #activityListScreen #nutritionInfo.box .second,
@@ -4659,14 +4723,14 @@ section#insights h1 {
   }
 }
 #busyBody #body #content #rightContent #emptyDay {
-  color: #676767;
+  color: #6d6d6d;
   margin-top: 250px;
   text-align: center;
   font: bold 18px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
   text-shadow: 0 1px 1px #ffffff;
 }
 #busyBody #body #content #rightContent #emptyDay #day {
-  color: #676767;
+  color: #6d6d6d;
   font: bold 48px "Avenir Next", Helvetica, Arial, sans-serif;
 }
 #busyBody #body #content #rightContent #emptyDay #emptyActivities {
@@ -4731,17 +4795,18 @@ section#insights h1 {
   padding: 5px 0px;
 }
 #busyBody #calories span#remaining {
-  font: normal 13px "Avenir Next Medium", Helvetica, Arial, sans-serif;
-  color: #676767;
+  font: normal 14px "Avenir Next Medium", Helvetica, Arial, sans-serif;
+  color: #000000;
 }
 #busyBody #calories span#remainingNum {
   text-align: right;
   font: normal 14px "Avenir Next Medium", Helvetica, Arial, sans-serif;
+  color: #000000;
 }
 #busyBody #calories span#goalNum {
   text-align: right;
   color: #676767;
-  font: normal 14px "Avenir Next Medium", Helvetica, Arial, sans-serif;
+  font: normal 13px "Avenir Next Medium", Helvetica, Arial, sans-serif;
 }
 #busyBody #calories span#currentNum {
   text-align: right;
@@ -4766,6 +4831,8 @@ section#insights h1 {
   text-align: right;
 }
 #busyBody #activities {
+  font: normal 18px "Avenir Next Medium", Helvetica, Arial, sans-serif;
+  color: #1a1a1a;
   margin-left: 5px;
 }
 #busyBody #activities .time {
@@ -4773,7 +4840,8 @@ section#insights h1 {
   height: 60px;
   width: 270px;
   padding: 20px 15px;
-  font: bold 16px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
+  font: bold 14px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
+  color: #1a1a1a;
 }
 #busyBody #activities .time img {
   margin-right: 10px;
@@ -4784,9 +4852,9 @@ section#insights h1 {
   left: 85px;
 }
 #busyBody #activities .time span.count {
-  font: bold 12px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
+  font: normal 12px "Avenir Next Medium", Helvetica, Arial, sans-serif;
   left: 185px;
-  color: #676767;
+  color: #4d4d4d;
 }
 #busyBody #activities .time.selected {
   background: url('../img/busybody/bu-arrow-green.png') no-repeat;
@@ -4969,10 +5037,11 @@ section#insights h1 {
   display: none;
   position: absolute;
   right: 60px;
-  top: 155px;
+  top: 165px;
   width: 300px;
   left: auto;
-  box-shadow: 0px -1px 1px #000000;
+  box-shadow: 0px 2px 4px #000000;
+  border: 1px #000 solid;
 }
 #busyBody #addActivityPopup .btn {
   display: block;
@@ -4980,16 +5049,30 @@ section#insights h1 {
   padding: 10px;
   height: 40px;
   margin: 5px 5px;
-  font: normal 17px "Avenir Next Medium", Helvetica, Arial, sans-serif;
+  font: bold 18px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
+}
+#busyBody #addActivityPopup:after,
+#busyBody #addActivityPopup:before {
+  bottom: 100%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+}
+#busyBody #addActivityPopup:after {
+  border-color: rgba(136, 183, 213, 0);
+  border-bottom-color: #6a7783;
+  border-width: 15px;
+  top: -29px;
+  right: 8px;
 }
 #busyBody #addActivityPopup:before {
-  border-bottom: 15px solid #6b6b6b;
-  border-right: 20px solid transparent;
-  border-left: 20px solid transparent;
-  top: -12px;
-  content: '';
-  position: absolute;
-  right: 17px;
+  border-color: rgba(194, 225, 245, 0);
+  border-bottom-color: #000;
+  border-width: 16px;
+  top: -32px;
+  right: 7px;
 }
 #busyBody #nutritionSection {
   display: none;
@@ -5642,6 +5725,7 @@ section#insights h1 {
 #foodScreen #recentFavsScreen .box.grey,
 #activityScreen #recentFavsScreen .box.grey {
   background-color: #e6e6e6;
+  box-shadow: 0px 2px 2px #ababab;
 }
 #foodScreen #recentFavsScreen .box.grey img,
 #activityScreen #recentFavsScreen .box.grey img {
@@ -5667,6 +5751,7 @@ section#insights h1 {
   max-height: 200px;
   min-height: 20px;
   overflow: hidden;
+  box-shadow: 0px 2px 2px #ababab;
 }
 #foodScreen #recentFavsScreen #wrapper #scroller,
 #activityScreen #recentFavsScreen #wrapper #scroller {
@@ -5685,16 +5770,19 @@ section#insights h1 {
 #foodScreen #recentFavsScreen .box.inputs.minutes,
 #activityScreen #recentFavsScreen .box.inputs.minutes {
   width: 44%;
+  border: 1px solid #bebebe;
 }
 #foodScreen #recentFavsScreen .box.inputs.size,
 #activityScreen #recentFavsScreen .box.inputs.size,
 #foodScreen #recentFavsScreen .box.inputs.calBurned,
 #activityScreen #recentFavsScreen .box.inputs.calBurned {
   width: 45%;
+  border: 1px solid #bebebe;
 }
 #foodScreen #recentFavsScreen .box.inputs.notes,
 #activityScreen #recentFavsScreen .box.inputs.notes {
   width: 92%;
+  border: 1px solid #bebebe;
 }
 #foodScreen #recentFavsScreen .box.inputs label,
 #activityScreen #recentFavsScreen .box.inputs label {

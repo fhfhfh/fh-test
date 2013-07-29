@@ -150,17 +150,18 @@
             padding: 5px 0px;
 
             &#remaining {
-                .avenir-medium(13px);
-                color: #676767;
+                .avenir-medium(14px);
+                color: #000000;
             }
             &#remainingNum {
                 text-align: right;
                 .avenir-medium(14px);
+                color: #000000;
             }
             &#goalNum {
                 text-align: right;
                 color: #676767;
-                .avenir-medium(14px);
+                .avenir-medium(13px);
             }
             &#currentNum {
                 text-align: right;
@@ -191,13 +192,16 @@
     
 
     #activities {
+        .avenir-medium(18px);
+        color: #1a1a1a;
         margin-left: 5px;
         .time{
             display: block;
             height: 60px;
             width: 270px;
             padding: 20px 15px;
-            .avenir-demi(16px);
+            .avenir-demi(14px);
+            color: #1a1a1a;
             img {
                 margin-right: 10px;
                 vertical-align: middle;
@@ -208,9 +212,9 @@
                 left: 85px;
 
                 &.count {
-                    .avenir-demi(12px);
+                    .avenir-medium(12px);
                     left: 185px;
-                    color: #676767;
+                    color: #4d4d4d;
                 }
             }
 
@@ -418,10 +422,11 @@
         display: none;
         position: absolute;
         right: 60px;
-        top: 155px;
+        top: 165px;
         width: 300px;
         left: auto;
-        box-shadow: 0px -1px 1px #000000;
+        box-shadow: 0px 2px 4px #000000;
+        border: 1px #000 solid;
 
         .btn {
             display: block;
@@ -429,19 +434,33 @@
             padding: 10px;
             height: 40px;
             margin: 5px 5px;
-            .avenir-medium(17px);
+            .avenir-demi(18px);
         }
 
-        &:before {
-            border-bottom: 15px solid #6b6b6b;
-            border-right: 20px solid transparent;
-            border-left: 20px solid transparent;
-            // bottom: 151px;
-            top: -12px;
-            content: '';
+        &:after, &:before{
+            bottom: 100%;
+            border: solid transparent;
+            content: " ";
+            height: 0;
+            width: 0;
             position: absolute;
-            right: 17px;
         }
+        &:after {
+            border-color: rgba(136, 183, 213, 0);
+            border-bottom-color: #6a7783;
+            border-width: 15px;
+            top: -29px;
+            right: 8px;
+        }
+
+    &:before {
+            border-color: rgba(194, 225, 245, 0);
+            border-bottom-color: #000;
+            border-width: 16px;
+            top: -32px;
+            right: 7px;
+        }
+
     }
 
     #nutritionSection {

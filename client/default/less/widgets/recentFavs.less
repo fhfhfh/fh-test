@@ -3,6 +3,7 @@
 
         .box.grey {
             background-color: #e6e6e6;
+            box-shadow: 0px 2px 2px #ababab;
 
             img {
                 float: right;
@@ -27,6 +28,7 @@
             max-height: 200px;
             min-height: 20px;
             overflow: hidden;
+            box-shadow: 0px 2px 2px #ababab;
 
             #scroller {
                 padding-bottom: 0px;
@@ -37,9 +39,18 @@
     		display: inline-block;
     		label {float: left;}
 
-    		&.servings, &.minutes {width: 44%}
-    		&.size, &.calBurned {width:45%}
-    		&.notes {width: 92%;}
+    		&.servings, &.minutes {
+                width: 44%;
+                border: 1px solid #bebebe;
+            }
+    		&.size, &.calBurned {
+                width:45%;
+                border: 1px solid #bebebe;
+            }
+    		&.notes {
+                width: 92%;
+                border: 1px solid #bebebe;
+            }
 
     		label {
                 .avenir(12px);
