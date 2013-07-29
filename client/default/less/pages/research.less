@@ -35,31 +35,38 @@
 
             #researchDesc {
                 margin: 20px;
-                width: 40%;
+                width: 38%;
                 text-align: center;
-                .avenir(12px);
+                .avenir-medium(14px);
+                color: #1a1a1a;
                 float: right;
             }
 
             #researchCat{
                 margin-top: 200px;
-                width: 40%;
-                color: #676767;
+                width: 43%;
+                color: #1a1a1a;
                 float: right;
                 clear: right;
                 text-align: center;
                 margin-right: 10px;
-                .avenir-demi(16px);
-                img{float:left;}
+                .avenir-demi(18px);
+                img{
+                    float:left;
+
+                    @media @landscape {
+                        margin-bottom: 14px;
+                 }
+                }
             }
         }
     }
 
     #researchMenu, #research-menu{
-        border: 2px solid #676767;
+        border: 2px solid #b2b2b2;
         border-radius: 8px;
-        width: 300px;
-        color: #000000;
+        width: 285px;
+        color: #343434;
         text-shadow: 1px 1px #ffffff;
         margin: 10px;
 
@@ -70,11 +77,14 @@
         div:last-child{
             border-bottom-left-radius: 5px; 
             border-bottom-right-radius: 5px;
+            border-bottom: 2px solid #ffffff;
         }
 
         .researchBtn, .omniBtn{
             height: 80px;
             padding: 15px;
+            border-right: 2px solid #ffffff;
+            border-left: 2px solid #ffffff;
         }
 
         #menu1, #omnibtn1{background-color: #eafef8};
@@ -91,14 +101,15 @@
 
     #research-menu {
         position: absolute;
-        top: 50px;
+        top: 40px;
         z-index: 10;
         // border: 2px solid ;
-        margin-left: 17px;
+        margin-left: 6px;
         border-radius: 10px;
         display: none;
 
-        .btnTitle2{display: inline-block;}
+        .btnTitle2{
+            display: inline-block;}
 
         div{
             img{
@@ -111,11 +122,11 @@
     .topBtn  {
         display: inline-block;
         width: 285px;
-        height: 80px;
-        border-radius: 10px 10px 10px 10px;
-        border: 2px solid #ababab;
+        height: 83px;
         padding: 10px;
         margin-bottom: 20px;
+        margin-top: 7px;
+
         img{
             float:right;
             margin-top: -30px;
@@ -123,35 +134,37 @@
 
     }
 
-    #omniBtn {background-color: #eafef8;}
-    #infoBtn {background-color: #deeeff;}
-    #interactionBtn {background-color: #dcdded;}
-    #symptomBtn {background-color: #eedbdc;}
-    #riskBtn {background-color: #fee4ff;}
-    #decisionBtn {background-color: #fff6e0;}
-    #careBtn {background-color: #d9fee4;}
-    #toolsBtn {background-color: #ddb9c8;}
+    #omniBtn {background: url('../img/research/bu-welless-omnipedia.png');}
+    #infoBtn {background: url('../img/research/bu-drug-information.png');}
+    #interactionBtn {background: url('../img/research/bu-drug-interactions.png');}
+    #symptomBtn {background: url('../img/research/bu-symptom-navigator.png');}
+    #riskBtn {background: url('../img/research/bu-risk-factor-navigator.png');}
+    #decisionBtn {background: url('../img/research/bu-decision-assistant.png');}
+    #careBtn {background: url('../img/research/bu-care-guides.png');}
+    #toolsBtn {background: url('../img/research/bu-wellness-tools.png');}
     
     #infoBox {
         display: inline-block;
         vertical-align: top;
-        padding: 10px;
-        width: 45%;
-        height: 66px;
-        margin: 10px;
-        background-color: white;
-        .avenir-demi(12px);
-        box-shadow: 0px 0px 5px 0px;
+        padding: 20px;
+        width: 276px;
+        height: 97px;
+        margin: 0 0 10px 10px;
+        background-image: url('../img/research/bg-instructions-box.png');
+        .avenir-medium(13px);
+        color: #1a1a1a;
     }
 
     .menuName1, .btnTitle1{
         .avenir-medium(15pt);
         margin: 0px;
+        color: #343434;
     }
     .menuName2, .btnTitle2{
         .avenir-demi(26px);
         padding-left: 20px;
         margin: 0px;
+        color: #343434;
     }
 
     #frameContainer {

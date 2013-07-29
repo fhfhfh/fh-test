@@ -114,6 +114,7 @@ define(['jquery',
                 this.setActiveView('home');
                 this.$nav.find('li').removeClass('selected');
                 this.$('#home').addClass('selected');
+                this.$('#ads').show();
                 Backbone.history.navigate('home', false);
             },
 
@@ -121,6 +122,7 @@ define(['jquery',
                 this.setActiveView('widgets');
                 this.$nav.find('li').removeClass('selected');
                 this.$('#widgets').addClass('selected');
+                this.$('#ads').show();
             // Backbone.history.navigate('widgets', false);
             },
 
@@ -129,6 +131,7 @@ define(['jquery',
                 this.setActiveView('healthHub');
                 this.$nav.find('li').removeClass('selected');
                 this.$('#healthHub').addClass('selected');
+                this.$('#ads').show();
             // Backbone.history.navigate('healthHub', false);
             },
 
@@ -136,6 +139,7 @@ define(['jquery',
                 this.setActiveView('medicine');
                 this.$nav.find('li').removeClass('selected');
                 this.$('#medicine').addClass('selected');
+                this.$('#ads').hide();
                 //Backbone.trigger('notify', 'Under Construction');
             },
 
@@ -143,6 +147,7 @@ define(['jquery',
                 this.setActiveView('calendar');
                 this.$nav.find('li').removeClass('selected');
                 this.$('#calendar').addClass('selected');
+                this.$('#ads').show();
             // Backbone.history.navigate('calendar', false);
             },
 
@@ -154,6 +159,7 @@ define(['jquery',
                 this.setActiveView('library');
                 this.$nav.find('li').removeClass('selected');
                 this.$('#library').addClass('selected');
+                this.$('#ads').show();
             }
         });
 
