@@ -1637,6 +1637,7 @@ section#widgetScreen {
   height: 100%;
   color: #ffffff;
   background: url('../img/backgrounds/BackgroundTileGray.png') left top repeat;
+  overflow: scroll !important;
 }
 section#widgetScreen #topBar {
   width: 100%;
@@ -1680,31 +1681,37 @@ section#widgetScreen #topBar .btn img {
   height: 20px;
 }
 section#widgetScreen #panelTopBar {
-  background: #0f0f0f;
+  background: url('../img/overview-bg.png');
+  background-size: 105% 100%;
   text-align: center;
-  padding: 10px;
+  padding: 15px 10px 10px 10px;
   border-top: 1px solid #000000;
-  box-shadow: 0 -1px 0 0 rgba(255, 255, 255, 0.15);
   font-size: 20px;
+  margin-bottom: -15px;
+  margin-left: -10px;
+  margin-top: -7px;
+  padding-bottom: 15px;
 }
 section#widgetScreen #panelTopBar #settingsBtn {
   float: right;
-  margin: 0px;
-  margin-top: -4px;
+  margin-top: 0px;
+  margin-right: -3px;
 }
 section#widgetScreen #panelTopBar #cancelBtn {
   background: url('../img/food/bu-cancel.png') no-repeat;
   float: left;
-  margin: 0px;
-  margin-top: -4px;
+  margin-top: -2px;
   box-shadow: none;
+  border: none;
+  padding: 5px 10px 15px 15px;
 }
 section#widgetScreen #panelTopBar #saveBtn {
   background: url('../img/food/bu-save.png') no-repeat;
   float: right;
-  margin: 0px;
-  margin-top: -4px;
+  margin-top: -2px;
   box-shadow: none;
+  border: none;
+  padding: 5px 10px 15px 15px;
 }
 section#widgetScreen #scrollWrapper {
   height: 100%;
@@ -3715,13 +3722,13 @@ section#insights h1 {
 #activityScreen #mealContainer #foodList {
   padding: 0px;
   min-height: 60px;
+  box-shadow: 0px 2px 2px #ababab;
 }
 #foodometer #mealContainer .box,
 #foodScreen #mealContainer .box,
 #activityScreen #mealContainer .box {
   background-color: #ffffff;
   border-radius: 8px;
-  box-shadow: 1px 2px 5px #676767, inset -1px 1px 1px #ffffff;
   margin: 20px 5px;
   color: #000000;
   padding: 5px;
@@ -3804,6 +3811,7 @@ section#insights h1 {
 #activityScreen #mealContainer #nutrition {
   height: 55px;
   padding: 2px 10px;
+  box-shadow: 0px 2px 2px #ababab;
 }
 #foodometer #nutrition h2,
 #foodScreen #nutrition h2,
