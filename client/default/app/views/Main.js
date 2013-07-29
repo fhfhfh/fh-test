@@ -134,8 +134,7 @@ define(['jquery',
                 this.setActiveView('home');
                 this.$nav.find('li').removeClass('selected');
                 this.$('#home').addClass('selected');
-                var li = this.$nav.find('li.selected').find('img')[0];
-                $(li).attr('src', 'img/nav/HomeDark.png');
+                this.$('#ads').show();
                 Backbone.history.navigate('home', false);
 
             },
@@ -144,8 +143,7 @@ define(['jquery',
                 this.setActiveView('widgets');
                 this.$nav.find('li').removeClass('selected');
                 this.$('#widgets').addClass('selected');
-                var li = this.$nav.find('li.selected').find('img')[0];
-                $(li).attr('src', 'img/nav/WidgetsDark.png');
+                this.$('#ads').show();
             // Backbone.history.navigate('widgets', false);
             },
 
@@ -153,8 +151,7 @@ define(['jquery',
                 this.setActiveView('healthHub');
                 this.$nav.find('li').removeClass('selected');
                 this.$('#healthHub').addClass('selected');
-                var li = this.$nav.find('li.selected').find('img')[0];
-                $(li).attr('src', 'img/nav/HubDark.png');
+                this.$('#ads').show();
             // Backbone.history.navigate('healthHub', false);
             },
 
@@ -162,8 +159,8 @@ define(['jquery',
                 this.setActiveView('medicine');
                 this.$nav.find('li').removeClass('selected');
                 this.$('#medicine').addClass('selected');
-                var li = this.$nav.find('li.selected').find('img')[0];
-                $(li).attr('src', 'img/nav/CabinetDark.png');
+                this.$('#ads').hide();
+
                 //Backbone.trigger('notify', 'Under Construction');
             },
 
@@ -171,8 +168,7 @@ define(['jquery',
                 this.setActiveView('calendar');
                 this.$nav.find('li').removeClass('selected');
                 this.$('#calendar').addClass('selected');
-                var li = this.$nav.find('li.selected').find('img')[0];
-                $(li).attr('src', 'img/nav/CalendarDark.png');
+                this.$('#ads').show();
             // Backbone.history.navigate('calendar', false);
             },
 
@@ -186,8 +182,7 @@ define(['jquery',
                 this.setActiveView('library');
                 this.$nav.find('li').removeClass('selected');
                 this.$('#library').addClass('selected');
-                var li = this.$nav.find('li.selected').find('img')[0];
-                $(li).attr('src', 'img/nav/LibraryDark.png');
+                this.$('#ads').show();
             }
         });
 

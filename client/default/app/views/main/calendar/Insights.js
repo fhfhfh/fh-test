@@ -125,13 +125,13 @@ define(['jquery',
 
                 xaxis: {
                     ticks: [
-                        [0, "Monday"],
-                        [1, "Tuesday"],
-                        [2, "Wednesday"],
-                        [3, "Thursday"],
-                        [4, "Friday"],
-                        [5, "Saturday"],
-                        [6, "Sunday"]
+                        [0, "<b>Monday</b><br />Feb 4"],
+                        [1, "<b>Tuesday</b><br />Feb 5"],
+                        [2, "<b>Wednesday</b><br />Feb 6"],
+                        [3, "<b>Thursday</b><br />Feb 7"],
+                        [4, "<b>Friday</b><br />Feb 8"],
+                        [5, "<b>Saturday</b><br />Feb 9"],
+                        [6, "<b>Sunday</b><br />Feb 10"]
                     ],
                     "lines": {
                         "show": "true"
