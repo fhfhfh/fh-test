@@ -293,6 +293,7 @@ define([
         },
 
         showAddPopup: function(){
+<<<<<<< HEAD
               
               // Act.call('createDBAction',{},
               //    function(res){
@@ -301,6 +302,15 @@ define([
               //      console.log(JSON.stringify(msg));
               //   });
                 
+=======
+            Act.call('createDBAction',{},
+            function(res){
+                alert('Saved successfully'+JSON.stringify(res));
+            }, function(err, msg){
+                console.log(JSON.stringify(msg));
+            });
+
+>>>>>>> sprint5
             $('#add').toggleClass('selected');
             $('#addFoodPopup').toggle();
         },
