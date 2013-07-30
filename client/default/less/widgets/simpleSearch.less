@@ -10,6 +10,7 @@
 		text-align: left;
 
 		#searchInput {
+			width: 40%;
 			display: inline-block;
 			text-align: left;
 			background-color: #ffffff;
@@ -18,7 +19,10 @@
 			padding: 0px 5px;
 
 			#searchImg {margin: 7px 5px -2px 5px;}
-			#xImg {}
+			#xImg {
+				float: right;
+				margin: 5px;
+			}
 
 			form {
 				display: inline;
@@ -26,18 +30,27 @@
 
 			input {
 				border: none;
-				width: 200px;
+				width: 75%;
+				background: transparent;
 			}
 		}
 
 		#filter {
-			width: 300px;
-			background-color: #ffffff;
+			width: 45%;
+			background: #ffffff; /* Old browsers */
+			background: -moz-linear-gradient(top,  #ffffff 0%, #ffffff 49%, #e8e9e8 50%, #e8e9e8 100%); /* FF3.6+ */
+			background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(49%,#ffffff), color-stop(50%,#e8e9e8), color-stop(100%,#e8e9e8)); /* Chrome,Safari4+ */
+			background: -webkit-linear-gradient(top,  #ffffff 0%,#ffffff 49%,#e8e9e8 50%,#e8e9e8 100%); /* Chrome10+,Safari5.1+ */
+			background: -o-linear-gradient(top,  #ffffff 0%,#ffffff 49%,#e8e9e8 50%,#e8e9e8 100%); /* Opera 11.10+ */
+			background: -ms-linear-gradient(top,  #ffffff 0%,#ffffff 49%,#e8e9e8 50%,#e8e9e8 100%); /* IE10+ */
+			background: linear-gradient(to bottom,  #ffffff 0%,#ffffff 49%,#e8e9e8 50%,#e8e9e8 100%); /* W3C */
+			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#e8e9e8',GradientType=0 ); /* IE6-9 */
 			border-radius: 8px;
 			display: inline-block;
 			text-align: center;
-			color: #000000;
+			color: #1a1a1a;
 			float: right;
+			border: none;
 			margin: 10px;
 			padding: 5px;
 

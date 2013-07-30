@@ -63,14 +63,14 @@
                 }
 
                 #emptyDay {
-                    color: #676767;
+                    color: #6d6d6d;
                     margin-top: 250px;
                     text-align: center;
                     .avenir-demi(18px);
                     text-shadow: 0 1px 1px #ffffff;
 
                     #day {
-                        color: #676767;
+                        color: #6d6d6d;
                         .avenir-bold(48px);
                     }
 
@@ -150,17 +150,18 @@
             padding: 5px 0px;
 
             &#remaining {
-                .avenir-medium(13px);
-                color: #676767;
+                .avenir-medium(14px);
+                color: #000000;
             }
             &#remainingNum {
                 text-align: right;
                 .avenir-medium(14px);
+                color: #000000;
             }
             &#goalNum {
                 text-align: right;
                 color: #676767;
-                .avenir-medium(14px);
+                .avenir-medium(13px);
             }
             &#currentNum {
                 text-align: right;
@@ -191,13 +192,16 @@
     
 
     #activities {
+        .avenir-medium(18px);
+        color: #1a1a1a;
         margin-left: 5px;
         .time{
             display: block;
             height: 60px;
             width: 270px;
             padding: 20px 15px;
-            .avenir-demi(16px);
+            .avenir-demi(14px);
+            color: #1a1a1a;
             img {
                 margin-right: 10px;
                 vertical-align: middle;
@@ -208,9 +212,9 @@
                 left: 85px;
 
                 &.count {
-                    .avenir-demi(12px);
+                    .avenir-medium(12px);
                     left: 185px;
-                    color: #676767;
+                    color: #4d4d4d;
                 }
             }
 
@@ -298,7 +302,7 @@
             float: right;
             background: url("../img/food/bu-share-gradient.png");
             border: none;
-            margin: 15px 10px 15px 0px;
+            margin: 15px 5px 15px 0px;
             box-shadow: -1px 1px 3px 0px;
             color: #676767;
             .avenir-demi(13px);
@@ -334,7 +338,7 @@
         .box {
             background-color: #ffffff;
             border-radius: 8px;
-            box-shadow: 1px 2px 5px #676767, inset -1px 1px 1px #ffffff;
+            box-shadow: 0px 2px 2px #ababab;
             margin: 20px 5px;
             color: #000000;
             padding: 5px;
@@ -418,10 +422,11 @@
         display: none;
         position: absolute;
         right: 60px;
-        top: 155px;
+        top: 165px;
         width: 300px;
         left: auto;
-        box-shadow: 0px -1px 1px #000000;
+        box-shadow: 0px 2px 4px #000000;
+        border: 1px #000 solid;
 
         .btn {
             display: block;
@@ -429,19 +434,33 @@
             padding: 10px;
             height: 40px;
             margin: 5px 5px;
-            .avenir-medium(17px);
+            .avenir-demi(18px);
         }
 
-        &:before {
-            border-bottom: 15px solid #6b6b6b;
-            border-right: 20px solid transparent;
-            border-left: 20px solid transparent;
-            // bottom: 151px;
-            top: -12px;
-            content: '';
+        &:after, &:before{
+            bottom: 100%;
+            border: solid transparent;
+            content: " ";
+            height: 0;
+            width: 0;
             position: absolute;
-            right: 17px;
         }
+        &:after {
+            border-color: rgba(136, 183, 213, 0);
+            border-bottom-color: #6a7783;
+            border-width: 15px;
+            top: -29px;
+            right: 8px;
+        }
+
+    &:before {
+            border-color: rgba(194, 225, 245, 0);
+            border-bottom-color: #000;
+            border-width: 16px;
+            top: -32px;
+            right: 7px;
+        }
+
     }
 
     #nutritionSection {

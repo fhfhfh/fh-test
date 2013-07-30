@@ -1,5 +1,7 @@
 #foodScreen {
 	#panelTopBar {
+
+		.avenir-next
 		#meal{
 			.avenir-demi(18px);
 		}
@@ -63,6 +65,8 @@
 				border-radius: 10px;
 				white-space: nowrap;
 				overflow: hidden;
+				.avenir-medium(12px);
+				color: #ffffff;
 
 				#hScroller {
 					white-space: nowrap;
@@ -82,7 +86,8 @@
 				margin-right: auto;
 				border-radius: 10px;
 				box-shadow: 0px 0px 4px 0px #000000;
-				color: #000000;
+				.avenir-demi(12px);
+				color: #1a1a1a;
 				white-space: nowrap;
 				overflow: hidden;
 
@@ -113,9 +118,16 @@
 			}
 
 			&.selected {
-				.background-gradient(#fff1a0, #fee9c9);
+				background: -moz-linear-gradient(top,  #fee9cd 0%, #fedfaf 47%, #fed58f 47%, #fdcd75 100%); /* FF3.6+ */
+				background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fee9cd), color-stop(47%,#fedfaf), color-stop(47%,#fed58f), color-stop(100%,#fdcd75)); /* Chrome,Safari4+ */
+				background: -webkit-linear-gradient(top,  #fee9cd 0%,#fedfaf 47%,#fed58f 47%,#fdcd75 100%); /* Chrome10+,Safari5.1+ */
+				background: -o-linear-gradient(top,  #fee9cd 0%,#fedfaf 47%,#fed58f 47%,#fdcd75 100%); /* Opera 11.10+ */
+				background: -ms-linear-gradient(top,  #fee9cd 0%,#fedfaf 47%,#fed58f 47%,#fdcd75 100%); /* IE10+ */
+				background: linear-gradient(to bottom,  #fee9cd 0%,#fedfaf 47%,#fed58f 47%,#fdcd75 100%); /* W3C */
+				filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fee9cd', endColorstr='#fdcd75',GradientType=0 ); /* IE6-9 */
 				border-radius: 5px;
-				color: #000000; 
+				.avenir-demi(12px);
+				color: #1a1a1a; 
 			}
 		}
 
@@ -133,7 +145,7 @@
             background-color: #ffffff;
             border-radius: 8px;
             box-shadow: 1px 2px 5px #676767, inset -1px 1px 1px #ffffff;
-            margin: 20px 5px;
+            margin: 20px 5px 5px;
             color: #000000;
             padding: 5px;
 
