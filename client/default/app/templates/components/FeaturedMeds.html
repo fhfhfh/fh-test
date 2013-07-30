@@ -23,9 +23,9 @@
 				<div id="shelf" class="shelf">
 					<span id="shelf1">
 						<ul>
-							<li><img src="img/medicine/med-icons/pill-bottle.png"/>Multivitamin tablet</li>
-							<li><img src="img/medicine/med-icons/cream.png"/>Clotrimazole 1% cream</li>
-							<li><img src="img/medicine/med-icons/cream.png"/>Benzoyl peroxide cream </li>
+							<li class="supplement"><img src="img/medicine/med-icons/pill-bottle.png"/>Multivitamin tablet</li>
+							<li class="medication"><img src="img/medicine/med-icons/cream.png"/>Clotrimazole 1% cream</li>
+							<li class="medication"><img src="img/medicine/med-icons/cream.png"/>Benzoyl peroxide cream </li>
 						</ul>
 					</span>
 					<img src="img/medicine/shelf.png" style="width:100%;"/>
@@ -33,11 +33,11 @@
 				<div id="shelf" class="shelf">
 					<span id="shelf2">
 						<ul>
-							<li><img src="img/medicine/med-icons/drops-botle.png"/>Olopatadine 2% solution
+							<li class="medication"><img src="img/medicine/med-icons/drops-botle.png"/>Olopatadine 2% solution
 							</li>
-							<li><img src="img/medicine/med-icons/injection-bottle.png"/>Insulin 70/30 injectable
+							<li class="medication"><img src="img/medicine/med-icons/injection-bottle.png"/>Insulin 70/30 injectable
 							</li>
-							<li><img src="img/medicine/med-icons/cough-syrup.png"/>Guaifenesin-codiene syrup
+							<li class="medication"><img src="img/medicine/med-icons/cough-syrup.png"/>Guaifenesin-codiene syrup
 							</li>
 						</ul>
 					</span>
@@ -46,9 +46,9 @@
 				<div id="shelf" class="shelf">
 					<span id ="shelf3">
 						<ul>
-							<li><img src="img/medicine/med-icons/other-items.png"/>Albuterol 90mcg MDI</li>
-							<li><img src="img/medicine/med-icons/nebulizer.png"/>Albuterol solution</li>
-							<li><img src="img/medicine/med-icons/pill-bottle.png"/>Phenytoin 100mg capsule</li>
+							<li class="medication"><img src="img/medicine/med-icons/other-items.png"/>Albuterol 90mcg MDI</li>
+							<li class="device"><img src="img/medicine/med-icons/nebulizer.png"/>Albuterol solution</li>
+							<li class="medication"><img src="img/medicine/med-icons/pill-bottle.png"/>Phenytoin 100mg capsule</li>
 						</ul>
 					</span>
 					<img src="img/medicine/shelf.png" style="width:100%;"/>
@@ -56,9 +56,9 @@
 				<div id="shelf" class="shelf">
 					<span id ="shelf4">
 						<ul>
-							<li><img src="img/medicine/med-icons/rx-bottle.png"/>Diltiazem 120mg capsule</li>
-							<li><img src="img/medicine/med-icons/cream.png"/>Hydrocortisone cream</li>
-							<li><img src="img/medicine/med-icons/spray-bottle.png"/>Mometasone-nasal spray</li>
+							<li class="medication"><img src="img/medicine/med-icons/rx-bottle.png"/>Diltiazem 120mg capsule</li>
+							<li class="medication"><img src="img/medicine/med-icons/cream.png"/>Hydrocortisone cream</li>
+							<li class="device"><img src="img/medicine/med-icons/spray-bottle.png"/>Mometasone-nasal spray</li>
 						</ul>
 					</span>
 					<img src="img/medicine/shelf.png" style="width:100%;"/>
@@ -67,6 +67,74 @@
 
 			<div id="listView" style="display:none;">
 				<h1>Medecine List</h1>
+				<table id="listView">
+					<tbody>
+						<tr id="header">
+							<td id="medName">Name</td>
+							<td id="medType">Type</td>
+						</tr>
+						<tr class="medication">
+							<td>Olopatadine 2% solution</td>
+							<td>Medication</td>
+						</tr>
+						<tr class="supplement">
+							<td>Multivitamin tablet</td>
+							<td>Supplement</td>
+						</tr>
+						<tr class="device">
+							<td>Mometasone-nasal spray</td>
+							<td>Device</td>
+						</tr>
+						<tr class="medication">
+							<td>Phenytoin 100mg capsule</td>
+							<td>Medication</td>
+						</tr>
+						<tr class="medication">
+							<td>Diltiazem 120mg capsule</td>
+							<td>Medication</td>
+						</tr>
+						<tr class="medication">
+							<td>Hydrocortisone cream</td>
+							<td>Medication</td>
+						</tr>
+						<tr class="device">
+							<td>Mometasone-nasal spray</td>
+							<td>Device</td>
+						</tr>
+						<tr class="medication">
+							<td>Guaifenesin-codiene syrup</td>
+							<td>Medication</td>
+						</tr>
+						<tr class="medication">
+							<td>Albuterol 90mcg MDI</td>
+							<td>Medication</td>
+						</tr>
+					</tbody>
+				</table>
+				<!-- <ul id="content-tab-3">
+					<li class="medication">
+						<div>
+							<li>Olopatadine 2% solution</li>
+							<li>Insulin 70/30 injectable</li>
+							<li>Guaifenesin-codiene syrup</li>
+							<li>Albuterol 90mcg MDI</li>
+							<li>Phenytoin 100mg capsule</li>
+							<li>Diltiazem 120mg capsule</li>
+							<li>Hydrocortisone cream</li>
+						</div>
+					</li>
+					<li class="supplements">
+						<div>
+							<li>Multivitamin tablet</li>
+						</div>
+					</li>
+					<li class="device">
+						<div>
+							<li>Mometasone-nasal spray</li>
+							<li>Albuterol solution</li>	
+						</div>
+					</li>
+				</ul> -->
 			</div>
 		</div>
 	</div>
