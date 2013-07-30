@@ -58,8 +58,6 @@ html {
   /* 1 */
 
   -webkit-text-size-adjust: 100%;
-  /* 2 */
-
   -ms-text-size-adjust: 100%;
   /* 2 */
 
@@ -3770,7 +3768,8 @@ section#insights h1 {
 #foodScreen #mealContainer #nutrition h2,
 #activityScreen #mealContainer #nutrition h2 {
   margin-bottom: 0px;
-  font: bold 18px "Avenir Next", Helvetica, Arial, sans-serif;
+  font: bold 20px "Avenir Next", Helvetica, Arial, sans-serif;
+  color: #343434;
 }
 #foodometer #nutrition h2:after,
 #foodScreen #nutrition h2:after,
