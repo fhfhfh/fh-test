@@ -1960,12 +1960,12 @@ section#widgetScreen #scrollWrapper {
 }
 #featuredMeds #filterView {
   top: 50px;
-  left: 346px;
-  width: 215px;
+  left: 330px;
+  width: 240px;
 }
 @media only screen and (orientation: landscape) {
   #featuredMeds #filterView {
-    left: 322px;
+    left: 300px;
     top: 50px;
   }
 }
@@ -2961,7 +2961,7 @@ section#insights h1 {
   height: 25px;
 }
 #filterView:before {
-  border-bottom: 15px solid #455162;
+  border-bottom: 15px solid #536574;
   border-right: 20px solid transparent;
   border-left: 20px solid transparent;
   top: -12px;
@@ -3075,11 +3075,13 @@ section#insights h1 {
   width: 80px;
   margin-left: 27px;
 }
+#widgetStore #widgetdetails img {
+  margin: 0;
+}
 #widgetStore h1 {
   display: inline-block;
 }
 #widgetStore #selector {
-  margin: 30px 0 20px 0;
   background-color: #fff;
 }
 #widgetStore #selector #search_store {
@@ -3087,6 +3089,7 @@ section#insights h1 {
   border-radius: 20px;
   float: right;
   padding: 3px 15px 0;
+  margin-top: 22px;
 }
 #widgetStore #selector #search_store img {
   width: 15px;
