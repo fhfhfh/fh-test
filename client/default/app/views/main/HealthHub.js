@@ -130,11 +130,11 @@ define([
 
             openWebView: function(e){
                 $('#frameContainer').show();
-                var url = $(e.currentTarget).attr('data-url') || 'HIEMultimedia/1/000195.html';
+                var url = $(e.currentTarget).attr('data-url') || 'HIE%20Multimedia/1/000195.html';
 
                 $('#frameContainer iframe').attr('src',
                     'https://securehealthhub-2mzdpxsuthcolhscb40uonnh-live_securehealthhub.df.live.u101.feedhenry.net/doc/'+url);
-                // 'http://127.0.0.1:8001/'+url);
+                // 'http://127.0.0.1:8001/doc/'+url);
             },
 
             closeWebView: function(){
