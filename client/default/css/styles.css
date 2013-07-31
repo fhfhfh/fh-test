@@ -1948,14 +1948,22 @@ section#widgetScreen #scrollWrapper {
   padding-bottom: 20px;
   background-color: #e6e6e6;
 }
+#medicine #wrapper {
+  min-height: 710px;
+}
+@media only screen and (orientation: landscape) {
+  #medicine #wrapper {
+    min-height: 644px;
+  }
+}
 #featuredMeds #filterView {
   top: 50px;
-  left: 346px;
-  width: 215px;
+  left: 330px;
+  width: 240px;
 }
 @media only screen and (orientation: landscape) {
   #featuredMeds #filterView {
-    left: 322px;
+    left: 300px;
     top: 50px;
   }
 }
@@ -2026,6 +2034,54 @@ section#widgetScreen #scrollWrapper {
 .medWrap .medCab #shelf4 li img {
   width: 85%;
   margin-bottom: -5px !important;
+}
+@media only screen and (orientation: landscape) {
+  .medWrap .medCab #shelf1,
+  .medWrap .medCab #shelf3 {
+    position: relative;
+    top: 65px;
+  }
+  .medWrap .medCab #shelf1 ul,
+  .medWrap .medCab #shelf3 ul {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    height: 193px;
+  }
+  .medWrap .medCab #shelf1 li,
+  .medWrap .medCab #shelf3 li {
+    width: 32%;
+    text-align: center;
+    font-size: 0.6em;
+  }
+  .medWrap .medCab #shelf1 li img,
+  .medWrap .medCab #shelf3 li img {
+    width: 85%;
+    margin-bottom: -2px !important;
+  }
+  .medWrap .medCab #shelf2,
+  .medWrap .medCab #shelf4 {
+    position: relative;
+    top: 40px;
+  }
+  .medWrap .medCab #shelf2 ul,
+  .medWrap .medCab #shelf4 ul {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    height: 193px;
+  }
+  .medWrap .medCab #shelf2 li,
+  .medWrap .medCab #shelf4 li {
+    width: 32%;
+    text-align: center;
+    font-size: 0.6em;
+  }
+  .medWrap .medCab #shelf2 li img,
+  .medWrap .medCab #shelf4 li img {
+    width: 85%;
+    margin-bottom: -5px !important;
+  }
 }
 #notifications {
   position: absolute;
@@ -2883,28 +2939,28 @@ section#insights h1 {
   left: 415px;
   width: 200px;
   text-align: center;
-  background: #425160;
+  background: #5e6f7d;
   /* Old browsers */
 
-  background: -moz-linear-gradient(top, #425160 1%, #0a0c13 20%, #0a0c13 100%);
+  background: -moz-linear-gradient(top, #5e6f7d 0%, #25384c 10%, #0a0c18 11%, #0a0c18 100%);
   /* FF3.6+ */
 
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(1%, #425160), color-stop(20%, #0a0c13), color-stop(100%, #0a0c13));
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #5e6f7d), color-stop(10%, #25384c), color-stop(11%, #0a0c18), color-stop(100%, #0a0c18));
   /* Chrome,Safari4+ */
 
-  background: -webkit-linear-gradient(top, #425160 1%, #0a0c13 20%, #0a0c13 100%);
+  background: -webkit-linear-gradient(top, #5e6f7d 0%, #25384c 10%, #0a0c18 11%, #0a0c18 100%);
   /* Chrome10+,Safari5.1+ */
 
-  background: -o-linear-gradient(top, #425160 1%, #0a0c13 20%, #0a0c13 100%);
+  background: -o-linear-gradient(top, #5e6f7d 0%, #25384c 10%, #0a0c18 11%, #0a0c18 100%);
   /* Opera 11.10+ */
 
-  background: -ms-linear-gradient(top, #425160 1%, #0a0c13 20%, #0a0c13 100%);
+  background: -ms-linear-gradient(top, #5e6f7d 0%, #25384c 10%, #0a0c18 11%, #0a0c18 100%);
   /* IE10+ */
 
-  background: linear-gradient(to bottom, #425160 1%, #0a0c13 20%, #0a0c13 100%);
+  background: linear-gradient(to bottom, #5e6f7d 0%, #25384c 10%, #0a0c18 11%, #0a0c18 100%);
   /* W3C */
 
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#425160', endColorstr='#0a0c13', GradientType=0);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#5e6f7d', endColorstr='#0a0c18', GradientType=0);
   /* IE6-9 */
 
   border-radius: 10px;
@@ -2951,7 +3007,7 @@ section#insights h1 {
   height: 25px;
 }
 #filterView:before {
-  border-bottom: 15px solid #3C4958;
+  border-bottom: 15px solid #536574;
   border-right: 20px solid transparent;
   border-left: 20px solid transparent;
   top: -12px;
@@ -3065,11 +3121,13 @@ section#insights h1 {
   width: 80px;
   margin-left: 27px;
 }
+#widgetStore #widgetdetails img {
+  margin: 0;
+}
 #widgetStore h1 {
   display: inline-block;
 }
 #widgetStore #selector {
-  margin: 30px 0 20px 0;
   background-color: #fff;
 }
 #widgetStore #selector #search_store {
@@ -3077,6 +3135,7 @@ section#insights h1 {
   border-radius: 20px;
   float: right;
   padding: 3px 15px 0;
+  margin-top: 22px;
 }
 #widgetStore #selector #search_store img {
   width: 15px;
