@@ -411,41 +411,59 @@ input {
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #feb000), color-stop(0.85, #f26622));
 }
 .red {
-  background-color: #ff0000;
-  background-image: linear-gradient(bottom, #800000 0%, #ff0000 85%);
-  background-image: -webkit-linear-gradient(bottom, #800000 0%, #ff0000 85%);
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #800000), color-stop(0.85, #ff0000));
-  border: 1px solid #d38800;
-  background-image: -moz-linear-gradient(bottom, #800000 0%, #ff0000 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff0000', endColorstr='#800000', GradientType=0);
-}
-.red:active {
-  background-image: linear-gradient(bottom, #ff0000 0%, #800000 85%);
-  background-image: -webkit-linear-gradient(bottom, #ff0000 0%, #800000 85%);
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #ff0000), color-stop(0.85, #800000));
+  background: #d0858d;
+  /* Old browsers */
+
+  background: -moz-linear-gradient(top, #d0858d 0%, #c65059 49%, #b72522 50%, #b72522 100%);
+  /* FF3.6+ */
+
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #d0858d), color-stop(49%, #c65059), color-stop(50%, #b72522), color-stop(100%, #b72522));
+  /* Chrome,Safari4+ */
+
+  background: -webkit-linear-gradient(top, #d0858d 0%, #c65059 49%, #b72522 50%, #b72522 100%);
+  /* Chrome10+,Safari5.1+ */
+
+  background: -o-linear-gradient(top, #d0858d 0%, #c65059 49%, #b72522 50%, #b72522 100%);
+  /* Opera 11.10+ */
+
+  background: -ms-linear-gradient(top, #d0858d 0%, #c65059 49%, #b72522 50%, #b72522 100%);
+  /* IE10+ */
+
+  background: linear-gradient(to bottom, #d0858d 0%, #c65059 49%, #b72522 50%, #b72522 100%);
+  /* W3C */
+
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#d0858d', endColorstr='#b72522', GradientType=0);
+  /* IE6-9 */
+
+  border: 1px solid #460c0f;
 }
 .white {
   color: #000000;
-<<<<<<< HEAD
-  background-color: #e7f9fb;
-  background-image: linear-gradient(bottom, #c7f0f6 0%, #ffffff 85%);
-  background-image: -webkit-linear-gradient(bottom, #c7f0f6 0%, #ffffff 85%);
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #c7f0f6), color-stop(0.85, #ffffff));
-  background: -moz-linear-gradient(bottom, #c7f0f6 0%, #ffffff 100%);
-  font: bold 14px "Avenir Next", Helvetica, Arial, sans-serif;
-=======
-  background-color: #ffffff;
-  background-image: linear-gradient(bottom, #ffffff 0%, #ffffff 85%);
-  background-image: -webkit-linear-gradient(bottom, #ffffff 0%, #ffffff 85%);
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #ffffff), color-stop(0.85, #ffffff));
->>>>>>> sprint5
-  border: 1px solid #d38800;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#c7f0f6', GradientType=0);
-}
-.white:active {
-  background-image: linear-gradient(bottom, #ffffff 0%, #ffffff 85%);
-  background-image: -webkit-linear-gradient(bottom, #ffffff 0%, #ffffff 85%);
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #ffffff), color-stop(0.85, #ffffff));
+  background: #ffffff;
+  /* Old browsers */
+
+  background: -moz-linear-gradient(top, #ffffff 0%, #ffffff 49%, #eef1f4 50%, #eef1f4 100%);
+  /* FF3.6+ */
+
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ffffff), color-stop(49%, #ffffff), color-stop(50%, #eef1f4), color-stop(100%, #eef1f4));
+  /* Chrome,Safari4+ */
+
+  background: -webkit-linear-gradient(top, #ffffff 0%, #ffffff 49%, #eef1f4 50%, #eef1f4 100%);
+  /* Chrome10+,Safari5.1+ */
+
+  background: -o-linear-gradient(top, #ffffff 0%, #ffffff 49%, #eef1f4 50%, #eef1f4 100%);
+  /* Opera 11.10+ */
+
+  background: -ms-linear-gradient(top, #ffffff 0%, #ffffff 49%, #eef1f4 50%, #eef1f4 100%);
+  /* IE10+ */
+
+  background: linear-gradient(to bottom, #ffffff 0%, #ffffff 49%, #eef1f4 50%, #eef1f4 100%);
+  /* W3C */
+
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#eef1f4', GradientType=0);
+  /* IE6-9 */
+
+  border: 1px solid #404b5a;
 }
 .accept {
   background-color: green;
@@ -494,41 +512,31 @@ section h1 {
   z-index: 500;
   border: none;
   text-align: center;
-<<<<<<< HEAD
-  background-color: #585858;
-  background-image: linear-gradient(bottom, #464646 0%, #1f1f1f 65%, #2e2e2e 21%, #525252 90%, #6b6b6b 100%);
-  background: -moz-linear-gradient(bottom, #464646 0%, #2e2e2e 21%, #1f1f1f 65%, #525252 90%, #6b6b6b 100%);
-  background-image: -webkit-linear-gradient(bottom, #464646 0%, #1f1f1f 65%, #2e2e2e 21%, #525252 90%, #6b6b6b 100%);
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #464646), color-stop(0.65, #1f1f1f), color-stop(0.21, #2e2e2e), color-stop(0.9, #525252), color-stop(1, #6b6b6b));
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#707070', endColorstr='#191919', GradientType=0);
-=======
-  background: #494e5a;
+  background: #6a7783;
   /* Old browsers */
 
-  background: -moz-linear-gradient(top, #494e5a 11%, #0c0e18 28%, #1d2536 56%, #0c0e18 99%);
+  background: -moz-linear-gradient(top, #6a7783 0%, #364d5a 24%, #051125 25%, #010515 100%);
   /* FF3.6+ */
 
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(11%, #494e5a), color-stop(28%, #0c0e18), color-stop(56%, #1d2536), color-stop(99%, #0c0e18));
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #6a7783), color-stop(24%, #364d5a), color-stop(25%, #051125), color-stop(100%, #010515));
   /* Chrome,Safari4+ */
 
-  background: -webkit-linear-gradient(top, #494e5a 11%, #0c0e18 28%, #1d2536 56%, #0c0e18 99%);
+  background: -webkit-linear-gradient(top, #6a7783 0%, #364d5a 24%, #051125 25%, #010515 100%);
   /* Chrome10+,Safari5.1+ */
 
-  background: -o-linear-gradient(top, #494e5a 11%, #0c0e18 28%, #1d2536 56%, #0c0e18 99%);
+  background: -o-linear-gradient(top, #6a7783 0%, #364d5a 24%, #051125 25%, #010515 100%);
   /* Opera 11.10+ */
 
-  background: -ms-linear-gradient(top, #494e5a 11%, #0c0e18 28%, #1d2536 56%, #0c0e18 99%);
+  background: -ms-linear-gradient(top, #6a7783 0%, #364d5a 24%, #051125 25%, #010515 100%);
   /* IE10+ */
 
-  background: linear-gradient(to bottom, #494e5a 11%, #0c0e18 28%, #1d2536 56%, #0c0e18 99%);
+  background: linear-gradient(to bottom, #6a7783 0%, #364d5a 24%, #051125 25%, #010515 100%);
   /* W3C */
 
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#494e5a', endColorstr='#0c0e18', GradientType=0);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#6a7783', endColorstr='#010515', GradientType=0);
   /* IE6-9 */
 
->>>>>>> sprint5
   border-radius: 10px;
-  border-radius: 0\9;
   padding: 5px;
   box-shadow: 2px 2px 5px #000000;
   font: normal 13px "Avenir Next", Helvetica, Arial, sans-serif;
@@ -547,11 +555,7 @@ section h1 {
   border-radius: 5px;
   border-radius: 0\9;
   border: 1px solid #c0c0c0;
-<<<<<<< HEAD
-  border: none\9;
-=======
   box-shadow: 0px 1px 4px #fff;
->>>>>>> sprint5
 }
 .popup li label {
   color: #000000;
@@ -1658,6 +1662,7 @@ section#widgetScreen {
   height: 100%;
   color: #ffffff;
   background: url('../img/backgrounds/BackgroundTileGray.png') left top repeat;
+  overflow: scroll !important;
 }
 section#widgetScreen #topBar {
   width: 100%;
@@ -1703,19 +1708,37 @@ section#widgetScreen #topBar .btn img {
   height: 20px;
 }
 section#widgetScreen #panelTopBar {
-  background: #0f0f0f;
+  background: url('../img/overview-bg.png');
+  background-size: 105% 100%;
   text-align: center;
-  padding: 10px;
+  padding: 15px 10px 10px 10px;
   border-top: 1px solid #000000;
-  box-shadow: 0 -1px 0 0 rgba(255, 255, 255, 0.15);
   font-size: 20px;
+  margin-bottom: -15px;
+  margin-left: -10px;
+  margin-top: -7px;
+  padding-bottom: 15px;
 }
-section#widgetScreen #panelTopBar #settingsBtn,
-section#widgetScreen #panelTopBar #saveBtn,
-section#widgetScreen #panelTopBar #cancelBtn {
+section#widgetScreen #panelTopBar #settingsBtn {
   float: right;
-  margin: 0px;
-  margin-top: -4px;
+  margin-top: 0px;
+  margin-right: -3px;
+}
+section#widgetScreen #panelTopBar #cancelBtn {
+  background: url('../img/food/bu-cancel.png') no-repeat;
+  float: left;
+  margin-top: -2px;
+  box-shadow: none;
+  border: none;
+  padding: 5px 10px 15px 15px;
+}
+section#widgetScreen #panelTopBar #saveBtn {
+  background: url('../img/food/bu-save.png') no-repeat;
+  float: right;
+  margin-top: -2px;
+  box-shadow: none;
+  border: none;
+  padding: 5px 10px 15px 15px;
 }
 section#widgetScreen #scrollWrapper {
   height: 100%;
@@ -1955,14 +1978,22 @@ section#widgetScreen #scrollWrapper {
   padding-bottom: 20px;
   background-color: #e6e6e6;
 }
+#medicine #wrapper {
+  min-height: 710px;
+}
+@media only screen and (orientation: landscape) {
+  #medicine #wrapper {
+    min-height: 644px;
+  }
+}
 #featuredMeds #filterView {
   top: 50px;
-  right: 50px;
-  width: 215px;
+  left: 330px;
+  width: 240px;
 }
 @media only screen and (orientation: landscape) {
   #featuredMeds #filterView {
-    right: 50px;
+    left: 300px;
     top: 50px;
   }
 }
@@ -1990,7 +2021,7 @@ section#widgetScreen #scrollWrapper {
 }
 .medWrap {
   background: white;
-  width: 600px;
+  width: 90%;
   margin-right: auto;
   margin-left: auto;
   border-radius: 8px;
@@ -2033,6 +2064,54 @@ section#widgetScreen #scrollWrapper {
 .medWrap .medCab #shelf4 li img {
   width: 85%;
   margin-bottom: -2px !important;
+}
+@media only screen and (orientation: landscape) {
+  .medWrap .medCab #shelf1,
+  .medWrap .medCab #shelf3 {
+    position: relative;
+    top: 65px;
+  }
+  .medWrap .medCab #shelf1 ul,
+  .medWrap .medCab #shelf3 ul {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    height: 193px;
+  }
+  .medWrap .medCab #shelf1 li,
+  .medWrap .medCab #shelf3 li {
+    width: 32%;
+    text-align: center;
+    font-size: 0.6em;
+  }
+  .medWrap .medCab #shelf1 li img,
+  .medWrap .medCab #shelf3 li img {
+    width: 85%;
+    margin-bottom: -2px !important;
+  }
+  .medWrap .medCab #shelf2,
+  .medWrap .medCab #shelf4 {
+    position: relative;
+    top: 40px;
+  }
+  .medWrap .medCab #shelf2 ul,
+  .medWrap .medCab #shelf4 ul {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    height: 193px;
+  }
+  .medWrap .medCab #shelf2 li,
+  .medWrap .medCab #shelf4 li {
+    width: 32%;
+    text-align: center;
+    font-size: 0.6em;
+  }
+  .medWrap .medCab #shelf2 li img,
+  .medWrap .medCab #shelf4 li img {
+    width: 85%;
+    margin-bottom: -5px !important;
+  }
 }
 #notifications {
   position: absolute;
@@ -2542,7 +2621,7 @@ section#widgetScreen #scrollWrapper {
 }
 #topBarPopup:after {
   border-color: rgba(136, 183, 213, 0);
-  border-bottom-color: #494e5a;
+  border-bottom-color: #6a7783;
   border-width: 15px;
   top: -29px;
   right: 8px;
@@ -2900,39 +2979,30 @@ section#insights h1 {
   right: 0;
   width: 200px;
   text-align: center;
-<<<<<<< HEAD
-  background-color: #2b6891;
-  background-image: linear-gradient(bottom, #000000 9%, #2b6891 99%);
-  background-image: -webkit-linear-gradient(bottom, #000000 9%, #2b6891 99%);
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0.9, #000000), color-stop(0.99, #2b6891));
-  background: -moz-linear-gradient(top, #2b6891 0%, #000000 10%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#2b6891', endColorstr='#000000', GradientType=0);
-=======
-  background: #425160;
+  background: #5e6f7d;
   /* Old browsers */
 
-  background: -moz-linear-gradient(top, #425160 1%, #0a0c13 20%, #0a0c13 100%);
+  background: -moz-linear-gradient(top, #5e6f7d 0%, #25384c 10%, #0a0c18 11%, #0a0c18 100%);
   /* FF3.6+ */
 
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(1%, #425160), color-stop(20%, #0a0c13), color-stop(100%, #0a0c13));
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #5e6f7d), color-stop(10%, #25384c), color-stop(11%, #0a0c18), color-stop(100%, #0a0c18));
   /* Chrome,Safari4+ */
 
-  background: -webkit-linear-gradient(top, #425160 1%, #0a0c13 20%, #0a0c13 100%);
+  background: -webkit-linear-gradient(top, #5e6f7d 0%, #25384c 10%, #0a0c18 11%, #0a0c18 100%);
   /* Chrome10+,Safari5.1+ */
 
-  background: -o-linear-gradient(top, #425160 1%, #0a0c13 20%, #0a0c13 100%);
+  background: -o-linear-gradient(top, #5e6f7d 0%, #25384c 10%, #0a0c18 11%, #0a0c18 100%);
   /* Opera 11.10+ */
 
-  background: -ms-linear-gradient(top, #425160 1%, #0a0c13 20%, #0a0c13 100%);
+  background: -ms-linear-gradient(top, #5e6f7d 0%, #25384c 10%, #0a0c18 11%, #0a0c18 100%);
   /* IE10+ */
 
-  background: linear-gradient(to bottom, #425160 1%, #0a0c13 20%, #0a0c13 100%);
+  background: linear-gradient(to bottom, #5e6f7d 0%, #25384c 10%, #0a0c18 11%, #0a0c18 100%);
   /* W3C */
 
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#425160', endColorstr='#0a0c13', GradientType=0);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#5e6f7d', endColorstr='#0a0c18', GradientType=0);
   /* IE6-9 */
 
->>>>>>> sprint5
   border-radius: 10px;
   border-radius: 0\9;
   padding: 5px;
@@ -2978,7 +3048,7 @@ section#insights h1 {
   height: 25px;
 }
 #filterView:before {
-  border-bottom: 15px solid #3C4958;
+  border-bottom: 15px solid #536574;
   border-right: 20px solid transparent;
   border-left: 20px solid transparent;
   top: -12px;
@@ -3092,11 +3162,13 @@ section#insights h1 {
   width: 80px;
   margin-left: 27px;
 }
+#widgetStore #widgetdetails img {
+  margin: 0;
+}
 #widgetStore h1 {
   display: inline-block;
 }
 #widgetStore #selector {
-  margin: 30px 0 20px 0;
   background-color: #fff;
 }
 #widgetStore #selector #search_store {
@@ -3104,6 +3176,7 @@ section#insights h1 {
   border-radius: 20px;
   float: right;
   padding: 3px 15px 0;
+  margin-top: 22px;
 }
 #widgetStore #selector #search_store img {
   width: 15px;
@@ -3543,7 +3616,7 @@ section#insights h1 {
   width: 246px;
   border-radius: 8px;
   background-color: #fee9c9;
-  font-size: 16px;
+  font-size: 13px;
   margin-bottom: 60px;
 }
 #foodometer #calories span,
@@ -3556,20 +3629,20 @@ section#insights h1 {
 #foodometer #calories span#remaining,
 #foodScreen #calories span#remaining,
 #activityScreen #calories span#remaining {
-  font: bold 16px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
+  font: normal 14px "Avenir Next Medium", Helvetica, Arial, sans-serif;
 }
 #foodometer #calories span#remainingNum,
 #foodScreen #calories span#remainingNum,
 #activityScreen #calories span#remainingNum {
   text-align: right;
-  font: bold 16px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
+  font: normal 14px "Avenir Next Medium", Helvetica, Arial, sans-serif;
 }
 #foodometer #calories span#goalNum,
 #foodScreen #calories span#goalNum,
 #activityScreen #calories span#goalNum {
   text-align: right;
   color: #676767;
-  font: normal 16px "Avenir Next Medium", Helvetica, Arial, sans-serif;
+  font: normal 13px "Avenir Next Medium", Helvetica, Arial, sans-serif;
 }
 #foodometer #calories span#currentNum,
 #foodScreen #calories span#currentNum,
@@ -3593,7 +3666,7 @@ section#insights h1 {
   width: 270px;
   padding: 20px 15px;
   font: bold 14px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
-  color: #4d4d4d;
+  color: #1a1a1a;
 }
 #foodometer #meals .meal img,
 #foodScreen #meals .meal img,
@@ -3605,7 +3678,7 @@ section#insights h1 {
 #foodScreen #meals .meal span,
 #activityScreen #meals .meal span {
   position: absolute;
-  left: 100px;
+  left: 85px;
 }
 #foodometer #meals .meal.selected,
 #foodScreen #meals .meal.selected,
@@ -3742,13 +3815,13 @@ section#insights h1 {
 #activityScreen #mealContainer #foodList {
   padding: 0px;
   min-height: 60px;
+  box-shadow: 0px 2px 2px #ababab;
 }
 #foodometer #mealContainer .box,
 #foodScreen #mealContainer .box,
 #activityScreen #mealContainer .box {
   background-color: #ffffff;
   border-radius: 8px;
-  box-shadow: 1px 2px 5px #676767, inset -1px 1px 1px #ffffff;
   margin: 20px 5px;
   color: #000000;
   padding: 5px;
@@ -3831,6 +3904,7 @@ section#insights h1 {
 #activityScreen #mealContainer #nutrition {
   height: 55px;
   padding: 2px 10px;
+  box-shadow: 0px 2px 2px #ababab;
 }
 #foodometer #nutrition h2,
 #foodScreen #nutrition h2,
@@ -3839,7 +3913,8 @@ section#insights h1 {
 #foodScreen #mealContainer #nutrition h2,
 #activityScreen #mealContainer #nutrition h2 {
   margin-bottom: 0px;
-  font: bold 18px "Avenir Next", Helvetica, Arial, sans-serif;
+  font: bold 20px "Avenir Next", Helvetica, Arial, sans-serif;
+  color: #343434;
 }
 #foodometer #nutrition h2:after,
 #foodScreen #nutrition h2:after,
@@ -4211,7 +4286,7 @@ section#insights h1 {
 }
 #activityScreen #body #content,
 #activityListScreen #body #content {
-  background-color: #ffffff;
+  background-color: #f6f5f0;
   background-image: none;
   min-height: 850px;
   max-height: 885px;
@@ -4268,6 +4343,9 @@ section#insights h1 {
   margin-right: auto;
   border-radius: 10px;
   white-space: nowrap;
+  overflow: hidden;
+  font: normal 12px "Avenir Next Medium", Helvetica, Arial, sans-serif;
+  color: #fff;
 }
 #activityScreen #body #content #level1Activity #hScroller,
 #activityListScreen #body #content #level1Activity #hScroller {
@@ -4287,8 +4365,10 @@ section#insights h1 {
   margin-right: auto;
   border-radius: 10px;
   box-shadow: 0px 0px 4px 0px #000000;
-  color: #000000;
   white-space: nowrap;
+  overflow: hidden;
+  font: normal 12px "Avenir Next Medium", Helvetica, Arial, sans-serif;
+  color: #1a1a1a;
 }
 #activityScreen #body #content #level2Activity .activityItem,
 #activityListScreen #body #content #level2Activity .activityItem {
@@ -4319,18 +4399,33 @@ section#insights h1 {
 }
 #activityScreen #body .activityItem.selected,
 #activityListScreen #body .activityItem.selected {
-  background-color: #a0e382;
-  background-image: linear-gradient(bottom, #a0e382 0%, #e1f9d6 85%);
-  background-image: -webkit-linear-gradient(bottom, #a0e382 0%, #e1f9d6 85%);
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #a0e382), color-stop(0.85, #e1f9d6));
+  background: #f2fde8;
+  /* Old browsers */
+
+  background: -moz-linear-gradient(top, #f2fde8 0%, #dbf5c4 46%, #c1eb9b 47%, #93dc4c 100%);
+  /* FF3.6+ */
+
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #f2fde8), color-stop(46%, #dbf5c4), color-stop(47%, #c1eb9b), color-stop(100%, #93dc4c));
+  /* Chrome,Safari4+ */
+
+  background: -webkit-linear-gradient(top, #f2fde8 0%, #dbf5c4 46%, #c1eb9b 47%, #93dc4c 100%);
+  /* Chrome10+,Safari5.1+ */
+
+  background: -o-linear-gradient(top, #f2fde8 0%, #dbf5c4 46%, #c1eb9b 47%, #93dc4c 100%);
+  /* Opera 11.10+ */
+
+  background: -ms-linear-gradient(top, #f2fde8 0%, #dbf5c4 46%, #c1eb9b 47%, #93dc4c 100%);
+  /* IE10+ */
+
+  background: linear-gradient(to bottom, #f2fde8 0%, #dbf5c4 46%, #c1eb9b 47%, #93dc4c 100%);
+  /* W3C */
+
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f2fde8', endColorstr='#93dc4c', GradientType=0);
+  /* IE6-9 */
+
   border-radius: 5px;
-  color: #000000;
-}
-#activityScreen #body .activityItem.selected:active,
-#activityListScreen #body .activityItem.selected:active {
-  background-image: linear-gradient(bottom, #e1f9d6 0%, #a0e382 85%);
-  background-image: -webkit-linear-gradient(bottom, #e1f9d6 0%, #a0e382 85%);
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #e1f9d6), color-stop(0.85, #a0e382));
+  font: bold 12px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
+  color: #1a1a1a;
 }
 #activityScreen #body .activityItem[data-id=outdoor],
 #activityListScreen #body .activityItem[data-id=outdoor],
@@ -4352,8 +4447,7 @@ section#insights h1 {
 #activityListScreen #body .box {
   background-color: #ffffff;
   border-radius: 8px;
-  box-shadow: 1px 2px 5px #676767, inset -1px 1px 1px #ffffff;
-  margin: 20px 5px;
+  margin: 20px 5px 5px;
   color: #000000;
   padding: 5px;
 }
@@ -4376,6 +4470,7 @@ section#insights h1 {
   white-space: nowrap;
   overflow: hidden;
   font: normal 14px "Avenir Next", Helvetica, Arial, sans-serif;
+  text-align: left;
 }
 #activityScreen #body .box .boxEntry #about,
 #activityListScreen #body .box .boxEntry #about {
@@ -4400,7 +4495,7 @@ section#insights h1 {
 #activityScreen #activityItemScreen,
 #activityListScreen #activityItemScreen {
   text-align: center;
-  background: #E6E6E6;
+  background: #ebebeb;
   margin: 10px;
   border-radius: 8px;
 }
@@ -4408,13 +4503,21 @@ section#insights h1 {
 #activityListScreen #activityItemScreen #top {
   text-align: center;
 }
+#activityScreen #activityItemScreen #top #activityLogo,
+#activityListScreen #activityItemScreen #top #activityLogo {
+  float: center;
+  margin-right: 5px;
+  padding-top: 5px;
+}
 #activityScreen #activityItemScreen #cancelActivity,
 #activityListScreen #activityItemScreen #cancelActivity {
   float: left;
   background-image: url('../img/food/bu-with-arrow-left.png');
+  background-repeat: no-repeat;
   display: inline-block;
-  padding: 3px 10px 3px 12px;
+  padding: 6px 15px;
   margin: 20px;
+  font: bold 14px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
 }
 #activityScreen #activityItemScreen img,
 #activityListScreen #activityItemScreen img {
@@ -4426,9 +4529,10 @@ section#insights h1 {
   float: right;
   background: #676767;
   display: inline-block;
-  padding: 3px 10px;
+  padding: 6px 15px;
   margin: 20px;
   border-radius: 5px;
+  font: bold 14px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
 }
 #activityScreen #activityItemScreen #activityFavBtn:active,
 #activityListScreen #activityItemScreen #activityFavBtn:active,
@@ -4441,10 +4545,11 @@ section#insights h1 {
 #activityListScreen #activityItemScreen #activityName {
   color: #000000;
   display: inline-block;
-  font: bold 16px "Avenir Next", Helvetica, Arial, sans-serif;
-  margin-top: 20px;
+  font: bold 18px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
+  margin-top: 22px;
   max-width: 345px;
   white-space: nowrap;
+  vertical-align: top;
 }
 #activityScreen #activityItemScreen .box.inputs,
 #activityListScreen #activityItemScreen .box.inputs {
@@ -4457,14 +4562,17 @@ section#insights h1 {
 #activityScreen #activityItemScreen .box.inputs.minutes,
 #activityListScreen #activityItemScreen .box.inputs.minutes {
   width: 45%;
+  border: 1px solid #bebebe;
 }
 #activityScreen #activityItemScreen .box.inputs.calBurned,
 #activityListScreen #activityItemScreen .box.inputs.calBurned {
   width: 45%;
+  border: 1px solid #bebebe;
 }
 #activityScreen #activityItemScreen .box.inputs.notes,
 #activityListScreen #activityItemScreen .box.inputs.notes {
   width: 92%;
+  border: 1px solid #bebebe;
 }
 #activityScreen #activityItemScreen .box.inputs label,
 #activityListScreen #activityItemScreen .box.inputs label {
@@ -4474,7 +4582,7 @@ section#insights h1 {
 }
 #activityScreen #activityItemScreen .box.inputs label,
 #activityListScreen #activityItemScreen .box.inputs label {
-  padding-top: 5px;
+  padding-top: 9px;
 }
 #activityScreen #activityItemScreen .box.inputs input,
 #activityListScreen #activityItemScreen .box.inputs input {
@@ -4500,7 +4608,7 @@ section#insights h1 {
 }
 #activityScreen #activityItemScreen #stopWatch #time,
 #activityListScreen #activityItemScreen #stopWatch #time {
-  font: normal 50px "Avenir Next Medium", Helvetica, Arial, sans-serif;
+  font: bold 48px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
 }
 #activityScreen #activityItemScreen #stopWatch li,
 #activityListScreen #activityItemScreen #stopWatch li {
@@ -4510,7 +4618,7 @@ section#insights h1 {
   background: url("../img/food/bu-share-gradient.png");
   border: none;
   margin: 15px 10px 15px 0px;
-  box-shadow: -1px 1px 3px 0px;
+  box-shadow: 0px 1px 6px -1px;
   color: #000000;
   font: bold 13px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
 }
@@ -4551,7 +4659,8 @@ section#insights h1 {
 #activityListScreen #nutritionInfo.box {
   background-color: #ffffff;
   border-radius: 8px;
-  box-shadow: 1px 2px 5px #676767, inset -1px 1px 1px #ffffff;
+  box-shadow: 0px 2px 2px #ababab;
+  border: 1px solid #bebebe;
   margin: 20px 5px;
   color: #000000;
   width: 90%;
@@ -4563,6 +4672,7 @@ section#insights h1 {
 #activityListScreen #nutritionInfo.box .first {
   display: inline-block;
   width: 51%;
+  text-align: left;
 }
 #activityScreen #nutritionInfo.box .second,
 #activityListScreen #nutritionInfo.box .second,
@@ -4710,14 +4820,14 @@ section#insights h1 {
   height: 100%;
 }
 #busyBody #body #content #rightContent #emptyDay {
-  color: #676767;
+  color: #6d6d6d;
   margin-top: 250px;
   text-align: center;
   font: bold 18px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
   text-shadow: 0 1px 1px #ffffff;
 }
 #busyBody #body #content #rightContent #emptyDay #day {
-  color: #676767;
+  color: #6d6d6d;
   font: bold 48px "Avenir Next", Helvetica, Arial, sans-serif;
 }
 #busyBody #body #content #rightContent #emptyDay #emptyActivities {
@@ -4782,17 +4892,18 @@ section#insights h1 {
   padding: 5px 0px;
 }
 #busyBody #calories span#remaining {
-  font: normal 13px "Avenir Next Medium", Helvetica, Arial, sans-serif;
-  color: #676767;
+  font: normal 14px "Avenir Next Medium", Helvetica, Arial, sans-serif;
+  color: #000000;
 }
 #busyBody #calories span#remainingNum {
   text-align: right;
   font: normal 14px "Avenir Next Medium", Helvetica, Arial, sans-serif;
+  color: #000000;
 }
 #busyBody #calories span#goalNum {
   text-align: right;
   color: #676767;
-  font: normal 14px "Avenir Next Medium", Helvetica, Arial, sans-serif;
+  font: normal 13px "Avenir Next Medium", Helvetica, Arial, sans-serif;
 }
 #busyBody #calories span#currentNum {
   text-align: right;
@@ -4817,6 +4928,8 @@ section#insights h1 {
   text-align: right;
 }
 #busyBody #activities {
+  font: normal 18px "Avenir Next Medium", Helvetica, Arial, sans-serif;
+  color: #1a1a1a;
   margin-left: 5px;
 }
 #busyBody #activities .time {
@@ -4824,7 +4937,8 @@ section#insights h1 {
   height: 60px;
   width: 270px;
   padding: 20px 15px;
-  font: bold 16px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
+  font: bold 14px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
+  color: #1a1a1a;
 }
 #busyBody #activities .time img {
   margin-right: 10px;
@@ -4835,9 +4949,9 @@ section#insights h1 {
   left: 85px;
 }
 #busyBody #activities .time span.count {
-  font: bold 12px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
+  font: normal 12px "Avenir Next Medium", Helvetica, Arial, sans-serif;
   left: 185px;
-  color: #676767;
+  color: #4d4d4d;
 }
 #busyBody #activities .time.selected {
   background: url('../img/busybody/bu-arrow-green.png') no-repeat;
@@ -4913,7 +5027,7 @@ section#insights h1 {
   float: right;
   background: url("../img/food/bu-share-gradient.png");
   border: none;
-  margin: 15px 10px 15px 0px;
+  margin: 15px 5px 15px 0px;
   box-shadow: -1px 1px 3px 0px;
   color: #676767;
   font: bold 13px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
@@ -4944,7 +5058,7 @@ section#insights h1 {
 #busyBody #activityContainer .box {
   background-color: #ffffff;
   border-radius: 8px;
-  box-shadow: 1px 2px 5px #676767, inset -1px 1px 1px #ffffff;
+  box-shadow: 0px 2px 2px #ababab;
   margin: 20px 5px;
   color: #000000;
   padding: 5px;
@@ -5019,11 +5133,12 @@ section#insights h1 {
 #busyBody #addActivityPopup {
   display: none;
   position: absolute;
-  right: 10%;
-  top: 17%;
+  right: 60px;
+  top: 165px;
   width: 300px;
   left: auto;
-  box-shadow: 0px -1px 1px #000000;
+  box-shadow: 0px 2px 4px #000000;
+  border: 1px #000 solid;
 }
 #busyBody #addActivityPopup .btn {
   display: block;
@@ -5031,16 +5146,30 @@ section#insights h1 {
   padding: 10px;
   height: 40px;
   margin: 5px 5px;
-  font: normal 17px "Avenir Next Medium", Helvetica, Arial, sans-serif;
+  font: bold 18px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
+}
+#busyBody #addActivityPopup:after,
+#busyBody #addActivityPopup:before {
+  bottom: 100%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+}
+#busyBody #addActivityPopup:after {
+  border-color: rgba(136, 183, 213, 0);
+  border-bottom-color: #6a7783;
+  border-width: 15px;
+  top: -29px;
+  right: 8px;
 }
 #busyBody #addActivityPopup:before {
-  border-bottom: 15px solid #6b6b6b;
-  border-right: 20px solid transparent;
-  border-left: 20px solid transparent;
-  top: -12px;
-  content: '';
-  position: absolute;
-  right: 17px;
+  border-color: rgba(194, 225, 245, 0);
+  border-bottom-color: #000;
+  border-width: 16px;
+  top: -32px;
+  right: 7px;
 }
 #busyBody #nutritionSection {
   display: none;
@@ -5266,7 +5395,7 @@ section#insights h1 {
 #busyBody #nutritionInfo.box .boxEntry:last-child {
   border-bottom: none;
 }
-#foodScreen #panelTopBar #meal {
+#foodScreen #panelTopBar .avenir-next #meal {
   font: bold 18px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
 }
 #foodScreen #panelTopBar #saveBtn {
@@ -5326,6 +5455,8 @@ section#insights h1 {
   border-radius: 10px;
   white-space: nowrap;
   overflow: scroll;
+  font: normal 12px "Avenir Next Medium", Helvetica, Arial, sans-serif;
+  color: #ffffff;
 }
 #foodScreen #body #content #level1Food #hScroller {
   white-space: nowrap;
@@ -5343,7 +5474,8 @@ section#insights h1 {
   margin-right: auto;
   border-radius: 10px;
   box-shadow: 0px 0px 4px 0px #000000;
-  color: #000000;
+  font: bold 12px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
+  color: #1a1a1a;
   white-space: nowrap;
   overflow: hidden;
 }
@@ -5370,18 +5502,30 @@ section#insights h1 {
   height: 50px;
 }
 #foodScreen #body .foodItem.selected {
-  background-color: #fee9c9;
-  background-image: linear-gradient(bottom, #fff1a0 0%, #fee9c9 85%);
-  background-image: -webkit-linear-gradient(bottom, #fff1a0 0%, #fee9c9 85%);
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #fff1a0), color-stop(0.85, #fee9c9));
-  background-image: -moz-linear-gradient(bottom, #fff1a0 0%, #fee9c9 85%);
+  background: -moz-linear-gradient(top, #fee9cd 0%, #fedfaf 47%, #fed58f 47%, #fdcd75 100%);
+  /* FF3.6+ */
+
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #fee9cd), color-stop(47%, #fedfaf), color-stop(47%, #fed58f), color-stop(100%, #fdcd75));
+  /* Chrome,Safari4+ */
+
+  background: -webkit-linear-gradient(top, #fee9cd 0%, #fedfaf 47%, #fed58f 47%, #fdcd75 100%);
+  /* Chrome10+,Safari5.1+ */
+
+  background: -o-linear-gradient(top, #fee9cd 0%, #fedfaf 47%, #fed58f 47%, #fdcd75 100%);
+  /* Opera 11.10+ */
+
+  background: -ms-linear-gradient(top, #fee9cd 0%, #fedfaf 47%, #fed58f 47%, #fdcd75 100%);
+  /* IE10+ */
+
+  background: linear-gradient(to bottom, #fee9cd 0%, #fedfaf 47%, #fed58f 47%, #fdcd75 100%);
+  /* W3C */
+
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fee9cd', endColorstr='#fdcd75', GradientType=0);
+  /* IE6-9 */
+
   border-radius: 5px;
-  color: #000000;
-}
-#foodScreen #body .foodItem.selected:active {
-  background-image: linear-gradient(bottom, #fee9c9 0%, #fff1a0 85%);
-  background-image: -webkit-linear-gradient(bottom, #fee9c9 0%, #fff1a0 85%);
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #fee9c9), color-stop(0.85, #fff1a0));
+  font: bold 12px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
+  color: #1a1a1a;
 }
 #foodScreen #body #foodList {
   padding: 0px;
@@ -5396,7 +5540,7 @@ section#insights h1 {
   background-color: #ffffff;
   border-radius: 8px;
   box-shadow: 1px 2px 5px #676767, inset -1px 1px 1px #ffffff;
-  margin: 20px 5px;
+  margin: 20px 5px 5px;
   color: #000000;
   padding: 5px;
 }
@@ -5593,6 +5737,7 @@ section#insights h1 {
   text-align: left;
 }
 #simpleSearchScreen #searchBar #searchInput {
+  width: 40%;
   display: inline-block;
   text-align: left;
   background-color: #ffffff;
@@ -5603,21 +5748,50 @@ section#insights h1 {
 #simpleSearchScreen #searchBar #searchInput #searchImg {
   margin: 7px 5px -2px 5px;
 }
+#simpleSearchScreen #searchBar #searchInput #xImg {
+  float: right;
+  margin: 5px;
+}
 #simpleSearchScreen #searchBar #searchInput form {
   display: inline;
 }
 #simpleSearchScreen #searchBar #searchInput input {
   border: none;
-  width: 200px;
+  width: 75%;
+  background: transparent;
 }
 #simpleSearchScreen #searchBar #filter {
-  width: 300px;
-  background-color: #ffffff;
+  width: 45%;
+  background: #ffffff;
+  /* Old browsers */
+
+  background: -moz-linear-gradient(top, #ffffff 0%, #ffffff 49%, #e8e9e8 50%, #e8e9e8 100%);
+  /* FF3.6+ */
+
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ffffff), color-stop(49%, #ffffff), color-stop(50%, #e8e9e8), color-stop(100%, #e8e9e8));
+  /* Chrome,Safari4+ */
+
+  background: -webkit-linear-gradient(top, #ffffff 0%, #ffffff 49%, #e8e9e8 50%, #e8e9e8 100%);
+  /* Chrome10+,Safari5.1+ */
+
+  background: -o-linear-gradient(top, #ffffff 0%, #ffffff 49%, #e8e9e8 50%, #e8e9e8 100%);
+  /* Opera 11.10+ */
+
+  background: -ms-linear-gradient(top, #ffffff 0%, #ffffff 49%, #e8e9e8 50%, #e8e9e8 100%);
+  /* IE10+ */
+
+  background: linear-gradient(to bottom, #ffffff 0%, #ffffff 49%, #e8e9e8 50%, #e8e9e8 100%);
+  /* W3C */
+
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#e8e9e8', GradientType=0);
+  /* IE6-9 */
+
   border-radius: 8px;
   display: inline-block;
   text-align: center;
-  color: #000000;
+  color: #1a1a1a;
   float: right;
+  border: none;
   margin: 10px;
   padding: 5px;
 }
@@ -5648,11 +5822,12 @@ section#insights h1 {
 #foodScreen #recentFavsScreen .box.grey,
 #activityScreen #recentFavsScreen .box.grey {
   background-color: #e6e6e6;
+  box-shadow: 0px 2px 2px #ababab;
 }
 #foodScreen #recentFavsScreen .box.grey img,
 #activityScreen #recentFavsScreen .box.grey img {
-  height: 40px;
   float: right;
+  padding: 15px;
 }
 #foodScreen #recentFavsScreen .box.grey .boxEntry,
 #activityScreen #recentFavsScreen .box.grey .boxEntry {
@@ -5673,6 +5848,7 @@ section#insights h1 {
   max-height: 200px;
   min-height: 20px;
   overflow: hidden;
+  box-shadow: 0px 2px 2px #ababab;
 }
 #foodScreen #recentFavsScreen #wrapper #scroller,
 #activityScreen #recentFavsScreen #wrapper #scroller {
@@ -5691,16 +5867,19 @@ section#insights h1 {
 #foodScreen #recentFavsScreen .box.inputs.minutes,
 #activityScreen #recentFavsScreen .box.inputs.minutes {
   width: 44%;
+  border: 1px solid #bebebe;
 }
 #foodScreen #recentFavsScreen .box.inputs.size,
 #activityScreen #recentFavsScreen .box.inputs.size,
 #foodScreen #recentFavsScreen .box.inputs.calBurned,
 #activityScreen #recentFavsScreen .box.inputs.calBurned {
   width: 45%;
+  border: 1px solid #bebebe;
 }
 #foodScreen #recentFavsScreen .box.inputs.notes,
 #activityScreen #recentFavsScreen .box.inputs.notes {
   width: 92%;
+  border: 1px solid #bebebe;
 }
 #foodScreen #recentFavsScreen .box.inputs label,
 #activityScreen #recentFavsScreen .box.inputs label {

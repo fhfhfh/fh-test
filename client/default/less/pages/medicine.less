@@ -1,66 +1,74 @@
 #medicine {
-	#selector {
-		padding-bottom: 20px;
-		background-color: #e6e6e6;
-	}
+    #selector {
+        padding-bottom: 20px;
+        background-color: #e6e6e6;
+    }
+
+    #wrapper {
+
+        min-height: 710px;
+
+        @media @landscape {
+            min-height: 644px;
+        }
+    }
 }
 
 #featuredMeds #filterView {
-	top: 50px;
-	right: 50px;
-	width: 215px;
+    top: 50px;
+    left: 330px;
+    width: 240px;
 
-	@media only screen and (orientation: landscape) {
-		right: 50px;
-		top: 50px;
-	}
+    @media only screen and (orientation: landscape) {
+        left: 300px;
+        top: 50px;
+    }
 
 }
 
 #medicineBar {
-	display: inline-block;
-	width: 100%;
-	padding: 10px;
+    display: inline-block;
+    width: 100%;
+    padding: 10px;
 
-	#searchImg{
-		position: absolute;
-		left: 20px;
-		top: 17px;
-	}
+    #searchImg{
+        position: absolute;
+        left: 20px;
+        top: 17px;
+    }
 
-	#medSearch{
-		padding-left: 4%;
-		border-radius: 15px;
-		border: #ccc solid 2px;
-		width: 35%;
-	}
+    #medSearch{
+        padding-left: 4%;
+        border-radius: 15px;
+        border: #ccc solid 2px;
+        width: 35%;
+    }
 
-	#medicineOptions {
-		float: right;
+    #medicineOptions {
+        float: right;
 
-		#viewOpt{
-			padding-right: 5px;
-		}
-	}
+        #viewOpt{
+            padding-right: 5px;
+        }
+    }
 }
 
 .medWrap{
+    background: white;
+    width: 90%;
+    margin-right: auto;
+    margin-left: auto;
+    border-radius: 8px;
 
-	background: white;
-	width: 600px;
-	margin-right: auto;
-	margin-left: auto;
-	border-radius: 8px;
-	
-	.medCab {
-		background: url('../img/medicine/med-cab-bg.png')center no-repeat;
-		background-size: 86% 100%;
-		overflow: hidden;
-		padding-bottom: 20%;
+    .medCab {
+        background: url('../img/medicine/med-cab-bg.png')center no-repeat;
+        background-size: 86% 100%;
+        overflow: hidden;
+        padding-bottom: 20%;
 
-		.shelf {
-			margin-bottom : -120px;
-		}
+        .shelf {
+            margin-bottom : -120px;
+        }
 
 		#shelf1,
 		#shelf2,
@@ -86,7 +94,55 @@
 					}
 			}
 		}
-	}
+
+		@media @landscape {
+	        #shelf1,
+	        #shelf3 {
+	            position: relative;
+	            top: 65px;
+
+	            ul {
+	                width: 80%;
+	                margin-left: auto;
+	                margin-right: auto;
+	                height: 193px;
+	            }
+
+	            li {
+	                width: 32%;
+	                text-align: center;
+	                font-size: 0.6em;
+
+	                img {
+	                        width: 85%;
+	                        margin-bottom: -2px !important;
+	                    }
+	            }
+	        }
+
+	        #shelf2,
+	        #shelf4 {
+	            position: relative;
+	            top: 40px;
+
+	            ul {
+	                width: 80%;
+	                margin-left: auto;
+	                margin-right: auto;
+	                height: 193px;
+	            }
+
+	            li {
+	                width: 32%;
+	                text-align: center;
+	                font-size: 0.6em;
+
+	                img {
+	                        width: 85%;
+	                        margin-bottom: -5px !important;
+	                    }
+	            }
+	        }
+	    }
+    }
 }
-
-

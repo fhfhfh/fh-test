@@ -73,10 +73,10 @@ define(['jquery',
 						// Clear measurements body
 						self.$('#measurements #body #row').remove();
 
-						str =	row({name: 'Height', value: data.vitalSigns[0].bodyHeight}) +
-								row({name: 'Weight', value: data.vitalSigns[0].bodyWeight}) +
-								row({name: 'Diastolic Bp', value: data.vitalSigns[0].diastolicBp}) +
-								row({name: 'Systolic Bp', value: data.vitalSigns[0].systolicBp});
+						str =	row({url: data.vitalSigns[0].url, name: 'Height', value: data.vitalSigns[0].bodyHeight}) +
+								row({url: data.vitalSigns[0].url, name: 'Weight', value: data.vitalSigns[0].bodyWeight}) +
+								row({url: data.vitalSigns[0].url, name: 'Diastolic Bp', value: data.vitalSigns[0].diastolicBp}) +
+								row({url: data.vitalSigns[0].url, name: 'Systolic Bp', value: data.vitalSigns[0].systolicBp});
 
 						self.$('#measurements #body').append(str);
 					}
@@ -89,8 +89,10 @@ define(['jquery',
 						str = '';
 						for(var i=0; i<data.results.length; i++){
 
-							str += row({name: data.results[i].testName,
-										value: data.results[i].result + ' '+ data.results[i].units});
+							str += row({
+								url: data.results[i].url,
+								name: data.results[i].testName,
+								value: data.results[i].result + ' '+ data.results[i].units});
 						}
 						self.$('#testResults #body').append(str);
 					}
@@ -103,8 +105,10 @@ define(['jquery',
 						str = '';
 						for(var j=0; j<data.immunizations.length; j++){
 
-							str += row({name: data.immunizations[j].vaccine,
-										value: data.immunizations[j].status});
+							str += row({
+								url: data.immunizations[j].url,
+								name: data.immunizations[j].vaccine,
+								value: data.immunizations[j].status});
 						}
 						self.$('#immunizations #body').append(str);
 					}

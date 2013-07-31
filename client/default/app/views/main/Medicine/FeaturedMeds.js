@@ -74,6 +74,33 @@ define([
                 }
             }
         }
+
+        // showMeds: function(e){
+        //     var self = this;
+        //     var target = $('#body>label').hasClass('checked');
+        //     var img = $('img');
+        //     var type = img.attr('id');
+            
+
+        //     // target.toggle();
+
+        //     if (type === "meds" || target){
+            
+        //         this.$('#meds').show();
+
+        //     } else if (type === "devices" || target){
+             
+        //         this.$('#devices').show();
+
+        //     } else if (type === "supple" || target){
+
+        //         this.$('#supple').show();
+
+        //     } else if (!target.hasClass('checked')) {
+
+        //         this.img.hide();
+        //     }
+        // }
     });
 });
 

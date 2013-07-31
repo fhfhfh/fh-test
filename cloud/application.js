@@ -423,6 +423,7 @@ function HostApp() {
 			.use('/doc', function(req,res,next){
 				var url = './cloud/healthhub'+req.url;
 				var type=url.split('.').pop();
+				var path = decodeURI(url);
 				var content = {
 					html: 'text/html',
 					css : 'text/css',
@@ -439,42 +440,22 @@ function HostApp() {
 				}
 
 				if(type==='image/jpeg'||type==='image/png'||type==="image/gif"){
-					console.log('image request', url);
-					// fs.readFile(url, function(err,data){
-					// 	if(!err){
-					// 		console.log('read file succeeded');
-					// 		res.setHeader('Content-Type', type);
-					// 		res.end();
-					// 	}
-					// });
+
 					var static = connect['static']('./cloud/healthhub');
-						console.log(process.cwd());
-						fs.readdir('./cloud/healthhub/graphics/tnail/',function(err,dir){
-							if(err){
-								console.error(err);
-							}
-							console.log(dir);
-						});
-						var path = decodeURI(url);
+					if (fs.existsSync(path)) {
+						res.setHeader('Content-Type', 'image/jpeg');
+						res.end(fs.readFileSync(url));
+						return static(req, res, next);
 
-						console.log(url);
-						console.log('PATH******',path);
-
-						if (fs.existsSync(path)) {
-							console.log('image FOUND');
-							res.setHeader('Content-Type', 'image/jpeg');
-							res.end(fs.readFileSync(url));
-							return static(req, res, next);
-
-						} else {
-							// return default.png thumb
-							console.log('NO image FOUND');
-							res.end();
-						}
+					} else {
+						// return default.png thumb
+						console.log('NO image FOUND');
+						res.end();
+					}
 				} else {
 					console.log(url, 'type =', type);
 					res.setHeader('Content-Type', type);
-					var file = fs.readFileSync(url);
+					var file = fs.readFileSync(path);
 					res.end(file);
 				}
 			})//----------------------------------
