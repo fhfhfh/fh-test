@@ -74,8 +74,10 @@ define(['jquery',
 					str = '';
 					for(var i=0; i<data.encounters.length; i++){
 
-						str += row({name: data.encounters[i].encounter,
-									value: data.encounters[i].location});
+						str += row({
+							url: data.encounters[i].url,
+							name: data.encounters[i].encounter,
+							value: data.encounters[i].location});
 					}
 					self.$('#recentVisits #body').append(str);
 				}
@@ -86,8 +88,10 @@ define(['jquery',
 					str = '';
 					for(var j=0; j<data.problems.length; j++){
 
-						str += row({name: data.problems[j].problem,
-									value: data.problems[j].status});
+						str += row({
+							url: data.problems[j].url,
+							name: data.problems[j].problem,
+							value: data.problems[j].status});
 					}
 					self.$('#problems #body').append(str);
 				}
@@ -98,8 +102,10 @@ define(['jquery',
 					str = '';
 					for(var k=0; k<data.procedures.length; k++){
 
-						str += row({name: data.procedures[k].procedure,
-									value: data.procedures[k].description});
+						str += row({
+							url: data.procedures[k].url,
+							name: data.procedures[k].procedure,
+							value: data.procedures[k].description});
 					}
 					self.$('#procedures #body').append(str);
 				}
@@ -110,8 +116,10 @@ define(['jquery',
 					str = '';
 					for(var l=0; l<data.allergies.length; l++){
 
-						str += row({name: data.allergies[l].allergy,
-									value: data.allergies[l].reaction});
+						str += row({
+							url: data.allergies[l].url,
+							name: data.allergies[l].allergy,
+							value: data.allergies[l].reaction});
 					}
 					self.$('#allergies #body').append(str);
 				}

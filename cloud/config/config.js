@@ -31,7 +31,7 @@ var config = {
     session: {
         // Inactivity timeout (Seconds)
         // lifetime: 24 *  60 * 60 // no need for cloud session to timeout daily per user
-        lifetime: 0
+        lifetime: 24 * 60 * 60 * 365
     }
 };
 

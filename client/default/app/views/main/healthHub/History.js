@@ -71,8 +71,10 @@ define(['jquery',
 					str = '';
 					for(var i=0; i<data.familyHistories.length; i++){
 
-						str += row({name: data.familyHistories[i].familyMember,
-									value: data.familyHistories[i].diagnosis});
+						str += row({
+							url: data.familyHistories[i].url,
+							name: data.familyHistories[i].familyMember,
+							value: data.familyHistories[i].diagnosis});
 					}
 					self.$('#familyHistory #body').append(str);
 				}
@@ -83,8 +85,10 @@ define(['jquery',
 					str = '';
 					for(var j=0; j<data.socialHistories.length; j++){
 
-						str += row({name: data.socialHistories[j].socialHistoryElement,
-									value: data.socialHistories[j].description});
+						str += row({
+							url: data.socialHistories[j].url,
+							name: data.socialHistories[j].socialHistoryElement,
+							value: data.socialHistories[j].description});
 					}
 					self.$('#socialHistory #body').append(str);
 				}
