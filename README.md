@@ -37,6 +37,7 @@ Build Process for Demos
 From the project root, run the following command:
 ```grunt ios```
 Then go to builds/ios/ and open the Xcode project:
+
 + In top left, make sure iOS Device is the selected target
 + Click Project > Archive, the Organizer screen will open after Project is Archived.
 + Click Distribute... then Save for Enterprise or Ad-Hoc Deployment

@@ -71,7 +71,9 @@ define([
         hideCategories: function(){
             $('#activityList').hide();
             $('.activity2').hide();
-            $('.activityItem.lv1.selected img').attr('src', $('.activityItem.lv1.selected img').attr('src').replace(".png", "-white.png"));
+            if($('.activityItem.lv1.selected img').attr('src')){
+                $('.activityItem.lv1.selected img').attr('src', $('.activityItem.lv1.selected img').attr('src').replace(".png", "-white.png"));    
+            }            
             $('.activityItem.lv1').removeClass('selected');
         },
 

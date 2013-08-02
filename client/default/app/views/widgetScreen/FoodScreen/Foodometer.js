@@ -63,7 +63,9 @@ define([
         hideCategories: function(){
             $('#foodList').hide();
             $('.foods2').hide();
-            $('.foodItem.lv1.selected img').attr('src', $('.foodItem.lv1.selected img').attr('src').replace("icon-over", "icon"));
+            if($('.foodItem.lv1.selected img').attr('src')){
+                $('.foodItem.lv1.selected img').attr('src', $('.foodItem.lv1.selected img').attr('src').replace("icon-over", "icon"));    
+            }
             $('.foodItem.lv1').removeClass('selected');
             $('#backToTop').hide();
         },

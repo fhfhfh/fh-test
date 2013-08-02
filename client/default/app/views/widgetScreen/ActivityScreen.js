@@ -56,7 +56,8 @@ define([
             this.activeView.cancelActivity();
             this.activeView.hideCategories();
             this.model = null;
-            this.container.setActiveView('busyBodyNav');
+            this.container.showBusyBody();
+            this.container.refreshScroll();
         },
 
         saveAllActivities: function(){
@@ -64,7 +65,8 @@ define([
             this.busyBody();
             this.activeView.hideCategories();
             this.container.subViews.busyBodyNav.saveActivitiesToJournal();
-            this.container.setActiveView('busyBodyNav');
+            this.container.showBusyBody()
+            this.container.refreshScroll();
 
         },
 
