@@ -64,11 +64,13 @@ define([
                 if(self.activeView == "shelf"){
                     self.activeView = "list";
                     $('#medCabinet').hide();
+                    $('#medicineItems').hide();
                     $('#listView').show();
                 }
                 else {
                     self.activeView = "shelf";
                     $('#medCabinet').show();
+                    $('#medicineItems').show();
                     // this.bodyScroll.refresh();
                     $('#listView').hide();
                 }
