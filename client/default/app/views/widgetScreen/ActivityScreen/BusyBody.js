@@ -68,6 +68,13 @@ define([
             }, 100);
         },
 
+        hideCategories: function(){
+            $('#activityList').hide();
+            $('.activity2').hide();
+            $('.activityItem.lv1.selected img').attr('src', $('.activityItem.lv1.selected img').attr('src').replace(".png", "-white.png"));
+            $('.activityItem.lv1').removeClass('selected');
+        },
+
         /* 
          * Event when a food category is selected
          * Check whether it is level1 or level2 category

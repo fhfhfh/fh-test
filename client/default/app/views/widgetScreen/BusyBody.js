@@ -8,7 +8,7 @@ define([
     'backbone',
     'text!templates/widgets/BusyBody.html',
     'text!templates/popups/MonthPicker.html',
-    'text!templates/widgets/FoodItem.html',
+    'text!templates/widgets/ActivityItem.html',
     'models/Calendar',
     'collections/ActivityJournal',
     'models/Acts'
@@ -31,8 +31,8 @@ define([
             'click #copyFood' : 'copyActivityItem',
             'click #clearFood': 'clearActivity',
             'click #nutrition': 'showNutrition',
-            'click #foodList .boxEntry' : 'showActivityItem',
-            'click #cancelFood' : 'closeActivityItem',
+            'click #activityList .boxEntry' : 'showActivityItem',
+            'click #cancelActivity' : 'closeActivityItem',
             'click #editItem' : 'editActivityItem',
             'click #deleteItem': 'deleteActivityItem'
           },
@@ -175,7 +175,6 @@ define([
             var dayModel = collection.find(function(item){
                 return item.get('date').toDateString() == date.toDateString();
             });
-            console.log('dayModel',dayModel);
             self.item = null;
             if(dayModel){ // check if model exists for selected date
                 self.item = dayModel; // make model globally accessible 
@@ -262,13 +261,13 @@ define([
                 // populate meal info
                 var activityInfo = activities[0];
 
-                this.$('#calCount').text(activityInfo.calories + ' Calories Burned');
+                this.$('#calCount').text(Math.round(activityInfo.calories) + ' Calories Burned');
                 this.$('#location').val(activityInfo.location);
                 this.$('#with').val(activityInfo['with']);
                 this.$('#time').val(activityInfo.time);
                 this.$('#notes').val(activityInfo.notes);
 
-                this.$('.time.selected .count').html(activityInfo.calories + ' Calories');
+                this.$('.time.selected .count').html(Math.round(activityInfo.calories) + ' Calories');
 
                 // populate calorie counter
                 var att = item.attributes;
@@ -413,17 +412,18 @@ define([
                 // loop starts at 1 as first entry is meal details (calories, notes, etc.)
                 for(var i=1;i<activities.length;i++){
                     var index = activities[i];
-                    if(index.id === id){
-                        var servings = index.serving.split(" x ")[0];
-                        var size = index.serving.split(" x ")[1];
+                    if(index.id == id){
+                        var minutes = index.minutes;
+                        var calories = index.calorieBaseline;
+                        var totalCals= index.calories;
 
                         this.activityItem = activities[i];
                         this.$('#activityContainer').hide();
                         this.$('#nutritionSection').hide();
                         this.$("#rightContent").append(self.activityItemTpl({item:index, imgSrc:""}));
-                        $("#size").val(size).attr('disabled','disabled');
-                        $("#serving").val(parseInt(servings,10));
-                        self.populateNutrition(item, meal, $('#nutritionInfo'), i);
+                        $("#calBurned").val(calories).attr('disabled','disabled');
+                        $('#totalCalories #amount').html(totalCals);
+                        $("#minutes").val(minutes);
                         $("#activityItemScreen").attr("data-id", id);
                     }
                 }
@@ -440,15 +440,14 @@ define([
             var self = this;
             var time = $(".time.selected").attr('data-name') || "morning";
             var timeArr = this.item.attributes[time];
-            var newServing = parseInt($("#serving").val(),10);
-            var oldServing = parseInt(self.activityItem.serving.split(" x ")[0],10);
-            var size       = self.activityItem.serving.split(" x ")[1];
+            var minutes = parseInt($("#minutes").val(),10);
+            var totalCalories = self.activityItem.calorieBaseline*minutes;
 
             for(var i=1;i<timeArr.length;i++){
                 if(timeArr[i].id == self.activityItem.id){
                     var item = timeArr[i];
-                    item.serving = newServing + " x " + size;
-                    item = self.multiplyNutrition(newServing, item, oldServing);
+                    item.minutes = minutes;
+                    item.calories= totalCalories;
                     self.item.set(time, timeArr);
                     self.$('#activityContainer').show();
                     self.$('#activityItemScreen').remove();
@@ -486,7 +485,7 @@ define([
             var timeArr = this.item.attributes[time];
 
             for(var i=1;i<timeArr.length;i++){
-                if(timeArr[i].id == self.foodItem.id){
+                if(timeArr[i].id == self.activityItem.id){
                     timeArr.splice(i,1);
                     self.item.set(time, timeArr);
                     self.$('#activityContainer').show();

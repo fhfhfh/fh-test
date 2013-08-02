@@ -21,7 +21,7 @@ define(['backbone',
              self.store();
             });
 
-            this.load();
+            // this.load();
         },
 
         addEntry: function(obj){

@@ -26,9 +26,9 @@ define(['backbone',
 
 		initialize: function(){
 			var self=this;
-			// this.on('change', function(){
-			//	self.store();
-			// });
+			this.on('change', function(){
+				self.store();
+			});
 
 		},
 

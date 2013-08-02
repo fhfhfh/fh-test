@@ -32,5 +32,15 @@ the FeedHenry cloud. It contains these essential folders/files:
 
 ---
 
-## Development Requirements
-...
+Build Process for Demos
+=======================
+From the project root, run the following command:
+```grunt ios```
+Then go to builds/ios/ and open the Xcode project:
++ In top left, make sure iOS Device is the selected target
++ Click Project > Archive, the Organizer screen will open after Project is Archived.
++ Click Distribute... then Save for Enterprise or Ad-Hoc Deployment
++ Choose FEEDHENRY code signing
++ Choose where to save the Peachy.ipa locally
+
+After this the IPA can be uploaded to the domain app-store: 'securehealthhub.feedhenry.com'
