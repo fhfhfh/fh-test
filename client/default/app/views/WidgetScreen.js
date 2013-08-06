@@ -85,6 +85,7 @@ define([
           var self = this;
           if(this.iscroll){
             setTimeout(function(){
+              console.log('refresh SCROLL');
               self.iscroll.refresh.call(self.iscroll);
             }, 1000);
 

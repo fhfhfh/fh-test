@@ -10,8 +10,9 @@ define(['jquery',
         'controllers/HealthHub',
         'collections/Library',
         'collections/Folders',
-        'collections/FoodJournal'
-], function($, _, User, Avatars, HealthHub, libStore, folders, journal) {
+        'collections/FoodJournal',
+        'collections/ActivityJournal'
+], function($, _, User, Avatars, HealthHub, libStore, folders, journal, activityJournal) {
 
 	// initialise models etc...
 
@@ -28,6 +29,7 @@ define(['jquery',
             libStore.fetch();
 			folders.fetch();
             journal.load();
+            activityJournal.load();
 		}
 	};
 

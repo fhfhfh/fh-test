@@ -100,6 +100,7 @@ exports.searchActivityAction = searchActivityAction;
 exports.saveJournalAction = saveJournalAction;
 exports.proxy = proxy;
 exports.subPage=subPage;
+exports.saveActivityJournalAction = saveActivityJournalAction;
 
 //--------------------------------------login----------------------------------------
 function loginAction(params, callback) {
@@ -453,7 +454,12 @@ function searchActivityAction(params, callback) {
 //-------------------------------------- saveJournal Action----------------------------------------------------------
 // save the users food journal to peachy backend
 function saveJournalAction(params, callback){
-  // for ashish to implement
+  // TODO
+  return callback(null, {response: {payload: {status: "OK"}}});
+}
+
+function saveActivityJournalAction(params, callback){
+  // TODO
   return callback(null, {response: {payload: {status: "OK"}}});
 }
 

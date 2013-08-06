@@ -52,6 +52,10 @@ define([
         },
 
         cancelFoodEntry: function(e){
+            $('#filterButtons').show();
+            this.foodometer();
+            this.activeView.cancelFood();
+            this.activeView.hideCategories();
             this.model = null;
             this.container.setActiveView('foodometerNav');
         },

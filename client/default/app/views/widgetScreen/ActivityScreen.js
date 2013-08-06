@@ -51,13 +51,22 @@ define([
         },
 
         cancelActivityEntry: function(e){
+            $('#filterButtons').show();
+            this.busyBody();
+            this.activeView.cancelActivity();
+            this.activeView.hideCategories();
             this.model = null;
-            this.container.setActiveView('busyBodyNav');
+            this.container.showBusyBody();
+            this.container.refreshScroll();
         },
 
         saveAllActivities: function(){
+            $('#filterButtons').show();
+            this.busyBody();
+            this.activeView.hideCategories();
             this.container.subViews.busyBodyNav.saveActivitiesToJournal();
-            this.container.setActiveView('busyBodyNav');
+            this.container.showBusyBody()
+            this.container.refreshScroll();
 
         },
 

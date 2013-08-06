@@ -108,7 +108,7 @@ define(['backbone'], function(Backbone) {
 		// Return true is no meals have been added to model
 		isEmpty: function(){
 			var att = this.attributes;
-			var b = att.breakfast.length;
+			var b = att.breakfast.length ;
 			var l = att.lunch.length;
 			var d = att.dinner.length;
 			var s = att.snacks.length;
