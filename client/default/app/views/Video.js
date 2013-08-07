@@ -88,12 +88,16 @@ define([
             this.removeIframe(self.videos);
             var id = $('.swipeview-active').attr('data-page-index');
             var item = self.videos[id];
-            item.current = true;
+
+            if (item.current === false) {
+                item.current = true;
+            }
 
             // console.log('Animation end, ' + item.desc + ' : ' + item.current);
 
             if (item.current === true) {
                 self.videoPlayer(item);
+                item.current = false;
             }
             return false;
         },
@@ -103,6 +107,7 @@ define([
             e.stopPropagation();
             return false;
         },
+
         refreshScroll: function() {
             // console.log('asd');
             var self = this;
@@ -141,14 +146,16 @@ define([
                 var id = self.$('.swipeview-active').attr('data-page-index');
                 console.log(id);
                 self.item = self.videos[id];
-                console.log(self.item);
+                // console.log(self.item);
                 var item = self.item;
                 console.log(item);
-                // item.current = true;
+                item.current = true;
 
                 if (item.current === true) {
                     self.videoPlayer(item);
+                    item.current = false;
                 }
+                return false;
             }, 10);
             // });
 
@@ -161,24 +168,22 @@ define([
                 for (i = 0; i < self.videos.length; i++) {
                     upcoming = self.playList.masterPages[i].dataset.upcomingPageIndex;
                     console.log(upcoming);
-                    if (upcoming != self.playList.masterPages[i].dataset.pageIndex) {
-                        // loadThumb();
-                        var img = $('img');
-                        el = self.playList.masterPages[i].img;
-                        console.log(el);
-                        el.className = 'loading';
-                        el.id = upcoming;
-                        el.src = self.videos[upcoming].imgUrl;
-                        el.width = 550; //videos[upcoming].width;
-                        el.height = 300; //videos[upcoming].height;
+                    // if (upcoming != self.playList.masterPages[i].dataset.pageIndex) {
+                    el = self.playList.masterPages[i].querySelector('img');
+                    console.log(el);
+                    el.className = 'loading';
+                    el.id = upcoming;
+                    el.src = self.videos[upcoming].imgUrl;
+                    el.width = 550; //videos[upcoming].width;
+                    el.height = 300; //videos[upcoming].height;
 
-                    }
+                    // s}
                 }
 
-                this.find('#nav > li.selected').removeClass('.selecteds');
-                self.dots[self.playList.pageIndex + 1].hasClass('.selected');
-                // $(document).querySelector('#nav .selected').className = '';
-                // self.dots[self.playList.pageIndex + 1].className = 'selected';
+                // document.find('li.selected').removeClass('.selected');
+                // self.dots[self.playList.pageIndex + 1].hasClass('.selected');
+                $(document).find('#nav .selected').removeClass('.selected');
+                $(self).dots[self.playList.pageIndex + 1].addClass('.selected');
             });
 
             this.playList.onMoveOut(function() { // remove .swipeview-active class from div 
@@ -254,6 +259,7 @@ define([
 
         loadData: function() { // Load initial data
             var videos = this.videos;
+            console.log(videos);
             for (i = 0; i < videos.length; i++) {
                 var item = this.$('div[data-page-index="' + i + '"]');
                 if (!item.hasClass('swipeview-active')) {
@@ -274,14 +280,16 @@ define([
             }
         },
 
-        videoPlayer: function() { // load iframe & object url if current equals. 
+        videoPlayer: function(item) { // load iframe & object url if current equals. 
             var self = this;
             var item = this.item;
+            console.log(item);
             var id = this.$('.swipeview-active').attr('data-page-index');
             this.$('.swipeview-active > img').remove();
             el = document.createElement('iframe');
             el.className = '';
-            el.src = item.url;
+            el.src = item.url + "?modestbranding=1;rel=0;controls=1";
+            console.log(el.src);
             el.width = 550; //item.width;
             el.height = 300; //item.height;
             el.onload = function(e) {
@@ -291,8 +299,9 @@ define([
             this.$('.swipeview-active[data-page-index="' + id + '"]').html(el);
         },
 
-        removeIframe: function() { // Remove iframe and replace with thumb.
+        removeIframe: function(videos) { // Remove iframe and replace with thumb.
             var videos = this.videos;
+            console.log(videos);
             var iframe = $('div:not(.swipeview-active) > div > iframe');
             var parent = $(iframe).parent();
             var index = parent.attr('data-page-index');

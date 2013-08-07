@@ -1,7 +1,7 @@
 @color-bg: #333333; // library background
 @color-nav: rgba(0,0,0,0.75); // nav background
 @color-selected: rgba(255,255,255,1); // color for selected indicator & prev / next btn
-@color-li: lighten(@color-selected, 50%); // unselected li color
+@color-li: rgba(204, 204, 204, 0.7); // unselected li color
 @color-trans: transparent; // prev / next btn bg 
 @color-border: #cdcdcd; // frame border
 
@@ -90,7 +90,7 @@
 	}
 
 	#nav {
-		color: @color-selected;
+		// color: @color-selected;
 	    position:absolute;
 	    z-index:100;
 	    top:433px;
@@ -108,7 +108,7 @@
 		    width:14px;
 		    height:14px; line-height:14px;
 		  	.border-radius (7px);
-		    // background:@color-li;
+		    background:@color-li;
 		    overflow:hidden;
 		    padding:0;
 		    margin:3px 11px 0 0;
