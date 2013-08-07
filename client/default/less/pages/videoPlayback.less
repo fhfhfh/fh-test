@@ -1,3 +1,11 @@
+@color-bg: #333333; // library background
+@color-nav: rgba(0,0,0,0.75); // nav background
+@color-selected: rgba(255,255,255,1); // color for selected indicator & prev / next btn
+@color-li: lighten(@color-selected, 50%); // unselected li color
+@color-trans: transparent; // prev / next btn bg 
+@color-border: #cdcdcd; // frame border
+
+
 #VideoPlayback {
 	height: 100%;
 
@@ -28,9 +36,101 @@
 	}
 
 	#wrapper {
-		// here
+		width:100%;
+    	min-width:768px;
+    	height: 400px;
+    	background:#333;
+
+    	div .swipeview-loading {
+		    background-image:-webkit-gradient(linear, 0 0, 0 100%, from(#444), to(#555)),
+		   				     -webkit-gradient(linear, 0 0, 100% 0, from(#777), to(#777));
+		    background-position:50% 50%, 50% 50%;
+		    background-size:200px 140px, 210px 150px;
+		    background-repeat:no-repeat;
+
+	    	img, iframe {
+	    		-webkit-transition-duration:0s;
+				opacity:1;
+				height: 300px;
+	    	}
+		}
+
+    	#swipeview-slider {
+
+    		div, img {
+			    position:relative;
+			    display:-webkit-box;
+			    display:-moz-box;
+			    display:-ms-box;
+			    display:-o-box;
+			    display:box;
+			    .box-orient(vertical);
+				.box-pack(center);
+				.box-align(center);	
+			    overflow:hidden;
+			}
+
+			img.loading {
+			    -webkit-transition-duration:0s;
+			    opacity:1;
+			    height: 300px;
+			}
+    	}
+
+		#swipeview-slider img, iframe {
+			opacity:1;
+		    height: 300px;
+		    display:block;
+			border:10px solid @color-border;
+			.border-radius (10px);
+		    .box-shadow(0, 2px, 6px, 0, #000); 
+		    .transition-duration(.4s);
+		    .transition-prop (opacity);
+		}
 	}
 
+	#nav {
+		color: @color-selected;
+	    position:absolute;
+	    z-index:100;
+	    top:370px;
+	    width:auto;
+	    height:20px;
+	    left:43%;
+	    background:@color-nav;
+	    padding:0;
+	    margin:0 auto;
+	    .border-radius (10px);
+
+    	li {
+    		display:block;
+		    float:left;
+		    width:14px;
+		    height:14px; line-height:14px;
+		  	.border-radius (7px);
+		    background:@color-li;
+		    overflow:hidden;
+		    padding:0;
+		    margin:3px 11px 0 0;
+		    text-align:center;
+
+	    	#prev {
+	   			margin-left:5px;
+	    		background:@color-trans;
+	    		color: @color-selected;
+			}
+
+			#next {
+				margin-right:5px;
+				background:@color-trans;
+				color: @color-selected;
+			}
+
+			.selected {
+				background: @color-selected;
+			}
+		}
+	}
 	// #videoContainer {
 	// 	// width: 2000px;
 	// 	width: 100%;
