@@ -1386,10 +1386,10 @@ li {
   color: #ffffff;
   position: absolute;
   z-index: 100;
-  top: 370px;
+  top: 433px;
   width: auto;
   height: 20px;
-  left: 43%;
+  left: 41%;
   background: rgba(0, 0, 0, 0.75);
   padding: 0;
   margin: 0 auto;
@@ -1410,7 +1410,6 @@ li {
   -ms-border-radius: 7px;
   -o-border-radius: 7px;
   border-radius: 7px;
-  background: #ffffff;
   overflow: hidden;
   padding: 0;
   margin: 3px 11px 0 0;

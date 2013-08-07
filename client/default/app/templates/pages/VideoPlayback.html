@@ -16,11 +16,16 @@
     <div id="wrapper"></div>
 
     <ul id="nav">
-        <li id="prev" onclick="playList.prev()">-</li>
-        <li class="selected" onclick="playList.goToPage(0)"></li>
-        <li onclick="playList.goToPage(1)"></li>
-        <li onclick="playList.goToPage(2)"></li>
-        <li id="next" onclick="playList.next()">+</li>
+       <!--  <li id="prev" onclick="this.playList.prev()">-</li>
+        <li class="selected" onclick="this.playList.goToPage(0)"></li>
+        <li onclick="this.playList.goToPage(1)"></li>
+        <li onclick="this.playList.goToPage(2)"></li>
+        <li id="next" onclick="this.playList.next()">+</li> -->
+        <li id="prev"><b>-</b></li>
+        <li id="page0" class="selected"></li>
+        <li id="page1"></li>
+        <li id="page2"></li>
+        <li id="next"><b>+</b></li>
     </ul>  
     
     <!-- <div id="description"></div> -->
