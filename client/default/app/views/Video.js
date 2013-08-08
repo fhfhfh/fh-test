@@ -85,12 +85,15 @@ define([
         webKitEnd: function(e) {
             e.stopPropagation();
             var self = this;
+            // console.log(self.videos);
             this.removeIframe(self.videos);
-            var id = $('.swipeview-active').attr('data-page-index');
+            // this.placeImage(self.videos);
+            var id = self.$('.swipeview-active').attr('data-page-index');
             var item = self.videos[id];
 
             if (item.current === false) {
                 item.current = true;
+                console.log("Webkit item.current = " + item.current);
             }
 
             // console.log('Animation end, ' + item.desc + ' : ' + item.current);
@@ -98,8 +101,8 @@ define([
             if (item.current === true) {
                 self.videoPlayer(item);
                 item.current = false;
+                console.log("webkit after Player item.current = " + item.current);
             }
-            return false;
         },
 
         test: function(e) {
@@ -122,7 +125,6 @@ define([
             var self = this;
             this.refreshScroll();
             this.checkFav();
-
             setTimeout(function() {
                 self.createSwipeView();
             }, 100);
@@ -132,62 +134,89 @@ define([
 
         createSwipeView: function() {
             var self = this;
+            var videoIndex;
+
+            if (self.videos.length < 3) {
+                console.log('VIDEO', self.videos[2]);
+                self.videos[2] = self.videos[0];
+            }
+
             this.playList = new SwipeView(self.$('#wrapper')[0], { //Instanciate Swipeview.js
                 numberOfPages: self.videos.length,
                 hastyPageFlip: true
             });
 
-            // $(document).ready(function() { // Load library data and handle current video
             console.log("Document loaded");
-            console.log(self.playList.masterPages);
-            self.loadData();
+            this.loadData();
 
-            setTimeout(function() {
-                var id = self.$('.swipeview-active').attr('data-page-index');
-                console.log(id);
-                self.item = self.videos[id];
-                // console.log(self.item);
-                var item = self.item;
-                console.log(item);
-                item.current = true;
 
-                if (item.current === true) {
-                    self.videoPlayer(item);
-                    item.current = false;
+            // Capture video array index
+            for (var i = 0; i < self.videos.length; i++) {
+                var thisItem = self.videos[i];
+                if (thisItem.current === true) {
+                    videoIndex = i;
+                    console.log("videoIndex: " + videoIndex);
                 }
-                return false;
-            }, 10);
+            }
+
+            self.item = self.videos[videoIndex];
+            var item = self.item;
+            console.log("item contents : ", item);
+
+            if (item.current === true) {
+                self.videoPlayer(item);
+                item.current = false;
+                console.log("After Player item.current = " + item.current);
+            }
+
+            this.playList.onFlip(function(item) { // handler to load next view data
+                var self = this;
+                videos = item;
+                console.log('flip', item.length);
+
+                var el, i, upcoming;
+                for (i = 0; i < videos.length; i++) {
+                    upcoming = self.playList.masterPages[i].dataset.upcomingPageIndex;
+
+                    if (upcoming != self.playList.masterPages[i].dataset.pageIndex) {
+                        el = self.playList.masterPages[i].querySelector('img');
+                        el.className = 'loading';
+                        el.id = upcoming;
+                        el.src = videos[upcoming].imgUrl;
+                        el.width = 550;
+                        el.height = 300;
+
+                    }
+                }
+
+                $(document).querySelector('#nav .selected').className = '';
+                $(dots)[self.playList.pageIndex + 1].className = 'selected';
+            });
+            //     var index = $('div.swipeview-active').attr('data-upcoming-page-index');
+            //     console.log("next page index ", index);
+            //     // for (i = 0; i < self.videos.length; i++) {
+            //     upcoming = +1 + +index;
+            //     // upcoming === +1 + +index;
+            //     console.log(upcoming);
+            //     if (upcoming != index) {
+
+            //         el = document.createElement('img');
+            //         // console.log(el);
+            //         el.className = 'loading';
+            //         el.id = upcoming;
+            //         el.src = self.videos[upcoming].imgUrl;
+            //         el.width = 550; //videos[upcoming].width;
+            //         el.height = 300; //videos[upcoming].height;
+            //         this.playList.masterPages[upcoming].appendChild(el);
+            //     }
+            //     // }
+            //     document.find('li.selected').removeClass('.selected');
+            //     dots[self.playList.pageIndex + 1].addClass('.selected');
             // });
 
-            this.playList.onFlip(function() { // handler to load next view data
-                console.log('flip');
-                var el,
-                    upcoming,
-                    i;
-
-                for (i = 0; i < self.videos.length; i++) {
-                    upcoming = self.playList.masterPages[i].dataset.upcomingPageIndex;
-                    console.log(upcoming);
-                    // if (upcoming != self.playList.masterPages[i].dataset.pageIndex) {
-                    el = self.playList.masterPages[i].querySelector('img');
-                    console.log(el);
-                    el.className = 'loading';
-                    el.id = upcoming;
-                    el.src = self.videos[upcoming].imgUrl;
-                    el.width = 550; //videos[upcoming].width;
-                    el.height = 300; //videos[upcoming].height;
-
-                    // s}
-                }
-
-                // document.find('li.selected').removeClass('.selected');
-                // self.dots[self.playList.pageIndex + 1].hasClass('.selected');
-                $(document).find('#nav .selected').removeClass('.selected');
-                $(self).dots[self.playList.pageIndex + 1].addClass('.selected');
-            });
 
             this.playList.onMoveOut(function() { // remove .swipeview-active class from div 
-                console.log('erty');
+                // console.log('erty');
                 self.playList.masterPages[self.playList.currentMasterPage].className =
                     self.playList.masterPages[self.playList.currentMasterPage].className.replace(/(^|\s)swipeview-active(\s|$)/, '');
                 // $('.swipeview-active').removeClass('swipeview-active');
@@ -257,13 +286,13 @@ define([
             }
         },
 
-        loadData: function() { // Load initial data
-            var videos = this.videos;
-            console.log(videos);
+        loadData: function(videos) { // Load initial data
+            videos = this.videos;
+
             for (i = 0; i < videos.length; i++) {
                 var item = this.$('div[data-page-index="' + i + '"]');
+
                 if (!item.hasClass('swipeview-active')) {
-                    console.log(i, item);
                     el = document.createElement('img');
                     el.className = 'loading';
                     el.id = i;
@@ -273,6 +302,7 @@ define([
                     el.onload = function() {
                         this.className = '';
                     };
+
                     item.html(el);
                 } else {
                     console.log('ACTIVE', item);
@@ -282,14 +312,14 @@ define([
 
         videoPlayer: function(item) { // load iframe & object url if current equals. 
             var self = this;
-            var item = this.item;
-            console.log(item);
+            // item = this.item;
             var id = this.$('.swipeview-active').attr('data-page-index');
+            // console.log(item.imgUrl);
             this.$('.swipeview-active > img').remove();
             el = document.createElement('iframe');
             el.className = '';
             el.src = item.url + "?modestbranding=1;rel=0;controls=1";
-            console.log(el.src);
+            // console.log(el.src);
             el.width = 550; //item.width;
             el.height = 300; //item.height;
             el.onload = function(e) {
@@ -300,27 +330,46 @@ define([
         },
 
         removeIframe: function(videos) { // Remove iframe and replace with thumb.
-            var videos = this.videos;
-            console.log(videos);
-            var iframe = $('div:not(.swipeview-active) > div > iframe');
-            var parent = $(iframe).parent();
+            var self = this;
+            videos = self.videos;
+            var iframe = $('iframe');
+            var parent = $(self.$(iframe).parent()[0]);
             var index = parent.attr('data-page-index');
             iframe.remove();
-            console.log('removed iframe' + " id : " + index);
+
+            // console.log(videos[index].imgUrl);
 
             el = document.createElement('img');
-            console.log(videos, index);
             el.src = videos[index].imgUrl;
             el.width = 550; //videos[index].width;
             el.height = 300; //videos[index].height;
             parent.html(el);
         },
 
+        // placeImage: function(videos) {
+        //     var self = this;
+        //     var index = $('div.swipeview-active').attr('data-page-index');
+        //     // index = index + 1;
+        //     i = +1 + +index;
+        //     console.log("next index value", i);
+        //     el = $('div:not(.swipeview-active)').find('img');
+        //     console.log(el);
+        //     el.src = videos[i].imgUrl;
+        //     el.width = 550; //videos[index].width;
+        //     el.height = 300; //videos[index].height;
+        //     el.append(el);
+
+        // },
+
         updateDescription: function() {
             var videos = this.videos;
-            var id = $('.swipeview-active').attr('data-page-index');
+            var id = self.$('.swipeview-active').attr('data-page-index');
             var item = videos[id];
-            $('#description').html(item.details);
+
+            // Add Video details
+            $('#titleName').html(item.title);
+            $('#duration').html(item.duration);
+            $('#vidDesc').html(item.description);
         }
     });
 });

@@ -10,18 +10,18 @@ define([
 ], function($, _, Backbone, ContainerView, NewsView, GoalsView, AlertsView, template) {
 
   return ContainerView.extend({
-    tagName	: 'section',
-    id		: 'home',
+    tagName: 'section',
+    id: 'home',
 
-    events : {
-      'click #show-news' : 'showNews',
-      'click #show-alerts' : 'showAlerts',
-      'click #show-goals' : 'showGoals'
+    events: {
+      'click #show-news': 'showNews',
+      'click #show-alerts': 'showAlerts',
+      'click #show-goals': 'showGoals'
     },
 
     subViews: {
-      news  : new NewsView(),
-      goals : new GoalsView(),
+      news: new NewsView(),
+      goals: new GoalsView(),
       alerts: new AlertsView()
     },
 
@@ -36,10 +36,10 @@ define([
 
       this.iscroll = new iScroll(this.$('#wrapper')[0], {
         vscroll: true,
-          hscroll: false,
-          fixedScrollbar: true,
-          bounce: false,
-          vScrollbar: false
+        hscroll: false,
+        fixedScrollbar: true,
+        bounce: false,
+        vScrollbar: false
       });
 
       // self.setActiveView(((options && options.activeView) || 'news'));  
@@ -48,8 +48,8 @@ define([
 
     render: function() {
       var self = this;
-      
-      self.setActiveView('news');  
+
+      self.setActiveView('news');
       this.delegateEvents();
       if (this.activeView) {
         this.activeView.delegateEvents();
@@ -60,29 +60,29 @@ define([
       return this;
     },
 
-    refreshScroll: function(){
+    refreshScroll: function() {
       var self = this;
-      if(this.iscroll){
-      this.iscroll.refresh.call(self.iscroll);
-      this.iscroll.scrollTo(0, 0, 200);
+      if (this.iscroll) {
+        this.iscroll.refresh.call(self.iscroll);
+        this.iscroll.scrollTo(0, 0, 200);
       }
     },
 
-    showNews : function(){
+    showNews: function() {
       this.$('li').removeClass('selected');
       this.$('#show-news').addClass('selected');
       this.setActiveView('news');
       this.refreshScroll();
     },
 
-    showAlerts : function(){
+    showAlerts: function() {
       this.$('li').removeClass('selected');
       this.$('#show-alerts').addClass('selected');
       this.setActiveView('alerts');
       this.refreshScroll();
     },
 
-    showGoals : function(){
+    showGoals: function() {
       this.$('li').removeClass('selected');
       this.$('#show-goals').addClass('selected');
       this.setActiveView('goals');

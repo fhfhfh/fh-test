@@ -1311,7 +1311,7 @@ li {
   width: 100%;
   min-width: 768px;
   height: 400px;
-  background: #333;
+  /*background: #333;*/
 }
 #VideoPlayback #wrapper div .swipeview-loading {
   background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#444444), to(#555555)), -webkit-gradient(linear, 0 0, 100% 0, from(#777777), to(#777777));
