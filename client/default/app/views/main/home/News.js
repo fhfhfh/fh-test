@@ -134,6 +134,7 @@ define(['jquery',
 					item.attributes.current = false;
 				}
 				ids.push(item.attributes);
+
 				console.log(ids);
 			});
 
