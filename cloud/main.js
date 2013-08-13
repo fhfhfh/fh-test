@@ -1,11 +1,8 @@
-
-
-
 // Dependencies: Endpoint Implementations
 var loginEndpoint = require("./endpoints/login.js");
-var logoutEndpoint =  require("./endpoints/logout.js");
+var logoutEndpoint = require("./endpoints/logout.js");
 var resetEndpoint = require("./endpoints/reset.js");
-var userProfileEndpoint =  require("./endpoints/userProfile.js");
+var userProfileEndpoint = require("./endpoints/userProfile.js");
 var saveUserProfileEndpoint = require("./endpoints/updateProfile.js");
 var peachyPointsEndpoint = require("./endpoints/peachyPoints.js");
 var medicineCabinetEndpoint = require("./endpoints/medicineCabinetList.js");
@@ -41,7 +38,8 @@ var createCKEndpoint = require("./endpoints/CKdb_create.js");
 var fetchCKEndpoint = require("./endpoints/fetchCKdb.js");
 var deleteCKEndpoint = require("./endpoints/deleteCKdb.js");
 var searchCKEndpoint = require("./endpoints/searchCKdb.js");
-var fetchActivityEndpoint = require("./endpoints/fetchActivity");
+var fetchActivityEndpoint = require("./endpoints/fetchActivity.js");
+var saveFoodJournalEndpoint = require("./endpoints/saveFoodJournal.js");
 
 var dbParser = require("./dbparser.js");
 var request = require("request");
@@ -49,7 +47,7 @@ var fs = require('fs');
 
 
 // mock service if not on $fh
-if (!process.env.FH_DOMAIN){
+if (!process.env.FH_DOMAIN) {
   $fh = require('./test/mock/fh');
 }
 
@@ -99,28 +97,31 @@ exports.fetchActivityAction = fetchActivityAction;
 exports.searchActivityAction = searchActivityAction;
 exports.saveJournalAction = saveJournalAction;
 exports.proxy = proxy;
-exports.subPage=subPage;
+exports.subPage = subPage;
 exports.saveActivityJournalAction = saveActivityJournalAction;
+exports.saveFoodJournalAction = saveJournalAction;
 
 //--------------------------------------login----------------------------------------
+
 function loginAction(params, callback) {
-  loginEndpoint.login(params,function cb(err, respData) {
-    callback(err,respData);
+  loginEndpoint.login(params, function cb(err, respData) {
+    callback(err, respData);
   });
 }
 
 //-------------------------------------logout----------------------------------------
 
 function logoutAction(params, callback) {
-  logoutEndpoint.logout(params,function cb(err, respData) {
-    callback(err,respData);
+  logoutEndpoint.logout(params, function cb(err, respData) {
+    callback(err, respData);
   });
 }
 
 //--------------------------------------reset----------------------------------------
+
 function resetAction(params, callback) {
-  resetEndpoint.reset(params,function cb(err, respData) {
-    callback(err,respData);
+  resetEndpoint.reset(params, function cb(err, respData) {
+    callback(err, respData);
   });
 }
 
@@ -128,8 +129,8 @@ function resetAction(params, callback) {
 //------------------------------------userProfile----------------------------------------
 
 function userProfileAction(params, callback) {
-  userProfileEndpoint.userProfile(params,function cb(err, respData) {
-    callback(err,respData);
+  userProfileEndpoint.userProfile(params, function cb(err, respData) {
+    callback(err, respData);
   });
 }
 //----------------------------------saveUserProfile---------------------------------------
@@ -137,8 +138,8 @@ function userProfileAction(params, callback) {
 
 function saveUserProfileAction(params, callback) {
   //console.log(JSON.stringify(params));
-  saveUserProfileEndpoint.saveUserProfile(params,function cb(err, respData) {
-    callback(err,respData);
+  saveUserProfileEndpoint.saveUserProfile(params, function cb(err, respData) {
+    callback(err, respData);
   });
 }
 
@@ -147,8 +148,8 @@ function saveUserProfileAction(params, callback) {
 
 
 function peachyPointsAction(params, callback) {
-  peachyPointsEndpoint.peachyPoints(params,function cb(err, respData) {
-    callback(err,respData);
+  peachyPointsEndpoint.peachyPoints(params, function cb(err, respData) {
+    callback(err, respData);
   });
 }
 
@@ -157,84 +158,94 @@ function peachyPointsAction(params, callback) {
 
 
 function medicineCabinetAction(params, callback) {
-  medicineCabinetEndpoint.medicineCabinet(params,function cb(err, respData) {
-    callback(err,respData);
+  medicineCabinetEndpoint.medicineCabinet(params, function cb(err, respData) {
+    callback(err, respData);
   });
 }
 
 
 //--------------------------------------searchMedicine----------------------------------------
+
 function searchMedicineAction(params, callback) {
-  searchMedicineEndpoint.searchMedicine(params,function cb(err, respData) {
-    callback(err,respData);
+  searchMedicineEndpoint.searchMedicine(params, function cb(err, respData) {
+    callback(err, respData);
   });
 }
 
 
 
 //--------------------------------------savemedicine----------------------------------------
+
 function saveMedicineAction(params, callback) {
-  saveMedicineEndpoint.saveMedicine(params,function cb(err, respData) {
-    callback(err,respData);
+  saveMedicineEndpoint.saveMedicine(params, function cb(err, respData) {
+    callback(err, respData);
   });
 }
 
 //--------------------------------------deleteSinglemedicine----------------------------------------
+
 function delMedicineAction(params, callback) {
-  delMedicineEndpoint.delMedicine(params,function cb(err, respData) {
-    callback(err,respData);
+  delMedicineEndpoint.delMedicine(params, function cb(err, respData) {
+    callback(err, respData);
   });
 }
 
 
 //--------------------------------------deleteMultipleMedicine----------------------------------------
+
 function delMulMedicineAction(params, callback) {
-  delMulMedicineEndpoint.delMulMedicine(params,function cb(err, respData) {
-    callback(err,respData);
+  delMulMedicineEndpoint.delMulMedicine(params, function cb(err, respData) {
+    callback(err, respData);
   });
 }
 
 //--------------------------------------addReminderMedicine----------------------------------------
+
 function addReminderAction(params, callback) {
-  reminderMedicineEndpoint.addRem(params,function cb(err, respData) {
-    callback(err,respData);
+  reminderMedicineEndpoint.addRem(params, function cb(err, respData) {
+    callback(err, respData);
   });
 }
 
 
 //--------------------------------------addReminderMedicine----------------------------------------
+
 function fetchReminderAction(params, callback) {
-  fetchReminderListEndpoint.fetchReminder(params,function cb(err, respData) {
-    callback(err,respData);
+  fetchReminderListEndpoint.fetchReminder(params, function cb(err, respData) {
+    callback(err, respData);
   });
 }
 
 //--------------------------------------Fetch Diagnosis Lis----------------------------------------
+
 function fetchDiagnosisListAction(params, callback) {
-  fetchDiagnosisListEndpoint.fetchDiagnosis(params,function cb(err, respData) {
-    callback(err,respData);
+  fetchDiagnosisListEndpoint.fetchDiagnosis(params, function cb(err, respData) {
+    callback(err, respData);
   });
 }
 
 //--------------------------------------Fetch Test Result List-----------------------------------------
+
 function fetchTestResultListAction(params, callback) {
-  fetchTestResultListEndpoint.fetchTestResult(params,function cb(err, respData) {
-    callback(err,respData);
+  fetchTestResultListEndpoint.fetchTestResult(params, function cb(err, respData) {
+    callback(err, respData);
   });
 }
 
 //--------------------------------------Filter Content-------------------------------------------------
+
 function filterContentAction(params, callback) {
-  filterContentEndpoint.filterContent(params,function cb(err, respData) {
-    callback(err,respData);
+  filterContentEndpoint.filterContent(params, function cb(err, respData) {
+    callback(err, respData);
   });
 }
 
 
 //--------------------------------------medicalHistory--------------------------------------------------
+
 function fetchMedicalHistoryAction(params, callback) {
-  fetchMedicalHistoryEndpoint.fetchMedicalHistory(params,function cb(err, respData) {
-    callback(err,respData);
+  fetchMedicalHistoryEndpoint.fetchMedicalHistory(params, function cb(err, respData) {
+    callback(err, respData);
   });
 }
 
@@ -242,8 +253,8 @@ function fetchMedicalHistoryAction(params, callback) {
 //--------------------------------------searchAllergy--------------------------------------------------
 
 function searchAllergyAction(params, callback) {
-  searchAllergyEndpoint.searchAllergy(params,function cb(err, respData) {
-    callback(err,respData);
+  searchAllergyEndpoint.searchAllergy(params, function cb(err, respData) {
+    callback(err, respData);
   });
 }
 
@@ -251,16 +262,16 @@ function searchAllergyAction(params, callback) {
 //--------------------------------------addAllergy--------------------------------------------------
 
 function addAllergyAction(params, callback) {
-  addAllergyEndpoint.addAllergy(params,function cb(err, respData) {
-    callback(err,respData);
+  addAllergyEndpoint.addAllergy(params, function cb(err, respData) {
+    callback(err, respData);
   });
 }
 
 //--------------------------------------fetchFeaturedContent--------------------------------------------------
 
 function fetchFeaturedContentAction(params, callback) {
-  fetchFeaturedContentEndpoint.fetchFeaturedContent(params,function cb(err, respData) {
-    callback(err,respData);
+  fetchFeaturedContentEndpoint.fetchFeaturedContent(params, function cb(err, respData) {
+    callback(err, respData);
   });
 }
 
@@ -269,16 +280,16 @@ function fetchFeaturedContentAction(params, callback) {
 //---------------------------------------fetchAlerts--------------------------------------------------------------------
 
 function fetchAlertAction(params, callback) {
-  fetchAlertEndpoint.fetchAlert(params,function cb(err, respData) {
-    callback(err,respData);
+  fetchAlertEndpoint.fetchAlert(params, function cb(err, respData) {
+    callback(err, respData);
   });
 }
 
 //---------------------------------------fetchQuotes--------------------------------------------------------------------
 
 function fetchQuotesAction(params, callback) {
-  fetchQuotesEndpoint.fetchQuotes(params,function cb(err, respData) {
-    callback(err,respData);
+  fetchQuotesEndpoint.fetchQuotes(params, function cb(err, respData) {
+    callback(err, respData);
   });
 }
 
@@ -286,16 +297,16 @@ function fetchQuotesAction(params, callback) {
 //---------------------------------------fetchNews--------------------------------------------------------------------
 
 function fetchNewsAction(params, callback) {
-  fetchNewsEndpoint.fetchNews(params,function cb(err, respData) {
-    callback(err,respData);
+  fetchNewsEndpoint.fetchNews(params, function cb(err, respData) {
+    callback(err, respData);
   });
 }
 
 //---------------------------------------fetchAvatars--------------------------------------------------------------------
 
 function fetchAvatarsAction(params, callback) {
-  fetchAvatarsEndpoint.fetchAvatars(params,function cb(err, respData) {
-    callback(err,respData);
+  fetchAvatarsEndpoint.fetchAvatars(params, function cb(err, respData) {
+    callback(err, respData);
   });
 }
 
@@ -303,16 +314,16 @@ function fetchAvatarsAction(params, callback) {
 //---------------------------------------fetchAllergies--------------------------------------------------------------------
 
 function fetchAllergiesAction(params, callback) {
-  fetchAllergiesEndpoint.fetchAllergies(params,function cb(err, respData) {
-    callback(err,respData);
+  fetchAllergiesEndpoint.fetchAllergies(params, function cb(err, respData) {
+    callback(err, respData);
   });
 }
 
 //---------------------------------------fetchSocialHistory--------------------------------------------------------------------
 
 function fetchSocialHistoryAction(params, callback) {
- fetchSocialHistoryEndpoint.fetchSocialHistory(params,function cb(err, respData) {
-    callback(err,respData);
+  fetchSocialHistoryEndpoint.fetchSocialHistory(params, function cb(err, respData) {
+    callback(err, respData);
   });
 }
 
@@ -320,40 +331,40 @@ function fetchSocialHistoryAction(params, callback) {
 //---------------------------------------fetchNews--------------------------------------------------------------------
 
 function fetchFamilyHistoryAction(params, callback) {
-  fetchFamilyHistoryEndpoint.fetchFamilyHistory(params,function cb(err, respData) {
-    callback(err,respData);
+  fetchFamilyHistoryEndpoint.fetchFamilyHistory(params, function cb(err, respData) {
+    callback(err, respData);
   });
 }
 
 //---------------------------------------fetchAvatars--------------------------------------------------------------------
 
 function fetchProceduresAction(params, callback) {
-  fetchProceduresEndpoint.fetchProcedures(params,function cb(err, respData) {
-    callback(err,respData);
+  fetchProceduresEndpoint.fetchProcedures(params, function cb(err, respData) {
+    callback(err, respData);
   });
 }
 
 //---------------------------------------fetchProblems--------------------------------------------------------------------
 
 function fetchProblemsAction(params, callback) {
-  fetchProblemsEndpoint.fetchProblems(params,function cb(err, respData) {
-    callback(err,respData);
+  fetchProblemsEndpoint.fetchProblems(params, function cb(err, respData) {
+    callback(err, respData);
   });
 }
 
 //---------------------------------------fetchEncounters--------------------------------------------------------------------
 
 function fetchEncountersAction(params, callback) {
-  fetchEncountersEndpoint.fetchEncounters(params,function cb(err, respData) {
-    callback(err,respData);
+  fetchEncountersEndpoint.fetchEncounters(params, function cb(err, respData) {
+    callback(err, respData);
   });
 }
 
 //---------------------------------------fetchImmunization--------------------------------------------------------------------
 
 function fetchImmunizationsAction(params, callback) {
-  fetchImmunizationsEndpoint.fetchImmunizations(params,function cb(err, respData) {
-    callback(err,respData);
+  fetchImmunizationsEndpoint.fetchImmunizations(params, function cb(err, respData) {
+    callback(err, respData);
   });
 }
 
@@ -361,67 +372,69 @@ function fetchImmunizationsAction(params, callback) {
 //---------------------------------------fetchVitalsigns--------------------------------------------------------------------
 
 function fetchVitalsignsAction(params, callback) {
-  fetchVitalsignsEndpoint.fetchVitalsigns(params,function cb(err, respData) {
-    callback(err,respData);
+  fetchVitalsignsEndpoint.fetchVitalsigns(params, function cb(err, respData) {
+    callback(err, respData);
   });
 }
 
 //---------------------------------------fetchResults--------------------------------------------------------------------
 
 function fetchResultsAction(params, callback) {
-  fetchResultsEndpoint.fetchResults(params,function cb(err, respData) {
-    callback(err,respData);
+  fetchResultsEndpoint.fetchResults(params, function cb(err, respData) {
+    callback(err, respData);
   });
 }
 
 //---------------------------------------healthHub--------------------------------------------------------------------
 
 function healthHubAction(params, callback) {
-  healthHubEndpoint.healthHub(params,function cb(err, respData) {
-    callback(err,respData);
+  healthHubEndpoint.healthHub(params, function cb(err, respData) {
+    callback(err, respData);
   });
 }
 
 //---------------------------------------folderManager--------------------------------------------------------------------
 
 function folderManagerAction(params, callback) {
- folderManagerEndpoint.folderManager(params,function cb(err, respData) {
-    callback(err,respData);
+  folderManagerEndpoint.folderManager(params, function cb(err, respData) {
+    callback(err, respData);
   });
 }
 
 //-------------------------------------DB Parse function--------------------------------------------
 
-function dbParse(params, callback){
-  dbParser.parseDB(function(){
-    callback(null, {status: "OK"});
+function dbParse(params, callback) {
+  dbParser.parseDB(function() {
+    callback(null, {
+      status: "OK"
+    });
   });
 }
- //---------------------------------------createDB--------------------------------------------------------------------
+//---------------------------------------createDB--------------------------------------------------------------------
 
 function createDBAction(params, callback) {
   //console.log(JSON.stringify(params));
-  createCKEndpoint.createDB(params,function cb(err, respData) {
-    callback(err,respData);
+  createCKEndpoint.createDB(params, function cb(err, respData) {
+    callback(err, respData);
   });
 }
 
 
- //---------------------------------------fetchDB--------------------------------------------------------------------
+//---------------------------------------fetchDB--------------------------------------------------------------------
 
 function fetchDBAction(params, callback) {
   //console.log(JSON.stringify(params));
-  fetchCKEndpoint.fetchCK(params,function cb(err, respData) {
-    callback(err,respData);
+  fetchCKEndpoint.fetchCK(params, function cb(err, respData) {
+    callback(err, respData);
   });
 }
 
- //---------------------------------------deleteDB--------------------------------------------------------------------
+//---------------------------------------deleteDB--------------------------------------------------------------------
 
 function deleteCKAction(params, callback) {
   //console.log(JSON.stringify(params));
-  deleteCKEndpoint.deleteCK(params,function cb(err, respData) {
-    callback(err,respData);
+  deleteCKEndpoint.deleteCK(params, function cb(err, respData) {
+    callback(err, respData);
   });
 }
 
@@ -429,16 +442,16 @@ function deleteCKAction(params, callback) {
 
 function searchDBAction(params, callback) {
 
-  searchCKEndpoint.searchCK(params,function cb(err, respData) {
-    callback(err,respData);
+  searchCKEndpoint.searchCK(params, function cb(err, respData) {
+    callback(err, respData);
   });
 }
 
 //-------------------------------------- fetchActivityAction---------------------------------------------------------
 
-function fetchActivityAction(params, callback){
-  fetchActivityEndpoint.fetchData(params,function cb(err, respData) {
-    callback(err,respData);
+function fetchActivityAction(params, callback) {
+  fetchActivityEndpoint.fetchData(params, function cb(err, respData) {
+    callback(err, respData);
   });
 }
 
@@ -446,60 +459,72 @@ function fetchActivityAction(params, callback){
 
 function searchActivityAction(params, callback) {
 
-  fetchActivityEndpoint.searchData(params,function cb(err, respData) {
-    callback(err,respData);
+  fetchActivityEndpoint.searchData(params, function cb(err, respData) {
+    callback(err, respData);
   });
 }
 
 //-------------------------------------- saveJournal Action----------------------------------------------------------
+
 // save the users food journal to peachy backend
-function saveJournalAction(params, callback){
-  // TODO
-  return callback(null, {response: {payload: {status: "OK"}}});
+
+function saveJournalAction(params, callback) {
+
+  saveFoodJournalEndpoint.saveData(params, function cb(err, respData) {
+    callback(err, respData);
+  });
 }
 
-function saveActivityJournalAction(params, callback){
-  // TODO
-  return callback(null, {response: {payload: {status: "OK"}}});
-}
 
+// Save Users activity journal
+
+function saveActivityJournalAction(params, callback) {
+
+  fetchActivityEndpoint.saveData(params, function cb(err, respData) {
+    callback(err, respData);
+  });
+}
 
 //------------------------------------ Research Desk Re-Directs ---------------------------------------------------
 //=================================================================================================================
 
-function proxy(params,cb){
-  var prefix ='https://securehealthhub-2mzdpxsuthcolhscb40uonnh-live_securehealthhub.df.live.u101.feedhenry.net/proxy/proxy/adam/';
+function proxy(params, cb) {
+  var prefix = 'https://securehealthhub-2mzdpxsuthcolhscb40uonnh-live_securehealthhub.df.live.u101.feedhenry.net/proxy/proxy/adam/';
   var base = 'http://securehealthhub.adam.com';
-  var type=params.url.split('.').pop();
+  var type = params.url.split('.').pop();
   var content = {
     html: 'text/html',
-    css : 'text/css',
-    js  : 'text/javascript',
-    jpg : 'image/jpeg',
-    png : 'image/png',
-    gif : 'image/gif'
+    css: 'text/css',
+    js: 'text/javascript',
+    jpg: 'image/jpeg',
+    png: 'image/png',
+    gif: 'image/gif'
   };
 
-  if(content[type]){
-    type=content[type];
+  if (content[type]) {
+    type = content[type];
   } else {
-    type=content.html;
+    type = content.html;
   }
 
   request.get({
     url: params.url,
-    headers: {'referer':'feedhenry.com'}
-  }, function (error, response, body) {
+    headers: {
+      'referer': 'feedhenry.com'
+    }
+  }, function(error, response, body) {
     if (!error && response.statusCode == 200) {
-      body = body.replace("<head>", "<head><base href='"+base+"'>");
+      body = body.replace("<head>", "<head><base href='" + base + "'>");
 
       // // ---- Replace ALL 'content' with '<cloudUrl>/content'
-      body = body.replace(new RegExp('href="content', 'g'), 'href="'+prefix+'content');
-      body = body.replace(new RegExp("location='content", 'g'), "location='"+prefix+"content");
-      body = body.replace(new RegExp("showPopup('content", 'g'), "showPopup('"+prefix+"content");
+      body = body.replace(new RegExp('href="content', 'g'), 'href="' + prefix + 'content');
+      body = body.replace(new RegExp("location='content", 'g'), "location='" + prefix + "content");
+      body = body.replace(new RegExp("showPopup('content", 'g'), "showPopup('" + prefix + "content");
       // // -------------------------------------------------
 
-      return cb(null, body, {"Content-Type": type});
+      return cb(null, body, {
+        "Content-Type": type
+      });
     } else {
       console.log("ERROR---", error);
       console.log("ERROR CODE---", response.statusCode);
@@ -508,56 +533,48 @@ function proxy(params,cb){
   });
 }
 
-function subPage(params, cb){
-  var prefix ='https://securehealthhub-2mzdpxsuthcolhscb40uonnh-live_securehealthhub.df.live.u101.feedhenry.net/proxy/proxy/adam/';
+function subPage(params, cb) {
+  var prefix = 'https://securehealthhub-2mzdpxsuthcolhscb40uonnh-live_securehealthhub.df.live.u101.feedhenry.net/proxy/proxy/adam/';
   var base = 'http://securehealthhub.adam.com';
-  var type=params.url.split('.').pop();
+  var type = params.url.split('.').pop();
   var content = {
     html: 'text/html',
-    css : 'text/css',
-    js  : 'text/javascript',
-    jpg : 'image/jpeg',
-    png : 'image/png',
-    gif : 'image/gif'
+    css: 'text/css',
+    js: 'text/javascript',
+    jpg: 'image/jpeg',
+    png: 'image/png',
+    gif: 'image/gif'
   };
 
-  if(content[type]){
-    type=content[type];
+  if (content[type]) {
+    type = content[type];
   } else {
-    type=content.html;
+    type = content.html;
   }
 
   console.log('getting sub page');
   params.url = params.url.replace("../../", "");
   request.get({
-    url: "http://securehealthhub.adam.com"+params.url,
-    headers: {'referer':'feedhenry.com'}
-  }, function (error, response, body) {
-    console.log('subpage is back from: http://securehealthhub.adam.com'+params.url);
+    url: "http://securehealthhub.adam.com" + params.url,
+    headers: {
+      'referer': 'feedhenry.com'
+    }
+  }, function(error, response, body) {
+    console.log('subpage is back from: http://securehealthhub.adam.com' + params.url);
     if (!error && response.statusCode == 200) {
-      body = body.replace("<head>", "<head><base href='"+base+"'>");
+      body = body.replace("<head>", "<head><base href='" + base + "'>");
 
-    // // ---- Replace ALL 'content' with '<cloudUrl>/content'
-    body = body.replace(new RegExp('href="content', 'g'), 'href="'+prefix+'content');
-    body = body.replace(new RegExp("location='content", 'g'), "location='"+prefix+"content");
-    // // -------------------------------------------------
+      // // ---- Replace ALL 'content' with '<cloudUrl>/content'
+      body = body.replace(new RegExp('href="content', 'g'), 'href="' + prefix + 'content');
+      body = body.replace(new RegExp("location='content", 'g'), "location='" + prefix + "content");
+      // // -------------------------------------------------
 
-      return cb(null, body, {"Content-Type": type});
+      return cb(null, body, {
+        "Content-Type": type
+      });
     } else {
       console.log("ERROR---", error);
       console.log("ERROR CODE---", response.statusCode);
     }
   });
 }
-
-
-
-
-
-
-
-
-
-
-
-
