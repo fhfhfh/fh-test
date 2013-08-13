@@ -21,28 +21,28 @@ define([
         activityItemTpl: _.template(item),
         events: {
             'click #monthPick': 'showMonthPicker',
-            'click td'        : 'selectDay',
-            'click #back'     : 'prevMonth',
-            'click #forward'  : 'nextMonth',
-            'click .time'     : 'showTimeScreen',
-            'click #share'    : 'shareFunction',
-            'click #add'      : 'showAddPopup',
-            'click #addFood'  : 'addActivityItem',
-            'click #copyFood' : 'copyActivityItem',
+            'click td': 'selectDay',
+            'click #back': 'prevMonth',
+            'click #forward': 'nextMonth',
+            'click .time': 'showTimeScreen',
+            'click #share': 'shareFunction',
+            'click #add': 'showAddPopup',
+            'click #addFood': 'addActivityItem',
+            'click #copyFood': 'copyActivityItem',
             'click #clearFood': 'clearActivity',
             'click #nutrition': 'showNutrition',
-            'click #activityList .boxEntry' : 'showActivityItem',
-            'click #cancelActivity' : 'closeActivityItem',
-            'click #editItem' : 'editActivityItem',
+            'click #activityList .boxEntry': 'showActivityItem',
+            'click #cancelActivity': 'closeActivityItem',
+            'click #editItem': 'editActivityItem',
             'click #deleteItem': 'deleteActivityItem'
-          },
+        },
 
         initialize: function() {
-            var date      = new Date();
-            this.date     = date;
-            this.month    = date.getMonth();
-            this.day      = date.getDay();
-            this.year     = date.getFullYear();
+            var date = new Date();
+            this.date = date;
+            this.month = date.getMonth();
+            this.day = date.getDay();
+            this.year = date.getFullYear();
             this.calendar = new calendar();
             _.bindAll(this);
         },
@@ -54,80 +54,78 @@ define([
             return this;
         },
 
-        renderCal: function(date){
-            date        = date || new Date();
+        renderCal: function(date) {
+            date = date || new Date();
             date.setMonth(this.month);
             date.setFullYear(this.year);
-            var todaysDate  = new Date();
-            var self        = this;
-            var days        = this.$('.days td');
-            var first       = this.calendar.getFirstDay(date);
-            var today       = new Date().getDate();
-            var cls         = '';
+            var todaysDate = new Date();
+            var self = this;
+            var days = this.$('.days td');
+            var first = this.calendar.getFirstDay(date);
+            var today = new Date().getDate();
+            var cls = '';
             var monthLength = this.calendar.daysInMonth(self.month, self.year);
-            var num         = 1;
+            var num = 1;
             $(days).html('');
             $(days).removeClass('today');
 
-            for(var i=first; i<monthLength + first ; i++){
+            for (var i = first; i < monthLength + first; i++) {
                 var model = null;
                 var dateNumber = new Date(date.setDate(num));
-                if(num == today && this.month == todaysDate.getMonth() && this.year == todaysDate.getFullYear()){
+                if (num == today && this.month == todaysDate.getMonth() && this.year == todaysDate.getFullYear()) {
                     cls = 'today';
-                }
-                else {
+                } else {
                     cls = '';
                 }
-                 model = collection.find(function(item){
+                model = collection.find(function(item) {
                     return item.get('date').toDateString() == dateNumber.toDateString();
                 });
 
-                if(model !== null && model !== undefined && !model.isEmpty()){
+                if (model !== null && model !== undefined && !model.isEmpty()) {
                     $(days[i]).css("background-image", "url('../img/calendar/FaceHappy.png')");
                     $(days[i]).css("background-position", "10px 10px");
                     $(days[i]).css("background-repeat", "no-repeat no-repeat");
                 }
                 $(days[i]).html("<div class='day'>" + num + "</div>");
                 $(days[i]).addClass(cls);
-                num = num +1;
+                num = num + 1;
             }
 
             var dayStr = this.calendar.getDayStr(self.day);
             var monthStr = this.calendar.getMonthStr(self.month);
-            this.$("#dateString").html( dayStr +', '+monthStr+ " " + today + ", "+this.year);
+            this.$("#dateString").html(dayStr + ', ' + monthStr + " " + today + ", " + this.year);
         },
 
-        showMonthPicker: function(){
+        showMonthPicker: function() {
             var self = this;
             // close existing popup
-            if($('div #filterView').length > 0){
+            if ($('div #filterView').length > 0) {
                 $('div #filterView').toggle();
                 return;
-            }
-            else {
+            } else {
                 $('#busyBody').append(self.monthTpl());
-                $("#month").html(this.calendar.monthName[this.month]+", "+this.year);
-                $('#back').unbind().bind('click', function(){
+                $("#month").html(this.calendar.monthName[this.month] + ", " + this.year);
+                $('#back').unbind().bind('click', function() {
                     self.prevMonth();
                 });
-                $('#forward').unbind().bind('click', function(){
+                $('#forward').unbind().bind('click', function() {
                     self.nextMonth();
                 });
             }
         },
 
-        selectDay: function(e){
+        selectDay: function(e) {
             var target = e.currentTarget;
-            var month  = this.month;
-            var day    = $(target).text();
-            var year   = this.year;
-            var date   = new Date(year, month, day);
+            var month = this.month;
+            var day = $(target).text();
+            var year = this.year;
+            var date = new Date(year, month, day);
             var dayNum = date.getDay();
             var dayStr = this.calendar.getDayStr(dayNum);
             var monthStr = this.calendar.getMonthStr(this.month);
 
             // close month picker if its open
-            if($('div #filterView').length > 0){
+            if ($('div #filterView').length > 0) {
                 $('div #filterView').hide();
             }
             // remove selected class from any meals
@@ -135,7 +133,7 @@ define([
             $("#nutritionSection").hide();
             $('#activityItemScreen').remove();
 
-            $("#dateString").html( dayStr +', '+monthStr+ " " + day + ", "+this.year);
+            $("#dateString").html(dayStr + ', ' + monthStr + " " + day + ", " + this.year);
             $('.days td').removeClass('selected');
             $(target).addClass('selected');
 
@@ -145,52 +143,49 @@ define([
             this.renderDay(date);
         },
 
-        prevMonth: function(){
-            var date        = new Date();
-            if(this.month<=0 )
-            {
-                this.month = 12;
-                this.year = this.year-1;
-            }
-            this.month = this.month-1;
-            $("#month").html(this.calendar.monthName[this.month]+", "+this.year);
-            this.renderCal();
-        },
-
-        nextMonth: function(){
+        prevMonth: function() {
             var date = new Date();
-            if(this.month>=11 )
-            {
-                this.month = -1;
-                this.year = this.year+1;
+            if (this.month <= 0) {
+                this.month = 12;
+                this.year = this.year - 1;
             }
-            this.month = this.month+1;
-            $("#month").html(this.calendar.monthName[this.month]+", "+this.year);
+            this.month = this.month - 1;
+            $("#month").html(this.calendar.monthName[this.month] + ", " + this.year);
             this.renderCal();
         },
 
-        renderDay: function(date){
+        nextMonth: function() {
+            var date = new Date();
+            if (this.month >= 11) {
+                this.month = -1;
+                this.year = this.year + 1;
+            }
+            this.month = this.month + 1;
+            $("#month").html(this.calendar.monthName[this.month] + ", " + this.year);
+            this.renderCal();
+        },
+
+        renderDay: function(date) {
             var self = this;
             date = date || new Date();
-            var dayModel = collection.find(function(item){
+            var dayModel = collection.find(function(item) {
                 return item.get('date').toDateString() == date.toDateString();
             });
             self.item = null;
-            if(dayModel){ // check if model exists for selected date
+            if (dayModel) { // check if model exists for selected date
                 self.item = dayModel; // make model globally accessible 
-                if(self.item.isEmpty()){ // check if model has any food entries
+                if (self.item.isEmpty()) { // check if model has any food entries
                     self.showEmptyScreen();
                 } else {
                     self.showTimeScreen();
                 }
-            }
-            else {
+            } else {
                 self.item = collection.createDay(date);
                 self.showEmptyScreen(); // if no model exists for date, assume empty
             }
         },
 
-        showTimeScreen: function(e){
+        showTimeScreen: function(e) {
             var target = (e) ? e.currentTarget : '.time[data-name="morning"]';
             var time = this.$(target).attr('data-name') || 'morning';
             this.time = time;
@@ -199,7 +194,7 @@ define([
             this.$(target).addClass('selected');
 
             var dateString = this.$('#dateString').text();
-            var activityString = 'My ' + time.substring(0,1).toUpperCase() + time.substring(1,time.length);
+            var activityString = 'My ' + time.substring(0, 1).toUpperCase() + time.substring(1, time.length);
 
             this.$('#activityContainer').show();
             this.$('#emptyDay').hide();
@@ -210,17 +205,17 @@ define([
             this.populateTime(time);
         },
 
-        showEmptyScreen: function(){
+        showEmptyScreen: function() {
             this.$('#activityContainer').hide();
             this.$('#emptyDay').show();
         },
 
-        saveActivitiesToJournal: function(){
+        saveActivitiesToJournal: function() {
             var self = this;
             var activityArr = this.container.activityItems;
-            if(activityArr.length > 0){
+            if (activityArr.length > 0) {
                 var time = self.time;
-                for(var i=0;i<activityArr.length;i++){
+                for (var i = 0; i < activityArr.length; i++) {
                     var arr = self.item.attributes[time];
                     arr.push(activityArr[i].attributes);
                     self.item.set(time, arr);
@@ -231,13 +226,13 @@ define([
             }
         },
 
-        populateTime: function(time){
+        populateTime: function(time) {
             this.$('#activityList .boxEntry').remove();
             var item = this.item;
             var self = this;
-            if(item && time){
+            if (item && time) {
                 var activities = item.attributes[time];
-                if(activities.length === 0){
+                if (activities.length === 0) {
                     this.$('#calCount').text("");
                     this.$('#location').val("");
                     this.$('#with').val("");
@@ -249,11 +244,11 @@ define([
                     return;
                 }
                 // loop starts at 1 as first entry is activity details (calories, notes, etc.)
-                for(var i=1;i<activities.length;i++){
+                for (var i = 1; i < activities.length; i++) {
                     var index = activities[i];
-                    var html = '<div class="boxEntry" data-id="'+index.id+'">'+
-                        '<span id="name">'+ index.activity+'</span>'+
-                        '<span id="about">'+index.minutes+'  minutes</span>'+
+                    var html = '<div class="boxEntry" data-id="' + index.id + '">' +
+                        '<span id="name">' + index.activity + '</span>' +
+                        '<span id="about">' + index.minutes + '  minutes</span>' +
                         '</div>';
                     this.$('#activityList').append(html);
                 }
@@ -275,8 +270,7 @@ define([
                 this.$('#currentNum').text(att.currentCals + ' Calories');
                 this.$('#remainingNum').text(att.remainingCals + ' Calories');
 
-            }
-            else {
+            } else {
                 this.$('#calCount').text("");
                 this.$('#location').val("");
                 this.$('#with').val("");
@@ -289,49 +283,49 @@ define([
             this.container.refreshScroll();
         },
 
-        shareFunction: function(){
+        shareFunction: function() {
             console.log('share function...');
             console.log(this.item);
             collection.saveToCloud(this.item);
 
         },
 
-        showAddPopup: function(){
-              // Act.call('fetchActivityAction',{type:'Childcare'},
-              //    function(res){
-              //      console.log('Saved successfully',res);
-              //    }, function(err, msg){
-              //      console.log(JSON.stringify(msg));
-              //   });
+        showAddPopup: function() {
+            // Act.call('fetchActivityAction',{type:'Childcare'},
+            //    function(res){
+            //      console.log('Saved successfully',res);
+            //    }, function(err, msg){
+            //      console.log(JSON.stringify(msg));
+            //   });
 
 
             $('#add').toggleClass('selected');
             $('#addActivityPopup').toggle();
         },
 
-        addActivityItem: function(){
+        addActivityItem: function() {
             this.time = $(".time.selected").attr('data-name') || "morning";
-            var timeStr = this.time.slice(0,1).toUpperCase() + this.time.slice(1,this.time.length);
+            var timeStr = this.time.slice(0, 1).toUpperCase() + this.time.slice(1, this.time.length);
             console.log(timeStr);
             this.container.time = timeStr;
             this.container.setActiveView('activityScreen');
         },
 
-        copyActivityItem: function(){
+        copyActivityItem: function() {
             var date = new Date();
             var d2 = new Date();
             var time = $(".time.selected").attr('data-name') || "morning";
 
             date.setDate(date.getDate() - 1);
 
-            var yesterdayModel = collection.find(function(item){
+            var yesterdayModel = collection.find(function(item) {
                 return item.get('date').toDateString() == date.toDateString();
             });
-            var todayModel = collection.find(function(item){
+            var todayModel = collection.find(function(item) {
                 return item.get('date').toDateString() == d2.toDateString();
             });
 
-            if(!todayModel){
+            if (!todayModel) {
                 yesterdayModel.attributes.date = new Date();
                 collection.createDay(date, yesterdayModel);
             } else {
@@ -343,7 +337,7 @@ define([
             $('#addActivityPopup').toggle();
         },
 
-        clearActivity: function(){
+        clearActivity: function() {
             //TODO: clear todays meal
             var time = $(".time.selected").attr('data-name') || "morning";
             this.item.clearTime(time);
@@ -352,9 +346,9 @@ define([
             this.populateTime(time);
         },
 
-        showNutrition: function(){
-            var self=this;
-            if($('#nutritionSection').is(':visible')){
+        showNutrition: function() {
+            var self = this;
+            if ($('#nutritionSection').is(':visible')) {
                 $("#nutritionSection").hide();
                 $("#activityInputs").show();
             } else {
@@ -364,7 +358,7 @@ define([
             }
         },
 
-        updateNutrition: function(el){
+        updateNutrition: function(el) {
             // el = el || $("#nutritionSection .boxEntry");
 
             // for(var i=0; i<el.length; i++){
@@ -375,7 +369,7 @@ define([
 
         },
 
-        populateNutrition: function(model, meal, el, index){
+        populateNutrition: function(model, meal, el, index) {
             // model = model.attributes;
             // el =  el || $("#nutritionSection");
             // index = index || 0;
@@ -400,28 +394,31 @@ define([
             // this.updateNutrition();
         },
 
-        showActivityItem: function(e){
+        showActivityItem: function(e) {
             var target = $(e.currentTarget);
             var id = target.attr("data-id");
             var item = this.item;
             var time = $(".time.selected").attr('data-name') || "morning";
             var self = this;
-            if(item){
+            if (item) {
                 var activities = item.attributes[time];
 
                 // loop starts at 1 as first entry is meal details (calories, notes, etc.)
-                for(var i=1;i<activities.length;i++){
+                for (var i = 1; i < activities.length; i++) {
                     var index = activities[i];
-                    if(index.id == id){
+                    if (index.id == id) {
                         var minutes = index.minutes;
                         var calories = index.calorieBaseline;
-                        var totalCals= index.calories;
+                        var totalCals = index.calories;
 
                         this.activityItem = activities[i];
                         this.$('#activityContainer').hide();
                         this.$('#nutritionSection').hide();
-                        this.$("#rightContent").append(self.activityItemTpl({item:index, imgSrc:""}));
-                        $("#calBurned").val(calories).attr('disabled','disabled');
+                        this.$("#rightContent").append(self.activityItemTpl({
+                            item: index,
+                            imgSrc: ""
+                        }));
+                        $("#calBurned").val(calories).attr('disabled', 'disabled');
                         $('#totalCalories #amount').html(totalCals);
                         $("#minutes").val(minutes);
                         $("#activityItemScreen").attr("data-id", id);
@@ -431,23 +428,23 @@ define([
             this.updateNutrition($('#nutritionInfo .boxEntry'));
         },
 
-        closeActivityItem: function(){
+        closeActivityItem: function() {
             this.$('#activityContainer').show();
             this.$('#activityItemScreen').remove();
         },
 
-        editActivityItem: function(){
+        editActivityItem: function() {
             var self = this;
             var time = $(".time.selected").attr('data-name') || "morning";
             var timeArr = this.item.attributes[time];
-            var minutes = parseInt($("#minutes").val(),10);
-            var totalCalories = self.activityItem.calorieBaseline*minutes;
+            var minutes = parseInt($("#minutes").val(), 10);
+            var totalCalories = self.activityItem.calorieBaseline * minutes;
 
-            for(var i=1;i<timeArr.length;i++){
-                if(timeArr[i].id == self.activityItem.id){
+            for (var i = 1; i < timeArr.length; i++) {
+                if (timeArr[i].id == self.activityItem.id) {
                     var item = timeArr[i];
                     item.minutes = minutes;
-                    item.calories= totalCalories;
+                    item.calories = totalCalories;
                     self.item.set(time, timeArr);
                     self.$('#activityContainer').show();
                     self.$('#activityItemScreen').remove();
@@ -456,7 +453,7 @@ define([
             }
         },
 
-        multiplyNutrition: function(serving, model, oldServing){
+        multiplyNutrition: function(serving, model, oldServing) {
             // var att = model;
             // var calories      = parseFloat(att.calories) || 0;
             // var fat           = parseFloat(att.total_fat) || 0;
@@ -478,15 +475,15 @@ define([
             // return model;
         },
 
-        deleteActivityItem: function(){
+        deleteActivityItem: function() {
             console.log(this.activityItem);
             var self = this;
             var time = $(".time.selected").attr('data-name') || "morning";
             var timeArr = this.item.attributes[time];
 
-            for(var i=1;i<timeArr.length;i++){
-                if(timeArr[i].id == self.activityItem.id){
-                    timeArr.splice(i,1);
+            for (var i = 1; i < timeArr.length; i++) {
+                if (timeArr[i].id == self.activityItem.id) {
+                    timeArr.splice(i, 1);
                     self.item.set(time, timeArr);
                     self.$('#activityContainer').show();
                     self.$('#activityItemScreen').remove();

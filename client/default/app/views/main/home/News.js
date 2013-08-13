@@ -135,7 +135,7 @@ define(['jquery',
 				}
 				ids.push(item.attributes);
 
-				console.log(ids);
+				console.log("New.js", id);
 			});
 
 			var prev = this.collection.get($(e.currentTarget).prev('.clearfix').attr('data-id'));
@@ -147,6 +147,7 @@ define(['jquery',
 			this.collection.videoWatched(id);
 
 			console.log('prev', prev);
+			console.log('item', item);
 			console.log('next', next);
 
 			// Store prev, current and next videos
