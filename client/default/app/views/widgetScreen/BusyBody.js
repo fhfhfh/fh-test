@@ -283,6 +283,7 @@ define([
             this.container.refreshScroll();
         },
 
+
         shareFunction: function() {
             console.log('share function...');
             console.log(this.item);
