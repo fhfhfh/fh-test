@@ -46,6 +46,8 @@ define([
             this.year = date.getFullYear();
             this.calendar = new calendar();
             _.bindAll(this);
+
+
         },
 
         render: function() {
