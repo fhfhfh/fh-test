@@ -44,10 +44,7 @@ define([
         // id: $('.swipeview-active').attr('data-page-index'),
 
         initialize: function() {
-            console.log('init');
-
             var self = this;
-
             _.bindAll(this);
 
             // Store videos playlist
@@ -62,8 +59,6 @@ define([
                     self.currentID = i;
                 }
             }
-
-            console.log("videosArr", self.videosArr, "currentID", self.currentID);
 
             // create view template
             this.$el.html(self.template({
@@ -89,14 +84,9 @@ define([
             //     hScrollbar: false
             // });
             // ------------------------------------------
-
-            // return currentID;
         },
 
         webKitEnd: function(e) {
-            console.log("webKitEnd called");
-            // e.stopPropagation();
-
             var item;
             var self = this;
             var id = self.$('.swipeview-active').attr('data-page-index');
@@ -106,7 +96,6 @@ define([
 
             // find current object
             item = self.videosArr[id];
-            console.log("webKitEnd item", item);
 
             // chq boolean value of item and convert
             if (item.current === false) {
@@ -148,21 +137,18 @@ define([
         },
 
         createSingleView: function() {
-            var videos = this.videos;
-            console.log("createSingleView", videos);
-
+            var videos = self.videosArr;
         },
 
         createSwipeView: function() {
             var self = this;
             var videoIndex;
-            console.log("createSwipeView", self.videosArr);
 
             this.navigation(self.videosArr);
 
             // check size of video arr & reset
             if (self.videosArr.length < 3) {
-                console.log("VIDEO", self.videosArr[2]);
+                // console.log("VIDEO", self.videosArr[2]);
                 self.videosArr[2] = self.videosArr[0];
             }
 
@@ -177,15 +163,12 @@ define([
                 var thisItem = self.videosArr[i];
                 if (thisItem.current === true) {
                     videoIndex = i;
-                    console.log("videoIndex: " + videoIndex);
                 }
             }
 
             // video playlist
             this.item = self.videosArr[videoIndex];
             var libVideo = this.item;
-
-            console.log("libVideo", libVideo, "current = ", libVideo.current);
 
             if (libVideo.current === true) {
                 self.videoPlayer(libVideo);
@@ -211,8 +194,6 @@ define([
                     nextItem = 0;
                     console.log("Reset Videos array index value", nextItem);
                 }
-
-                console.log("currentPage", currentPage, "nextPageElement", nextPage, "nextPage", nextItem);
 
                 el = $('#' + nextItem);
                 el.attr('src', vids[nextItem].imgUrl);
@@ -298,8 +279,6 @@ define([
             var self = this;
             var id = self.$('.swipeview-active').attr('data-page-index');
 
-            console.log(item);
-
             // remove img
             self.$('.swipeview-active > img').remove();
 
@@ -318,14 +297,11 @@ define([
 
         // Remove iframe and replace with thumb.
         removeIframe: function() {
-            console.log("removeIframe");
             var self = this;
-
             var iframe = $('iframe');
             var parent = $(self.$(iframe).parent()[0]);
-            // console.log("parent", parent);
             var index = parent.attr('data-page-index');
-            // console.log("removeIframe index", index);
+
             iframe.remove();
 
             index = +index + -1;
@@ -348,8 +324,6 @@ define([
             var li;
             var nav = $('#nav');
 
-
-
             // Add previous btn
             prev.attr('id', 'prev');
             prev.html('<b>-</b>');
@@ -365,8 +339,6 @@ define([
             next.attr('id', 'next');
             next.html('<b>+</b>');
             nav.append(next);
-
-            console.log("nav", this.videos, "prev", prev, "next", next);
         },
 
         // update description with event
@@ -376,17 +348,9 @@ define([
             var thisItem;
 
             id = self.$('.swipeview-active').attr('data-page-index');
-
-            // if (self.currentID === null) {
-            //     id = self.$('.swipeview-active').attr('data-page-index');
-            // } else {
-            //     id = self.currentID;
-            // }
-
             console.log("update-description-id", id);
 
             thisItem = videos[id];
-
 
             // Add Video details
             $('#titleName').html(thisItem.title);

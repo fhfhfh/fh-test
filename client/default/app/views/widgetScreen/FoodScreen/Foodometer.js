@@ -38,20 +38,19 @@ define([
         initOriHandler: function(e) {
             var self = this;
 
-            // window.addEventListener('orientationchange', function(e) {
-            //     switch (window.orientation) {
-            //         case 0: // portrait mode
-            //             self.pageScroll.refreshScroll();
-            //             console.log("vert refreshScroll");
-            //             break;
-            //         case 90: // landscape left
-            //             alert("Turn your phone around");
-            //             break;
-            //         case -90: // landscape right
-            //             console.log("-90 refreshScroll");
-            //             break;
-            //     }
-            // });
+            window.addEventListener('orientationchange', function(e) {
+                switch (window.orientation) {
+                    case 0: // portrait mode
+                        self.refreshScroll();
+                        break;
+                    case 90: // landscape left
+                        self.refreshScroll();
+                        break;
+                    case -90: // landscape right
+                        self.refreshScroll();
+                        break;
+                }
+            });
         },
 
         render: function() {
@@ -68,12 +67,8 @@ define([
             $('#filterButtons').show();
             this.pageScroll = new iScroll(this.$('#pageScroll')[0]);
             $("span#meal").text("Lunch - (" + this.container.container.foodItems.length + ")");
-
             this.refreshScroll();
-
             return this;
-
-
         },
 
         refreshScroll: function() {
@@ -201,7 +196,7 @@ define([
             $('#filterButtons').show();
 
             if (!doneFlag) {
-                this.level1Scroll.destroy();
+                //  this.level1Scroll.destroy();
                 this.pageScroll = new iScroll(this.$('#pageScroll')[0]);
                 this.level1Scroll = new iScroll(this.$('#level1Food')[0], {
                     hScroll: true,
@@ -211,9 +206,8 @@ define([
                     bounce: false
                 });
             }
-            this.container.container.iscroll.disable();
+            // this.container.container.iscroll.disable();
             this.refreshScroll();
-
         },
 
         addFoodToFav: function(e) {
@@ -241,13 +235,14 @@ define([
                 console.log(this.container.container.foodItems);
             }
             $("span#meal").text("Lunch - (" + this.container.container.foodItems.length + ")");
-            // this.cancelFood();
+            this.refreshScroll();
+            this.cancelFood();
+            // this.selectFood();
         },
 
         saveAllItems: function() {
             this.container.container.subViews.foodometerNav.saveFoodsToJournal();
             this.container.container.setActiveView('foodometerNav');
-
         },
 
         // When serving number changes, recalculate nutrient values

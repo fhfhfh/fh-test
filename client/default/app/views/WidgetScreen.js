@@ -1,19 +1,19 @@
 define([
-    'jquery',
-    'underscore',
-    'backbone',
-    'views/ContainerView',
-    'views/widgetScreen/Foodometer',
-    'views/widgetScreen/BusyBody',
-    'views/widgetScreen/MedBot',
-    'views/widgetScreen/MyStats',
-    'views/widgetScreen/Learning',
-    'views/widgetScreen/DrVisits',
-    'views/widgetScreen/WellBeing',
-    'views/widgetScreen/FoodScreen',
-    'views/widgetScreen/ActivityScreen',
-    'text!templates/pages/WidgetScreen.html',
-    'models/Calendar'
+  'jquery',
+  'underscore',
+  'backbone',
+  'views/ContainerView',
+  'views/widgetScreen/Foodometer',
+  'views/widgetScreen/BusyBody',
+  'views/widgetScreen/MedBot',
+  'views/widgetScreen/MyStats',
+  'views/widgetScreen/Learning',
+  'views/widgetScreen/DrVisits',
+  'views/widgetScreen/WellBeing',
+  'views/widgetScreen/FoodScreen',
+  'views/widgetScreen/ActivityScreen',
+  'text!templates/pages/WidgetScreen.html',
+  'models/Calendar'
 ], function($, _, Backbone, ContainerView, Foodometer, BusyBody,
   MedBot, MyStats, Learning, DrVisits,
   WellBeing, FoodScreen, ActivityScreen, template, Calendar) {
@@ -60,27 +60,15 @@ define([
         switch (window.orientation) {
           case 0: // portrait mode
             self.refreshScroll();
-            console.log("vert refreshScroll");
             break;
           case 90: // landscape left
             self.refreshScroll();
-            alert("Turn your phone around");
             break;
           case -90: // landscape right
             self.refreshScroll();
-            console.log("-90 refreshScroll");
             break;
         }
       });
-
-      // $(window).bind("orientationchange", function() {
-
-      //   console.log("Ori refresh working");
-      //   if (window.orientation === -90) {
-      //     self.refreshScroll();
-      //     alert("Please turn your phone around");
-      //   }
-      // }, false);
     },
 
     render: function() {
@@ -112,7 +100,7 @@ define([
       if (this.iscroll) {
         setTimeout(function() {
           console.log('refresh SCROLL');
-          self.iscroll.refresh.call(self.iscroll);
+          self.iscroll.refresh();
         }, 1000);
 
       }

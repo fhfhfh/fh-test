@@ -1311,7 +1311,6 @@ li {
   width: 100%;
   min-width: 768px;
   height: 400px;
-  /*background: #333;*/
 }
 #VideoPlayback #wrapper div .swipeview-loading {
   background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#444444), to(#555555)), -webkit-gradient(linear, 0 0, 100% 0, from(#777777), to(#777777));
@@ -1388,10 +1387,10 @@ li {
   top: 433px;
   width: auto;
   height: 20px;
-  left: 41%;
+  left: 40%;
   background: rgba(0, 0, 0, 0.75);
-  padding-left: 10px;
-  /*margin: 0 auto;*/
+  padding: 0;
+  margin: 0 auto;
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
   -ms-border-radius: 10px;
@@ -1412,11 +1411,9 @@ li {
   background: rgba(204, 204, 204, 0.7);
   overflow: hidden;
   padding: 0;
-  margin: 3px 11px 0 0;
+  margin: 3px 11px 0 11px;
   text-align: center;
 }
-
-
 #VideoPlayback #nav li #prev {
   margin-left: 5px;
   background: transparent;
