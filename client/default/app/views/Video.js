@@ -38,7 +38,7 @@ define([
         currentID: '',
         video: '',
         videosArr: '',
-        dots: $('#nav li'),
+        dots: $('#nav > li'),
         active: $('.swipeview-active'),
         multiVideo: true,
         // id: $('.swipeview-active').attr('data-page-index'),
@@ -46,6 +46,8 @@ define([
         initialize: function() {
             var self = this;
             _.bindAll(this);
+
+            console.log(dots);
 
             // Store videos playlist
             this.videosArr = JSON.parse(localStorage.getItem('tempVid'));
@@ -69,12 +71,12 @@ define([
             }));
 
             // // iScroll ---------------------------
-            // this.iscroll = new iScroll(this.$('#video-iscroll')[0], {
-            //     hscroll: false,
-            //     fixedScrollbar: true,
-            //     bounce: false,
-            //     vScrollbar: false
-            // });
+            this.iscroll = new iScroll(this.$('#video-iscroll')[0], {
+                hscroll: false,
+                fixedScrollbar: true,
+                bounce: false,
+                vScrollbar: false
+            });
 
             // this.iscroll2 = new iScroll(this.$('#wrapper')[0], {
             //     hscroll: true,
@@ -201,7 +203,7 @@ define([
 
                 console.log('nextItem title', vids[nextItem].title);
 
-                $(document).find('.selected').removeClass('selected');
+                $(this).find('.selected').removeClass('selected');
                 $(dots)[nextItem + 1].addClass('selected');
             });
 
