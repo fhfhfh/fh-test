@@ -4,8 +4,59 @@
  */
 
 .border-radius (@radius) {
-    -webkit-border-radius: @radius;
-    border-radius: @radius;
+    -webkit-border-radius:@radius;
+    -moz-border-radius:@radius;
+    -ms-border-radius:@radius;
+    -o-border-radius:@radius;
+    border-radius:@radius;
+}
+
+.transition-prop (@prop) {
+    -webkit-transition-property:@prop;
+    -moz-transition-property:@prop;
+    -ms-transition-property:@prop;
+    -o-transition-property:@prop;
+    transition-property:@prop;
+}
+
+.transition-duration (@duration) {
+     -webkit-transition-duration:@duration;
+    -moz-transition-duration:@duration;
+    -ms-transition-duration:@duration;
+    -o-transition-duration:@duration;
+    transition-duration:@duration;
+}
+
+.box-shadow (@x, @y, @blur, @spread, @color) {
+    -webkit-box-shadow:@x, @y, @blur, @spread, @color;
+    -moz-box-shadow:@x, @y, @blur, @spread, @color;
+    -ms-box-shadow:@x, @y, @blur, @spread, @color;
+    -o-box-shadow:@x, @y, @blur, @spread, @color;
+    box-shadow:@x, @y, @blur, @spread, @color;
+}
+
+.box-orient(@align-pos) {
+    -webkit-box-orient:@align-pos;
+    -moz-box-orient:@align-pos;
+    -ms-box-orient:@align-pos;
+    -o-box-orient:@align-pos;
+    box-orient:@align-pos;
+}
+
+.box-pack(@pos) {
+    -webkit-box-pack:@pos;
+    -moz-box-pack:@pos;
+    -ms-box-pack:@pos;
+    -o-box-pack:@pos;
+    box-pack:@pos; 
+}
+
+.box-align(@pos) {
+    -webkit-box-align:@pos;
+    -mox-box-align:@pos;
+    -ms-box-align:@pos;
+    -o-box-align:@pos;
+    box-align:@pos;
 }
 
 .background-gradient-invert (@bottom, @top) {
