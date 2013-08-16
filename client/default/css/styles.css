@@ -2033,7 +2033,7 @@ section#widgetScreen #scrollWrapper {
   background-color: #e6e6e6;
 }
 #medicine #wrapper {
-  min-height: 710px;
+  min-height: 880px;
 }
 @media only screen and (orientation: landscape) {
   #medicine #wrapper {
