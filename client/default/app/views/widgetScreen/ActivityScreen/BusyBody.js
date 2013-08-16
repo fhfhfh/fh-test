@@ -150,6 +150,8 @@ define([
             this.calculateNutrients();
             self.refreshScroll();
 
+            $('#timerMsg').css('white-space', 'nowrap');
+
             if (model.attributes.favorite === true) {
                 $('#activityFavBtn').addClass('active');
             }
@@ -202,17 +204,17 @@ define([
             this.$el.html(this.oldHtml);
             $('#filterButtons').show();
 
-            if (!doneFlag) {
-                // this.level1Scroll.destroy();
-                this.pageScroll = new iScroll(this.$('#pageScroll')[0]);
-                this.level1Scroll = new iScroll(this.$('#level1Activity')[0], {
-                    hScroll: true,
-                    vScroll: false,
-                    hScrollbar: false,
-                    bounceLock: true,
-                    bounce: false
-                });
-            }
+
+            // this.level1Scroll.destroy();
+            this.pageScroll = new iScroll(this.$('#pageScroll')[0]);
+            this.level1Scroll = new iScroll(this.$('#level1Activity')[0], {
+                hScroll: true,
+                vScroll: false,
+                hScrollbar: false,
+                bounceLock: true,
+                bounce: false
+            });
+
             // this.container.container.iscroll.disable();
             this.refreshScroll();
 

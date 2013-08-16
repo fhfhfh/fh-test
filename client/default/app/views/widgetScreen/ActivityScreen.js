@@ -11,23 +11,23 @@ define([
     'views/widgetScreen/ActivityScreen/SimpleSearch',
     'views/widgetScreen/ActivityScreen/RecentFavs',
     'text!templates/widgets/ActivityScreen.html'
-], function($, _, Backbone, ContainerView, BusyBody, SimpleSearch, RecentFavs, tpl ) {
+], function($, _, Backbone, ContainerView, BusyBody, SimpleSearch, RecentFavs, tpl) {
     return ContainerView.extend({
         tagName: 'section',
         id: 'activityScreen',
         template: _.template(tpl),
         events: {
-            'click #busyBodyList'  : 'busyBody',
-            'click #simpleSearch'  : 'simpleSearch',
-            'click #favorites'     : 'favorites',
-            'click #cancelBtn'     : 'cancelActivityEntry',
-            'click #saveBtn'       : 'saveAllActivities'
+            'click #busyBodyList': 'busyBody',
+            'click #simpleSearch': 'simpleSearch',
+            'click #favorites': 'favorites',
+            'click #cancelBtn': 'cancelActivityEntry',
+            'click #saveBtn': 'saveAllActivities'
         },
 
         subViews: {
-            busyBody    : new BusyBody(),
+            busyBody: new BusyBody(),
             simpleSearch: new SimpleSearch(),
-            recentFavs  : new RecentFavs()
+            recentFavs: new RecentFavs()
         },
 
         initialize: function() {
@@ -46,11 +46,11 @@ define([
                 this.activeView.delegateEvents();
             }
 
-            $("span#time").text(self.time +" - ("+this.container.activityItems.length+")");
+            $("span#time").text(self.time + " - (" + this.container.activityItems.length + ")");
             return this;
         },
 
-        cancelActivityEntry: function(e){
+        cancelActivityEntry: function(e) {
             $('#filterButtons').show();
             this.busyBody();
             this.activeView.cancelActivity();
@@ -60,7 +60,7 @@ define([
             this.container.refreshScroll();
         },
 
-        saveAllActivities: function(){
+        saveAllActivities: function() {
             $('#filterButtons').show();
             this.busyBody();
             this.activeView.hideCategories();
@@ -70,26 +70,23 @@ define([
 
         },
 
-        busyBody : function(){
-          this.$buttons.find('li').removeClass('selected');
-          this.$buttons.find('#busyBodyList').addClass('selected');
-          this.setActiveView('busyBody');
+        busyBody: function() {
+            this.$buttons.find('li').removeClass('selected');
+            this.$buttons.find('#busyBodyList').addClass('selected');
+            this.setActiveView('busyBody');
         },
 
-        simpleSearch : function(){
-          this.$buttons.find('li').removeClass('selected');
-          this.$buttons.find('#simpleSearch').addClass('selected');
-          this.setActiveView('simpleSearch');
+        simpleSearch: function() {
+            this.$buttons.find('li').removeClass('selected');
+            this.$buttons.find('#simpleSearch').addClass('selected');
+            this.setActiveView('simpleSearch');
         },
 
-        favorites : function(){
-          this.$buttons.find('li').removeClass('selected');
-          this.$buttons.find('#favorites').addClass('selected');
-          this.setActiveView('recentFavs');
+        favorites: function() {
+            this.$buttons.find('li').removeClass('selected');
+            this.$buttons.find('#favorites').addClass('selected');
+            this.setActiveView('recentFavs');
         }
 
     });
 });
-
-
-

@@ -4405,7 +4405,6 @@ section#insights h1 {
 #foodScreen #activityItemScreen #stopWatch p,
 #activityScreen #activityItemScreen #stopWatch p,
 #busyBody #activityItemScreen #stopWatch p {
-  white-space: nowrap;
   margin-left: -20px;
 }
 #foodometer #foodItemScreen #details,
@@ -4952,7 +4951,6 @@ section#insights h1 {
 }
 #activityScreen #activityItemScreen #stopWatch p,
 #activityListScreen #activityItemScreen #stopWatch p {
-  white-space: nowrap;
   margin-left: -50px;
 }
 #activityScreen #activityItemScreen #details,
