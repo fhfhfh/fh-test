@@ -38,7 +38,7 @@ define([
         currentID: '',
         video: '',
         videosArr: '',
-        dots: $('#nav'),
+        dots: $('#nav').find('li'),
         active: $('.swipeview-active'),
         multiVideo: true,
         // id: $('.swipeview-active').attr('data-page-index'),
@@ -203,8 +203,8 @@ define([
 
                 console.log('nextItem title', vids[nextItem].title);
 
-                // $(this).find('li.selected').removeClass('selected');
-                // this.$(dots)[nextItem + 1].addClass('selected');
+                $('#page' + nextItem).addClass('selected');
+                // dots[nextItem + 1].addClass('selected');
             });
 
 
