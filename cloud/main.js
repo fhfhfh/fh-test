@@ -467,7 +467,6 @@ function searchActivityAction(params, callback) {
 //-------------------------------------- saveJournal Action----------------------------------------------------------
 
 // save the users food journal to peachy backend
-
 function saveJournalAction(params, callback) {
 
   saveFoodJournalEndpoint.saveData(params, function cb(err, respData) {
