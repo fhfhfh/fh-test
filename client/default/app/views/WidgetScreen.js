@@ -88,8 +88,10 @@ define([
         hscroll: false,
         fixedScrollbar: true,
         bounce: true,
+        bounceLock: true,
         vScrollbar: true
       });
+
       this.refreshScroll();
 
       return this;

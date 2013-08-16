@@ -46,8 +46,6 @@ define([
             this.year = date.getFullYear();
             this.calendar = new calendar();
             _.bindAll(this);
-
-
         },
 
         render: function() {
@@ -131,6 +129,7 @@ define([
             if ($('div #filterView').length > 0) {
                 $('div #filterView').hide();
             }
+
             // remove selected class from any meals
             this.$('.meal').removeClass('selected');
             $("#nutritionSection").hide();
