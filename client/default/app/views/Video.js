@@ -78,6 +78,8 @@ define([
                 vScrollbar: false
             });
 
+
+
             // this.iscroll2 = new iScroll(this.$('#wrapper')[0], {
             //     hscroll: true,
             //     vscroll: false,
@@ -135,6 +137,7 @@ define([
                 self.createSwipeView();
             }, 100);
 
+            $('#page0').addClass('selected');
             return this;
         },
 
@@ -203,6 +206,7 @@ define([
 
                 console.log('nextItem title', vids[nextItem].title);
 
+                $('.selected').removeClass('selected');
                 $('#page' + nextItem).addClass('selected');
                 // dots[nextItem + 1].addClass('selected');
             });
