@@ -38,7 +38,7 @@ define([
         currentID: '',
         video: '',
         videosArr: '',
-        dots: $('#nav > li'),
+        dots: $('#nav'),
         active: $('.swipeview-active'),
         multiVideo: true,
         // id: $('.swipeview-active').attr('data-page-index'),
@@ -47,7 +47,7 @@ define([
             var self = this;
             _.bindAll(this);
 
-            console.log(dots);
+            // console.log(dots);
 
             // Store videos playlist
             this.videosArr = JSON.parse(localStorage.getItem('tempVid'));
@@ -203,8 +203,8 @@ define([
 
                 console.log('nextItem title', vids[nextItem].title);
 
-                $(this).find('.selected').removeClass('selected');
-                $(dots)[nextItem + 1].addClass('selected');
+                // $(this).find('li.selected').removeClass('selected');
+                // this.$(dots)[nextItem + 1].addClass('selected');
             });
 
 
