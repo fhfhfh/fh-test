@@ -513,6 +513,7 @@ function proxy(params, cb) {
       'referer': 'feedhenry.com'
     }
   }, function(error, response, body) {
+    console.log(error, repsonse, response.statusCode);
     console.log('received response', body);
     if (!error && response.statusCode == 200) {
       body = body.replace("<head>", "<head><base href='" + base + "'>");
