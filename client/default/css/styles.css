@@ -1330,43 +1330,125 @@ li {
   width: auto;
   float: left;
 }
-#VideoPlayback #videoContainer {
+#VideoPlayback #wrapper {
   width: 100%;
-  display: inline-block;
-  margin-top: 60px;
-  height: 300px;
-  text-align: center;
-  position: relative;
-  white-space: nowrap;
-  width: auto;
-  float: left;
+  min-width: 768px;
+  height: 400px;
 }
-#VideoPlayback #videoContainer > div {
-  display: inline-block;
+#VideoPlayback #wrapper div .swipeview-loading {
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#444444), to(#555555)), -webkit-gradient(linear, 0 0, 100% 0, from(#777777), to(#777777));
+  background-position: 50% 50%, 50% 50%;
+  background-size: 200px 140px, 210px 150px;
+  background-repeat: no-repeat;
+}
+#VideoPlayback #wrapper div .swipeview-loading img,
+#VideoPlayback #wrapper div .swipeview-loading iframe {
+  -webkit-transition-duration: 0s;
+  opacity: 1;
   height: 300px;
+}
+#VideoPlayback #wrapper #swipeview-slider div,
+#VideoPlayback #wrapper #swipeview-slider img {
+  position: relative;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-box;
+  display: -o-box;
+  display: box;
+  -webkit-box-orient: vertical;
+  -moz-box-orient: vertical;
+  -ms-box-orient: vertical;
+  -o-box-orient: vertical;
+  box-orient: vertical;
+  -webkit-box-pack: center;
+  -moz-box-pack: center;
+  -ms-box-pack: center;
+  -o-box-pack: center;
+  box-pack: center;
+  -webkit-box-align: center;
+  -mox-box-align: center;
+  -ms-box-align: center;
+  -o-box-align: center;
+  box-align: center;
+  overflow: hidden;
+}
+#VideoPlayback #wrapper #swipeview-slider img.loading {
+  -webkit-transition-duration: 0s;
+  opacity: 1;
+  height: 300px;
+}
+#VideoPlayback #wrapper #swipeview-slider img,
+#VideoPlayback #wrapper iframe {
+  opacity: 1;
+  height: 300px;
+  display: block;
   border: 10px solid #cdcdcd;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  border-radius: 10px;
+  -webkit-box-shadow: 0, 2px, 6px, 0, #000000;
+  -moz-box-shadow: 0, 2px, 6px, 0, #000000;
+  -ms-box-shadow: 0, 2px, 6px, 0, #000000;
+  -o-box-shadow: 0, 2px, 6px, 0, #000000;
+  box-shadow: 0, 2px, 6px, 0, #000000;
+  -webkit-transition-duration: 0.4s;
+  -moz-transition-duration: 0.4s;
+  -ms-transition-duration: 0.4s;
+  -o-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+  -webkit-transition-property: opacity;
+  -moz-transition-property: opacity;
+  -ms-transition-property: opacity;
+  -o-transition-property: opacity;
+  transition-property: opacity;
+}
+#VideoPlayback #nav {
+  position: absolute;
+  z-index: 100;
+  top: 433px;
+  width: auto;
+  height: 20px;
+  left: 40%;
+  background: rgba(0, 0, 0, 0.75);
+  padding: 0;
+  margin: 0 auto;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
   border-radius: 10px;
 }
-#VideoPlayback #videoContainer #currentVideo {
-  width: 550px;
-  margin-left: 16%;
-}
-@media only screen and (orientation: landscape) {
-  #VideoPlayback #videoContainer #currentVideo {
-    margin-left: 40%;
-  }
-}
-#VideoPlayback #videoContainer #currentVideo iframe {
-  width: 100%;
-  height: 100%;
-}
-#VideoPlayback #videoContainer #previousVideo {
+#VideoPlayback #nav li {
+  display: block;
   float: left;
-  margin-left: -10px;
+  width: 14px;
+  height: 14px;
+  line-height: 14px;
+  -webkit-border-radius: 7px;
+  -moz-border-radius: 7px;
+  -ms-border-radius: 7px;
+  -o-border-radius: 7px;
+  border-radius: 7px;
+  background: rgba(204, 204, 204, 0.7);
+  overflow: hidden;
+  padding: 0;
+  margin: 3px 11px 0 11px;
+  text-align: center;
 }
-#VideoPlayback #videoContainer #nextVideo {
-  float: right;
-  margin-right: -10px;
+#VideoPlayback #nav li #prev {
+  margin-left: 5px;
+  background: transparent;
+  color: #ffffff;
+}
+#VideoPlayback #nav li #next {
+  margin-right: 5px;
+  background: transparent;
+  color: #ffffff;
+}
+#VideoPlayback #nav li .selected {
+  background: #ffffff;
 }
 #VideoPlayback #scroller {
   padding-bottom: 450px;
@@ -1979,7 +2061,7 @@ section#widgetScreen #scrollWrapper {
   background-color: #e6e6e6;
 }
 #medicine #wrapper {
-  min-height: 710px;
+  min-height: 880px;
 }
 @media only screen and (orientation: landscape) {
   #medicine #wrapper {
@@ -2030,88 +2112,24 @@ section#widgetScreen #scrollWrapper {
   background: url('../img/medicine/med-cab-bg.png') center no-repeat;
   background-size: 86% 100%;
   overflow: hidden;
-  padding-bottom: 20%;
 }
 .medWrap .medCab .shelf {
-  margin-bottom: -120px;
+  height: 203px;
+  width: 100%;
 }
-.medWrap .medCab #shelf1,
-.medWrap .medCab #shelf2,
-.medWrap .medCab #shelf3,
-.medWrap .medCab #shelf4 {
-  position: relative;
-  top: 45px;
+.medWrap #medicineItems {
+  position: absolute;
+  top: 90px;
 }
-.medWrap .medCab #shelf1 ul,
-.medWrap .medCab #shelf2 ul,
-.medWrap .medCab #shelf3 ul,
-.medWrap .medCab #shelf4 ul {
+.medWrap #medicineItems ul {
   width: 80%;
-  margin-left: auto;
-  margin-right: auto;
+  margin-left: 50px;
 }
-.medWrap .medCab #shelf1 li,
-.medWrap .medCab #shelf2 li,
-.medWrap .medCab #shelf3 li,
-.medWrap .medCab #shelf4 li {
-  width: 32%;
+.medWrap #medicineItems li {
   text-align: center;
-  font-size: 0.7em;
-}
-.medWrap .medCab #shelf1 li img,
-.medWrap .medCab #shelf2 li img,
-.medWrap .medCab #shelf3 li img,
-.medWrap .medCab #shelf4 li img {
-  width: 85%;
-  margin-bottom: -2px !important;
-}
-@media only screen and (orientation: landscape) {
-  .medWrap .medCab #shelf1,
-  .medWrap .medCab #shelf3 {
-    position: relative;
-    top: 65px;
-  }
-  .medWrap .medCab #shelf1 ul,
-  .medWrap .medCab #shelf3 ul {
-    width: 80%;
-    margin-left: auto;
-    margin-right: auto;
-    height: 193px;
-  }
-  .medWrap .medCab #shelf1 li,
-  .medWrap .medCab #shelf3 li {
-    width: 32%;
-    text-align: center;
-    font-size: 0.6em;
-  }
-  .medWrap .medCab #shelf1 li img,
-  .medWrap .medCab #shelf3 li img {
-    width: 85%;
-    margin-bottom: -2px !important;
-  }
-  .medWrap .medCab #shelf2,
-  .medWrap .medCab #shelf4 {
-    position: relative;
-    top: 40px;
-  }
-  .medWrap .medCab #shelf2 ul,
-  .medWrap .medCab #shelf4 ul {
-    width: 80%;
-    margin-left: auto;
-    margin-right: auto;
-    height: 193px;
-  }
-  .medWrap .medCab #shelf2 li,
-  .medWrap .medCab #shelf4 li {
-    width: 32%;
-    text-align: center;
-    font-size: 0.6em;
-  }
-  .medWrap .medCab #shelf2 li img,
-  .medWrap .medCab #shelf4 li img {
-    width: 85%;
-    margin-bottom: -5px !important;
-  }
+  font-size: 10px;
+  width: 145px;
+  height: 203px;
 }
 #notifications {
   position: absolute;
@@ -2240,6 +2258,9 @@ section#widgetScreen #scrollWrapper {
 }
 #news-and-information #load-more-news {
   -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -o-border-radius: 8px;
   border-radius: 8px;
   border: 2px solid #cdcdcd;
   font: bold 16px "Avenir Next", Helvetica, Arial, sans-serif;
@@ -2314,6 +2335,9 @@ section#widgetScreen #scrollWrapper {
 }
 #alerts #add-alert {
   -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -o-border-radius: 8px;
   border-radius: 8px;
   border: 2px solid #cdcdcd;
   font: bold 16px "Avenir Next", Helvetica, Arial, sans-serif;
@@ -2536,6 +2560,9 @@ section#widgetScreen #scrollWrapper {
   padding: 0 10px;
   vertical-align: middle;
   -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
   border-radius: 5px;
   border-radius: 0\9;
   border: 1px solid black;
@@ -3299,7 +3326,7 @@ section#insights h1 {
 @media only screen and (orientation: landscape) {
   #addFavorite #body #wrapper {
     max-height: 105px;
-    min-height: 105px;
+    min-height: 50px;
   }
 }
 #addFavorite #body #customFolders {
@@ -3425,12 +3452,14 @@ section#insights h1 {
 }
 #foodometer,
 #foodScreen,
-#activityScreen {
+#activityScreen,
+#busyBody {
   position: relative;
 }
 #foodometer #body,
 #foodScreen #body,
-#activityScreen #body {
+#activityScreen #body,
+#busyBody #body {
   margin: 20px;
   border-radius: 8px;
   padding: 10px;
@@ -3439,50 +3468,58 @@ section#insights h1 {
 }
 #foodometer #body img.positioned,
 #foodScreen #body img.positioned,
-#activityScreen #body img.positioned {
+#activityScreen #body img.positioned,
+#busyBody #body img.positioned {
   position: absolute;
 }
 #foodometer #body img#topleft,
 #foodScreen #body img#topleft,
-#activityScreen #body img#topleft {
+#activityScreen #body img#topleft,
+#busyBody #body img#topleft {
   top: 59px;
   left: 12px;
 }
 #foodometer #body img#top,
 #foodScreen #body img#top,
-#activityScreen #body img#top {
+#activityScreen #body img#top,
+#busyBody #body img#top {
   top: 60px;
   height: 15px;
   width: 93%;
 }
 #foodometer #body img#topright,
 #foodScreen #body img#topright,
-#activityScreen #body img#topright {
+#activityScreen #body img#topright,
+#busyBody #body img#topright {
   top: 58px;
   right: 12px;
 }
 #foodometer #body img#bottomleft,
 #foodScreen #body img#bottomleft,
-#activityScreen #body img#bottomleft {
+#activityScreen #body img#bottomleft,
+#busyBody #body img#bottomleft {
   bottom: -8px;
   left: 14px;
 }
 #foodometer #body img#bottom,
 #foodScreen #body img#bottom,
-#activityScreen #body img#bottom {
+#activityScreen #body img#bottom,
+#busyBody #body img#bottom {
   bottom: -4px;
   height: 15px;
   width: 93%;
 }
 #foodometer #body img#bottomright,
 #foodScreen #body img#bottomright,
-#activityScreen #body img#bottomright {
+#activityScreen #body img#bottomright,
+#busyBody #body img#bottomright {
   bottom: -9px;
   right: 14px;
 }
 #foodometer #body #binderBg,
 #foodScreen #body #binderBg,
-#activityScreen #body #binderBg {
+#activityScreen #body #binderBg,
+#busyBody #body #binderBg {
   width: 40px;
   height: 88%;
   float: left;
@@ -3495,14 +3532,16 @@ section#insights h1 {
 }
 #foodometer #body #content,
 #foodScreen #body #content,
-#activityScreen #body #content {
+#activityScreen #body #content,
+#busyBody #body #content {
   background-color: #d8d4d5;
   box-shadow: 7px 0px 0 -4px #cccccc, 12px 0px 0 -7px #8b8b8b;
   background-image: url('../img/food/bg-gray-texture.png');
 }
 #foodometer #body #content #leftContent,
 #foodScreen #body #content #leftContent,
-#activityScreen #body #content #leftContent {
+#activityScreen #body #content #leftContent,
+#busyBody #body #content #leftContent {
   float: left;
   width: 280px;
   height: 99%;
@@ -3513,7 +3552,8 @@ section#insights h1 {
 }
 #foodometer #body #content #leftContent #leftContentMask,
 #foodScreen #body #content #leftContent #leftContentMask,
-#activityScreen #body #content #leftContent #leftContentMask {
+#activityScreen #body #content #leftContent #leftContentMask,
+#busyBody #body #content #leftContent #leftContentMask {
   height: 99%;
   background-color: #f6f5f5;
   box-shadow: 1px 1px 1px #cdcdcd, -1px 0px 1px #cdcdcd;
@@ -3524,7 +3564,8 @@ section#insights h1 {
 }
 #foodometer #body #content #rightContent,
 #foodScreen #body #content #rightContent,
-#activityScreen #body #content #rightContent {
+#activityScreen #body #content #rightContent,
+#busyBody #body #content #rightContent {
   display: inline-block;
   width: 75%;
   float: left;
@@ -3533,7 +3574,8 @@ section#insights h1 {
 }
 #foodometer #body #content #rightContent #emptyFood,
 #foodScreen #body #content #rightContent #emptyFood,
-#activityScreen #body #content #rightContent #emptyFood {
+#activityScreen #body #content #rightContent #emptyFood,
+#busyBody #body #content #rightContent #emptyFood {
   color: #6d6d6d;
   margin-top: 250px;
   text-align: center;
@@ -3542,13 +3584,15 @@ section#insights h1 {
 }
 #foodometer #body #content #rightContent #emptyFood #day,
 #foodScreen #body #content #rightContent #emptyFood #day,
-#activityScreen #body #content #rightContent #emptyFood #day {
+#activityScreen #body #content #rightContent #emptyFood #day,
+#busyBody #body #content #rightContent #emptyFood #day {
   color: #676767;
   font: bold 48px "Avenir Next", Helvetica, Arial, sans-serif;
 }
 #foodometer #body #content #rightContent #emptyFood #emptyMeals,
 #foodScreen #body #content #rightContent #emptyFood #emptyMeals,
-#activityScreen #body #content #rightContent #emptyFood #emptyMeals {
+#activityScreen #body #content #rightContent #emptyFood #emptyMeals,
+#busyBody #body #content #rightContent #emptyFood #emptyMeals {
   margin-top: 150px;
   width: 45%;
   margin-left: auto;
@@ -3556,19 +3600,22 @@ section#insights h1 {
 }
 #foodometer #body #content #rightContent #emptyFood #emptyMeals img,
 #foodScreen #body #content #rightContent #emptyFood #emptyMeals img,
-#activityScreen #body #content #rightContent #emptyFood #emptyMeals img {
+#activityScreen #body #content #rightContent #emptyFood #emptyMeals img,
+#busyBody #body #content #rightContent #emptyFood #emptyMeals img {
   float: left;
   margin-left: -30px;
 }
 #foodometer #smallCalendar,
 #foodScreen #smallCalendar,
-#activityScreen #smallCalendar {
+#activityScreen #smallCalendar,
+#busyBody #smallCalendar {
   height: 300px;
   margin-bottom: 30px;
 }
 #foodometer #smallCalendar #monthPick,
 #foodScreen #smallCalendar #monthPick,
-#activityScreen #smallCalendar #monthPick {
+#activityScreen #smallCalendar #monthPick,
+#busyBody #smallCalendar #monthPick {
   float: right;
   margin-right: 5px;
   margin-top: 5px;
@@ -3576,7 +3623,8 @@ section#insights h1 {
 }
 #foodometer #smallCalendar #dayString,
 #foodScreen #smallCalendar #dayString,
-#activityScreen #smallCalendar #dayString {
+#activityScreen #smallCalendar #dayString,
+#busyBody #smallCalendar #dayString {
   font: normal 32px "Avenir Next Medium", Helvetica, Arial, sans-serif;
   display: block;
   padding-left: 10px;
@@ -3585,7 +3633,8 @@ section#insights h1 {
 }
 #foodometer #smallCalendar #dateString,
 #foodScreen #smallCalendar #dateString,
-#activityScreen #smallCalendar #dateString {
+#activityScreen #smallCalendar #dateString,
+#busyBody #smallCalendar #dateString {
   color: #676767;
   display: block;
   font: normal 16px "Avenir Next Medium", Helvetica, Arial, sans-serif;
@@ -3594,23 +3643,27 @@ section#insights h1 {
 }
 #foodometer #smallCalendar #calTable,
 #foodScreen #smallCalendar #calTable,
-#activityScreen #smallCalendar #calTable {
+#activityScreen #smallCalendar #calTable,
+#busyBody #smallCalendar #calTable {
   border: none;
 }
 #foodometer #smallCalendar #calTable td,
 #foodScreen #smallCalendar #calTable td,
-#activityScreen #smallCalendar #calTable td {
+#activityScreen #smallCalendar #calTable td,
+#busyBody #smallCalendar #calTable td {
   height: 40px;
   border: none;
 }
 #foodometer #smallCalendar #calTable td.selected,
 #foodScreen #smallCalendar #calTable td.selected,
-#activityScreen #smallCalendar #calTable td.selected {
+#activityScreen #smallCalendar #calTable td.selected,
+#busyBody #smallCalendar #calTable td.selected {
   background-color: #fecd74;
 }
 #foodometer #calories,
 #foodScreen #calories,
-#activityScreen #calories {
+#activityScreen #calories,
+#busyBody #calories {
   padding-top: 200px;
   padding: 10px;
   width: 246px;
@@ -3621,46 +3674,53 @@ section#insights h1 {
 }
 #foodometer #calories span,
 #foodScreen #calories span,
-#activityScreen #calories span {
+#activityScreen #calories span,
+#busyBody #calories span {
   width: 110px;
   display: inline-block;
   padding: 5px 0px;
 }
 #foodometer #calories span#remaining,
 #foodScreen #calories span#remaining,
-#activityScreen #calories span#remaining {
+#activityScreen #calories span#remaining,
+#busyBody #calories span#remaining {
   font: normal 14px "Avenir Next Medium", Helvetica, Arial, sans-serif;
 }
 #foodometer #calories span#remainingNum,
 #foodScreen #calories span#remainingNum,
-#activityScreen #calories span#remainingNum {
+#activityScreen #calories span#remainingNum,
+#busyBody #calories span#remainingNum {
   text-align: right;
   font: normal 14px "Avenir Next Medium", Helvetica, Arial, sans-serif;
 }
 #foodometer #calories span#goalNum,
 #foodScreen #calories span#goalNum,
-#activityScreen #calories span#goalNum {
+#activityScreen #calories span#goalNum,
+#busyBody #calories span#goalNum {
   text-align: right;
   color: #676767;
   font: normal 13px "Avenir Next Medium", Helvetica, Arial, sans-serif;
 }
 #foodometer #calories span#currentNum,
 #foodScreen #calories span#currentNum,
-#activityScreen #calories span#currentNum {
+#activityScreen #calories span#currentNum,
+#busyBody #calories span#currentNum {
   text-align: right;
   color: #676767;
   font: normal 16px "Avenir Next Medium", Helvetica, Arial, sans-serif;
 }
 #foodometer #meals,
 #foodScreen #meals,
-#activityScreen #meals {
+#activityScreen #meals,
+#busyBody #meals {
   margin-left: 5px;
   font: normal 18px "Avenir Next Medium", Helvetica, Arial, sans-serif;
   color: #1a1a1a;
 }
 #foodometer #meals .meal,
 #foodScreen #meals .meal,
-#activityScreen #meals .meal {
+#activityScreen #meals .meal,
+#busyBody #meals .meal {
   display: block;
   height: 60px;
   width: 270px;
@@ -3670,26 +3730,30 @@ section#insights h1 {
 }
 #foodometer #meals .meal img,
 #foodScreen #meals .meal img,
-#activityScreen #meals .meal img {
+#activityScreen #meals .meal img,
+#busyBody #meals .meal img {
   margin-right: 10px;
   vertical-align: middle;
 }
 #foodometer #meals .meal span,
 #foodScreen #meals .meal span,
-#activityScreen #meals .meal span {
+#activityScreen #meals .meal span,
+#busyBody #meals .meal span {
   position: absolute;
   left: 85px;
 }
 #foodometer #meals .meal.selected,
 #foodScreen #meals .meal.selected,
-#activityScreen #meals .meal.selected {
+#activityScreen #meals .meal.selected,
+#busyBody #meals .meal.selected {
   background: url('../img/food/bu-yellow-arrow-right.png') no-repeat;
   background-size: 270px;
   background-position: 0px 5px;
 }
 #foodometer #filterView,
 #foodScreen #filterView,
-#activityScreen #filterView {
+#activityScreen #filterView,
+#busyBody #filterView {
   z-index: 10;
   left: 165px;
   top: 175px;
@@ -3697,7 +3761,8 @@ section#insights h1 {
 }
 #foodometer #filterView #body,
 #foodScreen #filterView #body,
-#activityScreen #filterView #body {
+#activityScreen #filterView #body,
+#busyBody #filterView #body {
   background-color: #ffffff;
   border-radius: 5px;
   margin: 0px;
@@ -3706,7 +3771,8 @@ section#insights h1 {
 }
 #foodometer #filterView #body #picker,
 #foodScreen #filterView #body #picker,
-#activityScreen #filterView #body #picker {
+#activityScreen #filterView #body #picker,
+#busyBody #filterView #body #picker {
   border: 1px solid #cdcdcd;
   border-radius: 5px;
   background-image: linear-gradient(bottom, #ababab 0%, #ebebeb 85%);
@@ -3716,24 +3782,29 @@ section#insights h1 {
 #foodometer #filterView #body #picker #back,
 #foodScreen #filterView #body #picker #back,
 #activityScreen #filterView #body #picker #back,
+#busyBody #filterView #body #picker #back,
 #foodometer #filterView #body #picker #forward,
 #foodScreen #filterView #body #picker #forward,
-#activityScreen #filterView #body #picker #forward {
+#activityScreen #filterView #body #picker #forward,
+#busyBody #filterView #body #picker #forward {
   padding: 5px;
   text-align: center;
 }
 #foodometer #filterView #body #picker #back img,
 #foodScreen #filterView #body #picker #back img,
 #activityScreen #filterView #body #picker #back img,
+#busyBody #filterView #body #picker #back img,
 #foodometer #filterView #body #picker #forward img,
 #foodScreen #filterView #body #picker #forward img,
-#activityScreen #filterView #body #picker #forward img {
+#activityScreen #filterView #body #picker #forward img,
+#busyBody #filterView #body #picker #forward img {
   height: 20px;
   padding: 5px;
 }
 #foodometer #filterView #body #picker #month,
 #foodScreen #filterView #body #picker #month,
-#activityScreen #filterView #body #picker #month {
+#activityScreen #filterView #body #picker #month,
+#busyBody #filterView #body #picker #month {
   background-image: linear-gradient(bottom, #343434 0%, #cdcdcd 85%);
   background-image: -webkit-linear-gradient(bottom, #343434 0%, #cdcdcd 85%);
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #343434), color-stop(0.85, #cdcdcd));
@@ -3749,33 +3820,38 @@ section#insights h1 {
 }
 #foodometer #filterView:before,
 #foodScreen #filterView:before,
-#activityScreen #filterView:before {
+#activityScreen #filterView:before,
+#busyBody #filterView:before {
   right: 95px;
 }
 #foodometer #mealContainer,
 #foodScreen #mealContainer,
-#activityScreen #mealContainer {
+#activityScreen #mealContainer,
+#busyBody #mealContainer {
   display: none;
   padding: 20px;
   font: normal 14px "Avenir Next", Helvetica, Arial, sans-serif;
 }
 #foodometer #mealContainer h3,
 #foodScreen #mealContainer h3,
-#activityScreen #mealContainer h3 {
+#activityScreen #mealContainer h3,
+#busyBody #mealContainer h3 {
   color: #000000;
   display: inline-block;
   font: bold 18px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
 }
 #foodometer #mealContainer h3 #calCount,
 #foodScreen #mealContainer h3 #calCount,
-#activityScreen #mealContainer h3 #calCount {
+#activityScreen #mealContainer h3 #calCount,
+#busyBody #mealContainer h3 #calCount {
   color: #676767;
   display: block;
   font: bold 12px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
 }
 #foodometer #mealContainer .btn,
 #foodScreen #mealContainer .btn,
-#activityScreen #mealContainer .btn {
+#activityScreen #mealContainer .btn,
+#busyBody #mealContainer .btn {
   float: right;
   background: url("../img/food/bu-share-gradient.png");
   border: none;
@@ -3788,38 +3864,45 @@ section#insights h1 {
 }
 #foodometer #mealContainer .btn img,
 #foodScreen #mealContainer .btn img,
-#activityScreen #mealContainer .btn img {
+#activityScreen #mealContainer .btn img,
+#busyBody #mealContainer .btn img {
   vertical-align: middle;
   padding-right: 5px;
 }
 #foodometer #mealContainer .btn:active,
 #foodScreen #mealContainer .btn:active,
 #activityScreen #mealContainer .btn:active,
+#busyBody #mealContainer .btn:active,
 #foodometer #mealContainer .btn.selected,
 #foodScreen #mealContainer .btn.selected,
-#activityScreen #mealContainer .btn.selected {
+#activityScreen #mealContainer .btn.selected,
+#busyBody #mealContainer .btn.selected {
   background: url("../img/food/bu-yellow-gradient.png");
 }
 #foodometer #mealContainer #share,
 #foodScreen #mealContainer #share,
-#activityScreen #mealContainer #share {
+#activityScreen #mealContainer #share,
+#busyBody #mealContainer #share {
   padding: 9px;
 }
 #foodometer #mealContainer #add,
 #foodScreen #mealContainer #add,
-#activityScreen #mealContainer #add {
+#activityScreen #mealContainer #add,
+#busyBody #mealContainer #add {
   padding: 5px;
 }
 #foodometer #mealContainer #foodList,
 #foodScreen #mealContainer #foodList,
-#activityScreen #mealContainer #foodList {
+#activityScreen #mealContainer #foodList,
+#busyBody #mealContainer #foodList {
   padding: 0px;
   min-height: 60px;
   box-shadow: 0px 2px 2px #ababab;
 }
 #foodometer #mealContainer .box,
 #foodScreen #mealContainer .box,
-#activityScreen #mealContainer .box {
+#activityScreen #mealContainer .box,
+#busyBody #mealContainer .box {
   background-color: #ffffff;
   border-radius: 8px;
   margin: 20px 5px;
@@ -3828,20 +3911,23 @@ section#insights h1 {
 }
 #foodometer #mealContainer .box .boxHeader,
 #foodScreen #mealContainer .box .boxHeader,
-#activityScreen #mealContainer .box .boxHeader {
+#activityScreen #mealContainer .box .boxHeader,
+#busyBody #mealContainer .box .boxHeader {
   background-color: #e6e6e6;
   border-radius: 5px 5px 0 0;
   padding: 5px 10px;
 }
 #foodometer #mealContainer .box .boxEntry,
 #foodScreen #mealContainer .box .boxEntry,
-#activityScreen #mealContainer .box .boxEntry {
+#activityScreen #mealContainer .box .boxEntry,
+#busyBody #mealContainer .box .boxEntry {
   padding: 15px 10px;
   border-bottom: 2px solid #e6e6e6;
 }
 #foodometer #mealContainer .box .boxEntry #name,
 #foodScreen #mealContainer .box .boxEntry #name,
-#activityScreen #mealContainer .box .boxEntry #name {
+#activityScreen #mealContainer .box .boxEntry #name,
+#busyBody #mealContainer .box .boxEntry #name {
   display: inline-block;
   width: 170px;
   max-width: 170px;
@@ -3850,22 +3936,26 @@ section#insights h1 {
 }
 #foodometer #mealContainer .box .boxEntry:after,
 #foodScreen #mealContainer .box .boxEntry:after,
-#activityScreen #mealContainer .box .boxEntry:after {
+#activityScreen #mealContainer .box .boxEntry:after,
+#busyBody #mealContainer .box .boxEntry:after {
   content: url('../img/icons/smallArrow.png');
   float: right;
   clear: right;
 }
 #foodometer #mealContainer .box .boxEntry:last-child,
 #foodScreen #mealContainer .box .boxEntry:last-child,
-#activityScreen #mealContainer .box .boxEntry:last-child {
+#activityScreen #mealContainer .box .boxEntry:last-child,
+#busyBody #mealContainer .box .boxEntry:last-child {
   border-bottom: none;
 }
 #foodometer #mealContainer .box #about,
 #foodScreen #mealContainer .box #about,
 #activityScreen #mealContainer .box #about,
+#busyBody #mealContainer .box #about,
 #foodometer #mealContainer .box label,
 #foodScreen #mealContainer .box label,
-#activityScreen #mealContainer .box label {
+#activityScreen #mealContainer .box label,
+#busyBody #mealContainer .box label {
   font: normal 12px "Avenir Next", Helvetica, Arial, sans-serif;
   color: #676767;
   margin-left: 10px;
@@ -3876,12 +3966,14 @@ section#insights h1 {
 }
 #foodometer #mealContainer .box label,
 #foodScreen #mealContainer .box label,
-#activityScreen #mealContainer .box label {
+#activityScreen #mealContainer .box label,
+#busyBody #mealContainer .box label {
   padding-top: 5px;
 }
 #foodometer #mealContainer .box input,
 #foodScreen #mealContainer .box input,
-#activityScreen #mealContainer .box input {
+#activityScreen #mealContainer .box input,
+#busyBody #mealContainer .box input {
   border: none;
   box-shadow: none;
   width: 50%;
@@ -3889,7 +3981,8 @@ section#insights h1 {
 }
 #foodometer #mealContainer .box textarea,
 #foodScreen #mealContainer .box textarea,
-#activityScreen #mealContainer .box textarea {
+#activityScreen #mealContainer .box textarea,
+#busyBody #mealContainer .box textarea {
   display: block;
   width: 100%;
   padding: 10px;
@@ -3899,9 +3992,11 @@ section#insights h1 {
 #foodometer #nutrition,
 #foodScreen #nutrition,
 #activityScreen #nutrition,
+#busyBody #nutrition,
 #foodometer #mealContainer #nutrition,
 #foodScreen #mealContainer #nutrition,
-#activityScreen #mealContainer #nutrition {
+#activityScreen #mealContainer #nutrition,
+#busyBody #mealContainer #nutrition {
   height: 55px;
   padding: 2px 10px;
   box-shadow: 0px 2px 2px #ababab;
@@ -3909,9 +4004,11 @@ section#insights h1 {
 #foodometer #nutrition h2,
 #foodScreen #nutrition h2,
 #activityScreen #nutrition h2,
+#busyBody #nutrition h2,
 #foodometer #mealContainer #nutrition h2,
 #foodScreen #mealContainer #nutrition h2,
-#activityScreen #mealContainer #nutrition h2 {
+#activityScreen #mealContainer #nutrition h2,
+#busyBody #mealContainer #nutrition h2 {
   margin-bottom: 0px;
   font: bold 20px "Avenir Next", Helvetica, Arial, sans-serif;
   color: #343434;
@@ -3919,16 +4016,19 @@ section#insights h1 {
 #foodometer #nutrition h2:after,
 #foodScreen #nutrition h2:after,
 #activityScreen #nutrition h2:after,
+#busyBody #nutrition h2:after,
 #foodometer #mealContainer #nutrition h2:after,
 #foodScreen #mealContainer #nutrition h2:after,
-#activityScreen #mealContainer #nutrition h2:after {
+#activityScreen #mealContainer #nutrition h2:after,
+#busyBody #mealContainer #nutrition h2:after {
   content: url('../img/icons/smallArrow.png');
   float: right;
   clear: right;
 }
 #foodometer #addFoodPopup,
 #foodScreen #addFoodPopup,
-#activityScreen #addFoodPopup {
+#activityScreen #addFoodPopup,
+#busyBody #addFoodPopup {
   display: none;
   position: absolute;
   right: 8%;
@@ -3938,7 +4038,8 @@ section#insights h1 {
 }
 #foodometer #addFoodPopup .btn,
 #foodScreen #addFoodPopup .btn,
-#activityScreen #addFoodPopup .btn {
+#activityScreen #addFoodPopup .btn,
+#busyBody #addFoodPopup .btn {
   display: block;
   width: 97%;
   padding: 10px;
@@ -3948,7 +4049,8 @@ section#insights h1 {
 }
 #foodometer #addFoodPopup:before,
 #foodScreen #addFoodPopup:before,
-#activityScreen #addFoodPopup:before {
+#activityScreen #addFoodPopup:before,
+#busyBody #addFoodPopup:before {
   border-bottom: 15px solid #6b6b6b;
   border-right: 20px solid transparent;
   border-left: 20px solid transparent;
@@ -3959,7 +4061,8 @@ section#insights h1 {
 }
 #foodometer #nutritionSection,
 #foodScreen #nutritionSection,
-#activityScreen #nutritionSection {
+#activityScreen #nutritionSection,
+#busyBody #nutritionSection {
   display: none;
   width: 90%;
   margin-left: auto;
@@ -3967,7 +4070,8 @@ section#insights h1 {
 }
 #foodometer #nutritionSection .box,
 #foodScreen #nutritionSection .box,
-#activityScreen #nutritionSection .box {
+#activityScreen #nutritionSection .box,
+#busyBody #nutritionSection .box {
   background-color: #ffffff;
   border-radius: 8px;
   box-shadow: 1px 2px 5px #676767, inset -1px 1px 1px #ffffff;
@@ -3976,57 +4080,68 @@ section#insights h1 {
 }
 #foodometer #nutritionSection .box .first,
 #foodScreen #nutritionSection .box .first,
-#activityScreen #nutritionSection .box .first {
+#activityScreen #nutritionSection .box .first,
+#busyBody #nutritionSection .box .first {
   display: inline-block;
   width: 51%;
 }
 #foodometer #nutritionSection .box .second,
 #foodScreen #nutritionSection .box .second,
 #activityScreen #nutritionSection .box .second,
+#busyBody #nutritionSection .box .second,
 #foodometer #nutritionSection .box .third,
 #foodScreen #nutritionSection .box .third,
 #activityScreen #nutritionSection .box .third,
+#busyBody #nutritionSection .box .third,
 #foodometer #nutritionSection .box #amount,
 #foodScreen #nutritionSection .box #amount,
 #activityScreen #nutritionSection .box #amount,
+#busyBody #nutritionSection .box #amount,
 #foodometer #nutritionSection .box #rda,
 #foodScreen #nutritionSection .box #rda,
-#activityScreen #nutritionSection .box #rda {
+#activityScreen #nutritionSection .box #rda,
+#busyBody #nutritionSection .box #rda {
   display: inline-block;
   width: 23%;
   color: #a8a8a8;
 }
 #foodometer #nutritionSection .box .boxHeader,
 #foodScreen #nutritionSection .box .boxHeader,
-#activityScreen #nutritionSection .box .boxHeader {
+#activityScreen #nutritionSection .box .boxHeader,
+#busyBody #nutritionSection .box .boxHeader {
   background-color: #ebebeb;
   border-radius: 5px 5px 0 0;
   padding: 5px 10px;
 }
 #foodometer #nutritionSection .box .boxHeader .first,
 #foodScreen #nutritionSection .box .boxHeader .first,
-#activityScreen #nutritionSection .box .boxHeader .first {
+#activityScreen #nutritionSection .box .boxHeader .first,
+#busyBody #nutritionSection .box .boxHeader .first {
   font: bold 18px "Avenir Next", Helvetica, Arial, sans-serif;
 }
 #foodometer #nutritionSection .box .boxHeader .second,
 #foodScreen #nutritionSection .box .boxHeader .second,
 #activityScreen #nutritionSection .box .boxHeader .second,
+#busyBody #nutritionSection .box .boxHeader .second,
 #foodometer #nutritionSection .box .boxHeader .third,
 #foodScreen #nutritionSection .box .boxHeader .third,
-#activityScreen #nutritionSection .box .boxHeader .third {
+#activityScreen #nutritionSection .box .boxHeader .third,
+#busyBody #nutritionSection .box .boxHeader .third {
   font: bold 14px "Avenir Next", Helvetica, Arial, sans-serif;
   color: #fa9100;
 }
 #foodometer #nutritionSection .box .boxEntry,
 #foodScreen #nutritionSection .box .boxEntry,
-#activityScreen #nutritionSection .box .boxEntry {
+#activityScreen #nutritionSection .box .boxEntry,
+#busyBody #nutritionSection .box .boxEntry {
   padding: 15px 10px;
   border-bottom: 2px solid #e6e6e6;
   font: normal 14px "Avenir Next", Helvetica, Arial, sans-serif;
 }
 #foodometer #nutritionSection .box .boxEntry #name,
 #foodScreen #nutritionSection .box .boxEntry #name,
-#activityScreen #nutritionSection .box .boxEntry #name {
+#activityScreen #nutritionSection .box .boxEntry #name,
+#busyBody #nutritionSection .box .boxEntry #name {
   display: inline-block;
   width: 51%;
   white-space: nowrap;
@@ -4036,12 +4151,18 @@ section#insights h1 {
 }
 #foodometer #nutritionSection .box .boxEntry:last-child,
 #foodScreen #nutritionSection .box .boxEntry:last-child,
-#activityScreen #nutritionSection .box .boxEntry:last-child {
+#activityScreen #nutritionSection .box .boxEntry:last-child,
+#busyBody #nutritionSection .box .boxEntry:last-child {
   border-bottom: none;
 }
 #foodometer #foodItemScreen,
 #foodScreen #foodItemScreen,
-#activityScreen #foodItemScreen {
+#activityScreen #foodItemScreen,
+#busyBody #foodItemScreen,
+#foodometer #activityItemScreen,
+#foodScreen #activityItemScreen,
+#activityScreen #activityItemScreen,
+#busyBody #activityItemScreen {
   text-align: center;
   background: #E6E6E6;
   margin: 10px;
@@ -4049,12 +4170,30 @@ section#insights h1 {
 }
 #foodometer #foodItemScreen #top,
 #foodScreen #foodItemScreen #top,
-#activityScreen #foodItemScreen #top {
+#activityScreen #foodItemScreen #top,
+#busyBody #foodItemScreen #top,
+#foodometer #activityItemScreen #top,
+#foodScreen #activityItemScreen #top,
+#activityScreen #activityItemScreen #top,
+#busyBody #activityItemScreen #top {
   text-align: center;
 }
 #foodometer #foodItemScreen #cancelFood,
 #foodScreen #foodItemScreen #cancelFood,
-#activityScreen #foodItemScreen #cancelFood {
+#activityScreen #foodItemScreen #cancelFood,
+#busyBody #foodItemScreen #cancelFood,
+#foodometer #activityItemScreen #cancelFood,
+#foodScreen #activityItemScreen #cancelFood,
+#activityScreen #activityItemScreen #cancelFood,
+#busyBody #activityItemScreen #cancelFood,
+#foodometer #foodItemScreen #cancelActivity,
+#foodScreen #foodItemScreen #cancelActivity,
+#activityScreen #foodItemScreen #cancelActivity,
+#busyBody #foodItemScreen #cancelActivity,
+#foodometer #activityItemScreen #cancelActivity,
+#foodScreen #activityItemScreen #cancelActivity,
+#activityScreen #activityItemScreen #cancelActivity,
+#busyBody #activityItemScreen #cancelActivity {
   float: left;
   background-image: url('../img/food/bu-with-arrow-left.png');
   display: inline-block;
@@ -4063,18 +4202,49 @@ section#insights h1 {
 }
 #foodometer #foodItemScreen img,
 #foodScreen #foodItemScreen img,
-#activityScreen #foodItemScreen img {
+#activityScreen #foodItemScreen img,
+#busyBody #foodItemScreen img,
+#foodometer #activityItemScreen img,
+#foodScreen #activityItemScreen img,
+#activityScreen #activityItemScreen img,
+#busyBody #activityItemScreen img {
   margin-top: 14px;
   float: left;
 }
 #foodometer #foodItemScreen #foodFavBtn,
 #foodScreen #foodItemScreen #foodFavBtn,
-#activityScreen #foodItemScreen #foodFavBtn {
+#activityScreen #foodItemScreen #foodFavBtn,
+#busyBody #foodItemScreen #foodFavBtn,
+#foodometer #activityItemScreen #foodFavBtn,
+#foodScreen #activityItemScreen #foodFavBtn,
+#activityScreen #activityItemScreen #foodFavBtn,
+#busyBody #activityItemScreen #foodFavBtn,
+#foodometer #foodItemScreen #activityFavBtn,
+#foodScreen #foodItemScreen #activityFavBtn,
+#activityScreen #foodItemScreen #activityFavBtn,
+#busyBody #foodItemScreen #activityFavBtn,
+#foodometer #activityItemScreen #activityFavBtn,
+#foodScreen #activityItemScreen #activityFavBtn,
+#activityScreen #activityItemScreen #activityFavBtn,
+#busyBody #activityItemScreen #activityFavBtn {
   display: none;
 }
 #foodometer #foodItemScreen #foodName,
 #foodScreen #foodItemScreen #foodName,
-#activityScreen #foodItemScreen #foodName {
+#activityScreen #foodItemScreen #foodName,
+#busyBody #foodItemScreen #foodName,
+#foodometer #activityItemScreen #foodName,
+#foodScreen #activityItemScreen #foodName,
+#activityScreen #activityItemScreen #foodName,
+#busyBody #activityItemScreen #foodName,
+#foodometer #foodItemScreen #activityName,
+#foodScreen #foodItemScreen #activityName,
+#activityScreen #foodItemScreen #activityName,
+#busyBody #foodItemScreen #activityName,
+#foodometer #activityItemScreen #activityName,
+#foodScreen #activityItemScreen #activityName,
+#activityScreen #activityItemScreen #activityName,
+#busyBody #activityItemScreen #activityName {
   color: #000000;
   display: inline-block;
   font: bold 16px "Avenir Next", Helvetica, Arial, sans-serif;
@@ -4084,7 +4254,12 @@ section#insights h1 {
 }
 #foodometer #foodItemScreen .box.inputs,
 #foodScreen #foodItemScreen .box.inputs,
-#activityScreen #foodItemScreen .box.inputs {
+#activityScreen #foodItemScreen .box.inputs,
+#busyBody #foodItemScreen .box.inputs,
+#foodometer #activityItemScreen .box.inputs,
+#foodScreen #activityItemScreen .box.inputs,
+#activityScreen #activityItemScreen .box.inputs,
+#busyBody #activityItemScreen .box.inputs {
   background-color: #ffffff;
   border-radius: 8px;
   box-shadow: 1px 2px 5px #676767, inset -1px 1px 1px #ffffff;
@@ -4095,39 +4270,74 @@ section#insights h1 {
 }
 #foodometer #foodItemScreen .box.inputs label,
 #foodScreen #foodItemScreen .box.inputs label,
-#activityScreen #foodItemScreen .box.inputs label {
+#activityScreen #foodItemScreen .box.inputs label,
+#busyBody #foodItemScreen .box.inputs label,
+#foodometer #activityItemScreen .box.inputs label,
+#foodScreen #activityItemScreen .box.inputs label,
+#activityScreen #activityItemScreen .box.inputs label,
+#busyBody #activityItemScreen .box.inputs label {
   float: left;
 }
 #foodometer #foodItemScreen .box.inputs.servings,
 #foodScreen #foodItemScreen .box.inputs.servings,
-#activityScreen #foodItemScreen .box.inputs.servings {
+#activityScreen #foodItemScreen .box.inputs.servings,
+#busyBody #foodItemScreen .box.inputs.servings,
+#foodometer #activityItemScreen .box.inputs.servings,
+#foodScreen #activityItemScreen .box.inputs.servings,
+#activityScreen #activityItemScreen .box.inputs.servings,
+#busyBody #activityItemScreen .box.inputs.servings {
   width: 45%;
 }
 #foodometer #foodItemScreen .box.inputs.size,
 #foodScreen #foodItemScreen .box.inputs.size,
-#activityScreen #foodItemScreen .box.inputs.size {
+#activityScreen #foodItemScreen .box.inputs.size,
+#busyBody #foodItemScreen .box.inputs.size,
+#foodometer #activityItemScreen .box.inputs.size,
+#foodScreen #activityItemScreen .box.inputs.size,
+#activityScreen #activityItemScreen .box.inputs.size,
+#busyBody #activityItemScreen .box.inputs.size {
   width: 45%;
 }
 #foodometer #foodItemScreen .box.inputs.notes,
 #foodScreen #foodItemScreen .box.inputs.notes,
-#activityScreen #foodItemScreen .box.inputs.notes {
+#activityScreen #foodItemScreen .box.inputs.notes,
+#busyBody #foodItemScreen .box.inputs.notes,
+#foodometer #activityItemScreen .box.inputs.notes,
+#foodScreen #activityItemScreen .box.inputs.notes,
+#activityScreen #activityItemScreen .box.inputs.notes,
+#busyBody #activityItemScreen .box.inputs.notes {
   width: 92%;
 }
 #foodometer #foodItemScreen .box.inputs label,
 #foodScreen #foodItemScreen .box.inputs label,
-#activityScreen #foodItemScreen .box.inputs label {
+#activityScreen #foodItemScreen .box.inputs label,
+#busyBody #foodItemScreen .box.inputs label,
+#foodometer #activityItemScreen .box.inputs label,
+#foodScreen #activityItemScreen .box.inputs label,
+#activityScreen #activityItemScreen .box.inputs label,
+#busyBody #activityItemScreen .box.inputs label {
   font: normal 12px "Avenir Next", Helvetica, Arial, sans-serif;
   color: #676767;
   margin-left: 10px;
 }
 #foodometer #foodItemScreen .box.inputs label,
 #foodScreen #foodItemScreen .box.inputs label,
-#activityScreen #foodItemScreen .box.inputs label {
+#activityScreen #foodItemScreen .box.inputs label,
+#busyBody #foodItemScreen .box.inputs label,
+#foodometer #activityItemScreen .box.inputs label,
+#foodScreen #activityItemScreen .box.inputs label,
+#activityScreen #activityItemScreen .box.inputs label,
+#busyBody #activityItemScreen .box.inputs label {
   padding-top: 5px;
 }
 #foodometer #foodItemScreen .box.inputs input,
 #foodScreen #foodItemScreen .box.inputs input,
-#activityScreen #foodItemScreen .box.inputs input {
+#activityScreen #foodItemScreen .box.inputs input,
+#busyBody #foodItemScreen .box.inputs input,
+#foodometer #activityItemScreen .box.inputs input,
+#foodScreen #activityItemScreen .box.inputs input,
+#activityScreen #activityItemScreen .box.inputs input,
+#busyBody #activityItemScreen .box.inputs input {
   border: none;
   box-shadow: none;
   width: 56%;
@@ -4135,29 +4345,127 @@ section#insights h1 {
 }
 #foodometer #foodItemScreen .box.inputs input#serving,
 #foodScreen #foodItemScreen .box.inputs input#serving,
-#activityScreen #foodItemScreen .box.inputs input#serving {
+#activityScreen #foodItemScreen .box.inputs input#serving,
+#busyBody #foodItemScreen .box.inputs input#serving,
+#foodometer #activityItemScreen .box.inputs input#serving,
+#foodScreen #activityItemScreen .box.inputs input#serving,
+#activityScreen #activityItemScreen .box.inputs input#serving,
+#busyBody #activityItemScreen .box.inputs input#serving {
   width: 30%;
 }
 #foodometer #foodItemScreen .box.inputs textarea,
 #foodScreen #foodItemScreen .box.inputs textarea,
-#activityScreen #foodItemScreen .box.inputs textarea {
+#activityScreen #foodItemScreen .box.inputs textarea,
+#busyBody #foodItemScreen .box.inputs textarea,
+#foodometer #activityItemScreen .box.inputs textarea,
+#foodScreen #activityItemScreen .box.inputs textarea,
+#activityScreen #activityItemScreen .box.inputs textarea,
+#busyBody #activityItemScreen .box.inputs textarea {
   display: block;
   width: 100%;
   padding: 10px;
   border: none;
   background: none;
 }
+#foodometer #foodItemScreen #stopWatch,
+#foodScreen #foodItemScreen #stopWatch,
+#activityScreen #foodItemScreen #stopWatch,
+#busyBody #foodItemScreen #stopWatch,
+#foodometer #activityItemScreen #stopWatch,
+#foodScreen #activityItemScreen #stopWatch,
+#activityScreen #activityItemScreen #stopWatch,
+#busyBody #activityItemScreen #stopWatch {
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  color: #000000;
+}
+#foodometer #foodItemScreen #stopWatch img,
+#foodScreen #foodItemScreen #stopWatch img,
+#activityScreen #foodItemScreen #stopWatch img,
+#busyBody #foodItemScreen #stopWatch img,
+#foodometer #activityItemScreen #stopWatch img,
+#foodScreen #activityItemScreen #stopWatch img,
+#activityScreen #activityItemScreen #stopWatch img,
+#busyBody #activityItemScreen #stopWatch img {
+  margin-top: 5px;
+}
+#foodometer #foodItemScreen #stopWatch #time,
+#foodScreen #foodItemScreen #stopWatch #time,
+#activityScreen #foodItemScreen #stopWatch #time,
+#busyBody #foodItemScreen #stopWatch #time,
+#foodometer #activityItemScreen #stopWatch #time,
+#foodScreen #activityItemScreen #stopWatch #time,
+#activityScreen #activityItemScreen #stopWatch #time,
+#busyBody #activityItemScreen #stopWatch #time {
+  font: bold 48px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
+}
+#foodometer #foodItemScreen #stopWatch li,
+#foodScreen #foodItemScreen #stopWatch li,
+#activityScreen #foodItemScreen #stopWatch li,
+#busyBody #foodItemScreen #stopWatch li,
+#foodometer #activityItemScreen #stopWatch li,
+#foodScreen #activityItemScreen #stopWatch li,
+#activityScreen #activityItemScreen #stopWatch li,
+#busyBody #activityItemScreen #stopWatch li {
+  width: 100px;
+  padding-top: 7px;
+  height: 30px;
+  background: url("../img/food/bu-share-gradient.png");
+  border: none;
+  margin: 15px 10px 15px 0px;
+  box-shadow: 0px 1px 6px -1px;
+  color: #000000;
+  font: bold 13px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
+}
+#foodometer #foodItemScreen #stopWatch li:active,
+#foodScreen #foodItemScreen #stopWatch li:active,
+#activityScreen #foodItemScreen #stopWatch li:active,
+#busyBody #foodItemScreen #stopWatch li:active,
+#foodometer #activityItemScreen #stopWatch li:active,
+#foodScreen #activityItemScreen #stopWatch li:active,
+#activityScreen #activityItemScreen #stopWatch li:active,
+#busyBody #activityItemScreen #stopWatch li:active {
+  background: none;
+  box-shadow: 0px 0px 0px 1px;
+}
+#foodometer #foodItemScreen #stopWatch p,
+#foodScreen #foodItemScreen #stopWatch p,
+#activityScreen #foodItemScreen #stopWatch p,
+#busyBody #foodItemScreen #stopWatch p,
+#foodometer #activityItemScreen #stopWatch p,
+#foodScreen #activityItemScreen #stopWatch p,
+#activityScreen #activityItemScreen #stopWatch p,
+#busyBody #activityItemScreen #stopWatch p {
+  white-space: nowrap;
+  margin-left: -20px;
+}
 #foodometer #foodItemScreen #details,
 #foodScreen #foodItemScreen #details,
-#activityScreen #foodItemScreen #details {
+#activityScreen #foodItemScreen #details,
+#busyBody #foodItemScreen #details,
+#foodometer #activityItemScreen #details,
+#foodScreen #activityItemScreen #details,
+#activityScreen #activityItemScreen #details,
+#busyBody #activityItemScreen #details {
   padding-bottom: 70px;
 }
 #foodometer #foodItemScreen #editItem,
 #foodScreen #foodItemScreen #editItem,
 #activityScreen #foodItemScreen #editItem,
+#busyBody #foodItemScreen #editItem,
+#foodometer #activityItemScreen #editItem,
+#foodScreen #activityItemScreen #editItem,
+#activityScreen #activityItemScreen #editItem,
+#busyBody #activityItemScreen #editItem,
 #foodometer #foodItemScreen #deleteItem,
 #foodScreen #foodItemScreen #deleteItem,
-#activityScreen #foodItemScreen #deleteItem {
+#activityScreen #foodItemScreen #deleteItem,
+#busyBody #foodItemScreen #deleteItem,
+#foodometer #activityItemScreen #deleteItem,
+#foodScreen #activityItemScreen #deleteItem,
+#activityScreen #activityItemScreen #deleteItem,
+#busyBody #activityItemScreen #deleteItem {
   display: inline-block;
   background: none;
   background-color: #fee5b8;
@@ -4168,30 +4476,64 @@ section#insights h1 {
 #foodometer #foodItemScreen #editItem:active,
 #foodScreen #foodItemScreen #editItem:active,
 #activityScreen #foodItemScreen #editItem:active,
+#busyBody #foodItemScreen #editItem:active,
+#foodometer #activityItemScreen #editItem:active,
+#foodScreen #activityItemScreen #editItem:active,
+#activityScreen #activityItemScreen #editItem:active,
+#busyBody #activityItemScreen #editItem:active,
 #foodometer #foodItemScreen #deleteItem:active,
 #foodScreen #foodItemScreen #deleteItem:active,
-#activityScreen #foodItemScreen #deleteItem:active {
+#activityScreen #foodItemScreen #deleteItem:active,
+#busyBody #foodItemScreen #deleteItem:active,
+#foodometer #activityItemScreen #deleteItem:active,
+#foodScreen #activityItemScreen #deleteItem:active,
+#activityScreen #activityItemScreen #deleteItem:active,
+#busyBody #activityItemScreen #deleteItem:active {
   background-color: #fee999;
 }
 #foodometer #foodItemScreen #editItem,
 #foodScreen #foodItemScreen #editItem,
-#activityScreen #foodItemScreen #editItem {
+#activityScreen #foodItemScreen #editItem,
+#busyBody #foodItemScreen #editItem,
+#foodometer #activityItemScreen #editItem,
+#foodScreen #activityItemScreen #editItem,
+#activityScreen #activityItemScreen #editItem,
+#busyBody #activityItemScreen #editItem {
   float: right;
 }
 #foodometer #foodItemScreen #deleteItem,
 #foodScreen #foodItemScreen #deleteItem,
-#activityScreen #foodItemScreen #deleteItem {
+#activityScreen #foodItemScreen #deleteItem,
+#busyBody #foodItemScreen #deleteItem,
+#foodometer #activityItemScreen #deleteItem,
+#foodScreen #activityItemScreen #deleteItem,
+#activityScreen #activityItemScreen #deleteItem,
+#busyBody #activityItemScreen #deleteItem {
   float: left;
   background-color: #a6a6a6;
 }
 #foodometer #foodItemScreen #saveToMeal,
 #foodScreen #foodItemScreen #saveToMeal,
-#activityScreen #foodItemScreen #saveToMeal {
+#activityScreen #foodItemScreen #saveToMeal,
+#busyBody #foodItemScreen #saveToMeal,
+#foodometer #activityItemScreen #saveToMeal,
+#foodScreen #activityItemScreen #saveToMeal,
+#activityScreen #activityItemScreen #saveToMeal,
+#busyBody #activityItemScreen #saveToMeal,
+#foodometer #foodItemScreen #saveToTime,
+#foodScreen #foodItemScreen #saveToTime,
+#activityScreen #foodItemScreen #saveToTime,
+#busyBody #foodItemScreen #saveToTime,
+#foodometer #activityItemScreen #saveToTime,
+#foodScreen #activityItemScreen #saveToTime,
+#activityScreen #activityItemScreen #saveToTime,
+#busyBody #activityItemScreen #saveToTime {
   display: none;
 }
 #foodometer #nutritionInfo.box,
 #foodScreen #nutritionInfo.box,
-#activityScreen #nutritionInfo.box {
+#activityScreen #nutritionInfo.box,
+#busyBody #nutritionInfo.box {
   background-color: #ffffff;
   border-radius: 8px;
   box-shadow: 1px 2px 5px #676767, inset -1px 1px 1px #ffffff;
@@ -4204,57 +4546,68 @@ section#insights h1 {
 }
 #foodometer #nutritionInfo.box .first,
 #foodScreen #nutritionInfo.box .first,
-#activityScreen #nutritionInfo.box .first {
+#activityScreen #nutritionInfo.box .first,
+#busyBody #nutritionInfo.box .first {
   display: inline-block;
   width: 51%;
 }
 #foodometer #nutritionInfo.box .second,
 #foodScreen #nutritionInfo.box .second,
 #activityScreen #nutritionInfo.box .second,
+#busyBody #nutritionInfo.box .second,
 #foodometer #nutritionInfo.box .third,
 #foodScreen #nutritionInfo.box .third,
 #activityScreen #nutritionInfo.box .third,
+#busyBody #nutritionInfo.box .third,
 #foodometer #nutritionInfo.box #amount,
 #foodScreen #nutritionInfo.box #amount,
 #activityScreen #nutritionInfo.box #amount,
+#busyBody #nutritionInfo.box #amount,
 #foodometer #nutritionInfo.box #rda,
 #foodScreen #nutritionInfo.box #rda,
-#activityScreen #nutritionInfo.box #rda {
+#activityScreen #nutritionInfo.box #rda,
+#busyBody #nutritionInfo.box #rda {
   display: inline-block;
   width: 23%;
   color: #a8a8a8;
 }
 #foodometer #nutritionInfo.box .boxHeader,
 #foodScreen #nutritionInfo.box .boxHeader,
-#activityScreen #nutritionInfo.box .boxHeader {
+#activityScreen #nutritionInfo.box .boxHeader,
+#busyBody #nutritionInfo.box .boxHeader {
   background-color: #ebebeb;
   border-radius: 5px 5px 0 0;
   padding: 5px 10px;
 }
 #foodometer #nutritionInfo.box .boxHeader .first,
 #foodScreen #nutritionInfo.box .boxHeader .first,
-#activityScreen #nutritionInfo.box .boxHeader .first {
+#activityScreen #nutritionInfo.box .boxHeader .first,
+#busyBody #nutritionInfo.box .boxHeader .first {
   font: bold 18px "Avenir Next", Helvetica, Arial, sans-serif;
 }
 #foodometer #nutritionInfo.box .boxHeader .second,
 #foodScreen #nutritionInfo.box .boxHeader .second,
 #activityScreen #nutritionInfo.box .boxHeader .second,
+#busyBody #nutritionInfo.box .boxHeader .second,
 #foodometer #nutritionInfo.box .boxHeader .third,
 #foodScreen #nutritionInfo.box .boxHeader .third,
-#activityScreen #nutritionInfo.box .boxHeader .third {
+#activityScreen #nutritionInfo.box .boxHeader .third,
+#busyBody #nutritionInfo.box .boxHeader .third {
   font: bold 14px "Avenir Next", Helvetica, Arial, sans-serif;
   color: #fa9100;
 }
 #foodometer #nutritionInfo.box .boxEntry,
 #foodScreen #nutritionInfo.box .boxEntry,
-#activityScreen #nutritionInfo.box .boxEntry {
+#activityScreen #nutritionInfo.box .boxEntry,
+#busyBody #nutritionInfo.box .boxEntry {
   padding: 15px 10px;
   border-bottom: 2px solid #e6e6e6;
   font: normal 14px "Avenir Next", Helvetica, Arial, sans-serif;
 }
 #foodometer #nutritionInfo.box .boxEntry #name,
 #foodScreen #nutritionInfo.box .boxEntry #name,
-#activityScreen #nutritionInfo.box .boxEntry #name {
+#activityScreen #nutritionInfo.box .boxEntry #name,
+#busyBody #nutritionInfo.box .boxEntry #name {
   display: inline-block;
   width: 51%;
   white-space: nowrap;
@@ -4264,12 +4617,14 @@ section#insights h1 {
 }
 #foodometer #nutritionInfo.box .boxEntry:after,
 #foodScreen #nutritionInfo.box .boxEntry:after,
-#activityScreen #nutritionInfo.box .boxEntry:after {
+#activityScreen #nutritionInfo.box .boxEntry:after,
+#busyBody #nutritionInfo.box .boxEntry:after {
   content: "";
 }
 #foodometer #nutritionInfo.box .boxEntry:last-child,
 #foodScreen #nutritionInfo.box .boxEntry:last-child,
-#activityScreen #nutritionInfo.box .boxEntry:last-child {
+#activityScreen #nutritionInfo.box .boxEntry:last-child,
+#busyBody #nutritionInfo.box .boxEntry:last-child {
   border-bottom: none;
 }
 #activityScreen #panelTopBar #time,
@@ -5099,7 +5454,7 @@ section#insights h1 {
 }
 #busyBody #activityContainer .box label {
   padding-top: 5px;
-  max-width: 180px;
+  max-width: 185px;
 }
 #busyBody #activityContainer .box input {
   border: none;
@@ -5841,6 +6196,7 @@ section#insights h1 {
   height: 30px;
   margin-left: -40px;
   display: none;
+  padding: 0;
 }
 #foodScreen #recentFavsScreen #wrapper,
 #activityScreen #recentFavsScreen #wrapper {

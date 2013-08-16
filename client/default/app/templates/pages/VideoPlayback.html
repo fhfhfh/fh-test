@@ -10,29 +10,12 @@
 	</div>
 </div>
 
-<div id="wrapper" class="hIscroll-container">
-	<div id="pageDiv">
-		<div id="videoContainer">
-			<div id="previousVideo">
-				<img/>
-			</div>
+<!-- _________________ Video Library ___________________ -->
 
-			<div id="currentVideo">
-				<iframe src="<%=url%>?modestbranding=1;tite=;controls=1">
-					
-				</iframe>
-			</div>
+    <div id="wrapper"></div>
 
-			<div id="nextVideo">
-				<img/>
-			</div>
-		</div>
-
-		<div id="dots">
-		</div>
-	</div>
-</div>
-
+    <ul id="nav"></ul>  
+    
 <!-- _________________ End Top Half ___________________ -->
 
 <!-- _________________ Bottom Half ___________________ -->
@@ -42,7 +25,7 @@
 		<div id="videoDescription">
 			<div id="title">
 				<img src="img/video/PlayGrayLarge.png"/>
-				<h2><%= title%></h2>
+				<h2 id="titleName"></h2>
 			</div>
 
 			<hr/>
@@ -50,7 +33,7 @@
 			<div id="videoActions">
 				<div id="time">
 					<img src="img/video/TimeClock.png"/>
-					<p><%= time %></p>
+					<p id="duration"></p>
 				</div>
 
 				<div id="actions">
@@ -61,7 +44,7 @@
 			</div>
 
 			<div id="description">
-				<p><%=description%></p>
+				<p id="vidDesc"></p>
 			</div>
 
 			<div id="favBtn">

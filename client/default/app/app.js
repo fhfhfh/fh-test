@@ -13,10 +13,11 @@ require.config({
     'backbone': 'lib/backbone',
     'fastclick': 'lib/fastclick',
     'iscroll': 'lib/iscroll',
+    'swipeview': 'lib/swipeview',
     'fullcalendar': 'fullcalendar/fullcalendar/fullcalendar',
-    'hash' : 'lib/hash',
-    'jflot' : 'lib/jquery.flot',
-    'flottime':'lib/jquery.flot.time'
+    'hash': 'lib/hash',
+    'jflot': 'lib/jquery.flot',
+    'flottime': 'lib/jquery.flot.time'
   },
   shim: {
     'feedhenry': {
@@ -29,8 +30,11 @@ require.config({
       deps: ['underscore', 'jquery'],
       exports: 'Backbone'
     },
-    'iscroll' : {
+    'iscroll': {
       exports: 'iScroll'
+    },
+    'swipeview': {
+      exports: 'SwipeView'
     },
     'fullcalendar': {
       deps: ['jquery'],
@@ -38,34 +42,34 @@ require.config({
     },
     'jflot': {
       deps: ['jquery'],
-      exports:'$.plot'
+      exports: '$.plot'
     },
-    'flottime' :{
-        deps: ['jflot']
-//        exports:'$.plot'
+    'flottime': {
+      deps: ['jflot']
+      //        exports:'$.plot'
     }
   }
 });
 
 
 require([
-    'feedhenry',
-    'jquery',
-    'backbone',
-    'fastclick',
-    'NotificationManager',
-    'routers/AppRouter',
-    'fullcalendar',
-    'jflot',
-    'flottime'
+  'feedhenry',
+  'jquery',
+  'backbone',
+  'fastclick',
+  'NotificationManager',
+  'routers/AppRouter',
+  'fullcalendar',
+  'jflot',
+  'flottime'
 
 ], function($fh, $, Backbone, FastClick, NotificationManager, AppRouter) {
 
   // To enable development (and future deployment) on desktop browsers, we make
   // sure that we use the appropriate DOM ready event.
   var onReady = (window.cordova) ? function(readyFun) {
-    document.addEventListener('deviceready', readyFun, false);
-  } : $;
+      document.addEventListener('deviceready', readyFun, false);
+    } : $;
 
   onReady(function() {
     /*jshint nonew:false */
@@ -81,9 +85,7 @@ require([
     // replaced by Grunt during the build process, so there should be no need to
     // ever change here.
     $fh.init({
-      host: window.cordova ?
-          'http://127.0.0.1:8888' :
-          window.location.origin || 'http://127.0.0.1:8888',
+      host: window.cordova ? 'http://127.0.0.1:8888' : window.location.origin || 'http://127.0.0.1:8888',
       // appid: 'doesntmatterhere',
       // appkey: 'doesnmatterhere',
       appid: '2MZDpXsUThCoLHsCb4-UoNNH',

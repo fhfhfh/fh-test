@@ -22,62 +22,89 @@ define([
         clock: new Clock(),
         timer: {},
         events: {
-            'click .activityItem'          : 'selectActivity',
+            'click .activityItem': 'selectActivity',
             'click #activityList .boxEntry': 'showActivityItemScreen',
-            'click #backToTop'             : 'backToTop',
-            'click .item'                  : 'selectItem',
-            'click #cancelActivity'        : 'cancelActivity',
-            'click #activityFavBtn'        : 'addActivityToFav',
-            'click #saveToTime'            : 'saveActivityToTime',
-            'click #saveBtn'               : 'saveAllItems',
-            'change #minutes'              : 'calculateNutrients',
-            'click #startStop'             : 'startStopClock',
-            'click #reset'                 : 'resetClock'
+            'click #backToTop': 'backToTop',
+            'click .item': 'selectItem',
+            'click #cancelActivity': 'cancelActivity',
+            'click #activityFavBtn': 'addActivityToFav',
+            'click #saveToTime': 'saveActivityToTime',
+            'click #saveBtn': 'saveAllItems',
+            'change #minutes': 'calculateNutrients',
+            'click #startStop': 'startStopClock',
+            'click #reset': 'resetClock'
         },
 
         initialize: function() {
             _.bindAll(this);
+            this.initOriHandler();
+        },
+
+        initOriHandler: function(e) {
+            var self = this;
+
+            window.addEventListener('orientationchange', function(e) {
+                switch (window.orientation) {
+                    case 0: // Portait mode
+                        self.refreshScroll();
+                        break;
+                    case 90: // landscape left
+                        self.refreshScroll();
+                        break;
+                    case -90: // landscape right
+                        self.refreshScroll();
+                }
+            });
         },
 
         render: function() {
             var self = this;
             this.$el.html(this.template());
 
-            this.level1Scroll = new iScroll(this.$('#level1Activity')[0],{
-                hScroll     : true,
-                vScroll     : false,
-                hScrollbar  : false,
-                bounceLock  : true,
-                bounce      : false
+            this.level1Scroll = new iScroll(this.$('#level1Activity')[0], {
+                hScroll: true,
+                vScroll: false,
+                hScrollbar: false,
+                bounceLock: true,
+                bounce: false
             });
 
             this.time = this.container.time;
 
             $('#filterButtons').show();
             this.pageScroll = new iScroll(this.$('#pageScroll')[0]);
-            $("span#time").text(self.time+" - ("+this.container.container.activityItems.length+")");
+            $("span#time").text(self.time + " - (" + this.container.container.activityItems.length + ")");
             this.refreshScroll();
             return this;
         },
 
-        refreshScroll: function(){
+        refreshScroll: function() {
             var self = this;
-            setTimeout(function(){
+            setTimeout(function() {
                 self.level1Scroll.refresh();
                 self.pageScroll.refresh();
             }, 100);
+        },
+
+        hideCategories: function() {
+            $('#activityList').hide();
+            $('.activity2').hide();
+            if ($('.activityItem.lv1.selected img').attr('src')) {
+                $('.activityItem.lv1.selected img').attr('src', $('.activityItem.lv1.selected img').attr('src').replace(".png", "-white.png"));
+            }
+            $('.activityItem.lv1').removeClass('selected');
         },
 
         /* 
          * Event when a food category is selected
          * Check whether it is level1 or level2 category
          */
-        selectActivity: function(e){
+        selectActivity: function(e) {
             var self = this;
             var target = $(e.currentTarget);
 
-            if(target.hasClass('lv1')){
-                if($(".activityItem.lv1.selected").length > 0){
+            if (target.hasClass('lv1')) {
+                if ($(".activityItem.lv1.selected").length > 0) {
                     $('.activityItem.lv1.selected img').attr('src', $('.activityItem.lv1.selected img').attr('src').replace(".png", "-white.png"));
                     $('.activityItem.lv1').removeClass('selected');
                 }
@@ -86,25 +113,24 @@ define([
                 var name = target.attr('data-id');
 
                 $('.activity2').hide();
-                $('.activity2.'+name).show();
+                $('.activity2.' + name).show();
                 $('#activityList').hide();
                 $('#backToTop').hide();
-            }
-            else if(target.hasClass('lv2')){
+            } else if (target.hasClass('lv2')) {
                 $('.activityItem.lv2').removeClass('selected');
             }
 
             target.addClass('selected');
 
             // if both level categories are selected, show foodList
-            if($('.activityItem.lv1').hasClass('selected') && $('.activityItem.lv2:visible').hasClass('selected')){
+            if ($('.activityItem.lv1').hasClass('selected') && $('.activityItem.lv2:visible').hasClass('selected')) {
                 // $('#foodList').show();
                 self.populateActivityList(target);
             }
             this.refreshScroll();
         },
 
-        showActivityItemScreen: function(e){
+        showActivityItemScreen: function(e) {
             var self = this;
             var target = $(e.currentTarget);
             var imgSrc = $(".lv2.selected img").attr("src");
@@ -117,16 +143,19 @@ define([
             self.container.container.iscroll.enable();
             self.oldHtml = this.$el.html();
             $('#filterButtons').hide();
-            this.$el.html(self.itemTpl({item:model.attributes, imgSrc:imgSrc}));
+            this.$el.html(self.itemTpl({
+                item: model.attributes,
+                imgSrc: imgSrc
+            }));
             this.calculateNutrients();
             self.refreshScroll();
 
-            if(model.attributes.favorite === true){
+            if (model.attributes.favorite === true) {
                 $('#activityFavBtn').addClass('active');
             }
         },
 
-        populateActivityList: function(el){
+        populateActivityList: function(el) {
             var self = this;
             var target = $(el);
             var name = target.attr('data-name');
@@ -136,19 +165,19 @@ define([
 
 
             // pull foods into collection before populating screen
-            this.collection.getActivities(name, function(err,res){
-                if(err){
+            this.collection.getActivities(name, function(err, res) {
+                if (err) {
                     Backbone.trigger('notify', err, 'Error getting Activity List');
                     $('#modalMask').hide().html("");
                     return;
                 }
                 console.log(res[0]);
                 $('#activityList').show();
-                for(var i=0;i<res.length;i++){
+                for (var i = 0; i < res.length; i++) {
                     var item = res[i];
                     var name = item.activity || item.attributes.activity;
-                    var html = "<div class='boxEntry' data-id='"+item.id+"''><span id='name'>" +name +"</span>"+
-                                "<span id='about'>" + "</span></div>";
+                    var html = "<div class='boxEntry' data-id='" + item.id + "''><span id='name'>" + name + "</span>" +
+                        "<span id='about'>" + "</span></div>";
                     $('#activityList').append(html);
                 }
                 self.container.container.iscroll.disable();
@@ -158,38 +187,41 @@ define([
             });
         },
 
-        backToTop: function(){
-            this.pageScroll.scrollTo(0,0,200);
+        backToTop: function() {
+            this.pageScroll.scrollTo(0, 0, 200);
         },
 
-        selectItem: function(e){
+        selectItem: function(e) {
             var target = $(e.currentTarget);
             target.toggleClass('selected');
         },
 
-        cancelActivity: function(){
+        cancelActivity: function() {
             this.model = null;
             this.selectedActivity = null;
             this.$el.html(this.oldHtml);
             $('#filterButtons').show();
-            this.level1Scroll.destroy();
-            this.pageScroll = new iScroll(this.$('#pageScroll')[0]);
-            this.level1Scroll = new iScroll(this.$('#level1Activity')[0],{
-                hScroll     : true,
-                vScroll     : false,
-                hScrollbar  : false,
-                bounceLock  : true,
-                bounce      : false
-            });
-            this.container.container.iscroll.disable();
+
+            if (!doneFlag) {
+                // this.level1Scroll.destroy();
+                this.pageScroll = new iScroll(this.$('#pageScroll')[0]);
+                this.level1Scroll = new iScroll(this.$('#level1Activity')[0], {
+                    hScroll: true,
+                    vScroll: false,
+                    hScrollbar: false,
+                    bounceLock: true,
+                    bounce: false
+                });
+            }
+            // this.container.container.iscroll.disable();
             this.refreshScroll();
 
         },
 
-        addActivityToFav: function(e){
+        addActivityToFav: function(e) {
             var target = $(e.currentTarget);
             var activity = this.selectedActivity;
-            if(!activity){
+            if (!activity) {
                 console.warn('No Activity Selected');
                 return;
             } else {
@@ -198,70 +230,70 @@ define([
             }
         },
 
-        saveActivityToTime: function(){
+        saveActivityToTime: function() {
             var self = this;
             var activity = this.selectedActivity;
-            if(!activity){
+            if (!activity) {
                 console.warn('No Activity Selected');
                 return;
             } else {
                 var mins = parseInt($("#minutes").val());
                 var cals = parseFloat($('#calBurned').val());
-                console.log('mins',mins,cals);
+                console.log('mins', mins, cals);
                 activity.set("recent", true);
-                activity.set('calories', mins*cals);
+                activity.set('calories', mins * cals);
                 activity.set('minutes', mins);
                 this.container.container.activityItems.push(activity);
             }
-            $("span#time").text(self.time+" - ("+this.container.container.activityItems.length+")");
+            $("span#time").text(self.time + " - (" + this.container.container.activityItems.length + ")");
             this.cancelActivity();
         },
 
-        saveAllItems: function(){
+        saveAllItems: function() {
             this.container.container.subViews.busyBodyNav.saveActivitiesToJournal();
             this.container.container.setActiveView('busyBodyNav');
 
         },
 
         // When minutes number changes, recalculate calories
-        calculateNutrients: function(){
+        calculateNutrients: function() {
             var minutes = $('#minutes').val();
             var att = this.model.attributes;
-            var calories      = parseFloat(att.calorieBaseline) || 0;
+            var calories = parseFloat(att.calorieBaseline) || 0;
 
             var el = $("#nutritionInfo");
-            el.find("#totalCalories #amount").text(calories*minutes);
+            el.find("#totalCalories #amount").text(calories * minutes);
             this.updateNutrition();
         },
 
-        updateNutrition: function(){
+        updateNutrition: function() {
             var el = $("#nutritionInfo .boxEntry");
 
-            for(var i=0; i<el.length; i++){
+            for (var i = 0; i < el.length; i++) {
                 var thisEl = $(el[i]);
                 var percent = thisEl.find("#rda").text() || "0%";
-                thisEl.find("#name").css("background-size", percent +" 100%");
+                thisEl.find("#name").css("background-size", percent + " 100%");
             }
 
         },
 
-        startStopClock: function(){
+        startStopClock: function() {
             var self = this;
             var clock = this.clock;
-            if(clock.isRunning()){
+            if (clock.isRunning()) {
                 console.log('stopping clock');
                 clearInterval(self.timer);
                 clock.stop();
             } else {
-                self.timer = setInterval(function(){
+                self.timer = setInterval(function() {
                     time = clock.tick();
                     $('#stopWatch #time').html(time);
-                },1000);
+                }, 1000);
             }
 
         },
 
-        resetClock: function(){
+        resetClock: function() {
             this.clock.reset();
             clearInterval(this.timer);
             $('#stopWatch #time').html("00:00:00");
@@ -269,6 +301,3 @@ define([
 
     });
 });
-
-
-

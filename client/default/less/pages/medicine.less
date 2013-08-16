@@ -6,7 +6,7 @@
 
     #wrapper {
 
-        min-height: 710px;
+        min-height: 880px;
 
         @media @landscape {
             min-height: 644px;
@@ -64,85 +64,29 @@
         background: url('../img/medicine/med-cab-bg.png')center no-repeat;
         background-size: 86% 100%;
         overflow: hidden;
-        padding-bottom: 20%;
 
         .shelf {
-            margin-bottom : -120px;
+            height: 203px;
+            width: 100%;
+        }
+    }
+
+    #medicineItems {
+    	position: absolute;
+    	top: 90px;
+    	 ul {
+        	width: 80%;
+        	margin-left: 50px;
         }
 
-		#shelf1,
-		#shelf2,
-		#shelf3,
-		#shelf4 {
-			position: relative;
-			top: 45px;
-
-			ul {
-				width: 80%;
-				margin-left: auto;
-				margin-right: auto;
-			}
-
-			li {
-				width: 32%;
-				text-align: center;
-				font-size: 0.7em;
-				
-				img {
-						width: 85%;
-						margin-bottom: -2px !important;
-					}
-			}
-		}
-
-		@media @landscape {
-	        #shelf1,
-	        #shelf3 {
-	            position: relative;
-	            top: 65px;
-
-	            ul {
-	                width: 80%;
-	                margin-left: auto;
-	                margin-right: auto;
-	                height: 193px;
-	            }
-
-	            li {
-	                width: 32%;
-	                text-align: center;
-	                font-size: 0.6em;
-
-	                img {
-	                        width: 85%;
-	                        margin-bottom: -2px !important;
-	                    }
-	            }
-	        }
-
-	        #shelf2,
-	        #shelf4 {
-	            position: relative;
-	            top: 40px;
-
-	            ul {
-	                width: 80%;
-	                margin-left: auto;
-	                margin-right: auto;
-	                height: 193px;
-	            }
-
-	            li {
-	                width: 32%;
-	                text-align: center;
-	                font-size: 0.6em;
-
-	                img {
-	                        width: 85%;
-	                        margin-bottom: -5px !important;
-	                    }
-	            }
-	        }
-	    }
+        li{
+        	text-align: center;
+        	font-size: 10px;
+        	width: 145px;
+        	height: 203px;
+        	img{
+        	
+        	}
+        }
     }
 }
