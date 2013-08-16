@@ -459,8 +459,9 @@ function saveJournalAction(params, callback){
 }
 
 function saveActivityJournalAction(params, callback){
-  // TODO
-  return callback(null, {response: {payload: {status: "OK"}}});
+  fetchActivityEndpoint.saveData(params,function cb(err, respData) {
+    callback(err,respData);
+  });
 }
 
 
