@@ -488,6 +488,7 @@ function saveActivityJournalAction(params, callback) {
 //=================================================================================================================
 
 function proxy(params, cb) {
+  console.log('in proxy fn');
   var prefix = 'https://securehealthhub-2mzdpxsuthcolhscb40uonnh-live_securehealthhub.df.live.u101.feedhenry.net/proxy/proxy/adam/';
   var base = 'http://securehealthhub.adam.com';
   var type = params.url.split('.').pop();
@@ -533,6 +534,7 @@ function proxy(params, cb) {
 }
 
 function subPage(params, cb) {
+  console.log('in subPage fn');
   var prefix = 'https://securehealthhub-2mzdpxsuthcolhscb40uonnh-live_securehealthhub.df.live.u101.feedhenry.net/proxy/proxy/adam/';
   var base = 'http://securehealthhub.adam.com';
   var type = params.url.split('.').pop();

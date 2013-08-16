@@ -129,8 +129,13 @@ define([
             },
 
             openWebView: function(e){
-                $('#frameContainer').show();
                 var url = $(e.currentTarget).attr('data-url') || 'HIE%20Multimedia/1/000195.html';
+                console.log(url);
+                if(url ==1){
+                    Backbone.trigger('notify', 'No web view is available for this selection', 'No Web View');
+                    return;
+                }
+                $('#frameContainer').show();
 
                 $('#frameContainer iframe').attr('src',
                     'https://securehealthhub-2mzdpxsuthcolhscb40uonnh-live_securehealthhub.df.live.u101.feedhenry.net/doc/'+url);

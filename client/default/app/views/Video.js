@@ -47,7 +47,7 @@ define([
             var self = this;
             _.bindAll(this);
 
-            console.log(dots);
+            // console.log(dots);
 
             // Store videos playlist
             this.videosArr = JSON.parse(localStorage.getItem('tempVid'));
