@@ -2925,6 +2925,9 @@ section#insights h1 {
   float: right;
   margin-right: 8px;
 }
+#socialHistory {
+  margin-bottom: 120px;
+}
 .dataGrid {
   width: 100%;
   background-color: #eae8e8;
@@ -3048,7 +3051,7 @@ section#insights h1 {
   position: absolute;
   top: 0px;
   z-index: 10;
-  height: 540px;
+  height: 580px;
   width: 100%;
   padding: 10px;
   background-color: #ffffff;

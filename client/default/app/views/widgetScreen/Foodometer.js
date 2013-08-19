@@ -138,7 +138,7 @@ define([
             $("#dateString").html(dayStr + ', ' + monthStr + " " + day + ", " + this.year);
             $('.days td').removeClass('selected');
             $(target).addClass('selected');
-
+            console.log(date);
             this.renderDay(date);
         },
 
@@ -170,10 +170,12 @@ define([
             var dayModel = collection.find(function(item) {
                 return item.get('date').toDateString() == date.toDateString();
             });
+
             self.item = null;
 
             if (dayModel) { // check if model exists for selected date
                 self.item = dayModel; // make model globally accessible 
+                console.log(self.item);
                 if (self.item.isEmpty()) { // check if model has any food entries
                     self.showEmptyScreen();
                 } else {
