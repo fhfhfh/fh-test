@@ -242,7 +242,9 @@
             },
 
             saveAllItems: function() {
+                console.log("foodometer saveAllItems");
                 this.container.container.subViews.foodometerNav.saveFoodsToJournal();
+                this.container.container.subViews.foodometerNav.renderDay();
                 this.container.container.setActiveView('foodometerNav');
             },
 

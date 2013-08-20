@@ -61,9 +61,10 @@ define([
         },
 
         saveAllFoods: function() {
+            console.log("foodscreen saveAllFoods");
             this.container.subViews.foodometerNav.saveFoodsToJournal();
+            // // this.container.subViews.foodometerNav.renderDay();
             this.container.setActiveView('foodometerNav');
-
         },
 
         foodometer: function() {

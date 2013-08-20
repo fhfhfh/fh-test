@@ -76,7 +76,7 @@ define(['backbone',
 		store: function() {
 			var models = JSON.stringify(this.models);
 			Store.save(this.storageKey, models, function() {
-				console.log('saved foodJournal to localStorage');
+				// console.log('saved foodJournal to localStorage');
 			});
 		},
 
@@ -95,7 +95,7 @@ define(['backbone',
 		},
 
 		saveToCloud: function(item) {
-			console.log("FJ saveToCloud");
+			// console.log("FJ saveToCloud");
 			Act.call("saveJournalAction", {
 					"item": item
 				},
