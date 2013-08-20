@@ -159,6 +159,7 @@
 
                 // pull foods into collection before populating screen
                 this.collection.getFoods(name, function(err, res) {
+                    console.log(name);
                     if (err) {
                         Backbone.trigger('notify', err, 'Error getting Food List');
                         $('#modalMask').hide().html("");

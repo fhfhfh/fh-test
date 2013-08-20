@@ -138,8 +138,8 @@ define([
             $('#frameContainer').show();
 
             $('#frameContainer iframe').attr('src',
-                // 'https://securehealthhub-2mzdpxsuthcolhscb40uonnh-live_securehealthhub.df.live.u101.feedhenry.net/doc/'+url);
-                'http://127.0.0.1:8001/doc/' + url);
+                'https://securehealthhub-2mzdpxsuthcolhscb40uonnh-live_securehealthhub.df.live.u101.feedhenry.net/doc/' + url);
+            // 'http://127.0.0.1:8001/doc/' + url);
         },
 
         closeWebView: function() {

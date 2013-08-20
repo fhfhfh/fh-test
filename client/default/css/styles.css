@@ -1325,7 +1325,8 @@ li {
   height: 300px;
 }
 #VideoPlayback #wrapper #swipeview-slider div,
-#VideoPlayback #wrapper #swipeview-slider img {
+#VideoPlayback #wrapper #swipeview-slider img,
+#VideoPlayback #wrapper #swipeview-slider iframe {
   position: relative;
   display: -webkit-box;
   display: -moz-box;
@@ -1337,11 +1338,6 @@ li {
   -ms-box-orient: vertical;
   -o-box-orient: vertical;
   box-orient: vertical;
-  -webkit-box-pack: center;
-  -moz-box-pack: center;
-  -ms-box-pack: center;
-  -o-box-pack: center;
-  box-pack: center;
   -webkit-box-align: center;
   -mox-box-align: center;
   -ms-box-align: center;
@@ -1384,7 +1380,7 @@ li {
 #VideoPlayback #nav {
   position: absolute;
   z-index: 100;
-  top: 450px;
+  top: 40%;
   width: auto;
   height: 30px;
   left: 32%;
@@ -1408,7 +1404,7 @@ li {
   -ms-border-radius: 14px;
   -o-border-radius: 14px;
   border-radius: 14px;
-  background: rgba(204, 204, 204, 0.4);
+  background: rgba(255, 255, 255, 0.1);
   overflow: hidden;
   padding: 0;
   margin: 1px 10px 0 10px;
@@ -1417,15 +1413,15 @@ li {
 #VideoPlayback #nav li #prev {
   margin-left: 8px;
   background: transparent;
-  color: #ffffff;
+  color: rgba(255, 255, 255, 0.4);
 }
 #VideoPlayback #nav li #next {
   margin-right: 8px;
   background: transparent;
-  color: #ffffff;
+  color: rgba(255, 255, 255, 0.4);
 }
-#VideoPlayback #nav li .selected {
-  background: #ffffff;
+#VideoPlayback #nav li .activeDot {
+  background-color: white;
 }
 #VideoPlayback #scroller {
   padding-bottom: 450px;
@@ -1435,11 +1431,10 @@ li {
   position: relative;
 }
 #VideoPlayback #videoDescription {
-  height: 550px;
+  height: 500px;
   padding: 20px;
   padding-left: 30px;
   padding-right: 30px;
-  margin-top: 60px;
   background-color: #fff;
   color: #000;
 }

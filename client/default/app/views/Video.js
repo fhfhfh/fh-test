@@ -38,7 +38,7 @@ define([
         currentID: '',
         video: '',
         videosArr: '',
-        dots: $('#nav').find('li'),
+        dots: document.querySelectorAll('#nav li'),
         active: $('.swipeview-active'),
         multiVideo: true,
         // id: $('.swipeview-active').attr('data-page-index'),
@@ -62,6 +62,15 @@ define([
                 }
             }
 
+            // var favVid = self.videosArr[this.currentID];
+            // console.log(favVid);
+
+            // if (favVid.current === true) {
+            //     video = favVid;
+            // }
+
+            console.log(self.video);
+
             // create view template
             this.$el.html(self.template({
                 url: self.video.url + "?modestbranding=1;rel=0;controls=1", // disable related videos
@@ -70,15 +79,16 @@ define([
                 description: self.video.description
             }));
 
-            // // iScroll ---------------------------
+            // iScroll ---------------------------
             this.iscroll = new iScroll(this.$('#video-iscroll')[0], {
                 hscroll: false,
                 fixedScrollbar: true,
                 bounce: false,
                 vScrollbar: false
             });
+            // ------------------------------------
 
-
+            this.oriHandler(); // detect ori change 
 
             // this.iscroll2 = new iScroll(this.$('#wrapper')[0], {
             //     hscroll: true,
@@ -87,7 +97,7 @@ define([
             //     bounce: false,
             //     hScrollbar: false
             // });
-            // ------------------------------------------
+
         },
 
         webKitEnd: function(e) {
@@ -182,7 +192,7 @@ define([
             }
 
             // // Load img into next page.
-            this.PlayList.onFlip(function() {
+            this.PlayList.onFlip(function(dots) {
                 var el, i;
                 var vids = self.videosArr;
                 var currentPage = 0;
@@ -206,9 +216,9 @@ define([
 
                 console.log('nextItem title', vids[nextItem].title);
 
-                $('.selected').removeClass('selected');
-                $('#page' + nextItem).addClass('selected');
-                // dots[nextItem + 1].addClass('selected');
+                // show current video dot
+                self.$('.activeDot').removeClass('.activeDot');
+                self.$('#page' + nextItem).addClass('.activeDot');
             });
 
 
@@ -253,32 +263,29 @@ define([
             }
         },
 
-        // // Load initial data
-        // loadData: function() {
-        //     var self = this;
-        //     videos = self.videosArr;
-        //     console.log("videos", videos);
-        //     for (i = 0; i < 3; i++) {
-        //         var item = self.$('div[data-page-index="' + i + '"]');
-        //         var itemIndex = i == 0 ? videos.length - 1 : i - 1;
-        //         if (!item.hasClass('swipeview-active')) {
-        //             el = document.createElement('img');
-        //             el.className = 'loading';
-        //             el.id = itemIndex;
-        //             el.src = videos[itemIndex].imgUrl;
-        //             el.width = 550; //videos[i].width;
-        //             el.height = 300; //videos[i].height;
-        //             el.onload = function() {
-        //                 this.className = '';
-        //                 self.updateDescription();
-        //             };
-
-        //             item.html(el);
-        //         } else {
-        //             console.log('ACTIVE', item);
-        //         }
-        //     }
-        // },
+        // detect orientation change
+        oriHandler: function(e) {
+            window.addEventListener('orientationchange', function() {
+                switch (window.orientation) {
+                    case 0:
+                        console.log("Portrait - 0");
+                        $('#nav').css('top', '40%', 'left', '32%');
+                        break;
+                    case -0:
+                        console.log("Portrait - -0");
+                        $('#nav').css('top', '40%', 'left', '32%');
+                        break;
+                    case 90:
+                        console.log("Landscape - 90");
+                        $('#nav').css('top', '53%', 'left', '41%');
+                        break;
+                    case -90:
+                        console.log("Landscape - -90");
+                        $('#nav').css('top', '53%', 'left', '41%');
+                        break;
+                }
+            });
+        },
 
         // load iframe & object url if current equals. 
         videoPlayer: function(item) {
@@ -297,6 +304,7 @@ define([
             el.onload = function(e) {
                 this.className = '';
                 self.updateDescription();
+                // self.setActiveDot();
             };
             self.$('.swipeview-active[data-page-index="' + id + '"]').html(el);
         },
@@ -347,8 +355,24 @@ define([
             nav.append(next);
         },
 
+        // add selected to 
+        setActiveDot: function() {
+            var page = $('.swipeview-active');
+            var dot = page.attr('data-page-index'); // active dot
+
+            if (!page) {
+                dot.removeClass('selected');
+            }
+
+            if (page) {
+                $('#page' + dot).addClass('activeDot');
+            }
+
+            console.log("set active class", dot);
+        },
+
         // update description with event
-        updateDescription: function(id) {
+        updateDescription: function() {
             var videos = this.videosArr;
             var id;
             var thisItem;

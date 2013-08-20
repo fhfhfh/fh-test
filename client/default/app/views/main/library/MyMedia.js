@@ -211,13 +211,13 @@ define(['jquery',
 
             console.log(attr.current);
 
-            // if (attr.current === true) {
-            //     var el = document.createElement('iframe');
-            //     el.src = attr.url;
-            //     el.width = 550;
-            //     el.height = 300;
-            //     $('#swipeview-slider').html(el);
-            // }
+            if (attr.current === true) {
+                var el = document.createElement('iframe');
+                el.src = attr.url;
+                el.width = 550;
+                el.height = 300;
+                $('#swipeview-slider').html(el);
+            }
 
             if (type == 'video') {
                 localStorage.setItem('tempVid', JSON.stringify(attr));
