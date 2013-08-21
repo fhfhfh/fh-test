@@ -116,7 +116,8 @@ define([
         },
 
         selectDay: function(e) {
-            var target = e.currentTarget;
+            var target = e.currentTarget || e;
+            this.CURRENTDAY = $(target);
             var month = this.month;
             var day = $(target).text();
             var year = this.year;
@@ -139,8 +140,8 @@ define([
             $('#foodItemScreen').remove();
 
             $("#dateString").html(dayStr + ', ' + monthStr + " " + day + ", " + this.year);
-            $('.days td').removeClass('selected');
-            $(target).addClass('selected');
+            $('.today').removeClass('today');
+            $(target).addClass('today');
 
             console.log("Selected date ", date);
             currentDate = date;
@@ -182,9 +183,8 @@ define([
             var self = this;
             date = date || new Date();
             var dayModel = collection.find(function(item) {
-                console.log("*** current date", date.toDateString());
+                // console.log("*** current date", date.toDateString());
                 return item.get('date').toDateString() == date.toDateString();
-                // return date.toDateString();
             });
 
             self.item = null;
@@ -195,7 +195,7 @@ define([
                 if (self.item.isEmpty()) { // check if model has any food entries
                     self.showEmptyScreen();
                 } else {
-                    self.showMealScreen();
+                    self.showMealScreen(self.date);
                 }
             } else {
                 self.item = collection.createDay(date);
@@ -203,7 +203,7 @@ define([
             }
         },
 
-        showMealScreen: function(e) {
+        showMealScreen: function(e, date) {
             var target = (e) ? e.currentTarget : '.meal[data-name="breakfast"]';
             var meal = this.$(target).attr('data-name') || 'breakfast';
             this.meal = meal;
@@ -211,7 +211,8 @@ define([
             this.$('.meal').removeClass('selected');
             this.$(target).addClass('selected');
 
-            var dateString = this.$('#dateString').text();
+            var dateString = this.$('#dateString').text() || date;
+            console.log(dateString, date);
             var mealString = 'My ' + meal.substring(0, 1).toUpperCase() + meal.substring(1, meal.length);
 
             this.$('#mealContainer').show();
@@ -230,7 +231,6 @@ define([
 
         saveFoodsToJournal: function(currentDate) {
             var self = this;
-            var date = currentDate;
             var foodArr = this.container.foodItems;
             if (foodArr.length > 0) {
                 var meal = self.meal;
@@ -241,31 +241,18 @@ define([
                     self.item.recalculateNutrients();
                 }
                 this.container.foodItems = [];
-                console.log("** Model ** ", collection.models);
-
-                var journal = collection.models;
-                // console.log(journal);
-
-                // if (journal.get('date') === date) {
-                //     return this.model.index;
-                //     console.log(this.model.index);
-                // }
-
-                // grab current date
-                // var current = collection.models[this.model.index - 1].attributes.date;
-                var current = journal[1].attributes.date;
-
-                var activeDate = new Date(current);
-                console.log("** currentDate ** ", activeDate);
-
-                this.populateMeal(meal);
-
-                setTimeout(function() {
-                    // render current day journal
-                    self.renderDay(activeDate);
-                }, 10);
-
             }
+
+            console.log(self.item);
+            var a = new Date(self.item.attributes.date);
+            console.log(a);
+            setTimeout(function() {
+                // render current day journal
+                var currentDay = self.CURRENTDAY;
+                console.log(currentDay);
+                self.selectDay(currentDay);
+                self.renderDay(a);
+            }, 10);
         },
 
         populateMeal: function(meal) {
