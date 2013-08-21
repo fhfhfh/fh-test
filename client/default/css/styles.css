@@ -1324,6 +1324,9 @@ li {
   opacity: 1;
   height: 300px;
 }
+#VideoPlayback #wrapper #favVid {
+  margin: 0 auto;
+}
 #VideoPlayback #wrapper #swipeview-slider div,
 #VideoPlayback #wrapper #swipeview-slider img,
 #VideoPlayback #wrapper #swipeview-slider iframe {
@@ -1410,18 +1413,18 @@ li {
   margin: 1px 10px 0 10px;
   text-align: center;
 }
-#VideoPlayback #nav li #prev {
+#VideoPlayback #nav li#prev {
   margin-left: 8px;
   background: transparent;
   color: rgba(255, 255, 255, 0.4);
 }
-#VideoPlayback #nav li #next {
+#VideoPlayback #nav li#next {
   margin-right: 8px;
   background: transparent;
   color: rgba(255, 255, 255, 0.4);
 }
-#VideoPlayback #nav li .activeDot {
-  background-color: white;
+#VideoPlayback #nav li.activeDot {
+  background: white;
 }
 #VideoPlayback #scroller {
   padding-bottom: 450px;
@@ -1431,7 +1434,7 @@ li {
   position: relative;
 }
 #VideoPlayback #videoDescription {
-  height: 500px;
+  height: 550px;
   padding: 20px;
   padding-left: 30px;
   padding-right: 30px;

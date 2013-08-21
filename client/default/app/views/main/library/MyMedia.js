@@ -209,15 +209,19 @@ define(['jquery',
 
             attr.current = true;
 
-            console.log(attr.current);
+            // logging data
+            console.log("*** \ncurrentTarget: ", attr.current,
+                "\nTitle:", attr.title,
+                "\nmodel:", model,
+                "\ntype: ", type);
 
-            if (attr.current === true) {
-                var el = document.createElement('iframe');
-                el.src = attr.url;
-                el.width = 550;
-                el.height = 300;
-                $('#swipeview-slider').html(el);
-            }
+            // if (attr.current === true) {
+            //     var el = document.createElement('iframe');
+            //     el.src = attr.url;
+            //     el.width = 550;
+            //     el.height = 300;
+            //     $('#swipeview-slider').html(el);
+            // }
 
             if (type == 'video') {
                 localStorage.setItem('tempVid', JSON.stringify(attr));

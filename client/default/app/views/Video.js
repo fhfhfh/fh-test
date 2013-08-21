@@ -26,9 +26,7 @@ define([
             'webkitTransitionEnd #wrapper': 'webKitEnd',
             'click #prev': 'prevItem',
             'click #next': 'nextItem',
-            'click #page0': 'go2Page0',
-            'click #page1': 'go2Page1',
-            'click #page2': 'go2Page2'
+            'click li': 'goTo'
         },
 
         // global varibales
@@ -40,14 +38,10 @@ define([
         videosArr: '',
         dots: document.querySelectorAll('#nav li'),
         active: $('.swipeview-active'),
-        multiVideo: true,
-        // id: $('.swipeview-active').attr('data-page-index'),
 
         initialize: function() {
             var self = this;
             _.bindAll(this);
-
-            // console.log(dots);
 
             // Store videos playlist
             this.videosArr = JSON.parse(localStorage.getItem('tempVid'));
@@ -58,18 +52,19 @@ define([
             for (i = 0; i < self.videosArr.length; i++) {
                 this.video = self.videosArr[i];
                 if (this.video.current === true) {
-                    self.currentID = i;
+                    currentID = i;
                 }
             }
 
-            // var favVid = self.videosArr[this.currentID];
-            // console.log(favVid);
+            // store fav video selection
+            var favVid = self.videosArr;
+            console.log("****", favVid);
 
-            // if (favVid.current === true) {
-            //     video = favVid;
-            // }
-
-            console.log(self.video);
+            // // render favourites vid player
+            if (favVid && favVid.current === true) {
+                console.log("**** createSingleView");
+                self.video = favVid;
+            }
 
             // create view template
             this.$el.html(self.template({
@@ -88,8 +83,8 @@ define([
             });
             // ------------------------------------
 
-            this.oriHandler(); // detect ori change 
-
+            // detect ori change 
+            this.oriHandler();
             // this.iscroll2 = new iScroll(this.$('#wrapper')[0], {
             //     hscroll: true,
             //     vscroll: false,
@@ -100,6 +95,7 @@ define([
 
         },
 
+        // load iframe video player
         webKitEnd: function(e) {
             var item;
             var self = this;
@@ -123,6 +119,7 @@ define([
             }
         },
 
+        // swipeview defaults
         swipeDefault: function(e) {
             e.preventDefault();
             e.stopPropagation();
@@ -147,23 +144,41 @@ define([
                 self.createSwipeView();
             }, 100);
 
-            $('#page0').addClass('selected');
             return this;
         },
 
-        createSingleView: function() {
-            var videos = self.videosArr;
+        // create fav Video view
+        createSingleView: function(video) {
+            var self = this;
+            $('#nav').hide(); // hide dot nav
+            $('#videoDescription').css("height", "550px"); // adjust desc height
+
+            // wait for eleemnts to load
+            setTimeout(function() {
+                if (self.video.current === true) {
+                    var el = document.createElement('iframe');
+                    el.src = self.video.url;
+                    el.id = 'favVid';
+                    el.width = 550;
+                    el.height = 300;
+                    el.onload = function() {
+                        self.updateDescription(video);
+                    };
+                    self.$('#wrapper').html(el);
+                }
+            }, 10);
         },
 
+        // load video playlist view
         createSwipeView: function() {
             var self = this;
             var videoIndex;
 
+            // create dynamic dot nav
             this.navigation(self.videosArr);
 
             // check size of video arr & reset
             if (self.videosArr.length < 3) {
-                // console.log("VIDEO", self.videosArr[2]);
                 self.videosArr[2] = self.videosArr[0];
             }
 
@@ -183,15 +198,22 @@ define([
 
             // video playlist
             this.item = self.videosArr[videoIndex];
-            var libVideo = this.item;
 
-            if (libVideo.current === true) {
+            // set to playlist or fav video
+            var libVideo = this.item || self.video;
+
+            // pass variable to correct view fn
+            if (libVideo === self.video) {
+                console.log("\blibVideo favVid loaded ", libVideo);
+                self.createSingleView(libVideo);
+                this.current = false;
+            } else if (libVideo.current === true) {
                 self.videoPlayer(libVideo);
                 libVideo.current = false;
-                console.log("libVideo Playlist loaded ", libVideo);
+                console.log("\nlibVideo Playlist loaded ", libVideo);
             }
 
-            // // Load img into next page.
+            // Load img into next page.
             this.PlayList.onFlip(function(dots) {
                 var el, i;
                 var vids = self.videosArr;
@@ -202,25 +224,25 @@ define([
                 console.log('onFlip', vids);
 
                 currentPage = +currentPage + +$('.swipeview-active').attr('data-upcoming-page-index');
-
                 nextItem = +currentPage + +1;
 
+                // reset nextItem index 
                 if (nextItem >= vids.length) {
                     nextItem = 0;
                     console.log("Reset Videos array index value", nextItem);
                 }
 
+                // load image to placeholder
                 el = $('#' + nextItem);
                 el.attr('src', vids[nextItem].imgUrl);
                 el.className = 'loading';
 
-                console.log('nextItem title', vids[nextItem].title);
+                console.log('\nNext video title:', vids[nextItem].title);
 
                 // show current video dot
-                self.$('.activeDot').removeClass('.activeDot');
-                self.$('#page' + nextItem).addClass('.activeDot');
+                self.$('.activeDot').removeClass('activeDot');
+                self.$('#page' + nextItem).addClass('activeDot');
             });
-
 
             // // remove .swipeview-active class from div
             this.PlayList.onMoveOut(function() {
@@ -254,6 +276,7 @@ define([
         checkFav: function() {
             var self = this;
             var view = new FavBox(self.video);
+
             // check if video is in favorites already
             var bool = view.inFavs();
             if (bool) {
@@ -269,19 +292,31 @@ define([
                 switch (window.orientation) {
                     case 0:
                         console.log("Portrait - 0");
-                        $('#nav').css('top', '40%', 'left', '32%');
+                        $('#nav').css({
+                            'top': '40%',
+                            'left': '32%'
+                        });
                         break;
                     case -0:
                         console.log("Portrait - -0");
-                        $('#nav').css('top', '40%', 'left', '32%');
+                        $('#nav').css({
+                            'top': '40%',
+                            'left': '32%'
+                        });
                         break;
                     case 90:
                         console.log("Landscape - 90");
-                        $('#nav').css('top', '53%', 'left', '41%');
+                        $('#nav').css({
+                            'top': '53%',
+                            'left': '41%'
+                        });
                         break;
                     case -90:
                         console.log("Landscape - -90");
-                        $('#nav').css('top', '53%', 'left', '41%');
+                        $('#nav').css({
+                            'top': '53%',
+                            'left': '41%'
+                        });
                         break;
                 }
             });
@@ -291,6 +326,7 @@ define([
         videoPlayer: function(item) {
             var self = this;
             var id = self.$('.swipeview-active').attr('data-page-index');
+            $('#nav').show(); // show dot nav
 
             // remove img
             self.$('.swipeview-active > img').remove();
@@ -304,7 +340,6 @@ define([
             el.onload = function(e) {
                 this.className = '';
                 self.updateDescription();
-                // self.setActiveDot();
             };
             self.$('.swipeview-active[data-page-index="' + id + '"]').html(el);
         },
@@ -353,26 +388,11 @@ define([
             next.attr('id', 'next');
             next.html('<b>+</b>');
             nav.append(next);
-        },
-
-        // add selected to 
-        setActiveDot: function() {
-            var page = $('.swipeview-active');
-            var dot = page.attr('data-page-index'); // active dot
-
-            if (!page) {
-                dot.removeClass('selected');
-            }
-
-            if (page) {
-                $('#page' + dot).addClass('activeDot');
-            }
-
-            console.log("set active class", dot);
+            nav.find('#page0').addClass('activeDot');
         },
 
         // update description with event
-        updateDescription: function() {
+        updateDescription: function(video) {
             var videos = this.videosArr;
             var id;
             var thisItem;
@@ -380,33 +400,30 @@ define([
             id = self.$('.swipeview-active').attr('data-page-index');
             console.log("update-description-id", id);
 
-            thisItem = videos[id];
+            // pass array of videos / fav Video obj's
+            thisItem = videos[id] || video;
 
             // Add Video details
             $('#titleName').html(thisItem.title);
             $('#duration').html(thisItem.duration);
             $('#vidDesc').html(thisItem.description);
-
         },
 
         prevItem: function(e) {
             this.PlayList.prev();
         },
 
+        goTo: function(e) {
+            var target = e.currentTarget;
+            var id = target.id;
+            id = id.substring(4, 5);
+            console.log("\n** Page Index", id);
+
+            this.PlayList.goToPage(id);
+        },
+
         nextItem: function(e) {
             this.PlayList.next();
-        },
-
-        go2Page0: function(e) {
-            this.playList.goToPage(0);
-        },
-
-        go2Page1: function(e) {
-            this.playList.goToPage(1);
-        },
-
-        go2Page2: function(e) {
-            this.playList.goToPage(2);
         },
 
         logout: function() {
