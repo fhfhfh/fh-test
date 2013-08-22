@@ -233,6 +233,7 @@
                     food.attributes.serving = $("#serving").val() + " x " + $('#size').val();
                     food = this.multiplyServing($("#serving").val(), food);
                     this.container.container.foodItems.push(food);
+                    $('#serving').focus(); // hide keyboard
                     console.log(this.container.container.foodItems);
                 }
                 $("span#meal").text("Lunch - (" + this.container.container.foodItems.length + ")");
