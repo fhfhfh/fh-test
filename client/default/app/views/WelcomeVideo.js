@@ -10,44 +10,54 @@ define([
     'models/User',
     'views/components/TopBar'
 
-    ], function($, _, Backbone, tpl, User,TopBar) {
+], function($, _, Backbone, tpl, User, TopBar) {
 
-        return Backbone.View.extend({
-            tagName: 'div',
-            id: 'welcome-video',
+    return Backbone.View.extend({
+        tagName: 'div',
+        id: 'welcome-video',
 
-            events: {
-                'click #close'       : 'close'
-            },
+        events: {
+            'click #close': 'close'
+        },
 
-            initialize: function() {
-                _.bindAll(this);
-                this.$topBar = this.$('#top-bar');
-                this.render();
+        initialize: function() {
+            _.bindAll(this);
+            this.$topBar = this.$('#top-bar');
+            this.render();
+        },
 
-            },
+        render: function() {
+            this.$el.html(tpl);
+            return this;
+        },
 
-            render: function() {
-                this.$el.html(tpl);
-                return this;
-            },
+        loadVideo: function(url) {
+            console.log(url);
+            var imgSrc = 'http://img.youtube.com/vi/xqkBW1NCRLQ/default.jpg';
+            var vid = this.$('#video');
 
-            loadVideo: function(url){
-                var vid = this.$('#video');
+            var html = '<iframe id="introVid" width="690" height="390"' +
+                'src="' + url + '?modestbranding=1;rel=0;controls=0;autoplay=1"' +
+                'frameborder="0" allowfullscreen="false"></iframe>';
 
-                var html = '<iframe width="700" height="390"'+
-                'src="'+url+'?modestbranding=1;rel=0;controls=1;autoplay=1"'+
-                'frameborder="0" allowfullscreen="true"></iframe>';
+            vid.html(html);
 
-                vid.html(html);
-            },
+            // // change iframe contents width
+            // $('#introVid').ready(function() {
+            //     console.log("\naccess iframe", $('#introVid').contents().find('body').find('.html5-video-player'));
+            //     $('#introVid').contents().find('body').find('.html5-video-player').css("width", "101%");
+            //     alert($('#introVid').contents().find('body').find('.html5-video-player'));
+            // });
 
-            close: function(){
-                this.remove();
-                Backbone.history.navigate('home', {
-                    trigger: true,
-                    replace: true
-                });
-            }
-        });
+            console.log("\nVideo Url", url, "\nimg Src", imgSrc);
+        },
+
+        close: function() {
+            this.remove();
+            Backbone.history.navigate('home', {
+                trigger: true,
+                replace: true
+            });
+        }
     });
+});
