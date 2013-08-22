@@ -237,7 +237,7 @@
                     food.set("recent", true);
                     food.attributes.serving = $("#serving").val() + " x " + $('#size').val();
                     food = this.multiplyServing($("#serving").val(), food);
-                    this.container.container.foodItems.push(food).focus();
+                    this.container.container.foodItems.push(food);
 
                     // $('#serving').on('keypress'); 
                     console.log(this.container.container.foodItems);
@@ -255,7 +255,7 @@
 
                 // hide keyboard if return 
                 if(e.keyCode === 13) {
-                    $('#serving').blur();
+                    $('#foodItemScreen').find('#details').find('#serving').blur();
                     console.log("Return pressed, hiding keyboard");
                 }
             },
