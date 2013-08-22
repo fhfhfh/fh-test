@@ -27,12 +27,17 @@
                 'click #foodFavBtn': 'addFoodToFav',
                 'click #saveToMeal': 'saveFoodToMeal',
                 'click #saveBtn': 'saveAllItems',
-                'change #serving': 'calculateNutrients'
+                'change #serving': 'calculateNutrients',
+                'keyup': 'detectKeyPressed'
             },
 
             initialize: function() {
                 _.bindAll(this);
                 this.initOriHandler();
+
+                $(window).unbind().bind('touchend', function(e) {
+                    console.log('touchend');
+                });
             },
 
             initOriHandler: function(e) {
@@ -232,14 +237,27 @@
                     food.set("recent", true);
                     food.attributes.serving = $("#serving").val() + " x " + $('#size').val();
                     food = this.multiplyServing($("#serving").val(), food);
-                    this.container.container.foodItems.push(food);
-                    $('#serving').focus(); // hide keyboard
+                    this.container.container.foodItems.push(food).focus();
+
+                    // $('#serving').on('keypress'); 
                     console.log(this.container.container.foodItems);
                 }
                 $("span#meal").text("Lunch - (" + this.container.container.foodItems.length + ")");
                 this.refreshScroll();
                 this.cancelFood();
                 // this.selectFood();
+            },
+
+            detectKeyPressed: function(e) {
+                // var unicode = e.keyCode ? e.keyCode : e.charCode;
+                console.log("KeyPressed", e.keyCode);
+                alert("KeyPressed");
+
+                // hide keyboard if return 
+                if(e.keyCode === 13) {
+                    $('#serving').blur();
+                    console.log("Return pressed, hiding keyboard");
+                }
             },
 
             saveAllItems: function() {
