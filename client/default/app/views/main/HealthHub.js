@@ -146,11 +146,6 @@ define([
         closeWebView: function() {
             this.$('#frameContainer').hide();
         }
-
-<<<<<<< HEAD
-        });
-    });
-=======
     });
 });
->>>>>>> sprint5
+
