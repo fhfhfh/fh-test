@@ -42,7 +42,16 @@ define([
 
             vid.html(html);
 
-            // // change iframe contents width
+            // change iframe contents width
+            $('#introVid').load(function() {
+                $('iframe').contents().find('head')
+                .append($('<style type="text/css"> #player{ width: 101%;} </style>'));
+                console.log("changed iframe contents width!!");
+            });
+
+            // var intro = document.getElementById('introVid');
+            // intro.getElementsByClassName('.html5-video-player');
+            // console.log(intro.getElementsByClassName('.html5-video-player'));
             // $('#introVid').ready(function() {
             //     console.log("\naccess iframe", $('#introVid').contents().find('body').find('.html5-video-player'));
             //     $('#introVid').contents().find('body').find('.html5-video-player').css("width", "101%");
