@@ -32,7 +32,8 @@ define([
             'click #saveBtn': 'saveAllItems',
             'change #minutes': 'calculateNutrients',
             'click #startStop': 'startStopClock',
-            'click #reset': 'resetClock'
+            'click #reset': 'resetClock',
+            'keyup': 'detectKeyPressed'
         },
 
         initialize: function() {
@@ -55,6 +56,18 @@ define([
                         self.refreshScroll();
                 }
             });
+        },
+
+        detectKeyPressed: function(e) {
+            // var unicode = e.keyCode ? e.keyCode : e.charCode;
+            console.log("KeyPressed", e.keyCode);
+            // alert("KeyPressed");
+
+            // hide keyboard if return 
+            if(e.keyCode === 13) {
+                $('#activityScreen').find('#activityItemScreen').find('#minutes').blur();
+                console.log("Return pressed, hiding keyboard");
+            }
         },
 
         render: function() {
