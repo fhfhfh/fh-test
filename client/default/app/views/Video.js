@@ -26,9 +26,7 @@ define([
             'webkitTransitionEnd #wrapper': 'webKitEnd',
             'click #prev': 'prevItem',
             'click #next': 'nextItem',
-            'click #page0': 'go2Page0',
-            'click #page1': 'go2Page1',
-            'click #page2': 'go2Page2'
+            'click li': 'goTo'
         },
 
         // global varibales
@@ -38,16 +36,12 @@ define([
         currentID: '',
         video: '',
         videosArr: '',
-        dots: $('#nav'),
+        dots: document.querySelectorAll('#nav li'),
         active: $('.swipeview-active'),
-        multiVideo: true,
-        // id: $('.swipeview-active').attr('data-page-index'),
 
         initialize: function() {
             var self = this;
             _.bindAll(this);
-
-            // console.log(dots);
 
             // Store videos playlist
             this.videosArr = JSON.parse(localStorage.getItem('tempVid'));
@@ -58,8 +52,18 @@ define([
             for (i = 0; i < self.videosArr.length; i++) {
                 this.video = self.videosArr[i];
                 if (this.video.current === true) {
-                    self.currentID = i;
+                    currentID = i;
                 }
+            }
+
+            // store fav video selection
+            var favVid = self.videosArr;
+            console.log("****", favVid);
+
+            // // render favourites vid player
+            if (favVid && favVid.current === true) {
+                console.log("**** createSingleView");
+                self.video = favVid;
             }
 
             // create view template
@@ -70,14 +74,17 @@ define([
                 description: self.video.description
             }));
 
-            // // iScroll ---------------------------
+            // iScroll ---------------------------
             this.iscroll = new iScroll(this.$('#video-iscroll')[0], {
                 hscroll: false,
                 fixedScrollbar: true,
                 bounce: false,
                 vScrollbar: false
             });
+            // ------------------------------------
 
+            // detect ori change 
+            this.oriHandler();
             // this.iscroll2 = new iScroll(this.$('#wrapper')[0], {
             //     hscroll: true,
             //     vscroll: false,
@@ -85,9 +92,10 @@ define([
             //     bounce: false,
             //     hScrollbar: false
             // });
-            // ------------------------------------------
+
         },
 
+        // load iframe video player
         webKitEnd: function(e) {
             var item;
             var self = this;
@@ -111,6 +119,7 @@ define([
             }
         },
 
+        // swipeview defaults
         swipeDefault: function(e) {
             e.preventDefault();
             e.stopPropagation();
@@ -138,19 +147,38 @@ define([
             return this;
         },
 
-        createSingleView: function() {
-            var videos = self.videosArr;
+        // create fav Video view
+        createSingleView: function(video) {
+            var self = this;
+            $('#nav').hide(); // hide dot nav
+            $('#videoDescription').css("height", "550px"); // adjust desc height
+
+            // wait for eleemnts to load
+            setTimeout(function() {
+                if (self.video.current === true) {
+                    var el = document.createElement('iframe');
+                    el.src = self.video.url;
+                    el.id = 'favVid';
+                    el.width = 550;
+                    el.height = 300;
+                    el.onload = function() {
+                        self.updateDescription(video);
+                    };
+                    self.$('#wrapper').html(el);
+                }
+            }, 10);
         },
 
+        // load video playlist view
         createSwipeView: function() {
             var self = this;
             var videoIndex;
 
+            // create dynamic dot nav
             this.navigation(self.videosArr);
 
             // check size of video arr & reset
             if (self.videosArr.length < 3) {
-                // console.log("VIDEO", self.videosArr[2]);
                 self.videosArr[2] = self.videosArr[0];
             }
 
@@ -170,16 +198,23 @@ define([
 
             // video playlist
             this.item = self.videosArr[videoIndex];
-            var libVideo = this.item;
 
-            if (libVideo.current === true) {
+            // set to playlist or fav video
+            var libVideo = this.item || self.video;
+
+            // pass variable to correct view fn
+            if (libVideo === self.video) {
+                console.log("\blibVideo favVid loaded ", libVideo);
+                self.createSingleView(libVideo);
+                this.current = false;
+            } else if (libVideo.current === true) {
                 self.videoPlayer(libVideo);
                 libVideo.current = false;
-                console.log("libVideo Playlist loaded ", libVideo);
+                console.log("\nlibVideo Playlist loaded ", libVideo);
             }
 
-            // // Load img into next page.
-            this.PlayList.onFlip(function() {
+            // Load img into next page.
+            this.PlayList.onFlip(function(dots) {
                 var el, i;
                 var vids = self.videosArr;
                 var currentPage = 0;
@@ -189,24 +224,25 @@ define([
                 console.log('onFlip', vids);
 
                 currentPage = +currentPage + +$('.swipeview-active').attr('data-upcoming-page-index');
-
                 nextItem = +currentPage + +1;
 
+                // reset nextItem index 
                 if (nextItem >= vids.length) {
                     nextItem = 0;
                     console.log("Reset Videos array index value", nextItem);
                 }
 
+                // load image to placeholder
                 el = $('#' + nextItem);
                 el.attr('src', vids[nextItem].imgUrl);
                 el.className = 'loading';
 
-                console.log('nextItem title', vids[nextItem].title);
+                console.log('\nNext video title:', vids[nextItem].title);
 
-                // $(this).find('li.selected').removeClass('selected');
-                // this.$(dots)[nextItem + 1].addClass('selected');
+                // show current video dot
+                self.$('.activeDot').removeClass('activeDot');
+                self.$('#page' + nextItem).addClass('activeDot');
             });
-
 
             // // remove .swipeview-active class from div
             this.PlayList.onMoveOut(function() {
@@ -240,6 +276,7 @@ define([
         checkFav: function() {
             var self = this;
             var view = new FavBox(self.video);
+
             // check if video is in favorites already
             var bool = view.inFavs();
             if (bool) {
@@ -249,37 +286,47 @@ define([
             }
         },
 
-        // // Load initial data
-        // loadData: function() {
-        //     var self = this;
-        //     videos = self.videosArr;
-        //     console.log("videos", videos);
-        //     for (i = 0; i < 3; i++) {
-        //         var item = self.$('div[data-page-index="' + i + '"]');
-        //         var itemIndex = i == 0 ? videos.length - 1 : i - 1;
-        //         if (!item.hasClass('swipeview-active')) {
-        //             el = document.createElement('img');
-        //             el.className = 'loading';
-        //             el.id = itemIndex;
-        //             el.src = videos[itemIndex].imgUrl;
-        //             el.width = 550; //videos[i].width;
-        //             el.height = 300; //videos[i].height;
-        //             el.onload = function() {
-        //                 this.className = '';
-        //                 self.updateDescription();
-        //             };
-
-        //             item.html(el);
-        //         } else {
-        //             console.log('ACTIVE', item);
-        //         }
-        //     }
-        // },
+        // detect orientation change
+        oriHandler: function(e) {
+            window.addEventListener('orientationchange', function() {
+                switch (window.orientation) {
+                    case 0:
+                        console.log("Portrait - 0");
+                        $('#nav').css({
+                            'top': '40%',
+                            'left': '32%'
+                        });
+                        break;
+                    case -0:
+                        console.log("Portrait - -0");
+                        $('#nav').css({
+                            'top': '40%',
+                            'left': '32%'
+                        });
+                        break;
+                    case 90:
+                        console.log("Landscape - 90");
+                        $('#nav').css({
+                            'top': '53%',
+                            'left': '41%'
+                        });
+                        break;
+                    case -90:
+                        console.log("Landscape - -90");
+                        $('#nav').css({
+                            'top': '53%',
+                            'left': '41%'
+                        });
+                        break;
+                }
+            });
+        },
 
         // load iframe & object url if current equals. 
         videoPlayer: function(item) {
             var self = this;
             var id = self.$('.swipeview-active').attr('data-page-index');
+            $('#nav').show(); // show dot nav
 
             // remove img
             self.$('.swipeview-active > img').remove();
@@ -341,10 +388,11 @@ define([
             next.attr('id', 'next');
             next.html('<b>+</b>');
             nav.append(next);
+            nav.find('#page0').addClass('activeDot');
         },
 
         // update description with event
-        updateDescription: function(id) {
+        updateDescription: function(video) {
             var videos = this.videosArr;
             var id;
             var thisItem;
@@ -352,33 +400,30 @@ define([
             id = self.$('.swipeview-active').attr('data-page-index');
             console.log("update-description-id", id);
 
-            thisItem = videos[id];
+            // pass array of videos / fav Video obj's
+            thisItem = videos[id] || video;
 
             // Add Video details
             $('#titleName').html(thisItem.title);
             $('#duration').html(thisItem.duration);
             $('#vidDesc').html(thisItem.description);
-
         },
 
         prevItem: function(e) {
             this.PlayList.prev();
         },
 
+        goTo: function(e) {
+            var target = e.currentTarget;
+            var id = target.id;
+            id = id.substring(4, 5);
+            console.log("\n** Page Index", id);
+
+            this.PlayList.goToPage(id);
+        },
+
         nextItem: function(e) {
             this.PlayList.next();
-        },
-
-        go2Page0: function(e) {
-            this.playList.goToPage(0);
-        },
-
-        go2Page1: function(e) {
-            this.playList.goToPage(1);
-        },
-
-        go2Page2: function(e) {
-            this.playList.goToPage(2);
         },
 
         logout: function() {

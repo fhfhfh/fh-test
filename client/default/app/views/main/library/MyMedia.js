@@ -210,7 +210,11 @@ define(['jquery',
 
             attr.current = true;
 
-            console.log(attr.current);
+            // logging data
+            console.log("*** \ncurrentTarget: ", attr.current,
+                "\nTitle:", attr.title,
+                "\nmodel:", model,
+                "\ntype: ", type);
 
             // if (attr.current === true) {
             //     var el = document.createElement('iframe');

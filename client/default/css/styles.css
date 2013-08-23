@@ -1347,8 +1347,12 @@ li {
   opacity: 1;
   height: 300px;
 }
+#VideoPlayback #wrapper #favVid {
+  margin: 0 auto;
+}
 #VideoPlayback #wrapper #swipeview-slider div,
-#VideoPlayback #wrapper #swipeview-slider img {
+#VideoPlayback #wrapper #swipeview-slider img,
+#VideoPlayback #wrapper #swipeview-slider iframe {
   position: relative;
   display: -webkit-box;
   display: -moz-box;
@@ -1360,11 +1364,6 @@ li {
   -ms-box-orient: vertical;
   -o-box-orient: vertical;
   box-orient: vertical;
-  -webkit-box-pack: center;
-  -moz-box-pack: center;
-  -ms-box-pack: center;
-  -o-box-pack: center;
-  box-pack: center;
   -webkit-box-align: center;
   -mox-box-align: center;
   -ms-box-align: center;
@@ -1407,48 +1406,48 @@ li {
 #VideoPlayback #nav {
   position: absolute;
   z-index: 100;
-  top: 433px;
+  top: 40%;
   width: auto;
-  height: 20px;
-  left: 40%;
+  height: 30px;
+  left: 32%;
   background: rgba(0, 0, 0, 0.75);
-  padding: 0;
+  padding: 5px;
   margin: 0 auto;
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  -ms-border-radius: 10px;
-  -o-border-radius: 10px;
-  border-radius: 10px;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  -ms-border-radius: 30px;
+  -o-border-radius: 30px;
+  border-radius: 30px;
 }
 #VideoPlayback #nav li {
   display: block;
   float: left;
-  width: 14px;
-  height: 14px;
-  line-height: 14px;
-  -webkit-border-radius: 7px;
-  -moz-border-radius: 7px;
-  -ms-border-radius: 7px;
-  -o-border-radius: 7px;
-  border-radius: 7px;
-  background: rgba(204, 204, 204, 0.7);
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  -webkit-border-radius: 14px;
+  -moz-border-radius: 14px;
+  -ms-border-radius: 14px;
+  -o-border-radius: 14px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.1);
   overflow: hidden;
   padding: 0;
-  margin: 3px 11px 0 11px;
+  margin: 1px 10px 0 10px;
   text-align: center;
 }
-#VideoPlayback #nav li #prev {
-  margin-left: 5px;
+#VideoPlayback #nav li#prev {
+  margin-left: 8px;
   background: transparent;
-  color: #ffffff;
+  color: rgba(255, 255, 255, 0.4);
 }
-#VideoPlayback #nav li #next {
-  margin-right: 5px;
+#VideoPlayback #nav li#next {
+  margin-right: 8px;
   background: transparent;
-  color: #ffffff;
+  color: rgba(255, 255, 255, 0.4);
 }
-#VideoPlayback #nav li .selected {
-  background: #ffffff;
+#VideoPlayback #nav li.activeDot {
+  background: white;
 }
 #VideoPlayback #scroller {
   padding-bottom: 450px;
@@ -1462,7 +1461,6 @@ li {
   padding: 20px;
   padding-left: 30px;
   padding-right: 30px;
-  margin-top: 60px;
   background-color: #fff;
   color: #000;
 }
@@ -2963,6 +2961,9 @@ section#insights h1 {
   float: right;
   margin-right: 8px;
 }
+#socialHistory {
+  margin-bottom: 120px;
+}
 .dataGrid {
   width: 100%;
   background-color: #eae8e8;
@@ -3087,7 +3088,7 @@ section#insights h1 {
   position: absolute;
   top: 0px;
   z-index: 10;
-  height: 540px;
+  height: 580px;
   width: 100%;
   padding: 10px;
   background-color: #ffffff;
@@ -4437,7 +4438,6 @@ section#insights h1 {
 #foodScreen #activityItemScreen #stopWatch p,
 #activityScreen #activityItemScreen #stopWatch p,
 #busyBody #activityItemScreen #stopWatch p {
-  white-space: nowrap;
   margin-left: -20px;
 }
 #foodometer #foodItemScreen #details,
@@ -4984,7 +4984,6 @@ section#insights h1 {
 }
 #activityScreen #activityItemScreen #stopWatch p,
 #activityListScreen #activityItemScreen #stopWatch p {
-  white-space: nowrap;
   margin-left: -50px;
 }
 #activityScreen #activityItemScreen #details,
@@ -6174,100 +6173,81 @@ section#insights h1 {
   margin-top: 20px;
   text-align: center;
 }
-#foodScreen #recentFavsScreen .box.grey,
-#activityScreen #recentFavsScreen .box.grey {
+#recentFavsScreen .box.grey {
   background-color: #e6e6e6;
   box-shadow: 0px 2px 2px #ababab;
 }
-#foodScreen #recentFavsScreen .box.grey img,
-#activityScreen #recentFavsScreen .box.grey img {
+#recentFavsScreen .box.grey img {
   float: right;
   padding: 15px;
 }
-#foodScreen #recentFavsScreen .box.grey .boxEntry,
-#activityScreen #recentFavsScreen .box.grey .boxEntry {
+#recentFavsScreen .box.grey .boxEntry {
   display: block;
   text-align: left;
   margin-left: 40px;
 }
-#foodScreen #recentFavsScreen .box.grey .boxEntry img,
-#activityScreen #recentFavsScreen .box.grey .boxEntry img {
+#recentFavsScreen .box.grey .boxEntry img {
   float: left;
   height: 30px;
   margin-left: -40px;
   display: none;
   padding: 0;
 }
-#foodScreen #recentFavsScreen #wrapper,
-#activityScreen #recentFavsScreen #wrapper {
+#recentFavsScreen #wrapper {
   margin-top: 50px;
   max-height: 200px;
   min-height: 20px;
   overflow: hidden;
   box-shadow: 0px 2px 2px #ababab;
 }
-#foodScreen #recentFavsScreen #wrapper #scroller,
-#activityScreen #recentFavsScreen #wrapper #scroller {
+#recentFavsScreen #wrapper #scroller {
   padding-bottom: 0px;
 }
-#foodScreen #recentFavsScreen .box.inputs,
-#activityScreen #recentFavsScreen .box.inputs {
+#recentFavsScreen .box.inputs {
   display: inline-block;
 }
-#foodScreen #recentFavsScreen .box.inputs label,
-#activityScreen #recentFavsScreen .box.inputs label {
+#recentFavsScreen .box.inputs label {
   float: left;
 }
-#foodScreen #recentFavsScreen .box.inputs.servings,
-#activityScreen #recentFavsScreen .box.inputs.servings,
-#foodScreen #recentFavsScreen .box.inputs.minutes,
-#activityScreen #recentFavsScreen .box.inputs.minutes {
+#recentFavsScreen .box.inputs.servings,
+#recentFavsScreen .box.inputs.minutes {
   width: 44%;
   border: 1px solid #bebebe;
 }
-#foodScreen #recentFavsScreen .box.inputs.size,
-#activityScreen #recentFavsScreen .box.inputs.size,
-#foodScreen #recentFavsScreen .box.inputs.calBurned,
-#activityScreen #recentFavsScreen .box.inputs.calBurned {
+#recentFavsScreen .box.inputs.size,
+#recentFavsScreen .box.inputs.calBurned {
   width: 45%;
   border: 1px solid #bebebe;
 }
-#foodScreen #recentFavsScreen .box.inputs.notes,
-#activityScreen #recentFavsScreen .box.inputs.notes {
+#recentFavsScreen .box.inputs.notes {
   width: 92%;
   border: 1px solid #bebebe;
 }
-#foodScreen #recentFavsScreen .box.inputs label,
-#activityScreen #recentFavsScreen .box.inputs label {
+#recentFavsScreen .box.inputs label {
   font: normal 12px "Avenir Next", Helvetica, Arial, sans-serif;
   color: #676767;
   margin-left: 10px;
 }
-#foodScreen #recentFavsScreen .box.inputs label,
-#activityScreen #recentFavsScreen .box.inputs label {
+#recentFavsScreen .box.inputs label {
   padding-top: 5px;
 }
-#foodScreen #recentFavsScreen .box.inputs input,
-#activityScreen #recentFavsScreen .box.inputs input {
+#recentFavsScreen .box.inputs input {
   border: none;
   box-shadow: none;
   width: 45%;
   padding: 5px;
 }
-#foodScreen #recentFavsScreen .box.inputs textarea,
-#activityScreen #recentFavsScreen .box.inputs textarea {
+#recentFavsScreen .box.inputs textarea {
   display: block;
   width: 100%;
   padding: 10px;
   border: none;
   background: none;
 }
-#foodScreen #recentFavsScreen #details,
-#activityScreen #recentFavsScreen #details {
+#recentFavsScreen #details {
   padding-bottom: 60px;
 }
-#foodScreen #recentFavsScreen #saveToMeal,
-#activityScreen #recentFavsScreen #saveToMeal {
+#recentFavsScreen #saveToMeal {
   display: inline-block;
   background: none;
   background-color: #fee5b8;
@@ -6275,12 +6255,10 @@ section#insights h1 {
   border-color: #ffffff;
   width: 40%;
 }
-#foodScreen #recentFavsScreen #saveToMeal:active,
-#activityScreen #recentFavsScreen #saveToMeal:active {
+#recentFavsScreen #saveToMeal:active {
   background-color: #fee999;
 }
-#foodScreen #recentFavsScreen #saveToTime,
-#activityScreen #recentFavsScreen #saveToTime {
+#recentFavsScreen #saveToTime {
   display: inline-block;
   background: none;
   background-color: #a0e382;
@@ -6288,7 +6266,6 @@ section#insights h1 {
   border-color: #ffffff;
   width: 40%;
 }
-#foodScreen #recentFavsScreen #saveToTime:active,
-#activityScreen #recentFavsScreen #saveToTime:active {
+#recentFavsScreen #saveToTime:active {
   background-color: #e1f9d6;
 }

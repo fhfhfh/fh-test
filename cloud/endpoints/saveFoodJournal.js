@@ -11,7 +11,7 @@ var reqUtils = require('../utils/requestUtils.js');
 
 saveData = function(reqJson, callback) {
 
-	if (jsonUtils.getPtath(reqJson, "request.head.session") === null) {
+	if (jsonUtils.getPath(reqJson, "request.head.session") === null) {
 		log.error("[saveFoodJournal][saveData] >> SessionId not Available");
 		var responseJson = respUtils.constructStatusResponse("saveFoodJournal", constants.RESP_AUTH_FAILED, "Authentication Fail", {});
 		return callback(responseJson, null);

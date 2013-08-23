@@ -28,12 +28,17 @@
                 'click #foodFavBtn': 'addFoodToFav',
                 'click #saveToMeal': 'saveFoodToMeal',
                 'click #saveBtn': 'saveAllItems',
-                'change #serving': 'calculateNutrients'
+                'change #serving': 'calculateNutrients',
+                'keyup': 'detectKeyPressed'
             },
 
             initialize: function() {
                 _.bindAll(this);
                 this.initOriHandler();
+
+                $(window).unbind().bind('touchend', function(e) {
+                    console.log('touchend');
+                });
             },
 
             initOriHandler: function(e) {
@@ -160,6 +165,7 @@
 
                 // pull foods into collection before populating screen
                 this.collection.getFoods(name, function(err, res) {
+                    console.log(name);
                     if (err) {
                         Backbone.trigger('notify', err, 'Error getting Food List');
                         $('#modalMask').hide().html("");
@@ -233,6 +239,8 @@
                     food.attributes.serving = $("#serving").val() + " x " + $('#size').val();
                     food = this.multiplyServing($("#serving").val(), food);
                     this.container.container.foodItems.push(food);
+
+                    // $('#serving').on('keypress'); 
                     console.log(this.container.container.foodItems);
                 }
                 $("span#meal").text("Lunch - (" + this.container.container.foodItems.length + ")");
@@ -241,8 +249,22 @@
                 // this.selectFood();
             },
 
+            detectKeyPressed: function(e) {
+                // var unicode = e.keyCode ? e.keyCode : e.charCode;
+                console.log("KeyPressed", e.keyCode);
+                alert("KeyPressed");
+
+                // hide keyboard if return 
+                if(e.keyCode === 13) {
+                    $('#foodItemScreen').find('#details').find('#serving').blur();
+                    console.log("Return pressed, hiding keyboard");
+                }
+            },
+
             saveAllItems: function() {
+                console.log("foodometer saveAllItems");
                 this.container.container.subViews.foodometerNav.saveFoodsToJournal();
+                this.container.container.subViews.foodometerNav.renderDay();
                 this.container.container.setActiveView('foodometerNav');
             },
 

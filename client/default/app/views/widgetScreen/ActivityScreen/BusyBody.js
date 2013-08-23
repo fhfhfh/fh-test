@@ -32,7 +32,8 @@ define([
             'click #saveBtn': 'saveAllItems',
             'change #minutes': 'calculateNutrients',
             'click #startStop': 'startStopClock',
-            'click #reset': 'resetClock'
+            'click #reset': 'resetClock',
+            'keyup': 'detectKeyPressed'
         },
 
         initialize: function() {
@@ -55,6 +56,18 @@ define([
                         self.refreshScroll();
                 }
             });
+        },
+
+        detectKeyPressed: function(e) {
+            // var unicode = e.keyCode ? e.keyCode : e.charCode;
+            console.log("KeyPressed", e.keyCode);
+            // alert("KeyPressed");
+
+            // hide keyboard if return 
+            if(e.keyCode === 13) {
+                $('#activityScreen').find('#activityItemScreen').find('#minutes').blur();
+                console.log("Return pressed, hiding keyboard");
+            }
         },
 
         render: function() {
@@ -150,6 +163,8 @@ define([
             this.calculateNutrients();
             self.refreshScroll();
 
+            $('#timerMsg').css('white-space', 'nowrap');
+
             if (model.attributes.favorite === true) {
                 $('#activityFavBtn').addClass('active');
             }
@@ -202,17 +217,17 @@ define([
             this.$el.html(this.oldHtml);
             $('#filterButtons').show();
 
-            if (!doneFlag) {
-                // this.level1Scroll.destroy();
-                this.pageScroll = new iScroll(this.$('#pageScroll')[0]);
-                this.level1Scroll = new iScroll(this.$('#level1Activity')[0], {
-                    hScroll: true,
-                    vScroll: false,
-                    hScrollbar: false,
-                    bounceLock: true,
-                    bounce: false
-                });
-            }
+
+            // this.level1Scroll.destroy();
+            this.pageScroll = new iScroll(this.$('#pageScroll')[0]);
+            this.level1Scroll = new iScroll(this.$('#level1Activity')[0], {
+                hScroll: true,
+                vScroll: false,
+                hScrollbar: false,
+                bounceLock: true,
+                bounce: false
+            });
+
             // this.container.container.iscroll.disable();
             this.refreshScroll();
 
