@@ -58,6 +58,8 @@ html {
   /* 1 */
 
   -webkit-text-size-adjust: 100%;
+  /* 2 */
+
   -ms-text-size-adjust: 100%;
   /* 2 */
 
@@ -1021,11 +1023,12 @@ section h1 {
 }
 #child-content {
   padding: 15px;
+  margin-bottom: -40px;
 }
 @-moz-document url-prefix() {
   #child-content {
     padding: 15px;
-    padding-bottom: 60px;
+    margin-bottom: -40px;
   }
 }
 #child-content x:-moz-any-link,
@@ -1406,10 +1409,10 @@ li {
 #VideoPlayback #nav {
   position: absolute;
   z-index: 100;
-  top: 40%;
+  top: 400px;
   width: auto;
   height: 30px;
-  left: 32%;
+  text-align: center;
   background: rgba(0, 0, 0, 0.75);
   padding: 5px;
   margin: 0 auto;
