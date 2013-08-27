@@ -3,9 +3,9 @@
     "firstTime": false,
     "hosts": {
         "debugCloudType": "node",
-        "debugCloudUrl": "REPLACE_CLOUD_HOST",
+        "debugCloudUrl": "http://10.0.2.2:8001",
         "releaseCloudType": "node",
-        "releaseCloudUrl": "REPLACE_CLOUD_HOST"
+        "releaseCloudUrl": "http://10.0.2.2:8001"
     },
     "status": "ok"
 }

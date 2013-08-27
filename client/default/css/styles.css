@@ -356,7 +356,7 @@ body,
 #content,
 #content > section {
   height: 100%;
-  overflow: scroll;
+  overflow: auto;
   position: relative;
 }
 body {
@@ -2438,6 +2438,9 @@ section#widgetScreen #scrollWrapper {
   text-align: center;
   color: rgba(255, 255, 255, 0.8);
   padding: 30px 20px 15px 0;
+  padding: 25px 20px 15px 0;
+  /* standard */
+
   display: block;
   margin: 0 auto;
   font: bold 13px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
