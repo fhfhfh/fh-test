@@ -1,25 +1,27 @@
-/* <<<<< FHC LOCAL - IE9 >>>>> */
-{
-    "domain": "securehealthhub",
-    "firstTime": false,
-    "hosts": {
-        "debugCloudType": "node",
-        "debugCloudUrl": "http://10.0.2.2:8001",
-        "releaseCloudType": "node",
-        "releaseCloudUrl": "http://10.0.2.2:8001"
-    },
-    "status": "ok"
-}
+//______________ FHC LOCAL - IE9 - DB CONFIG ______________
 
-/* <<<<< FHC LOCAL - CHROME, SAFARI, FIREFOX, OPERA >>>>> */
 // {
 //     "domain": "securehealthhub",
 //     "firstTime": false,
 //     "hosts": {
 //         "debugCloudType": "node",
-//         "debugCloudUrl": "REPLACE_CLOUD_HOST",
+//         "debugCloudUrl": "http://10.0.2.2:8001",
 //         "releaseCloudType": "node",
-//         "releaseCloudUrl": "REPLACE_CLOUD_HOST"
+//         "releaseCloudUrl": "http://10.0.2.2:8001"
 //     },
 //     "status": "ok"
 // }
+
+//______________ FHC LOCAL - CHROME, SAFARI, OPERA, FIREFOX - DB CONFIG ______________
+
+{
+    "domain": "securehealthhub",
+    "firstTime": false,
+    "hosts": {
+        "debugCloudType": "node",
+        "debugCloudUrl": "REPLACE_CLOUD_HOST",
+        "releaseCloudType": "node",
+        "releaseCloudUrl": "REPLACE_CLOUD_HOST"
+    },
+    "status": "ok"
+}
