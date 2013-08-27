@@ -356,7 +356,7 @@ body,
 #content,
 #content > section {
   height: 100%;
-  overflow: auto;
+  overflow: scroll;
   position: relative;
 }
 body {
@@ -1406,23 +1406,28 @@ li {
   -o-transition-property: opacity;
   transition-property: opacity;
 }
-#VideoPlayback #nav {
+@-moz-document url-prefix() {
+  text-align: center;
+}
+#VideoPlayback #nav-wrapper {
+  margin: 0 auto;
   position: absolute;
   z-index: 100;
   top: 400px;
+}
+#VideoPlayback #nav-wrapper #nav {
   width: auto;
   height: 30px;
   text-align: center;
   background: rgba(0, 0, 0, 0.75);
   padding: 5px;
-  margin: 0 auto;
   -webkit-border-radius: 30px;
   -moz-border-radius: 30px;
   -ms-border-radius: 30px;
   -o-border-radius: 30px;
   border-radius: 30px;
 }
-#VideoPlayback #nav li {
+#VideoPlayback #nav-wrapper #nav li {
   display: block;
   float: left;
   width: 20px;
@@ -1439,17 +1444,17 @@ li {
   margin: 1px 10px 0 10px;
   text-align: center;
 }
-#VideoPlayback #nav li#prev {
+#VideoPlayback #nav-wrapper #nav li#prev {
   margin-left: 8px;
   background: transparent;
   color: rgba(255, 255, 255, 0.4);
 }
-#VideoPlayback #nav li#next {
+#VideoPlayback #nav-wrapper #nav li#next {
   margin-right: 8px;
   background: transparent;
   color: rgba(255, 255, 255, 0.4);
 }
-#VideoPlayback #nav li.activeDot {
+#VideoPlayback #nav-wrapper #nav li.activeDot {
   background: white;
 }
 #VideoPlayback #scroller {
@@ -2076,8 +2081,8 @@ section#widgetScreen #scrollWrapper {
 }
 @media only screen and (orientation: landscape) {
   #featuredMeds #filterView {
-    left: 300px;
-    top: 50px;
+    left: 549px;
+    top: 57px;
   }
 }
 #medicineBar {
@@ -2432,10 +2437,15 @@ section#widgetScreen #scrollWrapper {
   width: 120px;
   text-align: center;
   color: rgba(255, 255, 255, 0.8);
-  padding: 30px 20px 15px 0px;
+  padding: 30px 20px 15px 0;
   display: block;
   margin: 0 auto;
   font: bold 13px "Avenir Next Demi Bold", Helvetica, Arial, sans-serif;
+}
+@-moz-document url-prefix() {
+  #main-nav li {
+    padding: 20px 20px 15px 0;
+  }
 }
 #main-nav li.selected {
   border-top-left-radius: 8px;

@@ -88,49 +88,54 @@
 		    .box-shadow(0, 2px, 6px, 0, #000); 
 		    .transition-duration(.4s);
 		    .transition-prop (opacity);
+
+		    @-moz-document url-prefix() {
+		    	text-align: center;
+		    }
 		}
 	}
 
-	#nav {
-		// color: @color-selected;
-	    position:absolute;
-	    z-index:100;
-	    top:400px;
-	    width:auto;
-	    height:30px;
-	    // left:44%;
-	    text-align: center;
-	    background:@color-nav;
-	    padding:5px;
-	    margin:0 auto;
-	    .border-radius (30px);
+	#nav-wrapper {
+		margin:0 auto;
+		position:absolute;
+		z-index:100;
+		top:400px;
 
-    	li {
-    		display:block;
-		    float:left;
-		    width:20px;
-		    height:20px; line-height:20px;
-		  	.border-radius (14px);
-		    background:@color-li;
-		    overflow:hidden;
-		    padding:0;
-		    margin:1px 10px 0 10px;
-		    text-align:center;
+		#nav {   
+		    width:auto;
+		    height:30px;
+		    text-align: center;
+		    background:@color-nav;
+		    padding:5px;
+		    .border-radius (30px);
 
-	    	&#prev {
-	   			margin-left:8px;
-	    		background:@color-trans;
-	    		color: @color-selected;
-			}
+	    	li {
+	    		display:block;
+			    float:left;
+			    width:20px;
+			    height:20px; line-height:20px;
+			  	.border-radius (14px);
+			    background:@color-li;
+			    overflow:hidden;
+			    padding:0;
+			    margin:1px 10px 0 10px;
+			    text-align:center;
 
-			&#next {
-				margin-right:8px;
-				background:@color-trans;
-				color: @color-selected;
-			}
+		    	&#prev {
+		   			margin-left:8px;
+		    		background:@color-trans;
+		    		color: @color-selected;
+				}
 
-			&.activeDot {
-				background: white;
+				&#next {
+					margin-right:8px;
+					background:@color-trans;
+					color: @color-selected;
+				}
+
+				&.activeDot {
+					background: white;
+				}
 			}
 		}
 	}

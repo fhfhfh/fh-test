@@ -10,10 +10,17 @@
         width: 120px;
         text-align: center;
         color: rgba(255, 255, 255, .8);
-        padding: 30px 20px 15px 0px;
+        padding: 30px 20px 15px 0;
+        @-moz-document url-prefix() {
+            #main-nav li {
+                padding: 20px 20px 15px 0;
+            }
+        }
         display: block;
         margin: 0 auto;
         .avenir-demi(13px);
+
+   
 
         &.selected {
             border-top-left-radius: 8px;

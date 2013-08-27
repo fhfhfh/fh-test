@@ -25,8 +25,8 @@ define([
             'touchmove #wrapper': 'swipeDefault',
             'webkitTransitionEnd #wrapper': 'webKitEnd',
             'click #prev': 'prevItem',
-            'click #next': 'nextItem',
-            'click li': 'goTo'
+            'click #next': 'nextItem'
+            // 'click li': 'goTo'
         },
 
         // global varibales
@@ -85,14 +85,6 @@ define([
 
             // detect ori change 
             this.oriHandler();
-            // this.iscroll2 = new iScroll(this.$('#wrapper')[0], {
-            //     hscroll: true,
-            //     vscroll: false,
-            //     fixedScrollbar: true,
-            //     bounce: false,
-            //     hScrollbar: false
-            // });
-
         },
 
         // load iframe video player
@@ -150,7 +142,7 @@ define([
         // create fav Video view
         createSingleView: function(video) {
             var self = this;
-            $('#nav').hide(); // hide dot nav
+            // $('#nav').hide(); // hide dot nav
             $('#videoDescription').css("height", "550px"); // adjust desc height
 
             // wait for eleemnts to load
@@ -174,6 +166,7 @@ define([
             var self = this;
             var videoIndex;
 
+            // $('#nav').show();
             // create dynamic dot nav
             this.navigation(self.videosArr);
 
@@ -286,6 +279,25 @@ define([
             }
         },
 
+        // position dot nav
+        positionNav: function(videosArr) {
+            var arrLength = this.videosArr.length;
+
+            if (arrLength <= 2) {
+                console.log("*** dotNav Size", arrLength);
+                $('#VideoPlayback').find('#nav-wrapper').css('left', '43%');
+            } else if (arrLength > 2 || arrLength <= 4) {
+                console.log("*** dotNav Size", arrLength);
+                $('#VideoPlayback').find('#nav-wrapper').css('left', '40%');
+            } else if (arrLength > 4 || arrLength <= 6) {
+                console.log("*** dotNav Size", arrLength);
+                $('#VideoPlayback').find('#nav-wrapper').css('left', '37%');
+            } else if (arrLength > 6 || arrLength <= 8) {
+                console.log("*** dotNav Size", arrLength);
+                $('#VideoPlayback').find('#nav-wrapper').css('left', '37%');
+            }
+        },
+
         // detect orientation change
         oriHandler: function(e) {
             window.addEventListener('orientationchange', function() {
@@ -388,6 +400,11 @@ define([
             next.attr('id', 'next');
             next.html('<b>+</b>');
             nav.append(next);
+
+            // center nav based on arrLength
+            this.positionNav(self.videosArr);
+
+            // set active dot to first videos
             nav.find('#page0').addClass('activeDot');
         },
 
