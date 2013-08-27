@@ -388,7 +388,31 @@ define([
             next.attr('id', 'next');
             next.html('<b>+</b>');
             nav.append(next);
+
+            // center nav based on arrLength
+            this.positionNav(self.videosArr);
+
+            // set active dot to first videos
             nav.find('#page0').addClass('activeDot');
+        },
+
+        // position dot nav
+        positionNav: function(videosArr) {
+            var arrLength = this.videosArr.length;
+
+            if (arrLength <= 2) {
+                console.log("*** dotNav Size", arrLength);
+                $('#VideoPlayback').find('#nav-wrapper').css('left', '43%');
+            } else if (arrLength > 2 || arrLength <= 4) {
+                console.log("*** dotNav Size", arrLength);
+                $('#VideoPlayback').find('#nav-wrapper').css('left', '40%');
+            } else if (arrLength > 4 || arrLength <= 6) {
+                console.log("*** dotNav Size", arrLength);
+                $('#VideoPlayback').find('#nav-wrapper').css('left', '37%');
+            } else if (arrLength > 6 || arrLength <= 8) {
+                console.log("*** dotNav Size", arrLength);
+                $('#VideoPlayback').find('#nav-wrapper').css('left', '37%');
+            }
         },
 
         // update description with event
