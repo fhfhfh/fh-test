@@ -172,6 +172,8 @@ function userProfile(reqJson, callback){
                     apiSessionId : data.apiSessionId,
                      method :"GET"
                 }   
+
+                console.log("@@@@", data.apiSessionId);
             var respJson = reqUtils.makeRequestCall(requestJson, function(err,res){
                 if(res != null){
                     
