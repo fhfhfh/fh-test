@@ -6067,7 +6067,7 @@ section#insights h1 {
   text-align: left;
   background-color: #ffffff;
   border-radius: 20px;
-  margin: 10px;
+  margin: 10px 0 10px 58px;
   padding: 0px 5px;
 }
 #simpleSearchScreen #searchBar #searchInput #searchImg {
@@ -6084,6 +6084,12 @@ section#insights h1 {
   border: none;
   width: 75%;
   background: transparent;
+}
+#simpleSearchScreen #searchBar #searchInput .show {
+  opacity: 1;
+}
+#simpleSearchScreen #searchBar #searchInput .hide {
+  opacity: 0;
 }
 #simpleSearchScreen #searchBar #filter {
   width: 45%;
@@ -6115,7 +6121,7 @@ section#insights h1 {
   display: inline-block;
   text-align: center;
   color: #1a1a1a;
-  float: right;
+  float: left;
   border: none;
   margin: 10px;
   padding: 5px;

@@ -52,6 +52,7 @@
                             self.refreshScroll();
                             break;
                         case -90: // landscape right
+                            // TO DO TEST USING TIMEOUT 
                             self.refreshScroll();
                             break;
                     }
@@ -254,7 +255,7 @@
                 alert("KeyPressed");
 
                 // hide keyboard if return 
-                if(e.keyCode === 13) {
+                if (e.keyCode === 13) {
                     $('#foodItemScreen').find('#details').find('#serving').blur();
                     console.log("Return pressed, hiding keyboard");
                 }

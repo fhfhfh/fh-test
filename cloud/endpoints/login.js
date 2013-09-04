@@ -52,50 +52,46 @@ var loginEndpoint = function() {
              
              if(res != null){
                  apiSessionId = res.headers.sessionid;
-                if(!apiSessionId)
-                {
-                    var fail = respUtils.constructStatusResponse("Login", constants.RESP_SERVER_ERROR, "Internal Server Error",{});
-                    return callback(fail,null);
-                }
-                else
-                {
+                if (!apiSessionId) {
+                    var fail = respUtils.constructStatusResponse("Login", constants.RESP_SERVER_ERROR, "Internal Server Error", {});
+                    return callback(fail, null);
+                } else {
                     //Creating the session 
                     sessionManager.createSession(function handleCreateSession(errMsg, data) {
 
                         // Trouble?
                         if (errMsg != null) {
-                            var fail = respUtils.constructStatusResponse("Login", constants.RESP_SERVER_ERROR, errMsg,{});
+                            var fail = respUtils.constructStatusResponse("Login", constants.RESP_SERVER_ERROR, errMsg, {});
                             return callback(fail, null);
                         }
 
                         // Initialize session state.
                         var sessionId = data.sessionId;
-                        
+
                         //preparing object for apiSession
                         var sessionAttrs = {
                             "apiSessionId": apiSessionId
                         };
-                 
-                        log.debug("Attempting to Save to SessionId: " + sessionId );
+
+                        log.debug("Attempting to Save to SessionId: " + sessionId);
                         //adding apisession into session
-                        sessionManager.setSessionAttributes(sessionId, sessionAttrs, function onSessionSetAttr(errMsg, success){
-                         
+                        sessionManager.setSessionAttributes(sessionId, sessionAttrs, function onSessionSetAttr(errMsg, success) {
+
                             // Trouble?
                             if (errMsg !== null) {
-                                var fail = respUtils.constructStatusResponse("Login", constants.RESP_SERVER_ERROR, errMsg,{});
+                                var fail = respUtils.constructStatusResponse("Login", constants.RESP_SERVER_ERROR, errMsg, {});
                                 return callback(fail, null);
                             }
                             var success = respUtils.constructResponse();
                             success.response.head["sessionId"] = sessionId;
                             //returing success and sessionId to the client 
-                            userProfile(sessionId,function cb(err, respData) {
-                                if(err)
-                                {
-                                    var fail = respUtils.constructStatusResponse("Login", constants.RESP_SERVER_ERROR, errMsg,{});
+                            userProfile(sessionId, function cb(err, respData) {
+                                if (err) {
+                                    var fail = respUtils.constructStatusResponse("Login", constants.RESP_SERVER_ERROR, errMsg, {});
                                     return callback(fail, null);
                                 }
                                 success.response.payload = respData.response.payload;
-                                return callback(null,success);
+                                return callback(null, success);
                             });
                         });
                     });
