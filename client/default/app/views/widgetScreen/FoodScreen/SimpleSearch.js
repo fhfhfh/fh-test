@@ -31,7 +31,7 @@ define([
 
         initialize: function() {
             _.bindAll(this);
-            $('#searchTerm').attr("disabled", "disabled");
+
         },
 
         render: function() {
@@ -39,7 +39,7 @@ define([
             $('#filterButtons').show();
             this.listScroll = new iScroll(this.$('#scrollContainer')[0]);
             $("span#meal").text("Lunch - (" + this.container.container.foodItems.length + ")");
-
+            $('#searchTerm').attr("disabled", "disabled");
             return this;
         },
 

@@ -84,7 +84,7 @@ define([
             // ------------------------------------
 
             // detect ori change 
-            this.oriHandler();
+            // this.oriHandler();
             // this.iscroll2 = new iScroll(this.$('#wrapper')[0], {
             //     hscroll: true,
             //     vscroll: false,
@@ -396,7 +396,7 @@ define([
             nav.find('#page0').addClass('activeDot');
         },
 
-        // position dot nav
+        // center dot nav
         positionNav: function(videosArr) {
             var arrLength = this.videosArr.length;
 
