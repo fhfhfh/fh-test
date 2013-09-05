@@ -59,12 +59,8 @@ define([
         },
 
         detectKeyPressed: function(e) {
-            // var unicode = e.keyCode ? e.keyCode : e.charCode;
-            console.log("KeyPressed", e.keyCode);
-            // alert("KeyPressed");
-
             // hide keyboard if return 
-            if(e.keyCode === 13) {
+            if (e.keyCode === 13) {
                 $('#activityScreen').find('#activityItemScreen').find('#minutes').blur();
                 console.log("Return pressed, hiding keyboard");
             }
@@ -85,7 +81,15 @@ define([
             this.time = this.container.time;
 
             $('#filterButtons').show();
-            this.pageScroll = new iScroll(this.$('#pageScroll')[0]);
+
+            this.pageScroll = new iScroll(this.$('#pageScroll')[0], {
+                hScroll: true,
+                vScroll: false,
+                hScrollbar: false,
+                bounceLock: true,
+                bounce: false
+            });
+
             $("span#time").text(self.time + " - (" + this.container.container.activityItems.length + ")");
             this.refreshScroll();
             return this;

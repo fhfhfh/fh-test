@@ -250,10 +250,6 @@
             },
 
             detectKeyPressed: function(e) {
-                // var unicode = e.keyCode ? e.keyCode : e.charCode;
-                console.log("KeyPressed", e.keyCode);
-                alert("KeyPressed");
-
                 // hide keyboard if return 
                 if (e.keyCode === 13) {
                     $('#foodItemScreen').find('#details').find('#serving').blur();
