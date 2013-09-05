@@ -27,20 +27,20 @@ var fetchCKEndpoint = function() {
 
         if (jsonUtils.getPath(reqJson, "request.head.sessionId") == null) {
             log.error("[fetchCKEndpoint][fetchCK] >> SessionId Not Available");
-            // var responseJson = respUtils.constructStatusResponse("fetchCK", constants.RESP_AUTH_FAILED, "Authentication  Fail",{});
-            // return callback(responseJson,null) 
+            var responseJson = respUtils.constructStatusResponse("fetchCK", constants.RESP_AUTH_FAILED, "Authentication  Fail",{});
+            return callback(responseJson,null) 
         }
 
         // Extract sessionId from request params
-        // var sessionId = jsonUtils.getPath(reqJson, "request.head.sessionId").trim();
+        var sessionId = jsonUtils.getPath(reqJson, "request.head.sessionId").trim();
         var sessionId = "abcd";
 
         //Fetching session details
-        // sessionManager.getSession(sessionId, function(err, data) {
-        //     log.info("[fetchCKEndpoint][fetchCK] >> Session Details :" + JSON.stringify(data));
-        //     if (data)
-        //     //Fetching data from FH database for Calorie King
-        //     {
+        sessionManager.getSession(sessionId, function(err, data) {
+            log.info("[fetchCKEndpoint][fetchCK] >> Session Details :" + JSON.stringify(data));
+            if (data)
+            //Fetching data from FH database for Calorie King
+            {
         if (jsonUtils.getPath(reqJson, "request.payload.type") == null) {
             log.error("[fetchCKEndpoint][fetchCK] >> Calorie King Category not provided");
             var responseJson = respUtils.constructStatusResponse("fetchCK", constants.RESP_AUTH_FAILED, "Calorie King Category not provided", {});
@@ -73,12 +73,12 @@ var fetchCKEndpoint = function() {
                 }
             }
         });
-        //     } else //If session not found
-        //     {
-        //         var responseJson = respUtils.constructStatusResponse("fetchCK", constants.RESP_AUTH_FAILED, "Authentication  Fail", {});
-        //         return callback(responseJson, null)
-        //     }
-        // });
+            } else //If session not found
+            {
+                var responseJson = respUtils.constructStatusResponse("fetchCK", constants.RESP_AUTH_FAILED, "Authentication  Fail", {});
+                return callback(responseJson, null)
+            }
+        });
 
     };
 };

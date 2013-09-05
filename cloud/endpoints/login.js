@@ -10,57 +10,61 @@ var reqUtils = require("../utils/requestUtils.js");
 
 /**
  * NodeJS Module: Encapsulates logic for Login Endpoint.
- * 
+ *
  */
 var loginEndpoint = function() {
-    
+
     /**
      * Process login request.
      */
-    this.login = function login(reqJson, callback){
-         
+    this.login = function login(reqJson, callback) {
+
         // log.debug("[loginEndpoint][Login] >> [REQ]: " + JSON.stringify(reqJson)); 
         // Validate request
         var validationResp = validateLoginRequest(reqJson);
         if (!validationResp.status) {
             log.debug("[loginEndpoint][Login] Bad input - validation failed,: " + JSON.stringify(reqJson));
-            var fail = respUtils.constructStatusResponse("Login", constants.RESP_AUTH_FAILED, validationResp.msg,{});
+            var fail = respUtils.constructStatusResponse("Login", constants.RESP_AUTH_FAILED, validationResp.msg, {});
             return callback(fail, null);
         }
-        
+
         // Extract request params
         var userId = jsonUtils.getPath(reqJson, "request.payload.login.userId").trim();
         var password = jsonUtils.getPath(reqJson, "request.payload.login.password").trim();
         log.debug("[loginEndpoint][Login] UserName:" + userId + " Password:" + password);
-        
+
         var jsonObj = {
             login: {
                 userId: userId,
                 password: password
             }
         }
-        
-          var requestJson = {
-                    EndPointName : "login",
-                    path : "auth",
-                    apiSessionId : "",
-                    method :"POST",
-                    jsonObj : jsonObj
-                }
-         var apiSessionId = "";
-          var respJson = reqUtils.makeRequestCall(requestJson, function(err,res){
-             
-             if(res != null){
-                 apiSessionId = res.headers.sessionid;
+
+        var requestJson = {
+            EndPointName: "login",
+            path: "auth",
+            apiSessionId: "",
+            method: "POST",
+            jsonObj: jsonObj
+        }
+        var apiSessionId = "";
+        var respJson = reqUtils.makeRequestCall(requestJson, function(err, res) {
+
+            if (res != null) {
+                console.log(1);
+                apiSessionId = res.headers.sessionid;
                 if (!apiSessionId) {
+                    console.log(2);
                     var fail = respUtils.constructStatusResponse("Login", constants.RESP_SERVER_ERROR, "Internal Server Error", {});
                     return callback(fail, null);
                 } else {
+                    console.log(3);
                     //Creating the session 
                     sessionManager.createSession(function handleCreateSession(errMsg, data) {
 
                         // Trouble?
                         if (errMsg != null) {
+                            console.log(4);
                             var fail = respUtils.constructStatusResponse("Login", constants.RESP_SERVER_ERROR, errMsg, {});
                             return callback(fail, null);
                         }
@@ -97,10 +101,12 @@ var loginEndpoint = function() {
                     });
                 }
 
-             }
+            } else { // Login failed
+                console.log(5, err.response.payload.status);
+            }
 
 
-          });
+        });
 
     };
 };
@@ -110,6 +116,7 @@ module.exports = new loginEndpoint();
 
 
 // Function to check the validation for username and password
+
 function validateLoginRequest(reqJson) {
 
     var resp = {
@@ -143,51 +150,47 @@ function validateLoginRequest(reqJson) {
     resp.msg = "Success";
     return resp;
 
-} 
-
+}
 
 
 
 /**
-     * Process fetchUserProfile request.
-     */
+ * Process fetchUserProfile request.
+ */
 // Exposed operations
-function userProfile(reqJson, callback){
-      
+
+function userProfile(reqJson, callback) {
+
     // Extract sessionId from request params
     var sessionId = reqJson;
-        
-    //Fetching session details
-    sessionManager.getSession(sessionId, function(err, data ){
-        log.info("[userProfiletEndpoint][userProfile] >> Session Details :"+JSON.stringify(data)); 
-        if(data)
-        {
-             var requestJson = {
-                    EndPointName : "userProfile",
-                    path : "userProfile",
-                    apiSessionId : data.apiSessionId,
-                     method :"GET"
-                }   
 
-                console.log("@@@@", data.apiSessionId);
-            var respJson = reqUtils.makeRequestCall(requestJson, function(err,res){
-                if(res != null){
-                    
+    //Fetching session details
+    sessionManager.getSession(sessionId, function(err, data) {
+        log.info("[userProfiletEndpoint][userProfile] >> Session Details :" + JSON.stringify(data));
+        if (data) {
+            var requestJson = {
+                EndPointName: "userProfile",
+                path: "userProfile",
+                apiSessionId: data.apiSessionId,
+                method: "GET"
+            }
+
+            console.log("@@@@", data.apiSessionId);
+            var respJson = reqUtils.makeRequestCall(requestJson, function(err, res) {
+                if (res != null) {
+
                     var jsonObject = res.response.payload;
                     var jsonObj = respUtils.constructResponse();
                     jsonObj.response.payload = jsonObject;
-                    return callback(null,jsonObj) //callback returning the response JSON back to client 
-               }
-                else
-                {
-                    return  callback(err,null);
+                    return callback(null, jsonObj) //callback returning the response JSON back to client 
+                } else {
+                    return callback(err, null);
                 }
             });
-        } 
-        else        //If session not found
+        } else //If session not found
         {
-            var responseJson = respUtils.constructStatusResponse("userProfile", constants.RESP_AUTH_FAILED, "Authentication  Fail",{});
-            return callback(responseJson,null) 
+            var responseJson = respUtils.constructStatusResponse("userProfile", constants.RESP_AUTH_FAILED, "Authentication  Fail", {});
+            return callback(responseJson, null)
         }
-    });           
+    });
 }
