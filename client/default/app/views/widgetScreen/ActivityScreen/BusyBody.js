@@ -82,13 +82,7 @@ define([
 
             $('#filterButtons').show();
 
-            this.pageScroll = new iScroll(this.$('#pageScroll')[0], {
-                hScroll: true,
-                vScroll: false,
-                hScrollbar: false,
-                bounceLock: true,
-                bounce: false
-            });
+            this.pageScroll = new iScroll(this.$('#pageScroll')[0]);
 
             $("span#time").text(self.time + " - (" + this.container.container.activityItems.length + ")");
             this.refreshScroll();
@@ -215,24 +209,23 @@ define([
             target.toggleClass('selected');
         },
 
-        cancelActivity: function() {
+        cancelActivity: function(doneFlag) {
             this.model = null;
             this.selectedActivity = null;
             this.$el.html(this.oldHtml);
             $('#filterButtons').show();
 
 
-            // this.level1Scroll.destroy();
-            this.pageScroll = new iScroll(this.$('#pageScroll')[0]);
-            this.level1Scroll = new iScroll(this.$('#level1Activity')[0], {
-                hScroll: true,
-                vScroll: false,
-                hScrollbar: false,
-                bounceLock: true,
-                bounce: false
-            });
-
-            // this.container.container.iscroll.disable();
+            if (!doneFlag) {
+                this.pageScroll = new iScroll(this.$('#pageScroll')[0]);
+                this.level1Scroll = new iScroll(this.$('#level1Activity')[0], {
+                    hScroll: true,
+                    vScroll: false,
+                    hScrollbar: false,
+                    bounceLock: true,
+                    bounce: false
+                });
+            }
             this.refreshScroll();
 
         },
@@ -293,7 +286,6 @@ define([
                 var percent = thisEl.find("#rda").text() || "0%";
                 thisEl.find("#name").css("background-size", percent + " 100%");
             }
-
         },
 
         startStopClock: function() {

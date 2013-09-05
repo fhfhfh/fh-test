@@ -35,15 +35,19 @@ var searchCKEndpoint = function() {
 
         //searching session details
         sessionManager.getSession(sessionId, function(err, data) {
+            // console.log("!!!", err.response.payload.status);
             log.info("[searchCKEndpoint][searchCK] >> Session Details :" + JSON.stringify(data));
             if (data)
             //searching data from FH database for Calorie King
             {
+                // console.log("!!!", data); // undefined!!!
                 if (jsonUtils.getPath(reqJson, "request.payload.type") === null) {
                     log.error("[searchCKEndpoint][searchCK] >> Calorie King Category not provided");
                     var responseJson = respUtils.constructStatusResponse("searchCK", constants.RESP_AUTH_FAILED, "Calorie King Category not provided", {});
                     return callback(responseJson, null);
                 }
+                console.log(reqJson.request.payload.category);
+                console.log(reqJson.request.payload.type);
                 var actObj = {
                     "act": "list",
                     "type": "CalorieKing_DB",
@@ -62,6 +66,7 @@ var searchCKEndpoint = function() {
 
                 $fh.db(actObj,
                     function(err, data) {
+                        console.log("<<<<<", data);
                         if (err) {
                             var fail = respUtils.constructStatusResponse("searchCK", constants.RESP_SERVER_ERROR, err, {});
                             log.error("[searchCKEndpoint][" + "searchCK" + "][READ DATA] >> " + err);
@@ -113,7 +118,7 @@ function search(data, reqJson) {
                 count++;
             }
 
-            // check if apple has space b4 1st letter
+            // check if string has space b4 1st letter
             var sub = " " + substr;
             if (str.indexOf(sub, 0) > -1) {
                 dataList.push(data.list[j].fields[name][i]);

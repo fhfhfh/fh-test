@@ -1396,6 +1396,12 @@ li {
   -o-border-radius: 30px;
   border-radius: 30px;
 }
+@media only screen and (orientation: landscape) {
+  #VideoPlayback #nav {
+    top: 54%;
+    left: 40%;
+  }
+}
 #VideoPlayback #nav li {
   display: block;
   float: left;
@@ -6067,7 +6073,7 @@ section#insights h1 {
   text-align: left;
   background-color: #ffffff;
   border-radius: 20px;
-  margin: 10px 0 10px 68px;
+  margin: 10px 0 10px 95px;
   padding: 0px 5px;
 }
 #simpleSearchScreen #searchBar #searchInput #searchImg {

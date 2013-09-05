@@ -292,31 +292,31 @@ define([
                 switch (window.orientation) {
                     case 0:
                         console.log("Portrait - 0");
-                        $('#nav').css({
-                            'top': '40%',
-                            'left': '32%'
-                        });
+                    // $('#nav').css({
+                    //     'top': '40%',
+                    //     'left': '32%'
+                    // });
                         break;
                     case -0:
                         console.log("Portrait - -0");
-                        $('#nav').css({
-                            'top': '40%',
-                            'left': '32%'
-                        });
+                // $('#nav').css({
+                //     'top': '40%',
+                //     'left': '32%'
+                    // });
                         break;
                     case 90:
                         console.log("Landscape - 90");
-                        $('#nav').css({
-                            'top': '53%',
-                            'left': '41%'
-                        });
+            // $('#nav').css({
+            //     'top': '53%',
+            //     'left': '41%'
+                    // });
                         break;
                     case -90:
                         console.log("Landscape - -90");
-                        $('#nav').css({
-                            'top': '53%',
-                            'left': '41%'
-                        });
+        // $('#nav').css({
+        //     'top': '53%',
+        //     'left': '41%'
+                    // });
                         break;
                 }
             });
@@ -396,7 +396,7 @@ define([
             nav.find('#page0').addClass('activeDot');
         },
 
-        // center dot nav
+        // position dot nav
         positionNav: function(videosArr) {
             var arrLength = this.videosArr.length;
 

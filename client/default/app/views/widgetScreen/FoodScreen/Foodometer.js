@@ -34,10 +34,6 @@
             initialize: function() {
                 _.bindAll(this);
                 this.initOriHandler();
-
-                $(window).unbind().bind('touchend', function(e) {
-                    console.log('touchend');
-                });
             },
 
             initOriHandler: function(e) {
@@ -52,7 +48,6 @@
                             self.refreshScroll();
                             break;
                         case -90: // landscape right
-                            // TO DO TEST USING TIMEOUT 
                             self.refreshScroll();
                             break;
                     }
@@ -203,7 +198,6 @@
                 $('#filterButtons').show();
 
                 if (!doneFlag) {
-                    //  this.level1Scroll.destroy();
                     this.pageScroll = new iScroll(this.$('#pageScroll')[0]);
                     this.level1Scroll = new iScroll(this.$('#level1Food')[0], {
                         hScroll: true,
@@ -213,7 +207,6 @@
                         bounce: false
                     });
                 }
-                // this.container.container.iscroll.disable();
                 this.refreshScroll();
             },
 

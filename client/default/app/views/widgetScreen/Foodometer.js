@@ -318,12 +318,14 @@ define([
         },
 
         showAddPopup: function() {
+            //  // _________ Uncomment for local dev _________
             // Act.call('createDBAction', {},
             //     function(res) {
             //         // alert('Saved successfully' + JSON.stringify(res));
             //     }, function(err, msg) {
             //         console.log(JSON.stringify(msg));
             //     });
+            // // _____________________________________________
             $('#add').toggleClass('selected');
             $('#addFoodPopup').toggle();
         },

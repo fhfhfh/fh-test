@@ -39,7 +39,7 @@ define([
             $('#filterButtons').show();
             this.listScroll = new iScroll(this.$('#scrollContainer')[0]);
             $("span#meal").text("Lunch - (" + this.container.container.foodItems.length + ")");
-            $('#searchTerm').attr("disabled", "disabled");
+            // $('#searchTerm').attr("disabled", "disabled");
             return this;
         },
 
@@ -51,20 +51,20 @@ define([
         },
 
         focusSearch: function() {
-            $('#searchTerm').removeAttr("disabled");
+            // $('#searchTerm').removeAttr("disabled");
         },
 
         searchFood: function() {
             var self = this;
-
             var searchTerm = $("#searchTerm").val();
             var type = $("#filter").find(":selected").val();
 
+            console.log(searchTerm);
 
-            if (type === null || type === "") {
-                console.log("@@@", type);
-                self.focusSearch();
-            }
+            // if (type !== null || type !== "") {
+            //     // console.log("@@@", type);
+            //     self.focusSearch();
+            // }
 
             if (searchTerm === null || searchTerm === "") {
                 Backbone.trigger('notify', 'Please enter a search term', 'Search Error');
@@ -73,17 +73,20 @@ define([
 
             $('#foodList').html('');
             $('#modalMask').show().append("<img src='img/spinner.gif'/>");
-
-            foods.singleSearch(type, searchTerm, function(err, data) {
+            foods.singleSearch(searchTerm, type, function(err, data) {
+                console.log(data);
                 if (err) {
-                    Backbone.trigger('notify', err, 'Error getting Food List');
+                    Backbone.trigger('notify', JSON.stringify(err), 'Error getting Food List');
                     $('#modalMask').hide().html("");
                     return;
                 }
+
                 if (data.length === 0) {
                     $('#foodList').append("<h1>No Food Found</h1>");
                 }
+
                 $('#foodList').show();
+
                 for (var i = 0; i < data.length; i++) {
                     var item = data[i];
                     var name = item.fullname || item.attributes.fullname;
