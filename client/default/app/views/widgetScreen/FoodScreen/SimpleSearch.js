@@ -26,7 +26,8 @@ define([
             'click #foodFavBtn': 'addFoodToFav',
             'click #saveToMeal': 'saveFoodToMeal',
             'change #serving': 'calculateNutrients',
-            'submit #searchForm': "searchFood"
+            'submit #searchForm': "searchFood",
+            'keyup': 'detectKeyPressed'
         },
 
         initialize: function() {
@@ -48,6 +49,14 @@ define([
             setTimeout(function() {
                 self.listScroll.refresh();
             }, 100);
+        },
+
+        detectKeyPressed: function(e) {
+            // hide keyboard if return 
+            if (e.keyCode === 13) {
+                $('#foodItemScreen').find('#details').find('#serving').blur();
+                console.log("Return pressed, hiding keyboard");
+            }
         },
 
         focusSearch: function() {
