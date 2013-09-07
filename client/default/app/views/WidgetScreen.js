@@ -87,7 +87,7 @@ define([
       this.iscroll = new iScroll(this.$('#scrollWrapper')[0], {
         hscroll: false,
         fixedScrollbar: true,
-        bounce: true,
+        bounce: false,
         bounceLock: true,
         vScrollbar: true
       });
@@ -103,7 +103,7 @@ define([
         setTimeout(function() {
           console.log('refresh SCROLL');
           self.iscroll.refresh();
-        }, 1000);
+        }, 100);
 
       }
     },

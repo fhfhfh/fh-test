@@ -82,7 +82,13 @@ define([
 
             $('#filterButtons').show();
 
-            this.pageScroll = new iScroll(this.$('#pageScroll')[0]);
+            this.pageScroll = new iScroll(this.$('#pageScroll')[0], {
+                hScroll: true,
+                vScroll: false,
+                hScrollbar: false,
+                bounceLock: true,
+                bounce: false
+            });
 
             $("span#time").text(self.time + " - (" + this.container.container.activityItems.length + ")");
             this.refreshScroll();

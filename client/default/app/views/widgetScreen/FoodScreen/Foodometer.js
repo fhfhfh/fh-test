@@ -66,7 +66,13 @@
                 });
 
                 $('#filterButtons').show();
-                this.pageScroll = new iScroll(this.$('#pageScroll')[0]);
+                this.pageScroll = new iScroll(this.$('#pageScroll')[0], {
+                    hScroll: true,
+                    vScroll: false,
+                    hScrollbar: false,
+                    bounceLock: true,
+                    bounce: false
+                });
                 $("span#meal").text("Lunch - (" + this.container.container.foodItems.length + ")");
                 this.refreshScroll();
                 return this;

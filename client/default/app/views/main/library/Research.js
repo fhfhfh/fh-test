@@ -3,17 +3,17 @@
 
 --------------------*/
 define(['jquery',
-        'underscore',
-        'backbone',
-        'text!templates/components/Omnipedia.html',
-        'text!templates/components/Research.html',
-        'text!templates/components/Information.html',
-        'text!templates/components/Interactions.html',
-        'text!templates/components/Symptom.html',
-        'text!templates/components/RiskFactor.html',
-        'text!templates/components/CareGuide.html',
-        'text!templates/components/Tools.html',
-        'text!templates/components/Assistant.html'
+    'underscore',
+    'backbone',
+    'text!templates/components/Omnipedia.html',
+    'text!templates/components/Research.html',
+    'text!templates/components/Information.html',
+    'text!templates/components/Interactions.html',
+    'text!templates/components/Symptom.html',
+    'text!templates/components/RiskFactor.html',
+    'text!templates/components/CareGuide.html',
+    'text!templates/components/Tools.html',
+    'text!templates/components/Assistant.html'
 ], function($, _, Backbone, omnipediaTpl, tpl, informationTpl, interactionsTpl, sympTpl, riskFactorTpl,
     careTpl, toolsTpl, assistantTpl) {
 
@@ -46,62 +46,72 @@ define(['jquery',
 
             this.$el.html(this.template());
             this.$content = this.$('#researchInnerDivMenu');
-            // this.resScroll = new iScroll(this.$('#research-desk')[0],{
-            //     bounceLock	: true,
-            //     bounce		: true,
-            //     vScrollbar	: true
-            // });
-            // this.refreshScroll();
+            this.resScroll = new iScroll(this.$('#research-desk')[0], {
+                bounceLock: true,
+                bounce: true,
+                vScrollbar: true
+            });
+            this.refreshScroll();
 
             return this;
+        },
+
+        refreshScroll: function() {
+            var self = this;
+            if (this.resScroll) {
+                setTimeout(function() {
+                    console.log('Research refresh SCROLL');
+                    self.resScroll.refresh();
+                }, 100);
+            }
         },
 
         showOmnipedia: function(e) {
             var details = _.template(omnipediaTpl);
             this.$content.html(details);
-            // $("iframe").attr("src", '127.0.0.1:8001/cloud/html');
-            // this.container.refreshScroll();
+            $("iframe").attr("src", '127.0.0.1:8001/cloud/html');
+            this.refreshScroll();
         },
 
         showInformation: function(e) {
             var details = _.template(informationTpl);
             this.$content.html(details);
-            // this.container.refreshScroll();
+            this.refreshScroll();
         },
 
         showInteractions: function(e) {
             var details = _.template(interactionsTpl);
             this.$content.html(details);
-            // this.container.refreshScroll();
+            this.refreshScroll();
         },
 
         showRiskFactor: function(e) {
             var details = _.template(riskFactorTpl);
             this.$content.html(details);
-            // this.container.refreshScroll();
+            this.refreshScroll();
         },
 
         showCareGuide: function() {
             var details = _.template(careTpl);
             this.$content.html(details);
-            // this.container.refreshScroll();
+            this.refreshScroll();
         },
 
         showSymptomNavigator: function(e) {
             var details = _.template(sympTpl);
             this.$content.html(details);
-            // this.container.refreshScroll();
+            this.refreshScroll();
         },
 
         showTools: function(e) {
             var details = _.template(toolsTpl);
             this.$content.html(details);
-            // this.container.refreshScroll();
+            this.refreshScroll();
         },
         showAssistant: function(e) {
             var details = _.template(assistantTpl);
             this.$content.html(details);
-            // this.container.refreshScroll();
+            this.refreshScroll();
         },
 
         showMenu: function() {
