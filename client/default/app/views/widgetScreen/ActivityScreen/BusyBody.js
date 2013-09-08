@@ -72,12 +72,10 @@ define([
             this.$el.html(this.template());
 
             this.level1Scroll = new iScroll(this.$('#level1Activity')[0], {
-                hScroll: true,
                 vScroll: false,
                 hScrollbar: false,
-                bounceLock: true,
-                checkDomChanges: false,
-                bounce: true
+                // bounceLock: true,
+                checkDomChanges: false
             });
 
             this.time = this.container.time;

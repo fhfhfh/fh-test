@@ -85,11 +85,15 @@ define([
 
       // // iScroll ---------------------------
       this.iscroll = new iScroll(this.$('#scrollWrapper')[0], {
-        vscroll: false,
-        fixedScrollbar: true,
-        bounce: false,
-        bounceLock: false,
-        vScrollbar: true
+        //   vscroll: false,
+        //   fixedScrollbar: true,
+        //   bounce: false,
+        //   bounceLock: false,
+        //   vScrollbar: true
+        vScroll: true,
+        hScrollbar: false,
+        bounce: true,
+        checkDomChanges: false
       });
 
       this.refreshScroll();
@@ -99,13 +103,13 @@ define([
 
     refreshScroll: function() {
       var self = this;
-      if (this.iscroll) {
-        setTimeout(function() {
-          console.log('refresh SCROLL');
-          self.iscroll.refresh();
-        }, 100);
+      // if (this.iscroll) {
+      setTimeout(function() {
+        console.log('refresh SCROLL');
+        self.iscroll.refresh();
+      }, 0);
 
-      }
+      // }
     },
 
     showFood: function() {
