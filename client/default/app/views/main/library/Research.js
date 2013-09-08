@@ -69,7 +69,7 @@ define(['jquery',
         showOmnipedia: function(e) {
             var details = _.template(omnipediaTpl);
             this.$content.html(details);
-            $("iframe").attr("src", '127.0.0.1:8001/cloud/html');
+            // $("iframe").attr("src", '127.0.0.1:8001/cloud/html');
             this.refreshScroll();
         },
 

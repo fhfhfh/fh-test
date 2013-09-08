@@ -85,10 +85,10 @@ define([
 
       // // iScroll ---------------------------
       this.iscroll = new iScroll(this.$('#scrollWrapper')[0], {
-        hscroll: false,
+        vscroll: false,
         fixedScrollbar: true,
         bounce: false,
-        bounceLock: true,
+        bounceLock: false,
         vScrollbar: true
       });
 

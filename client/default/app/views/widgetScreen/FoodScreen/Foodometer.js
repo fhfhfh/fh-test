@@ -34,6 +34,7 @@
             initialize: function() {
                 _.bindAll(this);
                 this.initOriHandler();
+                this.refreshScroll();
             },
 
             initOriHandler: function(e) {
@@ -62,17 +63,19 @@
                     vScroll: false,
                     hScrollbar: false,
                     bounceLock: true,
-                    bounce: false
+                    checkDomChanges: false,
+                    bounce: true
                 });
 
                 $('#filterButtons').show();
-                this.pageScroll = new iScroll(this.$('#pageScroll')[0], {
-                    hScroll: true,
-                    vScroll: false,
-                    hScrollbar: false,
-                    bounceLock: true,
-                    bounce: false
-                });
+                this.pageScroll = new iScroll(this.$('#pageScroll')[0]);
+                // this.pageScroll = new iScroll(this.$('#pageScroll')[0], {
+                //     hScroll: false,
+                //     vScroll: true,
+                //     hScrollbar: true,
+                //     bounceLock: false,
+                //     bounce: true
+                // });
                 $("span#meal").text("Lunch - (" + this.container.container.foodItems.length + ")");
                 this.refreshScroll();
                 return this;

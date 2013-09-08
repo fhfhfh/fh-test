@@ -39,6 +39,7 @@ define([
         initialize: function() {
             _.bindAll(this);
             this.initOriHandler();
+            this.refreshScroll();
         },
 
         initOriHandler: function(e) {
@@ -75,20 +76,21 @@ define([
                 vScroll: false,
                 hScrollbar: false,
                 bounceLock: true,
-                bounce: false
+                checkDomChanges: false,
+                bounce: true
             });
 
             this.time = this.container.time;
 
             $('#filterButtons').show();
-
-            this.pageScroll = new iScroll(this.$('#pageScroll')[0], {
-                hScroll: true,
-                vScroll: false,
-                hScrollbar: false,
-                bounceLock: true,
-                bounce: false
-            });
+            this.pageScroll = new iScroll(this.$('#pageScroll')[0]);
+            // this.pageScroll = new iScroll(this.$('#pageScroll')[0], {
+            //     hScroll: false,
+            //     vScroll: true,
+            //     hScrollbar: true,
+            //     bounceLock: false,
+            //     bounce: true
+            // });
 
             $("span#time").text(self.time + " - (" + this.container.container.activityItems.length + ")");
             this.refreshScroll();
