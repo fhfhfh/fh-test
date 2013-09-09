@@ -85,16 +85,31 @@ define([
 
       // // iScroll ---------------------------
       this.iscroll = new iScroll(this.$('#scrollWrapper')[0], {
-        //   vscroll: false,
-        //   fixedScrollbar: true,
-        //   bounce: false,
-        //   bounceLock: false,
-        //   vScrollbar: true
-        vScroll: true,
+        vScroll: false,
         hScrollbar: false,
-        bounce: true,
-        checkDomChanges: false
+        vScrollbar: true,
+        fixedScrollbar: true,
+        bounceLock: false,
+        checkDomChanges: false,
+
+        onBeforeScrollMove: function(e) {
+          // if (window.orientation === 0) {
+          //   console.log("onOriPortrait");
+          //   // this.destroy();
+          e.stopPropgation();
+          // e.preventDefault();
+          // }
+        }
       });
+
+      // OLD // iScroll- ---------------------------
+      // this.iscroll = new iScroll(this.$('#scrollWrapper')[0], {
+      //     vscroll: false,
+      //     fixedScrollbar: true,
+      //     bounce: false,
+      //     bounceLock: false,
+      //     vScrollbar: true
+      // });
 
       this.refreshScroll();
 
@@ -103,13 +118,17 @@ define([
 
     refreshScroll: function() {
       var self = this;
-      // if (this.iscroll) {
-      setTimeout(function() {
-        console.log('refresh SCROLL');
-        self.iscroll.refresh();
-      }, 0);
 
-      // }
+      if (window.orientation === 0) {
+        // self.iscroll.destroy();
+        console.log('window  SCROLL');
+      } else {
+        setTimeout(function() {
+          console.log('refresh SCROLL');
+          self.iscroll.refresh();
+        }, 0);
+      }
+
     },
 
     showFood: function() {

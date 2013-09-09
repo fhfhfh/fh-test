@@ -1801,6 +1801,7 @@ section#widgetScreen #panelTopBar #saveBtn {
 }
 section#widgetScreen #scrollWrapper {
   height: 100%;
+  width: 100%;
 }
 #research {
   padding-bottom: 20px;

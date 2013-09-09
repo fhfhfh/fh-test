@@ -34,7 +34,6 @@
             initialize: function() {
                 _.bindAll(this);
                 this.initOriHandler();
-                this.refreshScroll();
             },
 
             initOriHandler: function(e) {
