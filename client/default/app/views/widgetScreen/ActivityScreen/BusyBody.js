@@ -71,23 +71,22 @@ define([
             this.$el.html(this.template());
 
             this.level1Scroll = new iScroll(this.$('#level1Activity')[0], {
+                // vScroll: false,
+                // hScrollbar: false,
+                // bounceLock: true,
+                // checkDomChanges: false
+                hScroll: true,
                 vScroll: false,
                 hScrollbar: false,
-                // bounceLock: true,
-                checkDomChanges: false
+                bounceLock: true,
+                checkDomChanges: false,
+                bounce: true
             });
 
             this.time = this.container.time;
 
             $('#filterButtons').show();
             this.pageScroll = new iScroll(this.$('#pageScroll')[0]);
-            // this.pageScroll = new iScroll(this.$('#pageScroll')[0], {
-            //     hScroll: false,
-            //     vScroll: true,
-            //     hScrollbar: true,
-            //     bounceLock: false,
-            //     bounce: true
-            // });
 
             $("span#time").text(self.time + " - (" + this.container.container.activityItems.length + ")");
             this.refreshScroll();

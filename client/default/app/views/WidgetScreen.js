@@ -85,20 +85,16 @@ define([
 
       // // iScroll ---------------------------
       this.iscroll = new iScroll(this.$('#scrollWrapper')[0], {
-        vScroll: false,
+        vScroll: true,
         hScrollbar: false,
         vScrollbar: true,
         fixedScrollbar: true,
-        bounceLock: false,
-        checkDomChanges: false,
+        bounceLock: true,
+        // checkDomChanges: false,
 
-        onBeforeScrollMove: function(e) {
-          // if (window.orientation === 0) {
-          //   console.log("onOriPortrait");
-          //   // this.destroy();
-          e.stopPropgation();
-          // e.preventDefault();
-          // }
+        onBeforeScrollEnd: function(e) {
+          console.log("onOriPortrait");
+          this.refresh();
         }
       });
 

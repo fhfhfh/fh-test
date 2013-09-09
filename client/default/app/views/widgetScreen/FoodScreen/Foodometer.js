@@ -61,20 +61,13 @@
                     hScroll: true,
                     vScroll: false,
                     hScrollbar: false,
-                    bounceLock: true,
+                    bounceLock: false,
                     checkDomChanges: false,
                     bounce: true
                 });
 
                 $('#filterButtons').show();
                 this.pageScroll = new iScroll(this.$('#pageScroll')[0]);
-                // this.pageScroll = new iScroll(this.$('#pageScroll')[0], {
-                //     hScroll: false,
-                //     vScroll: true,
-                //     hScrollbar: true,
-                //     bounceLock: false,
-                //     bounce: true
-                // });
                 $("span#meal").text("Lunch - (" + this.container.container.foodItems.length + ")");
                 this.refreshScroll();
                 return this;
