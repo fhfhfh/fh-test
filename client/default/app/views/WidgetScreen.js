@@ -94,7 +94,7 @@ define([
 
         onBeforeScrollEnd: function(e) {
           console.log("onOriPortrait");
-          this.refresh();
+          // this.refresh();
         }
       });
 

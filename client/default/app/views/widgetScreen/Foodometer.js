@@ -379,7 +379,7 @@ define([
             } else {
                 $("#nutritionSection").show();
                 $("#mealInputs").hide();
-                self.populateNutrition(self.item, self.meal, $("#nutritionSection"), 0);
+                // self.populateNutrition(self.item, self.meal, $("#nutritionSection"), 0);
             }
         },
 

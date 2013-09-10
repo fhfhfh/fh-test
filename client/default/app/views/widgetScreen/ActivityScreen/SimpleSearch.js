@@ -56,7 +56,7 @@ define([
         detectKeyPressed: function(e) {
             // hide keyboard if return 
             if (e.keyCode === 13) {
-                $('#foodItemScreen').find('#details').find('#serving').blur();
+                $('#searchTerm').blur();
                 console.log("Return pressed, hiding keyboard");
             }
         },

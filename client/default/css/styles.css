@@ -1728,6 +1728,9 @@ section#widgetScreen {
 section#widgetScreen #topBar {
   width: 100%;
   height: 50px;
+  z-index: 100;
+  position: absolute;
+  top: 0;
   background-image: linear-gradient(bottom, #ababab 0%, #ebebeb 85%);
   background-image: -webkit-linear-gradient(bottom, #ababab 0%, #ebebeb 85%);
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #ababab), color-stop(0.85, #ebebeb));
@@ -1801,7 +1804,7 @@ section#widgetScreen #panelTopBar #saveBtn {
 }
 section#widgetScreen #scrollWrapper {
   height: 100%;
-  width: 100%;
+  margin-top: 50px;
 }
 #research {
   padding-bottom: 20px;
