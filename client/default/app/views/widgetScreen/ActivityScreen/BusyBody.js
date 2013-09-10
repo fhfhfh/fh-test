@@ -226,8 +226,9 @@ define([
                     hScroll: true,
                     vScroll: false,
                     hScrollbar: false,
-                    bounceLock: true,
-                    bounce: false
+                    bounceLock: false,
+                    checkDomChanges: false,
+                    bounce: true
                 });
             }
             this.refreshScroll();

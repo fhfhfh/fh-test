@@ -319,12 +319,7 @@ define([
 
         showAddPopup: function() {
             //  // _________ Uncomment for local dev _________
-            // Act.call('createDBAction', {},
-            //     function(res) {
-            //         // alert('Saved successfully' + JSON.stringify(res));
-            //     }, function(err, msg) {
-            //         console.log(JSON.stringify(msg));
-            //     });
+
             // // _____________________________________________
             $('#add').toggleClass('selected');
             $('#addFoodPopup').toggle();
@@ -373,17 +368,19 @@ define([
 
         showNutrition: function() {
             var self = this;
-            if ($('#nutritionSection').is(':visible')) {
-                $("#nutritionSection").hide();
-                $("#mealInputs").show();
-            } else {
-                $("#nutritionSection").show();
-                $("#mealInputs").hide();
-                // self.populateNutrition(self.item, self.meal, $("#nutritionSection"), 0);
-            }
+            console.log("<--<-- showNutrition -->-->");
+            // if ($('#nutritionSection').is(':visible')) {
+            //     $("#nutritionSection").hide();
+            //     $("#mealInputs").show();
+            // } else {
+            //     $("#nutritionSection").show();
+            //     $("#mealInputs").hide();
+            //     self.populateNutrition(self.item, self.meal, $("#nutritionSection"), 0);
+            // }
         },
 
         updateNutrition: function(el) {
+            console.log("<--<-- updateNutrition -->-->");
             el = el || $("#nutritionSection .boxEntry");
 
             for (var i = 0; i < el.length; i++) {

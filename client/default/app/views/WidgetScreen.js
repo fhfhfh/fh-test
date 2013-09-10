@@ -92,9 +92,20 @@ define([
         bounceLock: true,
         // checkDomChanges: false,
 
+        // onBeforeScrollStart: function(e) {
+        //   console.log("onBeforeScrollStart");
+        //   this.refresh();
+        // },
+
+        // onBeforeScrollMove: function(e) {
+        //   console.log("onBeforeScrollMove");
+        //   this.refresh();
+        // },
+
         onBeforeScrollEnd: function(e) {
-          console.log("onOriPortrait");
-          // this.refresh();
+          this.refresh();
+          console.log("onBeforeScrollEnd ---- REFRESH");
+          // }
         }
       });
 
@@ -116,7 +127,6 @@ define([
       var self = this;
 
       if (window.orientation === 0) {
-        // self.iscroll.destroy();
         console.log('window  SCROLL');
       } else {
         setTimeout(function() {
