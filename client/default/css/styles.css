@@ -1805,8 +1805,12 @@ section#widgetScreen #panelTopBar #saveBtn {
 }
 section#widgetScreen #scrollWrapper {
   height: 100%;
-  top: 50px;
-  left: 0;
+  margin-top: 50px;
+}
+@media only screen and (orientation: landscape) {
+  section#widgetScreen #scrollWrapper {
+    margin-top: 50px;
+  }
 }
 #research {
   padding-bottom: 20px;
