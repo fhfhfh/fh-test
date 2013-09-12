@@ -12,112 +12,110 @@ define([
     'controllers/Login',
     'views/WelcomeVideo',
     'models/session'
-    ], function($, _, Backbone, $fh, loginTpl, loginController, WelcomeView, session) {
+], function($, _, Backbone, $fh, loginTpl, loginController, WelcomeView, session) {
 
-        return Backbone.View.extend({
-            tagName: 'section',
-            id: 'login',
-            controller: new loginController(),
+    return Backbone.View.extend({
+        tagName: 'section',
+        id: 'login',
+        controller: new loginController(),
 
-            // TODO: Look into the 'submit form' section.
-            events: {
-                'submit form': 'login',
-                'click #login-help-button': 'loginHelp',
-                'input input': 'toggleSigninButton',
-                'change input': 'toggleSigninButton'
-            },
+        // TODO: Look into the 'submit form' section.
+        events: {
+            'submit form': 'login',
+            'click #login-help-button': 'loginHelp',
+            'input input': 'toggleSigninButton',
+            'change input': 'toggleSigninButton'
+        },
 
-            initialize: function() {
-                _.bindAll(this);
-            },
+        initialize: function() {
+            _.bindAll(this);
+        },
 
-            render: function() {
-                this.$el.html(loginTpl);
+        render: function() {
+            this.$el.html(loginTpl);
 
-                if(navigator.splashscreen){
-                    navigator.splashscreen.hide();
-                }
+            if (navigator.splashscreen) {
+                navigator.splashscreen.hide();
+            }
 
-                // TODO: Remove this in production!
-                this.$('#username').val('bmurray');
-                this.$('#password').val('12345');
-                this.controller.quotes();
-                this.toggleSigninButton();
+            // TODO: Remove this in production!
+            this.$('#username').val('bmurray');
+            this.$('#password').val('password');
+            this.controller.quotes();
+            this.toggleSigninButton();
 
-                return this;
-            },
+            return this;
+        },
 
-            /**
-           * Ensures sign-in button is disabled until the user enters both a username
-           * and a password.
-           *
-           * @param {boolean} [val] If provided, ignore inputs and set to this.
-           */
-            toggleSigninButton: function(val) {
-                var $username = this.$('#username'),
+        /**
+         * Ensures sign-in button is disabled until the user enters both a username
+         * and a password.
+         *
+         * @param {boolean} [val] If provided, ignore inputs and set to this.
+         */
+        toggleSigninButton: function(val) {
+            var $username = this.$('#username'),
                 $password = this.$('#password'),
                 $button = this.$('#signin');
 
-                if (typeof val === 'boolean') {
-                    $button.prop('disabled', val);
+            if (typeof val === 'boolean') {
+                $button.prop('disabled', val);
+            } else {
+                if (!$username.val() || !$password.val()) {
+                    $button.prop('disabled', true);
                 } else {
-                    if (!$username.val() || !$password.val()) {
-                        $button.prop('disabled', true);
-                    } else {
-                        $button.prop('disabled', false);
-                    }
+                    $button.prop('disabled', false);
                 }
-            },
-
-            login: function() {
-                var self = this;
-                var username = $('#username').val();
-                var password = $('#password').val();
-                var quote = "";
-                if (username && password) {
-                    self.controller.login(username, password, function(res,url){
-                        if(res === false){
-                            self.showLogin();
-                        }
-                        else if(url !== null) {
-                            self.showVideo(url);
-                        }
-                        else {
-                            Backbone.history.navigate('home', true, true);
-                        }
-                    });
-
-                } else {
-                    Backbone.trigger('notify', 'Please fill in both fields...', 'Login Error');
-                    return;
-                }
-                this.showLoading();
-            },
-
-            showVideo: function(url){
-                var welcome = new WelcomeView();
-                var renderedPage = welcome.render();
-                $('#content').html('');
-                $(renderedPage.el).appendTo($('#content')).hide().fadeIn(400);
-                welcome.loadVideo(url);
-
-            },
-
-            showLoading: function() {
-                this.$('input').blur();
-                this.toggleSigninButton(true);
-                this.$('#login-container').removeClass('visible');
-                this.$('#loading-container').addClass('visible');
-            },
-
-            showLogin: function() {
-                this.toggleSigninButton();
-                this.$('#login-container').addClass('visible');
-                this.$('#loading-container').removeClass('visible');
-            },
-
-            loginHelp: function() {
-                Backbone.trigger('notify', 'Coming soon...');
             }
-        });
+        },
+
+        login: function() {
+            var self = this;
+            var username = $('#username').val();
+            var password = $('#password').val();
+            var quote = "";
+            if (username && password) {
+                self.controller.login(username, password, function(res, url) {
+                    if (res === false) {
+                        self.showLogin();
+                    } else if (url !== null) {
+                        self.showVideo(url);
+                    } else {
+                        Backbone.history.navigate('home', true, true);
+                    }
+                });
+
+            } else {
+                Backbone.trigger('notify', 'Please fill in both fields...', 'Login Error');
+                return;
+            }
+            this.showLoading();
+        },
+
+        showVideo: function(url) {
+            var welcome = new WelcomeView();
+            var renderedPage = welcome.render();
+            $('#content').html('');
+            $(renderedPage.el).appendTo($('#content')).hide().fadeIn(400);
+            welcome.loadVideo(url);
+
+        },
+
+        showLoading: function() {
+            this.$('input').blur();
+            this.toggleSigninButton(true);
+            this.$('#login-container').removeClass('visible');
+            this.$('#loading-container').addClass('visible');
+        },
+
+        showLogin: function() {
+            this.toggleSigninButton();
+            this.$('#login-container').addClass('visible');
+            this.$('#loading-container').removeClass('visible');
+        },
+
+        loginHelp: function() {
+            Backbone.trigger('notify', 'Coming soon...');
+        }
     });
+});
