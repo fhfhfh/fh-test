@@ -13,20 +13,21 @@ define([
     'collections/ActivityJournal'
 ], function($, _, Backbone, tpl, activityItem, activities, journal) {
     return Backbone.View.extend({
-        tagName : 'section',
-        id      : 'simpleSearchScreen',
+        tagName: 'section',
+        id: 'simpleSearchScreen',
         template: _.template(tpl),
-        itemTpl : _.template(activityItem),
-        events  : {
-            "click #searchImg"             : "searchActivity",
-            "click #xImg"                  : "clearSearchField",
-            "click #backToTop"             : "backToTop",
+        itemTpl: _.template(activityItem),
+        events: {
+            "click #searchImg": "searchActivity",
+            "click #xImg": "clearSearchField",
+            "click #backToTop": "backToTop",
             "click #activityList .boxEntry": "showActivityItemScreen",
-            'click #cancelActivity'        : 'cancelActivity',
-            'click #activityFavBtn'        : 'addActivityToFav',
-            'click #saveToTime'            : 'saveActivityToTime',
-            'change #minutes'              : 'calculateNutrients',
-            'submit #searchForm'           : "searchActivity"
+            'click #cancelActivity': 'cancelActivity',
+            'click #activityFavBtn': 'addActivityToFav',
+            'click #saveToTime': 'saveActivityToTime',
+            'change #minutes': 'calculateNutrients',
+            'submit #searchForm': "searchActivity",
+            'keyup': 'detectKeyPressed'
         },
 
         initialize: function() {
@@ -40,24 +41,32 @@ define([
             this.$el.html(this.template());
             $('#filterButtons').show();
             this.listScroll = new iScroll(this.$('#scrollContainer')[0]);
-            $("span#time").text(self.time+" - ("+this.container.container.activityItems.length+")");
+            $("span#time").text(self.time + " - (" + this.container.container.activityItems.length + ")");
 
             return this;
         },
 
-        refreshScroll: function(){
+        refreshScroll: function() {
             var self = this;
-            setTimeout(function(){
+            setTimeout(function() {
                 self.listScroll.refresh();
             }, 100);
         },
 
-        searchActivity: function(){
+        detectKeyPressed: function(e) {
+            // hide keyboard if return 
+            if (e.keyCode === 13) {
+                $('#searchTerm').blur();
+                console.log("Return pressed, hiding keyboard");
+            }
+        },
+
+        searchActivity: function() {
             var self = this;
             var searchTerm = $("#searchTerm").val().toLowerCase();
             var type = $("#filter").find(":selected").val();
 
-            if(searchTerm === null || searchTerm === ""){
+            if (searchTerm === null || searchTerm === "") {
                 Backbone.trigger('notify', 'Please enter a search term', 'Search Error');
                 return;
             }
@@ -65,21 +74,21 @@ define([
             $('#activityList').html('');
             $('#modalMask').show().append("<img src='img/spinner.gif'/>");
 
-            activities.singleSearch(searchTerm, type, function(err,data){
-                if(err){
+            activities.singleSearch(searchTerm, type, function(err, data) {
+                if (err) {
                     Backbone.trigger('notify', err, 'Error getting Activity List');
                     $('#modalMask').hide().html("");
                     return;
                 }
-                if(data.length === 0){
+                if (data.length === 0) {
                     $('#activityList').append("<h1>No Activities Found</h1>");
                 }
                 $('#activityList').show();
-                for(var i=0;i<data.length;i++){
+                for (var i = 0; i < data.length; i++) {
                     var item = data[i];
                     var name = item.activity || item.attributes.activity;
-                    var html = "<div class='boxEntry' data-id='"+item.id+"''><span id='name'>" +name +"</span>"+
-                                "<span id='about'>" + "</span></div>";
+                    var html = "<div class='boxEntry' data-id='" + item.id + "''><span id='name'>" + name + "</span>" +
+                        "<span id='about'>" + "</span></div>";
                     $('#activityList').append(html);
                 }
                 self.container.container.iscroll.disable();
@@ -90,15 +99,15 @@ define([
             return false;
         },
 
-        clearSearchField: function(){
+        clearSearchField: function() {
             $("#searchTerm").val("");
         },
 
-        backToTop: function(){
-            this.listScroll.scrollTo(0,0,200);
+        backToTop: function() {
+            this.listScroll.scrollTo(0, 0, 200);
         },
 
-        showActivityItemScreen: function(e){
+        showActivityItemScreen: function(e) {
             console.log('Selected');
             var self = this;
             var target = $(e.currentTarget);
@@ -109,14 +118,17 @@ define([
 
             this.oldHtml = this.$el.html();
             $('#filterButtons').hide();
-            this.$el.html(self.itemTpl({item:model.attributes, imgSrc:""}));
+            this.$el.html(self.itemTpl({
+                item: model.attributes,
+                imgSrc: ""
+            }));
 
             this.calculateNutrients();
             this.refreshScroll();
             this.listScroll = null;
         },
 
-        cancelActivity: function(){
+        cancelActivity: function() {
             this.model = null;
             this.selectedActivity = null;
             this.$el.html(this.oldHtml);
@@ -127,9 +139,9 @@ define([
 
         },
 
-        addActivityToFav: function(){
+        addActivityToFav: function() {
             var activity = this.selectedActivity;
-            if(!activity){
+            if (!activity) {
                 console.warn('No Food Selected');
                 return;
             } else {
@@ -137,48 +149,45 @@ define([
             }
         },
 
-        saveActivityToTime: function(){
+        saveActivityToTime: function() {
             var self = this;
             var activity = this.selectedActivity;
-            if(!activity){
+            if (!activity) {
                 console.warn('No Activity Selected');
                 return;
             } else {
                 var mins = parseInt($("#minutes").val());
                 var cals = parseFloat($('#calBurned').val());
-                console.log('mins',mins,cals);
+                console.log('mins', mins, cals);
                 activity.set("recent", true);
-                activity.set('calories', mins*cals);
+                activity.set('calories', mins * cals);
                 activity.set('minutes', mins);
                 this.container.container.activityItems.push(activity);
             }
-            $("span#time").text(self.time+" - ("+this.container.container.activityItems.length+")");
+            $("span#time").text(self.time + " - (" + this.container.container.activityItems.length + ")");
             this.cancelActivity();
         },
 
         // When minutes number changes, recalculate calories
-        calculateNutrients: function(){
+        calculateNutrients: function() {
             var minutes = $('#minutes').val();
             var att = this.model.attributes;
-            var calories      = parseFloat(att.calorieBaseline) || 0;
+            var calories = parseFloat(att.calorieBaseline) || 0;
 
             var el = $("#nutritionInfo");
-            el.find("#totalCalories #amount").text(calories*minutes);
+            el.find("#totalCalories #amount").text(calories * minutes);
             this.updateNutrition();
         },
 
-        updateNutrition: function(){
+        updateNutrition: function() {
             var el = $("#nutritionInfo .boxEntry");
 
-            for(var i=0; i<el.length; i++){
+            for (var i = 0; i < el.length; i++) {
                 var thisEl = $(el[i]);
                 var percent = thisEl.find("#rda").text() || "0%";
-                thisEl.find("#name").css("background-size", percent +" 100%");
+                thisEl.find("#name").css("background-size", percent + " 100%");
             }
         }
 
     });
 });
-
-
-

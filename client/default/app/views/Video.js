@@ -10,7 +10,7 @@ define([
     'swipeview',
     'text!templates/pages/VideoPlayback.html',
     'views/components/AddFavorite'
-], function($, _, Backbone, iScroll, SwipeView, tpl, FavBox) {
+], function ($, _, Backbone, iScroll, SwipeView, tpl, FavBox) {
 
     return Backbone.View.extend({
         tagName: 'section',
@@ -39,7 +39,7 @@ define([
         dots: document.querySelectorAll('#nav li'),
         active: $('.swipeview-active'),
 
-        initialize: function() {
+        initialize: function () {
             var self = this;
             _.bindAll(this);
 
@@ -82,13 +82,19 @@ define([
                 vScrollbar: false
             });
             // ------------------------------------
+            // this.oriHandler();
+            // this.iscroll2 = new iScroll(this.$('#wrapper')[0], {
+            //     hscroll: true,
+            //     vscroll: false,
+            //     fixedScrollbar: true,
+            //     bounce: false,
+            //     hScrollbar: false
+            // });
 
-            // detect ori change 
-            this.oriHandler();
         },
 
         // load iframe video player
-        webKitEnd: function(e) {
+        webKitEnd: function (e) {
             var item;
             var self = this;
             var id = self.$('.swipeview-active').attr('data-page-index');
@@ -112,27 +118,27 @@ define([
         },
 
         // swipeview defaults
-        swipeDefault: function(e) {
+        swipeDefault: function (e) {
             e.preventDefault();
             e.stopPropagation();
             return false;
         },
 
-        refreshScroll: function() {
+        refreshScroll: function () {
             var self = this;
-            setTimeout(function() {
+            setTimeout(function () {
                 if (self.iscroll) {
                     self.iscroll.refresh.call(self.iscroll);
                 }
             }, 10);
         },
 
-        render: function() {
+        render: function () {
             var self = this;
             this.refreshScroll();
             this.checkFav();
 
-            setTimeout(function() {
+            setTimeout(function () {
                 self.createSwipeView();
             }, 100);
 
@@ -140,20 +146,20 @@ define([
         },
 
         // create fav Video view
-        createSingleView: function(video) {
+        createSingleView: function (video) {
             var self = this;
             // $('#nav').hide(); // hide dot nav
             $('#videoDescription').css("height", "550px"); // adjust desc height
 
             // wait for eleemnts to load
-            setTimeout(function() {
+            setTimeout(function () {
                 if (self.video.current === true) {
                     var el = document.createElement('iframe');
                     el.src = self.video.url;
                     el.id = 'favVid';
                     el.width = 550;
                     el.height = 300;
-                    el.onload = function() {
+                    el.onload = function () {
                         self.updateDescription(video);
                     };
                     self.$('#wrapper').html(el);
@@ -162,7 +168,7 @@ define([
         },
 
         // load video playlist view
-        createSwipeView: function() {
+        createSwipeView: function () {
             var self = this;
             var videoIndex;
 
@@ -207,7 +213,7 @@ define([
             }
 
             // Load img into next page.
-            this.PlayList.onFlip(function(dots) {
+            this.PlayList.onFlip(function (dots) {
                 var el, i;
                 var vids = self.videosArr;
                 var currentPage = 0;
@@ -238,13 +244,13 @@ define([
             });
 
             // // remove .swipeview-active class from div
-            this.PlayList.onMoveOut(function() {
+            this.PlayList.onMoveOut(function () {
                 self.PlayList.masterPages[self.PlayList.currentMasterPage].className =
                     self.PlayList.masterPages[self.PlayList.currentMasterPage].className.replace(/(^|\s)swipeview-active(\s|$)/, '');
             });
 
             // // add .swipeview-active class to viewport div
-            this.PlayList.onMoveIn(function() {
+            this.PlayList.onMoveIn(function () {
                 var className = self.PlayList.masterPages[self.PlayList.currentMasterPage].className;
                 /(^|\s)swipeview-active(\s|$)/.test(className) || (self.PlayList.masterPages[self.PlayList.currentMasterPage].className = !className ? 'swipeview-active' : className + 'swipeview-active');
             });
@@ -252,21 +258,21 @@ define([
             return this.PlayList;
         },
 
-        addToFavorites: function() {
+        addToFavorites: function () {
             var self = this;
             var view = new FavBox(self.video);
             $('body').append(view.render());
             view.show();
         },
 
-        removeFromFavs: function() {
+        removeFromFavs: function () {
             var self = this;
             var view = new FavBox(self.video);
             view.removeItem();
             this.checkFav();
         },
 
-        checkFav: function() {
+        checkFav: function () {
             var self = this;
             var view = new FavBox(self.video);
 
@@ -280,7 +286,7 @@ define([
         },
 
         // position dot nav
-        positionNav: function(videosArr) {
+        positionNav: function (videosArr) {
             var arrLength = this.videosArr.length;
 
             if (arrLength <= 2) {
@@ -299,43 +305,43 @@ define([
         },
 
         // detect orientation change
-        oriHandler: function(e) {
-            window.addEventListener('orientationchange', function() {
+        oriHandler: function (e) {
+            window.addEventListener('orientationchange', function () {
                 switch (window.orientation) {
-                    case 0:
-                        console.log("Portrait - 0");
-                        $('#nav').css({
-                            'top': '40%',
-                            'left': '32%'
-                        });
-                        break;
-                    case -0:
-                        console.log("Portrait - -0");
-                        $('#nav').css({
-                            'top': '40%',
-                            'left': '32%'
-                        });
-                        break;
-                    case 90:
-                        console.log("Landscape - 90");
-                        $('#nav').css({
-                            'top': '53%',
-                            'left': '41%'
-                        });
-                        break;
-                    case -90:
-                        console.log("Landscape - -90");
-                        $('#nav').css({
-                            'top': '53%',
-                            'left': '41%'
-                        });
-                        break;
+                case 0:
+                    console.log("Portrait - 0");
+                    // $('#nav').css({
+                    //     'top': '40%',
+                    //     'left': '32%'
+                    // });
+                    break;
+                case -0:
+                    console.log("Portrait - -0");
+                    // $('#nav').css({
+                    //     'top': '40%',
+                    //     'left': '32%'
+                    // });
+                    break;
+                case 90:
+                    console.log("Landscape - 90");
+                    // $('#nav').css({
+                    //     'top': '53%',
+                    //     'left': '41%'
+                    // });
+                    break;
+                case -90:
+                    console.log("Landscape - -90");
+                    // $('#nav').css({
+                    //     'top': '53%',
+                    //     'left': '41%'
+                    // });
+                    break;
                 }
             });
         },
 
         // load iframe & object url if current equals. 
-        videoPlayer: function(item) {
+        videoPlayer: function (item) {
             var self = this;
             var id = self.$('.swipeview-active').attr('data-page-index');
             $('#nav').show(); // show dot nav
@@ -349,7 +355,7 @@ define([
             el.src = item.url + "?modestbranding=1;rel=0;controls=1";
             el.width = 550;
             el.height = 300;
-            el.onload = function(e) {
+            el.onload = function (e) {
                 this.className = '';
                 self.updateDescription();
             };
@@ -357,7 +363,7 @@ define([
         },
 
         // Remove iframe and replace with thumb.
-        removeIframe: function() {
+        removeIframe: function () {
             var self = this;
             var iframe = $('iframe');
             var parent = $(self.$(iframe).parent()[0]);
@@ -377,7 +383,7 @@ define([
         },
 
         // create dynamic dot navigation
-        navigation: function(videosArr) {
+        navigation: function (videosArr) {
             var self = this;
             var i;
             var prev = $('<li></li>');
@@ -408,8 +414,27 @@ define([
             nav.find('#page0').addClass('activeDot');
         },
 
+        // position dot nav
+        positionNav: function (videosArr) {
+            var arrLength = this.videosArr.length;
+
+            if (arrLength <= 2) {
+                console.log("*** dotNav Size", arrLength);
+                $('#VideoPlayback').find('#nav-wrapper').css('left', '43%');
+            } else if (arrLength > 2 || arrLength <= 4) {
+                console.log("*** dotNav Size", arrLength);
+                $('#VideoPlayback').find('#nav-wrapper').css('left', '40%');
+            } else if (arrLength > 4 || arrLength <= 6) {
+                console.log("*** dotNav Size", arrLength);
+                $('#VideoPlayback').find('#nav-wrapper').css('left', '37%');
+            } else if (arrLength > 6 || arrLength <= 8) {
+                console.log("*** dotNav Size", arrLength);
+                $('#VideoPlayback').find('#nav-wrapper').css('left', '37%');
+            }
+        },
+
         // update description with event
-        updateDescription: function(video) {
+        updateDescription: function (video) {
             var videos = this.videosArr;
             var id;
             var thisItem;
@@ -426,11 +451,11 @@ define([
             $('#vidDesc').html(thisItem.description);
         },
 
-        prevItem: function(e) {
+        prevItem: function (e) {
             this.PlayList.prev();
         },
 
-        goTo: function(e) {
+        goTo: function (e) {
             var target = e.currentTarget;
             var id = target.id;
             id = id.substring(4, 5);
@@ -439,15 +464,15 @@ define([
             this.PlayList.goToPage(id);
         },
 
-        nextItem: function(e) {
+        nextItem: function (e) {
             this.PlayList.next();
         },
 
-        logout: function() {
+        logout: function () {
             Backbone.history.navigate('login', true);
         },
 
-        close: function() {
+        close: function () {
             this.remove();
             // Backbone.history.navigate('home', true);
             window.history.back();

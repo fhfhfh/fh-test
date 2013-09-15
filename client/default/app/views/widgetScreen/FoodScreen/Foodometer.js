@@ -35,10 +35,6 @@
             initialize: function() {
                 _.bindAll(this);
                 this.initOriHandler();
-
-                $(window).unbind().bind('touchend', function(e) {
-                    console.log('touchend');
-                });
             },
 
             initOriHandler: function(e) {
@@ -66,8 +62,9 @@
                     hScroll: true,
                     vScroll: false,
                     hScrollbar: false,
-                    bounceLock: true,
-                    bounce: false
+                    bounceLock: false,
+                    checkDomChanges: false,
+                    bounce: true
                 });
 
                 $('#filterButtons').show();
@@ -203,17 +200,16 @@
                 $('#filterButtons').show();
 
                 if (!doneFlag) {
-                    //  this.level1Scroll.destroy();
                     this.pageScroll = new iScroll(this.$('#pageScroll')[0]);
                     this.level1Scroll = new iScroll(this.$('#level1Food')[0], {
                         hScroll: true,
                         vScroll: false,
                         hScrollbar: false,
-                        bounceLock: true,
-                        bounce: false
+                        bounceLock: false,
+                        checkDomChanges: false,
+                        bounce: true
                     });
                 }
-                // this.container.container.iscroll.disable();
                 this.refreshScroll();
             },
 
@@ -250,12 +246,8 @@
             },
 
             detectKeyPressed: function(e) {
-                // var unicode = e.keyCode ? e.keyCode : e.charCode;
-                console.log("KeyPressed", e.keyCode);
-                alert("KeyPressed");
-
                 // hide keyboard if return 
-                if(e.keyCode === 13) {
+                if (e.keyCode === 13) {
                     $('#foodItemScreen').find('#details').find('#serving').blur();
                     console.log("Return pressed, hiding keyboard");
                 }

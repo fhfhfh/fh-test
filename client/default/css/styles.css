@@ -1409,25 +1409,29 @@ li {
 @-moz-document url-prefix() {
   text-align: center;
 }
-#VideoPlayback #nav-wrapper {
-  margin: 0 auto;
+#VideoPlayback #nav {
   position: absolute;
   z-index: 100;
-  top: 400px;
-}
-#VideoPlayback #nav-wrapper #nav {
+  top: 40%;
   width: auto;
   height: 30px;
-  text-align: center;
+  left: 32%;
   background: rgba(0, 0, 0, 0.75);
   padding: 5px;
+  margin: 0 auto;
   -webkit-border-radius: 30px;
   -moz-border-radius: 30px;
   -ms-border-radius: 30px;
   -o-border-radius: 30px;
   border-radius: 30px;
 }
-#VideoPlayback #nav-wrapper #nav li {
+@media only screen and (orientation: landscape) {
+  #VideoPlayback #nav {
+    top: 54%;
+    left: 40%;
+  }
+}
+#VideoPlayback #nav li {
   display: block;
   float: left;
   width: 20px;
@@ -1444,27 +1448,27 @@ li {
   margin: 1px 10px 0 10px;
   text-align: center;
 }
-#VideoPlayback #nav-wrapper #nav li#prev {
+#VideoPlayback #nav li#prev {
   margin-left: 8px;
   background: transparent;
   color: rgba(255, 255, 255, 0.4);
 }
-#VideoPlayback #nav-wrapper #nav li#next {
+#VideoPlayback #nav li#next {
   margin-right: 8px;
   background: transparent;
   color: rgba(255, 255, 255, 0.4);
 }
-#VideoPlayback #nav-wrapper #nav li.activeDot {
+#VideoPlayback #nav li.activeDot {
   background: white;
 }
-#VideoPlayback #scroller {
+#scroller {
   padding-bottom: 450px;
 }
-#VideoPlayback .hIscroll-container {
+.hIscroll-container {
   width: 100%;
   position: relative;
 }
-#VideoPlayback #videoDescription {
+#videoDescription {
   height: 550px;
   padding: 20px;
   padding-left: 30px;
@@ -1472,39 +1476,39 @@ li {
   background-color: #fff;
   color: #000;
 }
-#VideoPlayback #videoDescription h2 {
+#videoDescription h2 {
   font: bold 16px "Avenir Next", Helvetica, Arial, sans-serif;
   display: inline;
 }
-#VideoPlayback #videoDescription p {
+#videoDescription p {
   font: normal 12px "Avenir Next", Helvetica, Arial, sans-serif;
   display: inline;
 }
-#VideoPlayback #videoDescription #title {
+#videoDescription #title {
   margin: 30px;
 }
-#VideoPlayback #videoDescription #title img,
-#VideoPlayback #videoDescription #title h2 {
+#videoDescription #title img,
+#videoDescription #title h2 {
   vertical-align: middle;
 }
-#VideoPlayback #videoDescription #videoActions {
+#videoDescription #videoActions {
   margin: 10px;
   height: 50px;
 }
-#VideoPlayback #videoDescription #videoActions #time {
+#videoDescription #videoActions #time {
   float: left;
 }
-#VideoPlayback #videoDescription #videoActions #time img,
-#VideoPlayback #videoDescription #videoActions #time p {
+#videoDescription #videoActions #time img,
+#videoDescription #videoActions #time p {
   vertical-align: middle;
 }
-#VideoPlayback #videoDescription #videoActions #actions {
+#videoDescription #videoActions #actions {
   float: right;
 }
-#VideoPlayback #videoDescription #videoActions #actions img {
+#videoDescription #videoActions #actions img {
   margin-left: 30px;
 }
-#VideoPlayback #videoDescription #favBtn {
+#videoDescription #favBtn {
   height: 100%;
   text-align: center;
   margin-top: 100px;
@@ -1755,6 +1759,10 @@ section#widgetScreen {
 section#widgetScreen #topBar {
   width: 100%;
   height: 50px;
+  z-index: 100;
+  position: fixed;
+  top: 0;
+  left: 0;
   background-image: linear-gradient(bottom, #ababab 0%, #ebebeb 85%);
   background-image: -webkit-linear-gradient(bottom, #ababab 0%, #ebebeb 85%);
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #ababab), color-stop(0.85, #ebebeb));
@@ -1830,7 +1838,12 @@ section#widgetScreen #panelTopBar #saveBtn {
 }
 section#widgetScreen #scrollWrapper {
   height: 100%;
-  overflow: scroll;
+  margin-top: 50px;
+}
+@media only screen and (orientation: landscape) {
+  section#widgetScreen #scrollWrapper {
+    margin-top: 50px;
+  }
 }
 #research {
   padding-bottom: 20px;
@@ -6112,8 +6125,13 @@ section#insights h1 {
   text-align: left;
   background-color: #ffffff;
   border-radius: 20px;
-  margin: 10px;
+  margin: 10px 0 10px 65px;
   padding: 0px 5px;
+}
+@media only screen and (orientation: landscape) {
+  #simpleSearchScreen #searchBar #searchInput {
+    margin: 10px 0 10px 95px;
+  }
 }
 #simpleSearchScreen #searchBar #searchInput #searchImg {
   margin: 7px 5px -2px 5px;
@@ -6129,6 +6147,12 @@ section#insights h1 {
   border: none;
   width: 75%;
   background: transparent;
+}
+#simpleSearchScreen #searchBar #searchInput .show {
+  opacity: 1;
+}
+#simpleSearchScreen #searchBar #searchInput .hide {
+  opacity: 0;
 }
 #simpleSearchScreen #searchBar #filter {
   width: 45%;
@@ -6160,7 +6184,7 @@ section#insights h1 {
   display: inline-block;
   text-align: center;
   color: #1a1a1a;
-  float: right;
+  float: left;
   border: none;
   margin: 10px;
   padding: 5px;
