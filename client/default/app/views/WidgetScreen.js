@@ -90,6 +90,7 @@ define([
         vScrollbar: true,
         fixedScrollbar: true,
         bounceLock: true,
+        bounce:false,
         // checkDomChanges: false,
 
         // onBeforeScrollStart: function(e) {

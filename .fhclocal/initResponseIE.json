@@ -1,0 +1,12 @@
+{
+	"domain":"securehealthhub",
+	"firstTime":false,
+	"hosts":
+		{"debugCloudType":"node",
+		"debugCloudUrl":"http://10.0.2.2:8001",
+		"releaseCloudType":"node",
+		"releaseCloudUrl":"http://10.0.2.2:8001"
+	},
+	"status":"ok"
+}
+
